@@ -90,7 +90,7 @@ $config["init_ammo_timer"]				= 140;
 $config["unit_sell_ratio"]				= .6;
 $config["building_sell_ratio"]		= .6;
 
-$config["max_planets"]					= 5;
+$config["max_planets"]					= 4;
 $config["max_level"]				 	   = 278;
 
 
