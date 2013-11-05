@@ -139,7 +139,19 @@ function warquest_admin_optimize_tables_do() {
 	if ($data=warquest_db_fetch_object($result)) {
 		$message .= $data->Table.' '.$data->Msg_type.' '.$data->Msg_text.'<br/>';
 	}
-		
+	
+	$query  = 'optimize table player_stock'; 
+	$result = warquest_db_query($query);
+	if ($data=warquest_db_fetch_object($result)) {
+		$message .= $data->Table.' '.$data->Msg_type.' '.$data->Msg_text.'<br/>';
+	}
+	
+	$query  = 'optimize table player_poll'; 
+	$result = warquest_db_query($query);
+	if ($data=warquest_db_fetch_object($result)) {
+		$message .= $data->Table.' '.$data->Msg_type.' '.$data->Msg_text.'<br/>';
+	}
+	
 	$popup .= warquest_box_icon("info", $message);	
 	warquest_info($message);
 }
