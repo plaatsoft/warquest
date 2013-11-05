@@ -90,6 +90,7 @@ $notes = '
 <span class="subparagraph2">05-10-2013</span><br/>
 <i>Game Server v5.7</i><br/>
 - Increase maximum level to 279.<br/>
+- Disable sun features.</br>
 - Improve database optimize. (Admin mode).<br/>
 - Added server php source code to google code.<br></br>
 
