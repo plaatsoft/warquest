@@ -26,6 +26,8 @@
 
 #include <QtGui>
 #include <QtNetwork>
+#include <QMessageBox>
+#include <QMenu>
 
 
 /**
@@ -39,7 +41,7 @@ MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent), ui(new Ui::MainWi
 
     readSettings();
 
-    int height = QApplication::desktop()->screenGeometry().height();
+    int height = 1; //QApplication::desktop()->screenGeometry().height();
     height -= 75;
 
     // Set fix windows form size.
@@ -111,9 +113,9 @@ MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent), ui(new Ui::MainWi
 
     // Send html request to warquest website.
     QNetworkRequest request(QUrl(APPL_URL));
-    request.setRawHeader("username", token1.toAscii());
-    request.setRawHeader("password", token2.toAscii());
-    request.setRawHeader("eid", eventId.toAscii());
+    request.setRawHeader("username", token1.toUtf8());
+    request.setRawHeader("password", token2.toUtf8());
+    request.setRawHeader("eid", eventId.toUtf8());
     request.setRawHeader("version", APPL_VERSION);
     ui->webView->load(request, QNetworkAccessManager::PostOperation);
 

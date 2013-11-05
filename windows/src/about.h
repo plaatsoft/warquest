@@ -24,6 +24,7 @@
 
 #include <QWidget>
 #include <QtGui>
+#include <QGraphicsScene>
 
 namespace Ui {
     class About;
