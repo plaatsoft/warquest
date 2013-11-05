@@ -1,0 +1,29 @@
+body {	
+	text-align:center;
+}
+
+.fixed { 
+	text-align:left;
+}
+
+.scroll {
+	text-align:left;
+}
+
+.box {
+	width: 510px;
+}
+
+.box2 {
+	margin-left: 0px; 
+	width: 370px;
+}
+
+.note {
+	width: 490px;
+}
+
+.banner {
+	width: 510px; 
+}
+

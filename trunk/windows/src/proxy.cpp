@@ -20,6 +20,7 @@
  */
 
 #include <QtGui>
+#include <QMessageBox>
 
 #include "proxy.h"
 #include "general.h"
@@ -53,7 +54,7 @@ QString Proxy::encrypt(QString in) {
   QChar* data = in.data();
   int i=0;
   while (!data[i].isNull()) {
-     char tmp =data[i].toAscii();
+     char tmp =data[i].toLatin1();
      tmp+=(i+1);
      data[i]=tmp;
      ++data;
@@ -68,7 +69,7 @@ QString Proxy::decrypt(QString in) {
   QChar* data = in.data();
   int i=0;
   while (!data[i].isNull()) {
-     char tmp =data[i].toAscii();
+     char tmp =data[i].toLatin1();
      tmp-=(i+1);
      data[i]=tmp;
      ++data;

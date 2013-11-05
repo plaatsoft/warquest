@@ -26,7 +26,7 @@
 #include <QWidget>
 #include <QtGui>
 #include <QtNetwork>
-#include <QWebView>
+//#include <QWebView>
 
 #include "proxy.h"
 #include "about.h"
