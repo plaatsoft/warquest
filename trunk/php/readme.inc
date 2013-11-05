@@ -90,7 +90,8 @@ $notes = '
 <span class="subparagraph2">05-10-2013</span><br/>
 <i>Game Server v5.7</i><br/>
 - Increase maximum level to 279.<br/>
-- Improve Database optimize. (Admin mode).<br/><br/>
+- Improve database optimize. (Admin mode).<br/>
+- Added server php source code to google code.<br></br>
 
 <i>General</i><br/>
 - Please visit www.gravatar.com to upload a player image.<br/><br/>
