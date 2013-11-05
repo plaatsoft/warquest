@@ -35,7 +35,7 @@ $config["base_url"]			= "http://www.warquest.nl";
 $config["webservices"]		= 1;
 
 /* Server version */
-$config["applVersion"]		= 'Version 5.6';
+$config["applVersion"]		= 'Version 5.7';
 
 /* Client version settings */
 $config["windows_client_version"]	= '1.4';
@@ -91,8 +91,7 @@ $config["unit_sell_ratio"]				= .6;
 $config["building_sell_ratio"]		= .6;
 
 $config["max_planets"]					= 5;
-$config["max_level"]				 	   = 275;
-//$config["max_level"]						= 299;
+$config["max_level"]				 	   = 278;
 
 
 $config["max_attack_level_diff"]		= 3;

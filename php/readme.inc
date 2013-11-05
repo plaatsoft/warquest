@@ -87,15 +87,20 @@ respond to this Any doubts will be cleared';
 
 $notes = '
 
+<span class="subparagraph2">05-10-2013</span><br/>
+<i>Game Server v5.7</i><br/>
+- Increase maximum level to 279.<br/>
+- Improve Database optimize. (Admin mode).<br/><br/>
+
+<i>General</i><br/>
+- Please visit www.gravatar.com to upload a player image.<br/><br/>
+
 <span class="subparagraph2">07-02-2013</span><br/>
 <i>Game Server v5.6</i><br/>
 - Fixed bug in stock exchange buy functionality.<br/>
 - Increase maximum level to 275.<br/>
 - Updated copyright banner.<br/>
 - Added ban user optional. To lock cheater account (Admin mode).<br/><br/>
-
-<i>General</i><br/>
-- Please visit www.gravatar.com to upload a player image.<br/><br/>
 
 <span class="subparagraph2">14-07-2012</span><br/>
 <i>Game Server v5.5</i><br/>
