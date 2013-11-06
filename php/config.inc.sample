@@ -91,8 +91,7 @@ $config["unit_sell_ratio"]				= .6;
 $config["building_sell_ratio"]		= .6;
 
 $config["max_planets"]					= 4;
-$config["max_level"]				 	   = 278;
-
+$config["max_level"]				 	   = 279;
 
 $config["max_attack_level_diff"]		= 3;
 $config["max_linear_attack_level"]	= 30;
@@ -130,6 +129,14 @@ $config['consumer_key']		= '';
 $config['consumer_secret']	= '';
 $config['user_token']		= '';
 $config['user_secret']		= '';
+
+/*
+** ---------------------------------------------------------------- 
+** PAYPAL CONFIG
+** ---------------------------------------------------------------- 
+*/
+
+$config['paypal_customer_key']		= '';
 
 /*
 ** ---------------------------------------------------------------- 
