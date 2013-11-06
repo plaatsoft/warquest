@@ -616,7 +616,12 @@ function warquest_stock_form() {
 			$page .= $stocklist[$data->symbol]["company"];
 			$page .= '</b><br/><div class="stock">';
 			
-			$tmp = ($change/($price-$change))*100;
+			$diff = $price - $change;
+			if ($diff>0) {
+				$tmp = ($change/$diff)*100;
+			} else {
+				$tmp = 0;
+			}
 			
 			$page .= t('STOCK_PRICE', money_format3($price), procent_format($tmp));
 			$page .= '<br/>';

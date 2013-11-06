@@ -246,6 +246,9 @@ LOCK TABLES `cron` WRITE;
 /*!40000 ALTER TABLE `cron` DISABLE KEYS */;
 INSERT INTO `cron` (`cid`, `note`, `last_run`) VALUES (1,'Update robot allies job','2013-11-05 00:00:01'),(2,'Clean battle log job','2013-11-05 00:00:22'),(3,'Statistics job','2013-11-05 00:00:25'),(4,'Pay bank interest job','2013-11-05 00:00:28'),(5,'Clean bank log job','2013-11-05 00:00:32'),(6,'Delete pending alliance invitations.','2013-11-05 00:00:41'),(7,'Update players with negative hourly income ','2013-11-05 00:00:41');
 /*!40000 ALTER TABLE `cron` ENABLE KEYS */;
+
+INSERT INTO `cron` (`cid`, `note`, `last_run`) VALUES (8,'Database full backup','2013-11-05 00:00:41');
+
 UNLOCK TABLES;
 
 -- Table structure for table `level`

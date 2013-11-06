@@ -28,6 +28,29 @@
 ** ---------------------
 */
 
+/**
+ * Cron backup job 
+ */
+function warquest_cron_backup() {
+
+	/* input */
+	global $config;
+	
+	/* Remove old database backup file */
+	$prev_date = mktime(date("H"), date("i"), date("s"), date("m"), date("d")-$config['backup_period'], date("Y"));
+	$filename = 'backup/scrumboard-'.date('Ymd', $prev_date).'.sql';
+	warquest_info('Remove old backup file '.$filename);
+	@unlink($filename);			
+	
+	/* Create new database backup file */
+	$filename = 'backup/scrumboard-'.date("Ymd").'.sql';
+	warquest_backup_do($filename, $config["dbhost"], $config["dbuser"], $config["dbpass"], $config["dbname"]);
+		
+	$message = 'Create new backup file '.$filename.'<br/>';
+	warquest_info($message);
+}
+
+
 function warquest_cron_negative_income($output=0) {
 
 	/* input */
@@ -428,10 +451,17 @@ function warquest_cron() {
 			case 7:
 				warquest_info("CRON JOB [".$data->cid."] delete units of players with negative hourly income - job start.");
 				warquest_db_cron_update($data->cid);
-				 warquest_cron_negative_income(0);
+				warquest_cron_negative_income(0);
 				warquest_info("CRON JOB [".$data->cid."] delete units of players with negative hourly income - job end.");
 				break;
 				 
+   		/*case 8:
+				warquest_info('CRON JOB ['.$data->cid.'] make backup - job start.');
+				warquest_db_cron_update($data->cid);
+				warquest_cron_backup();				
+				warquest_info('CRON JOB ['.$data->cid.'] make backup - job end.');
+				break;*/
+				
 			default:
 				warquest_error("CRON JOB [".$data->cid."] unknown job start.");
 				warquest_db_cron_update($data->cid);

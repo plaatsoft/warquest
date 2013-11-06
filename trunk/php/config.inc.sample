@@ -28,13 +28,14 @@ define('MYSQL', 1);
 /* Enable debug mode -> If enabled SQL is logged */
 define('DEBUG', 0);
 
-/* Database NitroServe settings */
+/* Database settings */
 $config["dbuser"]							= "";
 $config["dbpass"]							= "";
 $config["dbname"]							= "";
 $config["dbhost"]							= "localhost";
 $config["content_url"]					= "";
 $config["base_url"]						= "http://www.warquest.nl";
+$config['backup_period']   		   = 30;
 $config["webservices"]					= 1;
 
 /* Server version */
