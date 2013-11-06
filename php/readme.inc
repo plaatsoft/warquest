@@ -92,6 +92,7 @@ $notes = '
 - Increase maximum level to 279.<br/>
 - Disable sun features.</br>
 - Improve database optimize. (Admin mode).<br/>
+- Added backup cron  job.</br>
 - Added server php source code to google code.<br></br>
 
 <i>General</i><br/>
