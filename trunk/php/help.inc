@@ -409,6 +409,9 @@ function warquest_help_stats_form() {
 
 function warquest_help_donate_form() {
 
+	/* input */
+	global $config;
+	
 	/* output */
 	global $page;
 	global $title;
@@ -445,7 +448,7 @@ function warquest_help_donate_form() {
 	   
 	$page .=	'<input type="hidden" name="cmd" value="_s-xclick">';
 	$page .=	'<input type="hidden" name="item_name" value="'.$tag.'">';
-	$page .=	'<input type="hidden" name="hosted_button_id" value="HYE3BQFZPBDFJ">';
+	$page .=	'<input type="hidden" name="hosted_button_id" value="'.$config['paypal_customer_key'].'">';
 	$page .=	'<input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif" border="0" name="submit" alt="">';
 	$page .=	'<img alt="" border="0" src="https://www.paypalobjects.com/nl_NL/i/scr/pixel.gif" width="1" height="1">';
 	$page .=	'</form>';
