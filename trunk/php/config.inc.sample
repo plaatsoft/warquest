@@ -22,26 +22,29 @@
 ** ---------------------------------------------------------------- 
 */
 
+/* Enable MySQL (else PostgreSQL) */
 define('MYSQL', 1);
+
+/* Enable debug mode -> If enabled SQL is logged */
 define('DEBUG', 0);
 
 /* Database NitroServe settings */
-$config["dbuser"]			= "";
-$config["dbpass"]			= "";
-$config["dbname"]			= "";
-$config["dbhost"]			= "localhost";
-$config["content_url"]		= "";
-$config["base_url"]			= "http://www.warquest.nl";
-$config["webservices"]		= 1;
+$config["dbuser"]							= "";
+$config["dbpass"]							= "";
+$config["dbname"]							= "";
+$config["dbhost"]							= "localhost";
+$config["content_url"]					= "";
+$config["base_url"]						= "http://www.warquest.nl";
+$config["webservices"]					= 1;
 
 /* Server version */
-$config["applVersion"]		= 'Version 5.7';
+$config["applVersion"]					= 'Version 5.7';
 
 /* Client version settings */
 $config["windows_client_version"]	= '1.4';
 $config["windows_client_url"] 		= 'http://www.plaatsoft.nl/download/41/';
 $config["android_client_version"]	= '2.6';
-$config["home_banner"] 				= 0;
+$config["home_banner"] 					= 0;
 
 /*
 ** ---------------------------------------------------------------- 
@@ -55,30 +58,30 @@ $config["adminPid"]						= 18;
 
 $config["init_level"]					= 0;
 $config["init_attack_max"]				= 1;
-$config["init_defense_max"]				= 1;
+$config["init_defense_max"]			= 1;
 $config["init_health_min"]				= 27;
-$config["next_level_sp_bonus"]			= 3;
-$config["init_max_log_entries"]			= 30;
+$config["next_level_sp_bonus"]		= 3;
+$config["init_max_log_entries"]		= 30;
 $config["init_skill_point_step"]		= 5;
-$config["continent_conquer_bonus"]  	= 7000000;
-$config["init_rebel_treshhold"]     	= 100;
+$config["continent_conquer_bonus"]  = 7000000;
+$config["init_rebel_treshhold"]     = 100;
 
 $config["init_bank1_deposit"]			= 2;
-$config["init_bank1_interest"]			= 0.1;
+$config["init_bank1_interest"]		= 0.1;
 $config["init_bank2_deposit"]			= 6;
-$config["init_bank2_interest"]			= 1.5;
+$config["init_bank2_interest"]		= 1.5;
 $config["init_bank3_deposit"]			= 10;
-$config["init_bank3_interest"]			= 2.0;
+$config["init_bank3_interest"]		= 2.0;
 $config["init_stock_fee"]				= 0.5;
 
 $config["init_money"]					= 25000;
-$config["init_money_bank1"]				= 25000;
-$config["init_money_bank2"]				= 0;
-$config["init_money_bank3"]				= 0;
+$config["init_money_bank1"]			= 25000;
+$config["init_money_bank2"]			= 0;
+$config["init_money_bank3"]			= 0;
 $config["init_money_step"]				= 0;
-$config["init_money_timer"]				= 3600;
+$config["init_money_timer"]			= 3600;
 $config["init_health_max"]				= 100;
-$config["init_health_step"]				= 1;
+$config["init_health_step"]			= 1;
 $config["init_health_timer"]			= 140;
 $config["init_energy_max"]				= 100;
 $config["init_energy_step"]			= 10;
@@ -125,10 +128,10 @@ $config["casino_unlock_level_2"]    = 20;
 ** ---------------------------------------------------------------- 
 */
 
-$config['consumer_key']		= '';
-$config['consumer_secret']	= '';
-$config['user_token']		= '';
-$config['user_secret']		= '';
+$config['consumer_key']					= '';
+$config['consumer_secret']				= '';
+$config['user_token']					= '';
+$config['user_secret']					= '';
 
 /*
 ** ---------------------------------------------------------------- 
