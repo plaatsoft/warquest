@@ -87,12 +87,15 @@ respond to this Any doubts will be cleared';
 
 $notes = '
 
-<span class="subparagraph2">05-10-2013</span><br/>
+<span class="subparagraph2">06-11-2013</span><br/>
 <i>Game Server v5.7</i><br/>
 - Increase maximum level to 279.<br/>
 - Disable sun features.</br>
 - Improve database optimize. (Admin mode).<br/>
 - Added backup cron  job.</br>
+- Update jquery to 10.2.0.</br>
+- Update jquery-ui to 10.3.0.</br>
+- update jquery-css smooth to 10.3.0.</br>
 - Added server php source code to google code.<br></br>
 
 <i>General</i><br/>
