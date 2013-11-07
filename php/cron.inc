@@ -43,8 +43,11 @@ function warquest_cron_backup() {
 	@unlink($filename);			
 	
 	/* Create new database backup file */
-	$filename = 'backup/scrumboard-'.date("Ymd").'.sql';
-	warquest_backup_do($filename, $config["dbhost"], $config["dbuser"], $config["dbpass"], $config["dbname"]);
+	$filename = 'backup/warquest-'.date("Ymd").'.sql';
+	 
+   $backupFile = 'database_backup_'.date("YmdHis").'.sql';
+	$command = 'mysqldump --user='.$config["dbuser"].' --password='.$config["dbpass"].' '.$config["dbname"].' > '.$filename;
+	system($command);
 		
 	$message = 'Create new backup file '.$filename.'<br/>';
 	warquest_info($message);
@@ -455,12 +458,12 @@ function warquest_cron() {
 				warquest_info("CRON JOB [".$data->cid."] delete units of players with negative hourly income - job end.");
 				break;
 				 
-   		/*case 8:
+   		case 8:
 				warquest_info('CRON JOB ['.$data->cid.'] make backup - job start.');
 				warquest_db_cron_update($data->cid);
 				warquest_cron_backup();				
 				warquest_info('CRON JOB ['.$data->cid.'] make backup - job end.');
-				break;*/
+				break;
 				
 			default:
 				warquest_error("CRON JOB [".$data->cid."] unknown job start.");
