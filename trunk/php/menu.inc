@@ -310,6 +310,7 @@ function warquest_menu_alliance() {
 	$page .= warquest_ui_menu($mid, PAGE_ACCEPTED, t('LINK_APPROVED'), $sid);
 	$page .= warquest_ui_menu($mid, PAGE_BEST_PLAYER, t('LINK_BEST_PLAYER'), $sid);
 	$page .= warquest_ui_menu($mid, PAGE_BEST_COUNTRY, t('LINK_BEST_COUNTRY'), $sid);
+	$page .= warquest_ui_menu($mid, PAGE_CLAN, t('LINK_CLAN'), $sid);
 	
 	return $page;
 }

@@ -85,7 +85,9 @@ define('PAGE_ACCEPTED',       2702);
 define('PAGE_BEST_PLAYER',    2703);
 define('PAGE_BEST_COUNTRY',   2704);
 define('PAGE_BEST_COUNTRY2',  2705);
- 
+define('PAGE_CLAN',           2706); 
+define('PAGE_CLAN_LIST',      2707);
+
 /* Forums */
 define('PAGE_FORUM',          2800);
 define('PAGE_TOPIC',          2801);
