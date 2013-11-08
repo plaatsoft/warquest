@@ -1317,6 +1317,46 @@ function warquest_db_bonus($pid, $bonus_id) {
 
 /*
 ** ---------------------
+** CLAN
+** ---------------------
+*/
+
+function warquest_db_clan_insert($name, $pid) {
+
+	$query  = 'insert into clan (name, pid) values (';
+	$query .= $name.','.$pid.',"'.date("Y-m-d H:i:s", time()).'")';	
+	
+	return warquest_db_query($query);
+}
+
+function warquest_db_clan_update($cid, $name) {
+
+	$query  = "update clan set "; 
+	$query .= 'name = "'.warquest_db_escape($name).'" ';
+	$query .= "where cid=".$cid; 
+	
+	warquest_db_query($query);  
+}
+
+function warquest_db_clan_delete($cid) {
+	
+	$query  = 'delete from clan where cid="'.$cid.'"';
+	
+	warquest_db_query($query); 
+}
+
+function warquest_db_clan($cid) {
+
+	$query  = 'select cid, pid, name, date from clan where cid='.$cid;
+	
+	$result = warquest_db_query($query);
+	$data =  warquest_db_fetch_object($result);
+	
+	return $data;
+}
+
+/*
+** ---------------------
 ** THE END
 ** ---------------------
 */

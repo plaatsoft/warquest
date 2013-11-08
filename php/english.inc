@@ -140,6 +140,7 @@ $lang['LINK_ACCEPT'] = 'Accept';
 $lang['LINK_REJECT'] = 'Reject';
 $lang['LINK_SEND'] = 'Send';
 $lang['LINK_RESET']  = 'Reset';
+$lang['LINK_CLAN'] = 'Clan';
 
 /* Forum */
 $lang['LINK_FORUM']  = 'Forums';
@@ -2609,6 +2610,22 @@ $lang['HELP_CREDITS_TRANSLATORS'] = 'Translators';
 $lang['HELP_CREDITS_TESTERS'] = 'Testers';
 $lang['HELP_CREDITS_OTHER'] = 'Other';
 $lang['HELP_CREDITS_OTHER_NOTE'] = 'And of course all WarQuest players who sent great feedback to improve the game. Enjoy then game and lets have fun!';
+
+/*
+** ------------------
+** ALIANCE - CLAN
+** ------------------
+*/
+
+$lang['CLAN_TITLE'] = 'Clan';
+$lang['CLAN_NOTE'] = 'Create or enter a clan to join clan wars.';
+$lang['GENERAL_NAME'] = 'Name';
+$lang['GENERAL_STRENGTH'] = 'Strength';
+$lang['GENERAL_SIZE'] = 'Size';
+$lang['GENERAL_COMMANDER'] = 'Commander';
+$lang['LINK_JOIN'] = 'Join';
+
+$lang['CLAN_LIST_TITLE'] = 'Clan List [%s]';
 
 /*
 ** ------------------

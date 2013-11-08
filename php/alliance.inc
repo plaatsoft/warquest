@@ -726,6 +726,223 @@ function warquest_alliance_pending_form() {
 ** --------------
 */
 
+function warquest_clan_form() {
+
+	/* input */	
+	global $mid;
+	global $sid;
+	
+	global $player;
+	global $other;
+		
+	/* output */
+	global $page;
+	global $title;
+	
+	$title = t('CLAN_TITLE');
+
+	$query  = 'select pid from player_clan where pid='.$player->pid;
+	$result = warquest_db_query($query);	
+	$data = warquest_db_fetch_object($result);
+	$connected = warquest_db_num_rows($result);
+	
+	/* Get pending alliance player */
+	$page .= '<div class="subparagraph">';
+	$page .= t('CLAN_TITLE');
+	$page .= '</div>';
+
+	$page .= '<div class="box">';
+
+	$query  = 'select a.cid, a.name, a.date, a.pid, ';
+	$query .= '(select name from player where pid=a.pid) as name2, ';
+	$query .= '(select count(*) from player_clan where cid=a.cid) as size, ';
+	$query .= '(select sum(c.lid) from player_clan b, player c where cid=b.cid and c.pid=b.pid) as strength ';
+	$query .= 'from clan a';
+	$result = warquest_db_query($query);	 
+	
+	$size = warquest_db_num_rows($result);
+	
+	if ($size>0) {
+	
+		$flag = 1;
+	
+		$page .= '<table>';
+		
+		$page .= '<tr>';
+		
+		$page .= '<td width="80">';
+		$page .= '</td>';
+		
+		$page .= '<td width="150"><b>';
+		$page .= t('GENERAL_NAME');
+		$page .= '<b/></td>';
+		
+		$page .= '<td width="80"><b>';
+		$page .= t('GENERAL_SIZE');
+		$page .= '<b/></td>';
+		
+		$page .= '<td width="80"><b>';
+		$page .= t('GENERAL_STRENGTH');
+		$page .= '<b/></td>';
+		
+		$page .= '<td width="100"><b>';
+		$page .= t('GENERAL_COMMANDER');
+		$page .= '</b></td>';
+
+		$page .= '<td width="80"><b>';
+		$page .= '';
+		$page .= '</b></td>';
+		
+		$page .= '<tr>';
+		
+		while ($data=warquest_db_fetch_object($result)) {
+		
+			$page .= '<tr>';
+
+			$page .= '<td width="10">';
+			$page .= warquest_image("other/clan.jpg", 'width="50" height="30"');
+			$page .= '</td>';
+			
+			$page .= '<td>';
+			$page .= warquest_link('mid='.$mid.'&sid='.PAGE_CLAN_LIST.'&id='.$data->cid, $data->name);
+			$page .= '</td>';
+					
+			$page .= '<td>';
+			$page .= $data->size;
+			$page .= '</td>';
+			
+			$page .= '<td>';
+			$page .= $data->strength;
+			$page .= '</td>';
+			
+			$page .= '<td>';
+			$page .= $data->name2;
+			$page .= '</td>';
+						
+			$page .= '<td>';
+			if ($connected==0) {
+				$page .= warquest_link('mid='.$mid.'&sid='.PAGE_CLAN.'&oid='.$data->cid, t('LINK_JOIN'));
+			}
+			$page .= '</td>';
+			
+			$page .= '</tr>';
+		}
+		
+		$page .= '</table>';
+		
+	}
+	
+	$page .= '</div>';
+	
+	$page .= '<div class="note">';
+	$page .= t('CLAN_NOTE');
+   $page .= '</div>';	
+	
+	$page .= warquest_show_ads();
+}
+
+function warquest_clan_list_form() {
+
+	/* input */	
+	global $mid;
+	global $sid;
+	global $id;
+	
+	global $player;
+	global $other;
+		
+	/* output */
+	global $page;
+	global $title;
+	
+	$count = 1;
+	$flag = 0;
+	$tmp1 = "";
+	$tmp2 = "";
+
+	$query  = 'select name from clan where cid='.$id;
+	$result = warquest_db_query($query);	
+	$data = warquest_db_fetch_object($result);
+	
+	/* Get pending alliance player */
+	$page .= '<div class="subparagraph">';
+	$page .= t('CLAN_LIST_TITLE', $data->name);
+	$page .= '</div>';
+
+	$title = t('CLAN_LIST_TITLE', $data->name);
+	
+	$query  = 'select b.pid, b.name, b.country, b.lid ';
+	$query .= 'from player_clan a, player b where a.pid=b.pid and a.cid='.$id.' ';
+	$query .= 'order by b.name asc';
+	$result = warquest_db_query($query);	 
+	
+	$size = warquest_db_num_rows($result);
+	
+	$page .= '<div class="box">';
+	
+	if ($size>0) {
+	
+		$flag = 1;
+	
+		$page .= '<table>';
+		
+		$page .= '<tr>';
+		
+		$page .= '<td width="130"><b>';
+		$page .= t('GENERAL_NAME');
+		$page .= '<b/></td>';
+		
+		$page .= '<td width="100"><b>';
+		$page .= t('GENERAL_STRENGTH');
+		$page .= '<b/></td>';
+		
+		$page .= '<td width="100"><b>';
+		$page .= '';
+		$page .= '</b></td>';
+		
+		$page .= '<tr>';
+		
+		while ($data=warquest_db_fetch_object($result)) {
+		
+			$page .= '<tr>';
+			
+			$page .= '<td>';
+			$page .= player_format($data->pid, $data->name, $data->country, 1);
+
+			$page .= '</td>';
+					
+			$page .= '<td>';
+			$page .= $data->lid;
+			$page .= '</td>';
+			
+			$page .= '<td>';		
+			if ($player->pid==$data->pid) {
+				$page .= warquest_link('mid='.$mid.'&sid='.PAGE_CLAN.'&oid='.$data->pid, t('LINK_DROP'));
+			}
+			$page .= '</td>';
+			
+			$page .= '</tr>';
+		}
+		
+		$page .= '</table>';
+		
+	}
+	
+	$page .= '</div>';
+	
+	$page .= '<div class="note">';
+	$page .= t('CLAN_NOTE');
+   $page .= '</div>';	
+	
+	$page .= warquest_show_ads();
+}
+
+/*
+** --------------
+** HANDLER
+** --------------
+*/
+
 function warquest_alliance() {
 
 	/* input */
@@ -787,6 +1004,14 @@ function warquest_alliance() {
 					warquest_leaderboard3_form();
 					break; 
 	  				  
+		case PAGE_CLAN: 
+					warquest_clan_form();
+					break; 
+					
+		case PAGE_CLAN_LIST: 
+					warquest_clan_list_form();
+					break; 
+					
 	}				  
 	
 	warquest_player();	
