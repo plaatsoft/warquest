@@ -1400,9 +1400,6 @@ function warquest_battle_clan_war_form() {
 		
 	$title = t('BATTLE_CLAN_WAR_TITLE');
 
-	$width=483;
-	$height=300;
-
 	$tmp="";
 	
 	$query  = 'select cid from player_clan where pid='.$player->pid;
@@ -1413,7 +1410,7 @@ function warquest_battle_clan_war_form() {
 		
 	$query  = 'select a.sid, a.x, a.y, a.cid, ';
 	$query .= '(select b.name from clan b where b.cid=a.cid ) as name ';
-	$query .= 'from sector a';	
+	$query .= 'from sector a where a.planet='.$player->planet;	
 	
 	$result = warquest_db_query($query);
 			
@@ -1437,7 +1434,7 @@ function warquest_battle_clan_war_form() {
 
 	$page .= '<map name="map">';
 	
-	$query  = 'select a.sid, a.x, a.y, a.cid from sector a';
+	$query  = 'select a.sid, a.x, a.y, a.cid from sector a where a.planet='.$player->planet;	
 	
 	$result = warquest_db_query($query);
 			

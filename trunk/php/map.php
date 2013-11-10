@@ -87,7 +87,7 @@ function process_data($data, $image) {
 				}
 	
 				if ($owner==1) {
-					$fill = ImageColorAllocatealpha($image, 0, 255, 0, 50);	
+					$fill = ImageColorAllocatealpha($image, 0, 255, 0, 60);	
 				} else {
 					$fill = ImageColorAllocatealpha($image, 255, 0, 0, 80);					
 				}
