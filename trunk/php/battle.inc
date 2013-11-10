@@ -1402,14 +1402,13 @@ function warquest_battle_clan_war_form() {
 
 	$width=483;
 	$height=300;
-	
-	$planet=4;
+
 	$tmp="";
 	
 	$query  = 'select cid from player_clan where pid='.$player->pid;
 	$result = warquest_db_query($query);
 	
-		$data2 = warquest_db_fetch_object($result);
+	$data2 = warquest_db_fetch_object($result);
 	
 		
 	$query  = 'select a.sid, a.x, a.y, a.cid, ';
@@ -1434,7 +1433,7 @@ function warquest_battle_clan_war_form() {
 	$page .= 'This page is under construction!</br>';
 	
 	$page .= '<center>';
-	$page .= '<img src="planet.php?planet='.$planet.'&data='.$tmp.'" title="'.t('GENERAL_PLANET_4').'" usemap="#map">';	
+	$page .= '<img src="map.php?planet='.$player->planet.'&data='.$tmp.'" title="'.t('GENERAL_PLANET_'.$player->planet).'" usemap="#map">';	
 
 	$page .= '<map name="map">';
 	
