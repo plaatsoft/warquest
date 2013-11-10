@@ -190,7 +190,7 @@ INSERT INTO `sector` (`sid`, `x`, `y`, `cid`, `planet`, `strength`) VALUES
 (75, 4, 14, 0, 0, 0);
 
 
-INSERT INTO `sector` (`sid`, `x`, `y`, `cid`, `planet`, `strength`) VALUES
+INSERT INTO sector (`sid`, `x`, `y`, `cid`, `planet`, `strength`) VALUES
 (101, 0, 0, 0, 1, 0),
 (102, 0, 1, 0, 1, 0),
 (103, 0, 2, 0, 1, 0),
@@ -268,7 +268,7 @@ INSERT INTO `sector` (`sid`, `x`, `y`, `cid`, `planet`, `strength`) VALUES
 (175, 4, 14, 0, 1, 0);
 
 
-INSERT INTO `sector` (`sid`, `x`, `y`, `cid`, `planet`, `strength`) VALUES
+INSERT INTO sector (`sid`, `x`, `y`, `cid`, `planet`, `strength`) VALUES
 (201, 0, 0, 0, 2, 0),
 (202, 0, 1, 0, 2, 0),
 (203, 0, 2, 0, 2, 0),
@@ -347,7 +347,7 @@ INSERT INTO `sector` (`sid`, `x`, `y`, `cid`, `planet`, `strength`) VALUES
 
 
 
-INSERT INTO `sector` (`sid`, `x`, `y`, `cid`, `planet`, `strength`) VALUES
+INSERT INTO sector (`sid`, `x`, `y`, `cid`, `planet`, `strength`) VALUES
 (301, 0, 0, 0, 3, 0),
 (302, 0, 1, 0, 3, 0),
 (303, 0, 2, 0, 3, 0),
