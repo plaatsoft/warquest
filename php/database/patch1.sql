@@ -102,7 +102,6 @@ DELETE FROM mission WHERE mid >= 400;
 
 DELETE FROM player_mission WHERE mid >= 400;
 
-
 INSERT INTO sector (`x`,`y`) VALUES ( 0, 0);
 INSERT INTO sector (`x`,`y`) VALUES ( 0, 1);
 INSERT INTO sector (`x`,`y`) VALUES ( 0, 2);
@@ -142,8 +141,8 @@ INSERT INTO sector (`x`,`y`) VALUES ( 2, 2);
 INSERT INTO sector (`x`,`y`) VALUES ( 2, 3);
 INSERT INTO sector (`x`,`y`) VALUES ( 2, 4);
 INSERT INTO sector (`x`,`y`) VALUES ( 2, 5);
-INSERT INTO sector (`x`,`y`) VALUES ( 2, 7);
 INSERT INTO sector (`x`,`y`) VALUES ( 2, 6);
+INSERT INTO sector (`x`,`y`) VALUES ( 2, 7);
 INSERT INTO sector (`x`,`y`) VALUES ( 2, 8);
 INSERT INTO sector (`x`,`y`) VALUES ( 2, 9);
 INSERT INTO sector (`x`,`y`) VALUES ( 2, 10);
@@ -156,6 +155,7 @@ INSERT INTO sector (`x`,`y`) VALUES ( 3, 0);
 INSERT INTO sector (`x`,`y`) VALUES ( 3, 1);
 INSERT INTO sector (`x`,`y`) VALUES ( 3, 2);
 INSERT INTO sector (`x`,`y`) VALUES ( 3, 3);
+INSERT INTO sector (`x`,`y`) VALUES ( 3, 4);
 INSERT INTO sector (`x`,`y`) VALUES ( 3, 5);
 INSERT INTO sector (`x`,`y`) VALUES ( 3, 6);
 INSERT INTO sector (`x`,`y`) VALUES ( 3, 7);
@@ -164,8 +164,11 @@ INSERT INTO sector (`x`,`y`) VALUES ( 3, 9);
 INSERT INTO sector (`x`,`y`) VALUES ( 3, 10);
 INSERT INTO sector (`x`,`y`) VALUES ( 3, 11);
 INSERT INTO sector (`x`,`y`) VALUES ( 3, 12);
+INSERT INTO sector (`x`,`y`) VALUES ( 3, 13);
 INSERT INTO sector (`x`,`y`) VALUES ( 3, 14);
 
+INSERT INTO sector (`x`,`y`) VALUES ( 4, 0);
+INSERT INTO sector (`x`,`y`) VALUES ( 4, 1);
 INSERT INTO sector (`x`,`y`) VALUES ( 4, 2);
 INSERT INTO sector (`x`,`y`) VALUES ( 4, 3);
 INSERT INTO sector (`x`,`y`) VALUES ( 4, 4);

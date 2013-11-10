@@ -167,6 +167,7 @@ function warquest_menu_battle() {
 	 	
 	$page  = warquest_ui_menu($mid, PAGE_ENEMIES, t('BATTLE_ENEMIES'), $sid);
 	$page .= warquest_ui_menu($mid, PAGE_BOUNTY, t('BATTLE_BOUNTY'), $sid);
+	$page .= warquest_ui_menu($mid, PAGE_CLAN_WAR, t('BATTLE_CLAN_WAR'), $sid);
 		
 	return $page;
 }
