@@ -387,6 +387,7 @@ function warquest_attack_strength($player, $ugid) {
 					break;
 	}
 	$query .= ' order by a.attack desc';
+
 	$result = warquest_db_query($query);
 
 	$attack = 0;

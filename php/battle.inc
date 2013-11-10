@@ -38,27 +38,6 @@ if (isset($_POST['force']) && $_POST['force'] != "") {
 ** -----------
 */
 
-/**
- * Calculate who wins
- */
-function warquest_clan_war_battle_check($player_cid, $other_cid, $force) {
-
-	/*$value = 0;
-
-	/*
-	$attack = warquest_attack_strength($player_cid, $force);
-	$defense = warquest_defense_strength($other_cid, $force);
-	
-	if ($attack > $defense) {
-		$value = 1;
-	}*/
-	
-	$value =1;
-	
-	return $value;
-}
-
-
 function warquest_robot_trade($other, $planet) {
 
 	if ($other->country!="EU") {
@@ -817,6 +796,85 @@ function warquest_battle_check($player, $other, $force) {
 	return $value;
 }
 
+/** 
+ * Calculate attack strength of player
+ */
+function warquest_clan_attack_strength($cid, $size, $ugid) {
+	
+	/* Calculate attack strength of units depending of alliance size */
+	$query  = 'select b.pid, b.alliance, b.lid from player_clan a, player b where ';
+	$query .= 'a.pid=b.pid and a.cid='.$cid.' order by b.lid desc limit 0,'.$size;
+	$result = warquest_db_query($query);	 
+
+	$attack = 0;
+	
+	while ($data=warquest_db_fetch_object($result)) {
+			
+		$attack += warquest_attack_strength($data, $ugid);
+				
+	}
+	return $attack;	
+}
+
+
+/** 
+ * Calculate attack strength of player
+ */
+function warquest_clan_defense_strength($cid, $size, $ugid) {
+	
+	/* Calculate attack strength of units depending of alliance size */
+	$query  = 'select b.pid, b.alliance, b.lid from player_clan a, player b where ';
+	$query .= 'a.pid=b.pid and a.cid='.$cid.' order by b.lid desc limit 0,'.$size;
+	$result = warquest_db_query($query);	 
+
+	$defense = 0;
+	
+	while ($data=warquest_db_fetch_object($result)) {
+	
+		$defense += warquest_defense_strength($data, $ugid);
+		
+	}
+	return $defense;	
+}
+
+/**
+ * Calculate who wins
+ */
+function warquest_clan_war_battle_check($player_cid, $other_cid, $force) {
+
+	$value = 0;
+	
+	$query1 =  'select pid from player_clan a where cid='.$player_cid;
+	$result1 = warquest_db_query($query1);	 
+	$count1 = warquest_db_num_rows($result1);
+
+
+	$query2 =  'select pid from player_clan a where cid='.$other_cid;
+	$result2 = warquest_db_query($query2);	 
+	$count2 = warquest_db_num_rows($result2);
+	
+	/* Get smallest clan size */
+	$size = $count2;
+	if ($count2 > $count1) {
+		$size = $count1;
+	} 
+	
+	if ($size>0) {
+		$attack = warquest_clan_attack_strength($player_cid, $size, $force);
+		$defense = warquest_clan_defense_strength($other_cid, $size, $force);
+	
+		if ($attack > $defense) {
+			$value = 1;
+		}
+	} else {
+	
+		/* Empty sector or defender clan with size 0 */
+		$value = 1;
+	}
+	
+	return $value;
+}
+
 /*
 ** -----------
 ** ACTIONS
@@ -837,13 +895,17 @@ function warquest_clan_war_battle_do() {
 	global $player;
 	global $popup;
 	
-	/* Fetch clan data */
+	$health_winner = rand(1,10);
+	$health_losser = rand(8,20);
+	$exp = rand(1, (round($player->lid/10)+5));
+	
+	/* Fetch player_clan data */		
 	$query1 = 'select cid from player_clan where pid='.$player->pid;
 	$result1 = warquest_db_query($query1);	
 	$size1 = warquest_db_num_rows($result1);
 	$data1 = warquest_db_fetch_object($result1);	
 			
-	/* Fetch sector data */
+	/* Fetch sector data */	
 	$query2 = 'select sid, x, y, cid from sector where sid='.$uid;
 	$result2 = warquest_db_query($query2);	
 	$data2 = warquest_db_fetch_object($result2);	
@@ -873,19 +935,56 @@ function warquest_clan_war_battle_do() {
 		
 	} else if (warquest_clan_war_battle_check($data1->cid, $data2->cid, warquest_get_default_force())==1) {
 				
-		/* Clan won */
+		/* Clan battle won */
+				
+		$data = warquest_db_clan($data1->cid);	
+		$data->won++;
+		warquest_db_clan_update($data);
+	
+		if ($data2->cid!=0) {
+			$data = warquest_db_clan($data2->cid);	
+			$data->lost++;
+			warquest_db_clan_update($data);
+		}
 		
+		warquest_db_sector_update($data1->cid, $data2->sid);
+		
+		$player->ammo -= 1;
+		$player->experience += $exp;
+		$player->health -= $health_winner;
+		$player->last_battle = date("Y-m-d H:i:s");
+		
+		/* Check if next level is reached */
+		warquest_nextlevel($player);
+				
 		$message = t('BATTLE_CLAN_BATTLE_WON');
 		$popup .= warquest_box_icon("info", $message);
 		
-		warquest_db_sector_update($data1->cid, $data2->sid);
 				
 	} else  {
 		
-		/* Clan loose */
+		/* Clan battle lost */
+		
+		$data = warquest_db_clan($data1->cid);	
+		$data->lost++;
+		warquest_db_clan_update($data);
+		
+		if ($data2->cid!=0) {
+			$data = warquest_db_clan($data2->cid);	
+			$data->won++;
+			warquest_db_clan_update($data);
+		}
+		
+		$player->ammo -= 1;
+		$player->experience += $exp;
+		$player->health -= $health_losser;
+		$player->last_battle = date("Y-m-d H:i:s");
 		
 		$message = t('BATTLE_CLAN_BATTLE_LOST');
 		$popup .= warquest_box_icon("info", $message);
+		
+		/* Check if next level is reached */
+		warquest_nextlevel($player);
 	
 	}
 }

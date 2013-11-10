@@ -2853,7 +2853,7 @@ $landcode['zw'] = "Zimbabwe";
 
 $lang['GENERAL_NAME'] = 'Name';
 $lang['GENERAL_STRENGTH'] = 'Strength';
-$lang['GENERAL_MEMBERS'] = 'Members';
+$lang['GENERAL_SIZE'] = 'Size';
 $lang['GENERAL_NR'] = 'Nr';
 $lang['GENERAL_JOINED'] = 'Joined';
 $lang['GENERAL_POSITION'] = 'Position';
