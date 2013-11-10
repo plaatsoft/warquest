@@ -108,13 +108,8 @@ function warquest_mission_complet() {
 	global $config;
 	global $popup;
 	
-	/* On the sun all player work toyether */
-	if ($player->planet!=PLANET_SUN) {
-		$pid = $player->pid;
-	} else {
-		$pid = UNION_PID;
-	}
-	
+	$pid = $player->pid;
+
  	$query1  = 'select progress, part, part2 from player_mission where pid='.$pid.' and mid='.$uid;  
 	
 	$result1 = warquest_db_query($query1);
@@ -341,12 +336,8 @@ function warquest_mission_do() {
 	global $player;
 	global $popup;
 	
-	/* On the sun all player work toyether */
-	if ($player->planet!=PLANET_SUN) {
-		$pid = $player->pid;
-	} else {
-		$pid = UNION_PID;
-	}
+	$pid = $player->pid;
+
 		
 	/* Get mission data */
 	$query  = 'select min_price, max_price, energy, experience, alliance, ';
@@ -567,16 +558,10 @@ function warquest_mission_form() {
 	
 	} else {
 					
-		/* On the sun all player work toyether */
-		if ($player->planet!=PLANET_SUN) {
-			$pid = $player->pid;
+
+		$pid = $player->pid;
 				
-		} else {
 		
-			$page .= '<span class="tip">'.t('MISSION_SUN').'</span>';		
-		
-			$pid = UNION_PID;
-		}
 					
 		/* Get mission data */
 		$query  = "select a.mid, a.loot, a.min_price, a.max_price, a.energy, ";
