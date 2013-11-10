@@ -87,8 +87,11 @@ respond to this Any doubts will be cleared';
 
 $notes = '
 
-<span class="subparagraph2">06-11-2013</span><br/>
+<span class="subparagraph2">10-11-2013</span><br/>
 <i>Game Server v5.7</i><br/>
+- Added basic clan war battle page. (Heavy underconstruction yet)<br>
+- Added basic clan war configuration page.<br>
+- Optimize planet images. Reduce filesize to improve load time.</br>
 - Increase maximum level to 279.<br/>
 - Disable sun features.</br>
 - Improve database optimize. (Admin mode).<br/>
@@ -100,6 +103,7 @@ $notes = '
 
 <i>General</i><br/>
 - Please visit www.gravatar.com to upload a player image.<br/><br/>
+
 
 <span class="subparagraph2">07-02-2013</span><br/>
 <i>Game Server v5.6</i><br/>

@@ -34,9 +34,30 @@ if (isset($_POST['force']) && $_POST['force'] != "") {
 
 /* 
 ** -----------
-** CYBER
+** UTILS
 ** -----------
 */
+
+/**
+ * Calculate who wins
+ */
+function warquest_clan_war_battle_check($player_cid, $other_cid, $force) {
+
+	/*$value = 0;
+
+	/*
+	$attack = warquest_attack_strength($player_cid, $force);
+	$defense = warquest_defense_strength($other_cid, $force);
+	
+	if ($attack > $defense) {
+		$value = 1;
+	}*/
+	
+	$value =1;
+	
+	return $value;
+}
+
 
 function warquest_robot_trade($other, $planet) {
 
@@ -333,12 +354,6 @@ function warquest_robot_battle($player, $other) {
 		}
 	}
 }
-
-/* 
-** -----------
-** UTILS
-** -----------
-*/
 
 function warquest_battle_sound() {
 
@@ -808,6 +823,73 @@ function warquest_battle_check($player, $other, $force) {
 ** -----------
 */
 
+function warquest_clan_war_battle_do() {
+	
+	/* input */
+	global $mid;
+	global $sid;
+	global $uid;
+	global $config;
+	global $level;
+	
+	/* output */
+	global $other;
+	global $player;
+	global $popup;
+	
+	/* Fetch clan data */
+	$query1 = 'select cid from player_clan where pid='.$player->pid;
+	$result1 = warquest_db_query($query1);	
+	$size1 = warquest_db_num_rows($result1);
+	$data1 = warquest_db_fetch_object($result1);	
+			
+	/* Fetch sector data */
+	$query2 = 'select sid, x, y, cid from sector where sid='.$uid;
+	$result2 = warquest_db_query($query2);	
+	$data2 = warquest_db_fetch_object($result2);	
+	
+	if ($size1==0) {
+	
+		$message = t('BATTLE_NO_CLAN');
+		$popup .= warquest_box_icon("warning", $message);
+		
+	} else if ($data1->cid==$data2->cid) {
+	
+		$message = t('BATTLE_SECTOR_ALL_CONQUERED');
+		$popup .= warquest_box_icon("warning", $message);
+	
+	} else if ($player->ammo<=0) {
+	
+		$message = t('BATTLE_AMMO_LOW');
+		$link = warquest_link('mid='.MENU_HOME.'&sid='.PAGE_RESTORE, t('LINK_RESTORE'), 'restore');
+		
+		$popup .= warquest_box_icon("warning", $message, $link);
+		
+	} else if ($player->health<$config["init_health_min"]) {
+	
+		$message = t('BATTLE_ATTACKER_HEALTH_LOW');
+		$link = warquest_link('mid='.MENU_HOME.'&sid='.PAGE_RESTORE, t('LINK_RESTORE'), 'restore');
+		$popup .= warquest_box_icon("warning", $message, $link);
+		
+	} else if (warquest_clan_war_battle_check($data1->cid, $data2->cid, warquest_get_default_force())==1) {
+				
+		/* Clan won */
+		
+		$message = t('BATTLE_CLAN_BATTLE_WON');
+		$popup .= warquest_box_icon("info", $message);
+		
+		warquest_db_sector_update($data1->cid, $data2->sid);
+				
+	} else  {
+		
+		/* Clan loose */
+		
+		$message = t('BATTLE_CLAN_BATTLE_LOST');
+		$popup .= warquest_box_icon("info", $message);
+	
+	}
+}
+
 function warquest_battle_do() {
 	  
 	/* input */
@@ -1274,7 +1356,110 @@ function warquest_player_bounty_do() {
 ** UI
 ** -----------
 */
+
+function calcPolo($x, $y) {
+
+	$xoffset=6;
+	$yoffset=4;
+		
+	if (($y % 2)==0) {
+		$xoffset+=44;
+	}
 	
+	$poly  = 20+($x*88)+$xoffset.',';
+	$poly .= 0+($y*18)+$yoffset.',';
+	$poly .= 46+($x*88)+$xoffset.',';
+	$poly .= 0+($y*18)+$yoffset.',';
+	$poly .= 64+($x*88)+$xoffset.',';
+	$poly .= 18+($y*18)+$yoffset.',';
+	$poly .= 46+($x*88)+$xoffset.',';
+	$poly .= 36+($y*18)+$yoffset.',';
+	$poly .= 20+($x*88)+$xoffset.',';
+	$poly .= 36+($y*18)+$yoffset.',';
+	$poly .= 2+($x*88)+$xoffset.',';
+	$poly .= 18+($y*18)+$yoffset;
+		 
+	return $poly;
+}
+
+
+/**
+ * Clan War Form
+ */
+function warquest_battle_clan_war_form() {
+
+	/* input */
+	global $mid;
+	global $sid;
+	global $player;	
+	global $config;	
+	
+	/* output */
+	global $page; 
+	global $title;
+		
+	$title = t('BATTLE_CLAN_WAR_TITLE');
+
+	$width=483;
+	$height=300;
+	
+	$planet=4;
+	$tmp="";
+	
+	$query  = 'select cid from player_clan where pid='.$player->pid;
+	$result = warquest_db_query($query);
+	
+		$data2 = warquest_db_fetch_object($result);
+	
+		
+	$query  = 'select a.sid, a.x, a.y, a.cid, ';
+	$query .= '(select b.name from clan b where b.cid=a.cid ) as name ';
+	$query .= 'from sector a';	
+	
+	$result = warquest_db_query($query);
+			
+	$tmp = "";
+	while ($data=warquest_db_fetch_object($result)) {			
+		
+		if (strlen($data->name)>0) {
+		
+			$tmp .= $data->x.'-'.$data->y.'-'.$data->name.'-';		
+			@$tmp .= $data->cid==$data2->cid;
+			$tmp .= ',';
+			
+		}
+	}		
+	
+	$page .= '<div class="box">';
+	$page .= 'This page is under construction!</br>';
+	
+	$page .= '<center>';
+	$page .= '<img src="planet.php?planet='.$planet.'&data='.$tmp.'" title="'.t('GENERAL_PLANET_4').'" usemap="#map">';	
+
+	$page .= '<map name="map">';
+	
+	$query  = 'select a.sid, a.x, a.y, a.cid from sector a';
+	
+	$result = warquest_db_query($query);
+			
+	while ($data=warquest_db_fetch_object($result)) {			
+		
+		$page .= '<area shape="poly" coords="'.calcPolo($data->x,$data->y).'" title="'.$data->x.','.$data->y.'" href="javascript:link(\'';
+		$page .= warquest_token('mid='.MENU_BATTLE.'&sid='.PAGE_CLAN_WAR.'&uid='.$data->sid.'&eid=3').'\');" />';
+		
+	}
+	$page .= '</map>';
+	
+	$page .= '</center>';
+	
+	$page .= '</div>';
+	
+	$page .= '<div class="note">';
+	$page .= t('BATTLE_NOTE_CLAN_WAR');
+	$page .= '</div>';
+}
+
+
 /**
  * Bounty form
  */
@@ -1734,6 +1919,9 @@ function warquest_battle() {
 		case 2:	warquest_player_bounty_do();
 					break;	
 
+		case 3:	warquest_clan_war_battle_do();
+					break;	
+					
 		case 500: 	warquest_switch_planet_do();
 						break;					  
 	}
@@ -1749,6 +1937,11 @@ function warquest_battle() {
 		case PAGE_BOUNTY:  
 					warquest_battle_force_option();
 					warquest_battle_bounty_form();	
+					break;
+					
+		case PAGE_CLAN_WAR:  
+					warquest_battle_force_option();
+					warquest_battle_clan_War_form();	
 					break;
 	}
 	

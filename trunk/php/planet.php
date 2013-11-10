@@ -21,46 +21,46 @@ include "general.inc";
 function addPologonRaster($image) {
 
 	$black = imagecolorallocatealpha($image, 0, 0, 0, 20);
-	$yoffset=0;
+		
+	$yoffset=4;
 	
 	for ($y=0; $y<15; $y++) {
 
-		$xoffset=-10;
+		$xoffset=6;
 		if (($y % 2)==0) {
-			$xoffset+=50;
+			$xoffset+=44;
 		}
 			
 		for ($x=0; $x<5; $x++) {
 		
-			$poly = array(	20+($x*100)+$xoffset, 0+($y*20)+$yoffset,
-								50+($x*100)+$xoffset, 0+($y*20)+$yoffset,
-								70+($x*100)+$xoffset, 20+($y*20)+$yoffset,
-								50+($x*100)+$xoffset, 40+($y*20)+$yoffset,
-								20+($x*100)+$xoffset, 40+($y*20)+$yoffset,
-								0+($x*100)+$xoffset,  20+($y*20)+$yoffset );		  
-		  
-			/* Draw the polygon */
-			imagepolygon($image, $poly, 6, $black);
+			$poly = array(	20+($x*88)+$xoffset, 0+ ($y*18)+$yoffset,
+								46+($x*88)+$xoffset, 0+ ($y*18)+$yoffset,
+								64+($x*88)+$xoffset, 18+($y*18)+$yoffset,
+								46+($x*88)+$xoffset, 36+($y*18)+$yoffset,
+								20+($x*88)+$xoffset, 36+($y*18)+$yoffset,
+								2+ ($x*88)+$xoffset, 18+($y*18)+$yoffset );		  
+								
+			imagepolygon($image, $poly, 6, $black);	
 		}
-	}	
+	}		
 }
 
 function fillPologon($image, $color, $x, $y) {
 
 	$black = imagecolorallocatealpha($image, 0, 0, 0, 20); 
 	
-	$yoffset=0;
-	$xoffset=-10;
+	$yoffset=4;
+	$xoffset=6;
 	if (($y % 2)==0) {
-		$xoffset+=50;
+		$xoffset+=44;
 	}
 	
-	$poly = array(	20+($x*100)+$xoffset, 0+($y*20)+$yoffset,
-						50+($x*100)+$xoffset, 0+($y*20)+$yoffset,
-						70+($x*100)+$xoffset, 20+($y*20)+$yoffset,
-						50+($x*100)+$xoffset, 40+($y*20)+$yoffset,
-						20+($x*100)+$xoffset, 40+($y*20)+$yoffset,
-						0+($x*100)+$xoffset,  20+($y*20)+$yoffset );		  
+	$poly = array(	20+($x*88)+$xoffset, 0+ ($y*18)+$yoffset,
+						46+($x*88)+$xoffset, 0+ ($y*18)+$yoffset,
+						64+($x*88)+$xoffset, 18+($y*18)+$yoffset,
+						46+($x*88)+$xoffset, 36+($y*18)+$yoffset,
+						20+($x*88)+$xoffset, 36+($y*18)+$yoffset,
+						2+ ($x*88)+$xoffset, 18+($y*18)+$yoffset );		  
 		 
 	imagefilledpolygon($image, $poly, 6, $color);
 	imagepolygon($image, $poly, 6, $black);
@@ -1447,258 +1447,33 @@ function process_astroid_data($data, $image) {
 
 function process_sun_data($data, $image) {
 	
+	$white = imagecolorallocatealpha($image, 0xff, 0xff, 0xff, 20);
+	
 	if (strlen($data)>0) {
 
 		$codes = preg_split('/,/',$data);
 		foreach($codes as $code) {
 
-			list($country, $progress) = preg_split('/-/',$code);
-
-			if ($progress==0) {
-				$fill = ImageColorAllocatealpha($image, 255, 0, 0, 80);		
-			} else if (($progress>0) && ($progress<100)) {
-				continue;
-			} else if (($progress>=100) && ($progress<200)) {
-				$fill = ImageColorAllocatealpha($image, 255, 255, 20, 80);		
-			} else if (($progress>=200) && ($progress<300)) {
-				$fill = ImageColorAllocatealpha($image, 255, 51, 255, 80);		
-			} else if ($progress>=300) {
-				$fill = ImageColorAllocatealpha($image, 255, 165, 0, 80);	
-			} 
+			@list($x, $y, $name, $owner) = preg_split('/-/',$code);
 			
-		switch ($country) {
+			if (strlen($name)>0) {
 			
-			/* Alfa */
-			case 400: fillPologon($image, $fill, 0, 0);
-						 break;
+				$yoffset=4;
+				$xoffset=6;
+				if (($y % 2)==0) {
+					$xoffset+=44;
+				}
+	
+				if ($owner==1) {
+					$fill = ImageColorAllocatealpha($image, 0, 255, 0, 50);	
+				} else {
+					$fill = ImageColorAllocatealpha($image, 255, 0, 0, 80);					
+				}
 
-			case 401: fillPologon($image, $fill, 1, 1);
-						 break;
-						 
-	 		case 402: fillPologon($image, $fill, 0, 1);
-						 break;
-						 
-			case 403: fillPologon($image, $fill, 1, 3);
-						 break;
-						 
-			case 404: fillPologon($image, $fill, 0, 2);
-						 break;
-						 
-			case 405: fillPologon($image, $fill, 0, 4);
-						 break;
-
-			case 406: fillPologon($image, $fill, 1, 0);
-						 break;
-						 
-			case 407: fillPologon($image, $fill, 0, 3);
-						 break;
-						 
-			
-			/* Beta */
-			case 410: fillPologon($image, $fill, 0, 5);
-						 break;
-
-			case 411: fillPologon($image, $fill, 0, 6);
-						 break;
-						 
-	 		case 412: fillPologon($image, $fill, 1, 5);
-						 break;
-						 
-			case 413: fillPologon($image, $fill, 1, 2);
-						 break;
-						 
-			case 414: fillPologon($image, $fill, 1, 4);
-						 break;
-						 
-			case 415: fillPologon($image, $fill, 0, 7);
-						 break;
-
-			case 416: fillPologon($image, $fill, 0, 8);
-						 break;
-						 
-			case 417: fillPologon($image, $fill, 1, 7);
-						 break;
-						 
-						 
-			/* Carlie */
-			case 420: fillPologon($image, $fill, 0, 9);
-						 break;
-
-			case 421: fillPologon($image, $fill, 0, 11);
-						 break;
-						 
-	 		case 422: fillPologon($image, $fill, 0, 13);
-						 break;
-						 
-			case 423: fillPologon($image, $fill, 0, 10);
-						 break;
-						 
-			case 424: fillPologon($image, $fill, 0, 12);
-						 break;
-						 
-			case 425: fillPologon($image, $fill, 0, 14);
-						 break;
-
-			case 426: fillPologon($image, $fill, 1, 9);
-						 break;
-						 
-			case 427: fillPologon($image, $fill, 1, 11);
-						 break;
-						 
-			/* Delta */
-			case 430: fillPologon($image, $fill, 2, 1);
-						 break;
-
-			case 431: fillPologon($image, $fill, 2, 3);
-						 break;
-						 
-	 		case 432: fillPologon($image, $fill, 2, 5);
-						 break;
-						 
-			case 433: fillPologon($image, $fill, 1, 6);
-						 break;
-						 
-			case 434: fillPologon($image, $fill, 2, 7);
-						 break;
-						 
-			case 435: fillPologon($image, $fill, 1, 8);
-						 break;
-
-			case 436: fillPologon($image, $fill, 1, 10);
-					    break;
-						 
-			case 437: fillPologon($image, $fill, 1, 12);
-						 break;
-						 
-			/* Echo */
-			case 440: fillPologon($image, $fill, 1, 13);
-						 break;
-
-			case 441: fillPologon($image, $fill, 1, 14);
-						 break;
-						 
-	 		case 442: fillPologon($image, $fill, 2, 13);
-						 break;
-						 
-			case 443: fillPologon($image, $fill, 2, 11);
-						 break;
-						 
-			case 444: fillPologon($image, $fill, 2, 9);
-						 break;
-						 
-			case 445: fillPologon($image, $fill, 2, 8);
-						 break;
-
-			case 446: fillPologon($image, $fill, 2, 6);
-						 break;
-						 
-			case 447: fillPologon($image, $fill, 3, 7);
-						 break;
-						 
-			/* Foxtrot */
-			case 450: fillPologon($image, $fill, 2, 14);
-						 break;
-
-			case 451: fillPologon($image, $fill, 3, 13);
-						 break;
-						 
-	 		case 452: fillPologon($image, $fill, 2, 12);
-						 break;
-						 
-			case 453: fillPologon($image, $fill, 3, 11);
-						 break;
-						 
-			case 454: fillPologon($image, $fill, 2, 10);
-						 break;
-						 
-			case 455: fillPologon($image, $fill, 3, 9);
-						 break;
-
-			case 456: fillPologon($image, $fill, 3, 10);
-						 break;
-						 
-			case 457: fillPologon($image, $fill, 3, 12);
-						 break;
-						 
-						 
-			/* Golf */
-			case 460: fillPologon($image, $fill, 3, 14);
-						 break;
-
-			case 461: fillPologon($image, $fill, 4, 13);
-						 break;
-						 
-	 		case 462: fillPologon($image, $fill, 4, 14);
-						 break;
-						 
-			case 463: fillPologon($image, $fill, 4, 12);
-						 break;
-						 
-			case 464: fillPologon($image, $fill, 4, 11);
-						 break;
-						 
-			case 465: fillPologon($image, $fill, 4, 10);
-						 break;
-
-			case 466: fillPologon($image, $fill, 4, 9);
-						 break;
-						 
-			case 467: fillPologon($image, $fill, 4, 8);
-						 break;
-						 
-			/* Hotel */
-			case 470: fillPologon($image, $fill, 3, 8);
-						 break;
-
-			case 471: fillPologon($image, $fill, 4, 7);
-						 break;
-						 
-	 		case 472: fillPologon($image, $fill, 4, 6);
-						 break;
-						 
-			case 473: fillPologon($image, $fill, 4, 4);
-						 break;
-						 
-			case 474: fillPologon($image, $fill, 4, 5);
-						 break;
-						 
-			case 475: fillPologon($image, $fill, 3, 6);
-						 break;
-
-			case 476: fillPologon($image, $fill, 4, 3);
-						 fillPologon($image, $fill, 4, 1);
-						 break;
-						 
-			case 477: fillPologon($image, $fill, 4, 2);
-						 fillPologon($image, $fill, 4, 0);
-						 break;
-
-			/* Lima */
-			case 480: fillPologon($image, $fill, 2, 0);
-						 break;
-
-			case 481: fillPologon($image, $fill, 2, 2);
-						break;
-						 
-	 		case 482: fillPologon($image, $fill, 2, 4);
-						 break;
-						 
-			case 483: fillPologon($image, $fill, 3, 1);
-						 break;
-						 
-			case 484: fillPologon($image, $fill, 3, 3);
-						 break;
-						 
-			case 485: fillPologon($image, $fill, 3, 5);
-						 break;
-
-			case 486: fillPologon($image, $fill, 3, 0);
-						 break;
-						 
-			case 487: fillPologon($image, $fill, 3, 2);
-						 fillPologon($image, $fill, 3, 4);
-						 break;
-			}		 
+				fillPologon($image, $fill, $x, $y);
+				
+				imagefttext($image, 6, 0, 20+($x*88)+$xoffset, 20+($y*18)+$yoffset, $white, 'ttf/font.ttf', $name);			
+			}
 		}
 	}
 }
@@ -1747,7 +1522,7 @@ switch($planet) {
 	case PLANET_SUN:
 			$image = ImageCreateFromPNG('images/planet/planet_big'.$planet.'.png');
 			AddPologonRaster($image);
-			process_sun_data($data, $image);
+			process_sun_data($data, $image);			
 			break;
 }
 

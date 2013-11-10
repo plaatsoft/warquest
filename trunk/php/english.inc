@@ -1219,6 +1219,7 @@ $lang['BATTLE_TITLE'] = 'BATTLE';
 $lang['BATTLE_GENERAL_TITLE'] = 'Battle';
 $lang['BATTLE_BOUNTY_TITLE'] = 'Bounty Hunting';
 
+
 $lang['BATTLE_LOST'] = 'Your %s attacked %s. You lost the battle, taking %s damage, while dealing %s to %s.';
 $lang['BATTLE_WON'] = 'Your %s attacked %s. You won the battle, taking %s damage while dealing %s to %s. You took %s dollars and gain %s experience points.';
 $lang['BATTLE_DEFENDER_HEALTH_LOW'] = '%s surrenders temporarely because health is too low!';
@@ -1242,6 +1243,7 @@ $lang['BATTLE_NOTE2'] = 'Note: Hunt other players to collect their bounty and ga
 $lang['BATTLE_FORCE_TYPE'] = 'Force:';
 $lang['BATTLE_ENEMIES'] = 'Enemies';
 $lang['BATTLE_BOUNTY'] = 'Bounty-Hunting';
+
 $lang['BATTLE_NO_BOUNTY_PLAYERS'] = 'At the moment no player(s) with bounty are available for battles.';
 $lang['BATTLE_BOUNTY_BONUS'] = 'Extra bounty bonus of %s dollars received.'; 
 $lang['BATTLE_HOSPITAL_BONUS'] = '%s surrendered temporarely. You receive %s bonus dollars!'; 
@@ -1270,6 +1272,14 @@ Humans began to venture beyond the sun for their supremacy. As they begin to inv
 an alien race which is even more thirsty for war and even more deadly. It is upto the WarQuest warlords 
 ( players at level 249 or higher ) to resist their invasion further into our solar system. So all Warlords 
 form a UNION and with their combined forces begin a war against the unkown but deadly alien race!';
+
+$lang['BATTLE_CLAN_WAR_TITLE'] = 'Clan War';
+$lang['BATTLE_CLAN_WAR'] = 'Clan-War';
+$lang['BATTLE_SECTOR_ALL_CONQUERED'] = 'Sector all ready conquered';
+$lang['BATTLE_NO_CLAN'] = 'You are not part of a clan. Attack aborted!';
+$lang['BATTLE_CLAN_BATTLE_WON'] = 'You won the battle, You conquered the sector.';
+$lang['BATTLE_CLAN_BATTLE_LOST'] = 'You lost the battle!';
+$lang['BATTLE_NOTE_CLAN_WAR'] = 'Note: Select a sector which you want to conquer!'; 
 
 /*
 ** ------------------

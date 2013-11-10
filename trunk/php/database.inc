@@ -1389,6 +1389,21 @@ function warquest_db_player_clan_delete($pid, $cid) {
 
 /*
 ** ---------------------
+** SECTOR
+** ---------------------
+*/
+
+function warquest_db_sector_update($cid, $sid) {
+
+	$query  = "update sector set "; 
+	$query .= 'cid='.$cid.' ';
+	$query .= "where sid=".$sid; 
+	
+	warquest_db_query($query);  
+}
+
+/*
+** ---------------------
 ** THE END
 ** ---------------------
 */

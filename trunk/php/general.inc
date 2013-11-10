@@ -63,6 +63,7 @@ define('PAGE_MISSION_TRAINING',  0);
 /* Battle */
 define('PAGE_ENEMIES',        2300);
 define('PAGE_BOUNTY',         2301);
+define('PAGE_CLAN_WAR',       2302);
 
 /* Units */
 define('PAGE_UNITS',          2400);
