@@ -1445,39 +1445,6 @@ function process_astroid_data($data, $image) {
 	}
 }
 
-function process_sun_data($data, $image) {
-	
-	$white = imagecolorallocatealpha($image, 0xff, 0xff, 0xff, 20);
-	
-	if (strlen($data)>0) {
-
-		$codes = preg_split('/,/',$data);
-		foreach($codes as $code) {
-
-			@list($x, $y, $name, $owner) = preg_split('/-/',$code);
-			
-			if (strlen($name)>0) {
-			
-				$yoffset=4;
-				$xoffset=6;
-				if (($y % 2)==0) {
-					$xoffset+=44;
-				}
-	
-				if ($owner==1) {
-					$fill = ImageColorAllocatealpha($image, 0, 255, 0, 50);	
-				} else {
-					$fill = ImageColorAllocatealpha($image, 255, 0, 0, 80);					
-				}
-
-				fillPologon($image, $fill, $x, $y);
-				
-				imagefttext($image, 6, 0, 20+($x*88)+$xoffset, 20+($y*18)+$yoffset, $white, 'ttf/font.ttf', $name);			
-			}
-		}
-	}
-}
-
 /* 
 ** --------------------------
 ** Output image as PNG
@@ -1517,12 +1484,6 @@ switch($planet) {
 			$image = ImageCreateFromPNG('images/planet/planet_big'.$planet.'.png');
 			AddPologonRaster($image);
 			process_astroid_data($data, $image);
-			break;
-			
-	case PLANET_SUN:
-			$image = ImageCreateFromPNG('images/planet/planet_big'.$planet.'.png');
-			AddPologonRaster($image);
-			process_sun_data($data, $image);			
 			break;
 }
 
