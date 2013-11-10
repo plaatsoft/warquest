@@ -102,6 +102,15 @@ DELETE FROM mission WHERE mid >= 400;
 
 DELETE FROM player_mission WHERE mid >= 400;
 
+CREATE TABLE IF NOT EXISTS `sector` (
+  `sid` int(11) NOT NULL AUTO_INCREMENT,
+  `x` int(11) NOT NULL,
+  `y` int(11) NOT NULL,
+  `cid` int(11) DEFAULT NULL,
+  `strength` int(11) NOT NULL,
+  PRIMARY KEY (`sid`)
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=0;
+
 INSERT INTO sector (`x`,`y`) VALUES ( 0, 0);
 INSERT INTO sector (`x`,`y`) VALUES ( 0, 1);
 INSERT INTO sector (`x`,`y`) VALUES ( 0, 2);
