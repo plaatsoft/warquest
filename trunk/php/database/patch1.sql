@@ -39,10 +39,6 @@ CREATE TABLE IF NOT EXISTS `clan` (
 -- Gegevens worden uitgevoerd voor tabel `clan`
 --
 
-INSERT INTO `clan` (`cid`, `name`, `date`, `pid`) VALUES
-(1, 'WQ', '2013-11-07', 18),
-(2, 'NOOBS', '2013-11-01', 23);
-
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
@@ -88,12 +84,108 @@ CREATE TABLE IF NOT EXISTS `player_clan` (
 -- Gegevens worden uitgevoerd voor tabel `player_clan`
 --
 
-INSERT INTO `player_clan` (`pid`, `cid`, `date`) VALUES
-(18, 1, '2013-11-07'),
-(28, 1, '2013-11-01'),
-(23, 2, '2013-11-05');
-
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 
+DELETE FROM mission_group WHERE mgid = 40;
+DELETE FROM mission_group WHERE mgid = 41;
+DELETE FROM mission_group WHERE mgid = 42;
+DELETE FROM mission_group WHERE mgid = 43;
+DELETE FROM mission_group WHERE mgid = 44;
+DELETE FROM mission_group WHERE mgid = 45;
+DELETE FROM mission_group WHERE mgid = 46;
+DELETE FROM mission_group WHERE mgid = 47;
+DELETE FROM mission_group WHERE mgid = 48;
+
+DELETE FROM mission WHERE mid >= 400;
+
+DELETE FROM player_mission WHERE mid >= 400;
+
+
+INSERT INTO sector (`x`,`y`) VALUES ( 0, 0);
+INSERT INTO sector (`x`,`y`) VALUES ( 0, 1);
+INSERT INTO sector (`x`,`y`) VALUES ( 0, 2);
+INSERT INTO sector (`x`,`y`) VALUES ( 0, 3);
+INSERT INTO sector (`x`,`y`) VALUES ( 0, 4);
+INSERT INTO sector (`x`,`y`) VALUES ( 0, 5);
+INSERT INTO sector (`x`,`y`) VALUES ( 0, 6);
+INSERT INTO sector (`x`,`y`) VALUES ( 0, 7);
+INSERT INTO sector (`x`,`y`) VALUES ( 0, 8);
+INSERT INTO sector (`x`,`y`) VALUES ( 0, 9);
+INSERT INTO sector (`x`,`y`) VALUES ( 0, 10);
+INSERT INTO sector (`x`,`y`) VALUES ( 0, 11);
+INSERT INTO sector (`x`,`y`) VALUES ( 0, 12);
+INSERT INTO sector (`x`,`y`) VALUES ( 0, 13);
+INSERT INTO sector (`x`,`y`) VALUES ( 0, 14);
+
+INSERT INTO sector (`x`,`y`) VALUES ( 1, 0);
+INSERT INTO sector (`x`,`y`) VALUES ( 1, 1);
+INSERT INTO sector (`x`,`y`) VALUES ( 1, 2);
+INSERT INTO sector (`x`,`y`) VALUES ( 1, 3);
+INSERT INTO sector (`x`,`y`) VALUES ( 1, 4);
+INSERT INTO sector (`x`,`y`) VALUES ( 1, 5);
+INSERT INTO sector (`x`,`y`) VALUES ( 1, 6);
+INSERT INTO sector (`x`,`y`) VALUES ( 1, 7);
+INSERT INTO sector (`x`,`y`) VALUES ( 1, 8);
+INSERT INTO sector (`x`,`y`) VALUES ( 1, 9);
+INSERT INTO sector (`x`,`y`) VALUES ( 1, 10);
+INSERT INTO sector (`x`,`y`) VALUES ( 1, 11);
+INSERT INTO sector (`x`,`y`) VALUES ( 1, 12);
+INSERT INTO sector (`x`,`y`) VALUES ( 1, 13);
+INSERT INTO sector (`x`,`y`) VALUES ( 1, 14);
+
+
+INSERT INTO sector (`x`,`y`) VALUES ( 2, 0);
+INSERT INTO sector (`x`,`y`) VALUES ( 2, 1);
+INSERT INTO sector (`x`,`y`) VALUES ( 2, 2);
+INSERT INTO sector (`x`,`y`) VALUES ( 2, 3);
+INSERT INTO sector (`x`,`y`) VALUES ( 2, 4);
+INSERT INTO sector (`x`,`y`) VALUES ( 2, 5);
+INSERT INTO sector (`x`,`y`) VALUES ( 2, 7);
+INSERT INTO sector (`x`,`y`) VALUES ( 2, 6);
+INSERT INTO sector (`x`,`y`) VALUES ( 2, 8);
+INSERT INTO sector (`x`,`y`) VALUES ( 2, 9);
+INSERT INTO sector (`x`,`y`) VALUES ( 2, 10);
+INSERT INTO sector (`x`,`y`) VALUES ( 2, 11);
+INSERT INTO sector (`x`,`y`) VALUES ( 2, 12);
+INSERT INTO sector (`x`,`y`) VALUES ( 2, 13);
+INSERT INTO sector (`x`,`y`) VALUES ( 2, 14);
+
+INSERT INTO sector (`x`,`y`) VALUES ( 3, 0);
+INSERT INTO sector (`x`,`y`) VALUES ( 3, 1);
+INSERT INTO sector (`x`,`y`) VALUES ( 3, 2);
+INSERT INTO sector (`x`,`y`) VALUES ( 3, 3);
+INSERT INTO sector (`x`,`y`) VALUES ( 3, 5);
+INSERT INTO sector (`x`,`y`) VALUES ( 3, 6);
+INSERT INTO sector (`x`,`y`) VALUES ( 3, 7);
+INSERT INTO sector (`x`,`y`) VALUES ( 3, 8);
+INSERT INTO sector (`x`,`y`) VALUES ( 3, 9);
+INSERT INTO sector (`x`,`y`) VALUES ( 3, 10);
+INSERT INTO sector (`x`,`y`) VALUES ( 3, 11);
+INSERT INTO sector (`x`,`y`) VALUES ( 3, 12);
+INSERT INTO sector (`x`,`y`) VALUES ( 3, 14);
+
+INSERT INTO sector (`x`,`y`) VALUES ( 4, 2);
+INSERT INTO sector (`x`,`y`) VALUES ( 4, 3);
+INSERT INTO sector (`x`,`y`) VALUES ( 4, 4);
+INSERT INTO sector (`x`,`y`) VALUES ( 4, 5);
+INSERT INTO sector (`x`,`y`) VALUES ( 4, 6);
+INSERT INTO sector (`x`,`y`) VALUES ( 4, 7);
+INSERT INTO sector (`x`,`y`) VALUES ( 4, 8);
+INSERT INTO sector (`x`,`y`) VALUES ( 4, 9);
+INSERT INTO sector (`x`,`y`) VALUES ( 4, 10);
+INSERT INTO sector (`x`,`y`) VALUES ( 4, 11);
+INSERT INTO sector (`x`,`y`) VALUES ( 4, 12);
+INSERT INTO sector (`x`,`y`) VALUES ( 4, 13);
+INSERT INTO sector (`x`,`y`) VALUES ( 4, 14);
+
+
+
+
+
+
+
+
+
+			

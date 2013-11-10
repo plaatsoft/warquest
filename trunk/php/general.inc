@@ -22,8 +22,6 @@
 ** ------------------
 */
 
-define('UNION_PID',           2);
-
 define('PLANET_EARTH',        0);
 define('PLANET_MOON',         1);
 define('PLANET_MARS',         2);
@@ -1299,7 +1297,7 @@ function warquest_rente($value, $amount, $discount) {
 }
 
 /** 
- * Conver data to dutch format.
+ * Convert data to dutch format.
  */
 function warquest_convert_date($value) { 
 
@@ -1307,7 +1305,13 @@ function warquest_convert_date($value) {
   list($year, $month, $day) = preg_split('/-/', $date); 
   return $day.'-'.$month.'-'.$year.' '.$time;
 }
- 
+
+function convert_date_mysql($date) {
+	$part = preg_split('/-/', $date);
+	return $part[2].'-'.$part[1].'-'.$part[0];
+}
+
+
 /* 
 ** ----------------------
 ** TIMERS

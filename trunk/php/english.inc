@@ -1163,88 +1163,6 @@ $lang['MISSION_385'] = 'Vallis Regia';
 $lang['MISSION_386'] = 'Sinus Macrantha';
 $lang['MISSION_387'] = 'Crater Caespitosa';
 
-/* Sun */
-$lang['MISSION_400'] = 'Crater Albococcinea';
-$lang['MISSION_401'] = 'Sinus argentea';
-$lang['MISSION_402'] = 'Vallis Atrococcinea';
-$lang['MISSION_403'] = 'Crater Colorans';
-$lang['MISSION_404'] = 'Mare Cardinalis';
-$lang['MISSION_405'] = 'Mons Brunnea';
-$lang['MISSION_406'] = 'Sinus Chlorantha';
-$lang['MISSION_407'] = 'Vallis Erythrocarpa';
-
-$lang['MISSION_410'] = 'Mons Ferruginea';
-$lang['MISSION_411'] = 'Mare Colorans';
-$lang['MISSION_412'] = 'Vallis Aurea';
-$lang['MISSION_413'] = 'Crater Atrovirens';
-$lang['MISSION_414'] = 'Sinus lutescens';
-$lang['MISSION_415'] = 'Vallis Maculata';
-$lang['MISSION_416'] = 'Crater Nigrescens';
-$lang['MISSION_417'] = 'Mare Punicea';
-
-$lang['MISSION_420'] = 'Crater Rosea';
-$lang['MISSION_421'] = 'Vallis Rubiginosa';
-$lang['MISSION_422'] = 'Crater Tinctoria';
-$lang['MISSION_423'] = 'Sinus Sulphurea';
-$lang['MISSION_424'] = 'Vallis Sempervirens';
-$lang['MISSION_425'] = 'Crater Rubicunda';
-$lang['MISSION_426'] = 'Mare Variegata';
-$lang['MISSION_427'] = 'Mare Versicolor';
-
-$lang['MISSION_430'] = 'Vallis Vinosa';
-$lang['MISSION_431'] = 'Mare Viridescens';
-$lang['MISSION_432'] = 'Crater Citrodora';
-$lang['MISSION_433'] = 'Sinus Foetidissima';
-$lang['MISSION_434'] = 'Vallis Gravaeolens';
-$lang['MISSION_435'] = 'Crater Odorata';
-$lang['MISSION_436'] = 'Mare Suaveolens';
-$lang['MISSION_437'] = 'Crater Ursina';
-
-$lang['MISSION_440'] = 'Mare Amabile';
-$lang['MISSION_441'] = 'Vallis Praecox ';
-$lang['MISSION_442'] = 'Crater Bella';
-$lang['MISSION_443'] = 'Mare Amoena';
-$lang['MISSION_444'] = 'Sinus Gracilis';
-$lang['MISSION_445'] = 'Crater Formosa';
-$lang['MISSION_446'] = 'Vallis Fragilis';
-$lang['MISSION_447'] = 'Mons Foeniculaceus';
-
-$lang['MISSION_450'] = 'Crater Blanda';
-$lang['MISSION_451'] = 'Vallis Elegantissima';
-$lang['MISSION_452'] = 'Sinus Imperialis';
-$lang['MISSION_453'] = 'Crater Splendens';
-$lang['MISSION_454'] = 'Vallis Superba';
-$lang['MISSION_455'] = 'Sinus Magnifica';
-$lang['MISSION_456'] = 'Crater Campestris';
-$lang['MISSION_457'] = 'Mare Collina';
-
-$lang['MISSION_460'] = 'Sinus Insignis';
-$lang['MISSION_461'] = 'Crater Peregrina';
-$lang['MISSION_462'] = 'Sinus Mutabilis';
-$lang['MISSION_463'] = 'Vallis Spectabilis';
-$lang['MISSION_464'] = 'Mons Thermalis';
-$lang['MISSION_465'] = 'Mare Gracilis';
-$lang['MISSION_466'] = 'Vallis Sinensis';
-$lang['MISSION_467'] = 'Crater Pratensis';
-
-$lang['MISSION_470'] = 'Vallis Mirabilis';
-$lang['MISSION_471'] = 'Crater Umbrosa ';
-$lang['MISSION_472'] = 'Mare Paradoxas';
-$lang['MISSION_473'] = 'Sinus Pulchella';
-$lang['MISSION_474'] = 'Crater Floribunda';
-$lang['MISSION_475'] = 'Vallis Microphylla';
-$lang['MISSION_476'] = 'Mare Parviflora';
-$lang['MISSION_477'] = 'Crater Venusta';
-
-$lang['MISSION_480'] = 'Crater Monstrosus';
-$lang['MISSION_481'] = 'Vallis Septentrionalis';
-$lang['MISSION_482'] = 'Mons Occidentalis';
-$lang['MISSION_483'] = 'Crater Pulcherrima';
-$lang['MISSION_484'] = 'Mare Spectabilis';
-$lang['MISSION_485'] = 'Vallis Regia';
-$lang['MISSION_486'] = 'Sinus Macrantha';
-$lang['MISSION_487'] = 'Crater Caespitosa';
-
 /*
 ** ------------------
 ** MISSION PAGE
@@ -1289,7 +1207,7 @@ $lang['MISSION_COMPLETE_PLANET_1'] = 'Excellent! You completed all moon missions
 $lang['MISSION_COMPLETE_PLANET_2'] = 'Excellent! You completed all mars missions. You received 999 billion dollar bonus.';
 $lang['MISSION_COMPLETE_PLANET_3'] = 'Excellent! You completed all asteroid missions. You received 50 trade points bonus.';
 
-$lang['MISSION_NO_MISSIONS'] = 'No missions available yet!';
+$lang['MISSION_NO_MISSIONS'] = 'No missions available!';
 
 /*
 ** ------------------
@@ -1746,7 +1664,7 @@ $lang['UNIT_NO_UPKEEP'] = 'Not enough hourly income to fund %s %s.';
 $lang['UNIT_NO_MONEY'] = 'Not enough money to buy %s %s for %s dollars.';
 $lang['UNIT_MAX'] = 'No more then %s %s(s) allowed!';
 
-$lang['UNITS_NO_UNITS'] = 'No units available yet!';
+$lang['UNITS_NO_UNITS'] = 'No units available!';
 
 /*
 ** ------------------
@@ -2098,7 +2016,7 @@ $lang['BUILDING_ENERGY'] = 'Energy';
 $lang['BUILDING_INCOME'] = 'Income';
 $lang['BUILDING_REQUIRED'] = 'Required';
 
-$lang['BUILDINGS_NO_BUILDINGS'] = 'No buildings available yet!';
+$lang['BUILDINGS_NO_BUILDINGS'] = 'No buildings available!';
 
 /*
 ** ------------------
@@ -2613,22 +2531,6 @@ $lang['HELP_CREDITS_OTHER_NOTE'] = 'And of course all WarQuest players who sent 
 
 /*
 ** ------------------
-** ALIANCE - CLAN
-** ------------------
-*/
-
-$lang['CLAN_TITLE'] = 'Clan';
-$lang['CLAN_NOTE'] = 'Create or enter a clan to join clan wars.';
-$lang['GENERAL_NAME'] = 'Name';
-$lang['GENERAL_STRENGTH'] = 'Strength';
-$lang['GENERAL_SIZE'] = 'Size';
-$lang['GENERAL_COMMANDER'] = 'Commander';
-$lang['LINK_JOIN'] = 'Join';
-
-$lang['CLAN_LIST_TITLE'] = 'Clan List [%s]';
-
-/*
-** ------------------
 ** RANK DATA
 ** ------------------
 */
@@ -2932,6 +2834,44 @@ $landcode['yt'] = "Mayotte";
 $landcode['za'] = "South Africa";
 $landcode['zm'] = "Zambia";
 $landcode['zw'] = "Zimbabwe";
+
+/*
+** ------------------
+** ALIANCE - CLAN
+** ------------------
+*/
+
+$lang['GENERAL_NAME'] = 'Name';
+$lang['GENERAL_STRENGTH'] = 'Strength';
+$lang['GENERAL_MEMBERS'] = 'Members';
+$lang['GENERAL_NR'] = 'Nr';
+$lang['GENERAL_JOINED'] = 'Joined';
+$lang['GENERAL_POSITION'] = 'Position';
+$lang['GENERAL_CREATOR'] = 'Creator';
+$lang['GENERAL_CREATED'] = 'Created';
+
+$lang['LINK_JOIN'] = 'Join';
+$lang['LINK_LEAVE'] = 'Leave';
+
+$lang['CLAN_TITLE'] = 'Clan';
+$lang['CLAN_NOTE'] = 'Create or join a clan to enter clan wars. Each player can only be part of one clan.';
+$lang['CLAN_ADD'] = 'Add Clan';
+$lang['CLAN_CREATE'] = 'New clan name';
+$lang['CLAN_LEAVE'] = 'You left then clan';
+$lang['CLAN_JOINED'] = 'You join the clan';
+$lang['CLAN_NOT_PART'] = 'You are not a member of the clan!';
+$lang['CLAN_ALL_PART'] = 'You already joined a clan!';
+$lang['CLAN_CREATE_NOTE'] = 'Create a new clan by entering an unique name. It takes 1 skill point to create a clan.';
+$lang['CLAN_NAME_TOO_SHORT'] = 'The clan name is too short!';
+$lang['CLAN_NAME_TOO_LONG'] = 'The clan name is too long!';
+$lang['CLAN_NAME_EXIST'] = 'Clan name [%s] already exist!';
+$lang['CLAN_NO_CLANS'] = 'No clan available yet';
+$lang['CLAN_NO_MEMBERS'] = 'No clan members yet';
+$lang['CLAN_CREATED'] = 'Clan [%s] created!';
+$lang['CLAN_NO_SKILL_POINT'] = 'You need 1 skill point to create a new clan.';
+
+$lang['CLAN_LIST_TITLE'] = 'Clan List [%s]';
+
 	
 /*
 ** ------------------

@@ -1283,9 +1283,11 @@ function warquest_db_session_hack($pid) {
 	$query  = 'select session_id from session where pid='.$pid;
 	$result = warquest_db_query($query);
 	
-	if ($data=warquest_db_fetch_object($result)) {
+	if ($data = warquest_db_fetch_object($result)) {
 		return $data->session_id;
+		
 	} else {
+	
 		return warquest_db_session_add($pid);
 	}
 }
@@ -1310,7 +1312,7 @@ function warquest_db_bonus($pid, $bonus_id) {
 		
 	$result = warquest_db_query($query);
 	
-	$count=warquest_db_num_rows($result);
+	$count = warquest_db_num_rows($result);
 	
 	return $count;
 }
@@ -1323,10 +1325,18 @@ function warquest_db_bonus($pid, $bonus_id) {
 
 function warquest_db_clan_insert($name, $pid) {
 
-	$query  = 'insert into clan (name, pid) values (';
-	$query .= $name.','.$pid.',"'.date("Y-m-d H:i:s", time()).'")';	
+	$query  = 'insert into clan (name, pid, date) values ("';
+	$query .= $name.'",'.$pid.',"'.date("Y-m-d", time()).'")';	
+		
+	warquest_db_query($query);
 	
-	return warquest_db_query($query);
+	$query  = 'select cid from clan where name="'.$name.'"'; 
+
+	$result = warquest_db_query($query);
+	
+	$data = warquest_db_fetch_object($result);
+	
+	return $data->cid;
 }
 
 function warquest_db_clan_update($cid, $name) {
@@ -1353,6 +1363,28 @@ function warquest_db_clan($cid) {
 	$data =  warquest_db_fetch_object($result);
 	
 	return $data;
+}
+
+/*
+** ---------------------
+** PLAYER_CLAN
+** ---------------------
+*/
+
+function warquest_db_player_clan_insert($pid, $cid) {
+
+	$query  = 'insert into player_clan (pid, cid, date) values (';
+	$query .= $pid.','.$cid.',"'.date("Y-m-d", time()).'")';	
+	
+	return warquest_db_query($query);
+}
+
+
+function warquest_db_player_clan_delete($pid, $cid) {
+	
+	$query  = 'delete from player_clan where pid='.$pid.' and cid="'.$cid.'"';
+	
+	warquest_db_query($query); 
 }
 
 /*
