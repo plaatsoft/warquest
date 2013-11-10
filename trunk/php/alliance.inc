@@ -891,7 +891,7 @@ function warquest_clan_form() {
 	$page .= t('CLAN_CREATE_NOTE');
 	$page .= '</div>';
 	
-	$query  = 'select a.cid, a.name, a.date, a.pid, ';
+	$query  = 'select a.cid, a.name, a.date, a.won, a.lost, a.pid, ';
 	$query .= '(select name from player where pid=a.pid) as name2, ';
 	$query .= '(select country from player where pid=a.pid) as country2, ';
 	$query .= '(select count(*) from player_clan where cid=a.cid) as size, ';
@@ -913,11 +913,19 @@ function warquest_clan_form() {
 		$page .= t('GENERAL_NAME');
 		$page .= '<b/></td>';
 		
-		$page .= '<td width="100"><b>';
-		$page .= t('GENERAL_MEMBERS');
+		$page .= '<td width="80"><b>';
+		$page .= t('GENERAL_SIZE');
 		$page .= '<b/></td>';
-						
-		$page .= '<td width="180"><b>';
+		
+		$page .= '<td width="80"><b>';
+		$page .= t('GENERAL_WON');
+		$page .= '<b/></td>';
+
+		$page .= '<td width="80"><b>';
+		$page .= t('GENERAL_LOST');
+		$page .= '<b/></td>';		
+				
+		$page .= '<td width="120"><b>';
 		$page .= t('GENERAL_CREATOR');
 		$page .= '</b></td>';
 		
@@ -937,6 +945,14 @@ function warquest_clan_form() {
 					
 			$page .= '<td>';
 			$page .= $data->size;
+			$page .= '</td>';
+			
+			$page .= '<td>';
+			$page .= number_format($data->won,0,",",".");
+			$page .= '</td>';
+			
+			$page .= '<td>';
+			$page .= number_format($data->lost,0,",",".");
 			$page .= '</td>';
 									
 			$page .= '<td>';

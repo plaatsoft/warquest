@@ -425,7 +425,8 @@ INSERT INTO sector (`sid`, `x`, `y`, `cid`, `planet`, `strength`) VALUES
 (375, 4, 14, 0, 3, 0);
 
 
-
+ALTER TABLE clan ADD `win` INT NOT NULL AFTER `pid` ,
+ADD `lost` INT NOT NULL AFTER `win`;
 
 
 			
