@@ -1270,7 +1270,7 @@ function warquest_db_session_valid( $session_id ) {
 			warquest_error($member->username.' session timeout');		
 			warquest_info('logout (session timeout) ['.$data->pid.']');
 		
-			warquest_db_session_delete($id);
+			warquest_db_session_delete($session_id);
 			return 0;
 		}
 	
@@ -1375,8 +1375,20 @@ function warquest_db_clan_delete($cid) {
 function warquest_db_clan($cid) {
 
 	$query  = 'select cid, name, date, won, lost, pid from clan where cid='.$cid;	
+	
 	$result = warquest_db_query($query);
-	return  warquest_db_fetch_object($result);
+	
+	$data = warquest_db_fetch_object($result);
+	
+	if (!isset($data->cid)) {
+		
+		$data->name="";
+		$data->cid=0;
+		$data->won=0;
+		$data->lost=0;		
+	}
+	
+	return $data;
 }
 
 /*
