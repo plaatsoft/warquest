@@ -1007,9 +1007,13 @@ function warquest_clan_form() {
 			
 			$page .= '<td>';
 
-			if (isset($player_clan->cid)) {				
+			if (isset($player_clan->cid)) {		
 			
-				$page .= warquest_link('mid='.$mid.'&sid='.PAGE_CLAN.'&cid='.$data->cid.'&eid=7', t('LINK_LEAVE'));			
+				if ($data->cid == $player_clan->cid) {
+			
+					$page .= warquest_link('mid='.$mid.'&sid='.PAGE_CLAN.'&cid='.$data->cid.'&eid=7', t('LINK_LEAVE'));			
+				
+				}
 				
 			} else {
 			
