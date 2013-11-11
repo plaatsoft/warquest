@@ -1215,7 +1215,7 @@ $lang['BATTLE_UNITS_LOST'] = 'During the battle you lost the following unit(s):'
 $lang['BATTLE_BUILDINGS_LOST'] = 'During the battle you lost the following building(s):';
 $lang['BATTLE_DEFENSE_FORCE'] = '%s %s defense %s (%s defense strength):'; 
 $lang['BATTLE_DEFENSE_BASE'] = '%s defence base:'; 
-$lang['BATTLE_ATTACK_FORCE'] = 'Your %s attack %s (%s attack strength)';
+$lang['BATTLE_ATTACK_FORCE'] = 'Your %s attack %s (%s attack strength):';
 $lang['BATTLE_MORE'] = 'more';
 $lang['BATTLE_NO_PLAYER_AVAILABLE'] = 'At the moment no player(s) are available for battles.';
 $lang['BATTLE_UNLOCKED'] = 'Battle is unlocked at level 1.<br/>Complete the training mission first.';
@@ -2856,11 +2856,12 @@ $lang['BATTLE_SECTOR_ALL_CONQUERED'] = 'Sector all ready conquered!';
 $lang['BATTLE_NO_CLAN'] = 'You are not part of a clan. Attack aborted!';
 $lang['BATTLE_NOTE_CLAN_WAR'] = 'Note: Select a planet sector which you want to conquer. To take over a planet sector your clan must win 10 times.'; 
 
-$lang['BATTLE_CLAN_WON'] = 'Your %s clan %s attacked the %s clan. You won the battle, taking %s damage and gain %s experience points. ';
-$lang['BATTLE_CLAN_SECTOR_DAMAGE'] = 'Sector defence is %s% damaged.';
+$lang['BATTLE_CLAN_WON'] = 'Your clan %s attacked the %s clan. You won the battle, taking %s damage and gain %s experience points. ';
+$lang['BATTLE_CLAN_SECTOR_DAMAGE'] = 'Sector defence is %s % damaged.';
 $lang['BATTLE_CLAN_SECTOR_CONQUER'] = 'Briljant. You conquered the sector.';
-$lang['BATTLE_CLAN_LOST'] = 'Your %s clan %s attacked the %s clan. You lost the battle, taking %s damage. ';
+$lang['BATTLE_CLAN_LOST'] = 'Your clan %s attacked the %s clan. You lost the battle, taking %s damage. ';
 
+$lang['BATTLE_CLAN_ATTACK_FORCE'] = 'Your clan %s attack %s (%s attack strength):';
 $lang['BATTLE_CLAN_DEFENSE_FORCE'] = '%s %s clan defense %s (%s defense strength):'; 
 $lang['BATTLE_CLAN_DEFENSE_BASE'] = '%s clan defence base:'; 
 
