@@ -20,7 +20,7 @@ $notes = '
 
 <span class="subparagraph2">11-11-2013</span><br/>
 <i>Game Server v5.8</i><br/>
-- Added clan wars to WarQuest.
+- Added clan wars to WarQuest.<br>
 - Added basic Battle -> Clan-Wars battle section.<br>
 - Added basic Alliance -> Clan configuration section.<br>
 - Added help clan wars section.</br></br>
