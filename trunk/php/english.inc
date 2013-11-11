@@ -140,7 +140,6 @@ $lang['LINK_ACCEPT'] = 'Accept';
 $lang['LINK_REJECT'] = 'Reject';
 $lang['LINK_SEND'] = 'Send';
 $lang['LINK_RESET']  = 'Reset';
-$lang['LINK_CLAN'] = 'Clan';
 
 /* Forum */
 $lang['LINK_FORUM']  = 'Forums';
@@ -823,16 +822,6 @@ $lang['MISSION_GROUP_36'] = 'George';
 $lang['MISSION_GROUP_37'] = 'Harry';
 $lang['MISSION_GROUP_38'] = 'Isaac';
 
-/* Sun Missions */
-$lang['MISSION_GROUP_40'] = 'Achilles';
-$lang['MISSION_GROUP_41'] = 'Baltazar';
-$lang['MISSION_GROUP_42'] = 'Calypso';
-$lang['MISSION_GROUP_43'] = 'Dagon';
-$lang['MISSION_GROUP_44'] = 'Eber';
-$lang['MISSION_GROUP_45'] = 'Fergus';
-$lang['MISSION_GROUP_46'] = 'Gaspar';
-$lang['MISSION_GROUP_47'] = 'Hecate';
-$lang['MISSION_GROUP_48'] = 'Icarus';
 
 /* Earth */
 $lang['MISSION_0'] = 'Training mission';
@@ -1171,8 +1160,6 @@ $lang['MISSION_387'] = 'Crater Caespitosa';
 
 $lang['MISSION_TITLE'] = 'MISSIONS';
 
-$lang['MISSION_SUN'] = 'These missions are played toyether will all WarLords!';
-
 $lang['MISSION_NOTE'] = 'Note: Play missions to gain money and experience points to reach the next level. When a mission is 100% completed you will gain double money. If you conquered 100% the %s continent your hourly income will increase with %s dollars.';
 
 $lang['MISSION_ALLIANCE_SIZE'] = 'alliance size';
@@ -1218,7 +1205,6 @@ $lang['MISSION_NO_MISSIONS'] = 'No missions available!';
 $lang['BATTLE_TITLE'] = 'BATTLE';
 $lang['BATTLE_GENERAL_TITLE'] = 'Battle';
 $lang['BATTLE_BOUNTY_TITLE'] = 'Bounty Hunting';
-
 
 $lang['BATTLE_LOST'] = 'Your %s attacked %s. You lost the battle, taking %s damage, while dealing %s to %s.';
 $lang['BATTLE_WON'] = 'Your %s attacked %s. You won the battle, taking %s damage while dealing %s to %s. You took %s dollars and gain %s experience points.';
@@ -1273,14 +1259,6 @@ an alien race which is even more thirsty for war and even more deadly. It is upt
 ( players at level 249 or higher ) to resist their invasion further into our solar system. So all Warlords 
 form a UNION and with their combined forces begin a war against the unkown but deadly alien race!';
 
-$lang['BATTLE_CLAN_WAR_TITLE'] = 'Clan War';
-$lang['BATTLE_CLAN_WAR'] = 'Clan-War';
-$lang['BATTLE_SECTOR_ALL_CONQUERED'] = 'Sector all ready conquered';
-$lang['BATTLE_NO_CLAN'] = 'You are not part of a clan. Attack aborted!';
-$lang['BATTLE_CLAN_BATTLE_WON'] = 'You won the battle, You conquered the sector.';
-$lang['BATTLE_CLAN_BATTLE_LOST'] = 'You lost the battle!';
-$lang['BATTLE_NOTE_CLAN_WAR'] = 'Note: Select a sector which you want to conquer!'; 
-
 /*
 ** ------------------
 ** UNIT DATA
@@ -1319,13 +1297,7 @@ $lang['UNIT_GROUP_22']  = 'Explorers';
 $lang['UNIT_GROUP_23'] 	= 'Citizens';
 $lang['UNIT_GROUP_24'] 	= 'Army';
 
-/* Sun */
-$lang['UNIT_GROUP_25']  = 'Drones';
-$lang['UNIT_GROUP_26']  = 'Warriors';
-$lang['UNIT_GROUP_27']  = 'Spacecrafts';
-$lang['UNIT_GROUP_28']  = 'Explorers';
-$lang['UNIT_GROUP_29'] 	= 'Citizens';
-$lang['UNIT_GROUP_30'] 	= 'Army';
+/* ---------------------------------------------------- */
 
 /* Calvary (Earth) - Group 2 */
 $lang['UNIT_1'] = 'Minigunner';
@@ -1458,6 +1430,7 @@ $lang['UNIT_510'] = 'US-101 Predator';
 $lang['UNIT_511'] = 'Heron Drone';
 $lang['UNIT_512'] = 'HG101 Satellite';
 
+/* ---------------------------------------------------- */
 
 /* Warriors (Moon) - Group 7 */
 $lang['UNIT_700'] = 'Ahiga I';
@@ -1524,6 +1497,7 @@ $lang['UNIT_1209'] = 'Lightspeed Explorer';
 $lang['UNIT_1210'] = 'Planet Destroyer';
 $lang['UNIT_1211'] = 'Galaxy Explorer';
 
+/* ---------------------------------------------------- */
 
 /* Drones (Mars) - Group 13 */
 $lang['UNIT_1300'] = 'Loyce I';
@@ -1578,6 +1552,7 @@ $lang['UNIT_1700'] = 'Astronaut';
 $lang['UNIT_1701'] = 'Female';
 $lang['UNIT_1702'] = 'Male';
 
+/* ---------------------------------------------------- */
 
 /* Warriors (Asteroid) - Group 19 */
 $lang['UNIT_1900'] = 'Swify I';
@@ -1661,11 +1636,6 @@ $lang['UNIT_NOTE_20'] = 'Note: Buy asteroid warrior units to improve your warrio
 $lang['UNIT_NOTE_21'] = 'Note: Buy asteroid spacecraft units to improve your spacecraft force strength. Battle, win and steal money from your opponent\'s cash account.';
 $lang['UNIT_NOTE_22'] = 'Note: Buy asteroid explore units to improve your explorers force strength. Batlle, win to start rebellions on Asteroid and steal some money from your opponent\'s Trasquera or SwissCore bank account.';
 
-$lang['UNIT_NOTE_25'] = 'Note: Buy sun drone units to improve your drone force strength.';
-$lang['UNIT_NOTE_26'] = 'Note: Buy sun warrior units to improve your warrior force strenght.';
-$lang['UNIT_NOTE_27'] = 'Note: Buy sun spacecraft units to improve your spacecraft force strength.';
-$lang['UNIT_NOTE_28'] = 'Note: Buy sun explore units to improve your explorers force strength.';
-
 $lang['UNIT_DISBAND'] = 'You disbanded %s %s for %s dollars. Still %s deployed.';
 $lang['UNIT_DISBAND_FAILED'] = 'You do not own %s %s. Still %s deployed.';
 
@@ -1710,12 +1680,7 @@ $lang['BUILDING_GROUP_18'] = 'Energy';
 $lang['BUILDING_GROUP_19'] = 'Discount';
 $lang['BUILDING_GROUP_20'] = 'Maintenance';
 
-/* Sun Buildings */
-$lang['BUILDING_GROUP_21'] = 'Income';
-$lang['BUILDING_GROUP_22'] = 'Defence';
-$lang['BUILDING_GROUP_23'] = 'Energy';
-$lang['BUILDING_GROUP_24'] = 'Discount';
-$lang['BUILDING_GROUP_25'] = 'Maintenance';
+/* ------------------------------------------------------ */
 
 /* Income (Earth) - Group 1 */
 $lang['BUILDING_1']  = 'Supply Depot';
@@ -1780,6 +1745,8 @@ $lang['BUILDING_47'] = 'Building maintenance';
 $lang['BUILDING_48'] = 'Submarine dock';
 $lang['BUILDING_49'] = 'Power facility maintenance';
 $lang['BUILDING_50'] = 'Airplane hangar';
+
+/* ------------------------------------------------------ */
 
 /* Income (Moon) - Group 6 */
 $lang['BUILDING_600'] = 'General base';
@@ -1852,6 +1819,8 @@ $lang['BUILDING_1007'] = 'Unit repair center';
 $lang['BUILDING_1008'] = 'Power repair center';
 $lang['BUILDING_1009'] = 'Robot repair center';
 
+/* ------------------------------------------------------ */
+
 /* Income (Mars) - Group 11 */
 $lang['BUILDING_1100'] = 'General base';
 $lang['BUILDING_1101'] = 'Research center';
@@ -1911,6 +1880,8 @@ $lang['BUILDING_1506'] = 'Infra repair center';
 $lang['BUILDING_1507'] = 'Unit repair center';
 $lang['BUILDING_1508'] = 'Power repair center';
 $lang['BUILDING_1509'] = 'Robot repair center';
+
+/* ------------------------------------------------------ */
 
 /* Income (Asteroid) - Group 16 */
 $lang['BUILDING_1600'] = 'General base';
@@ -2002,12 +1973,6 @@ $lang['BUILDING_NOTE17'] = 'Note: Defence buildings provide higher defence again
 $lang['BUILDING_NOTE18'] = 'Note: Energy buildings provide faster energy recovery for your asteroid base.';
 $lang['BUILDING_NOTE19'] = 'Note: Discount buildings provide price discount on your asteroid building purchase.';
 $lang['BUILDING_NOTE20'] = 'Note: Maintenance buildings provide faster asteroid unit repair wich results in less unit loss during battles.';
-
-$lang['BUILDING_NOTE21'] = 'Note: Income buildings provide higher income for your sun base.';
-$lang['BUILDING_NOTE22'] = 'Note: Defence buildings provide higher defence against attacks on your sun base.';
-$lang['BUILDING_NOTE23'] = 'Note: Energy buildings provide faster energy recovery for your sun base.';
-$lang['BUILDING_NOTE24'] = 'Note: Discount buildings provide price discount on your sun building purchase.';
-$lang['BUILDING_NOTE25'] = 'Note: Maintenance buildings provide faster sun unit repair wich results in less unit loss during battles.';
 
 $lang['BUILDING_SELL'] = 'You sold %s %s for %s dollars. Still %s deployed.';
 $lang['BUILDING_LOW_UPKEEP'] = 'Not enough hourly income to sell %s %s for %s dollars.';
@@ -2847,9 +2812,11 @@ $landcode['zw'] = "Zimbabwe";
 
 /*
 ** ------------------
-** ALIANCE - CLAN
+** CLAN WARS
 ** ------------------
 */
+
+$lang['PLAYER_CLAN_NAME'] = 'Clan';
 
 $lang['GENERAL_NAME'] = 'Name';
 $lang['GENERAL_STRENGTH'] = 'Strength';
@@ -2862,6 +2829,7 @@ $lang['GENERAL_CREATED'] = 'Created';
 
 $lang['LINK_JOIN'] = 'Join';
 $lang['LINK_LEAVE'] = 'Leave';
+$lang['LINK_CLAN'] = 'Clan';
 
 $lang['CLAN_TITLE'] = 'Clan';
 $lang['CLAN_NOTE'] = 'Create or join a clan to enter clan wars. Each player can only be part of one clan.';
@@ -2882,7 +2850,23 @@ $lang['CLAN_NO_SKILL_POINT'] = 'You need 1 skill point to create a new clan.';
 
 $lang['CLAN_LIST_TITLE'] = 'Clan List [%s]';
 
-	
+$lang['BATTLE_CLAN_WAR_TITLE'] = 'Clan War';
+$lang['BATTLE_CLAN_WAR'] = 'Clan-War';
+$lang['BATTLE_SECTOR_ALL_CONQUERED'] = 'Sector all ready conquered!';
+$lang['BATTLE_NO_CLAN'] = 'You are not part of a clan. Attack aborted!';
+$lang['BATTLE_NOTE_CLAN_WAR'] = 'Note: Select a planet sector which you want to conquer. To take over a planet sector your clan must win 10 times.'; 
+
+$lang['BATTLE_CLAN_WON'] = 'Your %s clan %s attacked the %s clan. You won the battle, taking %s damage and gain %s experience points. ';
+$lang['BATTLE_CLAN_SECTOR_DAMAGE'] = 'Sector defence is %s% damaged.';
+$lang['BATTLE_CLAN_SECTOR_CONQUER'] = 'Briljant. You conquered the sector.';
+$lang['BATTLE_CLAN_LOST'] = 'Your %s clan %s attacked the %s clan. You lost the battle, taking %s damage. ';
+
+$lang['BATTLE_CLAN_DEFENSE_FORCE'] = '%s %s clan defense %s (%s defense strength):'; 
+$lang['BATTLE_CLAN_DEFENSE_BASE'] = '%s clan defence base:'; 
+
+$lang['HELP_CLAN_WAR_TITLE'] = 'Clan War';
+$lang['HELP_CLAN_WAR'] =	'Fight other clans to conquer all planet sectors. To take over a planet sector your clan must win 10 times. Each occupied planet sector will generate extra income on a daily basis. So WarQuest clan players go for world domination!';
+
 /*
 ** ------------------
 ** THE END

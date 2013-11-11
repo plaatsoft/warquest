@@ -351,22 +351,22 @@ function warquest_db_unit_delete($pid, $uid, $amount, $direct=0) {
 		warquest_db_query($query);
 	}
 }
-		
+
 /*
 ** -----------------
-** BUILDING_GROUP
+** UNIT_GROUP
 ** -----------------
 */
 
-function warquest_db_building_group($bgid) {
+function warquest_db_unit_group($ugid) {
 			
-	$query  = 'select planet, sell from building_group where bgid='.$bgid; 
+	$query  = 'select type from unit_group where ugid='.$ugid;
 	$result = warquest_db_query($query);
 	$data = warquest_db_fetch_object($result);
 	
 	return $data;
 }
-
+		
 /*
 ** -----------------
 ** BUILDING
@@ -459,6 +459,21 @@ function warquest_db_building_delete($pid, $bid, $amount, $direct=0) {
 	
 		warquest_db_query($query);
 	}
+}
+
+/*
+** -----------------
+** BUILDING_GROUP
+** -----------------
+*/
+
+function warquest_db_building_group($bgid) {
+			
+	$query  = 'select planet, sell from building_group where bgid='.$bgid; 
+	$result = warquest_db_query($query);
+	$data = warquest_db_fetch_object($result);
+	
+	return $data;
 }
 
 /* -----------------
@@ -1347,24 +1362,21 @@ function warquest_db_clan_update($data) {
 	$query .= 'lost = '.$data->lost.' ';	
 	$query .= "where cid=".$data->cid; 
 	
-	warquest_db_query($query);  
+	return warquest_db_query($query);  
 }
 
 function warquest_db_clan_delete($cid) {
 	
 	$query  = 'delete from clan where cid="'.$cid.'"';
 	
-	warquest_db_query($query); 
+	return warquest_db_query($query); 
 }
 
 function warquest_db_clan($cid) {
 
-	$query  = 'select cid, pid, name, date, won, lost from clan where cid='.$cid;
-	
+	$query  = 'select cid, name, date, won, lost, pid from clan where cid='.$cid;	
 	$result = warquest_db_query($query);
-	$data =  warquest_db_fetch_object($result);
-	
-	return $data;
+	return  warquest_db_fetch_object($result);
 }
 
 /*
@@ -1372,6 +1384,14 @@ function warquest_db_clan($cid) {
 ** PLAYER_CLAN
 ** ---------------------
 */
+
+function warquest_db_player_clan($pid) {
+
+	$query  = 'select pid, cid from player_clan where pid ='.$pid;
+
+	$result = warquest_db_query($query);
+	return warquest_db_fetch_object($result);
+}
 
 function warquest_db_player_clan_insert($pid, $cid) {
 
@@ -1381,12 +1401,11 @@ function warquest_db_player_clan_insert($pid, $cid) {
 	return warquest_db_query($query);
 }
 
-
 function warquest_db_player_clan_delete($pid, $cid) {
 	
 	$query  = 'delete from player_clan where pid='.$pid.' and cid="'.$cid.'"';
 	
-	warquest_db_query($query); 
+	return warquest_db_query($query); 
 }
 
 /*
@@ -1395,13 +1414,22 @@ function warquest_db_player_clan_delete($pid, $cid) {
 ** ---------------------
 */
 
-function warquest_db_sector_update($cid, $sid) {
+function warquest_db_sector($sid) {
+
+	$query = 'select sid, x, y, cid, damage from sector where sid='.$sid;
+	$result = warquest_db_query($query);	
+	
+	return warquest_db_fetch_object($result);	
+}
+	
+function warquest_db_sector_update($data) {
 
 	$query  = "update sector set "; 
-	$query .= 'cid='.$cid.' ';
-	$query .= "where sid=".$sid; 
+	$query .= 'damage='.$data->damage.', ';
+	$query .= 'cid='.$data->cid.' ';
+	$query .= "where sid=".$data->sid; 
 	
-	warquest_db_query($query);  
+	return warquest_db_query($query);  
 }
 
 /*

@@ -185,7 +185,7 @@ $myfeed->SetChannel('http://www.warquest.nl',
 	'WarQuest',
 	'WarQuest player comments feed',
 	'en-us',
-	'Copyrights 2008-2011 - PlaatSoft - All Rights Reserved',
+	'Copyrights 2008-2013 - PlaatSoft - All Rights Reserved',
 	'PlaatSoft',
 	'WarQuest comments feed');
 $myfeed->SetImage($config["content_url"].'images/WarQuest.jpg');

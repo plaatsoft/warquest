@@ -38,6 +38,9 @@ if (isset($_POST['force']) && $_POST['force'] != "") {
 ** -----------
 */
 
+/*
+** Robot trade 
+*/
 function warquest_robot_trade($other, $planet) {
 
 	if ($other->country!="EU") {
@@ -207,7 +210,7 @@ function warquest_robot_trade($other, $planet) {
 }
 
 /**
- * Battle other player
+ * Battle robot player
  */
 function warquest_robot_battle($player, $other) {
 	  
@@ -228,8 +231,8 @@ function warquest_robot_battle($player, $other) {
 		}
 		
 		/* Prevent to big money wins */
-		if ($money > 1500000000) {
-			$money = 1500000000 + rand(10000, 600000);
+		if ($money > $config["max_money_win"] ) {
+			$money = $config["max_money_win"]  + rand(10000, 600000);
 		}
 							
 		$health_winner = rand(1,10);
@@ -334,7 +337,10 @@ function warquest_robot_battle($player, $other) {
 	}
 }
 
-function warquest_battle_sound() {
+/** 
+ * Battle sound 
+ */
+ function warquest_battle_sound() {
 
 	/* input */
 	global $player;
@@ -372,59 +378,55 @@ function warquest_battle_sound() {
 /** 
  * Battle show attack army 
  */
-function warquest_show_attack_army($data, $ugid) {
+function warquest_show_attack_army($data2, $ugid) {
 
    /* input */
 	global $mid;
-	global $browser;
 	global $player;
 	
-	$query2  = 'select type from unit_group where ugid='.$ugid;
-	$result2 = warquest_db_query($query2);	
-	$data2 = warquest_db_fetch_object($result2);
-		
+	$unit_group = warquest_db_unit_group($ugid);
+			
 	$page = '<br/>';
 	$page .= t('BATTLE_ATTACK_FORCE', 
 		strtolower(t('GENERAL_PLANET_'.$player->planet)),
 		strtolower(t('UNIT_GROUP_'.$ugid)),
-		warquest_link('mid='.$mid.'&sid='.PAGE_ATTACK.'&oid='.$data->pid.'&uid='.$data2->type,
-						    number_format(warquest_attack_strength($data, $ugid),0,",","."), "attack_strenght"));
+		warquest_link('mid='.$mid.'&sid='.PAGE_ATTACK.'&oid='.$data2->pid.'&uid='.$unit_group->type,
+						    number_format(warquest_attack_strength($data2, $ugid),0,",","."), "attack_strenght"));
 	$page .= '<br/>';
 	$page .= '<table>';
 	$page .= '<tr>';	
-	
-	
+		
 	/* Calculate attack strength of units depending of alliance size */
-	$query  = 'select a.uid, a.attack, a.defense, b.amount, a.upkeep ';
+	$query  = 'select a.uid, a.attack, a.defense, a.upkeep, b.amount ';
 	$query .= 'from unit a, player_unit b where ';
-   $query .= 'a.uid=b.uid and b.pid='.$data->pid.' ';
+   $query .= 'a.uid=b.uid and b.pid='.$data2->pid.' ';
 		
 	switch ($ugid) {
 	
-		case 0:  $query .=' and a.ugid between 1 and 4';
+		case 0:  $query .='and a.ugid between 1 and 4 ';
 					break;
 					 
-		case 11: $query .= ' and a.ugid between 7 and 9';
+		case 11: $query .= 'and a.ugid between 7 and 9 ';
 					break;
 
-		case 18: $query .= ' and a.ugid between 13 and 15';
+		case 18: $query .= 'and a.ugid between 13 and 15 ';
 					break;
 					
-		case 24: $query .= ' and a.ugid between 19 and 21';
+		case 24: $query .= 'and a.ugid between 19 and 21 ';
 					break;
 					
-		default: $query .= ' and a.ugid='.$ugid;
+		default: $query .= 'and a.ugid='.$ugid.' ';
 					break;
 	}
 	
-	$query .= ' order by a.attack desc, a.defense desc';
+	$query .= 'order by a.attack desc, a.defense desc';
 	$result = warquest_db_query($query);	
 
 	$amount = 0;
    $count = 0;
-	$size= $data->alliance * 6;
+	$size= $data2->alliance * 6;
 		
-	$max=10;
+	$max = 10;
 	while ($data = warquest_db_fetch_object($result)) {
 					
 		if ($size >= $data->amount) {
@@ -435,8 +437,7 @@ function warquest_show_attack_army($data, $ugid) {
 		} else {
 		
 			$amount = $size;
-			$size -= $size;
-			
+			$size -= $size;			
 		}
 
 		$page .= '<td width="45" >';		
@@ -454,51 +455,137 @@ function warquest_show_attack_army($data, $ugid) {
 			$page .= '<tr>';			
 		}
 	}
-	$page .= '</td>';
+
 	$page .= '</tr>';
 	$page .= '</table>';	
 	
 	return $page;
 }
 
+function warquest_show_defense_clan_army($player_cid, $other_cid, $ugid) {
+
+	global $player;
+	global $mid;
+	global $sid;
+	
+	$size = warquest_clan_size($player_cid, $other_cid);
+		
+	$clan = warquest_db_clan($other_cid);
+
+	$query = 'select pid from player_clan where cid='.$other_cid;
+	$result = warquest_db_query($query);	
+	
+	$tmp = "";
+	while ($data = warquest_db_fetch_object($result)) {
+		if (strlen($tmp)>0) {
+			$tmp.=',';
+		}
+		$tmp .= $data->pid;
+	}
+	
+	/* show clan defense force */
+	$page = '<br/><br/>';
+	$page = t('BATTLE_CLAN_DEFENSE_FORCE', 
+		clan_format($clan), 
+		strtolower(t('GENERAL_PLANET_'.$player->planet)),
+		strtolower(t('UNIT_GROUP_'.$ugid)),
+		warquest_link('mid='.$mid.'&sid='.PAGE_DEFENCE.'&cid='.$other_cid, 
+							number_format(warquest_clan_defense_strength($player_cid, $other_cid, $ugid),0,",","."), "defense_strength"));
+							
+							
+	/* show clan defense base (buildings) */
+	$query  = 'select a.bid, a.ugid, a.energy, a.income, a.defense, a.discount, sum(b.amount) as amount ';
+	$query .= 'from building a, player_building b where ';
+   $query .= 'a.bid=b.bid and b.pid in ('.$tmp.') and a.defense>0 ';
+	
+	switch ($ugid) {
+	
+		case 0:  $query .= 'and a.ugid in (0, 1, 2, 3) ';
+					break;
+					
+		case 11: $query .= 'and a.ugid in (7, 8, 9) ';
+					break;
+		
+		case 18: $query .= 'and a.ugid in (13, 14, 15) ';
+					break;
+					
+		case 24: $query .= 'and a.ugid between 19 and 21 ';
+					break;
+					
+		default: $query .= 'and a.ugid='.$ugid.' ';
+					break;
+	}		
+	$query .= 'group by a.bid order by a.defense desc';
+	
+	$result = warquest_db_query($query);	
+	$count = warquest_db_num_rows($result);
+	
+	$max = 10;
+	if ($count>0) {
+		$page .= '<br/>';
+		$page .= '<br/>';
+		$page .= t('BATTLE_CLAN_DEFENSE_BASE', clan_format($clan).' '.strtolower(t('GENERAL_PLANET_'.$player->planet)));
+		$page .= '<br/>';
+
+		$page .= '<table>';
+		$page .= '<tr>';	
+	
+		$count=0;
+		while ($data = warquest_db_fetch_object($result)) {
+							
+			$page .= '<td width="45" align="left">';
+			$page .= warquest_building_image($data, 0, 1, 45, 32);	
+			$page .= '<br/><center>'.$data->amount.'x</center>';
+			$page .= '</td>';
+				
+			if ((++$count%$max)==0) {
+					
+				$page .= '</tr>';
+				$page .= '<tr>';			
+			}
+		}
+		$page .= '</tr>';
+		$page .= '</table>';		
+	}
+	
+	return $page;
+}
+
 /** 
- * Battle show defense army 
+ * Battle show defend army 
  */
  function warquest_show_defense_army($data2, $ugid) {
 
    /* input */
 	global $mid;
-	global $browser;
 	global $player;
 		
-	$query3  = 'select type from unit_group where ugid='.$ugid;
-	$result3 = warquest_db_query($query3);	
-	$data3 = warquest_db_fetch_object($result3);
-	
+	$unit_group = warquest_db_unit_group($ugid);
+		
 	/* show defense units */
-	$query =  'select a.uid, a.attack, a.defense, b.amount, a.upkeep ';
+	$query =  'select a.uid, a.attack, a.defense, a.upkeep, b.amount ';
 	$query .= 'from unit a, player_unit b where ';
-   $query .= 'a.uid=b.uid and b.pid='.$data2->pid;
+   $query .= 'a.uid=b.uid and b.pid='.$data2->pid.' ';
 	
 	switch ($ugid) {
 	
-		case 0:  $query .=' and a.ugid between 1 and 4';
+		case 0:  $query .='and a.ugid between 1 and 4 ';
 					break;
 					 
-		case 11: $query .= ' and a.ugid between 7 and 9';
+		case 11: $query .= 'and a.ugid between 7 and 9 ';
 					break;
 
-		case 18: $query .= ' and a.ugid between 13 and 15';
+		case 18: $query .= 'and a.ugid between 13 and 15 ';
 					break;
 					
-		case 24: $query .= ' and a.ugid between 19 and 21';
+		case 24: $query .= 'and a.ugid between 19 and 21 ';
 					break;
 					
-		default: $query .= ' and a.ugid='.$ugid;
+		default: $query .= 'and a.ugid='.$ugid.' ';
 					break;
 	}
 	
-	$query .= ' order by a.defense desc, a.attack desc';
+	$query .= 'order by a.defense desc, a.attack desc';
 	$result = warquest_db_query($query);	
 
 	$amount = 0;
@@ -509,7 +596,8 @@ function warquest_show_attack_army($data, $ugid) {
 		$data2->name, 
 		strtolower(t('GENERAL_PLANET_'.$player->planet)),
 		strtolower(t('UNIT_GROUP_'.$ugid)),
-		warquest_link('mid='.$mid.'&sid='.PAGE_DEFENCE.'&oid='.$data2->pid.'&uid='.$data3->type, number_format(warquest_defense_strength($data2, $ugid),0,",","."), "defense_strength"));
+		warquest_link('mid='.$mid.'&sid='.PAGE_DEFENCE.'&oid='.$data2->pid.'&uid='.$unit_group->type, 
+							number_format(warquest_defense_strength($data2, $ugid),0,",","."), "defense_strength"));
 	$page .= '<br/>';
 	$page .= '<table>';
 	$page .= '<tr>';	
@@ -525,8 +613,7 @@ function warquest_show_attack_army($data, $ugid) {
 		} else {
 		
 			$amount = $size;
-			$size -= $size;
-			
+			$size -= $size;			
 		}
 		
 		$page .= '<td width="45" align="left">';
@@ -550,30 +637,30 @@ function warquest_show_attack_army($data, $ugid) {
 	/* show defense base (buildings) */
 	$query  = 'select a.bid, a.ugid, a.energy, a.income, a.defense, a.discount, b.amount ';
 	$query .= 'from building a, player_building b where ';
-   $query .= 'a.bid=b.bid and b.pid='.$data2->pid.' and a.defense>0';
+   $query .= 'a.bid=b.bid and b.pid='.$data2->pid.' and a.defense>0 ';
 	
 	switch ($ugid) {
 	
-		case 0:  $query .= ' and a.ugid in (0, 1, 2, 3)';
+		case 0:  $query .= 'and a.ugid in (0, 1, 2, 3) ';
 					break;
 					
-		case 11: $query .= ' and a.ugid in (7, 8, 9)';
+		case 11: $query .= 'and a.ugid in (7, 8, 9) ';
 					break;
 		
-		case 18: $query .= ' and a.ugid in (13, 14, 15)';
+		case 18: $query .= 'and a.ugid in (13, 14, 15) ';
 					break;
 					
-		case 24: $query .= ' and a.ugid between 19 and 21';
+		case 24: $query .= 'and a.ugid between 19 and 21 ';
 					break;
 					
-		default: $query .= ' and a.ugid='.$ugid;
+		default: $query .= 'and a.ugid='.$ugid.' ';
 					break;
 	}		
-	$query .= ' order by a.defense desc';
+	$query .= 'order by a.defense desc';
 	
 	$result = warquest_db_query($query);	
-	
 	$count=warquest_db_num_rows($result);
+	
 	if ($count>0) {
 		$page .= '<br/>';
 		$page .= t('BATTLE_DEFENSE_BASE', $data2->name.' '.strtolower(t('GENERAL_PLANET_'.$player->planet)));
@@ -780,7 +867,7 @@ function warquest_battle_unit_lost($ugid) {
 }
 
 /**
- * Calculate who wins
+ * Calculate who wins with player-player war
  */
 function warquest_battle_check($player, $other, $force) {
 
@@ -796,60 +883,13 @@ function warquest_battle_check($player, $other, $force) {
 	return $value;
 }
 
-/** 
- * Calculate attack strength of player
- */
-function warquest_clan_attack_strength($cid, $size, $ugid) {
-	
-	/* Calculate attack strength of units depending of alliance size */
-	$query  = 'select b.pid, b.alliance, b.lid from player_clan a, player b where ';
-	$query .= 'a.pid=b.pid and a.cid='.$cid.' order by b.lid desc limit 0,'.$size;
-	$result = warquest_db_query($query);	 
+function warquest_clan_size($player_cid, $other_cid) {
 
-	$attack = 0;
-	
-	while ($data=warquest_db_fetch_object($result)) {
-			
-		$attack += warquest_attack_strength($data, $ugid);
-				
-	}
-	return $attack;	
-}
-
-
-/** 
- * Calculate attack strength of player
- */
-function warquest_clan_defense_strength($cid, $size, $ugid) {
-	
-	/* Calculate attack strength of units depending of alliance size */
-	$query  = 'select b.pid, b.alliance, b.lid from player_clan a, player b where ';
-	$query .= 'a.pid=b.pid and a.cid='.$cid.' order by b.lid desc limit 0,'.$size;
-	$result = warquest_db_query($query);	 
-
-	$defense = 0;
-	
-	while ($data=warquest_db_fetch_object($result)) {
-	
-		$defense += warquest_defense_strength($data, $ugid);
-		
-	}
-	return $defense;	
-}
-
-/**
- * Calculate who wins
- */
-function warquest_clan_war_battle_check($player_cid, $other_cid, $force) {
-
-	$value = 0;
-	
-	$query1 =  'select pid from player_clan a where cid='.$player_cid;
+	$query1 =  'select pid from player_clan where cid='.$player_cid;
 	$result1 = warquest_db_query($query1);	 
 	$count1 = warquest_db_num_rows($result1);
 
-
-	$query2 =  'select pid from player_clan a where cid='.$other_cid;
+	$query2 =  'select pid from player_clan where cid='.$other_cid;
 	$result2 = warquest_db_query($query2);	 
 	$count2 = warquest_db_num_rows($result2);
 	
@@ -859,17 +899,32 @@ function warquest_clan_war_battle_check($player_cid, $other_cid, $force) {
 		$size = $count1;
 	} 
 	
-	if ($size>0) {
+	return $size;
+}
+	
+	
+/**
+ * Calculate who wins with clan-clan wars
+ */
+function warquest_clan_war_battle_check($player_cid, $other_cid, $force) {
+
+	$value = 0;
+	
+	$size = warquest_clan_size($player_cid, $other_cid);
+	
+	if ($size==0) {
+	
+		/* Empty sector or defender clan with size 0 */
+		$value = 1;
+	
+	} else {
+	
 		$attack = warquest_clan_attack_strength($player_cid, $size, $force);
 		$defense = warquest_clan_defense_strength($other_cid, $size, $force);
 	
 		if ($attack > $defense) {
 			$value = 1;
 		}
-	} else {
-	
-		/* Empty sector or defender clan with size 0 */
-		$value = 1;
 	}
 	
 	return $value;
@@ -888,34 +943,31 @@ function warquest_clan_war_battle_do() {
 	global $sid;
 	global $uid;
 	global $config;
-	global $level;
 	
 	/* output */
-	global $other;
 	global $player;
 	global $popup;
 	
-	$health_winner = rand(1,10);
-	$health_losser = rand(8,20);
+	$health_winner = rand(10,20);
+	$health_losser = rand(10,25);
 	$exp = rand(1, (round($player->lid/10)+5));
 	
-	/* Fetch player_clan data */		
-	$query1 = 'select cid from player_clan where pid='.$player->pid;
-	$result1 = warquest_db_query($query1);	
-	$size1 = warquest_db_num_rows($result1);
-	$data1 = warquest_db_fetch_object($result1);	
+	/* Fetch player clan data */	
+	$data = warquest_db_player_clan($player->pid);
+	$player_clan = warquest_db_clan($data->cid);
 			
 	/* Fetch sector data */	
-	$query2 = 'select sid, x, y, cid from sector where sid='.$uid;
-	$result2 = warquest_db_query($query2);	
-	$data2 = warquest_db_fetch_object($result2);	
-	
-	if ($size1==0) {
+	$sector = warquest_db_sector($uid);
+
+	/* Fetch other clan data */	
+	$other_clan = warquest_db_clan($sector->cid);
+		
+	if ( !isset($player_clan->cid) ) {
 	
 		$message = t('BATTLE_NO_CLAN');
 		$popup .= warquest_box_icon("warning", $message);
 		
-	} else if ($data1->cid==$data2->cid) {
+	} else if ($player_clan->cid == $sector->cid) {
 	
 		$message = t('BATTLE_SECTOR_ALL_CONQUERED');
 		$popup .= warquest_box_icon("warning", $message);
@@ -933,59 +985,94 @@ function warquest_clan_war_battle_do() {
 		$link = warquest_link('mid='.MENU_HOME.'&sid='.PAGE_RESTORE, t('LINK_RESTORE'), 'restore');
 		$popup .= warquest_box_icon("warning", $message, $link);
 		
-	} else if (warquest_clan_war_battle_check($data1->cid, $data2->cid, warquest_get_default_force())==1) {
-				
-		/* Clan battle won */
-				
-		$data = warquest_db_clan($data1->cid);	
-		$data->won++;
-		warquest_db_clan_update($data);
+	} else if (warquest_clan_war_battle_check($player_clan->cid, $sector->cid, warquest_get_default_force())==1) {
+			
+		/* PLAYER WON */
+		
+		/* Update attack clan stats */				
+		$player_clan->won++;
+		warquest_db_clan_update($player_clan);
 	
-		if ($data2->cid!=0) {
-			$data = warquest_db_clan($data2->cid);	
-			$data->lost++;
-			warquest_db_clan_update($data);
+		/* Update defend clan stats */
+		if (isset($other_clan->cid)) {
+			$other_clan->lost++;
+			warquest_db_clan_update($other_clan);
 		}
 		
-		warquest_db_sector_update($data1->cid, $data2->sid);
-		
+		/* update player stats */
 		$player->ammo -= 1;
 		$player->experience += $exp;
 		$player->health -= $health_winner;
 		$player->last_battle = date("Y-m-d H:i:s");
 		
-		/* Check if next level is reached */
-		warquest_nextlevel($player);
-				
-		$message = t('BATTLE_CLAN_BATTLE_WON');
-		$popup .= warquest_box_icon("info", $message);
+		$message = t('BATTLE_CLAN_WON', 
+					clan_format($player_clan),
+					strtolower(t('GENERAL_PLANET_'.$player->planet)).' '.strtolower(t('UNIT_GROUP_'.warquest_get_default_force())),
+					clan_format($other_clan),
+					health_format($health_winner),
+					experience_format($exp));
+			
+		if (($sector->damage+1) >= $config["max_sector_damage"]) {
+			
+			/* Sector conquered (because of max damage)*/
+			$sector->damage = 0;
+			$sector->cid = $player_clan->cid;
+			
+			warquest_db_sector_update($sector);
+			
+			$message .= t('BATTLE_CLAN_SECTOR_CONQUER');
 		
-				
-	} else  {
+		} else {
 		
-		/* Clan battle lost */
+			/* Sector damage increase with 1 */
+			$sector->damage++;
 		
-		$data = warquest_db_clan($data1->cid);	
-		$data->lost++;
-		warquest_db_clan_update($data);
+			$message .= t('BATTLE_CLAN_SECTOR_DAMAGE', ($sector->damage / $config["max_sector_damage"]*100) );
 		
-		if ($data2->cid!=0) {
-			$data = warquest_db_clan($data2->cid);	
-			$data->won++;
-			warquest_db_clan_update($data);
+			warquest_db_sector_update($sector);		
 		}
-		
-		$player->ammo -= 1;
-		$player->experience += $exp;
-		$player->health -= $health_losser;
-		$player->last_battle = date("Y-m-d H:i:s");
-		
-		$message = t('BATTLE_CLAN_BATTLE_LOST');
-		$popup .= warquest_box_icon("info", $message);
-		
+	
+		$message .= '</br></br>'.warquest_show_defense_clan_army($player_clan->cid, $other_clan->cid, warquest_get_default_force());
+	
 		/* Check if next level is reached */
 		warquest_nextlevel($player);
 	
+		$message .= warquest_battle_sound();
+				
+		$link = warquest_link('mid='.$mid.'&sid='.$sid.'&uid='.$uid.'&eid=3',t('LINK_ATTACK'), 'attack-0');
+	
+		$popup .= warquest_box("info", $message, $link);
+		
+	} else  {
+		
+		/* PLAYER LOST */
+
+		/* Update attack clan stats */
+		$player_clan->lost++;
+		warquest_db_clan_update($player_clan);
+		
+		/* Update defend clan stats */
+		if (isset($other_clan)) {
+			$other_clan->won++;
+			warquest_db_clan_update($other_clan);
+		}
+		
+		/* Update player stats */
+		$player->ammo -= 1;
+		$player->health -= $health_losser;
+		$player->last_battle = date("Y-m-d H:i:s");
+				
+		$message = t('BATTLE_CLAN_LOST',
+					clan_format($player_clan),
+					strtolower(t('GENERAL_PLANET_'.$player->planet)).' '.strtolower(t('UNIT_GROUP_'.warquest_get_default_force())),
+					clan_format($other_clan),
+					health_format($health_losser));
+		
+		$message .= '<br/><br/>'.warquest_show_defense_clan_army($player_clan->cid, $other_clan->cid, warquest_get_default_force());
+		
+		$link = warquest_link('mid='.$mid.'&sid='.$sid.'&uid='.$uid.'&eid=3',t('LINK_ATTACK'), 'attack-0');
+		
+		$popup .= warquest_box("warning", $message, $link);
 	}
 }
 
@@ -1096,8 +1183,8 @@ function warquest_battle_do() {
 				case 2: 	$money = round((1/rand(10,15)) * $other->bank2);
 
 							/* Prevent to big money wons */
-							if ($money > 1500000000) {
-								$money = 1500000000 + rand(10000, 600000);
+							if ($money > $config["max_money_win"] ) {
+								$money = $config["max_money_win"]  + rand(10000, 600000);
 							}
 			
 							if ($money>0) {
@@ -1109,8 +1196,8 @@ function warquest_battle_do() {
 				case 3: 	$money = round((1/rand(10,15)) * $other->bank3);
 							
 							/* Prevent to big money wons */
-							if ($money > 1500000000) {
-								$money = 1500000000 + rand(10000, 600000);
+							if ($money > $config["max_money_win"] ) {
+								$money = $config["max_money_win"]  + rand(10000, 600000);
 							}
 							
 							if ($money>0) {
@@ -1140,8 +1227,8 @@ function warquest_battle_do() {
 			if ($money < 0) $money = 0;
 			
 			/* Prevent to big money wons */
-			if ($money > 1500000000) {
-				$money = 1500000000 + rand(10000, 600000);
+			if ($money > $config["max_money_win"] ) {
+				$money = $config["max_money_win"]  + rand(10000, 600000);
 			}
 			
 			$player->money += $money;

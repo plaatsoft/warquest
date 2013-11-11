@@ -983,6 +983,11 @@ function warquest_help_general_form() {
 	$page .= '<br/>';
 	
 	$page .= '<br/>';
+	$page .= '<span class="subparagraph2">'.t('HELP_CLAN_WAR_TITLE').'</span><br/>';
+	$page .= t('HELP_CLAN_WAR');
+	$page .= '<br/>';
+	
+	$page .= '<br/>';
 	$page .= '<span class="subparagraph2">'.t('HELP_SHORTCUTS_TITLE').'</span><br/>';
 	$page .= t('HELP_SHORTCUTS');
 	$page .= '<br/>';

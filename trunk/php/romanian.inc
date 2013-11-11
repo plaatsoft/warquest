@@ -819,17 +819,6 @@
  $lang['MISSION_GROUP_37'] = 'Harry';
  $lang['MISSION_GROUP_38'] = 'Isaac';
 
- /* Sun Missions */
- $lang['MISSION_GROUP_40'] = 'Achilles';
- $lang['MISSION_GROUP_41'] = 'Baltazar';
- $lang['MISSION_GROUP_42'] = 'Calypso';
- $lang['MISSION_GROUP_43'] = 'Dagon';
- $lang['MISSION_GROUP_44'] = 'Eber';
- $lang['MISSION_GROUP_45'] = 'Fergus';
- $lang['MISSION_GROUP_46'] = 'Gaspar';
- $lang['MISSION_GROUP_47'] = 'Hecate';
- $lang['MISSION_GROUP_48'] = 'Icarus';
-
  /* Earth */
  $lang['MISSION_0'] = 'Training mission';
  $lang['MISSION_1'] = 'Great Britain Region';
@@ -1249,8 +1238,6 @@
 
  $lang['MISSION_TITLE'] = 'MISIUNI';
 
- $lang['MISSION_SUN'] = 'Aceasta misiune este jucata impreuna cu toti WarLorzii!';
-
  $lang['MISSION_NOTE'] = 'Nota: joaca misiunile pentru a castiga bani si experienta necesare avansari in nivele.Cand o misiune este completata 100% vei castiga bani dublu.Daca completezi un continentul %s 100% profitul tau va creste cu %s dolari.';
 
  $lang['MISSION_ALLIANCE_SIZE'] = 'marimea aliantei';
@@ -1383,13 +1370,6 @@ $lang['UNIT_GROUP_22']  = 'Exploratori';
 $lang['UNIT_GROUP_23'] 	= 'Cetateni';
 $lang['UNIT_GROUP_24'] 	= 'Army';
 
-/* Sun */
-$lang['UNIT_GROUP_25']  = 'Drone';
-$lang['UNIT_GROUP_26']  = 'Warriors';
-$lang['UNIT_GROUP_27']  = 'Nave Spatiale';
-$lang['UNIT_GROUP_28']  = 'Exploratori';
-$lang['UNIT_GROUP_29'] 	= 'Cetateni';
-$lang['UNIT_GROUP_30'] 	= 'Army';
 
 /* Calvary (Earth) - Group 2 */
 $lang['UNIT_1'] = 'Minigunner';
@@ -1775,12 +1755,7 @@ $lang['BUILDING_GROUP_18'] = 'Energie';
 $lang['BUILDING_GROUP_19'] = 'Discont';
 $lang['BUILDING_GROUP_20'] = 'Mentenanta';
 
-/* Sun Buildings */
-$lang['BUILDING_GROUP_21'] = 'Profit';
-$lang['BUILDING_GROUP_22'] = 'Aparare';
-$lang['BUILDING_GROUP_23'] = 'Energie';
-$lang['BUILDING_GROUP_24'] = 'Discont';
-$lang['BUILDING_GROUP_25'] = 'Mentenanta';
+
 
 /* Income (Earth) - Group 1 */
 $lang['BUILDING_1']  = 'Supply Depot';
