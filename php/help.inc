@@ -933,6 +933,11 @@ function warquest_help_general_form() {
 	$page .= '<br/>';
 	
 	$page .= '<br/>';
+	$page .= '<span class="subparagraph2">'.t('HELP_CLAN_WAR_TITLE').'</span><br/>';
+	$page .= t('HELP_CLAN_WAR');
+	$page .= '<br/>';
+	
+	$page .= '<br/>';
 	$page .= '<span class="subparagraph2">'.t('HELP_UNITS_TITLE').'</span><br/>';
 	$page .= t('HELP_UNITS');
 	$page .= '<br/>';
@@ -980,11 +985,6 @@ function warquest_help_general_form() {
 	$page .= '<br/>';
 	$page .= '<span class="subparagraph2">'.t('HELP_REBELLION_CONDITION_TITLE').'</span><br/>';
 	$page .= t('HELP_REBELLION_CONDITION');
-	$page .= '<br/>';
-	
-	$page .= '<br/>';
-	$page .= '<span class="subparagraph2">'.t('HELP_CLAN_WAR_TITLE').'</span><br/>';
-	$page .= t('HELP_CLAN_WAR');
 	$page .= '<br/>';
 	
 	$page .= '<br/>';
