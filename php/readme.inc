@@ -16,94 +16,29 @@
 **  All copyrights reserved (c) 2008-2013 PlaatSoft
 */
 
-$united = '
-
-friends and fellow players this is just a suggestion which was accepted by many top players and 
-admin as well. In case any doubts or better suggestion please comment here after reading the 
-entire rules	
-
-How about a team of elite generals (us) who are above level 250 Join together and fight against 
-a new alien threat invading our solar sytem It would stop silly and boring fights among top guns 
-of the game. Ok let me explain you game scheme 
-
-The battle over the goldilock region (which actually means region with in the asteroid belt 
-scientifically ) has been happening for over five years Now in 2025( as per game time ) humans 
-began to venture beyond the asteroid belt for their supremacy As they begin to invade they come 
-across an alien race which is even more thirsty for war and even more strong	It is upto the
-warlords ( generals ) to resist their invasion further into the asteroid belt So they form the
-UNION which consist of the best war generals ( top fifty players ) and with their combined 
-forces of moon, mars and asteroids, they begin a war against the unkown but deadly alien race 
-This forms the base story	
-
-Rules of game : 
-Players should be atleast at level 250 to play the new feature Please note that one can 
-simultaneously play the asteroid game as well as this feature after reaching the level 200	
-
-1)members in the UNION group doesnot mean they are stictly allies They may or may not be as allies.
-WVDP: Compliant!
-
-2) players cannot attack other humans in the UNION play ( which is just another level like earth 
-moon mars and asteroids ) 
-WVDP: Compliant
-
-3) Players will have missions ( like base capture and rescue of captured human ships) 
-Note: the same mission is played mutually by all players	this means that when a player plays a 
-mission he gets his xp but the mission is single and all the players play the same mission and 
-when a player does a mission once ,1% of it is completed and when 100% is reached the mission 
-is completed Example : ecg plays a mission five times and 5% of it is completed and if bizkit 
-plays the same mission 5 times another 5% is added	Example:As a result 10% of the mission is completed.
-WVDP: Compliant
-
-4)Battles mode is possible as usual but only with aliens and aliens are strong unlike present bots 
-
-5)Players will not get money in UNION mode play. Instead he gets loot of gold and other precious 
-metals in both battles and missions.
-WVDP: Rejected! Income will be based on money!
-
-6)player can sell this loot of gold and other precious metals in earth for money. They can be sold 
-in the earth market and make money to buy more units and buildings
-WVDP: Rejected. See rule 5.
-
-7)ANOTHER MAJOR RULE CHANGE in UNION mode play is that new feature called R&D BUILDINGS which makes 
-it the only way to create new technology to build units against aliens unlike in other modes where
- new units are unlocked after each level These R&D buildings are just like energy these buildings 
- generate technology steadily and just like xp build up teachnology grows and for each level 
- crossed we can unlock new units 
- 
-8) we can use moon,mars and asteroid units together in UNION MODE But we cannot use UNION units in 
-other modes	
-
-9) level 299 is the last level in UNION MODE and as usual 10000 xp for each level up 
-WVDP: Compliant
-
-10) level 299 ends with our recapture of solar system.
-WVDP: Compliant
-
-11) player with highest xp and win lost ratio remain on top as usual 	
-WVDP: Complaint
-
-Hope these rules are enough for this next mode Admin please reply Ecg ,biz and others please 
-respond to this Any doubts will be cleared';
-
 $notes = '
 
-<span class="subparagraph2">10-11-2013</span><br/>
+<span class="subparagraph2">11-11-2013</span><br/>
+<i>Game Server v5.8</i><br/>
+- Added clan wars to WarQuest.
+- Added basic Battle -> Clan-Wars battle section.<br>
+- Added basic Alliance -> Clan configuration section.<br>
+- Added help clan wars section.</br></br>
+
+<i>General</i><br/>
+- Please visit www.gravatar.com to upload a player image.<br/><br/>
+
+<span class="subparagraph2">8-11-2013</span><br/>
 <i>Game Server v5.7</i><br/>
-- Added basic clan war battle page. (Heavy underconstruction yet)<br>
-- Added basic clan war configuration page.<br>
-- Optimize planet images. Reduce filesize to improve load time.</br>
+- Optimize mission planet images. Reduce filesize to improve load time.</br>
 - Increase maximum level to 279.<br/>
-- Disable sun features.</br>
+- Removed sun features.</br>
 - Improve database optimize. (Admin mode).<br/>
 - Added backup cron  job.</br>
 - Update jquery to 10.2.0.</br>
 - Update jquery-ui to 10.3.0.</br>
 - update jquery-css smooth to 10.3.0.</br>
 - Added server php source code to google code.<br></br>
-
-<i>General</i><br/>
-- Please visit www.gravatar.com to upload a player image.<br/><br/>
-
 
 <span class="subparagraph2">07-02-2013</span><br/>
 <i>Game Server v5.6</i><br/>

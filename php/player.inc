@@ -1157,6 +1157,19 @@ function warquest_profile($id) {
 	$page .= '<td>'.$data->name.'</td>';	
 	$page .= '</tr>';
 	
+	$query2  = 'select a.name from clan a, player_clan b where a.cid=b.cid and b.pid='.$data->pid;
+	$result2 = warquest_db_query($query2);	
+	$data2 = warquest_db_fetch_object($result2);
+	
+	$page .= '<tr>';
+	$page .= '<td><b>'.t('PLAYER_CLAN_NAME').':</b></td>';
+	$page .= '<td>';
+	if (isset($data2->name)) {
+		$page .= $data->name;
+	}
+	$page .= '</td>';	
+	$page .= '</tr>';
+	
 	$page .= '<tr>';
 	$page .= '<td><b>'.t('GENERAL_COUNTRY').':</b></td>';
 	$page .= '<td>'.warquest_flag_image($data->country).'</td>';

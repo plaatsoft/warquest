@@ -102,17 +102,18 @@ DELETE FROM mission WHERE mid >= 400;
 
 DELETE FROM player_mission WHERE mid >= 400;
 
-CREATE TABLE IF NOT EXISTS `sector` (
+CREATE TABLE IF NOT EXISTS sector (
   `sid` int(11) NOT NULL AUTO_INCREMENT,
   `x` int(11) NOT NULL,
   `y` int(11) NOT NULL,
+  `planet` int(11) DEFAULT NULL,
   `cid` int(11) DEFAULT NULL,
-  `strength` int(11) NOT NULL,
+  `damage` int(11) NOT NULL,
   PRIMARY KEY (`sid`)
 ) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=0;
 
 
-INSERT INTO `sector` (`sid`, `x`, `y`, `cid`, `planet`, `strength`) VALUES
+INSERT INTO `sector` (`sid`, `x`, `y`, `cid`, `planet`, `damage`) VALUES
 (1, 0, 0, 0, 0, 0),
 (2, 0, 1, 0, 0, 0),
 (3, 0, 2, 0, 0, 0),
@@ -190,7 +191,7 @@ INSERT INTO `sector` (`sid`, `x`, `y`, `cid`, `planet`, `strength`) VALUES
 (75, 4, 14, 0, 0, 0);
 
 
-INSERT INTO sector (`sid`, `x`, `y`, `cid`, `planet`, `strength`) VALUES
+INSERT INTO sector (`sid`, `x`, `y`, `cid`, `planet`, `damage`) VALUES
 (101, 0, 0, 0, 1, 0),
 (102, 0, 1, 0, 1, 0),
 (103, 0, 2, 0, 1, 0),
@@ -268,7 +269,7 @@ INSERT INTO sector (`sid`, `x`, `y`, `cid`, `planet`, `strength`) VALUES
 (175, 4, 14, 0, 1, 0);
 
 
-INSERT INTO sector (`sid`, `x`, `y`, `cid`, `planet`, `strength`) VALUES
+INSERT INTO sector (`sid`, `x`, `y`, `cid`, `planet`, `damage`) VALUES
 (201, 0, 0, 0, 2, 0),
 (202, 0, 1, 0, 2, 0),
 (203, 0, 2, 0, 2, 0),
@@ -347,7 +348,7 @@ INSERT INTO sector (`sid`, `x`, `y`, `cid`, `planet`, `strength`) VALUES
 
 
 
-INSERT INTO sector (`sid`, `x`, `y`, `cid`, `planet`, `strength`) VALUES
+INSERT INTO sector (`sid`, `x`, `y`, `cid`, `planet`, `damage`) VALUES
 (301, 0, 0, 0, 3, 0),
 (302, 0, 1, 0, 3, 0),
 (303, 0, 2, 0, 3, 0),
@@ -425,8 +426,8 @@ INSERT INTO sector (`sid`, `x`, `y`, `cid`, `planet`, `strength`) VALUES
 (375, 4, 14, 0, 3, 0);
 
 
-ALTER TABLE clan ADD `win` INT NOT NULL AFTER `pid` ,
-ADD `lost` INT NOT NULL AFTER `win`;
+ALTER TABLE clan ADD `won` INT NOT NULL AFTER `pid` ,
+ADD `lost` INT NOT NULL AFTER `won`;
 
 
 			
