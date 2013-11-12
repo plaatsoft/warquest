@@ -2841,6 +2841,11 @@ $lang['CLAN_NO_SKILL_POINT'] = 'You need 1 skill point to create a new clan.';
 
 $lang['CLAN_LIST_TITLE'] = 'Clan List [%s]';
 
+$lang['BATTLE_CLAN_WAR_EARTH_UNLOCKED'] = 'Earth clan wars is unlocked at level %s.';
+$lang['BATTLE_CLAN_WAR_MOON_UNLOCKED'] = 'Moon clan wars are unlocked at level 100.';
+$lang['BATTLE_CLAN_WAR_MARS_UNLOCKED'] = 'Mars clan wars are unlocked at level 150.';
+$lang['BATTLE_CLAN_WAR_ASTERIOD_UNLOCKED'] = 'Asteriod clan wars are unlocked at level 200.';
+
 $lang['BATTLE_CLAN_WAR_TITLE'] = 'Clan War';
 $lang['BATTLE_CLAN_WAR'] = 'Clan-War';
 $lang['BATTLE_SECTOR_ALL_CONQUERED'] = 'Sector all ready conquered!';
@@ -2849,7 +2854,7 @@ $lang['BATTLE_NOTE_CLAN_WAR'] = 'Note: Select a planet sector which you want to 
 
 $lang['BATTLE_CLAN_WON'] = 'Your %s clan %s attacked the %s clan. You won the battle, taking %s damage and gain %s experience points. ';
 $lang['BATTLE_CLAN_SECTOR_DAMAGE'] = 'Sector defence is %s % damaged.';
-$lang['BATTLE_CLAN_SECTOR_CONQUER'] = 'Briljant. You conquered the sector.';
+$lang['BATTLE_CLAN_SECTOR_CONQUER'] = 'Brilliant! You conquered the sector.';
 $lang['BATTLE_CLAN_LOST'] = 'Your %s clan %s attacked the %s clan. You lost the battle, taking %s damage. ';
 
 $lang['BATTLE_CLAN_ATTACK_FORCE'] = 'Your clan %s attack %s (%s attack strength):';
