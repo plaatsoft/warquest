@@ -1650,7 +1650,6 @@ function calcPolo($x, $y) {
 	return $poly;
 }
 
-
 /**
  * Clan War Form
  */
@@ -1668,44 +1667,109 @@ function warquest_battle_clan_war_form() {
 		
 	$title = t('BATTLE_CLAN_WAR_TITLE');
 	
-	$query  = 'select cid from player_clan where pid='.$player->pid;
-	$result = warquest_db_query($query);	
-	$data2 = warquest_db_fetch_object($result);
-			
-	$query  = 'select a.sid, a.x, a.y, a.cid, ';
-	$query .= '(select b.name from clan b where b.cid=a.cid ) as name ';
-	$query .= 'from sector a where a.planet='.$player->planet;	
-	$result = warquest_db_query($query);
-			
-	$tmp = "";
-	while ($data=warquest_db_fetch_object($result)) {			
+	$lid=15;
+
+	if (($player->planet==PLANET_MOON) && ($player->lid<100)) {
+	
+		$message = '<table>';
+		$message .= '<tr>';
+		$message .= '<td>';
+		$message .= warquest_image("other/unlock.png");
+		$message .= '</td>';
+		$message .= '<td>';
+		$message .= t('BATTLE_CLAN_WAR_MOON_UNLOCKED');
+		$message .= '</td>';
+		$message .= '</tr>';
+		$message .= '</table>';
+
+		$page .= warquest_box("", $message);
 		
-		if (strlen($data->name)>0) {
+	} else if (($player->planet==PLANET_MARS) && ($player->lid<150)) {
+			
+		$message = '<table>';
+		$message .= '<tr>';
+		$message .= '<td>';
+		$message .= warquest_image("other/unlock.png");
+		$message .= '</td>';
+		$message .= '<td>';
+		$message .= t('BATTLE_CLAN_WAR_MARS_UNLOCKED');
+		$message .= '</td>';
+		$message .= '</tr>';
+		$message .= '</table>';
+
+		$page .= warquest_box("", $message);
+	
+	} else if (($player->planet==PLANET_ASTEROID) && ($player->lid<200)) {
+			
+		$message = '<table>';
+		$message .= '<tr>';
+		$message .= '<td>';
+		$message .= warquest_image("other/unlock.png");
+		$message .= '</td>';
+		$message .= '<td>';
+		$message .= t('BATTLE_CLAN_WAR_ASTERIOD_UNLOCKED');
+		$message .= '</td>';
+		$message .= '</tr>';
+		$message .= '</table>';
+
+		$page .= warquest_box("", $message);
+	
+	} else if ($player->lid < $lid) {
+			
+		$message = '<table>';
+		$message .= '<tr>';
+		$message .= '<td>';
+		$message .= warquest_image("other/unlock.png");
+		$message .= '</td>';
+		$message .= '<td>';
+		$message .= t('BATTLE_CLAN_WAR_EARTH_UNLOCKED', $lid);
+		$message .= '</td>';
+		$message .= '</tr>';
+		$message .= '</table>';
 		
-			$tmp .= $data->x.'-'.$data->y.'-'.$data->name.'-';		
-			@$tmp .= $data->cid==$data2->cid;
-			$tmp .= ',';
+		$page .= warquest_box("", $message);
+	
+	} else {	
+	
+		$query  = 'select cid from player_clan where pid='.$player->pid;
+		$result = warquest_db_query($query);	
+		$data2 = warquest_db_fetch_object($result);
+			
+		$query  = 'select a.sid, a.x, a.y, a.cid, ';
+		$query .= '(select b.name from clan b where b.cid=a.cid ) as name ';
+		$query .= 'from sector a where a.planet='.$player->planet;	
+		$result = warquest_db_query($query);
+			
+		$tmp = "";
+		while ($data=warquest_db_fetch_object($result)) {			
+		
+			if (strlen($data->name)>0) {
+		
+				$tmp .= $data->x.'-'.$data->y.'-'.$data->name.'-';		
+				@$tmp .= $data->cid==$data2->cid;
+				$tmp .= ',';
+			}
+		}		
+	
+		$page .= '<div class="box">';
+	
+		$page .= '<center>';
+		$page .= '<img src="map.php?planet='.$player->planet.'&data='.$tmp.'" title="'.t('GENERAL_PLANET_'.$player->planet).'" usemap="#map">';	
+		$page .= '<map name="map">';
+	
+		$query  = 'select a.sid, a.x, a.y, a.cid from sector a where a.planet='.$player->planet;		
+		$result = warquest_db_query($query);			
+		while ($data=warquest_db_fetch_object($result)) {			
+		
+			$page .= '<area shape="poly" coords="'.calcPolo($data->x,$data->y).'" title="'.$data->x.','.$data->y.'" href="javascript:link(\'';
+			$page .= warquest_token('mid='.MENU_BATTLE.'&sid='.PAGE_CLAN_WAR.'&uid='.$data->sid.'&eid=3').'\');" />';
+		
 		}
-	}		
+		$page .= '</map>';	
+		$page .= '</center>';
 	
-	$page .= '<div class="box">';
-	
-	$page .= '<center>';
-	$page .= '<img src="map.php?planet='.$player->planet.'&data='.$tmp.'" title="'.t('GENERAL_PLANET_'.$player->planet).'" usemap="#map">';	
-	$page .= '<map name="map">';
-	
-	$query  = 'select a.sid, a.x, a.y, a.cid from sector a where a.planet='.$player->planet;		
-	$result = warquest_db_query($query);			
-	while ($data=warquest_db_fetch_object($result)) {			
-		
-		$page .= '<area shape="poly" coords="'.calcPolo($data->x,$data->y).'" title="'.$data->x.','.$data->y.'" href="javascript:link(\'';
-		$page .= warquest_token('mid='.MENU_BATTLE.'&sid='.PAGE_CLAN_WAR.'&uid='.$data->sid.'&eid=3').'\');" />';
-		
+		$page .= '</div>';
 	}
-	$page .= '</map>';	
-	$page .= '</center>';
-	
-	$page .= '</div>';
 	
 	$page .= '<div class="note">';
 	$page .= t('BATTLE_NOTE_CLAN_WAR');
@@ -1729,7 +1793,7 @@ function warquest_battle_bounty_form() {
 	global $title;
 	
 	$title = t('BATTLE_BOUNTY_TITLE');
-	$lid=5;
+	$lid=10;
 	
 	if ($player->planet==PLANET_SUN) {
 	
@@ -2080,7 +2144,7 @@ function warquest_battle_enemy_form() {
 				$page .= '<td>';
 		
 				/* Only one active bounty can be set */
-				if (($player->lid>=9) && ($data->bounty==0) && ($data->country!="EU") && ($data->approved==0)) {
+				if (($player->lid>=10) && ($data->bounty==0) && ($data->country!="EU") && ($data->approved==0)) {
 		
 					if (warquest_db_query_pattern($player, PATTERN_BOUNTY)==0) {
 						$page .= warquest_link('mid='.$mid.'&sid='.$sid.'&eid=2&oid='.$data->pid, t('LINK_BOUNTY'), "bounty-".($count+100)).' ';

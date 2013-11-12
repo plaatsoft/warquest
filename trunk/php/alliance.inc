@@ -959,19 +959,19 @@ function warquest_clan_form() {
 		$page .= t('GENERAL_NAME');
 		$page .= '<b/></td>';
 		
-		$page .= '<td width="80"><b>';
+		$page .= '<td width="60"><b>';
 		$page .= t('GENERAL_SIZE');
 		$page .= '<b/></td>';
 		
-		$page .= '<td width="80"><b>';
+		$page .= '<td width="60"><b>';
 		$page .= t('GENERAL_WON');
 		$page .= '<b/></td>';
 
-		$page .= '<td width="80"><b>';
+		$page .= '<td width="60"><b>';
 		$page .= t('GENERAL_LOST');
 		$page .= '<b/></td>';		
 				
-		$page .= '<td width="120"><b>';
+		$page .= '<td width="180"><b>';
 		$page .= t('GENERAL_CREATOR');
 		$page .= '</b></td>';
 		
@@ -1084,7 +1084,7 @@ function warquest_clan_list_form() {
 		$page .= t('GENERAL_NR');
 		$page .= '<b/></td>';
 		
-		$page .= '<td width="130"><b>';
+		$page .= '<td width="180"><b>';
 		$page .= t('GENERAL_NAME');
 		$page .= '<b/></td>';
 		
