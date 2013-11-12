@@ -349,45 +349,6 @@ function warquest_debug($text) {
 */
 
 /** 
- * Calculate attack strenght of attack clan.
- */
-function warquest_clan_attack_strength($cid, $size, $ugid) {
-	
-	$query  = 'select b.pid, b.alliance, b.lid from player_clan a, player b where ';
-	$query .= 'a.pid=b.pid and a.cid='.$cid.' order by b.lid desc limit 0,'.$size;
-	$result = warquest_db_query($query);	 
-
-	$attack = 0;
-	
-	while ($data=warquest_db_fetch_object($result)) {
-			
-		$attack += warquest_attack_strength($data, $ugid);
-				
-	}
-	return $attack;	
-}
-
-
-/** 
- * Calculate defense strength of defender clan.
- */
-function warquest_clan_defense_strength($cid, $size, $ugid) {
-	
-	$query  = 'select b.pid, b.alliance, b.lid from player_clan a, player b where ';
-	$query .= 'a.pid=b.pid and a.cid='.$cid.' order by b.lid desc limit 0,'.$size;
-	$result = warquest_db_query($query);	 
-
-	$defense = 0;
-	
-	while ($data=warquest_db_fetch_object($result)) {
-	
-		$defense += warquest_defense_strength($data, $ugid);
-		
-	}
-	return $defense;	
-}
-
-/** 
  * Calculate attack strength of player
  */
 function warquest_attack_strength($player, $ugid) {
