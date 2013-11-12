@@ -133,6 +133,7 @@ $lang['LINK_INVITE'] = 'Invite';
 $lang['LINK_PENDING'] = 'Pending';
 $lang['LINK_APPROVED'] = 'Accepted';
 $lang['LINK_COMMENT']  = 'Message';
+$lang['LINK_FORUM']  = 'Forum';
 $lang['LINK_BEST_PLAYER']  = 'Best-Players';
 $lang['LINK_BEST_COUNTRY'] = 'Best-Countries';
 $lang['LINK_DROP'] = 'Drop';
@@ -2343,7 +2344,7 @@ $lang['HELP_FORUM'] = 'To get more information and chat with other players pleas
 Forum.';
 
 $lang['HELP_WORLDMAP_TITLE'] = 'Map';
-$lang['HELP_WORLDMAP'] = 'Each planet (Earth / Moon / Mars) map contain 72 regions which can be conquered with playing 
+$lang['HELP_WORLDMAP'] = 'Each planet map contain 72 regions which can be conquered with playing 
 missions. The regions can have one of the following colors: <br/>
 - "Green" Region 0% conquered<br/>
 - "Yellow" Region 33% conquered.<br/>
@@ -2369,24 +2370,12 @@ EARTH<br/>
 - "Navy" Only navy earth units.<br/>
 - "Airforce" Only aircraft earth units.<br/>
 - "Intel" Only intel earth units.<br/><br/>
-MOON<br/>
-- "Army" Best of drone, warrior and spacecraft moon units.<br/>
-- "Drones" Only drone moon units.<br/>
-- "Warriors" Only warrior moon units.<br/>
-- "Spacecrafts " Only spacecraft moon units.<br/>
-- "Explorers " Only explorer moon units.<br/><br/>
-MARS<br/>
-- "Army" Best of drone, warrior and spacecraft mars units.<br/>
-- "Drones" Only drone mars units.<br/>
-- "Warriors" Only warrior mars units.<br/>
-- "Spacecrafts " Only spacecraft mars units.<br/>
-- "Explorers " Only explorer mars units.<br/><br/>
-ASTEROID<br/>
-- "Army" Best of drone, warrior and spacecraft asteroid units.<br/>
-- "Drones" Only drone asteroid units.<br/>
-- "Warriors" Only warrior asteroid units.<br/>
-- "Spacecrafts " Only spacecraft asteroid units.<br/>
-- "Explorers " Only explorer asteroid units.
+MOON / MARS / ASTEROID<br/>
+- "Army" Best of drone, warrior and spacecraft units.<br/>
+- "Drones" Only drone units.<br/>
+- "Warriors" Only warrior units.<br/>
+- "Spacecrafts " Only spacecraft units.<br/>
+- "Explorers " Only explorer units.
 ';
 
 $lang['HELP_REBELLION_CONDITION_TITLE'] = 'Rebellion Condition (RC)';
@@ -2826,6 +2815,8 @@ $lang['GENERAL_JOINED'] = 'Joined';
 $lang['GENERAL_POSITION'] = 'Position';
 $lang['GENERAL_CREATOR'] = 'Creator';
 $lang['GENERAL_CREATED'] = 'Created';
+$lang['GENERAL_RESULT'] = 'Result';
+$lang['GENERAL_CLAN'] = 'Clan';
 
 $lang['LINK_JOIN'] = 'Join';
 $lang['LINK_LEAVE'] = 'Leave';
@@ -2856,17 +2847,18 @@ $lang['BATTLE_SECTOR_ALL_CONQUERED'] = 'Sector all ready conquered!';
 $lang['BATTLE_NO_CLAN'] = 'You are not part of a clan. Attack aborted!';
 $lang['BATTLE_NOTE_CLAN_WAR'] = 'Note: Select a planet sector which you want to conquer. To take over a planet sector your clan must win 10 times.'; 
 
-$lang['BATTLE_CLAN_WON'] = 'Your clan %s attacked the %s clan. You won the battle, taking %s damage and gain %s experience points. ';
+$lang['BATTLE_CLAN_WON'] = 'Your %s clan %s attacked the %s clan. You won the battle, taking %s damage and gain %s experience points. ';
 $lang['BATTLE_CLAN_SECTOR_DAMAGE'] = 'Sector defence is %s % damaged.';
 $lang['BATTLE_CLAN_SECTOR_CONQUER'] = 'Briljant. You conquered the sector.';
-$lang['BATTLE_CLAN_LOST'] = 'Your clan %s attacked the %s clan. You lost the battle, taking %s damage. ';
+$lang['BATTLE_CLAN_LOST'] = 'Your %s clan %s attacked the %s clan. You lost the battle, taking %s damage. ';
 
 $lang['BATTLE_CLAN_ATTACK_FORCE'] = 'Your clan %s attack %s (%s attack strength):';
 $lang['BATTLE_CLAN_DEFENSE_FORCE'] = '%s %s clan defense %s (%s defense strength):'; 
 $lang['BATTLE_CLAN_DEFENSE_BASE'] = '%s clan defence base:'; 
 
 $lang['HELP_CLAN_WAR_TITLE'] = 'Clan War';
-$lang['HELP_CLAN_WAR'] =	'Fight other clans to conquer all planet sectors. To take over a planet sector your clan must win 10 times. Each occupied planet sector will generate extra income on a daily basis. So WarQuest clan players go for world domination!';
+$lang['HELP_CLAN_WAR'] =	'Fight other clans to conquer all planet sectors. To take over a planet sector your clan must win 10 times. 
+Each occupied planet sector will generate extra income on a daily basis. So WarQuest clan players go for world domination!';
 
 /*
 ** ------------------

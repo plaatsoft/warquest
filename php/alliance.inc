@@ -1062,7 +1062,7 @@ function warquest_clan_list_form() {
 	
 	$query  = 'select a.date, b.pid, b.name, b.country, b.lid, b.experience ';
 	$query .= 'from player_clan a, player b where a.pid=b.pid and a.cid='.$id.' ';
-	$query .= 'order by b.name asc';
+	$query .= 'order by b.lid desc';
 
 	$result = warquest_db_query($query);	 	
 	$size = warquest_db_num_rows($result);

@@ -31,7 +31,7 @@
 
 /*
 ** ------------------
-** Language: English
+** Language: Spanish
 ** ------------------
 */
  

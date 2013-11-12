@@ -1165,7 +1165,7 @@ function warquest_profile($id) {
 	$page .= '<td><b>'.t('PLAYER_CLAN_NAME').':</b></td>';
 	$page .= '<td>';
 	if (isset($data2->name)) {
-		$page .= $data->name;
+		$page .= $data2->name;
 	}
 	$page .= '</td>';	
 	$page .= '</tr>';

@@ -42,10 +42,11 @@
 */
 
 /* Login */
-$lang['LINK_PASSWORD_REC'] = 'Wachwoord Herstel'; 
-$lang['LINK_REGISTER'] = 'Registeer'; 
 $lang['LINK_LOGIN']  = 'Inloggen'; 
+$lang['LINK_REGISTER'] = 'Registeer'; 
+$lang['LINK_RECOVER'] = 'Herstel'; 
 $lang['LINK_MANUAL'] = 'Handleiding'; 
+$lang['LINK_FACEBOOK'] = 'Facebook';
 $lang['LINK_RSS']  = 'RSS'; 
 
 /* General */
@@ -69,6 +70,8 @@ $lang['LINK_LAST'] = 'Laatste';
 /* Home */
 $lang['LINK_RESTORE'] = 'Herstel';
 $lang['LINK_REPAIR'] = 'Reparen';
+$lang['LINK_TRADE'] = 'Handel';
+$lang['LINK_ACTIVATE'] = 'Activeer';
 
 /* Player */
 $lang['LINK_OVERVIEW'] = 'Overzicht';
@@ -155,6 +158,8 @@ $lang['LINK_STATS']  = 'Stats';
 $lang['LINK_ABOUT']  = 'Over';
 $lang['LINK_DONATE']  = 'Donatie';
 
+$lang['LINK_DISABLED'] = 'Gedeactiveerd';
+
 /*
 ** ------------------
 ** GENERAL 
@@ -188,12 +193,14 @@ $lang['BOX_ERROR'] = 'ERROR';
 
 $lang['GENERAL_NEXT_LEVEL'] = 'Geweldig! Je hebt het volgende nivo bereikt! Je ontvangt %s ervaringspunten en %s euro. Je gezondheid, energie en munitie is hersteld.';
 $lang['GENERAL_BATTLE_LEVEL'] = 'Briljant! Je hebt %s gevechten gewonnen. Je hebt %s ervaringspunt(en) en %s euro verdiend.';
-$lang['GENERAL_GENERAL_BATTLE_AWARD_WON'] = 'gevechten gewonnen';
-$lang['GENERAL_BOUNTY_LEVEL'] = 'Top! Je hebt %s premies uitgedeeld. Je hebt %s ervaringspunt(en) en %s euro verdiend.';
+$lang['GENERAL_BOUNTY_LEVEL'] = 'Great! You have set %s bounties and received %s extra skill point(s) and %s dollars.';
+$lang['GENERAL_REBEL_LEVEL'] = 'Great! You started %s rebellions and received %s extra skill point(s) and %s dollars.';
+$lang['GENERAL_BATTLE_AWARD_WON'] = 'gevechten gewonnen';
 $lang['GENERAL_BOUNTY_AWARD_WON'] = 'premie uitgedeeld';
+$lang['GENERAL_REBEL_AWARD_WON'] = 'rebellie gestart';
 $lang['GENERAL_UNLOCK'] = 'Ontgrendeld in nivo %s';
 $lang['GENERAL_NEW_FEATURES'] = 'De volgende onderdelen zijn ontgrendeld:';
-$lang['GENERAL_GENERAL_RECEIVED_AWARD'] = 'Ontvange onderscheiding:';
+$lang['GENERAL_RECEIVED_AWARD'] = 'Ontvangen onderscheiding:';
 
 $lang['GENERAL_ATTACK'] = 'aanval';
 $lang['GENERAL_DEFENSE'] = 'verdediging';
@@ -235,29 +242,17 @@ $lang['GENERAL_REQUESTS'] = 'Verzoeken';
 $lang['GENERAL_EP'] = 'Vaardigheidpunt';
 $lang['GENERAL_AWARD'] = 'Onderscheiding';
 $lang['GENERAL_LANGUAGE'] = 'Taal';
+$lang['GENERAL_RANKING'] = 'Lijst';
 
 $lang['GENERAL_NEW_UNIT'] = 'NIEUWE EENHEID';
 $lang['GENERAL_NEW_BUILDING']	= 'NIEUW GEBOUW';
 $lang['GENERAL_NEW_MISSION'] = 'NIEUWE MISSIE';
 $lang['GENERAL_GAIN'] = 'win';
 
-$lang['GENERAL_COMBINED_FORCE']  = 'Leger';
-$lang['GENERAL_LAND_FORCE']  = 'Landmacht';
-$lang['GENERAL_WATER_FORCE'] = 'Marine';
-$lang['GENERAL_AIR_FORCE'] = 'Luchtmacht';
-$lang['GENERAL_ESPIONAGE_FORCE'] = 'Spionage';
-
 $lang['GENERAL_BOUNTY'] = 'Premie';
 $lang['GENERAL_INTELLIGENCE'] = 'intelligentie';
 $lang['GENERAL_SPIES'] = 'spionen';
 $lang['GENERAL_MAINTENANCE'] = 'Onderhoud';
-
-$lang['GENERAL_IDLE'] = 'Rust';
-$lang['GENERAL_ACTIVE'] = 'Actief';
-$lang['GENERAL_INACTIVE'] = 'Inactief';
-
-$lang['GENERAL_PLANET_0'] = 'Aarde';
-$lang['GENERAL_PLANET_1'] = 'Maan';
 
 $lang['GENERAL_CNTRY'] = 'Land';
 $lang['GENERAL_TOPICS'] = 'onderwerpen'; 
@@ -276,6 +271,17 @@ $lang['GENERAL_CONQUER'] = 'Overwin';
 $lang['GENERAL_ST'] = '%sste';
 $lang['GENERAL_ND'] = '%sde';
 $lang['GENERAL_TH'] = '%sde';
+
+$lang['GENERAL_IDLE'] = 'Rust';
+$lang['GENERAL_ACTIVE'] = 'Actief';
+$lang['GENERAL_INACTIVE'] = 'Inactief';
+
+$lang['GENERAL_PLANET'] = 'Planet';
+$lang['GENERAL_PLANET_0'] = 'Aarde';
+$lang['GENERAL_PLANET_1'] = 'Maan';
+$lang['GENERAL_PLANET_2'] = 'Mars';
+$lang['GENERAL_PLANET_3'] = 'Asteroid';
+$lang['GENERAL_PLANET_4'] = 'Zon';
 
 /*
 ** ------------------
@@ -353,6 +359,7 @@ $lang['TIP_200'] = 'Start your own asteroid colony!';
 $lang['LOGIN_MEMBER_TITLE'] = 'Inloggen';
 $lang['LOGIN_REGISTER_TITLE'] = 'Registratie';
 $lang['LOGIN_RECOVER_TITLE'] = 'Wachtwoord herstellen';
+$lang['LOGIN_MANUAL_TITLE'] = 'Handmatig';
 
 $lang['LOGIN_PLAYERS'] = 'spelers';
 $lang['LOGIN_REQUESTS'] = 'verzoeken';
@@ -369,6 +376,7 @@ $lang['LOGIN_MAINTENANCE'] = 'Op dit moment vindt er onderhoud plaats. Probeer h
 
 $lang['LOGIN_LOGOUT'] = 'Je bent nu afgemeld!'; 
 $lang['LOGIN_FAILED'] = 'Ongeldige Gebruikersnaam en/of Wachtwoord!';
+$lang['LOGIN_BANN'] = 'Dit account is geblokkeerd vanwege vals spelen!';
 $lang['LOGIN_REGISTER_OK'] = 'Gebruikers account %s is aangemaakt!';
 $lang['LOGIN_PASSWORD_TO_SHORT'] = 'Wachtwoord dient minimaal 4 tekens lang te zijn!';
 $lang['LOGIN_USERNAME_TO_SHORT'] = 'Gebruikersnaam dient minimaal 4 tekens lang te zijn!';
@@ -379,10 +387,14 @@ $lang['LOGIN_NICKNAME_EXIST'] = 'Alias %s reeds in gebruik!';
 $lang['LOGIN_NICKNAME_NEEDED'] = 'Alias moet worden ingevoerd!';
 $lang['LOGIN_NEW_PASSWORD_SEND'] = 'Nieuw wachtwoord is verstuurd per email!';
 $lang['LOGIN_EMAIL_UNKNOWN'] = 'Email adres is onbekend!';
-$lang['LOGIN_BEST_VIEWED'] = 'WarQuest is geoptimaliseerd voor de volgende mobiele hardware: "Apple iPhone / iPad / iPod, Nokia smart phones, BlackBerry smart phones, Android smart phones" en internet browsers: "Microsoft Internet Explorer, Mozilla Firefox, Apple Safari, Opera, Google Chrome". De weergave van dit spel is optimaal bij 500 pixels browser venster breedte';
+$lang['LOGIN_BEST_VIEWED'] = 'WarQuest is geoptimaliseerd voor de volgende mobiele hardware: "Apple iPhone / iPad / iPod, Nokia, 
+BlackBerry, Android" en internet browsers: "Microsoft Internet Explorer, Mozilla Firefox, Apple Safari, Opera, Google Chrome". 
+De weergave van dit spel is optimaal bij 500 pixels browser venster breedte';
 
 $lang['LOGIN_NEW_CLIENT_TITLE'] = 'Nieuwe WarQuest client beschikbaar!';
 $lang['LOGIN_NEW_CLIENT'] = 'Op dit moment gebruik je een oude WarQuest Windows client.<br/>Bezoek www.plaatsoft.nl om de nieuwste versie te downloaden.';
+
+$lang['LOGIN_PASSWORD_RESET_NOTE'] = 'If you have forgotten your password, enter your email address and we\'ll send you a new password by email.';
 
 /*
 ** ------------------
@@ -465,7 +477,6 @@ $lang['PLAYER_ADS_SHOWED']  = 'Advertenties getoond';
 $lang['PLAYER_RANK']  = 'Rang'; 
 $lang['PLAYER_OVERVIEW']  = 'Profiel'; 
 $lang['PLAYER_FORCE'] = 'Aanvals- & verdedigingskracht';
-
 
 $lang['PLAYER_ATTACK_FORCE'] = 'Overzicht (%s Aanvals %s)';
 $lang['PLAYER_DEFENSE_FORCE'] = 'Overzicht (%s Verdedigings %s)';
@@ -713,6 +724,8 @@ $lang['MISSION_GROUP_26'] = 'Gnu';
 $lang['MISSION_GROUP_27'] = 'Heron';
 $lang['MISSION_GROUP_28'] = 'Lion';
 
+/* ---------------------------------------------- */
+
 /* Earth */
 $lang['MISSION_0'] = 'Training missie';
 $lang['MISSION_1'] = 'Engeland regio';
@@ -796,6 +809,8 @@ $lang['MISSION_85'] = 'Oman regio ';
 $lang['MISSION_86'] = 'Jordani&euml;';
 $lang['MISSION_87'] = 'Isra&euml;l';
 
+/* ---------------------------------------------- */
+
 /* Moon */
 $lang['MISSION_100'] = 'Crater Endymion';
 $lang['MISSION_101'] = 'Crater Franklin';
@@ -877,6 +892,8 @@ $lang['MISSION_184'] = 'Lacus Oblivionis';
 $lang['MISSION_185'] = 'Mons Solitudinis';
 $lang['MISSION_186'] = 'Montes Temporis';
 $lang['MISSION_187'] = 'Crater Timoris';
+
+/* ---------------------------------------------- */
 
 /* Mars */
 $lang['MISSION_200'] = 'Crater Al-Qahira';
@@ -1078,6 +1095,8 @@ $lang['UNIT_GROUP_16']  = 'Ontdekkers';
 $lang['UNIT_GROUP_17'] 	= 'Burgers';
 $lang['UNIT_GROUP_18'] 	= 'Leger';
 
+/* ---------------------------------------------- */
+
 /* Calvary (Earth) - Group 2 */
 $lang['UNIT_1'] = 'Zandhaas';
 $lang['UNIT_2'] = 'Rekruut';
@@ -1207,6 +1226,8 @@ $lang['UNIT_510'] = 'US-101 Pretator';
 $lang['UNIT_511'] = 'Heron Drone';
 $lang['UNIT_512'] = 'HG101 Sateliet';
 
+/* ---------------------------------------------- */
+
 /* Warriors (Moon) - Group 7 */
 $lang['UNIT_700'] = 'Warrior 1';
 $lang['UNIT_701'] = 'Warrior 2';
@@ -1272,6 +1293,7 @@ $lang['UNIT_1209'] = 'Lightspeed Explorer';
 $lang['UNIT_1210'] = 'Planet Destroyer';
 $lang['UNIT_1211'] = 'Galaxy Explorer II';
 
+/* ---------------------------------------------- */
 
 /* Drones (Mars) - Group 13 */
 $lang['UNIT_1300'] = 'Drone M1';
@@ -1297,7 +1319,7 @@ $lang['UNIT_1407'] = 'Warrior M7';
 $lang['UNIT_1408'] = 'Warrior M8';
 $lang['UNIT_1409'] = 'Warrior M9';
 
-/* Spacecrafts (Moon) - Group 15 */
+/* Spacecrafts (Mars) - Group 15 */
 $lang['UNIT_1500'] = 'Mars Cruiser I';
 $lang['UNIT_1501'] = 'Cocon IV';
 $lang['UNIT_1502'] = 'Hawk Eye V';
@@ -1325,6 +1347,8 @@ $lang['UNIT_1609'] = 'Explorer M9';
 $lang['UNIT_1700'] = 'Astronaut';
 $lang['UNIT_1701'] = 'Female Citizen';
 $lang['UNIT_1702'] = 'Male Citizen';
+
+/* ---------------------------------------------- */
 
 /*
 ** ------------------
@@ -1386,8 +1410,9 @@ $lang['BUILDING_GROUP_13'] = 'Energie';
 $lang['BUILDING_GROUP_14'] = 'Korting';
 $lang['BUILDING_GROUP_15'] = 'Onderhoud';
 
-/* Earth Buildings */
+/* ---------------------------------------------- */
 
+/* Earth Buildings */
 $lang['BUILDING_1'] = 'Militaire opslagplaats';
 $lang['BUILDING_2'] = 'Bunker';
 $lang['BUILDING_3'] = 'Raffinaderij';
@@ -1442,6 +1467,8 @@ $lang['BUILDING_51'] = 'Ambassade';
 $lang['BUILDING_52'] = 'Spion Commando Centrum';
 $lang['BUILDING_53'] = 'Drone Controlle Centrum';
 $lang['BUILDING_54'] = 'Cyberspace Centrum';
+
+/* ---------------------------------------------- */
 
 /* Income (Moon) - Group 6 */
 $lang['BUILDING_600'] = 'Initial Base';
@@ -1514,6 +1541,8 @@ $lang['BUILDING_1007'] = 'Moon Architect Centre';
 $lang['BUILDING_1008'] = 'Power Repair Centre';
 $lang['BUILDING_1009'] = 'Robot Repair Centre';
 
+/* ---------------------------------------------- */
+
 /* Income (Mars) - Group 11 */
 $lang['BUILDING_1100'] = 'Initial Base';
 $lang['BUILDING_1101'] = 'Expore Research Centre';
@@ -1572,6 +1601,8 @@ $lang['BUILDING_1506'] = 'Infra Repair Centre';
 $lang['BUILDING_1507'] = 'Architect Centre';
 $lang['BUILDING_1508'] = 'Power Repair Centre';
 $lang['BUILDING_1509'] = 'Robot Repair Centre';
+
+/* ---------------------------------------------- */
 
 /*
 ** ------------------

@@ -20,25 +20,26 @@ $notes = '
 
 <span class="subparagraph2">11-11-2013</span><br/>
 <i>Game Server v5.8</i><br/>
-- Added clan wars to WarQuest.<br>
-- Added basic Battle -> Clan-Wars battle section.<br>
-- Added basic Alliance -> Clan configuration section.<br>
-- Added help clan wars section.</br></br>
+- Added clan wars functionality to WarQuest.<br/>
+- Added Battle -> Clan-Wars battle page.<br/>
+- Added Alliance -> Clan configuration page.<br/>
+- Update help page.<br/>
+- Update Player - Profile page.<br/><br/>
 
 <i>General</i><br/>
 - Please visit www.gravatar.com to upload a player image.<br/><br/>
 
 <span class="subparagraph2">8-11-2013</span><br/>
 <i>Game Server v5.7</i><br/>
-- Optimize mission planet images. Reduce filesize to improve load time.</br>
+- Optimize mission planet images. Reduce filesize to improve load time.<br/>
 - Increase maximum level to 279.<br/>
-- Removed sun features.</br>
+- Removed sun features.<br/>
 - Improve database optimize. (Admin mode).<br/>
-- Added backup cron  job.</br>
-- Update jquery to 10.2.0.</br>
-- Update jquery-ui to 10.3.0.</br>
-- update jquery-css smooth to 10.3.0.</br>
-- Added server php source code to google code.<br></br>
+- Added backup cron  job.<br/>
+- Update jquery to 10.2.0.<br/>
+- Update jquery-ui to 10.3.0.<br/>
+- update jquery-css smooth to 10.3.0.<br/>
+- Added server php source code to google code.<br/></br/>
 
 <span class="subparagraph2">07-02-2013</span><br/>
 <i>Game Server v5.6</i><br/>

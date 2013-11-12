@@ -1380,13 +1380,10 @@ function warquest_db_clan($cid) {
 	
 	$data = warquest_db_fetch_object($result);
 	
-	if (!isset($data->cid)) {
+	/*if (!isset($data->cid)) {
 		
-		$data->name="";
-		$data->cid=0;
-		$data->won=0;
-		$data->lost=0;		
-	}
+		$data = array ("name" => "", "cid" => 0, "won" => 0, "lost" => 0);	
+	}*/
 	
 	return $data;
 }
