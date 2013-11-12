@@ -955,7 +955,7 @@ function warquest_clan_form() {
 		
 		$page .= '<tr>';
 						
-		$page .= '<td width="150"><b>';
+		$page .= '<td width="160"><b>';
 		$page .= t('GENERAL_NAME');
 		$page .= '<b/></td>';
 		
@@ -975,7 +975,7 @@ function warquest_clan_form() {
 		$page .= t('GENERAL_CREATOR');
 		$page .= '</b></td>';
 		
-		$page .= '<td width="100"><b>';
+		$page .= '<td width="80"><b>';
 		$page .= '</b></td>';
 		
 		$page .= '</tr>';

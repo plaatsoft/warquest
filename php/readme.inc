@@ -24,7 +24,7 @@ $notes = '
 - Added Battle -> Clan-Wars battle page.<br/>
 - Added Alliance -> Clan configuration page.<br/>
 - Update Help -> Instruction page.<br/>
-- Update Player - Profile page.<br/><br/>
+- Update Player -> Profile page.<br/><br/>
 
 <i>General</i><br/>
 - Please visit www.gravatar.com to upload a player image.<br/><br/>

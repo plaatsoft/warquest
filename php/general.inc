@@ -2148,7 +2148,7 @@ function warquest_ui_background($tag, $id, $readonly) {
 		
 	foreach ($array as $key => $value) {
 	
-		$page.='<option value="'.$key.'" style="background-image: url(images/'.$value.'.jpg);" ';
+		$page.='<option value="'.$key.'" style="background-image: url(images/background/background'.$key.'.jpg);" ';
 		
 		if ($id == $key) {
 			$page .= ' selected="selected"';

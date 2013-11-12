@@ -2841,10 +2841,10 @@ $lang['CLAN_NO_SKILL_POINT'] = 'You need 1 skill point to create a new clan.';
 
 $lang['CLAN_LIST_TITLE'] = 'Clan List [%s]';
 
-$lang['BATTLE_CLAN_WAR_EARTH_UNLOCKED'] = 'Earth clan wars is unlocked at level %s.';
-$lang['BATTLE_CLAN_WAR_MOON_UNLOCKED'] = 'Moon clan wars are unlocked at level 100.';
-$lang['BATTLE_CLAN_WAR_MARS_UNLOCKED'] = 'Mars clan wars are unlocked at level 150.';
-$lang['BATTLE_CLAN_WAR_ASTERIOD_UNLOCKED'] = 'Asteriod clan wars are unlocked at level 200.';
+$lang['BATTLE_CLAN_WAR_EARTH_UNLOCKED'] = 'Earth clan war is unlocked at level %s.';
+$lang['BATTLE_CLAN_WAR_MOON_UNLOCKED'] = 'Moon clan war are unlocked at level 100.';
+$lang['BATTLE_CLAN_WAR_MARS_UNLOCKED'] = 'Mars clan war are unlocked at level 150.';
+$lang['BATTLE_CLAN_WAR_ASTERIOD_UNLOCKED'] = 'Asteriod clan war are unlocked at level 200.';
 
 $lang['BATTLE_CLAN_WAR_TITLE'] = 'Clan War';
 $lang['BATTLE_CLAN_WAR'] = 'Clan-War';
