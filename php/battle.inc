@@ -814,8 +814,8 @@ function warquest_clan_size($player_clan, $other_clan) {
 	$size = $count1;
 	if (($count2>0) && ($count2<$count1)) {
 		$size = $count2;
-		if (($size<6) && ($count1>=6)) {
-			$size = 6;
+		if ($size<6) {
+			$size = $count1;
 		}		
 	} 
 	
@@ -989,10 +989,10 @@ function warquest_clan_war_battle_do() {
 	global $player;
 	global $popup;
 	
-	$health_winner = rand(10,20);
-	$health_losser = rand(10,25);
+	$health_winner = rand(10,15);
+	$health_losser = rand(10,20);
 	$exp = rand(1, (round($player->lid/10)+5));
-	
+			
 	/* Fetch player clan data */	
 	$data = warquest_db_player_clan($player->pid);
 	
@@ -1006,6 +1006,13 @@ function warquest_clan_war_battle_do() {
 	/* Fetch other clan data */	
 	$other_clan = warquest_db_clan($sector->cid);
 		
+	
+	$query1 = 'select sid from sector where cid='.$data->cid.' and planet='.warquest_get_default_force();
+	$result1 = warquest_db_query($query1);	
+	$count = warquest_db_num_rows($result1);
+	
+	$money = ($count+1) * 10000 * ($player->lid*10);
+	
 	/* Get battle result */
 	$result = warquest_clan_war_battle($player_clan, $other_clan, warquest_get_default_force());
 		
@@ -1048,7 +1055,7 @@ function warquest_clan_war_battle_do() {
 		
 		/* update player stats */
 		$player->ammo -= 1;
-		$player->won++;
+		$player->won++;		
 		$player->experience += $exp;
 		$player->health -= $health_winner;
 		$player->last_battle = date("Y-m-d H:i:s");
@@ -1068,7 +1075,9 @@ function warquest_clan_war_battle_do() {
 			
 			warquest_db_sector_update($sector);
 			
-			$message .= t('BATTLE_CLAN_SECTOR_CONQUER');
+			$player->money += $money;
+			
+			$message .= t('BATTLE_CLAN_SECTOR_CONQUER', money_format1($money));
 		
 		} else {
 		
@@ -1077,10 +1086,10 @@ function warquest_clan_war_battle_do() {
 			
 			warquest_db_sector_update($sector);		
 		
-			$message .= t('BATTLE_CLAN_SECTOR_DAMAGE', alliance_format($sector->damage / $config["max_sector_damage"]*100) );			
+			$message .= t('BATTLE_CLAN_SECTOR_DAMAGE', alliance_format(($sector->damage/$config["max_sector_damage"])*100) );			
 		}
 	
-		$message .= $result->content;	
+		$message .= $result->body;	
 		$message .= warquest_battle_sound();
 				
 		$link = warquest_link('mid='.$mid.'&sid='.$sid.'&uid='.$uid.'&eid=3',t('LINK_ATTACK'), 'attack-0');
@@ -1116,7 +1125,7 @@ function warquest_clan_war_battle_do() {
 					clan_format($other_clan),
 					health_format($health_losser));
 		
-		$message .= $result->content;	
+		$message .= $result->body;	
 		$message .= warquest_battle_sound();
 			
 		$link = warquest_link('mid='.$mid.'&sid='.$sid.'&uid='.$uid.'&eid=3',t('LINK_ATTACK'), 'attack-0');
