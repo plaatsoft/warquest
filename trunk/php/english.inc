@@ -2849,13 +2849,13 @@ $lang['BATTLE_CLAN_WAR_ASTERIOD_UNLOCKED'] = 'Asteriod clan war are unlocked at 
 
 $lang['BATTLE_CLAN_WAR_TITLE'] = 'Clan War';
 $lang['BATTLE_CLAN_WAR'] = 'Clan-War';
-$lang['BATTLE_SECTOR_ALL_CONQUERED'] = 'Sector all ready conquered!';
+$lang['BATTLE_SECTOR_ALL_CONQUERED'] = 'Sector already conquered!';
 $lang['BATTLE_NO_CLAN'] = 'You are not part of a clan. Attack aborted!';
 $lang['BATTLE_NOTE_CLAN_WAR'] = 'Note: Select a planet sector which you want to conquer. To take over a planet sector your clan must win 10 times.'; 
 
 $lang['BATTLE_CLAN_WON'] = 'Your %s clan %s attacked the %s clan. You won the battle, taking %s damage and gain %s experience points. ';
 $lang['BATTLE_CLAN_SECTOR_DAMAGE'] = 'Sector defence is %s % damaged.';
-$lang['BATTLE_CLAN_SECTOR_CONQUER'] = 'Brilliant! You conquered the sector.';
+$lang['BATTLE_CLAN_SECTOR_CONQUER'] = 'Brilliant! You conquered the sector and receive %s dollars as reward.';
 $lang['BATTLE_CLAN_LOST'] = 'Your %s clan %s attacked the %s clan. You lost the battle, taking %s damage. ';
 
 $lang['BATTLE_CLAN_ATTACK_FORCE'] = 'Your clan %s attack %s (%s attack strength):';
@@ -2864,7 +2864,7 @@ $lang['BATTLE_CLAN_DEFENSE_BASE'] = '%s clan defence base:';
 
 $lang['HELP_CLAN_WAR_TITLE'] = 'Clan War';
 $lang['HELP_CLAN_WAR'] =	'Fight other clans to conquer all planet sectors. To take over a planet sector your clan must win 10 times. 
-Each occupied planet sector will generate extra income on a daily basis. So WarQuest clan players go for world domination!';
+Each conquered sector is rewarded with a bonus. The more sectors you own, the higher the bonus. So WarQuest clan players go for world domination!';
 
 /*
 ** ------------------

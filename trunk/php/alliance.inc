@@ -963,7 +963,7 @@ function warquest_clan_form() {
 	$query .= '(select country from player where pid=a.pid) as country2, ';
 	$query .= '(select count(*) from player_clan where cid=a.cid) as size, ';
 	$query .= '(select count(*) from player_clan d where d.cid=a.cid and d.pid='.$player->pid.') as joined ';
-	$query .= 'from clan a';
+	$query .= 'from clan a order by a.won desc';
 	
 	$result = warquest_db_query($query);	 	
 	$size = warquest_db_num_rows($result);
