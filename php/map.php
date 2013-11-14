@@ -94,7 +94,7 @@ function process_data($data, $image) {
 
 				fillPologon($image, $fill, $x, $y);
 				
-				imagefttext($image, 6, 0, 20+($x*88)+$xoffset, 20+($y*18)+$yoffset, $white, 'ttf/font.ttf', $name);			
+				imagefttext($image, 7, 0, 20+($x*88)+$xoffset, 20+($y*18)+$yoffset, $white, 'ttf/font.ttf', $name);			
 			}
 		}
 	}
