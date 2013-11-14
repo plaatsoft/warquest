@@ -1230,13 +1230,15 @@ function warquest_db_session_add($pid) {
 	warquest_db_query($query);  
 		
 	/* Create new session */
-	$query  = 'insert into session (date, session_id, pid) values ("'.date("Y-m-d H:i:s").'","",'.$pid.')';	
+	$now = date("Y-m-d H:i:s");
+	
+	$query  = 'insert into session (date, session_id, pid) values ("'.$now.'","",'.$pid.')';	
 	warquest_db_query($query);
 	
 	/* Return new session entry */
-	$query  = 'select id from session where pid='.$pid;
+	$query  = 'select id from session where pid='.$pid.' and date="'.$now.'"';
 	$result = warquest_db_query($query);
-	$data=warquest_db_fetch_object($result);
+	$data = warquest_db_fetch_object($result);
 	
 	/* created unique session id */
 	$tmp = md5($data->id);

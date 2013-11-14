@@ -965,7 +965,7 @@ function warquest_clan_war_battle($player_clan, $other_clan, $ugid) {
 	
 	$page->outcome=1;
 	
-	if ($lost>=$won) {
+	if ($lost>$won) {
 		$page->outcome=0;
 	}
 	return $page;
