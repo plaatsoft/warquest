@@ -2017,6 +2017,34 @@ function warquest_ui_radiobox($name, $value, $checked, $disabled) {
 	return $tmp;	
 }
 
+/**
+ * Calc polygon 
+ */
+function calcPolo($x, $y) {
+
+	$xoffset=6;
+	$yoffset=4;
+		
+	if (($y % 2)==0) {
+		$xoffset+=44;
+	}
+	
+	$poly  = 20+($x*88)+$xoffset.',';
+	$poly .= 0+($y*18)+$yoffset.',';
+	$poly .= 46+($x*88)+$xoffset.',';
+	$poly .= 0+($y*18)+$yoffset.',';
+	$poly .= 64+($x*88)+$xoffset.',';
+	$poly .= 18+($y*18)+$yoffset.',';
+	$poly .= 46+($x*88)+$xoffset.',';
+	$poly .= 36+($y*18)+$yoffset.',';
+	$poly .= 20+($x*88)+$xoffset.',';
+	$poly .= 36+($y*18)+$yoffset.',';
+	$poly .= 2+($x*88)+$xoffset.',';
+	$poly .= 18+($y*18)+$yoffset;
+		 
+	return $poly;
+}
+
 function warquest_ui_map($player, $planet) {
 	
 	/* input */
@@ -2069,40 +2097,55 @@ function warquest_ui_map($player, $planet) {
 			break;
 		
 		case PLANET_MOON:
-			$page .= '<img src="planet.php?planet='.$planet.'&data='.$tmp.'" width="'.$width.'" height="'.$height.'" title="'.t('GENERAL_PLANET_1').'" usemap="#map">';	
+			$page .= '<img src="planet.php?planet='.$planet.'&data='.$tmp.'" width="'.$width.'" height="'.$height.'" usemap="#map">';	
 			if (($pid==$player->pid) && ($player->lid > 1)) {
-				$page .= '<map name="map">';		
-				$page .= '<area shape="rect" coords="0,0,500,300" title="'.t('GENERAL_PLANET_1').'" href="javascript:link(\''.warquest_token('mid='.MENU_MISSIONS.'&sid=10').'\');" />';
+			
+				$page .= '<map name="map">';
+	
+				$query  = 'select a.sid, a.x, a.y, a.cid from sector a where a.planet='.$player->planet;		
+				$result = warquest_db_query($query);			
+				while ($data=warquest_db_fetch_object($result)) {			
+			
+					$page .= '<area shape="poly" coords="'.calcPolo($data->x,$data->y).'" title="'.t('GENERAL_PLANET_1').'" href="javascript:link(\'';
+					$page .= warquest_token('mid='.MENU_MISSIONS.'&sid='.(round(($data->sid-100)/10)+10)).'\');" />';
+				}			
 				$page .= '</map>';
 			}
 			break;
 			
 		case PLANET_MARS: 
-			$page .= '<img src="planet.php?planet='.$planet.'&data='.$tmp.'" width="'.$width.'" height="'.$height.'" title="'.t('GENERAL_PLANET_2').'" usemap="#map">';	
+			$page .= '<img src="planet.php?planet='.$planet.'&data='.$tmp.'" width="'.$width.'" height="'.$height.'" usemap="#map">';	
 			if (($pid==$player->pid) && ($player->lid > 1)) {
-				$page .= '<map name="map">';		
-				$page .= '<area shape="rect" coords="0,0,500,300" title="'.t('GENERAL_PLANET_2').'" href="javascript:link(\''.warquest_token('mid='.MENU_MISSIONS.'&sid=20').'\');" />';
+				$page .= '<map name="map">';
+	
+				$query  = 'select a.sid, a.x, a.y, a.cid from sector a where a.planet='.$player->planet;		
+				$result = warquest_db_query($query);			
+				while ($data=warquest_db_fetch_object($result)) {			
+			
+					$page .= '<area shape="poly" coords="'.calcPolo($data->x,$data->y).'" title="'.t('GENERAL_PLANET_2').'" href="javascript:link(\'';
+					$page .= warquest_token('mid='.MENU_MISSIONS.'&sid='.(round(($data->sid-200)/10)+20)).'\');" />';
+				}			
 				$page .= '</map>';
+				
 			}
 			break;
 				
 		case PLANET_ASTEROID:
-			$page .= '<img src="planet.php?planet='.$planet.'&data='.$tmp.'" width="'.$width.'" height="'.$height.'" title="'.t('GENERAL_PLANET_3').'" usemap="#map">';	
+			$page .= '<img src="planet.php?planet='.$planet.'&data='.$tmp.'" width="'.$width.'" height="'.$height.'" usemap="#map">';	
 			if (($pid==$player->pid) && ($player->lid > 1)) {
-				$page .= '<map name="map">';		
-				$page .= '<area shape="rect" coords="0,0,500,300" title="'.t('GENERAL_PLANET_3').'" href="javascript:link(\''.warquest_token('mid='.MENU_MISSIONS.'&sid=30').'\');" />';
+				$page .= '<map name="map">';
+	
+				$query  = 'select a.sid, a.x, a.y, a.cid from sector a where a.planet='.$player->planet;		
+				$result = warquest_db_query($query);			
+				while ($data=warquest_db_fetch_object($result)) {			
+			
+					$page .= '<area shape="poly" coords="'.calcPolo($data->x,$data->y).'" title="'.t('GENERAL_PLANET_3').'" href="javascript:link(\'';
+					$page .= warquest_token('mid='.MENU_MISSIONS.'&sid='.(round(($data->sid-300)/10)+30)).'\');" />';
+				}			
 				$page .= '</map>';
 			}
 			break;
 			
-		case PLANET_SUN:
-			$page .= '<img src="planet.php?planet='.$planet.'&data='.$tmp.'" width="'.$width.'" height="'.$height.'" title="'.t('GENERAL_PLANET_3').'" usemap="#map">';	
-			if (($pid==$player->pid) && ($player->lid > 1)) {
-				$page .= '<map name="map">';		
-				$page .= '<area shape="rect" coords="0,0,500,300" title="'.t('GENERAL_PLANET_4').'" href="javascript:link(\''.warquest_token('mid='.MENU_MISSIONS.'&sid=30').'\');" />';
-				$page .= '</map>';
-			}
-			break;
 	}
 	$page .= '</center>';
 	

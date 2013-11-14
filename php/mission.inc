@@ -452,21 +452,14 @@ function warquest_mission_do() {
 			
 		} else {
 				
-			if ($player->planet==PLANET_SUN) {
+			if (warquest_format_progress($progress, $part)==90) { 
 			
-				$progress++;			
-				
+				$progress+=10;	
+				$money = $money * 2;
+					
 			} else {
 			
-				if (warquest_format_progress($progress, $part)==90) { 
-				
-					$progress+=10;	
-					$money = $money * 2;
-					
-				} else {
-				
-					$progress+=15;
-				}
+				$progress+=15;
 			}
 		} 
 		
@@ -704,7 +697,7 @@ function warquest_mission_form() {
 		}		
 	}
 	
-	if (($player->lid>0) && ($player->planet!=PLANET_SUN)) {
+	if ($player->lid>0) {
 		$page .= '<div class="note">';
 		$page .= t('MISSION_NOTE', $title, money_format1($sid * $config["continent_conquer_bonus"]));
 		$page .='</div>';
