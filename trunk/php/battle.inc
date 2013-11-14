@@ -1601,31 +1601,6 @@ function warquest_player_bounty_do() {
 ** -----------
 */
 
-function calcPolo($x, $y) {
-
-	$xoffset=6;
-	$yoffset=4;
-		
-	if (($y % 2)==0) {
-		$xoffset+=44;
-	}
-	
-	$poly  = 20+($x*88)+$xoffset.',';
-	$poly .= 0+($y*18)+$yoffset.',';
-	$poly .= 46+($x*88)+$xoffset.',';
-	$poly .= 0+($y*18)+$yoffset.',';
-	$poly .= 64+($x*88)+$xoffset.',';
-	$poly .= 18+($y*18)+$yoffset.',';
-	$poly .= 46+($x*88)+$xoffset.',';
-	$poly .= 36+($y*18)+$yoffset.',';
-	$poly .= 20+($x*88)+$xoffset.',';
-	$poly .= 36+($y*18)+$yoffset.',';
-	$poly .= 2+($x*88)+$xoffset.',';
-	$poly .= 18+($y*18)+$yoffset;
-		 
-	return $poly;
-}
-
 /**
  * Clan War Form
  */
