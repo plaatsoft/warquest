@@ -18,55 +18,6 @@
 
 include "general.inc";
 
-function addPologonRaster($image) {
-
-	$black = imagecolorallocatealpha($image, 0, 0, 0, 20);
-		
-	$yoffset=4;
-	
-	for ($y=0; $y<15; $y++) {
-
-		$xoffset=6;
-		if (($y % 2)==0) {
-			$xoffset+=44;
-		}
-			
-		for ($x=0; $x<5; $x++) {
-		
-			$poly = array(	20+($x*88)+$xoffset, 0+ ($y*18)+$yoffset,
-								46+($x*88)+$xoffset, 0+ ($y*18)+$yoffset,
-								64+($x*88)+$xoffset, 18+($y*18)+$yoffset,
-								46+($x*88)+$xoffset, 36+($y*18)+$yoffset,
-								20+($x*88)+$xoffset, 36+($y*18)+$yoffset,
-								2+ ($x*88)+$xoffset, 18+($y*18)+$yoffset );		  
-								
-			imagepolygon($image, $poly, 6, $black);	
-		}
-	}		
-}
-
-function fillPologon($image, $color, $x, $y) {
-
-	$black = imagecolorallocatealpha($image, 0, 0, 0, 20); 
-	
-	$yoffset=4;
-	$xoffset=6;
-	if (($y % 2)==0) {
-		$xoffset+=44;
-	}
-	
-	$poly = array(	20+($x*88)+$xoffset, 0+ ($y*18)+$yoffset,
-						46+($x*88)+$xoffset, 0+ ($y*18)+$yoffset,
-						64+($x*88)+$xoffset, 18+($y*18)+$yoffset,
-						46+($x*88)+$xoffset, 36+($y*18)+$yoffset,
-						20+($x*88)+$xoffset, 36+($y*18)+$yoffset,
-						2+ ($x*88)+$xoffset, 18+($y*18)+$yoffset );		  
-		 
-	imagefilledpolygon($image, $poly, 6, $color);
-	imagepolygon($image, $poly, 6, $black);
-}
-
-
 function process_data($data, $image) {
 	
 	$white = imagecolorallocatealpha($image, 0xff, 0xff, 0xff, 20);
@@ -85,14 +36,14 @@ function process_data($data, $image) {
 				if (($y % 2)==0) {
 					$xoffset+=44;
 				}
-	
+				
+				$color = ImageColorAllocatealpha($image, 255, 0, 0, 80);	
+				
 				if ($owner==1) {
-					$fill = ImageColorAllocatealpha($image, 0, 255, 0, 60);	
-				} else {
-					$fill = ImageColorAllocatealpha($image, 255, 0, 0, 80);					
+					$color = ImageColorAllocatealpha($image, 0, 255, 0, 60);	
 				}
 
-				fillPologon($image, $fill, $x, $y);
+				fillPologon($image, $color, $x, $y);
 				
 				imagefttext($image, 7, 0, 20+($x*88)+$xoffset, 20+($y*18)+$yoffset, $white, 'ttf/font.ttf', $name);			
 			}
