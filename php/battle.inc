@@ -1009,9 +1009,9 @@ function warquest_clan_war_battle_do() {
 	
 	$query1 = 'select sid from sector where cid='.$data->cid.' and planet='.warquest_get_default_force();
 	$result1 = warquest_db_query($query1);	
-	$count = warquest_db_num_rows($result1);
+	$count1 = warquest_db_num_rows($result1);
 	
-	$money = ($count+1) * 10000 * ($player->lid*10);
+	$money = ($count1+1) * 10000 * ($player->lid*10);
 	
 	/* Get battle result */
 	$result = warquest_clan_war_battle($player_clan, $other_clan, warquest_get_default_force());
@@ -1047,7 +1047,7 @@ function warquest_clan_war_battle_do() {
 		$player_clan->won++;
 		warquest_db_clan_update($player_clan);
 	
-		/* Update defend clan stats */
+		/* Update defend clan stats, if possible */
 		if (isset($other_clan->cid)) {
 			$other_clan->lost++;
 			warquest_db_clan_update($other_clan);
@@ -1067,7 +1067,7 @@ function warquest_clan_war_battle_do() {
 					health_format($health_winner),
 					experience_format($exp));
 			
-		if (($sector->damage+1) >= $config["max_sector_damage"]) {
+		if ($sector->damage >= ($config["max_sector_damage"]-1) ) {
 			
 			/* Sector conquered (because of max damage)*/
 			$sector->damage = 0;
@@ -1712,7 +1712,7 @@ function warquest_battle_clan_war_form() {
 		$result = warquest_db_query($query);			
 		while ($data=warquest_db_fetch_object($result)) {			
 		
-			$page .= '<area shape="poly" coords="'.calcPolo($data->x,$data->y).'" title="'.$data->x.','.$data->y.'" href="javascript:link(\'';
+			$page .= '<area shape="poly" coords="'.calcPologon($data->x,$data->y).'" title="" href="javascript:link(\'';
 			$page .= warquest_token('mid='.MENU_BATTLE.'&sid='.PAGE_CLAN_WAR.'&uid='.$data->sid.'&eid=3').'\');" />';
 		
 		}
@@ -1917,11 +1917,9 @@ function warquest_battle_bounty_form() {
 		}
 	}
 	
-	if ($player->planet!=PLANET_SUN) {	
-		$page .= '<div class="note">';
-		$page .= t('BATTLE_NOTE2');
-		$page .= '</div>';
-	}
+	$page .= '<div class="note">';
+	$page .= t('BATTLE_NOTE2');
+	$page .= '</div>';	
 }
 
 /**
@@ -2122,12 +2120,10 @@ function warquest_battle_enemy_form() {
 		}
 	}
 			
-	if ($player->planet!=PLANET_SUN) {	
-		$page .= '<div class="note">';
-		$page .= t('BATTLE_NOTE1').' ';
-		$page .= t('BATTLE_RANGE',warquest_get_min_attack_level(), warquest_get_max_attack_level());
-		$page .= '</div>';
-	}
+	$page .= '<div class="note">';
+	$page .= t('BATTLE_NOTE1').' ';
+	$page .= t('BATTLE_RANGE',warquest_get_min_attack_level(), warquest_get_max_attack_level());
+	$page .= '</div>';
 }
 
 function warquest_battle_force_option() {

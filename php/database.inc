@@ -864,10 +864,6 @@ function warquest_get_default_force() {
 			case PLANET_ASTEROID: 	
 						$value = 24;
 						break;
-						
-			case PLANET_SUN: 	
-						$value = 30;
-						break;
 		}
 	}
 	
@@ -925,10 +921,6 @@ function warquest_get_default_mission($planet) {
 						
 			case PLANET_ASTEROID: 	
 						$value = 30;
-						break;
-						
-			case PLANET_SUN: 	
-						$value = 40;
 						break;
 		}
 	}

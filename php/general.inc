@@ -156,11 +156,104 @@ function warquest_db_set_pattern($player, $pos, $value) {
 	$player->pattern = substr_replace($player->pattern, $value, $pos, 1);
 }
 
+
+/*
+** ------------------
+** Pologon Functions
+** ------------------
+*/
+
+/**
+ * Add Pologon raster to image 
+ */
+function addPologonRaster($image) {
+
+	$black = imagecolorallocatealpha($image, 0, 0, 0, 20);
+		
+	$yoffset=4;
+	
+	for ($y=0; $y<15; $y++) {
+
+		$xoffset=6;
+		if (($y % 2)==0) {
+			$xoffset+=44;
+		}
+			
+		for ($x=0; $x<5; $x++) {
+		
+			$poly = array(	20+($x*88)+$xoffset, 0+ ($y*18)+$yoffset,
+								46+($x*88)+$xoffset, 0+ ($y*18)+$yoffset,
+								64+($x*88)+$xoffset, 18+($y*18)+$yoffset,
+								46+($x*88)+$xoffset, 36+($y*18)+$yoffset,
+								20+($x*88)+$xoffset, 36+($y*18)+$yoffset,
+								2+ ($x*88)+$xoffset, 18+($y*18)+$yoffset );		  
+								
+			imagepolygon($image, $poly, 6, $black);	
+		}
+	}		
+}
+
+/**
+ * Fill one pologon with a color 
+ */
+function fillPologon($image, $color, $x, $y) {
+
+	$black = imagecolorallocatealpha($image, 0, 0, 0, 20); 
+	
+	$yoffset=4;
+	$xoffset=6;
+	if (($y % 2)==0) {
+		$xoffset+=44;
+	}
+	
+	$poly = array(	20+($x*88)+$xoffset, 0+ ($y*18)+$yoffset,
+						46+($x*88)+$xoffset, 0+ ($y*18)+$yoffset,
+						64+($x*88)+$xoffset, 18+($y*18)+$yoffset,
+						46+($x*88)+$xoffset, 36+($y*18)+$yoffset,
+						20+($x*88)+$xoffset, 36+($y*18)+$yoffset,
+						2+ ($x*88)+$xoffset, 18+($y*18)+$yoffset );		  
+		 
+	imagefilledpolygon($image, $poly, 6, $color);
+	imagepolygon($image, $poly, 6, $black);
+}
+
+/**
+ * Calc polygon =info used for HTML MAP feature
+ */
+function calcPologon($x, $y) {
+
+	$xoffset=6;
+	$yoffset=4;
+		
+	if (($y % 2)==0) {
+		$xoffset+=44;
+	}
+	
+	$poly  = 20+($x*88)+$xoffset.',';
+	$poly .= 0+($y*18)+$yoffset.',';
+	$poly .= 46+($x*88)+$xoffset.',';
+	$poly .= 0+($y*18)+$yoffset.',';
+	$poly .= 64+($x*88)+$xoffset.',';
+	$poly .= 18+($y*18)+$yoffset.',';
+	$poly .= 46+($x*88)+$xoffset.',';
+	$poly .= 36+($y*18)+$yoffset.',';
+	$poly .= 20+($x*88)+$xoffset.',';
+	$poly .= 36+($y*18)+$yoffset.',';
+	$poly .= 2+($x*88)+$xoffset.',';
+	$poly .= 18+($y*18)+$yoffset;
+		 
+	return $poly;
+}
+
 /*
 ** ------------------
 ** BAD WORDS FILTER
 ** ------------------
 */
+
+/** 
+ * filter out very basic bad language 
+ */
 function filterBadWords($str){
 
 	/* words to filter */
@@ -196,7 +289,7 @@ function warquest_post($label, $default) {
 
 /*
 ** ------------------
-** TRACING
+** ADS
 ** ------------------
 */
 
@@ -613,11 +706,7 @@ function warquest_unit_upkeep($player, $planet) {
 
 		case PLANET_ASTEROID:	
 					$query .= ' and a.ugid in (19,20,21,22,23)';
-					break;		
-					
-		case PLANET_SUN:	
-					$query .= ' and a.ugid in (25,26,27,28,29)';
-					break;		
+					break;			
 	} 
 	
 	$result = warquest_db_query($query);
@@ -641,22 +730,19 @@ function warquest_netto_income($player) {
 	$income += warquest_building_income($player, PLANET_MOON);
 	$income += warquest_building_income($player, PLANET_MARS);
 	$income += warquest_building_income($player, PLANET_ASTEROID);
-	$income += warquest_building_income($player, PLANET_SUN);
 	
 	/* Calculate continent bonus */
 	$income += warquest_continent_bonus($player, PLANET_EARTH);
 	$income += warquest_continent_bonus($player, PLANET_MOON);
 	$income += warquest_continent_bonus($player, PLANET_MARS);
 	$income += warquest_continent_bonus($player, PLANET_ASTEROID);
-	$income += warquest_continent_bonus($player, PLANET_SUN);
 
 	/* Calculate unit upkeep cost */
 	$income -= warquest_unit_upkeep($player, PLANET_EARTH);
 	$income -= warquest_unit_upkeep($player, PLANET_MOON);
 	$income -= warquest_unit_upkeep($player, PLANET_MARS);
 	$income -= warquest_unit_upkeep($player, PLANET_ASTEROID);
-	$income -= warquest_unit_upkeep($player, PLANET_SUN);
-
+	
 	$player->money_step = $income;
 }
 
@@ -929,11 +1015,6 @@ function warquest_lootoption($level) {
 			case PLANET_ASTEROID:  
 						$min = 200;
 						$max = 250;
-						break;
-						
-			case PLANET_SUN:  
-						$min = 250;
-						$max = 300;
 						break;
 		}
 		
@@ -2017,34 +2098,6 @@ function warquest_ui_radiobox($name, $value, $checked, $disabled) {
 	return $tmp;	
 }
 
-/**
- * Calc polygon 
- */
-function calcPolo($x, $y) {
-
-	$xoffset=6;
-	$yoffset=4;
-		
-	if (($y % 2)==0) {
-		$xoffset+=44;
-	}
-	
-	$poly  = 20+($x*88)+$xoffset.',';
-	$poly .= 0+($y*18)+$yoffset.',';
-	$poly .= 46+($x*88)+$xoffset.',';
-	$poly .= 0+($y*18)+$yoffset.',';
-	$poly .= 64+($x*88)+$xoffset.',';
-	$poly .= 18+($y*18)+$yoffset.',';
-	$poly .= 46+($x*88)+$xoffset.',';
-	$poly .= 36+($y*18)+$yoffset.',';
-	$poly .= 20+($x*88)+$xoffset.',';
-	$poly .= 36+($y*18)+$yoffset.',';
-	$poly .= 2+($x*88)+$xoffset.',';
-	$poly .= 18+($y*18)+$yoffset;
-		 
-	return $poly;
-}
-
 function warquest_ui_map($player, $planet) {
 	
 	/* input */
@@ -2052,10 +2105,12 @@ function warquest_ui_map($player, $planet) {
 	global $pid;
 		
 	$page = "";
-	
-	$query  = 'select a.mid, a.progress, part, part2 ';
-	$query .= 'from player_mission a left join mission b on ';
-	$query .= 'a.mid=b.mid left join mission_group c on c.mgid=b.mgid ';
+		
+	$query  = 'select a.mid, a.progress, a.part, a.part2, d.x, d.y ';
+	$query .= 'from player_mission a ';
+	$query .= 'left join mission b on a.mid=b.mid ';
+	$query .= 'left join mission_group c on c.mgid=b.mgid ';
+	$query .= 'left join sector d on b.mid=d.mid ';
 	$query .= 'where a.pid='.$player->pid.' and c.planet='.$planet;
 	
 	$result = warquest_db_query($query);
@@ -2071,7 +2126,12 @@ function warquest_ui_map($player, $planet) {
 		if ($data->part!=$data->part2) {
 			$progress = 0;
 		}
-		$tmp .= $data->mid.'-'.$progress;
+		
+		if ($planet==PLANET_EARTH) {
+			$tmp .= $data->mid.'-'.$progress;
+		} else {
+			$tmp .= $data->x.'-'.$data->y.'-'.$progress;
+		}
 	}
 	
 	$width=483;
@@ -2096,56 +2156,22 @@ function warquest_ui_map($player, $planet) {
 			}
 			break;
 		
-		case PLANET_MOON:
+		default:
 			$page .= '<img src="planet.php?planet='.$planet.'&data='.$tmp.'" width="'.$width.'" height="'.$height.'" usemap="#map">';	
 			if (($pid==$player->pid) && ($player->lid > 1)) {
 			
 				$page .= '<map name="map">';
 	
-				$query  = 'select a.sid, a.x, a.y, a.cid from sector a where a.planet='.$player->planet;		
+				$query  = 'select a.x, a.y, b.mid, b.mgid from sector a, mission b where a.mid=b.mid and a.planet='.$planet;		
 				$result = warquest_db_query($query);			
 				while ($data=warquest_db_fetch_object($result)) {			
 			
-					$page .= '<area shape="poly" coords="'.calcPolo($data->x,$data->y).'" title="'.t('GENERAL_PLANET_1').'" href="javascript:link(\'';
-					$page .= warquest_token('mid='.MENU_MISSIONS.'&sid='.(round(($data->sid-100)/10)+10)).'\');" />';
+					$page .= '<area shape="poly" coords="'.calcPologon($data->x,$data->y).'" title="'.t('MISSION_'.$data->mid).'" ';
+					$page .= 'href="javascript:link(\''.warquest_token('mid='.MENU_MISSIONS.'&sid='.$data->mgid).'\');" />';
 				}			
 				$page .= '</map>';
 			}
 			break;
-			
-		case PLANET_MARS: 
-			$page .= '<img src="planet.php?planet='.$planet.'&data='.$tmp.'" width="'.$width.'" height="'.$height.'" usemap="#map">';	
-			if (($pid==$player->pid) && ($player->lid > 1)) {
-				$page .= '<map name="map">';
-	
-				$query  = 'select a.sid, a.x, a.y, a.cid from sector a where a.planet='.$player->planet;		
-				$result = warquest_db_query($query);			
-				while ($data=warquest_db_fetch_object($result)) {			
-			
-					$page .= '<area shape="poly" coords="'.calcPolo($data->x,$data->y).'" title="'.t('GENERAL_PLANET_2').'" href="javascript:link(\'';
-					$page .= warquest_token('mid='.MENU_MISSIONS.'&sid='.(round(($data->sid-200)/10)+20)).'\');" />';
-				}			
-				$page .= '</map>';
-				
-			}
-			break;
-				
-		case PLANET_ASTEROID:
-			$page .= '<img src="planet.php?planet='.$planet.'&data='.$tmp.'" width="'.$width.'" height="'.$height.'" usemap="#map">';	
-			if (($pid==$player->pid) && ($player->lid > 1)) {
-				$page .= '<map name="map">';
-	
-				$query  = 'select a.sid, a.x, a.y, a.cid from sector a where a.planet='.$player->planet;		
-				$result = warquest_db_query($query);			
-				while ($data=warquest_db_fetch_object($result)) {			
-			
-					$page .= '<area shape="poly" coords="'.calcPolo($data->x,$data->y).'" title="'.t('GENERAL_PLANET_3').'" href="javascript:link(\'';
-					$page .= warquest_token('mid='.MENU_MISSIONS.'&sid='.(round(($data->sid-300)/10)+30)).'\');" />';
-				}			
-				$page .= '</map>';
-			}
-			break;
-			
 	}
 	$page .= '</center>';
 	

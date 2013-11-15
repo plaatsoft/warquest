@@ -1199,8 +1199,7 @@ function warquest_profile($id) {
 			  ($other->cease_fire_date < date("Y-m-d H:i:s", time())) && 
 			  ($player->cease_fire_date < date("Y-m-d H:i:s", time())) &&
 			  ($other->holiday_date < date("Y-m-d H:i:s", time())) && 
-			  ($player->holiday_date < date("Y-m-d H:i:s", time())) &&
-			  ($player->planet!=PLANET_SUN)) {
+			  ($player->holiday_date < date("Y-m-d H:i:s", time())))  {
 		
 			$page .= warquest_link('mid='.MENU_BATTLE.'&sid='.PAGE_ENEMIES.'&eid=1&oid='.$id, t('LINK_ATTACK'), "attack").' ';
 		}

@@ -18,15 +18,17 @@
 
 $notes = '
 
-<span class="subparagraph2">13-11-2013</span><br/>
+<span class="subparagraph2">14-11-2013</span><br/>
 <i>Game Server v5.8</i><br/>
+- Added missions map sector click awareless.<br>
 - Rebalance earth unit & building defense / attack values.</br>
 - Added clan wars functionality to WarQuest:<br/>
 &nbsp;&nbsp;- Added bonus to conquer sector event.</br>
 &nbsp;&nbsp;- Added Battle -> Clan-Wars battle page.<br/>
 &nbsp;&nbsp;- Added Alliance -> Clan configuration page.<br/>
 &nbsp;&nbsp;- Update Help -> Instruction page.<br/>
-&nbsp;&nbsp;- Update Player -> Profile page.<br/><br/>
+&nbsp;&nbsp;- Update Player -> Profile page.<br/>
+- Bug fix: Create SessionId functionality is now transaction proof.<br/><br/>
 
 <i>General</i><br/>
 - Please visit www.gravatar.com to upload a player image.<br/><br/>

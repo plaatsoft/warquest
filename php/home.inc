@@ -383,8 +383,7 @@ function warquest_home_news() {
 			if ( ($player->cease_fire_date < date("Y-m-d H:i:s", time())) && 
 				  ($data->cease_fire_date < date("Y-m-d H:i:s", time())) && 
 				  ($player->holiday_date < date("Y-m-d H:i:s", time())) && 
-				  ($data->holiday_date < date("Y-m-d H:i:s", time())) && 
-				  ($player->planet!=PLANET_SUN)) {
+				  ($data->holiday_date < date("Y-m-d H:i:s", time())) ) {
 				$page .= warquest_link('mid='.MENU_BATTLE.'&sid='.PAGE_ENEMIES.'&oid='.$data->pid1.'&eid=1', t('LINK_ATTACK'), "attack");			
 			}
 			
