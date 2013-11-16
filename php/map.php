@@ -27,7 +27,7 @@ function process_data($data, $image) {
 		$codes = preg_split('/,/',$data);
 		foreach($codes as $code) {
 
-			@list($x, $y, $name, $owner) = preg_split('/-/',$code);
+			@list($x, $y, $name, $owner, $damage) = preg_split('/-/',$code);
 			
 			if (strlen($name)>0) {
 			
@@ -44,8 +44,17 @@ function process_data($data, $image) {
 				}
 
 				fillPologon($image, $color, $x, $y);
+			
+				if ($damage>0) {
 				
-				imagefttext($image, 7, 0, 20+($x*88)+$xoffset, 20+($y*18)+$yoffset, $white, 'ttf/font.ttf', $name);			
+					$yoffset-=3;
+				}
+					
+				imagefttext($image, 7, 0, 20+($x*88)+$xoffset, 20+($y*18)+$yoffset, $white, 'ttf/font.ttf', $name);	
+							
+				if ($damage>0) {
+					imagefttext($image, 7, 0, 27+($x*88)+$xoffset, 30+($y*18)+$yoffset+2, $white, 'ttf/font.ttf', $damage.'%');	
+				}
 			}
 		}
 	}

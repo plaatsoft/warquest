@@ -987,6 +987,7 @@ function warquest_clan_war_battle_do() {
 	
 	/* output */
 	global $player;
+	global $level;
 	global $popup;
 	
 	$health_winner = rand(10,15);
@@ -1007,11 +1008,11 @@ function warquest_clan_war_battle_do() {
 	$other_clan = warquest_db_clan($sector->cid);
 		
 	
-	$query1 = 'select sid from sector where cid='.$data->cid.' and planet='.warquest_get_default_force();
+	$query1 = 'select sid from sector where cid='.$data->cid.' and planet='.$player->planet;
 	$result1 = warquest_db_query($query1);	
 	$count1 = warquest_db_num_rows($result1);
 	
-	$money = ($count1+1) * 10000 * ($player->lid*10);
+	$money = ($count1+1) * 10000 * ($player->lid*9);
 	
 	/* Get battle result */
 	$result = warquest_clan_war_battle($player_clan, $other_clan, warquest_get_default_force());
@@ -1060,6 +1061,16 @@ function warquest_clan_war_battle_do() {
 		$player->health -= $health_winner;
 		$player->last_battle = date("Y-m-d H:i:s");
 		
+		$maintenance = warquest_maintenance($player, $player->planet);
+			
+		if ($level->unit_lost==1) {			
+			$player->damage_units += round(((100-$maintenance)/100)* ($health_winner/2) );
+		}
+		
+		if ($level->building_lost==1) {			
+			$player->damage_buildings += round(((100-$maintenance)/100) * rand(1,2));
+		}
+		
 		$message = t('BATTLE_CLAN_WON', 
 					clan_format($player_clan),
 					strtolower(t('GENERAL_PLANET_'.$player->planet)).' '.strtolower(t('UNIT_GROUP_'.warquest_get_default_force())),
@@ -1088,9 +1099,16 @@ function warquest_clan_war_battle_do() {
 		
 			$message .= t('BATTLE_CLAN_SECTOR_DAMAGE', alliance_format(($sector->damage/$config["max_sector_damage"])*100) );			
 		}
-	
+						
 		$message .= $result->body;	
 		$message .= warquest_battle_sound();
+		$message .= warquest_battle_unit_lost(warquest_get_default_force());
+		$message .= warquest_battle_building_lost(warquest_get_default_force());
+		
+		$message .= warquest_lootoption($player->lid);
+		
+		$message .= warquest_show_ads();
+		
 				
 		$link = warquest_link('mid='.$mid.'&sid='.$sid.'&uid='.$uid.'&eid=3',t('LINK_ATTACK'), 'attack-0');
 	
@@ -1098,6 +1116,12 @@ function warquest_clan_war_battle_do() {
 		
 		/* Check if next level is reached */
 		warquest_nextlevel($player);
+		
+		/* Check if battle award is won */
+		warquest_battle_award_won($player);
+				
+		$log = 'Clan war won, won '.number_format2($money).' ['.$player->pid.']';		
+		warquest_user_log($player, $log);
 		
 	} else  {
 		
@@ -1118,7 +1142,17 @@ function warquest_clan_war_battle_do() {
 		$player->lost++;
 		$player->health -= $health_losser;
 		$player->last_battle = date("Y-m-d H:i:s");
-				
+		
+		$maintenance = warquest_maintenance($player, $player->planet);
+			
+		if ($level->unit_lost==1) {			
+			$player->damage_units += round(((100-$maintenance)/100)* ($health_losser/2) );
+		}
+		
+		if ($level->building_lost==1) {			
+			$player->damage_buildings += round(((100-$maintenance)/100) * rand(1,4));
+		}
+		
 		$message = t('BATTLE_CLAN_LOST',
 					clan_format($player_clan),
 					strtolower(t('GENERAL_PLANET_'.$player->planet)).' '.strtolower(t('UNIT_GROUP_'.warquest_get_default_force())),
@@ -1686,7 +1720,7 @@ function warquest_battle_clan_war_form() {
 		$result = warquest_db_query($query);	
 		$data2 = warquest_db_fetch_object($result);
 			
-		$query  = 'select a.sid, a.x, a.y, a.cid, ';
+		$query  = 'select a.sid, a.x, a.y, a.cid, a.damage, ';
 		$query .= '(select b.name from clan b where b.cid=a.cid ) as name ';
 		$query .= 'from sector a where a.planet='.$player->planet;	
 		$result = warquest_db_query($query);
@@ -1696,16 +1730,23 @@ function warquest_battle_clan_war_form() {
 		
 			if (strlen($data->name)>0) {
 		
-				$tmp .= $data->x.'-'.$data->y.'-'.$data->name.'-';		
-				@$tmp .= $data->cid==$data2->cid;
+				$value = 0;
+				if ($data->cid==$data2->cid) {
+					$value =1;
+				}
+		
+				$tmp .= $data->x.'-'.$data->y.'-'.$data->name.'-'.$value.'-'.($data->damage/$config["max_sector_damage"])*100;		
 				$tmp .= ',';
 			}
 		}		
 	
+		$width=483;
+		$height=300;
+	
 		$page .= '<div class="box">';
 	
 		$page .= '<center>';
-		$page .= '<img src="map.php?planet='.$player->planet.'&data='.$tmp.'" title="'.t('GENERAL_PLANET_'.$player->planet).'" usemap="#map">';	
+		$page .= '<img src="map.php?planet='.$player->planet.'&data='.$tmp.'" width="'.$width.'" height="'.$height.'" title="'.t('GENERAL_PLANET_'.$player->planet).'" usemap="#map">';	
 		$page .= '<map name="map">';
 	
 		$query  = 'select a.sid, a.x, a.y, a.cid from sector a where a.planet='.$player->planet;		
