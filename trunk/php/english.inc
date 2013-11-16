@@ -2851,7 +2851,7 @@ $lang['BATTLE_CLAN_WAR_TITLE'] = 'Clan War';
 $lang['BATTLE_CLAN_WAR'] = 'Clan-War';
 $lang['BATTLE_SECTOR_ALL_CONQUERED'] = 'Sector already conquered!';
 $lang['BATTLE_NO_CLAN'] = 'You are not part of a clan. Attack aborted!';
-$lang['BATTLE_NOTE_CLAN_WAR'] = 'Note: Select a planet sector which you want to conquer. To take over a planet sector your clan must win 10 times.'; 
+$lang['BATTLE_NOTE_CLAN_WAR'] = 'Note: Select a planet sector which you want to conquer. To take over a planet sector your clan must destroy its defence. Sector defence damage percentage is showed on the map.'; 
 
 $lang['BATTLE_CLAN_WON'] = 'Your %s clan %s attacked the %s clan. You won the battle, taking %s damage and gain %s experience points. ';
 $lang['BATTLE_CLAN_SECTOR_DAMAGE'] = 'Sector defence is %s % damaged.';
