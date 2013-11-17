@@ -348,30 +348,13 @@ function warquest_robot_battle($player, $other) {
 	$message = "";
 	
 	if (warquest_db_query_pattern($player, PATTERN_SOUND)==1) {
-	
-		$member = warquest_db_member($player->pid);
 		
-		if (($member->browser=="iPod") || ($member->browser=="iPhone") || ($member->browser=="iPad")) {
-	
-			/*$message = '<embed type="audio/mpeg" src="mp3/battle'.rand(1,8).'.mp3" autostart="true" width="1" height="1"></embed>';*/
-	
-			/*$message  = '<audio controls autoplay >';
-			$message .= '<source src="mp3/battle'.rand(1,8).'.mp3"';
-			$message .= '</audio>';*/
+		$message = '<audio autoplay>';
+		$message .= '<source src="mp3/battle'.rand(1,8).'.mp3" type="audio/mpeg">';
+		$message .= '</audio>';
 		
-			/*$message  = '<script type="text/javascript">';
-			$message .= 'this.soundFile = new Element("audio", {id: "audio-1", src: "mp3/battle'.rand(1,8).'.mp3", controls: "autostart=\"true\""});';
-			$message .= 'document.body.appendChild(this.soundFile);';
-			$message .= 'this.soundFile.load();';
-			$message .= 'this.soundFile.play();';
-			$message .= '</script> ';*/
-	
-		} else {
-	
-			$message = '<embed height="1px" width="1px" src="mp3/battle'.rand(1,8).'.mp3"></embed>';
-		}
 	}
-		
+			
 	return $message;		
 }
 
