@@ -18,9 +18,10 @@
 
 $notes = '
 
-<span class="subparagraph2">14-11-2013</span><br/>
+<span class="subparagraph2">17-11-2013</span><br/>
 <i>Game Server v5.8</i><br/>
-- Added missions map sector click awareless.<br>
+- Battle sounds functionality is now based on HTML5 standard.<br/>
+- Mission maps support now direct jump to mission page.<br>
 - Rebalance earth unit & building defense / attack values.</br>
 - Added clan wars functionality to WarQuest:<br/>
 &nbsp;&nbsp;- Added bonus to conquer sector event.</br>

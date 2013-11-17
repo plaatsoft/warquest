@@ -1739,7 +1739,11 @@ function warquest_battle_clan_war_form() {
 		$result = warquest_db_query($query);			
 		while ($data=warquest_db_fetch_object($result)) {			
 		
-			$page .= '<area shape="poly" coords="'.calcPologon($data->x,$data->y).'" title="'.t('MISSION_'.$data->mid).'" href="javascript:link(\'';
+			$tmp = "";
+			if ($data->mid > 0) {
+				$tmp = t('MISSION_'.$data->mid);
+			}
+			$page .= '<area shape="poly" coords="'.calcPologon($data->x,$data->y).'" title="'.$tmp.'" href="javascript:link(\'';
 			$page .= warquest_token('mid='.MENU_BATTLE.'&sid='.PAGE_CLAN_WAR.'&uid='.$data->sid.'&eid=3').'\');" />';
 		
 		}
