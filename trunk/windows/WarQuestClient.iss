@@ -3,7 +3,7 @@
 ;
 ; The file can be processed with "Inno Setup Compiler v5.3.11"
 ;
-; All Copyrights Reserved (c) PlaatSoft 2008-2011
+; All Copyrights Reserved (c) PlaatSoft 2008-2013
 
 [Setup]
 AppPublisher=PlaatSoft
