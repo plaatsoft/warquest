@@ -815,7 +815,11 @@ function warquest_clan_size($player_clan, $other_clan) {
 	if (($count2>0) && ($count2<$count1)) {
 		$size = $count2;
 		if ($size<6) {
-			$size = $count1;
+			if ($count1>6) {
+				$size = 6;
+			} else {
+				$size = $count1;
+			}
 		}		
 	} 
 	
@@ -859,30 +863,30 @@ function warquest_clan_war_battle($player_clan, $other_clan, $ugid) {
 		
 		$page->body .= '<tr>';
 		
-		$page->body .= '<td width="140" valign="top"><b>';
+		$page->body .= '<th width="140" valign="top">';
 		$page->body .= $player_clan->name.' '.t('GENERAL_CLAN');
-		$page->body .= '</b></td>';
+		$page->body .= '</th>';
 		
-		$page->body .= '<td width="100" valign="top"><b>';
+		$page->body .= '<th width="100" valign="top">';
 		$page->body .= t('PLAYER_ATTACK_STRENGTH');
-		$page->body .= '</b></td>';
+		$page->body .= '</th>';
 		
-		$page->body .= '<td width="140" valign="top"><b>';
+		$page->body .= '<th width="140" valign="top">';
 		if ( isset($other_clan->cid) ) {
 			$page->body .= $other_clan->name;
 		} else {
 			$page->body .= '?'; 
 		}
 		$page->body .= ' '.t('GENERAL_CLAN');
-		$page->body .= '</b></td>';
+		$page->body .= '</th>';
 		
-		$page->body .= '<td width="100" valign="top"><b>';
+		$page->body .= '<th width="100" valign="top">';
 		$page->body .= t('PLAYER_DEFENSE_STRENGTH');
-		$page->body .= '</b></td>';
+		$page->body .= '</th>';
 		
-		$page->body .= '<td width="60" valign="top"><b>';
+		$page->body .= '<th width="60" valign="top">';
 		$page->body .= t('GENERAL_RESULT');
-		$page->body .= '</b></td>';
+		$page->body .= '</th>';
 				
 		$page->body .= '</tr>';
 		
@@ -1007,7 +1011,6 @@ function warquest_clan_war_battle_do() {
 	/* Fetch other clan data */	
 	$other_clan = warquest_db_clan($sector->cid);
 		
-	
 	$query1 = 'select sid from sector where cid='.$data->cid.' and planet='.$player->planet;
 	$result1 = warquest_db_query($query1);	
 	$count1 = warquest_db_num_rows($result1);
@@ -1104,12 +1107,9 @@ function warquest_clan_war_battle_do() {
 		$message .= warquest_battle_sound();
 		$message .= warquest_battle_unit_lost(warquest_get_default_force());
 		$message .= warquest_battle_building_lost(warquest_get_default_force());
-		
 		$message .= warquest_lootoption($player->lid);
-		
 		$message .= warquest_show_ads();
 		
-				
 		$link = warquest_link('mid='.$mid.'&sid='.$sid.'&uid='.$uid.'&eid=3',t('LINK_ATTACK'), 'attack-0');
 	
 		$popup .= warquest_box("info", $message, $link);
@@ -1123,7 +1123,7 @@ function warquest_clan_war_battle_do() {
 		$log = 'Clan war won, won '.number_format2($money).' ['.$player->pid.']';		
 		warquest_user_log($player, $log);
 		
-	} else  {
+	} else {
 		
 		/* PLAYER LOST */
 
@@ -1161,6 +1161,9 @@ function warquest_clan_war_battle_do() {
 		
 		$message .= $result->body;	
 		$message .= warquest_battle_sound();
+		$message .= warquest_battle_unit_lost(warquest_get_default_force());
+		$message .= warquest_battle_building_lost(warquest_get_default_force());
+		$message .= warquest_show_ads();
 			
 		$link = warquest_link('mid='.$mid.'&sid='.$sid.'&uid='.$uid.'&eid=3',t('LINK_ATTACK'), 'attack-0');
 		
@@ -1740,8 +1743,8 @@ function warquest_battle_clan_war_form() {
 			}
 		}		
 	
-		$width=483;
-		$height=300;
+		$width = 483;
+		$height = 300;
 	
 		$page .= '<div class="box">';
 	
@@ -1913,13 +1916,13 @@ function warquest_battle_bounty_form() {
 			$page .= '<table>';
 	
 			$page .= '<tr>';
-			$page .= '<td width="170"><b>'.t('GENERAL_PLAYER').'</b></td>';
-			$page .= '<td width="45"><b>'.t('GENERAL_LEVEL').'</b></td>';
-			$page .= '<td width="60"><b>'.t('GENERAL_ALLIANCE').'</b></td>';
-			$page .= '<td width="60"><b>'.t('GENERAL_WON').'</b></td>';
-			$page .= '<td width="60"><b>'.t('GENERAL_LOST').'</b></td>';
-			$page .= '<td width="65"><b>'.t('GENERAL_BOUNTY').'</b></td>';
-			$page .= '<td width="80"></td>';
+			$page .= '<th width="170">'.t('GENERAL_PLAYER').'</th>';
+			$page .= '<th width="45">'.t('GENERAL_LEVEL').'</th>';
+			$page .= '<th width="60">'.t('GENERAL_ALLIANCE').'</th>';
+			$page .= '<th width="60">'.t('GENERAL_WON').'</th>';
+			$page .= '<th width="60">'.t('GENERAL_LOST').'</th>';
+			$page .= '<th width="65">'.t('GENERAL_BOUNTY').'</th>';
+			$page .= '<th width="80"></th>';
 			$page .= "</tr>";
 
 			$count=0;
@@ -2100,13 +2103,13 @@ function warquest_battle_enemy_form() {
 			$page .= '<table>';
 	
 			$page .= '<tr>';
-			$page .= '<td width="170"><b>'.t('GENERAL_PLAYER').'</b></td>';
-			$page .= '<td width="45"><b>'.t('GENERAL_LEVEL').'</b></td>';
-			$page .= '<td width="60"><b>'.t('GENERAL_ALLIANCE').'</b></td>';
-			$page .= '<td width="60"><b>'.t('GENERAL_WON').'</b></td>';
-			$page .= '<td width="60"><b>'.t('GENERAL_LOST').'</b></td>';
-			$page .= '<td width="65"></td>';
-			$page .= '<td width="80"></td>';
+			$page .= '<th width="170">'.t('GENERAL_PLAYER').'</th>';
+			$page .= '<th width="45">'.t('GENERAL_LEVEL').'</th>';
+			$page .= '<th width="65">'.t('GENERAL_ALLIANCE').'</th>';
+			$page .= '<th width="65">'.t('GENERAL_WON').'</th>';
+			$page .= '<th width="65">'.t('GENERAL_LOST').'</th>';
+			$page .= '<th width="65"></th>';
+			$page .= '<th width="65"></th>';
 			$page .= "</tr>";
 
 			$count=0;

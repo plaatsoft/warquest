@@ -157,23 +157,30 @@ function warquest_chatroom_form() {
 	$page .= '<table>';
 	
 	$page .= '<tr>';
-	$page .= '<td width="35">';
-	$page .= '</td>';
-	$page .= '<td width="160"><b>';
+	
+	$page .= '<th width="35">';
+	$page .= '</th>';
+	
+	$page .= '<th width="160">';
 	$page .= t('GENERAL_PLAYER');
-	$page .= '</b></td>';
-	$page .= '<td width="50"><b>';
+	$page .= '</th>';
+	
+	$page .= '<th width="50">';
 	$page .= t('GENERAL_LEVEL');
-	$page .= '</b></td>';
-	$page .= '<td width="90"><b>';
+	$page .= '</th>';
+	
+	$page .= '<th width="90">';
 	$page .= t('GENERAL_EXP');	
-	$page .= '</b></td>';
-	$page .= '<td width="120"><b>';
+	$page .= '</th>';
+	
+	$page .= '<th width="120">';
 	$page .= t('CHATROOM_LAST_ACTIVE');	
-	$page .= '</b></td>';
-	$page .= '<td width="80"><b>';
+	$page .= '</th>';
+	
+	$page .= '<th width="80">';
 	$page .= t('GENERAL_ACTION');
-	$page .= '</b></td>';
+	$page .= '</th>';
+	
 	$page .= '</tr>';
 	
 	$count = 1;

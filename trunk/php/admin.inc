@@ -431,10 +431,10 @@ function warquest_admin_browser_report() {
 	$page .= '<table>';
 	
 	$page .= '<tr>';	
-	$page .= '<td width="150"><b>Browser</b></td>';
-	$page .= '<td width="150"><b>Version</b></td>';
-	$page .= '<td width="100"><b>Count</b></td>';	
-	$page .= '<td width="50"><b>Platform</b></td>';
+	$page .= '<th width="150">Browser</th>';
+	$page .= '<th width="150">Version</th>';
+	$page .= '<th width="100">Count</th>';	
+	$page .= '<th width="50">Platform</th>';
 	$page .= '</tr>';	
 	
 	$total = 0;
@@ -470,7 +470,7 @@ function warquest_admin_browser_report() {
 	
 	$page .= '<tr>';	
 	$page .= '<td width="150"><b>Total</b></td>';
-	$page .= '<td width="150"><b></b></td>';
+	$page .= '<td width="150"></td>';
 	$page .= '<td width="50"><b>'.$total.'</b></td>';	
 	$page .= '</tr>';	
 	
@@ -492,9 +492,9 @@ function warquest_admin_browser_report() {
 	$page .= '<table>';
 	
 	$page .= '<tr>';	
-	$page .= '<td width="150"><b>Platform</b></td>';	
-	$page .= '<td width="150"><b>Logo</b></td>';	
-	$page .= '<td width="50"><b>Count</b></td>';	
+	$page .= '<th width="150">Platform</th>';	
+	$page .= '<th width="150">Logo</th>';	
+	$page .= '<th width="50">Count</th>';	
 	$page .= '</tr>';	
 		
 	$total = 0;
@@ -565,9 +565,9 @@ function warquest_admin_level_form() {
 	$page .= '<table>';
 	
 	$page .= '<tr>';	
-	$page .= '<td width="100"><b>Level</b></td>';
-	$page .= '<td width="125"><b>Players</b></td>';
-	$page .= '<td width="125"><b>Countries</b></td>';
+	$page .= '<th width="100">Level</th>';
+	$page .= '<th width="125">Players</th>';
+	$page .= '<th width="125">Countries</th>';
 	$page .= '</tr>';
 	
 	$total = 0;
@@ -830,10 +830,10 @@ function warquest_admin_news_log() {
 	
 	$page .= '<tr>';
 	
-	$page .= '<td width="75"><b>'.t('GENERAL_AGO').'</b></td>';
-	$page .= '<td width="360"><b>'.t('GENERAL_MESSAGE').'</b></td>';
-	$page .= '<td width="20"><b></b></td>';
-	$page .= '<td width="55" align="right"><b>'.t('GENERAL_ACTION').'</b></td>';
+	$page .= '<th width="75">'.t('GENERAL_AGO').'</th>';
+	$page .= '<th width="360">'.t('GENERAL_MESSAGE').'</th>';
+	$page .= '<th width="20"></th>';
+	$page .= '<th width="55" align="right">'.t('GENERAL_ACTION').'</th>';
 	
 	$page .= '</tr>';
 	
@@ -1410,8 +1410,8 @@ function warquest_admin_personal_messages() {
 		$page .= '<table>';
 		
 		$page .= '<tr>';
-		$page .= '<td width="75" ><b>'.t('GENERAL_AGO').'</b></td>';
-		$page .= '<td width="425"><b>'.t('GENERAL_MESSAGE').'</b></td>';
+		$page .= '<th width="75" >'.t('GENERAL_AGO').'</th>';
+		$page .= '<th width="425">'.t('GENERAL_MESSAGE').'</th>';
 		$page .= '</tr>';
 		
 		while ($data=warquest_db_fetch_object($result)) {
@@ -1621,27 +1621,35 @@ function warquest_admin_level_zoom_form() {
 	$page .= '<table>';
 	
 	$page .= '<tr>';
-	$page .= '<td width="35">';
-	$page .= '<b>Top</b>';
-	$page .= '</td>';
-	$page .= '<td width="160">';
-	$page .= '<b>Name</b>';
-	$page .= '</td>';
-	$page .= '<td width="50">';
-	$page .= '<b>Level</b>';
-	$page .= '</td>';
-	$page .= '<td width="90">';
-	$page .= '<b>Experience</b>';	
-	$page .= '</td>';
-	$page .= '<td width="60">';
-	$page .= '<b>Alliance</b>';	
-	$page .= '</td>';
-	$page .= '<td width="50">';
-	$page .= '<b>Won</b>';	
-	$page .= '</td>';
-	$page .= '<td width="50">';
-	$page .= '<b>Lost</b>';	
-	$page .= '</td>';
+	
+	$page .= '<th width="35">';
+	$page .= 'Top';
+	$page .= '</th>';
+	
+	$page .= '<th width="160">';
+	$page .= 'Name';
+	$page .= '</th>';
+	
+	$page .= '<th width="50">';
+	$page .= 'Level';
+	$page .= '</th>';
+	
+	$page .= '<th width="90">';
+	$page .= 'Experience';	
+	$page .= '</th>';
+	
+	$page .= '<th width="60">';
+	$page .= 'Alliance';	
+	$page .= '</th>';
+	
+	$page .= '<th width="50">';
+	$page .= 'Won';	
+	$page .= '</th>';
+	
+	$page .= '<th width="50">';
+	$page .= 'Lost';	
+	$page .= '</th>';
+	
 	$page .= '</tr>';
 	
 	$count=1;
@@ -1770,41 +1778,30 @@ function warquest_admin_member_do() {
 	$page .= '<table>';
 	
 	$page .= '<tr>';	
-	$page .= '<td width="60">';
-	$page .= '<b>';
+	
+	$page .= '<th width="60">';
 	$page .= warquest_link('mid='.$mid.'&sid='.$sid.'&sort=1', "Country");
-	$page .= '</b>';
-	$page .= '</td>';
+	$page .= '</th>';
 	
-	$page .= '<td width="105">';
-	$page .= '<b>';
+	$page .= '<th width="105">';
 	$page .= warquest_link('mid='.$mid.'&sid='.$sid.'&sort=2', "Name");
-	$page .= '</b>';
-	$page .= '</td>';
+	$page .= '</th>';
 
-	$page .= '<td width="75">';
-	$page .= '<b>';
+	$page .= '<th width="75">';
 	$page .= warquest_link('mid='.$mid.'&sid='.$sid.'&sort=3', "Requests");
-	$page .= '</b>';
-	$page .= '</td>';
+	$page .= '</th>';
 	
-	$page .= '<td width="80">';
-	$page .= '<b>';
+	$page .= '<th width="80">';
 	$page .= warquest_link('mid='.$mid.'&sid='.$sid.'&sort=4', "Platform");
-	$page .= '</b>';
-	$page .= '</td>';
+	$page .= '</th>';
 	
-	$page .= '<td width="80">';
-	$page .= '<b>';
+	$page .= '<th width="80">';
 	$page .= warquest_link('mid='.$mid.'&sid='.$sid.'&sort=5', "Created");
-	$page .= '</b>';
-	$page .= '</td>';
+	$page .= '</th>';
 	
-	$page .= '<td width="80">';
-	$page .= '<b>';
+	$page .= '<th width="80">';
 	$page .= warquest_link('mid='.$mid.'&sid='.$sid.'&sort=0', "Last Active");
-	$page .= '</b>';
-	$page .= '</td>';
+	$page .= '</th>';
 
 	$page .= '</tr>';
 	
