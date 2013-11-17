@@ -485,17 +485,18 @@ function warquest_help_awards_form() {
 	$page .= '<table>';
 
 	$page .= '<tr>';
-	$page .= '<td width="250">';
-	$page .= '<b>'.t('GENERAL_WON').'</b>';
-	$page .= '</td>';
+	
+	$page .= '<th width="250">';
+	$page .= t('GENERAL_WON');
+	$page .= '</th>';
 
-	$page .= '<td width="150">';
-	$page .= '<b>'.t('GENERAL_AWARD').'</b>';
-	$page .= '</td>';
+	$page .= '<th width="150">';
+	$page .= t('GENERAL_AWARD');
+	$page .= '</th>';
 		
-	$page .= '<td>';
-	$page .= '<b>'.t('GENERAL_EP').'</b>';
-	$page .= '</td>';
+	$page .= '<th>';
+	$page .= t('GENERAL_EP');
+	$page .= '</th>';
 		
 	$page .= '</tr>';
 		
@@ -537,17 +538,18 @@ function warquest_help_awards_form() {
 	$page .= '<table>';
 
 	$page .= '<tr>';
-	$page .= '<td width="250">';
-	$page .= '<b>'.t('GENERAL_AMOUNT').'</b>';
-	$page .= '</td>';
+	
+	$page .= '<th width="250">';
+	$page .= t('GENERAL_AMOUNT');
+	$page .= '</th>';
 
-	$page .= '<td width="150">';
-	$page .= '<b>'.t('GENERAL_AWARD').'</b>';
-	$page .= '</td>';
+	$page .= '<th width="150">';
+	$page .= t('GENERAL_AWARD');
+	$page .= '</th>';
 		
-	$page .= '<td>';
-	$page .= '<b>'.t('GENERAL_EP').'</b>';
-	$page .= '</td>';
+	$page .= '<th>';
+	$page .= t('GENERAL_EP');
+	$page .= '</th>';
 		
 	$page .= '</tr>';
 		
@@ -590,17 +592,18 @@ function warquest_help_awards_form() {
 	$page .= '<table>';
 
 	$page .= '<tr>';
-	$page .= '<td width="250">';
-	$page .= '<b>'.t('GENERAL_AMOUNT').'</b>';
-	$page .= '</td>';
+	
+	$page .= '<th width="250">';
+	$page .= t('GENERAL_AMOUNT');
+	$page .= '</th>';
 
-	$page .= '<td width="150">';
-	$page .= '<b>'.t('GENERAL_AWARD').'</b>';
-	$page .= '</td>';
+	$page .= '<th width="150">';
+	$page .= t('GENERAL_AWARD');
+	$page .= '</th>';
 		
-	$page .= '<td>';
-	$page .= '<b>'.t('GENERAL_EP').'</b>';
-	$page .= '</td>';
+	$page .= '<th>';
+	$page .= t('GENERAL_EP');
+	$page .= '</th>';
 		
 	$page .= '</tr>';
 		
@@ -671,15 +674,19 @@ function warquest_help_ranks_form() {
 			$rank = warquest_rank($tmp);
 		
 			$page .= '<tr>';
+			
 			$page .= '<td width="150">';
 			$page .= '<b>'.t('GENERAL_LEVEL').' '.$tmp.'</b>';
 			$page .= '</td>';
+			
 			$page .= '<td width="200">';
 			$page .= '<b>'.$rank.'</b>';
 			$page .= '</td>';
+			
 			$page .= '<td>';
 			$page .= warquest_rank_image($tmp);
 			$page .= '</td>';
+			
 			$page .= '</tr>';
 			
 			if ($count < 23) {
@@ -781,17 +788,17 @@ function warquest_help_levels_form() {
 	
 	$page .= '<tr>';
 		
-	$page .= '<td width="50">';
-	$page .= '<b>'.t('GENERAL_LEVEL').'</b>';
-	$page .= '</td>';
+	$page .= '<th width="50">';
+	$page .= t('GENERAL_LEVEL');
+	$page .= '</th>';
 		
-	$page .= '<td width="140">';
-	$page .= '<b>'.t('HELP_LEVEL_EXPERIENCE').'</b>';
-	$page .= '</td>';
+	$page .= '<th width="140">';
+	$page .= t('HELP_LEVEL_EXPERIENCE');
+	$page .= '</th>';
 		
-	$page .= '<td width="310">';
-	$page .= '<b>'.t('HELP_LEVEL_FEATURES').'</b>';
-	$page .= '</td>';
+	$page .= '<th width="310">';
+	$page .= t('HELP_LEVEL_FEATURES');
+	$page .= '</th>';
 	
 	$page .= '</tr>';
 	

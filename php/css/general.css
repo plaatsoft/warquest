@@ -9,6 +9,13 @@ body {
 	padding: 0px;
 }
 
+th {
+	font-size: 1.0em;
+	font-weight: bold;
+	text-align: left; 
+	padding: 0px 0px 5px 0px;
+}
+
 .fixed { 
 	z-index: 2;  
 	width: 510px;

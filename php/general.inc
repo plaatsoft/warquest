@@ -2451,7 +2451,7 @@ function warquest_ui_header( $title = "") {
 	}
  
 	$page .= '<link href="'.$config["content_url"].'images/favicon.ico" rel="shortcut icon" type="image/x-icon" />'; 
-	$page .= '<link href="'.$config["content_url"].'css/general2.css" rel="stylesheet" type="text/css" />';
+	$page .= '<link href="'.$config["content_url"].'css/general.css" rel="stylesheet" type="text/css" />';
 
 	if (($mid==MENU_MONEY) && ($sid==PAGE_STOCK_EXCHANGE)) {	
 		$page .= '<link href="'.$config["content_url"].'css/jquery.css" rel="stylesheet" type="text/css" />';

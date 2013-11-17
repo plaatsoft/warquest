@@ -195,33 +195,32 @@ function warquest_alliance_invite_form() {
 		$page .= '<table>';
 		
 		$page .= '<tr>';
-		$page .= '<td width="50"><b>';
-		$page .= warquest_link('mid='.$mid.'&sid='.$sid.'&sort=1', t('GENERAL_CNTRY'));
-		$page .= '</b></td>';
+		$page .= '<th width="50">';
+		$page .= '</th>';
 		
-		$page .= '<td width="130"><b>';
+		$page .= '<th width="130">';
 		$page .= warquest_link('mid='.$mid.'&sid='.$sid.'&sort=2', t('GENERAL_PLAYER'));
-		$page .= '<b/></td>';
+		$page .= '</th>';
 		
-		$page .= '<td width="70"><b>';
+		$page .= '<th width="70">';
 		$page .= warquest_link('mid='.$mid.'&sid='.$sid.'&sort=3', t('GENERAL_ACTIVE'));
-		$page .= '<b/></td>';
+		$page .= '</th>';
 				
-		$page .= '<td width="50"><b>';
+		$page .= '<th width="50">';
 		$page .= warquest_link('mid='.$mid.'&sid='.$sid.'&sort=4', t('GENERAL_LEVEL'));
-		$page .= '<b/></td>';
+		$page .= '</th>';
 		
-		$page .= '<td width="90"><b>';
+		$page .= '<th width="90">';
 		$page .= warquest_link('mid='.$mid.'&sid='.$sid.'&sort=5', t('GENERAL_EXP'));
-		$page .= '<b/></td>';
+		$page .= '</th>';
 		
-		$page .= '<td width="60"><b>';
+		$page .= '<th width="60">';
 		$page .= warquest_link('mid='.$mid.'&sid='.$sid.'&sort=6', t('GENERAL_ALLIANCE'));
-		$page .= '<b/></td>';
+		$page .= '</th>';
 		
-		$page .= '<td width="50">';
-		$page .= '<b></b>';
-		$page .= '</td>';
+		$page .= '<th width="50">';
+		$page .= '</th>';
+		
 		$page .= '</tr>';
 		
 		$count=0;
@@ -455,31 +454,30 @@ function warquest_alliance_accepted_form() {
 	
 	$page .= '<tr>';
 	
-	$page .= '<td width="40">';
-	$page .= '<b>'.t('GENERAL_NUMBER').'</b>';
-	$page .= '</td>';
+	$page .= '<th width="40">';
+	$page .= t('GENERAL_NUMBER');
+	$page .= '</th>';
 	
-	$page .= '<td width="40">';
-	$page .= '<b></b>';
-	$page .= '</td>';
+	$page .= '<th width="40">';
+	$page .= '</th>';
 	
-	$page .= '<td width="150">';
-	$page .= '<b>'.t('GENERAL_PLAYER').'</b>';
-	$page .= '</td>';
+	$page .= '<th width="150">';
+	$page .= t('GENERAL_PLAYER');
+	$page .= '</th>';
 	
-	$page .= '<td width="100">';
-	$page .= '<b>'.t('GENERAL_LEVEL').'</b>';
-	$page .= '</td>';
+	$page .= '<th width="100">';
+	$page .= t('GENERAL_LEVEL');
+	$page .= '</th>';
 	
-	$page .= '<td width="100">';
-	$page .= '<b>'.t('GENERAL_APPROVED').'</b>';	
-	$page .= '</td>';
+	$page .= '<th width="100">';
+	$page .= t('GENERAL_APPROVED');	
+	$page .= '</th>';
 	
-	$page .= '<td width="90">';
-	$page .= '</td>';
+	$page .= '<th width="90">';
+	$page .= '</th>';
 	
-	$page .= '<td width="90">';
-	$page .= '</td>';
+	$page .= '<th width="90">';
+	$page .= '</th>';
 	
 	$page .= '</tr>';
 		
@@ -737,31 +735,30 @@ function warquest_alliance_pending_form() {
 	
 		$page .= '<tr>';
 		
-		$page .= '<td width="40">';
-		$page .= '<b>'.t('GENERAL_NUMBER').'</b>';
-		$page .= '</td>';
+		$page .= '<th width="40">';
+		$page .= t('GENERAL_NUMBER');
+		$page .= '</th>';
 		
-		$page .= '<td width="40">';
-		$page .= '<b></b>';
-		$page .= '</td>';
+		$page .= '<th width="40">';
+		$page .= '</th>';
 		
-		$page .= '<td width="150">';
-		$page .= '<b>'.t('GENERAL_PLAYER').'</b>';
-		$page .= '</td>';
+		$page .= '<th width="150">';
+		$page .= t('GENERAL_PLAYER');
+		$page .= '</th>';
 		
-		$page .= '<td width="100">';
-		$page .= '<b>'.t('GENERAL_LEVEL').'</b>';
-		$page .= '</td>';
+		$page .= '<th width="100">';
+		$page .= t('GENERAL_LEVEL');
+		$page .= '</th>';
 		
-		$page .= '<td width="100">';
-		$page .= '<b>'.t('GENERAL_APPROVED').'</b>';	
-		$page .= '</td>';
+		$page .= '<th width="100">';
+		$page .= t('GENERAL_APPROVED');	
+		$page .= '</th>';
 		
-		$page .= '<td width="90">';
-		$page .= '</td>';
+		$page .= '<th width="90">';
+		$page .= '</th>';
 		
-		$page .= '<td width="90">';
-		$page .= '</td>';
+		$page .= '<th width="90">';
+		$page .= '</th>';
 		
 		$page .= '</tr>';
 		
@@ -812,7 +809,6 @@ function warquest_clan_drop_do() {
 	
 	}
 }
-
 
 function warquest_clan_leave_do() {
 
@@ -981,28 +977,28 @@ function warquest_clan_form() {
 		
 		$page .= '<tr>';
 						
-		$page .= '<td width="160"><b>';
+		$page .= '<th width="160">';
 		$page .= t('GENERAL_NAME');
-		$page .= '<b/></td>';
+		$page .= '</th>';
 		
-		$page .= '<td width="60"><b>';
+		$page .= '<th width="60">';
 		$page .= t('GENERAL_SIZE');
-		$page .= '<b/></td>';
+		$page .= '</th>';
 		
-		$page .= '<td width="60"><b>';
+		$page .= '<th width="60">';
 		$page .= t('GENERAL_WON');
-		$page .= '<b/></td>';
+		$page .= '</td>';
 
-		$page .= '<td width="60"><b>';
+		$page .= '<th width="60">';
 		$page .= t('GENERAL_LOST');
-		$page .= '<b/></td>';		
+		$page .= '</th>';		
 				
-		$page .= '<td width="180"><b>';
+		$page .= '<th width="180">';
 		$page .= t('GENERAL_COMMANDER');
-		$page .= '</b></td>';
+		$page .= '</th>';
 		
-		$page .= '<td width="80"><b>';
-		$page .= '</b></td>';
+		$page .= '<th width="80">';
+		$page .= '</th>';
 		
 		$page .= '</tr>';
 		
@@ -1106,28 +1102,28 @@ function warquest_clan_list_form() {
 		
 		$page .= '<tr>';
 		
-		$page .= '<td width="30"><b>';
+		$page .= '<th width="30">';
 		$page .= t('GENERAL_NR');
-		$page .= '<b/></td>';
+		$page .= '</th>';
 		
-		$page .= '<td width="150"><b>';
+		$page .= '<th width="150">';
 		$page .= t('GENERAL_NAME');
-		$page .= '<b/></td>';
+		$page .= '</th>';
 		
-		$page .= '<td width="60"><b>';
+		$page .= '<th width="60">';
 		$page .= t('GENERAL_LEVEL');
-		$page .= '<b/></td>';
+		$page .= '</th>';
 		
-		$page .= '<td width="90"><b>';
+		$page .= '<th width="90">';
 		$page .= t('GENERAL_EXP');
-		$page .= '<b/></td>';
+		$page .= '</th>';
 
-		$page .= '<td width="100"><b>';
+		$page .= '<th width="100">';
 		$page .= t('GENERAL_JOINED');
-		$page .= '<b/></td>';
+		$page .= '</th>';
 				
-		$page .= '<td width="50">';
-		$page .= '</td>';
+		$page .= '<th width="50">';
+		$page .= '</th>';
 		
 		$page .= '</tr>';
 		
