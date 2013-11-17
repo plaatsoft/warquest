@@ -130,6 +130,16 @@ define('PAGE_MAITENANCE',     3107);
 
 /*
 ** ------------------
+** EVENTS
+** ------------------
+*/
+
+define("EVENT_EMAIL_CHANGE", 	4000);
+define("EVENT_EMAIL_CONFIRM", 4001);
+define("EVENT_VALID_EMAIL",   4002);
+
+/*
+** ------------------
 ** PATTERN
 ** ------------------
 */
@@ -270,7 +280,7 @@ function filterBadWords($str){
 
 /*
 ** ------------------
-** HELP
+** PROCESS POST OR GET
 ** ------------------
 */
 
@@ -280,6 +290,20 @@ function warquest_post($label, $default) {
 	
 	if (isset($_POST[$label])) {
 		$value = $_POST[$label];
+		$value = stripslashes($value);
+		$value = htmlspecialchars($value);
+	}
+	
+	return $value;
+}
+
+
+function warquest_get($label, $default) {
+	
+	$value = $default;
+	
+	if (isset($_GET[$label])) {
+		$value = $_GET[$label];
 		$value = stripslashes($value);
 		$value = htmlspecialchars($value);
 	}

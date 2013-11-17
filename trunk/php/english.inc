@@ -2866,6 +2866,12 @@ $lang['HELP_CLAN_WAR_TITLE'] = 'Clan War';
 $lang['HELP_CLAN_WAR'] =	'Fight other clans to conquer all planet sectors. To take over a planet sector your clan must win 10 times. 
 Each conquered sector is rewarded with a bonus. The more sectors you own, the higher the bonus. So WarQuest clan players go for world domination!';
 
+$lang['USER_EMAIL_CONFIRM_SENT'] = 'Confirmation email sent to %s'; 
+$lang['USER_EMAIL_CONFIRM_NEEDED'] = 'Please confirm your email address by clicking %s!';
+$lang['USER_EMAIL_HERE'] = 'here';
+$lang['USER_EMAIL_VALID'] = 'Your email address is validated. Thank you!';
+
+
 /*
 ** ------------------
 ** THE END
