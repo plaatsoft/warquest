@@ -2167,7 +2167,7 @@ function warquest_ui_map($player, $planet) {
 				while ($data=warquest_db_fetch_object($result)) {			
 			
 					$page .= '<area shape="poly" coords="'.calcPologon($data->x,$data->y).'" title="'.t('MISSION_'.$data->mid).'" ';
-					$page .= 'href="javascript:link(\''.warquest_token('mid='.MENU_MISSIONS.'&sid='.$data->mgid).'\');" />';
+					$page .= 'href="javascript:link(\''.warquest_token('mid='.MENU_MISSIONS.'&sid='.$data->mgid.'&anchor='.$data->mid).'\');" />';
 				}			
 				$page .= '</map>';
 			}
@@ -2453,7 +2453,7 @@ function warquest_ui_header( $title = "") {
 	$page .= '<link href="'.$config["content_url"].'images/favicon.ico" rel="shortcut icon" type="image/x-icon" />'; 
 	$page .= '<link href="'.$config["content_url"].'css/general.css" rel="stylesheet" type="text/css" />';
 
-	if (($mid==MENU_MONEY) && ($sid==PAGE_STOCK_EXCHANGE)) {	
+	if ( (($mid==MENU_MONEY) && ($sid==PAGE_STOCK_EXCHANGE)) || ($mid==MENU_MISSIONS) ) {	
 		$page .= '<link href="'.$config["content_url"].'css/jquery.css" rel="stylesheet" type="text/css" />';
 	}
 	
@@ -2505,7 +2505,7 @@ function warquest_ui_header( $title = "") {
 		$page .= '<script language="JavaScript" src="'.$config["content_url"].'js/tooltip.js" type="text/javascript"></script>';
 	}
 	
-	if (($mid==MENU_MONEY) && ($sid==PAGE_STOCK_EXCHANGE)) {	
+	if ( (($mid==MENU_MONEY) && ($sid==PAGE_STOCK_EXCHANGE)) || ($mid==MENU_MISSIONS) ) {	
 		$page .= '<script language="JavaScript" src="'.$config["content_url"].'js/jquery.js" type="text/javascript"></script>';
 		$page .= '<script language="JavaScript" src="'.$config["content_url"].'js/jquery-ui.js" type="text/javascript"></script>';	
 	}

@@ -530,13 +530,14 @@ function warquest_mission_form() {
 	/* input */
 	global $mid;
 	global $sid;
+	global $anchor;
 	global $player;
 	global $config;
 	
 	/* output */
 	global $page; 
 	global $title;
-	
+		
 	warquest_set_default_mission($sid);	
 		
 	$title = t('MISSION_GROUP_'.$sid);
@@ -551,11 +552,8 @@ function warquest_mission_form() {
 	
 	} else {
 					
-
 		$pid = $player->pid;
 				
-		
-					
 		/* Get mission data */
 		$query  = "select a.mid, a.loot, a.min_price, a.max_price, a.energy, ";
 		$query .= "a.experience, a.alliance, ifnull(b.progress, 0) as progress, ";
@@ -571,7 +569,7 @@ function warquest_mission_form() {
 	
 			$line++;
 		
-			$page .= '<div class="box">';
+			$page .= '<div class="box" id="'.$data->mid.'">';
 			$page .= '<table>';
 			$page .= '<tr>';	
 			$page .= '<td colspan="3"><span class="paragraph">'.t('GENERAL_CONQUER').' '.t('MISSION_'.$data->mid).'</span>';
@@ -689,11 +687,14 @@ function warquest_mission_form() {
 			$page .= '</div>';
 		}
 		
+		$page .= '<script type="text/javascript">';
+		$page .= "window.scrollTo(0, document.getElementById(".$anchor.").offsetTop);";
+		$page .= '</script>';
+		
 		if ($line==0) {
 		
 			$message = t('MISSION_NO_MISSIONS');
-			$page .= warquest_box_icon('info', $message);
-		
+			$page .= warquest_box_icon('info', $message);	
 		}		
 	}
 	
