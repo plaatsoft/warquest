@@ -1732,14 +1732,14 @@ function warquest_battle_clan_war_form() {
 		$page .= '<div class="box">';
 	
 		$page .= '<center>';
-		$page .= '<img src="map.php?planet='.$player->planet.'&data='.$tmp.'" width="'.$width.'" height="'.$height.'" title="'.t('GENERAL_PLANET_'.$player->planet).'" usemap="#map">';	
+		$page .= '<img src="map.php?planet='.$player->planet.'&data='.$tmp.'" width="'.$width.'" height="'.$height.'" usemap="#map">';	
 		$page .= '<map name="map">';
 	
-		$query  = 'select a.sid, a.x, a.y, a.cid from sector a where a.planet='.$player->planet;		
+		$query  = 'select a.sid, a.x, a.y, a.cid, a.mid from sector a where a.planet='.$player->planet;		
 		$result = warquest_db_query($query);			
 		while ($data=warquest_db_fetch_object($result)) {			
 		
-			$page .= '<area shape="poly" coords="'.calcPologon($data->x,$data->y).'" title="" href="javascript:link(\'';
+			$page .= '<area shape="poly" coords="'.calcPologon($data->x,$data->y).'" title="'.t('MISSION_'.$data->mid).'" href="javascript:link(\'';
 			$page .= warquest_token('mid='.MENU_BATTLE.'&sid='.PAGE_CLAN_WAR.'&uid='.$data->sid.'&eid=3').'\');" />';
 		
 		}
