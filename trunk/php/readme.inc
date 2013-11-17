@@ -31,6 +31,12 @@ $notes = '
 &nbsp;&nbsp;- Update Player -> Profile page.<br/>
 - Bug fix: Create SessionId functionality is now transaction proof.<br/><br/>
 
+<i>Windows Client v1.5</i><br/>
+- Added HTML5 sound support.<br/>
+- Use QT library 5.0.1 for Windows as engine.<br/>
+- The app was build with QtCreator v2.6.2<br/>
+- Released app on www.plaatsoft.nl<br/><br/>
+
 <i>General</i><br/>
 - Please visit www.gravatar.com to upload a player image.<br/><br/>
 
