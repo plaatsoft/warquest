@@ -673,6 +673,4 @@ UPDATE sector SET mid=387 WHERE sid=373;
 UPDATE sector SET mid=387 WHERE sid=374;
 UPDATE sector SET mid=387 WHERE sid=375;
 
-
-
-
+ALTER TABLE `member` ADD `email_valid` INT NOT NULL AFTER `email`;

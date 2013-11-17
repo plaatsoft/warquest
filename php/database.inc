@@ -588,7 +588,7 @@ function warquest_db_alliance_delete($pid1, $pid2) {
 function warquest_db_member_pid($username, $password) {
 	
 	$pid=0;
-	$query='select pid from member where username="'.$username.'" and password="'.md5($password).'"';	
+	$query = 'select pid from member where username="'.$username.'" and password="'.md5($password).'"';	
 	$result = warquest_db_query($query);
 	
 	$data=warquest_db_fetch_object($result);
@@ -601,7 +601,8 @@ function warquest_db_member_pid($username, $password) {
 function warquest_db_member_insert($username, $password, $email) {
 	
 	/* Create user account */
-	$query  = 'insert into member (username, password, email, created, notification_comment, notification_alliance, last_login, prev_login, ip, browser, version, platform, auto_login  ) ' ;
+	$query  = 'insert into member (username, password, email, created, notification_comment, notification_alliance, ';
+	$query .= 'last_login, prev_login, ip, browser, version, platform, auto_login  ) ' ;
 	$query .= 'values ("'.warquest_db_escape($username).'","'.md5($password).'","'.warquest_db_escape($email).'",';
 	$query .= '"'.date("Y-m-d H:i:s").'", 0, 0, "'.date("Y-m-d H:i:s").'", "'.date("Y-m-d H:i:s").'", "", "", "", "", 0)';
 			
@@ -615,6 +616,7 @@ function warquest_db_member_update($member) {
 	/* Update member */
 	$query  = 'update member set '; 
 	$query .= 'email = "'.warquest_db_escape($member->email).'", ';
+	$query .= 'email_valid = '.$member->email_valid.', ';
 	$query .= 'notification_comment='.$member->notification_comment.', ';
 	$query .= 'notification_alliance='.$member->notification_alliance.', ';
 	$query .= 'last_login = "'.$member->last_login.'", ';
@@ -641,7 +643,7 @@ function warquest_db_member($pid) {
 		return $member_cache;
 	}
 	
-	$query  = 'select pid, username, email, last_login, prev_login, created, ip, browser, ';
+	$query  = 'select pid, username, email, email_valid, last_login, prev_login, created, ip, browser, ';
 	$query .= 'notification_comment, notification_alliance, ';
 	$query .= 'version, platform, auto_login from member where pid='.$pid;
 	

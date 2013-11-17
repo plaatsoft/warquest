@@ -73,7 +73,7 @@ if (isset($_SERVER['HTTP_VERSION'])) {
 */
 
 /**
- * Send registration welcome email
+ * client overview
  */
 function warquest_client_overview() {
 
@@ -551,6 +551,11 @@ function warquest_register_mail($to, $username) {
 	$body  = 'Welcome to '.$config["applName"]."\r\n\r\n";
 	$body .= 'Thanks you for registrating!'."\r\n\r\n";
 	$body .= 'Your username = '.$username."\r\n\r\n";
+	
+	$body .= 'Please confirm your email address by clicking the following link'."\r\n";
+
+	$body .= $config["base_url"].'?action='.EVENT_EMAIL_CONFIRM.'&key='.$id.'-'.md5($to)."\r\n\r\n";
+	
 	$body .= 'Visit '.$config["base_url"].' and login to continue the game.'."\r\n";
 
 	$header = 'From: '.$config["applName"]. '<'.$config['from_email'].">\r\n";
@@ -923,7 +928,40 @@ function warquest_login_form() {
 	$page .= 'document.forms[\'warquest\'].elements[\'myusername\'].focus();';
 	$page .= '</script>';
 }
+
+function warquest_login_email_confirm() {
+
+	/* input */
+	global $action;
 	
+	/* output */	
+	global $page;
+	
+	/* Validate email address */
+	$tmp = preg_split('/-/', $action);
+
+	switch ($tmp[0]) {
+
+		case EVENT_VALID_EMAIL:
+
+			$data = warquest_db_member($tmp[1]);
+		
+			if (isset($data->email_valid) && ($data->email_valid==0) && (md5($data->email)==$tmp[2]))  {
+			
+				$data->email_valid=1;
+				warquest_db_member_update($data);
+				
+				/* Check if player is ban */		
+				$page .= '<div class="box2">';
+				$page .= '<span class="info">'.t('USER_EMAIL_VALID').'</span><br/>';	
+				$page .= '</div>';
+										
+				warquest_info("Receive valid email confirmation for [".$data->email."]");					
+			}
+			break;
+	}
+}
+
 /*
 ** ------------- 
 ** EVENT HANDLER
@@ -941,6 +979,8 @@ function warquest_login() {
 		
 	/* Show login header content part */
 	warquest_login_header();
+	
+	warquest_login_email_confirm();
 		
 	/* Process event */
 	switch ($eid) {
@@ -964,7 +1004,7 @@ function warquest_login() {
 					if (warquest_register_do(10)==1) {
 						warquest_login_do();
 					}
-					break;
+					break;				
 	}
 				
 	/* Page handler */
@@ -997,7 +1037,7 @@ function warquest_login() {
 					warquest_maintenance_form();
 					warquest_client_overview();
 					warquest_login_footer();
-					break;
+					break;					
 	}	
 }				
 

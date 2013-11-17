@@ -26,12 +26,129 @@ $mycountry = warquest_post('mycountry', '');
 $mylanguage = warquest_post('mylanguage', 'EN');
 $mybackground = warquest_post('mybackground', 0);
 $mytwitter = warquest_post('mytwitter', '');
+$myemail = warquest_post('myemail', '');
 
 /*
 ** ---------------------
 ** ACTIONS
 ** ---------------------
 */
+
+function warquest_confirm_email($to, $pid) {
+
+	/* input */
+	global $config;
+	
+	/* output */
+	global $popup;
+	
+	$subject = 'Confirm email address for '.$config["applName"];
+	
+	$body  = 'Please confirm your email address for '.$config["applName"].' ';
+	$body .= 'by clicking the following link'."\r\n\r\n";
+	
+	$body .= $config["base_url"].'?action='.EVENT_VALID_EMAIL.'-'.$pid.'-'.md5($to);
+			
+	$header = 'From: '.$config["applName"]. '<'.$config['from_email'].">\r\n";
+
+	@mail($to, $subject, $body, $header);
+	
+	$popup .= warquest_box_icon('info', t('USER_EMAIL_CONFIRM_SENT',$to));
+	
+	warquest_info("Send confirmation email to [".$to."]");		
+}
+
+/**
+ * User email confirm
+ */
+function warquest_user_email_confirm_do() {
+
+	/* input */
+	global $player;
+	global $myemail;
+	
+	/* output */
+	global $popup;
+		
+	$member = warquest_db_member($player->pid);
+	
+	$query = 'select pid from member where email="'.$myemail.'"';
+	$result = warquest_db_query($query);
+	$count = warquest_db_num_rows($result);
+	
+	if (validate_email($myemail)) {
+	
+		$message = t('PLAYER_EMAIL_INVALID');
+		$popup .= warquest_box_icon("warning", $message);
+		
+	} else if (($myemail!=$member->email) && ($count>0)) {
+		
+		$message = t('PLAYER_EMAIL_EXIST');
+		$popup .= warquest_box_icon("warning", $message);
+			
+	} else {
+				
+		/* Store settings */
+		$member->email = $myemail;
+		$member->email_valid = 0;
+		
+		warquest_db_member_update($member);	
+	
+		warquest_confirm_email($myemail, $player->pid);
+	}
+}
+
+function warquest_settings_change_email_do() {
+
+	/* input */
+	global $player;
+	global $myemail;
+	
+	/* output */
+	global $popup;
+	
+	$member = warquest_db_member($player->pid);
+	
+	if (isset($_POST['notification_comment'])) {		
+		$member->notification_comment=1;
+	} else {
+		$member->notification_comment=0;
+	}
+
+	if (isset($_POST['notification_alliance'])) {		
+		$member->notification_alliance=1;
+	} else {
+		$member->notification_alliance=0;
+	}
+		
+	$query = 'select pid from member where email="'.$myemail.'"';
+	$result = warquest_db_query($query);
+	$count = warquest_db_num_rows($result);
+	
+	if (validate_email($myemail)) {
+	
+		$message = t('PLAYER_EMAIL_INVALID');
+		$popup .= warquest_box_icon("warning", $message);
+		
+	} else if (($myemail!=$member->email) && ($count>0)) {
+		
+		$message = t('PLAYER_EMAIL_EXIST');
+		$popup .= warquest_box_icon("warning", $message);
+			
+	} else if ($myemail!=$member->email) {
+					
+		$member->email = $myemail;
+		$member->email_valid = 0;
+		
+		warquest_confirm_email($myemail, $player->pid);
+		
+		warquest_info("Email is manually changed!");
+		
+	}
+
+	/* Store settings */
+	warquest_db_member_update($member);	
+}
 
 function warquest_settings_account_reset_do() {
 
@@ -335,65 +452,6 @@ function warquest_settings_change_general_do() {
 	}
 }
 
-function warquest_settings_change_email_do() {
-
-	/* input */
-	global $player;
-	
-	/* output */
-	global $popup;
-	
-	$member = warquest_db_member($player->pid);
-
-	/*  myemail parameter */
-	$myemail="";
-	if (isset($_POST['myemail']) && $_POST['myemail'] != "") {
-		$myemail = $_POST['myemail'];
-		$myemail = stripslashes($myemail);
-		$myemail = htmlspecialchars($myemail);
-		$myemail = warquest_db_escape($myemail);
-	}
-	
-	if (isset($_POST['notification_comment'])) {		
-		$member->notification_comment=1;
-	} else {
-		$member->notification_comment=0;
-	}
-
-	if (isset($_POST['notification_alliance'])) {		
-		$member->notification_alliance=1;
-	} else {
-		$member->notification_alliance=0;
-	}
-		
-	$query='select pid from member where email="'.$myemail.'"';
-	$result = warquest_db_query($query);
-	$count=warquest_db_num_rows($result);
-	
-	if (validate_email($myemail)) {
-	
-		$message = t('PLAYER_EMAIL_INVALID');
-		$popup .= warquest_box_icon("warning", $message);
-		
-	} else if (($myemail!=$member->email) && ($count>0)) {
-		
-		$message = t('PLAYER_EMAIL_EXIST');
-		$popup .= warquest_box_icon("warning", $message);
-			
-	} else {
-		
-		$message = t('PLAYER_EMAIL_CHANGED');
-		$popup .= warquest_box_icon("info", $message);
-			
-		$member->email = $myemail;
-		warquest_info("Email is manually changed!");
-	}
-
-	/* Store settings */
-	warquest_db_member_update($member);	
-}
-
-
 function warquest_settings_change_login_do() {
 
 	/* input */	
@@ -644,8 +702,7 @@ function warquest_settings_form() {
 	
 	$page .= '</table>';
 	$page .= '</div>';
-	
-	
+		
 	/*
 	** ---------------------------------
 	** Email Settings (Section 3)
@@ -660,8 +717,19 @@ function warquest_settings_form() {
 	$page .= '<tr>';
 	$page .= '<td width="200">'.t('PLAYER_NEW_EMAIL').':</td>';
 	$page .= '<td>';
-	$page .= warquest_ui_input('myemail', 35, 100, $member->email, false);
+	$page .= warquest_ui_input('myemail', 30, 100, $member->email, false);
+		
+	if ($member->email_valid==0) {
+		
+		$link = warquest_link('mid='.$mid.'&sid='.$sid.'&eid='.EVENT_EMAIL_CONFIRM.'&id='.$player->pid, t('USER_EMAIL_HERE'));
+		
+		$page .= '<span class="help">';
+		$page .= ' '.t('USER_EMAIL_CONFIRM_NEEDED',$link);
+		$page .= '</span>';
+	}
+	
 	$page .= '</td>';
+	
 	$page .= '</tr>';
 		
 	$page .= '<tr>';
@@ -681,7 +749,7 @@ function warquest_settings_form() {
 	$page .= '<tr>';
 	$page .= '<td>&nbsp;</td>';
 	$page .= '<td>';
-	$page .= warquest_link('mid='.$mid.'&sid='.$sid.'&eid=8', t('LINK_CHANGE'), 'change-3');
+	$page .= warquest_link('mid='.$mid.'&sid='.$sid.'&eid='.EVENT_EMAIL_CHANGE, t('LINK_CHANGE'), 'change-3');
 	$page .= '</td>';
 	$page .= '</tr>';
 
@@ -785,17 +853,21 @@ function warquest_settings_events() {
 		case 7:
 			warquest_settings_change_general_do();
 			break;
-			
-		case 8:
-			warquest_settings_change_email_do();
-			break;
-			
+						
 		case 9:
 			warquest_settings_change_login_do();
 			break;
 			
 		case 10:
 			warquest_settings_account_reset_do();
+			break;
+			
+		case EVENT_EMAIL_CHANGE: 
+			warquest_settings_change_email_do();
+			break;		
+			
+		case EVENT_EMAIL_CONFIRM:
+			warquest_user_email_confirm_do();
 			break;
 	}	
 }

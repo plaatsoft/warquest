@@ -67,6 +67,7 @@ $session = warquest_post('session', '');
 $token = warquest_post('token', '');
 $sequence = warquest_post('sequence', '');
 $amount = warquest_post('amount', 1);
+$action = warquest_get("action", "");
 
 if (strlen($token)>0) {
 	
