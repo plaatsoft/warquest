@@ -33,7 +33,7 @@ $notes = '
 
 <i>Windows Client v1.5</i><br/>
 - Added HTML5 sound support.<br/>
-- Use QT library 5.0.1 for Windows as engine.<br/>
+- Upgraded QT libraries to v5.0.1.<br/>
 - The app was build with QtCreator v2.6.2<br/>
 - Released app on www.plaatsoft.nl<br/><br/>
 
