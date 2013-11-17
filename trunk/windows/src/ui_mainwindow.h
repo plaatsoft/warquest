@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'mainwindow.ui'
 **
-** Created by: Qt User Interface Compiler version 5.1.1
+** Created by: Qt User Interface Compiler version 5.0.1
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
 ********************************************************************************/
@@ -39,7 +39,7 @@ public:
         centralWidget->setObjectName(QStringLiteral("centralWidget"));
         webView = new QWebView(centralWidget);
         webView->setObjectName(QStringLiteral("webView"));
-        webView->setGeometry(QRect(130, 130, 300, 200));
+        webView->setGeometry(QRect(100, 130, 300, 200));
         webView->setUrl(QUrl(QStringLiteral("file:///C:/sources/Prive/Windows/WarQuest/src")));
         graphicsView = new QGraphicsView(centralWidget);
         graphicsView->setObjectName(QStringLiteral("graphicsView"));
