@@ -2177,10 +2177,10 @@ function warquest_battle_force_option() {
 	while ($data=warquest_db_fetch_object($result)) {
 		
 		if (warquest_get_default_force()==$data->ugid) {
-			$page .= '<INPUT TYPE="radio" name="force" VALUE="'.$data->ugid.'" checked>'.t('UNIT_GROUP_'.$data->ugid).'</input> ';	
+			$page .= '<INPUT TYPE="radio" name="force" VALUE="'.$data->ugid.'" checked />'.t('UNIT_GROUP_'.$data->ugid).' ';	
 		} else {		
-			$page .= '<input type="radio" name="force" value="'.$data->ugid.'">'.
-								t('UNIT_GROUP_'.$data->ugid).' </input>';	
+			$page .= '<input type="radio" name="force" value="'.$data->ugid.'"/>'.
+								t('UNIT_GROUP_'.$data->ugid).' ';	
 								
 		}	
 	}
