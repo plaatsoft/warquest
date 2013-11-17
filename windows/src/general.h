@@ -3,7 +3,7 @@
  *  @brief The file contain the constants.
  *  @author wplaat
  *
- *  Copyright (C) 2008-2012 PlaatSoft
+ *  Copyright (C) 2008-2013 PlaatSoft
  *
  *  This program is free software; you can redistribute it and/or modify
  *  it under the terms of the GNU General Public License as published by
@@ -25,7 +25,7 @@
 #define SCREEN_WIDTH          550
 
 #define APPL_NAME             "WarQuest"
-#define APPL_VERSION          "1.4"
+#define APPL_VERSION          "1.5"
 #define APPL_URL              "http://www.warquest.nl"
 
 #endif // GENERAL_H

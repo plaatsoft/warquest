@@ -3,7 +3,7 @@
  *  @brief The file contain the about window
  *  @author wplaat
  *
- *  Copyright (C) 2008-2012 PlaatSoft
+ *  Copyright (C) 2008-2013 PlaatSoft
  *
  *  This program is free software; you can redistribute it and/or modify
  *  it under the terms of the GNU General Public License as published by
@@ -25,7 +25,6 @@
 About::About(QWidget *parent) : QWidget(parent), ui(new Ui::About)
 {
     ui->setupUi(this);
-
 
     // Load logo
     scene = new QGraphicsScene();

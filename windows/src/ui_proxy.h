@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'proxy.ui'
 **
-** Created by: Qt User Interface Compiler version 5.1.1
+** Created by: Qt User Interface Compiler version 5.0.1
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
 ********************************************************************************/

@@ -3,7 +3,7 @@
  *  @brief The file contain the mainwindow window
  *  @author wplaat
  *
- *  Copyright (C) 2008-2012 PlaatSoft
+ *  Copyright (C) 2008-2013 PlaatSoft
  *
  *  This program is free software; you can redistribute it and/or modify
  *  it under the terms of the GNU General Public License as published by
@@ -28,7 +28,7 @@
 #include <QtNetwork>
 #include <QMessageBox>
 #include <QMenu>
-
+#include <QDesktopWidget>
 
 /**
  * Constructor
@@ -41,8 +41,8 @@ MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent), ui(new Ui::MainWi
 
     readSettings();
 
-    int height = 1; //QApplication::desktop()->screenGeometry().height();
-    height -= 75;
+    int height = QApplication::desktop()-> screenGeometry().height();
+    height -= 70;
 
     // Set fix windows form size.
     setMinimumSize(SCREEN_WIDTH+2,height+2);
@@ -136,10 +136,6 @@ MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent), ui(new Ui::MainWi
     connect(ui->webView, SIGNAL(linkClicked(QUrl)), this, SLOT( linkClickedSlot( QUrl ) ) );
     connect(ui->webView, SIGNAL(loadProgress(int)), SLOT(setProgress(int)));
     connect(ui->webView, SIGNAL(loadFinished(bool)), SLOT(finishLoading(bool)));
-
-    /* Not next two signals do not work, bug in QT framework */
-    connect(ui->webView, SIGNAL(unsupportedContent(QNetworkRequest)),this, SLOT(download(QNetworkRequest)));
-    connect(ui->webView, SIGNAL(downloadRequested(QNetworkRequest)),this, SLOT(download(QNetworkRequest)));
 
     initNetwork();
 }
@@ -347,6 +343,7 @@ void MainWindow::fetchVersion()
     qDebug() << "fetchVersion enter";
 
     QNetworkRequest request;
+    request.setHeader(QNetworkRequest::ContentTypeHeader, QVariant( QString("text/xml")));
     request.setUrl(QUrl("http://www.plaatsoft.nl/service/warquest.html"));
 
     manager->get(request);
