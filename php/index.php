@@ -24,6 +24,7 @@ $time_start = microtime(true);
 include 'config.inc';
 include 'database.inc';
 include 'general.inc';
+include "email.inc";
 
 include 'menu.inc';
 include 'title.inc';
@@ -199,7 +200,7 @@ switch ($mid) {
 
 	case MENU_HOME:
 			include "home.inc";
-			include "player.inc";
+			include "player.inc";			
 			include "setting.inc";
 			include "restore.inc";
 			include "skill.inc";

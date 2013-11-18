@@ -34,30 +34,6 @@ $myemail = warquest_post('myemail', '');
 ** ---------------------
 */
 
-function warquest_confirm_email($to, $pid) {
-
-	/* input */
-	global $config;
-	
-	/* output */
-	global $popup;
-	
-	$subject = 'Confirm email address for '.$config["applName"];
-	
-	$body  = 'Please confirm your email address for '.$config["applName"].' ';
-	$body .= 'by clicking the following link'."\r\n\r\n";
-	
-	$body .= $config["base_url"].'?action='.EVENT_VALID_EMAIL.'-'.$pid.'-'.md5($to);
-			
-	$header = 'From: '.$config["applName"]. '<'.$config['from_email'].">\r\n";
-
-	@mail($to, $subject, $body, $header);
-	
-	$popup .= warquest_box_icon('info', t('USER_EMAIL_CONFIRM_SENT',$to));
-	
-	warquest_info("Send confirmation email to [".$to."]");		
-}
-
 /**
  * User email confirm
  */
@@ -95,6 +71,8 @@ function warquest_user_email_confirm_do() {
 		warquest_db_member_update($member);	
 	
 		warquest_confirm_email($myemail, $player->pid);
+		
+		$popup .= warquest_box_icon('info', t('USER_EMAIL_CONFIRM_SENT', $myemail));
 	}
 }
 
@@ -142,8 +120,9 @@ function warquest_settings_change_email_do() {
 		
 		warquest_confirm_email($myemail, $player->pid);
 		
-		warquest_info("Email is manually changed!");
+		$popup .= warquest_box_icon('info', t('USER_EMAIL_CONFIRM_SENT', $myemail));
 		
+		warquest_info("Email is manually changed!");		
 	}
 
 	/* Store settings */

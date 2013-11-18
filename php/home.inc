@@ -30,29 +30,6 @@ $comment = warquest_post('comment', '');
 ** ---------------
 */
 
-function warquest_home_comment_mail($comment) {
-	
-	/* input */
-	global $config;
-	global $player;
-	global $other;
-	
-	$data = warquest_db_member($other->pid);
-		
-	$subject = $config["applName"].' comment!';
-
-	$body = $player->name.' has send you the following comment:'."\r\n\r\n";
-	$body .= $comment."\r\n\r\n";
-	$body .= 'Visit '.$config["base_url"].' to reply!'."\r\n";
-		
-	$header = 'From: '.$config["applName"]. '<'.$config['from_email'].">\r\n";
-
-	if (($data->notification_comment==1) && ($data->email!="")) {
-		@mail($data->email, $subject, $body, $header);
-		warquest_info("Send email [".$data->email."] ".$comment);
-	}
-}
-
 function warquest_home_comment_delete_do() {
 	
 	/* input */
@@ -92,7 +69,7 @@ function warquest_home_comment_save_do() {
 			if ($other->pid!=0) {
 			
 				$other->comment++;
-				warquest_home_comment_mail($comment);
+				warquest_comment_mail($other->pid, $comment);
 				$message = t('ALLIANCE_COMMENT_PLAYER', player_format($other->pid, $other->name, $other->country));
 			
 			} else {

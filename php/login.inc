@@ -414,7 +414,6 @@ function warquest_randomPassword($length) {
 	return($str);
 }
 
-
 /** 
  * Password recovery action handler
  */
@@ -452,31 +451,16 @@ function warquest_email_do() {
 	} else {
 	
 		/* Create random password */
-		$password=warquest_randomPassword(10);
+		$password = warquest_randomPassword(10);
 	
 		warquest_db_member_password_update($data->pid, $password);
 		
-		$subject = 'Password reset of '.$config["applName"];
-	
-		$body  = 'Your password is reset!'."\r\n\r\n";
-		$body .= 'Your username = '.$data->username."\r\n";
-		$body .= 'Your new password = '.$password."\r\n\r\n";
-		$body .= 'Visit '.$config["base_url"].' and login to continue the game.'."\r\n";
-		
-		$header = 'From: '.$config["applName"]. '<'.$config['from_email'].">\r\n";
-
-		@mail($myemail, $subject, $body, $header);
-		warquest_info("Send email [".$myemail."] Password reset");
-		
-		@mail($config["from_email"], $subject, $body, $header);
-		warquest_info("Send email [".$config["from_email"]."] Password reset");
+		warquest_recover_mail($myemail, $data->username, $password);
 		
 		$page .= '<div class="box2">';
 		$page .= '<span class="info">'.t('BOX_INFO').'</span><br/>';
 		$page .= t('LOGIN_NEW_PASSWORD_SEND');
 		$page .= '</div>';
-		
-		warquest_info($myemail.' email reset succesfull');
 	}
 }
 
@@ -537,35 +521,6 @@ function warquest_recover_form() {
 ** REGISTER
 ** --------
 */
-
-/**
- * Send registration welcome email
- */
-function warquest_register_mail($to, $username) {
-
-	/* input */
-	global $config;
-	
-	$subject = 'Welcome to '.$config["applName"];
-	
-	$body  = 'Welcome to '.$config["applName"]."\r\n\r\n";
-	$body .= 'Thanks you for registrating!'."\r\n\r\n";
-	$body .= 'Your username = '.$username."\r\n\r\n";
-	
-	$body .= 'Please confirm your email address by clicking the following link'."\r\n";
-
-	$body .= $config["base_url"].'?action='.EVENT_EMAIL_CONFIRM.'&key='.$id.'-'.md5($to)."\r\n\r\n";
-	
-	$body .= 'Visit '.$config["base_url"].' and login to continue the game.'."\r\n";
-
-	$header = 'From: '.$config["applName"]. '<'.$config['from_email'].">\r\n";
-
-	if ($to!="") {
-		@mail($to, $subject, $body, $header);
-		warquest_info("Send email [".$to."] Welcome message");
-	}
-}
-
 
 /**
  * Registration action handler
@@ -691,7 +646,7 @@ function warquest_register_do($amount) {
 						
 		if ($auto_login==0) {		
 	
-			warquest_register_mail($myemail, $myusername);
+			warquest_register_mail($myemail, $myusername, $mypassword);
 		}
 		
 		$page .= '<div class="box2">';
