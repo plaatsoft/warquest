@@ -18,9 +18,9 @@
 
 $notes = '
 
-<span class="subparagraph2">17-11-2013</span><br/>
+<span class="subparagraph2">18-11-2013</span><br/>
 <i>Game Server v5.8</i><br/>
-- Improve email layout which are send by WarQuest.</br>
+- Improve email layouts which are sent by WarQuest.</br>
 - Battle sounds functionality is now based on HTML5 standard.<br/>
 - Mission maps support now direct jump to mission page.<br>
 - Rebalance earth unit & building defense / attack values.</br>

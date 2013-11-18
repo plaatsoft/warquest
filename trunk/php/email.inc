@@ -28,7 +28,7 @@ function warquest_email_layout($subject, $content) {
 	$tmp .= '<body>';	
 	
 	$tmp .= '<a href='.$config["base_url"].'>';
-	$tmp .= warquest_image("other/ad.png");	
+	$tmp .= '<img src="'.$config["base_url"].'/images/other/ad.png" />';
 	$tmp .= '</a>';
 	
 	$tmp .= '<h2>'.$subject.'</h2>';	
@@ -50,7 +50,7 @@ function warquest_email_layout($subject, $content) {
 	$tmp .= '</p>';
 	
 	$tmp .= '<a href='.$config["base_url"].'>';
-	$tmp .= warquest_image("other/ad.png");	
+	$tmp .= '<img src="'.$config["base_url"].'/images/other/ad.png" />';
 	$tmp .= '</a>';
 	
 	$tmp .= '</body>';		
@@ -264,7 +264,7 @@ function warquest_alliance_reject_mail($pid, $name) {
 	
 	if ( ($member->notification_alliance==1) && ($member->email_valid==1) ) {
 	
-		$subject = $config["applName"].' alliance rejected.';
+		$subject = $config["applName"].' alliance rejected';
 
 		$content  = 'Dear '.$player->name.',';
 		$content .= '<br/><br/>';
@@ -297,7 +297,7 @@ function warquest_alliance_drop_mail($pid, $name) {
 		
 	if ( ($member->notification_alliance==1) && ($member->email_valid==1) ) {
 		
-		$subject = $config["applName"].' alliance dropped.';
+		$subject = $config["applName"].' alliance dropped';
 
 		$content  = 'Dear '.$player->name.',';
 		$content .= '<br/><br/>';
@@ -330,7 +330,7 @@ function warquest_alliance_accept_mail($pid, $name) {
 	
 	if ( ($member->notification_alliance==1) && ($member->email_valid==1) ) {	
 	
-		$subject = $config["applName"].' alliance accepted.';
+		$subject = $config["applName"].' alliance accepted';
 
 		$content  = 'Dear '.$player->name.',';
 		$content .= '<br/><br/>';
