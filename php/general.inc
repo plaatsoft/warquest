@@ -2720,7 +2720,9 @@ function warquest_ui_footer($renderTime, $queries) {
 	$page .= '<div class="note">';
 	$page .= '<center>';
 	$page .= '<i>';
-	$page .= t('COPYRIGHT', '<a target="new" href="http://www.plaatsoft.nl">PlaatSoft</a>', $renderTime, $queries);
+	$page .= t('COPYRIGHT');
+	$page .= '<br/>';
+	$page .= '['.$renderTime.' ms - '.$queries.' queries]';
 	$page .= '</i>';
 	$page .= '</center>';
 	$page .= '</div>';
@@ -2893,7 +2895,13 @@ function indication_format($value, $pos) {
  */
 function validate_email($address) {
 
-   return !preg_match("/[A-Za-z0-9_-]+([\.]{1}[A-Za-z0-9_-]+)*@[A-Za-z0-9-]+([\.]{1}[A-Za-z0-9-]+)+/",$address);
+	if (!filter_var($address, FILTER_VALIDATE_EMAIL)) {
+		return true;
+	} else {
+		return false;
+	}
+
+   //return !preg_match("/[A-Za-z0-9_-]+([\.]{1}[A-Za-z0-9_-]+)*@[A-Za-z0-9-]+([\.]{1}[A-Za-z0-9-]+)+/",$address);
 }
 
 /*

@@ -455,7 +455,7 @@ function warquest_email_do() {
 	
 		warquest_db_member_password_update($data->pid, $password);
 		
-		warquest_recover_mail($myemail, $data->username, $password);
+		warquest_recover_mail($data->pid, $password);
 		
 		$page .= '<div class="box2">';
 		$page .= '<span class="info">'.t('BOX_INFO').'</span><br/>';
@@ -646,7 +646,7 @@ function warquest_register_do($amount) {
 						
 		if ($auto_login==0) {		
 	
-			warquest_register_mail($myemail, $myusername, $mypassword);
+			warquest_register_mail($pid, $mypassword);
 		}
 		
 		$page .= '<div class="box2">';

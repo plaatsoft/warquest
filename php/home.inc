@@ -69,7 +69,7 @@ function warquest_home_comment_save_do() {
 			if ($other->pid!=0) {
 			
 				$other->comment++;
-				warquest_comment_mail($other->pid, $comment);
+				warquest_comment_mail($other->pid, $comment, $player->name);
 				$message = t('ALLIANCE_COMMENT_PLAYER', player_format($other->pid, $other->name, $other->country));
 			
 			} else {

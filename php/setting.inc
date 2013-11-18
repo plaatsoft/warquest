@@ -70,7 +70,7 @@ function warquest_user_email_confirm_do() {
 		
 		warquest_db_member_update($member);	
 	
-		warquest_confirm_email($myemail, $player->pid);
+		warquest_confirm_email($player->pid);
 		
 		$popup .= warquest_box_icon('info', t('USER_EMAIL_CONFIRM_SENT', $myemail));
 	}
@@ -113,12 +113,15 @@ function warquest_settings_change_email_do() {
 		$message = t('PLAYER_EMAIL_EXIST');
 		$popup .= warquest_box_icon("warning", $message);
 			
-	} else if ($myemail!=$member->email) {
+	} else if ($myemail != $member->email) {
 					
 		$member->email = $myemail;
 		$member->email_valid = 0;
 		
-		warquest_confirm_email($myemail, $player->pid);
+		/* Store settings */
+		warquest_db_member_update($member);
+	
+		warquest_confirm_email($player->pid);
 		
 		$popup .= warquest_box_icon('info', t('USER_EMAIL_CONFIRM_SENT', $myemail));
 		
