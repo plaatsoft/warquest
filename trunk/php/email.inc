@@ -16,229 +16,337 @@
 **  All copyrights reserved (c) 2008-2013 PlaatSoft
 */
 
-/**
- * Send registrating email
+/** 
+ * Format email body
  */
-function warquest_register_mail($to, $username, $password) {
+function warquest_email_layout($subject, $content) {
 
 	/* input */
 	global $config;
 	
-	$subject = 'Welcome to '.$config["applName"];
+	$tmp  = '<html>';
+	$tmp .= '<body>';	
 	
-	$body  = 'Welcome to '.$config["applName"]."\r\n\r\n";
-	$body .= 'Thanks you for registrating!'."\r\n\r\n";
+	$tmp .= '<a href='.$config["base_url"].'>';
+	$tmp .= warquest_image("other/ad.png");	
+	$tmp .= '</a>';
 	
-	$body .= 'Your username = '.$username."\r\n";
-	$body .= 'Your password = '.$password."\r\n";
-	$body .= "\r\n";
+	$tmp .= '<h2>'.$subject.'</h2>';	
 	
-	$body .= 'Please confirm your email address by clicking the following link'."\r\n";
+	$tmp .= '<p>';		
+	$tmp .= $content;
+	$tmp .= '</p>';	
 
-	$body .= $config["base_url"].'?action='.EVENT_EMAIL_CONFIRM.'&key='.$id.'-'.md5($to)."\r\n\r\n";
+	$tmp .= '<p>';
+	$tmp .= 'Best Regards,<br/>';
+	$tmp .= 'admin<br/>';
+	$tmp .= '</p>';
 	
-	$body .= 'Visit '.$config["base_url"].' and login to continue the game.'."\r\n";
-
-	$header  = 'From: '.$config["applName"]. '<'.$config['from_email'].">\r\n";
-
-	if ($to!="") {
-		@mail($to, $subject, $body, $header);
-		warquest_info("Send email [".$to."] Welcome message");
+	$tmp .= '<p>';
+	for ($i=0; $i<10; $i++) {
+		$tmp .= '&nbsp;';
 	}
+	$tmp .= '<i>'.t('COPYRIGHT').'</i>';
+	$tmp .= '</p>';
+	
+	$tmp .= '<a href='.$config["base_url"].'>';
+	$tmp .= warquest_image("other/ad.png");	
+	$tmp .= '</a>';
+	
+	$tmp .= '</body>';		
+	$tmp .= '</html>';
+	
+	return $tmp;
 }
 
 /** 
  * Send email address confirm mail 
  */
-function warquest_confirm_email($to, $pid) {
+function warquest_confirm_email($pid) {
 
 	/* input */
 	global $config;
-		
-	$subject = 'Confirm email address for '.$config["applName"];
 	
-	$body  = '<html>';
-	$body .= '<body>';	
-	$body .= warquest_image("other/WarQuest.png");
-	$body .= '<br/>';	
-	$body .= '<h1>'.$config["applName"].' Confirm Email</h1>';	
-	$body .= '<p>';		
-	$body .= 'Please confirm your email address by clicking the following link';
-	$body .= '<br/>';	
-	$body .= '<br/>';	
-	$body .= $config["base_url"].'?action='.EVENT_VALID_EMAIL.'-'.$pid.'-'.md5($to);
-	$body .= '</p>';	
-	$body .= warquest_image("other/ad.png");	
-	$body .= '</body>';		
-	$body .= '</html>';
+	$player = warquest_db_player($pid);
+	$member = warquest_db_member($pid);
+	
+	if (isset($player->pid)) {
+		
+		$subject = 'Confirm '.$config["applName"].' email address';
 			
-	$header = 'From: '.$config["applName"]. '<'.$config['from_email'].">\r\n";
-	$header .= "MIME-Version: 1.0\r\n";
-	$header .= "Content-Type: text/html; charset=ISO-8859-1\r\n";
+		$content = 'Dear '.$player->name.',';
+		$content .= '<br/><br/>';
+		$content .= 'Thanks for playing '.$config["applName"].'. ';
+		$content .= 'Please confirm your email address by clicking ';
+		$content .= '<a href='.$config["base_url"].'?action='.EVENT_VALID_EMAIL.'-'.$player->pid.'-'.md5($member->email).'>here</a>.';
+
+		$body = warquest_email_layout($subject, $content);
+				
+		$header  = 'From: '.$config["applName"]. '<'.$config['from_email'].">\r\n";
+		$header .= "MIME-Version: 1.0\r\n";
+		$header .= "Content-Type: text/html; charset=ISO-8859-1\r\n";
 	
-	@mail($to, $subject, $body, $header);
-		
-	warquest_info("Send confirmation email to [".$to."]");		
+		@mail($member->email, $subject, $body, $header);
+	
+		warquest_info('Sent confirmation email to '.$member->email);		
+	}
 }
 
+/**
+ * Send registrating email
+ */
+function warquest_register_mail($pid, $password) {
+
+	/* input */
+	global $config;
+	
+	$player = warquest_db_player($pid);
+	$member = warquest_db_member($pid);
+	
+	if (isset($player->pid)) {
+		
+		$subject = 'Welcome to '.$config["applName"];
+		
+		$content = 'Dear '.$player->name.',';
+		$content .= '<br/><br/>';
+		
+		$content  = 'Thanks you for registrating!';	
+		$content .= '<br/><br/>';	
+		$content .= 'Your username = <b>'. $member->username.'</b>';
+		$content .= '<br/>';
+		$content .= 'Your password = <b>'. $password.'</b>';
+		$content .= '<br/><br/>';
+		$content .= 'Please confirm your email address by clicking ';
+		$content .= '<a href='.$config["base_url"].'?action='.EVENT_VALID_EMAIL.'-'.$player->pid.'-'.md5($member->email).'>here</a>.';
+		$content .= '<br/><br/>';
+		$content .= 'Visit '.$config["base_url"].' to continue the game.';
+		
+		$body = warquest_email_layout($subject, $content);
+	
+		$header  = 'From: '.$config["applName"]. '<'.$config['from_email'].">\r\n";
+		$header .= "MIME-Version: 1.0\r\n";
+		$header .= "Content-Type: text/html; charset=ISO-8859-1\r\n";
+
+		@mail($member->email, $subject, $body, $header);
+		
+		warquest_info('Sent registration email to '.$member->email);
+	}
+}
 
 /**
  * Send password recover email
  */
-function warquest_recover_mail($to, $username, $password) {
+function warquest_recover_mail($pid, $password) {
 
 	/* input */
 	global $config;
-	
-	$subject = 'Password reset of '.$config["applName"];
-	
-	$body  = 'Your password is reset!'."\r\n\r\n";
-	$body .= 'Your username = '.$username."\r\n";
-	$body .= 'Your new password = '.$password."\r\n\r\n";
-	$body .= 'Visit '.$config["base_url"].' and login to continue the game.'."\r\n";
-		
-	$header = 'From: '.$config["applName"]. '<'.$config['from_email'].">\r\n";
 
-	@mail($to, $subject, $body, $header);
-	warquest_info("Send email [".$to."] Password reset");
+	$player = warquest_db_player($pid);
+	$member = warquest_db_member($pid);
+	
+	if (isset($player->pid)) {
+	
+		$subject = $config["applName"].' password reset';
+	
+		$content = 'Dear '.$player->name.',';
+		$content .= '<br/><br/>';
 		
-	@mail($config["from_email"], $subject, $body, $header);
-	warquest_info("Send email [".$config["from_email"]."] Password reset");
-				
-	warquest_info($myemail.' email reset succesfull');
+		$content  = 'Your password is reset!';
+		$content .= "<br/><br/>";
+		$content .= 'Your username = <b>'.$member->username.'</b>';
+		$content .= "<br/>";
+		$content .= 'Your new password = <b>'.$password.'</b>';
+		$content .= "<br/><br/>";
+		$content .= 'Visit '.$config["base_url"].' to continue the game.'."\r\n";
+		
+		$body = warquest_email_layout($subject, $content);
+		
+		$header  = 'From: '.$config["applName"]. '<'.$config['from_email'].">\r\n";
+		$header .= "MIME-Version: 1.0\r\n";
+		$header .= "Content-Type: text/html; charset=ISO-8859-1\r\n";
+
+		@mail($member->email, $subject, $body, $header);
+		warquest_info('Sent password reset email to '.$member->email);
+		
+		@mail($config["from_email"], $subject, $body, $header);
+		warquest_info('Sent password reset email to '.$config["from_email"]);		
+	}
 }
 
 /** 
  * Send comment by mail
  */
-function warquest_comment_mail($pid, $comment) {
+function warquest_comment_mail($pid, $comment, $name) {
 	
 	/* input */
 	global $config;
-	global $player;
-	global $other;
 	
-	$data = warquest_db_member($pid);
-		
-	$subject = $config["applName"].' comment!';
+	$player = warquest_db_player($pid);
+	$member = warquest_db_member($pid);
+	
+	if ( ($member->notification_comment==1) && ($member->email_valid==1) ) {
+	
+		$subject = $config["applName"].' comment!';
 
-	$body  = $player->name.' has send you the following comment:';
-	$body .= "\r\n\r\n";
-	$body .= $comment;
-	$body .= "\r\n\r\n";
-	$body .= 'Visit '.$config["base_url"].' to reply!'."\r\n";
+		$content  = 'Dear '.$player->name.',';
+		$content .= '<br/><br/>';
 		
-	$header = 'From: '.$config["applName"]. '<'.$config['from_email'].">\r\n";
-
-	if ( ($data->notification_comment==1) && ($data->email_valid==1) ) {
-		@mail($data->email, $subject, $body, $header);
-		warquest_info("Send email [".$data->email."] ".$comment);
+		$content .= $name.' has send you the following comment:';
+		$content .= "<br/><br/>";
+	
+		$content .= '<table border="2">';
+		$content .= '<tr>';
+		$content .= '<td>';
+		$content .= '<pre>';
+		$content .= $comment;
+		$content .= '</pre>';
+		$content .= '</td>';
+		$content .= '<tr>';
+		$content .= '</table>';
+	
+		$content .= "<br/>";
+		$content .= 'Visit '.$config["base_url"].' to reply!'."\r\n";
+	
+		$body = warquest_email_layout($subject, $content);
+	
+		$header  = 'From: '.$config["applName"]. '<'.$config['from_email'].">\r\n";
+		$header .= "MIME-Version: 1.0\r\n";
+		$header .= "Content-Type: text/html; charset=ISO-8859-1\r\n";
+	
+		@mail($member->email, $subject, $body, $header);
+		warquest_info('Sent comment email to '.$member->email);
 	}
 }
 
 /** 
  * Send allicance invite mail 
  */
-function warquest_alliance_invite_mail() {
+function warquest_alliance_invite_mail($pid, $name) {
 	
 	/* input */
-	global $other;
 	global $config;
-	global $player;
+
+	$player = warquest_db_player($pid);
+	$member = warquest_db_member($pid);
 	
-	$data = warquest_db_member($other->pid);
-			
-	$subject = $config["applName"].' alliance request';
+	if ( ($member->notification_alliance==1) && ($member->email_valid==1) ) {
+	
+		$subject = $config["applName"].' alliance request';
 
-	$body  = $player->name.' has send you alliance request!';
-	$body .= "\r\n\r\n";
-	$body .= 'Visit '.$config["base_url"].', login and accept or reject the request.'."\r\n";
+		$content  = 'Dear '.$player->name.',';
+		$content .= '<br/><br/>';
 		
-	$header = 'From: '.$config["applName"]. '<'.$config['from_email'].">\r\n";
-
-	if ( ($data->notification_alliance==1) && ($data->email_valid==1) ) {
-		@mail($data->email, $subject, $body, $header);
-		warquest_info("Send email [".$data->email."] alliance request");
+		$content .= $name.' has send you alliance request!';
+		$content .= "<br/><br/>";
+		$content .= 'Visit '.$config["base_url"].', login and accept or reject the request.';
+	
+		$body = warquest_email_layout($subject, $content);
+	
+		$header  = 'From: '.$config["applName"]. '<'.$config['from_email'].">\r\n";
+		$header .= "MIME-Version: 1.0\r\n";
+		$header .= "Content-Type: text/html; charset=ISO-8859-1\r\n";
+	
+		@mail($member->email, $subject, $body, $header);
+		warquest_info('Sent alliance invite email to '.$member->email);
 	}
 }
 
 /** 
  * Send allicance reject mail 
  */
-function warquest_alliance_reject_mail() {
+function warquest_alliance_reject_mail($pid, $name) {
 	
 	/* input */
-	global $other;
 	global $config;
-	global $player;
-	global $other;
 
-	$data = warquest_db_member($other->pid);
+	$player = warquest_db_player($pid);
+	$member = warquest_db_member($pid);
+	
+	if ( ($member->notification_alliance==1) && ($member->email_valid==1) ) {
+	
+		$subject = $config["applName"].' alliance rejected.';
+
+		$content  = 'Dear '.$player->name.',';
+		$content .= '<br/><br/>';
 		
-	$subject = $config["applName"].' alliance rejected.';
-
-	$body  = $player->name.' has rejected your alliance request!';
-	$body .= "\r\n\r\n";
-	$body .= 'Visit '.$config["base_url"].' to continue the game.'."\r\n";
+		$content .= $name.' has rejected your alliance request!';
+		$content .= "<br/><br/>";
+		$content .= 'Visit '.$config["base_url"].' to continue the game.'."\r\n";
 		
-	$header = 'From: '.$config["applName"]. '<'.$config['from_email'].">\r\n";
-
-	if ( ($data->notification_alliance==1) && ($data->email_valid==1) ) {
-		@mail($data->email, $subject, $body, $header);
-		warquest_info("Send email [".$data->email."] alliance rejected");
+		$body = warquest_email_layout($subject, $content);
+		
+		$header  = 'From: '.$config["applName"]. '<'.$config['from_email'].">\r\n";
+		$header .= "MIME-Version: 1.0\r\n";
+		$header .= "Content-Type: text/html; charset=ISO-8859-1\r\n";
+	
+		@mail($member->email, $subject, $body, $header);
+		warquest_info('Sent alliance reject email to '.$member->email);
 	}
 }
 
 /** 
  * Send allicance drop mail 
  */
-function warquest_alliance_drop_mail() {
+function warquest_alliance_drop_mail($pid, $name) {
 	
 	/* input */
-	global $other;
 	global $config;
-	global $player;
-	global $other;
 
-	$data = warquest_db_member($other->pid);
+	$player = warquest_db_player($pid);
+	$member = warquest_db_member($pid);
 		
-	$subject = $config["applName"].' alliance dropped.';
-
-	$body  = $player->name.' has drop your alliance!';
-	$body .= "\r\n\r\n";
-	$body .= 'Visit '.$config["base_url"].' to continue the game.'."\r\n";
+	if ( ($member->notification_alliance==1) && ($member->email_valid==1) ) {
 		
-	$header = 'From: '.$config["applName"]. '<'.$config['from_email'].">\r\n";
+		$subject = $config["applName"].' alliance dropped.';
 
-	if ( ($data->notification_alliance==1) && ($data->email_valid==1) ) {
-		@mail($data->email, $subject, $body, $header);
-		warquest_info("Send email [".$data->email."] alliance rejected");
+		$content  = 'Dear '.$player->name.',';
+		$content .= '<br/><br/>';
+		
+		$content .= $name.' has drop your alliance!';
+		$content .= "<br/><br/>";
+		$content .= 'Visit '.$config["base_url"].' to continue the game.'."\r\n";
+	
+		$body = warquest_email_layout($subject, $content);
+		
+		$header  = 'From: '.$config["applName"]. '<'.$config['from_email'].">\r\n";
+		$header .= "MIME-Version: 1.0\r\n";
+		$header .= "Content-Type: text/html; charset=ISO-8859-1\r\n";
+	
+		@mail($member->email, $subject, $body, $header);
+		warquest_info('Sent alliance drop email to '.$member->email);
 	}
 }
 
 /** 
  * Send allicance accept mail 
  */
-function warquest_alliance_accept_mail() {
+function warquest_alliance_accept_mail($pid, $name) {
 	
 	/* input */
-	global $other;
 	global $config;
-	global $player;
+
+	$player = warquest_db_player($pid);
+	$member = warquest_db_member($pid);
 	
-	$data = warquest_db_member($other->pid);
-		
-	$subject = $config["applName"].' alliance accepted.';
+	if ( ($member->notification_alliance==1) && ($member->email_valid==1) ) {	
+	
+		$subject = $config["applName"].' alliance accepted.';
 
-	$body  = $player->name.' has accepted your alliance request!';
-	$body .= "\r\n\r\n";
-	$body .= 'Visit '.$config["base_url"].' to continue the game.'."\r\n";
+		$content  = 'Dear '.$player->name.',';
+		$content .= '<br/><br/>';
 		
-	$header = 'From: '.$config["applName"]. '<'.$config['from_email'].">\r\n";
-
-	if ( ($data->notification_alliance==1) && ($data->email_valid==1) ) {
-		@mail($data->email, $subject, $body, $header);
-		warquest_info("Send email [".$data->email."] alliance accepted");
+		$content .= $name.' has accepted your alliance request!';
+		$content .= "<br/><br/>";
+		$content .= 'Visit '.$config["base_url"].' to continue the game.'."\r\n";
+		
+		$body = warquest_email_layout($subject, $content);
+		
+		$header  = 'From: '.$config["applName"]. '<'.$config['from_email'].">\r\n";
+		$header .= "MIME-Version: 1.0\r\n";
+		$header .= "Content-Type: text/html; charset=ISO-8859-1\r\n";
+	
+		@mail($member->email, $subject, $body, $header);
+		warquest_info('Sent alliance accept email to '.$member->email);
 	}
 }
 

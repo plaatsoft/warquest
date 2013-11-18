@@ -61,7 +61,7 @@ function warquest_alliance_invite_do() {
 		$player->invite = warquest_db_invite_size($player->pid);				
 		$other->invite = warquest_db_invite_size($other->pid);
 	
-		warquest_alliance_invite_mail();
+		warquest_alliance_invite_mail($other->pid, $player->name);
 		
 		$message = t('ALLIANCE_INVITATION', $other->name);
 		$popup .= warquest_box_icon("info", $message);
@@ -276,7 +276,7 @@ function warquest_alliance_drop_do() {
 	$other->alliance = warquest_db_alliance_size($other->pid);
 	$other->invite = warquest_db_invite_size($other->pid);
 		
-	warquest_alliance_reject_mail();
+	warquest_alliance_drop_mail($other->pid, $player->name);
 	
 	$message = t('ALLIANCE_DROP', $other->name);
 	$popup .= warquest_box_icon("info", $message);
@@ -301,7 +301,7 @@ function warquest_alliance_reject_do() {
 	$other->alliance = warquest_db_alliance_size($other->pid);
 	$other->invite = warquest_db_invite_size($other->pid);
 		
-	warquest_alliance_reject_mail();
+	warquest_alliance_reject_mail($other->pid, $player->name);
 	
 	$message = t('ALLIANCE_REJECT', $other->name);
 	$popup .= warquest_box_icon("info", $message);
@@ -333,7 +333,7 @@ function warquest_alliance_accept_do() {
 	$other->alliance = warquest_db_alliance_size($other->pid);
 	$other->invite = warquest_db_invite_size($other->pid);
 		
-	warquest_alliance_accept_mail();
+	warquest_alliance_accept_mail($other->pid, $player->name);
 	
 	$message = t('ALLIANCE_ACCEPT',$other->name); 
 	$popup .= warquest_box_icon("info", $message);

@@ -177,8 +177,7 @@ $lang['AGO_MINS']  = ' mins';
 $lang['AGO_SEC']   = ' sec';
 $lang['AGO_SECS']  = ' secs';
 	
-$lang['COPYRIGHT'] = 'Copyright © 2008-2013 - All Rights Reserved - %s<br/>[%s ms - %s queries]';
-
+$lang['COPYRIGHT'] = 'Copyright © 2008-2013 - All Rights Reserved - <a target="new" href="http://www.plaatsoft.nl">PlaatSoft</a>';
 $lang['STATUS_MONEY']  = 'Cash';
 $lang['STATUS_EXP']  = 'Exp.';
 $lang['STATUS_LEVEL']  = 'Level';
