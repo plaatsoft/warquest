@@ -80,7 +80,7 @@ function warquest_comment_save_do() {
 				warquest_db_comment_insert($tid, $player->pid, $other->pid, $comment);
 					
 				$other->comment++;
-				warquest_comment_mail($pid, $comment, $player->name);
+				warquest_comment_mail($other->pid, $comment, $player->name);
 				$message = t('ALLIANCE_COMMENT_PLAYER', $other->name);
 	
 			} else {
