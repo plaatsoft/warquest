@@ -20,6 +20,7 @@ $notes = '
 
 <span class="subparagraph2">17-11-2013</span><br/>
 <i>Game Server v5.8</i><br/>
+- Improve email layout which are send by WarQuest.</br>
 - Battle sounds functionality is now based on HTML5 standard.<br/>
 - Mission maps support now direct jump to mission page.<br>
 - Rebalance earth unit & building defense / attack values.</br>
@@ -33,8 +34,8 @@ $notes = '
 
 <i>Windows Client v1.5</i><br/>
 - Added HTML5 sound support.<br/>
-- Upgraded QT libraries to v5.0.1.<br/>
-- The app was build with QtCreator v2.6.2<br/>
+- Upgraded QT libraries to v5.1.1<br/>
+- The app was build with QtCreator v2.8.1<br/>
 - Released app on www.plaatsoft.nl<br/><br/>
 
 <i>General</i><br/>

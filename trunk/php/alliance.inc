@@ -35,27 +35,6 @@ if (isset($_POST['clan']) && $_POST['clan'] != "") {
 ** ---------------------
 */
 
-function warquest_alliance_invite_mail() {
-	
-	global $other;
-	global $config;
-	global $player;
-	
-	$data = warquest_db_member($other->pid);
-			
-	$subject = $config["applName"].' alliance request';
-
-	$body = $player->name.' has send you alliance request!'."\r\n\r\n";;
-	$body .= 'Visit '.$config["base_url"].', login and accept or reject the request.'."\r\n";
-		
-	$header = 'From: '.$config["applName"]. '<'.$config['from_email'].">\r\n";
-
-	if (($data->notification_alliance==1) && ($data->email!="")) {
-		@mail($data->email, $subject, $body, $header);
-		warquest_info("Send email [".$data->email."] alliance request");
-	}
-}
-
 function warquest_alliance_invite_do() {
 
 	/* output */ 
@@ -277,29 +256,7 @@ function warquest_alliance_invite_form() {
 ** Pending and Approved
 ** ---------------------
 */
-
-function warquest_alliance_drop_mail() {
 	
-	global $other;
-	global $config;
-	global $player;
-	global $other;
-
-	$data = warquest_db_member($other->pid);
-		
-	$subject = $config["applName"].' alliance rejected.';
-
-	$body = $player->name.' has drop your alliance!'."\r\n\r\n";;
-	$body .= 'Visit '.$config["base_url"].' to continue the game.'."\r\n";
-		
-	$header = 'From: '.$config["applName"]. '<'.$config['from_email'].">\r\n";
-
-	if (($data->notification_alliance==1) && ($data->email!="")) {
-		@mail($data->email, $subject, $body, $header);
-		warquest_info("Send email [".$data->email."] alliance rejected");
-	}
-}
-						
 function warquest_alliance_drop_do() {
 
 	/* input */	
@@ -324,30 +281,7 @@ function warquest_alliance_drop_do() {
 	$message = t('ALLIANCE_DROP', $other->name);
 	$popup .= warquest_box_icon("info", $message);
 }
-
-function warquest_alliance_reject_mail() {
-	
-	/* input */
-	global $other;
-	global $config;
-	global $player;
-	global $other;
-
-	$data = warquest_db_member($other->pid);
-		
-	$subject = $config["applName"].' alliance rejected.';
-
-	$body = $player->name.' has rejected your alliance request!'."\r\n\r\n";;
-	$body .= 'Visit '.$config["base_url"].' to continue the game.'."\r\n";
-		
-	$header = 'From: '.$config["applName"]. '<'.$config['from_email'].">\r\n";
-
-	if (($data->notification_alliance==1) && ($data->email!="")) {
-		@mail($data->email, $subject, $body, $header);
-		warquest_info("Send email [".$data->email."] alliance rejected");
-	}
-}
-						
+				
 function warquest_alliance_reject_do() {
 
 	/* input */
@@ -372,29 +306,7 @@ function warquest_alliance_reject_do() {
 	$message = t('ALLIANCE_REJECT', $other->name);
 	$popup .= warquest_box_icon("info", $message);
 }
-
-function warquest_alliance_accept_mail() {
 	
-	/* input */
-	global $other;
-	global $config;
-	global $player;
-	
-	$data = warquest_db_member($other->pid);
-		
-	$subject = $config["applName"].' alliance accepted.';
-
-	$body = $player->name.' has accepted your alliance request!'."\r\n\r\n";
-	$body .= 'Visit '.$config["base_url"].' to continue the game.'."\r\n";
-		
-	$header = 'From: '.$config["applName"]. '<'.$config['from_email'].">\r\n";
-
-	if (($data->notification_alliance==1) && ($data->email!="")) {
-		@mail($data->email, $subject, $body, $header);
-		warquest_info("Send email [".$data->email."] alliance accepted");
-	}
-}
-			
 function warquest_alliance_accept_do() {
 
 	/* output */
