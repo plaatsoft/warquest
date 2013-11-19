@@ -22,31 +22,32 @@ function process_earth_data($data, $image) {
 
 	$border = ImageColorAt($image, 320, 65); 
 
-	$codes = preg_split('/,/',$data);
-	foreach($codes as $code) {
-
 	if (strlen($data)>0) {
 	
-		list($country, $progress) = preg_split('/-/',$code);
+		$codes = preg_split('/,/',$data);
+		
+		foreach($codes as $code) {
 
-		$color = ImageColorAllocate($image, 0, 255, 0);
+			list($country, $progress) = preg_split('/-/',$code);
 
-		if ($progress==0) {
-			$color = ImageColorAllocate($image, 255, 0, 0);
+			$color = ImageColorAllocate($image, 0, 255, 0);
+
+			if ($progress==0) {
+				$color = ImageColorAllocate($image, 255, 0, 0);
 			
-		} else if (($progress>=100) && ($progress<200)) {		
-			$color = ImageColorAllocate($image, 255, 255, 20);
+			} else if (($progress>=100) && ($progress<200)) {		
+				$color = ImageColorAllocate($image, 255, 255, 20);
 		
-		} else if (($progress>=200) && ($progress<300)) {
-			$color = ImageColorAllocate($image, 255, 51, 255);
+			} else if (($progress>=200) && ($progress<300)) {
+				$color = ImageColorAllocate($image, 255, 51, 255);
 		
-		} else if ($progress==300) {
-			$color = ImageColorAllocate($image, 255, 165, 0);
+			} else if ($progress==300) {
+				$color = ImageColorAllocate($image, 255, 165, 0);
 	
-		} 
-	}		
+			} 
+			
 	
-	switch ($country) {
+		switch ($country) {
 
 	/* 
 	** --------------------------
@@ -616,8 +617,8 @@ function process_earth_data($data, $image) {
 		ImageFillToBorder($image, 552, 197, $border, $color);
 		ImageFillToBorder($image, 554, 194, $border, $color);
 		break;
-	}
-		
+			}
+		}
 	}
 }
 

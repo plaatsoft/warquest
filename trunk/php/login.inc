@@ -68,7 +68,7 @@ if (isset($_SERVER['HTTP_VERSION'])) {
 
 /*
 ** ------------------
-** GENERAL
+** OTHER
 ** ------------------
 */
 
@@ -132,6 +132,9 @@ function warquest_client_overview() {
 	$page .= '</table>';
 }
 
+/**
+ * Login menu bar
+ */
 function warquest_login_menu() {
 
 	/* input */
@@ -298,71 +301,25 @@ function warquest_login_footer() {
 	warquest_login_refresh(301,26,"i4");	
 }
 
+/**
+ * Create random password
+ */
+function warquest_randomPassword($length) {
+	$possible = '0123456789' .
+					'abcdefghjiklmnopqrstuvwxyz'.
+					'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+	$str = "";
+	while (strlen($str) < $length) {
+			$str .= substr($possible, (rand() % strlen($possible)), 1);
+	}	
 
-/*
-** -----------
-** FACEBOOK
-** -----------
-*/
-
-function warquest_facebook_form() {
-
-	/* output */
-	global $page;
-	
-	$page .= '<style type="text/css">';
-	$page .= '.background {';
-	$page .= 'background-color:rgb(255,255,255);';
-	$page .= '}';
-	$page .= '</style>';
-	
-	$page .= '<div class="background">';
-	
-	$page .= '<div id="fb-root"></div>
-<script>(function(d, s, id) {
-  var js, fjs = d.getElementsByTagName(s)[0];
-  if (d.getElementById(id)) return;
-  js = d.createElement(s); js.id = id;
-  js.src = "//connect.facebook.net/nl_NL/all.js#xfbml=1&appId=146129318831064";
-  fjs.parentNode.insertBefore(js, fjs);
-}(document, \'script\', \'facebook-jssdk\'));</script>';
-
-	$page .= '<div class="fb-like-box" data-href="http://www.facebook.com/WarQuest" data-width="510" data-show-faces="true" data-border-color="#ffffff" data-stream="true" data-header="true"></div>';
-
-	$page .= '</div>';
-   $page .= '<br/>'; 
+	return($str);
 }
 
-
 /*
-** -----------
-** MAINTENANCE
-** -----------
-*/
-
-function warquest_maintenance_form() {
-
-	/* output */
-	global $page;
-	global $mid;
-	
-	$page .= '<div class="box2">';
-	$page .= '<strong>';
-	$page .= '<span class="energy"">'.t('LOGIN_MAINTENANCE_TITLE').'</span>';
-	$page .= '</strong>';
-	$page .= '<br/><br/>';
-	$page .= t('LOGIN_MAINTENANCE');
-	$page .= '<br/>';
-	$page .= '<br/>';
-	$page .= warquest_link('mid='.$mid.'&sid='.PAGE_LOGIN, t('LINK_LOGIN'), 'login'); 
-	$page .= '</div>';
-}
-
-
-/*
-** -----------
-** LOGOUT 
-** -----------
+** --------
+** ACTIONS
+** --------
 */
 
 function warquest_logout_do() {
@@ -391,27 +348,6 @@ function warquest_logout_do() {
 	$page .= '<span class="info">'.t('BOX_INFO').'</span><br/><br/>';
 	$page .= t('LOGIN_LOGOUT');
 	$page .= '</div>';	
-}
-
-/*
-** ------------------
-** PASSWORD RECOVERY
-** ------------------
-*/
-
-/**
- * Create random password
- */
-function warquest_randomPassword($length) {
-	$possible = '0123456789' .
-					'abcdefghjiklmnopqrstuvwxyz'.
-					'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
-	$str = "";
-	while (strlen($str) < $length) {
-			$str .= substr($possible, (rand() % strlen($possible)), 1);
-	}	
-
-	return($str);
 }
 
 /** 
@@ -464,63 +400,6 @@ function warquest_email_do() {
 	}
 }
 
-/**
- * Password recover form
- */
-function warquest_recover_form() {
-
-	/* input */
-	global $myemail;
-	global $version;
-	global $mid;
-	
-	/* output  */
-	global $page;
-	global $title;
-	
-	$title = t('LOGIN_RECOVER_TITLE');
-	
-	$page .= '<div class="box2">';
-	$page .= '<table cellpadding="2" cellspacing="1">';
-	
-	$page .= '<tr>';
-	$page .= '<td colspan="2">';
-	$page .= '<strong>'.t('LOGIN_RECOVER_TITLE').'</strong>';
-	$page .= '<br/>';
-	$page .= '<div class="note">';
-	$page .= t('LOGIN_PASSWORD_RESET_NOTE');
-	$page .= '</div>';
-	$page .= '</td>';
-	$page .= '</tr>';
-		
-	$page .= '<tr>';
-	$page .= '<td width="80">'.t('LOGIN_EMAIL').':</td>';
-	$page .= '<td><input name="myemail" type="text" size="35" maxlength="120" value="'.$myemail.'" id="myemail"></td>';
-	$page .= '</tr>';
-		
-	$page .= '<tr>';
-	$page .= '<td>&nbsp;</td>';
-	$page .= '<td>';
-	$page .= '<br/>';
-	$page .= '<input type="hidden" name="token" value="'.warquest_token('mid='.$mid.'&sid='.PAGE_RECOVER.'&eid=3&version='.$version).'">';
-	$page .= '<input type="submit" name="Submit" value="'.t('LINK_SEND').'">';
-	$page .= '</td>';
-	$page .= '</tr>';
-	$page .= '</table>';
-		
-	$page .= '</div>';	
-	
-	/* Set focus on first input element */
-	$page .= '<script type="text/javascript" language="JavaScript">';
-	$page .= 'document.forms[\'warquest\'].elements[\'myemail\'].focus();';
-	$page .= '</script>';
-}
-
-/*
-** --------
-** REGISTER
-** --------
-*/
 
 /**
  * Registration action handler
@@ -665,87 +544,6 @@ function warquest_register_do($amount) {
 	return 0;
 }
 
-/**
- * Registration form 
- */
-function warquest_register_form() {
-
-	/* input */
-   global $myname;
-	global $myemail;
-   global $myusername;
-	global $mypassword;
-	global $config;
-	global $version;
-	global $mid;
-	
-	/* output  */
-	global $page;
-	global $title;
-	
-	$title = t('LOGIN_REGISTER_TITLE');
-		
-	$page .= '<div class="box2">';
-		
-	$page .= '<table cellpadding="3" cellspacing="1">';
-	
-	$page .= '<tr>';
-	$page .= '<td colspan="2">';
-	$page .= '<strong>'.t('LOGIN_REGISTER_TITLE').'</strong>';
-	$page .= '<br/><br/>';
-	$page .= '</td>';
-	$page .= '</tr>';
-		
-	$page .= '<tr>';
-	$page .= '<td width="80">'.t('LOGIN_NICKNAME').':</td>';
-	$page .= '<td><input name="myname" type="text" size="20" maxlength="15" value="'.$myname.'" id="myname"></td>';
-	$page .= '</tr>';
-		
-	$page .= '<tr>';
-	$page .= '<td>'.t('LOGIN_EMAIL').':</td>';
-	$page .= '<td><input name="myemail" type="text" size="35" maxlength="120" value="'.$myemail.'" id="myemail"></td>';
-	$page .= '</tr>';
-		
-	$page .= '<tr>';	
-	$page .= '<td>'.t('LOGIN_USERNAME').':</td>';
-	$page .= '<td><input name="myusername" type="text" size="18" maxlength="';
-	$page .= $config["max_username_length"].'" value="'.$myusername.'" id="myusername"></td>';
-	$page .= '</tr>';
-		
-	$page .= '<tr>';
-	$page .= '<td>'.t('LOGIN_PASSWORD').':</td>';
-	$page .= '<td><input name="mypassword" type="password" size="18" maxlength="';
-	$page .= $config["max_password_length"].'" value="'.$mypassword.'" id="myzpassword"></td>';
-	$page .= '</tr>';
-		
-	$page .= '<tr>';
-	$page .= '<td>&nbsp;</td>';
-	$page .= '<td>';
-	$page .= '<br/>';
-	$page .= '<input type="hidden" name="token" value="'.warquest_token('mid='.$mid.'&sid='.PAGE_REGISTER.'&eid=2&version='.$version).'">';
-	$page .= '<input type="submit" name="Submit" value="'.t('LINK_REGISTER').'">';
-	$page .= '</td>';
-	$page .= '</tr>';
-	$page .= '</table>';
-			
-	$page .= '</div>';	
-	
-	/* Set focus on first input element */
-	$page .= '<script type="text/javascript" language="JavaScript">';
-	$page .= 'document.forms[\'warquest\'].elements[\'myname\'].focus();';
-	$page .= '</script>';
-	
-	$page .= '<script language="JavaScript" src="'.$config["content_url"].'js/jquery.js"></script>';
-	$page .= '<script language="JavaScript" src="'.$config["content_url"].'js/password.js"></script>';
-	$page .= '<link href="'.$config["content_url"].'css/password.css" rel="stylesheet" type="text/css" />';
-}
-
-/*
-** --------
-** LOGIN
-** --------
-*/
-
 /** 
  * Login action
  */
@@ -824,6 +622,229 @@ function warquest_login_do() {
 	} 
 }
 
+
+/**
+ * Valid email check 
+ */
+function warquest_login_email_confirm_do() {
+
+	/* input */
+	global $action;
+	
+	/* output */	
+	global $page;
+	
+	$tmp = preg_split('/-/', $action);
+
+	switch ($tmp[0]) {
+
+		case EVENT_VALID_EMAIL:
+
+			$data = warquest_db_member($tmp[1]);
+		
+			if (isset($data->email_valid) && ($data->email_valid==0) && (md5($data->email)==$tmp[2]))  {
+			
+				/* Set valid email */
+				$data->email_valid=1;
+				warquest_db_member_update($data);
+					
+				$page .= '<div class="box2">';
+				$page .= '<span class="info">'.t('BOX_INFO').'</span><br/>';	
+				$page .= t('USER_EMAIL_VALID');
+				$page .= '</div>';
+										
+				warquest_info("Receive valid email confirmation for ".$data->email);					
+			}
+			break;
+	}
+}
+
+/*
+** --------
+** UI
+** --------
+*/
+
+/** 
+ * Facebook form
+ */
+function warquest_facebook_form() {
+
+	/* output */
+	global $page;
+	
+	$page .= '<style type="text/css">';
+	$page .= '.background {';
+	$page .= 'background-color:rgb(255,255,255);';
+	$page .= '}';
+	$page .= '</style>';
+	
+	$page .= '<div class="background">';
+	
+	$page .= '<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/nl_NL/all.js#xfbml=1&appId=146129318831064";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, \'script\', \'facebook-jssdk\'));</script>';
+
+	$page .= '<div class="fb-like-box" data-href="http://www.facebook.com/WarQuest" data-width="510" data-show-faces="true" data-border-color="#ffffff" data-stream="true" data-header="true"></div>';
+
+	$page .= '</div>';
+   $page .= '<br/>'; 
+}
+
+/**
+ * Maiteance form
+ */
+function warquest_maintenance_form() {
+
+	/* output */
+	global $page;
+	global $mid;
+	
+	$page .= '<div class="box2">';
+	$page .= '<strong>';
+	$page .= '<span class="energy"">'.t('LOGIN_MAINTENANCE_TITLE').'</span>';
+	$page .= '</strong>';
+	$page .= '<br/><br/>';
+	$page .= t('LOGIN_MAINTENANCE');
+	$page .= '<br/>';
+	$page .= '<br/>';
+	$page .= warquest_link('mid='.$mid.'&sid='.PAGE_LOGIN, t('LINK_LOGIN'), 'login'); 
+	$page .= '</div>';
+}
+
+
+/**
+ * Password recover form
+ */
+function warquest_recover_form() {
+
+	/* input */
+	global $myemail;
+	global $version;
+	global $mid;
+	
+	/* output  */
+	global $page;
+	global $title;
+	
+	$title = t('LOGIN_RECOVER_TITLE');
+	
+	$page .= '<div class="box2">';
+	$page .= '<table cellpadding="2" cellspacing="1">';
+	
+	$page .= '<tr>';
+	$page .= '<td colspan="2">';
+	$page .= '<strong>'.t('LOGIN_RECOVER_TITLE').'</strong>';
+	$page .= '<br/>';
+	$page .= '<div class="note">';
+	$page .= t('LOGIN_PASSWORD_RESET_NOTE');
+	$page .= '</div>';
+	$page .= '</td>';
+	$page .= '</tr>';
+		
+	$page .= '<tr>';
+	$page .= '<td width="80">'.t('LOGIN_EMAIL').':</td>';
+	$page .= '<td><input name="myemail" type="text" size="35" maxlength="120" value="'.$myemail.'" id="myemail"></td>';
+	$page .= '</tr>';
+		
+	$page .= '<tr>';
+	$page .= '<td>&nbsp;</td>';
+	$page .= '<td>';
+	$page .= '<br/>';
+	$page .= '<input type="hidden" name="token" value="'.warquest_token('mid='.$mid.'&sid='.PAGE_RECOVER.'&eid=3&version='.$version).'">';
+	$page .= '<input type="submit" name="Submit" value="'.t('LINK_SEND').'">';
+	$page .= '</td>';
+	$page .= '</tr>';
+	$page .= '</table>';
+		
+	$page .= '</div>';	
+	
+	/* Set focus on first input element */
+	$page .= '<script type="text/javascript" language="JavaScript">';
+	$page .= 'document.forms[\'warquest\'].elements[\'myemail\'].focus();';
+	$page .= '</script>';
+}
+
+/**
+ * Registration form 
+ */
+function warquest_register_form() {
+
+	/* input */
+   global $myname;
+	global $myemail;
+   global $myusername;
+	global $mypassword;
+	global $config;
+	global $version;
+	global $mid;
+	
+	/* output  */
+	global $page;
+	global $title;
+	
+	$title = t('LOGIN_REGISTER_TITLE');
+		
+	$page .= '<div class="box2">';
+		
+	$page .= '<table cellpadding="3" cellspacing="1">';
+	
+	$page .= '<tr>';
+	$page .= '<td colspan="2">';
+	$page .= '<strong>'.t('LOGIN_REGISTER_TITLE').'</strong>';
+	$page .= '<br/><br/>';
+	$page .= '</td>';
+	$page .= '</tr>';
+		
+	$page .= '<tr>';
+	$page .= '<td width="80">'.t('LOGIN_NICKNAME').':</td>';
+	$page .= '<td><input name="myname" type="text" size="20" maxlength="15" value="'.$myname.'" id="myname"></td>';
+	$page .= '</tr>';
+		
+	$page .= '<tr>';
+	$page .= '<td>'.t('LOGIN_EMAIL').':</td>';
+	$page .= '<td><input name="myemail" type="text" size="35" maxlength="120" value="'.$myemail.'" id="myemail"></td>';
+	$page .= '</tr>';
+		
+	$page .= '<tr>';	
+	$page .= '<td>'.t('LOGIN_USERNAME').':</td>';
+	$page .= '<td><input name="myusername" type="text" size="18" maxlength="';
+	$page .= $config["max_username_length"].'" value="'.$myusername.'" id="myusername"></td>';
+	$page .= '</tr>';
+		
+	$page .= '<tr>';
+	$page .= '<td>'.t('LOGIN_PASSWORD').':</td>';
+	$page .= '<td><input name="mypassword" type="password" size="18" maxlength="';
+	$page .= $config["max_password_length"].'" value="'.$mypassword.'" id="myzpassword"></td>';
+	$page .= '</tr>';
+		
+	$page .= '<tr>';
+	$page .= '<td>&nbsp;</td>';
+	$page .= '<td>';
+	$page .= '<br/>';
+	$page .= '<input type="hidden" name="token" value="'.warquest_token('mid='.$mid.'&sid='.PAGE_REGISTER.'&eid=2&version='.$version).'">';
+	$page .= '<input type="submit" name="Submit" value="'.t('LINK_REGISTER').'">';
+	$page .= '</td>';
+	$page .= '</tr>';
+	$page .= '</table>';
+			
+	$page .= '</div>';	
+	
+	/* Set focus on first input element */
+	$page .= '<script type="text/javascript" language="JavaScript">';
+	$page .= 'document.forms[\'warquest\'].elements[\'myname\'].focus();';
+	$page .= '</script>';
+	
+	$page .= '<script language="JavaScript" src="'.$config["content_url"].'js/jquery.js"></script>';
+	$page .= '<script language="JavaScript" src="'.$config["content_url"].'js/password.js"></script>';
+	$page .= '<link href="'.$config["content_url"].'css/password.css" rel="stylesheet" type="text/css" />';
+}
+
 /**
  * Login Form
  */
@@ -884,39 +905,6 @@ function warquest_login_form() {
 	$page .= '</script>';
 }
 
-function warquest_login_email_confirm() {
-
-	/* input */
-	global $action;
-	
-	/* output */	
-	global $page;
-	
-	/* Validate email address */
-	$tmp = preg_split('/-/', $action);
-
-	switch ($tmp[0]) {
-
-		case EVENT_VALID_EMAIL:
-
-			$data = warquest_db_member($tmp[1]);
-		
-			if (isset($data->email_valid) && ($data->email_valid==0) && (md5($data->email)==$tmp[2]))  {
-			
-				$data->email_valid=1;
-				warquest_db_member_update($data);
-				
-				/* Check if player is ban */		
-				$page .= '<div class="box2">';
-				$page .= '<span class="info">'.t('USER_EMAIL_VALID').'</span><br/>';	
-				$page .= '</div>';
-										
-				warquest_info("Receive valid email confirmation for [".$data->email."]");					
-			}
-			break;
-	}
-}
-
 /*
 ** ------------- 
 ** EVENT HANDLER
@@ -935,7 +923,7 @@ function warquest_login() {
 	/* Show login header content part */
 	warquest_login_header();
 	
-	warquest_login_email_confirm();
+	warquest_login_email_confirm_do();
 		
 	/* Process event */
 	switch ($eid) {

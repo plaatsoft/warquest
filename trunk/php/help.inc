@@ -49,7 +49,7 @@ function warquest_help_about_form() {
 	$page .= '<br/>';	
 		
 	$page .= '<span class="subparagraph2">'.t('HELP_BROWSERS_TITLE').'</span><br/>';
-	$page .= '- Microsoft Internet Explorer 6.x and higher<br/>';
+	$page .= '- Microsoft Internet Explorer 9.x and higher<br/>';
 	$page .= '- Mozilla Firefox 3.x and higher<br/>';
 	$page .= '- Apple Safari 5.x and higher<br/>';
 	$page .= '- Opera 11.x and higher<br/>';

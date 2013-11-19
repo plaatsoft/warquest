@@ -109,7 +109,6 @@ function warquest_register_mail($pid, $password) {
 		
 		$content = 'Dear '.$player->name.',';
 		$content .= '<br/><br/>';
-		
 		$content  = 'Thanks you for registrating!';	
 		$content .= '<br/><br/>';	
 		$content .= 'Your username = <b>'. $member->username.'</b>';
@@ -119,7 +118,7 @@ function warquest_register_mail($pid, $password) {
 		$content .= 'Please confirm your email address by clicking ';
 		$content .= '<a href='.$config["base_url"].'?action='.EVENT_VALID_EMAIL.'-'.$player->pid.'-'.md5($member->email).'>here</a>.';
 		$content .= '<br/><br/>';
-		$content .= 'Visit '.$config["base_url"].' to continue the game.';
+		$content .= 'Visit <a href="'.$config["base_url"].'">'.$config["base_url"].'</a> to continue the game.';
 		
 		$body = warquest_email_layout($subject, $content);
 	
@@ -150,14 +149,13 @@ function warquest_recover_mail($pid, $password) {
 	
 		$content = 'Dear '.$player->name.',';
 		$content .= '<br/><br/>';
-		
 		$content  = 'Your password is reset!';
 		$content .= "<br/><br/>";
 		$content .= 'Your username = <b>'.$member->username.'</b>';
 		$content .= "<br/>";
 		$content .= 'Your new password = <b>'.$password.'</b>';
 		$content .= "<br/><br/>";
-		$content .= 'Visit '.$config["base_url"].' to continue the game.'."\r\n";
+		$content .= 'Visit <a href="'.$config["base_url"].'">'.$config["base_url"].'</a> to continue the game.';
 		
 		$body = warquest_email_layout($subject, $content);
 		
@@ -190,22 +188,19 @@ function warquest_comment_mail($pid, $comment, $name) {
 
 		$content  = 'Dear '.$player->name.',';
 		$content .= '<br/><br/>';
-		
 		$content .= $name.' has send you the following comment:';
 		$content .= "<br/><br/>";
-	
 		$content .= '<table border="2">';
 		$content .= '<tr>';
-		$content .= '<td>';
+		$content .= '<td width="300">';
 		$content .= '<pre>';
 		$content .= $comment;
 		$content .= '</pre>';
 		$content .= '</td>';
 		$content .= '<tr>';
 		$content .= '</table>';
-	
 		$content .= "<br/>";
-		$content .= 'Visit '.$config["base_url"].' to reply!'."\r\n";
+		$content .= 'Visit <a href="'.$config["base_url"].'">'.$config["base_url"].'</a> to reply.';
 	
 		$body = warquest_email_layout($subject, $content);
 	
@@ -235,10 +230,9 @@ function warquest_alliance_invite_mail($pid, $name) {
 
 		$content  = 'Dear '.$player->name.',';
 		$content .= '<br/><br/>';
-		
 		$content .= $name.' has send you alliance request!';
 		$content .= "<br/><br/>";
-		$content .= 'Visit '.$config["base_url"].', login and accept or reject the request.';
+		$content .= 'Visit <a href="'.$config["base_url"].'">'.$config["base_url"].'</a> to accept or reject this request.';
 	
 		$body = warquest_email_layout($subject, $content);
 	
@@ -268,10 +262,9 @@ function warquest_alliance_reject_mail($pid, $name) {
 
 		$content  = 'Dear '.$player->name.',';
 		$content .= '<br/><br/>';
-		
 		$content .= $name.' has rejected your alliance request!';
 		$content .= "<br/><br/>";
-		$content .= 'Visit '.$config["base_url"].' to continue the game.'."\r\n";
+	   $content .= 'Visit <a href="'.$config["base_url"].'">'.$config["base_url"].'</a> to continue the game.';
 		
 		$body = warquest_email_layout($subject, $content);
 		
@@ -301,10 +294,9 @@ function warquest_alliance_drop_mail($pid, $name) {
 
 		$content  = 'Dear '.$player->name.',';
 		$content .= '<br/><br/>';
-		
 		$content .= $name.' has drop your alliance!';
 		$content .= "<br/><br/>";
-		$content .= 'Visit '.$config["base_url"].' to continue the game.'."\r\n";
+		$content .= 'Visit <a href="'.$config["base_url"].'">'.$config["base_url"].'</a> to continue the game.';
 	
 		$body = warquest_email_layout($subject, $content);
 		
@@ -333,11 +325,10 @@ function warquest_alliance_accept_mail($pid, $name) {
 		$subject = $config["applName"].' alliance accepted';
 
 		$content  = 'Dear '.$player->name.',';
-		$content .= '<br/><br/>';
-		
+		$content .= '<br/><br/>';		
 		$content .= $name.' has accepted your alliance request!';
 		$content .= "<br/><br/>";
-		$content .= 'Visit '.$config["base_url"].' to continue the game.'."\r\n";
+		$content .= 'Visit <a href="'.$config["base_url"].'">'.$config["base_url"].'</a> to continue the game.';
 		
 		$body = warquest_email_layout($subject, $content);
 		
