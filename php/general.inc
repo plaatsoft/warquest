@@ -2495,7 +2495,7 @@ function warquest_ui_header( $title = "") {
 	
 	/* Detect Microsoft Internet Explorer */
 	if (preg_match("/MSIE/", $browser)) {
-		$page .= '<link href="'.$config["content_url"].'css/ie.css" rel="stylesheet" type="text/css" />';
+		//$page .= '<link href="'.$config["content_url"].'css/ie.css" rel="stylesheet" type="text/css" />';
 	}
 	
 	/* Detect Nokia browser devices */
