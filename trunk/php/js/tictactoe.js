@@ -1,37 +1,21 @@
-var bet;
-var key;
-var token;
 
 if (document.all||document.getElementById){
-document.write('<style>.tictac{')
-document.write('width:150px;height:150px;font-size:50;')
-document.write('}</style>')
-}
-
-var sqrT = new Array();
-for( var i = 0; i < 9; i++ ) {
-	sqrT[i] = 0;
+	document.write('<style>.tictac{')
+	document.write('width:150px;height:150px;font-size:90;')
+	document.write('}</style>')
 }
 
 var owner = new Array();
+var bet;
+var key;
+var token;
+var moveCount = 0;
+var turn = 0;
+var sqr = new Array( "", "sqr1", "sqr2", "sqr3", "sqr4", "sqr5", "sqr6", "sqr7", "sqr8", "sqr9" );
+
 for( var i = 0; i < 9; i++ ) {
-	owner[i] = 0;
+		owner[i] = 0;
 }
-
-var sqr1
-var sqr2
-var sqr3
-var sqr4
-var sqr5
-var sqr6
-var sqr7
-var sqr8
-var sqr9
-
-var moveCount = 0
-var turn = 0
-
-var sqr=new Array( "", "sqr1", "sqr2", "sqr3", "sqr4", "sqr5", "sqr6", "sqr7", "sqr8", "sqr9" );
 
 function drawboard() {
 
@@ -49,104 +33,122 @@ function drawboard() {
 			disabled = true;
 		} 	
 	
-		document.getElementById(sqr[i]).value = value
-		document.getElementById(sqr[i]).disabled = disabled
+		document.getElementById(sqr[i]).value = value;
+		document.getElementById(sqr[i]).disabled = disabled;
 	}
 }
 
 
-function vari()
+function setTicTacToe(sqr) {
+	owner[sqr] = 1; 
+	turn = 1; 
+	
+	check();	
+	drawboard();
+}
+
+function disableTicTacToe()
 {
-sqr1 = document.forms['warquest'].sqr1.value
-sqr2 = document.forms['warquest'].sqr2.value
-sqr3 = document.forms['warquest'].sqr3.value
-sqr4 = document.forms['warquest'].sqr4.value
-sqr5 = document.forms['warquest'].sqr5.value
-sqr6 = document.forms['warquest'].sqr6.value
-sqr7 = document.forms['warquest'].sqr7.value
-sqr8 = document.forms['warquest'].sqr8.value
-sqr9 = document.forms['warquest'].sqr9.value
+	for( var i = 1; i < 10; i++ ) {
+
+		document.getElementById(sqr[i]).disabled = true;
+	}
 }
 
-function set1() {
-	owner[1] = 1; 
-	sqrT[1] = 1; 
-	turn = 1; 
-	
-	check();	
-	drawboard();
+function enableTicTacToe()
+{
+  	for( var i = 1; i < 10; i++ ) {
+
+		document.getElementById(sqr[i]).disabled = false;
+	}
 }
 
-function set2() {
-	owner[2] = 1; 
-	sqrT[2] = 1; 
-	turn = 1; 
-	
-	check();	
+function showTicTacToe(board) {
+
+	for( var i = 0; i < 9; i++ ) {
+
+		owner[i]=board.substr(i,1);
+	}
 	drawboard();
 }
-
-function set3() {
-	owner[3] = 1; 
-	sqrT[3] = 1; 
-	turn = 1; 
 	
-	check();	
-	drawboard();
+	
+function youLose() {
+	drawboard();	
+	disableTicTacToe();
+	simpleHttpRequest(0);
 }
 
-function set4() {
-	owner[4] = 1; 
-	sqrT[4] = 1; 
-	turn = 1; 
-	
-	check();	
-	drawboard();
+function youWin() {	
+	drawboard();	
+	disableTicTacToe();
+	simpleHttpRequest(1);
 }
 
-function set5() {
-	owner[5] = 1; 
-	sqrT[5] = 1; 
-	turn = 1; 
-	
-	check();	
+function youDraw() {
 	drawboard();
+	disableTicTacToe();	
+	simpleHttpRequest(2);
 }
 
-function set6() {
-	owner[6] = 1; 
-	sqrT[6] = 1; 
-	turn = 1; 
+function simpleHttpRequest(result) {
+ 
+	var form = document.forms['warquest'];
+
+	var newInput1 = document.createElement('input');
+	newInput1.setAttribute('type','hidden');
+	newInput1.setAttribute('name','bet');
+	newInput1.setAttribute('value', bet);
+	form.appendChild(newInput1);		
+		
+	var newInput2 = document.createElement('input');
+	newInput2.setAttribute('type','hidden');
+	newInput2.setAttribute('name','key');
+	newInput2.setAttribute('value', key);
+	form.appendChild(newInput2);	
+			
+	var newInput3 = document.createElement('input');
+	newInput3.setAttribute('type','hidden');
+	newInput3.setAttribute('name','token');
+	newInput3.setAttribute('value', token);
+	form.appendChild(newInput3);
 	
-	check();	
-	drawboard();
+	var newInput4 = document.createElement('input');
+	newInput4.setAttribute('type','hidden');
+	newInput4.setAttribute('name','result');
+	newInput4.setAttribute('value', result);
+	form.appendChild(newInput4);	
+	
+	tmp = ""
+	for( var i = 1; i < 10; i++ ) {
+
+		tmp += owner[i];
+	}
+		
+	var newInput5 = document.createElement('input');
+	newInput5.setAttribute('type','hidden');
+	newInput5.setAttribute('name','board');
+	newInput5.setAttribute('value', tmp);
+	form.appendChild(newInput5);	
+	
+	form.submit();	
 }
 
-function set7() {
-	owner[7] = 1; 
-	sqrT[7] = 1; 
-	turn = 1; 
+function initTicTacToe( bet1, key1, token1 ) {
+	bet = bet1;
+	key = key1;
+	token = token1;
 	
-	check();	
-	drawboard();
-}
+  	for( var i = 1; i < 10; i++ ) {
 
-function set8() {
-	owner[8] = 1; 
-	sqrT[8] = 1; 
-	turn = 1; 
+		owner[i]=0;
+		document.getElementById(sqr[i]).value = "   ";
+	}
+  
+	turn = 0
+	moveCount = 0	
 	
-	check();	
-	drawboard();
-}
-
-function set9() {
-	owner[9] = 1; 
-	sqrT[9] = 1; 
-	turn = 1; 
-	
-	check();	
-	drawboard();
+	enableTicTacToe();
 }
 
 function check()
@@ -197,7 +199,6 @@ function check()
 
 function check2()
 {
-  //vari()
   drawCheck()
   if(owner[1]==2 && owner[2]==2 && owner[3]==2)
   {
@@ -239,11 +240,12 @@ function check2()
 
 function drawCheck()
 {
-  //vari()
-  
   moveCount = 0;
   for( var i = 1; i < 10; i++ ) {
-   	moveCount += sqrT[i] 
+   	if (owner[i]>0 ) {
+			
+			moveCount++
+		}
   }
  
   if(moveCount == 9)
@@ -255,154 +257,129 @@ function drawCheck()
 function winCheck()
 {
   check2()
-  if(owner[1]==2 && owner[2]==2 && sqrT[3] == 0 && turn == 1)
+  if(owner[1]==2 && owner[2]==2 && owner[3]==0 && turn==1)
   {
     owner[3] = 2; 
-    sqrT[3] = 1;
     turn = 0;
   }
-  else if(owner[2]==2 && owner[3]==2 && sqrT[1] == 0 && turn == 1)
+  else if(owner[2]==2 && owner[3]==2 && owner[1]==0 && turn==1)
   {
     owner[1] = 2; 
-    sqrT[1] = 1;
     turn = 0;
   }
-  else if(owner[4]==2 && owner[5]==2 && sqrT[6] == 0 && turn == 1)
+  else if(owner[4]==2 && owner[5]==2 && owner[6]==0 && turn==1)
   {
     owner[6] = 2; 
-    sqrT[6] = 1;
     turn = 0;
   }
-  else if(owner[5]==2 && owner[6]==2 && sqrT[4] == 0 && turn == 1)
+  else if(owner[5]==2 && owner[6]==2 && owner[4]==0 && turn==1)
   {
     owner[4] = 2; 
-    sqrT[4] = 1;
     turn = 0;
   }
-  else if(owner[7]==2 && owner[8]==2 && sqrT[9] == 0 && turn == 1)
+  else if(owner[7]==2 && owner[8]==2 && owner[9]==0 && turn==1)
   {
     owner[9] = 2; 
-    sqrT[9] = 1;
     turn = 0;
   }
-  else if(owner[8]==2 && owner[9]==2 && sqrT[7] == 0 && turn == 1)
+  else if(owner[8]==2 && owner[9]==2 && owner[7]==0 && turn==1)
   {
     owner[7] = 2; 
-    sqrT[7] = 1;
     turn = 0;
   }
-  else if(owner[1]==2 && owner[5]==2 && sqrT[9] == 0 && turn == 1)
+  else if(owner[1]==2 && owner[5]==2 && owner[9]==0 && turn==1)
   {
     owner[9] = 2; 
-    sqrT[9] = 1;
     turn = 0;
   }
-  else if(owner[5]==2 && owner[9]==2 && sqrT[1] == 0 && turn == 1)
+  else if(owner[5]==2 && owner[9]==2 && owner[1]==0 && turn==1)
   {
     owner[1] = 2; 
-    sqrT[1] = 1;
     turn = 0;
   }
-  else if(owner[3]==2 && owner[5]==2 && sqrT[7] == 0 && turn == 1)
+  else if(owner[3]==2 && owner[5]==2 && owner[7]==0 && turn==1)
   {
     owner[7] = 2; 
-    sqrT[7] = 1;
     turn = 0;
   }
-  else if(owner[7]==2 && owner[5]==2 && sqrT[3] == 0 && turn == 1)
+  else if(owner[7]==2 && owner[5]==2 && owner[3]==0 && turn==1)
   {
     owner[3] = 2; 
-    sqrT[3] = 1;
     turn = 0;
   }
-  else if(owner[1]==2 && owner[3]==2 && sqrT[2] == 0 && turn == 1)
+  else if(owner[1]==2 && owner[3]==2 && owner[2]==0 && turn==1)
   {
     owner[2] = 2; 
-    sqrT[2] = 1;
     turn = 0;
   }
-  else if(owner[4]==2 && owner[6]==2 && sqrT[5] == 0 && turn == 1)
+  else if(owner[4]==2 && owner[6]==2 && owner[5]==0 && turn==1)
   {
     owner[5] = 2; 
-    sqrT[5] = 1;
     turn = 0;
   }
-  else if(owner[7]==2 && owner[9]==2 && sqrT[8] == 0 && turn == 1)
+  else if(owner[7]==2 && owner[9]==2 && owner[8]==0 && turn==1)
   {
     owner[8] = 2; 
-    sqrT[8] = 1;
     turn = 0;
   }
-  else if(owner[1]==2 && owner[7]==2 && sqrT[4] == 0 && turn == 1)
+  else if(owner[1]==2 && owner[7]==2 && owner[4]==0 && turn==1)
   {
     owner[4] = 2; 
-    sqrT[4] = 1;
     turn = 0;
   }
-  else if(owner[2]==2 && owner[8]==2 && sqrT[5] == 0 && turn == 1)
+  else if(owner[2]==2 && owner[8]==2 && owner[5]==0 && turn==1)
   {
     owner[5] = 2; 
-    sqrT[5] = 1;
     turn = 0;
   }
-  else if(owner[3]==2 && owner[9]==2 && sqrT[6] == 0 && turn == 1)
+  else if(owner[3]==2 && owner[9]==2 && owner[6]==0 && turn==1)
   {
     owner[6] = 2; 
-    sqrT[6] = 1;
     turn = 0;
   }
-  else if(owner[1]==2 && owner[5]==2 && sqrT[9] == 0 && turn == 1)
+  else if(owner[1]==2 && owner[5]==2 && owner[9]==0 && turn==1)
   {
     owner[9] = 2; 
-    sqrT[9] = 1;
     turn = 0;
   }
-  else if(owner[4]==2 && owner[7]==2 && sqrT[1] == 0 && turn == 1)
+  else if(owner[4]==2 && owner[7]==2 && owner[1]==0 && turn==1)
   {
     owner[1] = 2; 
-    sqrT[1] = 1;
     turn = 0;
   }
-  else if(owner[5]==2 && owner[8]==2 && sqrT[2] == 0 && turn == 1)
+  else if(owner[5]==2 && owner[8]==2 && owner[2]==0 && turn==1)
   {
     owner[2] = 2; 
-    sqrT[2] = 1;
     turn = 0;
   }
-  else if(owner[6]==2 && owner[9]==2 && sqrT[3] == 0 && turn == 1)
+  else if(owner[6]==2 && owner[9]==2 && owner[3]==0 && turn==1)
   {
     owner[3] = 2; 
-    sqrT[3] = 1;
     turn = 0;
   }
-  else if(owner[1]==2 && owner[4]==2 && sqrT[7] == 0 && turn == 1)
+  else if(owner[1]==2 && owner[4]==2 && owner[7]==0 && turn==1)
   {
     owner[7] = 2; 
-    sqrT[7] = 1;
     turn = 0;
   }
-  else if(owner[2]==2 && owner[5]==2 && sqrT[8] == 0 && turn == 1)
+  else if(owner[2]==2 && owner[5]==2 && owner[8]==0 && turn==1)
   {
     owner[8] = 2; 
-    sqrT[8] = 1;
     turn = 0;
   }
-  else if(owner[3]==2 && owner[6]==2 && sqrT[9] == 0 && turn == 1)
+  else if(owner[3]==2 && owner[6]==2 && owner[9]==0 && turn==1)
   {
     owner[9] = 2; 
-    sqrT[9] = 1;
     turn = 0;
   }
-  else if(owner[1]==2 && owner[9]==2 && sqrT[5] == 0 && turn == 1)
+  else if(owner[1]==2 && owner[9]==2 && owner[5]==0 && turn==1)
   {
     owner[5] = 2; 
-    sqrT[5] = 1;
     turn = 0;
   }
-  else if(owner[3]==2 && owner[7]==2 && sqrT[5] == 0 && turn == 1)
+  else if(owner[3]==2 && owner[7]==2 && owner[5]==0 && turn==1)
   {
     owner[5] = 2; 
-    sqrT[5] = 1;
     turn = 0;
   }
   else
@@ -415,154 +392,129 @@ function winCheck()
 function computer()
 {
   check2()
-  if(owner[1]==1 && owner[2]==1 && sqrT[3] == 0 && turn == 1)
+  if(owner[3]==1 && owner[6]==1 && owner[9]==0 && turn==1)
+  {
+    owner[9] = 2; 
+    turn = 0;
+  }  
+  else if(owner[1]==1 && owner[2]==1 && owner[3]==0 && turn==1)
   {
     owner[3] = 2; 
-    sqrT[3] = 1;
     turn = 0;
   }
-  else if(owner[2]==1 && owner[3]==1 && sqrT[1] == 0 && turn == 1)
+  else if(owner[2]==1 && owner[3]==1 && owner[1]==0 && turn==1)
   {
     owner[1] = 2; 
-    sqrT[1] = 1;
     turn = 0;
   }
-  else if(owner[4]==1 && owner[5]==1 && sqrT[6] == 0 && turn == 1)
+  else if(owner[4]==1 && owner[5]==1 && owner[6]==0 && turn==1)
   {
     owner[6] = 2; 
-    sqrT[6] = 1;
     turn = 0;
   }
-  else if(owner[5]==1 && owner[6]==1 && sqrT[4] == 0 && turn == 1)
+  else if(owner[5]==1 && owner[6]==1 && owner[4]==0 && turn==1)
   {
     owner[4] = 2; 
-    sqrT[4] = 1;
     turn = 0;
   }
-  else if(owner[7]==1 && owner[8]==1 && sqrT[9] == 0 && turn == 1)
+  else if(owner[7]==1 && owner[8]==1 && owner[9]==0 && turn==1)
   {
     owner[9] = 2; 
-    sqrT[9] = 1;
     turn = 0;
   }
-  else if(owner[8]==1 && owner[9]==1 && sqrT[7] == 0 && turn == 1)
+  else if(owner[8]==1 && owner[9]==1 && owner[7]==0 && turn==1)
   {
     owner[7] = 2; 
-    sqrT[7] = 1;
     turn = 0;
   }
-  else if(owner[1]==1 && owner[5]==1 && sqrT[9] == 0 && turn == 1)
+  else if(owner[1]==1 && owner[5]==1 && owner[9]==0 && turn==1)
   {
     owner[9] = 2; 
-    sqrT[9] = 1;
     turn = 0;
   }
-  else if(owner[5]==1 && owner[9]==1 && sqrT[1] == 0 && turn == 1)
+  else if(owner[5]==1 && owner[9]==1 && owner[1]==0 && turn==1)
   {
     owner[1] = 2; 
-    sqrT[1] = 1;
     turn = 0;
   }
-  else if(owner[3]==1 && owner[5]==1 && sqrT[7] == 0 && turn == 1)
+  else if(owner[3]==1 && owner[5]==1 && owner[7]==0 && turn==1)
   {
     owner[7] = 2; 
-    sqrT[7] = 1;
     turn = 0;
   }
-  else if(owner[7]==1 && owner[5]==1 && sqrT[3] == 0 && turn == 1)
+  else if(owner[7]==1 && owner[5]==1 && owner[3]==0 && turn==1)
   {
     owner[3] = 2; 
-    sqrT[3] = 1;
     turn = 0;
   }
-  else if(owner[1]==1 && owner[3]==1 && sqrT[2] == 0 && turn == 1)
+  else if(owner[1]==1 && owner[3]==1 && owner[2]==0 && turn==1)
   {
     owner[2] = 2; 
-    sqrT[2] = 1;
     turn = 0;
   }
-  else if(owner[4]==1 && owner[6]==1 && sqrT[5] == 0 && turn == 1)
+  else if(owner[4]==1 && owner[6]==1 && owner[5]==0 && turn==1)
   {
     owner[5] = 2; 
-    sqrT[5] = 1;
     turn = 0;
   }
-  else if(owner[7]==1 && owner[9]==1 && sqrT[8] == 0 && turn == 1)
+  else if(owner[7]==1 && owner[9]==1 && owner[8]==0 && turn==1)
   {
     owner[8] = 2; 
-    sqrT[8] = 1;
     turn = 0;
   }
-  else if(owner[1]==1 && owner[7]==1 && sqrT[4] == 0 && turn == 1)
+  else if(owner[1]==1 && owner[7]==1 && owner[4]==0 && turn==1)
   {
     owner[4] = 2; 
-    sqrT[4] = 1;
     turn = 0;
   }
-  else if(owner[2]==1 && owner[8]==1 && sqrT[5] == 0 && turn == 1)
+  else if(owner[2]==1 && owner[8]==1 && owner[5]==0 && turn==1)
   {
     owner[5] = 2; 
-    sqrT[5] = 1;
     turn = 0;
   }
-  else if(owner[3]==1 && owner[9]==1 && sqrT[6] == 0 && turn == 1)
+  else if(owner[3]==1 && owner[9]==1 && owner[6]==0 && turn==1)
   {
     owner[6] = 2; 
-    sqrT[6] = 1;
     turn = 0;
   }
-  else if(owner[1]==1 && owner[5]==1 && sqrT[9] == 0 && turn == 1)
+  else if(owner[1]==1 && owner[5]==1 && owner[9]==0 && turn==1)
   {
     owner[9] = 2; 
-    sqrT[9] = 1;
     turn = 0;
   }
-  else if(owner[4]==1 && owner[7]==1 && sqrT[1] == 0 && turn == 1)
+  else if(owner[4]==1 && owner[7]==1 && owner[1]==0 && turn==1)
   {
     owner[1] = 2; 
-    sqrT[1] = 1;
     turn = 0;
   }
-  else if(owner[5]==1 && owner[8]==1 && sqrT[2] == 0 && turn == 1)
+  else if(owner[5]==1 && owner[8]==1 && owner[2]==0 && turn==1)
   {
     owner[2] = 2; 
-    sqrT[2] = 1;
     turn = 0;
   }
-  else if(owner[6]==1 && owner[9]==1 && sqrT[3] == 0 && turn == 1)
+  else if(owner[6]==1 && owner[9]==1 && owner[3]==0 && turn==1)
   {
     owner[3] = 2; 
-    sqrT[3] = 1;
     turn = 0;
   }
-  else if(owner[1]==1 && owner[4]==1 && sqrT[7] == 0 && turn == 1)
+  else if(owner[1]==1 && owner[4]==1 && owner[7]==0 && turn==1)
   {
     owner[7] = 2; 
-    sqrT[7] = 1;
     turn = 0;
   }
-  else if(owner[2]==1 && owner[5]==1 && sqrT[8] == 0 && turn == 1)
+  else if(owner[2]==1 && owner[5]==1 && owner[8]==0 && turn==1)
   {
     owner[8] = 2; 
-    sqrT[8] = 1;
     turn = 0;
   }
-  else if(owner[3]==1 && owner[6]==1 && sqrT[9] == 0 && turn == 1)
-  {
-    owner[9] = 2; 
-    sqrT[9] = 1;
-    turn = 0;
-  }
-  else if(owner[1]==1 && owner[9]==1 && sqrT[5] == 0 && turn == 1)
+  else if(owner[1]==1 && owner[9]==1 && owner[5]==0 && turn==1)
   {
     owner[5] = 2; 
-    sqrT[5] = 1;
     turn = 0;
   }
-  else if(owner[3]==1 && owner[7]==1 && sqrT[5] == 0 && turn == 1)
+  else if(owner[3]==1 && owner[7]==1 && owner[5]==0 && turn==1)
   {
     owner[5] = 2; 
-    sqrT[5] = 1;
     turn = 0;
   }
   else
@@ -574,164 +526,50 @@ function computer()
 
 function AI()
 {
-  //vari()
-  if(owner[5]==0 && turn == 1)
+  if(owner[5]==0 && turn==1)
   {
     owner[5] = 2; 
     turn = 0
-    sqrT[5] = 1
   }
-  else if(owner[1]==0 && turn == 1)
+  else if(owner[1]==0 && turn==1)
   {
     owner[1] = 2; 
     turn = 0
-    sqrT[1] = 1
   }
-  else if(owner[9]==0 && turn == 1)
+  else if(owner[9]==0 && turn==1)
   {
     owner[9] = 2; 
     turn = 0
-    sqrT[9] = 1
   }
-  else if(owner[6]==0 && turn == 1)
+  else if(owner[6]==0 && turn==1)
   {
     owner[6] = 2; 
     turn = 0
-    sqrT[6] = 1
   }
-  else if(owner[2]==0 && turn == 1)
+  else if(owner[2]==0 && turn==1)
   {
     owner[2] = 2; 
     turn = 0
-    sqrT[2] = 1
   }
-  else if(owner[8]==0 && turn == 1)
+  else if(owner[8]==0 && turn==1)
   {
     owner[8] = 2; 
     turn = 0
-    sqrT[8] = 1
   }
-  else if(owner[3]==0 && turn == 1)
+  else if(owner[3]==0 && turn==1)
   {
     owner[3] = 2; 
     turn = 0
-    sqrT[3] = 1
   }
-  else if(owner[7]==0 && turn == 1)
+  else if(owner[7]==0 && turn==1)
   {
     owner[7] = 2; 
     turn = 0
-    sqrT[7] = 1
   }
-  else if(owner[4]==0 && turn == 1)
+  else if(owner[4]==0 && turn==1)
   {
     owner[4] = 2; 
     turn = 0
-    sqrT[4] = 1
   }
   check2()
-}
-
-function disable()
-{
-  document.forms['warquest'].sqr1.disabled = true;
-  document.forms['warquest'].sqr2.disabled = true;
-  document.forms['warquest'].sqr3.disabled = true;
-  document.forms['warquest'].sqr4.disabled = true;
-  document.forms['warquest'].sqr5.disabled = true;
-  document.forms['warquest'].sqr6.disabled = true;
-  document.forms['warquest'].sqr7.disabled = true;
-  document.forms['warquest'].sqr8.disabled = true;
-  document.forms['warquest'].sqr9.disabled = true;
-}
-
-function enable()
-{
-  document.forms['warquest'].sqr1.disabled = false;
-  document.forms['warquest'].sqr2.disabled = false;
-  document.forms['warquest'].sqr3.disabled = false;
-  document.forms['warquest'].sqr4.disabled = false;
-  document.forms['warquest'].sqr5.disabled = false;
-  document.forms['warquest'].sqr6.disabled = false;
-  document.forms['warquest'].sqr7.disabled = false;
-  document.forms['warquest'].sqr8.disabled = false;
-  document.forms['warquest'].sqr9.disabled = false;
-}
-
-function reset()
-{
-  document.forms['warquest'].sqr1.value = "   "
-  document.forms['warquest'].sqr2.value = "   "
-  document.forms['warquest'].sqr3.value = "   "
-  document.forms['warquest'].sqr4.value = "   "
-  document.forms['warquest'].sqr5.value = "   "
-  document.forms['warquest'].sqr6.value = "   "
-  document.forms['warquest'].sqr7.value = "   "
-  document.forms['warquest'].sqr8.value = "   "
-  document.forms['warquest'].sqr9.value = "   "
-  
-	for( var i = 0; i < 9; i++ ) {
-		sqrT[i] = 0;
-	}
-	
-  //vari()
-  turn = 0
-  moveCount = 0
-}
-
-function resetter()
-{
-  reset()
-}
-
-function youLose() {
-	simpleHttpRequest(0);
-	disable();
-}
-
-function youWin() {	
-	simpleHttpRequest(1);
-	disable();
-}
-
-function youDraw() {
-	simpleHttpRequest(2);
-	disable();
-}
-
-function simpleHttpRequest(result) {
- 
-	var form = document.forms['warquest'];
-
-	var newInput1 = document.createElement('input');
-	newInput1.setAttribute('type','hidden');
-	newInput1.setAttribute('name','bet');
-	newInput1.setAttribute('value', bet);
-	form.appendChild(newInput1);		
-		
-	var newInput2 = document.createElement('input');
-	newInput2.setAttribute('type','hidden');
-	newInput2.setAttribute('name','key');
-	newInput2.setAttribute('value', key);
-	form.appendChild(newInput2);	
-			
-	var newInput3 = document.createElement('input');
-	newInput3.setAttribute('type','hidden');
-	newInput3.setAttribute('name','token');
-	newInput3.setAttribute('value', token);
-	form.appendChild(newInput3);
-	
-	var newInput4 = document.createElement('input');
-	newInput4.setAttribute('type','hidden');
-	newInput4.setAttribute('name','result');
-	newInput4.setAttribute('value', result);
-	form.appendChild(newInput4);	
-	
-	form.submit();	
-}
-
-function initTicTacToe( bet1, key1, token1 ) {
-	bet = bet1;
-	key = key1;
-	token = token1;
 }
