@@ -197,7 +197,7 @@ function warquest_comment_mail($pid, $comment, $name) {
 		$content .= $comment;
 		$content .= '</pre>';
 		$content .= '</td>';
-		$content .= '<tr>';
+		$content .= '</tr>';
 		$content .= '</table>';
 		$content .= "<br/>";
 		$content .= 'Visit <a href="'.$config["base_url"].'">'.$config["base_url"].'</a> to reply.';
