@@ -69,15 +69,15 @@ function drawboard() {
 
 	for( var i = 1; i < 10; i++ ) {
 
-		value = '   ';
+		value = ' ';
 		disabled = false;
 
 		if (owner[i] == 1) {
-			value = ' X ';
+			value = 'X';
 			disabled = true;
 			
 		} else if (owner[i] == 2) {
-			value = ' O ';
+			value = 'O';
 			disabled = true;
 		} 	
 	
