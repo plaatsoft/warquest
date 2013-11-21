@@ -13,32 +13,6 @@ var moveCount = 0;
 var turn = 0;
 var sqr = new Array( "", "sqr1", "sqr2", "sqr3", "sqr4", "sqr5", "sqr6", "sqr7", "sqr8", "sqr9" );
 
-for( var i = 0; i < 9; i++ ) {
-		owner[i] = 0;
-}
-
-function drawboard() {
-
-	for( var i = 1; i < 10; i++ ) {
-
-		value = '   ';
-		disabled = false;
-
-		if (owner[i] == 1) {
-			value = ' X ';
-			disabled = true;
-			
-		} else if (owner[i] == 2) {
-			value = ' O ';
-			disabled = true;
-		} 	
-	
-		document.getElementById(sqr[i]).value = value;
-		document.getElementById(sqr[i]).disabled = disabled;
-	}
-}
-
-
 function setTicTacToe(sqr) {
 	owner[sqr] = 1; 
 	turn = 1; 
@@ -64,14 +38,53 @@ function enableTicTacToe()
 }
 
 function showTicTacToe(board) {
-
-	for( var i = 0; i < 9; i++ ) {
-
-		owner[i]=board.substr(i,1);
-	}
-	drawboard();
-}
 	
+	for( var i = 1; i < 10; i++ ) {
+
+		owner[i]=board.substr((i-1),1);
+	}
+	
+	drawboard();
+	disableTicTacToe();
+}
+
+
+function initTicTacToe( bet1, key1, token1 ) {
+	bet = bet1;
+	key = key1;
+	token = token1;
+	
+  	for( var i = 1; i < 10; i++ ) {
+		owner[i]=0;
+	}
+  
+	turn = 0
+	moveCount = 0	
+	
+	enableTicTacToe();
+}
+
+
+function drawboard() {
+
+	for( var i = 1; i < 10; i++ ) {
+
+		value = '   ';
+		disabled = false;
+
+		if (owner[i] == 1) {
+			value = ' X ';
+			disabled = true;
+			
+		} else if (owner[i] == 2) {
+			value = ' O ';
+			disabled = true;
+		} 	
+	
+		document.getElementById(sqr[i]).value = value;
+		document.getElementById(sqr[i]).disabled = disabled;
+	}
+}
 	
 function youLose() {
 	drawboard();	
@@ -134,22 +147,6 @@ function simpleHttpRequest(result) {
 	form.submit();	
 }
 
-function initTicTacToe( bet1, key1, token1 ) {
-	bet = bet1;
-	key = key1;
-	token = token1;
-	
-  	for( var i = 1; i < 10; i++ ) {
-
-		owner[i]=0;
-		document.getElementById(sqr[i]).value = "   ";
-	}
-  
-	turn = 0
-	moveCount = 0	
-	
-	enableTicTacToe();
-}
 
 function check()
 {

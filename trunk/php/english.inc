@@ -2079,7 +2079,7 @@ $lang['CASINO_BET'] = 'Bet';
 $lang['CASINO_PLAY'] = 'Play';
 $lang['CASINO_ROLL'] = 'Roll';
 
-$lang['CASINO_NO_BET'] = 'Enter bet ammount!';
+$lang['CASINO_NO_BET'] = 'Enter bet amount!';
 $lang['CASINO_NO_LUCKY_NUMBER'] = 'Enter lucky number!';
 $lang['CASINO_BET_TO_LARGE'] = 'Bet too large! Maximum bet is %s dollars.'; 
 $lang['CASINO_NO_MONEY'] = 'Not enough money!'; 
@@ -2096,6 +2096,10 @@ $lang['CASINO_UNLOCK'] = '%s is unlocked at level %s';
 $lang['CASINO_SLOTMACHINE_WIN'] = 'You won %s times your bet. You won %s dollars.';
 $lang['CASINO_SLOTMACHINE_LOST'] = 'You lost %s dollars.';
 $lang['CASINO_SLOTMACHINE_HELP'] = 'The following slot machine combinations will pay out';
+
+$lang['CASINO_TICTACTOE_WIN'] = 'You won %s times your bet. You won %s dollars.';
+$lang['CASINO_TICTACTOE_DRAW'] = 'Draw. You won %s times your bet. You won %s dollars.';
+$lang['CASINO_TICTACTOE_LOST'] = 'You lost %s dollars.';
 
 /*
 ** ------------------

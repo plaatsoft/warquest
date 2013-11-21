@@ -293,7 +293,6 @@ function warquest_post($label, $default) {
 		$value = $_POST[$label];
 		$value = stripslashes($value);
 		$value = htmlspecialchars($value);
-		$value = warquest_db_escape($value);
 	}
 	return $value;
 }
@@ -306,8 +305,7 @@ function warquest_get($label, $default) {
 	if (isset($_GET[$label])) {
 		$value = $_GET[$label];
 		$value = stripslashes($value);
-		$value = htmlspecialchars($value);
-		$value = warquest_db_escape($value);
+		$value = htmlspecialchars($value);	
 	}
 	
 	return $value;
@@ -2535,7 +2533,11 @@ function warquest_ui_header( $title = "") {
 		$page .= '<script language="JavaScript" src="'.$config["content_url"].'js/jquery.js" type="text/javascript"></script>';
 		$page .= '<script language="JavaScript" src="'.$config["content_url"].'js/jquery-ui.js" type="text/javascript"></script>';	
 	}
-		
+	
+	if (($mid==MENU_MONEY) && ($sid==PAGE_CASINO)) {
+		$page .= '<script language="JavaScript" src="'.$config["content_url"].'js/tictactoe.js"></script>';
+	}
+	
 	/* Add HTML Title */
 	if ($title=="") {
 		$page .= '<title>'.$config["applName"].'</title>';
