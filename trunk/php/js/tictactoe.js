@@ -4,7 +4,7 @@ var token;
 
 if (document.all||document.getElementById){
 document.write('<style>.tictac{')
-document.write('width:20px;height:20px;font-size:10;')
+document.write('width:150px;height:150px;font-size:50;')
 document.write('}</style>')
 }
 
@@ -31,9 +31,11 @@ var sqr9
 var moveCount = 0
 var turn = 0
 
-function drawBoard() {
+var sqr=new Array( "", "sqr1", "sqr2", "sqr3", "sqr4", "sqr5", "sqr6", "sqr7", "sqr8", "sqr9" );
 
-	for( var i = 0; i < 9; i++ ) {
+function drawboard() {
+
+	for( var i = 1; i < 10; i++ ) {
 
 		value = '   ';
 		disabled = false;
@@ -47,8 +49,8 @@ function drawBoard() {
 			disabled = true;
 		} 	
 	
-		document.getElementById("sqr"+i).value = value;
-		document.getElementById("sqr"+i).disabled = disabled;
+		document.getElementById(sqr[i]).value = value
+		document.getElementById(sqr[i]).disabled = disabled
 	}
 }
 
@@ -67,142 +69,123 @@ sqr9 = document.forms['warquest'].sqr9.value
 }
 
 function set1() {
-	document.forms['warquest'].sqr1.value = ' X '; 
-	document.forms['warquest'].sqr1.disabled = true;
 	owner[1] = 1; 
 	sqrT[1] = 1; 
 	turn = 1; 
-	vari(); 
-	check();
+	
+	check();	
 	drawboard();
 }
 
 function set2() {
-	document.forms['warquest'].sqr2.value = ' X '; 
-	document.forms['warquest'].sqr2.disabled = true;
 	owner[2] = 1; 
 	sqrT[2] = 1; 
 	turn = 1; 
-	vari(); 
-	check();
+	
+	check();	
+	drawboard();
 }
 
 function set3() {
-	document.forms['warquest'].sqr3.value = ' X '; 
-	document.forms['warquest'].sqr3.disabled = true;
 	owner[3] = 1; 
 	sqrT[3] = 1; 
 	turn = 1; 
-	vari(); 
-	check();
+	
+	check();	
+	drawboard();
 }
 
 function set4() {
-	document.forms['warquest'].sqr4.value = ' X '; 
-	document.forms['warquest'].sqr4.disabled = true;
 	owner[4] = 1; 
 	sqrT[4] = 1; 
 	turn = 1; 
-	vari(); 
-	check();
+	
+	check();	
+	drawboard();
 }
 
 function set5() {
-	document.forms['warquest'].sqr5.value = ' X '; 
-	document.forms['warquest'].sqr5.disabled = true;
 	owner[5] = 1; 
 	sqrT[5] = 1; 
 	turn = 1; 
-	vari(); 
-	check();
+	
+	check();	
+	drawboard();
 }
 
 function set6() {
-	document.forms['warquest'].sqr6.value = ' X '; 
-	document.forms['warquest'].sqr6.disabled = true;
 	owner[6] = 1; 
 	sqrT[6] = 1; 
 	turn = 1; 
-	vari(); 
-	check();
+	
+	check();	
+	drawboard();
 }
 
 function set7() {
-	document.forms['warquest'].sqr7.value = ' X '; 
-	document.forms['warquest'].sqr7.disabled = true;
 	owner[7] = 1; 
 	sqrT[7] = 1; 
 	turn = 1; 
-	vari(); 
-	check();
+	
+	check();	
+	drawboard();
 }
 
 function set8() {
-	document.forms['warquest'].sqr8.value = ' X '; 
-	document.forms['warquest'].sqr8.disabled = true;
 	owner[8] = 1; 
 	sqrT[8] = 1; 
 	turn = 1; 
-	vari(); 
-	check();
+	
+	check();	
+	drawboard();
 }
 
 function set9() {
-	document.forms['warquest'].sqr9.value = ' X '; 
-	document.forms['warquest'].sqr9.disabled = true;
 	owner[9] = 1; 
 	sqrT[9] = 1; 
 	turn = 1; 
-	vari(); 
-	check();
+	
+	check();	
+	drawboard();
 }
 
 function check()
 {
-  if(sqr1 == " X " && sqr2 == " X " && sqr3 == " X ")
+  if(owner[1]==1 && owner[2]==1 && owner[3]==1)
   {
     youWin();
-    //reset()
   } 
-  else if(sqr4 == " X " && sqr5 == " X " && sqr6 == " X ")
+  else if(owner[4]==1 && owner[5]==1 && owner[6]==1)
   {
     youWin();
-    //reset()
   } 
-  else if(sqr7 == " X " && sqr8 == " X " && sqr9 == " X ")
+  else if(owner[7]==1 && owner[8]==1 && owner[9]==1)
   {
     youWin();
-    //reset()
   }
-  else if(sqr1 == " X " && sqr5 == " X " && sqr9 == " X ")
+  else if(owner[1]==1 && owner[5]==1 && owner[9]==1)
   {
     youWin();
-    //reset()
   }
-  else if(sqr1 == " X " && sqr4 == " X " && sqr7 == " X ")
+  else if(owner[1]==1 && owner[4]==1 && owner[7]==1)
   {
     youWin();
-    //reset()
   }
-  else if(sqr2 == " X " && sqr5 == " X " && sqr8 == " X ")
+  else if(owner[2]==1 && owner[5]==1 && owner[8]==1)
   {
     youWin();
-    //reset()
   }
-  else if(sqr3 == " X " && sqr6 == " X " && sqr9 == " X ")
+  else if(owner[3]==1 && owner[6]==1 && owner[9]==1)
   {
     youWin();
-    //reset()
   }
-  else if(sqr1 == " X " && sqr5 == " X " && sqr9 == " X ")
+  else if(owner[1]==1 && owner[5]==1 && owner[9]==1)
   {
     youWin();
-    //reset()
   }
-  else if(sqr3 == " X " && sqr5 == " X " && sqr7 == " X ")
+  else if(owner[3]==1 && owner[5]==1 && owner[7]==1)
   {
     youWin();
-    //reset()
   }
   else
   {
@@ -214,67 +197,57 @@ function check()
 
 function check2()
 {
-  vari()
+  //vari()
   drawCheck()
-  if(sqr1 == " O " && sqr2 == " O " && sqr3 == " O ")
+  if(owner[1]==2 && owner[2]==2 && owner[3]==2)
   {
     youLose();
-    //reset()
   } 
-  else if(sqr4 == " O " && sqr5 == " O " && sqr6 == " O ")
+  else if(owner[4]==2 && owner[5]==2 && owner[6]==2)
   {
     youLose();
-    //reset()
   } 
-  else if(sqr7 == " O " && sqr8 == " O " && sqr9 == " O ")
+  else if(owner[7]==2 && owner[8]==2 && owner[9]==2)
   {
     youLose();
-    //reset()
   }
-  else if(sqr1 == " O " && sqr5 == " O " && sqr9 == " O ")
+  else if(owner[1]==2 && owner[5]==2 && owner[9]==2)
   {
     youLose();
-    //reset()
   }
-  else if(sqr1 == " O " && sqr4 == " O " && sqr7 == " O ")
+  else if(owner[1]==2 && owner[4]==2 && owner[7]==2)
   {
     youLose();
-    //reset()
   }
-  else if(sqr2 == " O " && sqr5 == " O " && sqr8 == " O ")
+  else if(owner[2]==2 && owner[5]==2 && owner[8]==2)
   {
     youLose();
-    //reset()
   }
-  else if(sqr3 == " O " && sqr6 == " O " && sqr9 == " O ")
+  else if(owner[3]==2 && owner[6]==2 && owner[9]==2)
   {
     youLose();
-    //reset()
   }
-  else if(sqr1 == " O " && sqr5 == " O " && sqr9 == " O ")
+  else if(owner[1]==2 && owner[5]==2 && owner[9]==2)
   {
     youLose();
-    //reset()
-  }
-  else if(sqr3 == " O " && sqr5 == " O " && sqr7 == " O ")
+   }
+  else if(owner[3]==2 && owner[5]==2 && owner[7]==2)
   {
     youLose();
-    //reset()
   }
 }
 
 function drawCheck()
 {
-  vari()
+  //vari()
   
   moveCount = 0;
-  for( var i = 0; i < 9; i++ ) {
+  for( var i = 1; i < 10; i++ ) {
    	moveCount += sqrT[i] 
   }
  
   if(moveCount == 9)
   {
-    //reset()
     youDraw();
   }
 }
@@ -282,178 +255,153 @@ function drawCheck()
 function winCheck()
 {
   check2()
-  if(sqr1 == " O " && sqr2 == " O " && sqrT[3] == 0 && turn == 1)
+  if(owner[1]==2 && owner[2]==2 && sqrT[3] == 0 && turn == 1)
   {
-    document.forms['warquest'].sqr3.value = " O "
-	 document.forms['warquest'].sqr3.disabled = true;
+    owner[3] = 2; 
     sqrT[3] = 1;
     turn = 0;
   }
-  else if(sqr2 == " O " && sqr3 == " O " && sqrT[1] == 0 && turn == 1)
+  else if(owner[2]==2 && owner[3]==2 && sqrT[1] == 0 && turn == 1)
   {
-    document.forms['warquest'].sqr1.value = " O "
-	 document.forms['warquest'].sqr1.disabled = true;
+    owner[1] = 2; 
     sqrT[1] = 1;
     turn = 0;
   }
-  else if(sqr4 == " O " && sqr5 == " O " && sqrT[6] == 0 && turn == 1)
+  else if(owner[4]==2 && owner[5]==2 && sqrT[6] == 0 && turn == 1)
   {
-    document.forms['warquest'].sqr6.value = " O "
-	 document.forms['warquest'].sqr6.disabled = true;
+    owner[6] = 2; 
     sqrT[6] = 1;
     turn = 0;
   }
-  else if(sqr5 == " O " && sqr6 == " O " && sqrT[4] == 0 && turn == 1)
+  else if(owner[5]==2 && owner[6]==2 && sqrT[4] == 0 && turn == 1)
   {
-    document.forms['warquest'].sqr4.value = " O "
-	 document.forms['warquest'].sqr4.disabled = true;
+    owner[4] = 2; 
     sqrT[4] = 1;
     turn = 0;
   }
-  else if(sqr7 == " O " && sqr8 == " O " && sqrT[9] == 0 && turn == 1)
+  else if(owner[7]==2 && owner[8]==2 && sqrT[9] == 0 && turn == 1)
   {
-    document.forms['warquest'].sqr9.value = " O "
-	 document.forms['warquest'].sqr9.disabled = true;
+    owner[9] = 2; 
     sqrT[9] = 1;
     turn = 0;
   }
-  else if(sqr8 == " O " && sqr9 == " O " && sqrT[7] == 0 && turn == 1)
+  else if(owner[8]==2 && owner[9]==2 && sqrT[7] == 0 && turn == 1)
   {
-    document.forms['warquest'].sqr7.value = " O "
-	 document.forms['warquest'].sqr7.disabled = true;
+    owner[7] = 2; 
     sqrT[7] = 1;
     turn = 0;
   }
-  else if(sqr1 == " O " && sqr5 == " O " && sqrT[9] == 0 && turn == 1)
+  else if(owner[1]==2 && owner[5]==2 && sqrT[9] == 0 && turn == 1)
   {
-    document.forms['warquest'].sqr9.value = " O "
-	 document.forms['warquest'].sqr9.disabled = true;
+    owner[9] = 2; 
     sqrT[9] = 1;
     turn = 0;
   }
-  else if(sqr5 == " O " && sqr9 == " O " && sqrT[1] == 0 && turn == 1)
+  else if(owner[5]==2 && owner[9]==2 && sqrT[1] == 0 && turn == 1)
   {
-    document.forms['warquest'].sqr1.value = " O "
-	 document.forms['warquest'].sqr1.disabled = true;
+    owner[1] = 2; 
     sqrT[1] = 1;
     turn = 0;
   }
-  else if(sqr3 == " O " && sqr5 == " O " && sqrT[7] == 0 && turn == 1)
+  else if(owner[3]==2 && owner[5]==2 && sqrT[7] == 0 && turn == 1)
   {
-    document.forms['warquest'].sqr7.value = " O "
-	 document.forms['warquest'].sqr7.disabled = true;
+    owner[7] = 2; 
     sqrT[7] = 1;
     turn = 0;
   }
-  else if(sqr7 == " O " && sqr5 == " O " && sqrT[3] == 0 && turn == 1)
+  else if(owner[7]==2 && owner[5]==2 && sqrT[3] == 0 && turn == 1)
   {
-    document.forms['warquest'].sqr3.value = " O "
-	 document.forms['warquest'].sqr3.disabled = true;
+    owner[3] = 2; 
     sqrT[3] = 1;
     turn = 0;
   }
-  else if(sqr1 == " O " && sqr3 == " O " && sqrT[2] == 0 && turn == 1)
+  else if(owner[1]==2 && owner[3]==2 && sqrT[2] == 0 && turn == 1)
   {
-    document.forms['warquest'].sqr2.value = " O "
-	 document.forms['warquest'].sqr2.disabled = true;
+    owner[2] = 2; 
     sqrT[2] = 1;
     turn = 0;
   }
-  else if(sqr4 == " O " && sqr6 == " O " && sqrT[5] == 0 && turn == 1)
+  else if(owner[4]==2 && owner[6]==2 && sqrT[5] == 0 && turn == 1)
   {
-    document.forms['warquest'].sqr5.value = " O "
-	 document.forms['warquest'].sqr5.disabled = true;
+    owner[5] = 2; 
     sqrT[5] = 1;
     turn = 0;
   }
-  else if(sqr7 == " O " && sqr9 == " O " && sqrT[8] == 0 && turn == 1)
+  else if(owner[7]==2 && owner[9]==2 && sqrT[8] == 0 && turn == 1)
   {
-    document.forms['warquest'].sqr8.value = " O "
-	 document.forms['warquest'].sqr8.disabled = true;
+    owner[8] = 2; 
     sqrT[8] = 1;
     turn = 0;
   }
-  else if(sqr1 == " O " && sqr7 == " O " && sqrT[4] == 0 && turn == 1)
+  else if(owner[1]==2 && owner[7]==2 && sqrT[4] == 0 && turn == 1)
   {
-    document.forms['warquest'].sqr4.value = " O "
-	 document.forms['warquest'].sqr4.disabled = true;
+    owner[4] = 2; 
     sqrT[4] = 1;
     turn = 0;
   }
-  else if(sqr2 == " O " && sqr8 == " O " && sqrT[5] == 0 && turn == 1)
+  else if(owner[2]==2 && owner[8]==2 && sqrT[5] == 0 && turn == 1)
   {
-    document.forms['warquest'].sqr5.value = " O "
-	 document.forms['warquest'].sqr5.disabled = true;
+    owner[5] = 2; 
     sqrT[5] = 1;
     turn = 0;
   }
-  else if(sqr3 == " O " && sqr9 == " O " && sqrT[6] == 0 && turn == 1)
+  else if(owner[3]==2 && owner[9]==2 && sqrT[6] == 0 && turn == 1)
   {
-    document.forms['warquest'].sqr6.value = " O "
-	 document.forms['warquest'].sqr6.disabled = true;
+    owner[6] = 2; 
     sqrT[6] = 1;
     turn = 0;
   }
-  else if(sqr1 == " O " && sqr5 == " O " && sqrT[9] == 0 && turn == 1)
+  else if(owner[1]==2 && owner[5]==2 && sqrT[9] == 0 && turn == 1)
   {
-    document.forms['warquest'].sqr9.value = " O "
-	 document.forms['warquest'].sqr9.disabled = true;
+    owner[9] = 2; 
     sqrT[9] = 1;
     turn = 0;
   }
-  else if(sqr4 == " O " && sqr7 == " O " && sqrT[1] == 0 && turn == 1)
+  else if(owner[4]==2 && owner[7]==2 && sqrT[1] == 0 && turn == 1)
   {
-    document.forms['warquest'].sqr1.value = " O "
-	 document.forms['warquest'].sqr1.disabled = true;
+    owner[1] = 2; 
     sqrT[1] = 1;
     turn = 0;
   }
-  else if(sqr5 == " O " && sqr8 == " O " && sqrT[2] == 0 && turn == 1)
+  else if(owner[5]==2 && owner[8]==2 && sqrT[2] == 0 && turn == 1)
   {
-    document.forms['warquest'].sqr2.value = " O "
-	 document.forms['warquest'].sqr2.disabled = true;
+    owner[2] = 2; 
     sqrT[2] = 1;
     turn = 0;
   }
-  else if(sqr6 == " O " && sqr9 == " O " && sqrT[3] == 0 && turn == 1)
+  else if(owner[6]==2 && owner[9]==2 && sqrT[3] == 0 && turn == 1)
   {
-    document.forms['warquest'].sqr3.value = " O "
-	 document.forms['warquest'].sqr3.disabled = true;
+    owner[3] = 2; 
     sqrT[3] = 1;
     turn = 0;
   }
-  else if(sqr1 == " O " && sqr4 == " O " && sqrT[7] == 0 && turn == 1)
+  else if(owner[1]==2 && owner[4]==2 && sqrT[7] == 0 && turn == 1)
   {
-    document.forms['warquest'].sqr7.value = " O "
-	 document.forms['warquest'].sqr7.disabled = true;
+    owner[7] = 2; 
     sqrT[7] = 1;
     turn = 0;
   }
-  else if(sqr2 == " O " && sqr5 == " O " && sqrT[8] == 0 && turn == 1)
+  else if(owner[2]==2 && owner[5]==2 && sqrT[8] == 0 && turn == 1)
   {
-    document.forms['warquest'].sqr8.value = " O "
-	 document.forms['warquest'].sqr8.disabled = true;
+    owner[8] = 2; 
     sqrT[8] = 1;
     turn = 0;
   }
-  else if(sqr3 == " O " && sqr6 == " O " && sqrT[9] == 0 && turn == 1)
+  else if(owner[3]==2 && owner[6]==2 && sqrT[9] == 0 && turn == 1)
   {
-    document.forms['warquest'].sqr9.value = " O "
-	 document.forms['warquest'].sqr9.disabled = true;
+    owner[9] = 2; 
     sqrT[9] = 1;
     turn = 0;
   }
-  else if(sqr1 == " O " && sqr9 == " O " && sqrT[5] == 0 && turn == 1)
+  else if(owner[1]==2 && owner[9]==2 && sqrT[5] == 0 && turn == 1)
   {
-    document.forms['warquest'].sqr5.value = " O "
-	 document.forms['warquest'].sqr5.disabled = true;
+    owner[5] = 2; 
     sqrT[5] = 1;
     turn = 0;
   }
-  else if(sqr3 == " O " && sqr7 == " O " && sqrT[5] == 0 && turn == 1)
+  else if(owner[3]==2 && owner[7]==2 && sqrT[5] == 0 && turn == 1)
   {
-    document.forms['warquest'].sqr5.value = " O "
-	 document.forms['warquest'].sqr5.disabled = true;
+    owner[5] = 2; 
     sqrT[5] = 1;
     turn = 0;
   }
@@ -467,178 +415,153 @@ function winCheck()
 function computer()
 {
   check2()
-  if(sqr1 == " X " && sqr2 == " X " && sqrT[3] == 0 && turn == 1)
+  if(owner[1]==1 && owner[2]==1 && sqrT[3] == 0 && turn == 1)
   {
-    document.forms['warquest'].sqr3.value = " O "
-	 document.forms['warquest'].sqr3.disabled = true;
+    owner[3] = 2; 
     sqrT[3] = 1;
     turn = 0;
   }
-  else if(sqr2 == " X " && sqr3 == " X " && sqrT[1] == 0 && turn == 1)
+  else if(owner[2]==1 && owner[3]==1 && sqrT[1] == 0 && turn == 1)
   {
-    document.forms['warquest'].sqr1.value = " O "
-	 document.forms['warquest'].sqr1.disabled = true;
+    owner[1] = 2; 
     sqrT[1] = 1;
     turn = 0;
   }
-  else if(sqr4 == " X " && sqr5 == " X " && sqrT[6] == 0 && turn == 1)
+  else if(owner[4]==1 && owner[5]==1 && sqrT[6] == 0 && turn == 1)
   {
-    document.forms['warquest'].sqr6.value = " O "
-	 document.forms['warquest'].sqr6.disabled = true;
+    owner[6] = 2; 
     sqrT[6] = 1;
     turn = 0;
   }
-  else if(sqr5 == " X " && sqr6 == " X " && sqrT[4] == 0 && turn == 1)
+  else if(owner[5]==1 && owner[6]==1 && sqrT[4] == 0 && turn == 1)
   {
-    document.forms['warquest'].sqr4.value = " O "
-	 document.forms['warquest'].sqr4.disabled = true;
+    owner[4] = 2; 
     sqrT[4] = 1;
     turn = 0;
   }
-  else if(sqr7 == " X " && sqr8 == " X " && sqrT[9] == 0 && turn == 1)
+  else if(owner[7]==1 && owner[8]==1 && sqrT[9] == 0 && turn == 1)
   {
-    document.forms['warquest'].sqr9.value = " O "
-	 document.forms['warquest'].sqr9.disabled = true;
+    owner[9] = 2; 
     sqrT[9] = 1;
     turn = 0;
   }
-  else if(sqr8 == " X " && sqr9 == " X " && sqrT[7] == 0 && turn == 1)
+  else if(owner[8]==1 && owner[9]==1 && sqrT[7] == 0 && turn == 1)
   {
-    document.forms['warquest'].sqr7.value = " O "
-	 document.forms['warquest'].sqr7.disabled = true;
+    owner[7] = 2; 
     sqrT[7] = 1;
     turn = 0;
   }
-  else if(sqr1 == " X " && sqr5 == " X " && sqrT[9] == 0 && turn == 1)
+  else if(owner[1]==1 && owner[5]==1 && sqrT[9] == 0 && turn == 1)
   {
-    document.forms['warquest'].sqr9.value = " O "
-	 document.forms['warquest'].sqr9.disabled = true;
+    owner[9] = 2; 
     sqrT[9] = 1;
     turn = 0;
   }
-  else if(sqr5 == " X " && sqr9 == " X " && sqrT[1] == 0 && turn == 1)
+  else if(owner[5]==1 && owner[9]==1 && sqrT[1] == 0 && turn == 1)
   {
-    document.forms['warquest'].sqr1.value = " O "
-	 document.forms['warquest'].sqr1.disabled = true;
+    owner[1] = 2; 
     sqrT[1] = 1;
     turn = 0;
   }
-  else if(sqr3 == " X " && sqr5 == " X " && sqrT[7] == 0 && turn == 1)
+  else if(owner[3]==1 && owner[5]==1 && sqrT[7] == 0 && turn == 1)
   {
-    document.forms['warquest'].sqr7.value = " O "
-	 document.forms['warquest'].sqr7.disabled = true;
+    owner[7] = 2; 
     sqrT[7] = 1;
     turn = 0;
   }
-  else if(sqr7 == " X " && sqr5 == " X " && sqrT[3] == 0 && turn == 1)
+  else if(owner[7]==1 && owner[5]==1 && sqrT[3] == 0 && turn == 1)
   {
-    document.forms['warquest'].sqr3.value = " O "
-	 document.forms['warquest'].sqr3.disabled = true;
+    owner[3] = 2; 
     sqrT[3] = 1;
     turn = 0;
   }
-  else if(sqr1 == " X " && sqr3 == " X " && sqrT[2] == 0 && turn == 1)
+  else if(owner[1]==1 && owner[3]==1 && sqrT[2] == 0 && turn == 1)
   {
-    document.forms['warquest'].sqr2.value = " O "
-	 document.forms['warquest'].sqr2.disabled = true;
+    owner[2] = 2; 
     sqrT[2] = 1;
     turn = 0;
   }
-  else if(sqr4 == " X " && sqr6 == " X " && sqrT[5] == 0 && turn == 1)
+  else if(owner[4]==1 && owner[6]==1 && sqrT[5] == 0 && turn == 1)
   {
-    document.forms['warquest'].sqr5.value = " O "
-	 document.forms['warquest'].sqr5.disabled = true;
+    owner[5] = 2; 
     sqrT[5] = 1;
     turn = 0;
   }
-  else if(sqr7 == " X " && sqr9 == " X " && sqrT[8] == 0 && turn == 1)
+  else if(owner[7]==1 && owner[9]==1 && sqrT[8] == 0 && turn == 1)
   {
-    document.forms['warquest'].sqr8.value = " O "
-	 document.forms['warquest'].sqr8.disabled = true;
+    owner[8] = 2; 
     sqrT[8] = 1;
     turn = 0;
   }
-  else if(sqr1 == " X " && sqr7 == " X " && sqrT[4] == 0 && turn == 1)
+  else if(owner[1]==1 && owner[7]==1 && sqrT[4] == 0 && turn == 1)
   {
-    document.forms['warquest'].sqr4.value = " O "
-	 document.forms['warquest'].sqr4.disabled = true;
+    owner[4] = 2; 
     sqrT[4] = 1;
     turn = 0;
   }
-  else if(sqr2 == " X " && sqr8 == " X " && sqrT[5] == 0 && turn == 1)
+  else if(owner[2]==1 && owner[8]==1 && sqrT[5] == 0 && turn == 1)
   {
-    document.forms['warquest'].sqr5.value = " O "
-	 document.forms['warquest'].sqr5.disabled = true;
+    owner[5] = 2; 
     sqrT[5] = 1;
     turn = 0;
   }
-  else if(sqr3 == " X " && sqr9 == " X " && sqrT[6] == 0 && turn == 1)
+  else if(owner[3]==1 && owner[9]==1 && sqrT[6] == 0 && turn == 1)
   {
-    document.forms['warquest'].sqr6.value = " O "
-	 document.forms['warquest'].sqr6.disabled = true;
+    owner[6] = 2; 
     sqrT[6] = 1;
     turn = 0;
   }
-  else if(sqr1 == " X " && sqr5 == " X " && sqrT[9] == 0 && turn == 1)
+  else if(owner[1]==1 && owner[5]==1 && sqrT[9] == 0 && turn == 1)
   {
-    document.forms['warquest'].sqr9.value = " O "
-	 document.forms['warquest'].sqr9.disabled = true;
+    owner[9] = 2; 
     sqrT[9] = 1;
     turn = 0;
   }
-  else if(sqr4 == " X " && sqr7 == " X " && sqrT[1] == 0 && turn == 1)
+  else if(owner[4]==1 && owner[7]==1 && sqrT[1] == 0 && turn == 1)
   {
-    document.forms['warquest'].sqr1.value = " O "
-	 document.forms['warquest'].sqr1.disabled = true;
+    owner[1] = 2; 
     sqrT[1] = 1;
     turn = 0;
   }
-  else if(sqr5 == " X " && sqr8 == " X " && sqrT[2] == 0 && turn == 1)
+  else if(owner[5]==1 && owner[8]==1 && sqrT[2] == 0 && turn == 1)
   {
-    document.forms['warquest'].sqr2.value = " O "
-	 document.forms['warquest'].sqr2.disabled = true;
+    owner[2] = 2; 
     sqrT[2] = 1;
     turn = 0;
   }
-  else if(sqr6 == " X " && sqr9 == " X " && sqrT[3] == 0 && turn == 1)
+  else if(owner[6]==1 && owner[9]==1 && sqrT[3] == 0 && turn == 1)
   {
-    document.forms['warquest'].sqr3.value = " O "
-	 document.forms['warquest'].sqr3.disabled = true;
+    owner[3] = 2; 
     sqrT[3] = 1;
     turn = 0;
   }
-  else if(sqr1 == " X " && sqr4 == " X " && sqrT[7] == 0 && turn == 1)
+  else if(owner[1]==1 && owner[4]==1 && sqrT[7] == 0 && turn == 1)
   {
-    document.forms['warquest'].sqr7.value = " O "
-	 document.forms['warquest'].sqr7.disabled = true;
+    owner[7] = 2; 
     sqrT[7] = 1;
     turn = 0;
   }
-  else if(sqr2 == " X " && sqr5 == " X " && sqrT[8] == 0 && turn == 1)
+  else if(owner[2]==1 && owner[5]==1 && sqrT[8] == 0 && turn == 1)
   {
-    document.forms['warquest'].sqr8.value = " O "
-	 document.forms['warquest'].sqr8.disabled = true;
+    owner[8] = 2; 
     sqrT[8] = 1;
     turn = 0;
   }
-  else if(sqr3 == " X " && sqr6 == " X " && sqrT[9] == 0 && turn == 1)
+  else if(owner[3]==1 && owner[6]==1 && sqrT[9] == 0 && turn == 1)
   {
-    document.forms['warquest'].sqr9.value = " O "
-	 document.forms['warquest'].sqr9.disabled = true;
+    owner[9] = 2; 
     sqrT[9] = 1;
     turn = 0;
   }
-  else if(sqr1 == " X " && sqr9 == " X " && sqrT[5] == 0 && turn == 1)
+  else if(owner[1]==1 && owner[9]==1 && sqrT[5] == 0 && turn == 1)
   {
-    document.forms['warquest'].sqr5.value = " O "
-	 document.forms['warquest'].sqr5.disabled = true;
+    owner[5] = 2; 
     sqrT[5] = 1;
     turn = 0;
   }
-  else if(sqr3 == " X " && sqr7 == " X " && sqrT[5] == 0 && turn == 1)
+  else if(owner[3]==1 && owner[7]==1 && sqrT[5] == 0 && turn == 1)
   {
-    document.forms['warquest'].sqr5.value = " O "
-	 document.forms['warquest'].sqr5.disabled = true;
+    owner[5] = 2; 
     sqrT[5] = 1;
     turn = 0;
   }
@@ -651,67 +574,58 @@ function computer()
 
 function AI()
 {
-  vari()
-  if(document.forms['warquest'].sqr5.value == "   " && turn == 1)
+  //vari()
+  if(owner[5]==0 && turn == 1)
   {
-    document.forms['warquest'].sqr5.value = " O "
-	 document.forms['warquest'].sqr5.disabled = true;
+    owner[5] = 2; 
     turn = 0
     sqrT[5] = 1
   }
-  else if(document.forms['warquest'].sqr1.value == "   " && turn == 1)
+  else if(owner[1]==0 && turn == 1)
   {
-    document.forms['warquest'].sqr1.value = " O "
-	 document.forms['warquest'].sqr1.disabled = true;
+    owner[1] = 2; 
     turn = 0
     sqrT[1] = 1
   }
-  else if(document.forms['warquest'].sqr9.value == "   " && turn == 1)
+  else if(owner[9]==0 && turn == 1)
   {
-    document.forms['warquest'].sqr9.value = " O "
-	 document.forms['warquest'].sqr9.disabled = true;
+    owner[9] = 2; 
     turn = 0
     sqrT[9] = 1
   }
-  else if(document.forms['warquest'].sqr6.value == "   " && turn == 1)
+  else if(owner[6]==0 && turn == 1)
   {
-    document.forms['warquest'].sqr6.value = " O "
-	 document.forms['warquest'].sqr6.disabled = true;
+    owner[6] = 2; 
     turn = 0
     sqrT[6] = 1
   }
-  else if(document.forms['warquest'].sqr2.value == "   " && turn == 1)
+  else if(owner[2]==0 && turn == 1)
   {
-    document.forms['warquest'].sqr2.value = " O "
-	 document.forms['warquest'].sqr2.disabled = true;
+    owner[2] = 2; 
     turn = 0
     sqrT[2] = 1
   }
-  else if(document.forms['warquest'].sqr8.value == "   " && turn == 1)
+  else if(owner[8]==0 && turn == 1)
   {
-    document.forms['warquest'].sqr8.value = " O "
-	 document.forms['warquest'].sqr8.disabled = true;
+    owner[8] = 2; 
     turn = 0
     sqrT[8] = 1
   }
-  else if(document.forms['warquest'].sqr3.value == "   " && turn == 1)
+  else if(owner[3]==0 && turn == 1)
   {
-    document.forms['warquest'].sqr3.value = " O "
-	 document.forms['warquest'].sqr3.disabled = true;
+    owner[3] = 2; 
     turn = 0
     sqrT[3] = 1
   }
-  else if(document.forms['warquest'].sqr7.value == "   " && turn == 1)
+  else if(owner[7]==0 && turn == 1)
   {
-    document.forms['warquest'].sqr7.value = " O "
-	 document.forms['warquest'].sqr7.disabled = true;
+    owner[7] = 2; 
     turn = 0
     sqrT[7] = 1
   }
-  else if(document.forms['warquest'].sqr4.value == "   " && turn == 1)
+  else if(owner[4]==0 && turn == 1)
   {
-    document.forms['warquest'].sqr4.value = " O "
-	 document.forms['warquest'].sqr4.disabled = true;
+    owner[4] = 2; 
     turn = 0
     sqrT[4] = 1
   }
@@ -760,7 +674,7 @@ function reset()
 		sqrT[i] = 0;
 	}
 	
-  vari()
+  //vari()
   turn = 0
   moveCount = 0
 }
@@ -771,17 +685,17 @@ function resetter()
 }
 
 function youLose() {
-	simpleHttpRequest(bet, key, 0);
+	simpleHttpRequest(0);
 	disable();
 }
 
 function youWin() {	
-	simpleHttpRequest(bet, key, 1);
+	simpleHttpRequest(1);
 	disable();
 }
 
 function youDraw() {
-	simpleHttpRequest(bet, key, 2);
+	simpleHttpRequest(2);
 	disable();
 }
 
