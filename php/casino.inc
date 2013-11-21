@@ -30,6 +30,7 @@ $angle = warquest_post('angle', 0);
 $wheel = warquest_post('wheel', 0);
 $number = warquest_post('number', 0);	
 $price = warquest_post('price', 0);	
+$result = warquest_post('result', 0);	
 
 if (isset($_POST['a00']) && $_POST['a00'] != "") {
 	$a00 = $_POST['a00'];
@@ -778,7 +779,7 @@ function warquest_casino_tictactoe_result_do() {
 		$message= t('SYSTEM_HACK_DETECTED');
 		$popup .= warquest_box_icon("warning", $message);	
 		
-	} else if ($result==1) {
+	} else if ($result==1 || $result==2) {
 	
 		$money = $bet * 2;
 		$player->money += $money;
@@ -894,29 +895,22 @@ function warquest_casino_tictactoe() {
 	$page .= 'initTicTacToe('.$bet.','.$player->request.',\''.warquest_token('mid='.$mid.'&sid='.$sid.'&cid='.$cid.'&eid=5').'\');';		
 	$page .= '</script>';
 	
-	$page .= '<input type="button" name="sqr1" class="tictac" value="   " onClick="if( turn == 0 ) { set1() }">';
-	$page .= '<input type="button" name="sqr2" class="tictac" value="   " onClick="if( turn == 0 ) { set2() }">';
-	$page .= '<input type="button" name="sqr3" class="tictac" value="   " onClick="if( turn == 0 ) { set3() }"><br/>';
-	$page .= '<input type="button" name="sqr4" class="tictac" value="   " onClick="if( turn == 0 ) { set4() }">';
-	$page .= '<input type="button" name="sqr5" class="tictac" value="   " onClick="if( turn == 0 ) { set5() }">';
-	$page .= '<input type="button" name="sqr6" class="tictac" value="   " onClick="if( turn == 0 ) { set6() }"><br/>';
-	$page .= '<input type="button" name="sqr7" class="tictac" value="   " onClick="if( turn == 0 ) { set7() }">';
-	$page .= '<input type="button" name="sqr8" class="tictac" value="   " onClick="if( turn == 0 ) { set8() }">';
-	$page .= '<input type="button" name="sqr9" class="tictac" value="   " onClick="if( turn == 0 ) { set9() }">';
+	$page .= '<input type="button" id="sqr1" class="tictac" onClick="if( turn == 0 ) { set1() }">';
+	$page .= '<input type="button" id="sqr2" class="tictac" onClick="if( turn == 0 ) { set2() }">';
+	$page .= '<input type="button" id="sqr3" class="tictac" onClick="if( turn == 0 ) { set3() }">';
+	$page .= '<br/>';
+	$page .= '<input type="button" id="sqr4" class="tictac" onClick="if( turn == 0 ) { set4() }">';
+	$page .= '<input type="button" id="sqr5" class="tictac" onClick="if( turn == 0 ) { set5() }">';
+	$page .= '<input type="button" id="sqr6" class="tictac" onClick="if( turn == 0 ) { set6() }">';
+	$page .= '<br/>';
+	$page .= '<input type="button" id="sqr7" class="tictac" onClick="if( turn == 0 ) { set7() }">';
+	$page .= '<input type="button" id="sqr8" class="tictac" onClick="if( turn == 0 ) { set8() }">';
+	$page .= '<input type="button" id="sqr9" class="tictac" onClick="if( turn == 0 ) { set9() }">';
 
-	/*if ($eid==4) {
-	
-		$page .= '<script language="JavaScript">'; 
-		$page .= 'enable();';		
-		$page .= '</script>';
-		
-	} else {
-	
-		$page .= '<script language="JavaScript">'; 
-		$page .= 'disable();';		
-		$page .= '</script>';
-	}*/
-	
+	$page .= '<script language="JavaScript">'; 
+	$page .= 'enable();';		
+	$page .= '</script>';
+			
 	$page .= '</div>';	
 	
 	$page .= '<div class="note">';
