@@ -123,7 +123,7 @@ $config["max_battle_log_age"]       = 2;
 $config["max_bank_log_age"]         = 30;
 
 $config["casino_unlock_level_1"]    = 10;
-$config["casino_unlock_level_2"]    = 20;
+$config["casino_unlock_level_2"]    = 15;
 $config["casino_unlock_level_3"]    = 20;
 
 /*

@@ -770,17 +770,12 @@ function warquest_casino_tictactoe_result_do() {
 	global $bet;
 	global $key;
 	global $result;
-	global $board;
 	
 	/* output */
 	global $player;
 	global $popup;
 	global $page;
 	
-	$page .= '<script language="JavaScript">'; 
-	$page .= 'showTicTacToe('.$board.')';
-	$page .= '</script>';
-			
 	if ($key != $player->request-1) {
 	
 		$message= t('SYSTEM_HACK_DETECTED');
@@ -791,7 +786,7 @@ function warquest_casino_tictactoe_result_do() {
 		$money = $bet * 2;
 		$player->money += $money;
 		
-		$message = t('CASINO_SLOTMACHINE_WIN', health_format(2), money_format1($money)); 
+		$message = t('CASINO_TICTACTOE_WIN', health_format(2), money_format1($money)); 
 		$popup .= warquest_box_icon("info", $message);	
 		warquest_info($message);
 		
@@ -803,16 +798,16 @@ function warquest_casino_tictactoe_result_do() {
 		$money = $bet * 1;
 		$player->money += $money;
 		
-		$message = t('CASINO_SLOTMACHINE_WIN', health_format(1), money_format1($money)); 
+		$message = t('CASINO_TICTACTOE_DRAW', health_format(1), money_format1($money)); 
 		$popup .= warquest_box_icon("info", $message);	
 		warquest_info($message);
 		
-		$log = 'TicTacToe won '.number_format2($money);		
+		$log = 'TicTacToe draw '.number_format2($money);		
 		warquest_user_log($player, $log);
 		
 	} else {
 	
-		$message = t('CASINO_SLOTMACHINE_LOST', money_format1($bet));
+		$message = t('CASINO_TICTACTOE_LOST', money_format1($bet));
 		$popup .= warquest_box_icon("warning", $message);	
 		
 		$log = 'TicTacToe lost '.number_format2($bet);		
@@ -861,11 +856,7 @@ function warquest_casino_tictactoe_play_do() {
 		$player->casino++;
 		
 		$page .= '<script language="JavaScript">'; 
-		
-		$page .= 'document.getElementById("bet").disabled = true;';	
-		$page .= 'document.getElementById("play").disabled = true;';
-		
-		$page .= 'initTicTacToe('.$bet.','.$player->request.',\''.warquest_token('mid='.$mid.'&sid='.$sid.'&cid='.$cid.'&eid=5').'\');';			
+		$page .= 'initTicTacToe('.$bet.','.$player->request.',\''.warquest_token('mid='.$mid.'&sid='.$sid.'&cid='.$cid.'&eid=5').'\');';					
 		$page .= '</script>';
 	}
 }
@@ -887,6 +878,7 @@ function warquest_casino_tictactoe() {
 	global $bet;
 	global $result;
 	global $key;
+	global $board;
 	
 	/* output */
 	global $page; 
@@ -948,11 +940,9 @@ function warquest_casino_tictactoe() {
 	$page .= '</table>';
 	
 	$page .= '</div>';
-	
+		
 	$page .= '<div class="box">';
-	
-	$page .= '<script language="JavaScript" src="'.$config["content_url"].'js/tictactoe.js"></script>';
-	
+		
 	$page .= '<input type="button" id="sqr1" class="tictac" onClick="if( turn == 0 ) { setTicTacToe(1) }">';
 	$page .= '<input type="button" id="sqr2" class="tictac" onClick="if( turn == 0 ) { setTicTacToe(2) }">';
 	$page .= '<input type="button" id="sqr3" class="tictac" onClick="if( turn == 0 ) { setTicTacToe(3) }">';
@@ -970,7 +960,13 @@ function warquest_casino_tictactoe() {
 		$page .= 'disableTicTacToe();';		
 		$page .= '</script>';
 	}
-			
+
+	if ($eid==5) {
+		$page .= '<script language="JavaScript">'; 
+		$page .= 'showTicTacToe(\''.$board.'\')';
+		$page .= '</script>';
+	}
+				
 	$page .= '</div>';	
 	
 	$page .= '<div class="note">';
@@ -994,7 +990,8 @@ function warquest_casino() {
 	/* input */
 	global $eid;
 	global $cid;
-		
+
+	
 	/* Event handler */
 	switch ($eid ) {
 	

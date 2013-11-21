@@ -749,7 +749,11 @@ function warquest_help_levels_feature($lid) {
 	if ($lid==$config["casino_unlock_level_2"]) {
 		$page .= warquest_casino_image(2, 55, 40);	
 	}
-		
+	
+	if ($lid==$config["casino_unlock_level_3"]) {
+		$page .= warquest_casino_image(3, 55, 40);	
+	}
+	
 	if (strlen($page)==0) {
 		
 		$page .= warquest_image("other/box.png", ' width="55" height="40" ');	
