@@ -22,50 +22,14 @@
 ** ----------------------------------------------------------------
 */
 
-$bet = 0;
-if (isset($_POST['bet']) && $_POST['bet'] != "") {
-	$bet = $_POST['bet'];
-	$bet = stripslashes($bet);
-	$bet = warquest_db_escape($bet);			
-	$bet = str_replace(".", "", $bet);
-}
+$bet = warquest_post('bet', 0);
+$bet = str_replace(".", "", $bet);
 
-$key = 0;
-if (isset($_POST['key']) && $_POST['key'] != "") {
-	$key = $_POST['key'];
-	$key = stripslashes($key);
-	$key = warquest_db_escape($key);			
-	$key = str_replace(".", "", $key);
-	$key++;
-}
-
-$angle = 0;
-if (isset($_POST['angle']) && $_POST['angle'] != "") {
-	$angle = $_POST['angle'];
-	$angle = stripslashes($angle);
-	$angle = warquest_db_escape($angle);		
-}
-	
-$wheel = 0;
-if (isset($_POST['wheel']) && $_POST['wheel'] != "") {
-	$wheel = $_POST['wheel'];
-	$wheel = stripslashes($wheel);
-	$wheel = warquest_db_escape($wheel);		
-}
-
-$number = 0;
-if (isset($_POST['number']) && $_POST['number'] != "") {
-	$number = $_POST['number'];
-	$number = stripslashes($number);
-	$number = warquest_db_escape($number);		
-}
-
-$price = 0;
-if (isset($_POST['price']) && $_POST['price'] != "") {
-	$price = $_POST['price'];
-	$price = stripslashes($price);
-	$price = warquest_db_escape($price);		
-}
+$key = warquest_post('key', 0);
+$angle = warquest_post('angle', 0);
+$wheel = warquest_post('wheel', 0);
+$number = warquest_post('number', 0);	
+$price = warquest_post('price', 0);	
 
 if (isset($_POST['a00']) && $_POST['a00'] != "") {
 	$a00 = $_POST['a00'];
@@ -138,8 +102,8 @@ function warquest_casino_slotmachine2_do() {
 	/* output */
 	global $player;
 	global $popup;
-	
-	if ($key != $player->request) {
+
+	if ($key != $player->request-1) {
 	
 		$message= t('SYSTEM_HACK_DETECTED');
 		$popup .= warquest_box_icon("warning", $message);	
@@ -161,7 +125,7 @@ function warquest_casino_slotmachine2_do() {
 		$message = t('CASINO_SLOTMACHINE_LOST', money_format1($bet));
 		$popup .= warquest_box_icon("warning", $message);	
 		
-		$log = 'Slot Machine won '.number_format2($bet);		
+		$log = 'Slot Machine lose '.number_format2($bet);		
 		warquest_user_log($player, $log);
 	}
 }
@@ -484,7 +448,7 @@ function warquest_casino_slotmachine() {
 	$page .= "<tr>";
 	$page .= '<td>';	
 	$page .= '<br/>';	
-	$page .= warquest_link('mid='.$mid.'&sid='.$sid.'&cid=3', t('LINK_HELP'), 'help4');
+	$page .= warquest_link('mid='.$mid.'&sid='.$sid.'&cid=4', t('LINK_HELP'), 'help4');
 	$page .= '</td>';
 	$page .= "</tr>";
 	
@@ -587,7 +551,7 @@ function warquest_casino_wheel_do() {
 	
 	if ($wheel!=0) {
 	
-		if ($key != $player->request) {
+		if ($key != $player->request-1) {
 	
 			$message= t('SYSTEM_HACK_DETECTED');
 			$popup .= warquest_box_icon("warning", $message);
@@ -612,7 +576,7 @@ function warquest_casino_wheel_do() {
 				$message  = t('CASINO_LOST', $wheel, money_format1($bet,0,",","."));
 				$popup .= warquest_box_icon('warning', $message);
 				
-				$log = 'Wheel of Fortune lost '.number_format2($bet);		
+				$log = 'Wheel of Fortune lose '.number_format2($bet);		
 				warquest_user_log($player, $log);
 			}
 		}		
@@ -735,9 +699,7 @@ function warquest_casino_wheel() {
 	
 	$page .= "<td>";
 	
-	$page .= "<table>";
-		
-	$page .= '<form method="post">';	
+	$page .= "<table>";	
 
 	$page .= "<tr>";
 	$page .= "<td>";
@@ -755,8 +717,6 @@ function warquest_casino_wheel() {
 	$page .= warquest_link('mid='.$mid.'&sid='.$sid.'&cid='.$cid.'&eid=1', t('CASINO_PLAY'), 'play');
 	$page .= "</td>";
 	$page .= "</tr>";
-					
-	$page .= "</form>";
 	
 	$page .= '</table>';
 	
@@ -796,6 +756,177 @@ function warquest_casino_wheel() {
 }
 
 /*
+** ---------------------------------------------------------------- 
+** Tic Tac Toe
+** ----------------------------------------------------------------
+*/
+
+function warquest_casino_tictactoe_result_do() {
+
+	/* input */
+	global $sid;
+	global $bet;
+	global $key;
+	global $result;
+	
+	/* output */
+	global $player;
+	global $popup;
+	
+	if ($key != $player->request-1) {
+	
+		$message= t('SYSTEM_HACK_DETECTED');
+		$popup .= warquest_box_icon("warning", $message);	
+		
+	} else if ($result==1) {
+	
+		$money = $bet * 2;
+		$player->money += $money;
+		
+		$message = t('CASINO_SLOTMACHINE_WIN', health_format(2), money_format1($money)); 
+		$popup .= warquest_box_icon("info", $message);	
+		warquest_info($message);
+		
+		$log = 'TicTacToe won '.number_format2($money);		
+		warquest_user_log($player, $log);
+	
+	} else {
+	
+		$message = t('CASINO_SLOTMACHINE_LOST', money_format1($bet));
+		$popup .= warquest_box_icon("warning", $message);	
+		
+		$log = 'TicTacToe lost '.number_format2($bet);		
+		warquest_user_log($player, $log);
+	}
+}
+
+function warquest_casino_tictactoe_play_do() {
+	
+	/* output */
+	global $page;
+	
+}
+
+/** 
+ * Casino general bet form
+ */
+function warquest_casino_tictactoe() {
+
+	/* input */
+	global $mid;
+	global $sid;
+	global $cid;
+	
+	global $eid;
+	global $player;
+	global $config;
+	
+	global $bet;
+	global $result;
+	global $key;
+	
+	/* output */
+	global $page; 
+	global $title;
+	
+	$title = t('CASINO_3');
+	
+	$page .= '<div class="subparagraph">';	
+	$page .= $title;
+	$page .= '</div>';
+	
+	if ($player->lid < $config["casino_unlock_level_3"]) {
+	
+		$page .= '<br/>';
+	
+		$message = '<table>';
+		$message .= '<tr>';
+		$message .= '<td>';
+		$message .= warquest_image("other/unlock.png");
+		$message .= '</td>';
+		$message .= '<td>';
+		$message .= t('CASINO_UNLOCK', $title, $config["casino_unlock_level_3"]);
+		$message .= '</td>';
+		$message .= '</tr>';
+		$message .= '</table>';
+
+		$page .= warquest_box("", $message);
+	
+		return;
+	}
+	
+	$money=0;
+		
+	$page .= '<div class="box">';
+	$page .= '<table>';
+	$page .= '<tr>';
+	
+	$page .= '<td width="160" >';	
+	$page .= warquest_casino_image($cid, 140, 100);
+	$page .= '</td>';
+	
+	$page .= "<td>";
+	
+	$page .= "<table>";
+	
+	$page .= "<tr>";
+
+	$page .= "<td>";
+	$page .= t('CASINO_BET').":<br/>";
+	$page .= '<input type="text" id="bet" name="bet" size="10" maxlength="7" type="text" value="'.$bet.'"> ';
+	$page .= warquest_link('mid='.$mid.'&sid='.$sid.'&cid='.$cid.'&eid=4', t('CASINO_PLAY'), 'play');
+	$page .= "</td>";
+	$page .= "</tr>";
+					
+	$page .= '</table>';
+	
+	$page .= '</td>';	
+	$page .= '</tr>';
+	$page .= '</table>';
+	
+	$page .= '</div>';
+	
+	$page .= '<div class="box">';
+	
+	$page .= '<script language="JavaScript" src="'.$config["content_url"].'js/tictactoe.js"></script>';
+
+	$page .= '<script language="JavaScript">'; 
+	$page .= 'initTicTacToe('.$bet.','.$player->request.',\''.warquest_token('mid='.$mid.'&sid='.$sid.'&cid='.$cid.'&eid=5').'\');';		
+	$page .= '</script>';
+	
+	$page .= '<input type="button" name="sqr1" class="tictac" value="   " onClick="if( turn == 0 ) { set1() }">';
+	$page .= '<input type="button" name="sqr2" class="tictac" value="   " onClick="if( turn == 0 ) { set2() }">';
+	$page .= '<input type="button" name="sqr3" class="tictac" value="   " onClick="if( turn == 0 ) { set3() }"><br/>';
+	$page .= '<input type="button" name="sqr4" class="tictac" value="   " onClick="if( turn == 0 ) { set4() }">';
+	$page .= '<input type="button" name="sqr5" class="tictac" value="   " onClick="if( turn == 0 ) { set5() }">';
+	$page .= '<input type="button" name="sqr6" class="tictac" value="   " onClick="if( turn == 0 ) { set6() }"><br/>';
+	$page .= '<input type="button" name="sqr7" class="tictac" value="   " onClick="if( turn == 0 ) { set7() }">';
+	$page .= '<input type="button" name="sqr8" class="tictac" value="   " onClick="if( turn == 0 ) { set8() }">';
+	$page .= '<input type="button" name="sqr9" class="tictac" value="   " onClick="if( turn == 0 ) { set9() }">';
+
+	/*if ($eid==4) {
+	
+		$page .= '<script language="JavaScript">'; 
+		$page .= 'enable();';		
+		$page .= '</script>';
+		
+	} else {
+	
+		$page .= '<script language="JavaScript">'; 
+		$page .= 'disable();';		
+		$page .= '</script>';
+	}*/
+	
+	$page .= '</div>';	
+	
+	$page .= '<div class="note">';
+	$page .= t('CASINO_NOTE'.$cid);
+	$page .= '</div>';
+	
+	$page .= warquest_show_ads();
+}
+
+/*
 ** ----------------------------------------------------------------
 ** HANDLER
 ** ----------------------------------------------------------------
@@ -822,6 +953,12 @@ function warquest_casino() {
 		case 3: 	warquest_casino_slotmachine2_do();
 					break;	
 	  				  
+		case 4: 	warquest_casino_tictactoe_play_do();
+					break;
+					
+		case 5: 	warquest_casino_tictactoe_result_do();
+					break;
+					
 	}
 	
 	/* Page handler */
@@ -832,8 +969,11 @@ function warquest_casino() {
 					
 		case 2:	warquest_casino_slotmachine();	
 					break;
+							
+		case 3:	warquest_casino_tictactoe();	
+					break;
 					
-		case 3:	warquest_casino_slotmachine_help();	
+		case 4:	warquest_casino_slotmachine_help();	
 					break;
 	}
 }

@@ -289,11 +289,12 @@ function warquest_post($label, $default) {
 	$value = $default;
 	
 	if (isset($_POST[$label])) {
+		
 		$value = $_POST[$label];
 		$value = stripslashes($value);
 		$value = htmlspecialchars($value);
+		$value = warquest_db_escape($value);
 	}
-	
 	return $value;
 }
 
@@ -306,6 +307,7 @@ function warquest_get($label, $default) {
 		$value = $_GET[$label];
 		$value = stripslashes($value);
 		$value = htmlspecialchars($value);
+		$value = warquest_db_escape($value);
 	}
 	
 	return $value;

@@ -282,6 +282,12 @@ function warquest_menu_money() {
 				$menu = '<b>'.$menu.'</b>';
 			} 
 			$page .= $menu.' ';
+			
+			$menu = warquest_link('mid='.$mid.'&sid='.$sid.'&cid=3', t('CASINO_3'), 'casino3');
+			if ($cid==3) {
+				$menu = '<b>'.$menu.'</b>';
+			} 
+			$page .= $menu.' ';
 			break;
 	}
 

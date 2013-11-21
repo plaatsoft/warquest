@@ -2071,6 +2071,7 @@ $lang['CASINO_TITLE'] = 'CASINO' ;
 
 $lang['CASINO_1'] = 'Wheel-Of-Fortune';
 $lang['CASINO_2'] = 'Slot-Machine';
+$lang['CASINO_3'] = 'Tic-Tac-Toe';
 
 $lang['CASINO_MONEY'] = 'Money';
 $lang['CASINO_NUMBER'] = 'Lucky number';
@@ -2088,6 +2089,7 @@ $lang['CASINO_LOST'] = 'Winning number was %s. You lost %s dollars.';
 
 $lang['CASINO_NOTE1'] = 'Note: Enter your bet and lucky number and press the play button. If you are lucky you win 10 times your bet.';
 $lang['CASINO_NOTE2'] = 'Note: Enter your bet and press the play button. Maybe your bet will pay out.';
+$lang['CASINO_NOTE3'] = 'Note: Enter your bet and play tic-tac-toe. If you win, you win 2 times your bet.';
 
 $lang['CASINO_UNLOCK'] = '%s is unlocked at level %s';
 

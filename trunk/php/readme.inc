@@ -20,6 +20,7 @@ $notes = '
 
 <span class="subparagraph2">19-11-2013</span><br/>
 <i>Game Server v5.8</i><br/>
+- Added third casino game - Tic Tac Toe.</br>
 - Added email check to activate mail notifications.</br>
 - Improve WarQuest email layout. Now completly HTML based.</br>
 - Battle sounds functionality is now based on HTML5 standard.<br/>
