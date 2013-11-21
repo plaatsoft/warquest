@@ -124,7 +124,7 @@ function warquest_register_mail($pid, $password) {
 	
 		$header  = 'From: '.$config["applName"]. '<'.$config['from_email'].">\r\n";
 		$header .= "MIME-Version: 1.0\r\n";
-		$header .= "Content-Type: text/html; charset=ISO-8859-1\r\n";
+		$header .= "Content-Type: text/html; charset=UTF-8\r\n";
 
 		@mail($member->email, $subject, $body, $header);
 		
@@ -161,7 +161,7 @@ function warquest_recover_mail($pid, $password) {
 		
 		$header  = 'From: '.$config["applName"]. '<'.$config['from_email'].">\r\n";
 		$header .= "MIME-Version: 1.0\r\n";
-		$header .= "Content-Type: text/html; charset=ISO-8859-1\r\n";
+		$header .= "Content-Type: text/html; charset=UTF-8\r\n";
 
 		@mail($member->email, $subject, $body, $header);
 		warquest_info('Sent password reset email to '.$member->email);
@@ -206,7 +206,7 @@ function warquest_comment_mail($pid, $comment, $name) {
 	
 		$header  = 'From: '.$config["applName"]. '<'.$config['from_email'].">\r\n";
 		$header .= "MIME-Version: 1.0\r\n";
-		$header .= "Content-Type: text/html; charset=ISO-8859-1\r\n";
+		$header .= "Content-Type: text/html; charset=UTF-8\r\n";
 	
 		@mail($member->email, $subject, $body, $header);
 		warquest_info('Sent comment email to '.$member->email);
@@ -238,7 +238,7 @@ function warquest_alliance_invite_mail($pid, $name) {
 	
 		$header  = 'From: '.$config["applName"]. '<'.$config['from_email'].">\r\n";
 		$header .= "MIME-Version: 1.0\r\n";
-		$header .= "Content-Type: text/html; charset=ISO-8859-1\r\n";
+		$header .= "Content-Type: text/html; charset=UTF-8\r\n";
 	
 		@mail($member->email, $subject, $body, $header);
 		warquest_info('Sent alliance invite email to '.$member->email);
@@ -270,7 +270,7 @@ function warquest_alliance_reject_mail($pid, $name) {
 		
 		$header  = 'From: '.$config["applName"]. '<'.$config['from_email'].">\r\n";
 		$header .= "MIME-Version: 1.0\r\n";
-		$header .= "Content-Type: text/html; charset=ISO-8859-1\r\n";
+		$header .= "Content-Type: text/html; charset=UTF-8\r\n";
 	
 		@mail($member->email, $subject, $body, $header);
 		warquest_info('Sent alliance reject email to '.$member->email);
@@ -302,7 +302,7 @@ function warquest_alliance_drop_mail($pid, $name) {
 		
 		$header  = 'From: '.$config["applName"]. '<'.$config['from_email'].">\r\n";
 		$header .= "MIME-Version: 1.0\r\n";
-		$header .= "Content-Type: text/html; charset=ISO-8859-1\r\n";
+		$header .= "Content-Type: text/html; charset=UTF-8\r\n";
 	
 		@mail($member->email, $subject, $body, $header);
 		warquest_info('Sent alliance drop email to '.$member->email);
@@ -334,7 +334,7 @@ function warquest_alliance_accept_mail($pid, $name) {
 		
 		$header  = 'From: '.$config["applName"]. '<'.$config['from_email'].">\r\n";
 		$header .= "MIME-Version: 1.0\r\n";
-		$header .= "Content-Type: text/html; charset=ISO-8859-1\r\n";
+		$header .= "Content-Type: text/html; charset=UTF-8\r\n";
 	
 		@mail($member->email, $subject, $body, $header);
 		warquest_info('Sent alliance accept email to '.$member->email);
