@@ -857,7 +857,7 @@ function warquest_clan_form() {
 	$page .= '<div class="box">';
 	$page .= t('CLAN_CREATE').':';	
 	$page .= ' ';	
-	$page .= '<input name="clan" type="text" id="clan" size="10" maxlength="5" />';	
+	$page .= '<input name="clan" type="text" id="clan" size="10" maxlength="5" onkeydown="if (event.keyCode == 13) return false"/>';	
 	$page .= ' ';
 	$page .= warquest_link('mid='.$mid.'&sid='.$sid.'&cid='.$cid.'&eid=5', t('CLAN_ADD'), 'add');
 	$page .= '</div>';
