@@ -574,7 +574,7 @@ function warquest_forum_form() {
 	
 	$page .=	'<div class="box">';	
 	$page .=	'<b>'.t('GENERAL_TOPIC').'</b>:&nbsp;&nbsp;&nbsp;</td>';
-	$page .=	'<input name="search" type="text" id="search" size="52" maxlength="45" value="'.$search.'" >';
+	$page .=	'<input name="search" type="text" id="search" size="52" maxlength="45" value="'.$search.'" onkeydown="if (event.keyCode == 13) return false" >';
 	$page .= ' '.warquest_link('mid='.$mid.'&sid='.PAGE_TOPIC,t('LINK_SEARCH'),'search-0');
 	$page .=	'</div>';
 		

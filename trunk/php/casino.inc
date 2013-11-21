@@ -438,7 +438,7 @@ function warquest_casino_slotmachine() {
 	$page .= "<tr>";
 	$page .= "<td>";
 	$page .= t('CASINO_BET').":<br/>";
-	$page .= '<input id="bet" name="bet" size="10" maxlength="7" type="text" value="'.$bet.'" /> ';
+	$page .= '<input id="bet" name="bet" size="10" maxlength="7" type="text" value="'.$bet.'" onkeydown="if (event.keyCode == 13) return false" /> ';
 	if ($eid!=2) {
 		$page .= warquest_link('mid='.$mid.'&sid='.$sid.'&cid='.$cid.'&eid=2', t('CASINO_PLAY'), 'play');
 	} else {
@@ -715,7 +715,7 @@ function warquest_casino_wheel() {
 	$page .= "<tr>";
 	$page .= "<td>";
 	$page .= t('CASINO_BET').":<br/>";
-	$page .= '<input type="text" id="bet" name="bet" size="10" maxlength="7" type="text" value="'.$bet.'"> ';
+	$page .= '<input type="text" id="bet" name="bet" size="10" maxlength="7" type="text" value="'.$bet.'" onkeydown="if (event.keyCode == 13) return false" > ';
 	$page .= warquest_link('mid='.$mid.'&sid='.$sid.'&cid='.$cid.'&eid=1', t('CASINO_PLAY'), 'play');
 	$page .= "</td>";
 	$page .= "</tr>";
@@ -928,8 +928,10 @@ function warquest_casino_tictactoe() {
 
 	$page .= "<td>";
 	$page .= t('CASINO_BET').":<br/>";
-	$page .= '<input type="text" id="bet" name="bet" size="10" maxlength="7" type="text" value="'.$bet.'"> ';
+	$page .= '<input type="text" id="bet" name="bet" size="10" maxlength="7" type="text" onkeydown="if (event.keyCode == 13) return false" value="'.$bet.'"> ';
+		
 	$page .= warquest_link('mid='.$mid.'&sid='.$sid.'&cid='.$cid.'&eid=4', t('CASINO_PLAY'), 'play');
+		
 	$page .= "</td>";
 	$page .= "</tr>";
 					
@@ -942,7 +944,9 @@ function warquest_casino_tictactoe() {
 	$page .= '</div>';
 		
 	$page .= '<div class="box">';
-		
+	
+	$page .= '<br/>';
+	$page .= '<center>';
 	$page .= '<input type="button" id="sqr1" class="tictac" onClick="if( turn == 0 ) { setTicTacToe(1) }">';
 	$page .= '<input type="button" id="sqr2" class="tictac" onClick="if( turn == 0 ) { setTicTacToe(2) }">';
 	$page .= '<input type="button" id="sqr3" class="tictac" onClick="if( turn == 0 ) { setTicTacToe(3) }">';
@@ -954,6 +958,8 @@ function warquest_casino_tictactoe() {
 	$page .= '<input type="button" id="sqr7" class="tictac" onClick="if( turn == 0 ) { setTicTacToe(7) }">';
 	$page .= '<input type="button" id="sqr8" class="tictac" onClick="if( turn == 0 ) { setTicTacToe(8) }">';
 	$page .= '<input type="button" id="sqr9" class="tictac" onClick="if( turn == 0 ) { setTicTacToe(9) }">';
+	$page .= '</center>';
+	$page .= '<br/>';
 
 	if ($eid!=4) {
 		$page .= '<script language="JavaScript">'; 

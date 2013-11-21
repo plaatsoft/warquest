@@ -2069,9 +2069,9 @@ $lang['GENERAL_STOCKS'] = 'Stocks';
 
 $lang['CASINO_TITLE'] = 'CASINO' ;
 
-$lang['CASINO_1'] = 'Wheel-Of-Fortune';
-$lang['CASINO_2'] = 'Slot-Machine';
-$lang['CASINO_3'] = 'Tic-Tac-Toe';
+$lang['CASINO_1'] = 'WheelOfFortune';
+$lang['CASINO_2'] = 'SlotMachine';
+$lang['CASINO_3'] = 'TicTacToe';
 
 $lang['CASINO_MONEY'] = 'Money';
 $lang['CASINO_NUMBER'] = 'Lucky number';
