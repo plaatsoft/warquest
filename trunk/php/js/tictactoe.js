@@ -1,8 +1,11 @@
 
 if (document.all||document.getElementById){
 	document.write('<style>.tictac{')
-	document.write('width:150px;height:150px;font-size:90;')
-	document.write('}</style>')
+	document.write('width:150px;height:145px;font-size:90;}')
+	document.write('input[type=button] {background-color: #ffffff;color:#000000;border:3px solid;}');
+	document.write('input[type=button]:hover {background-color: #aaaaaa;}');
+	document.write('input[type=button]:disabled {background-color: #aaaaaa;}');
+	document.write('</style>')
 }
 
 var owner = new Array();
@@ -14,12 +17,41 @@ var turn = 0;
 var sqr = new Array( "", "sqr1", "sqr2", "sqr3", "sqr4", "sqr5", "sqr6", "sqr7", "sqr8", "sqr9" );
 
 function setTicTacToe(sqr) {
-	owner[sqr] = 1; 
-	turn = 1; 
+
+	if( turn == 0 ) {
+
+		owner[sqr] = 1; 
+		turn = 1; 
+		moveCount+=2;
 	
-	check();	
-	drawboard();
+		if (moveCount==2) {
+			randomSet();
+			drawboard();	
+			
+		} else {
+		
+			check();	
+			drawboard();		
+		}
+	}
 }
+
+function randomSet() {
+
+	tmp = ""
+	for( var i = 1; i < 10; i++ ) {
+
+		if (owner[i]==0) {
+			tmp += i;
+		}
+	}
+	
+	var rnum = Math.floor(Math.random() * tmp.length);
+	
+	owner[tmp[rnum]]=2;		
+	turn = 0; 
+}
+
 
 function disableTicTacToe()
 {
@@ -69,7 +101,12 @@ function drawboard() {
 
 	for( var i = 1; i < 10; i++ ) {
 
-		value = ' ';
+		if ( navigator.userAgent.indexOf("MSIE")!=-1) {
+			value = '';
+		} else {
+			value = ' ';
+		}
+			
 		disabled = false;
 
 		if (owner[i] == 1) {
@@ -237,15 +274,7 @@ function check2()
 
 function drawCheck()
 {
-  moveCount = 0;
-  for( var i = 1; i < 10; i++ ) {
-   	if (owner[i]>0 ) {
-			
-			moveCount++
-		}
-  }
- 
-  if(moveCount == 9)
+  if(moveCount > 9)
   {
     youDraw();
   }

@@ -1375,12 +1375,7 @@ function warquest_db_clan($cid) {
 	$result = warquest_db_query($query);
 	
 	$data = warquest_db_fetch_object($result);
-	
-	/*if (!isset($data->cid)) {
 		
-		$data = array ("name" => "", "cid" => 0, "won" => 0, "lost" => 0);	
-	}*/
-	
 	return $data;
 }
 

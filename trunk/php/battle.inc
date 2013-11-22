@@ -345,17 +345,15 @@ function warquest_robot_battle($player, $other) {
 	/* input */
 	global $player;
 	
-	$message = "";
-	
+	/* output */
+	global $page;
+		
 	if (warquest_db_query_pattern($player, PATTERN_SOUND)==1) {
 		
-		$message = '<audio autoplay>';
-		$message .= '<source src="mp3/battle'.rand(1,8).'.mp3" type="audio/mpeg">';
-		$message .= '</audio>';
-		
-	}
-			
-	return $message;		
+		$page .= '<audio autoplay>';
+		$page .= '<source src="mp3/battle'.rand(1,8).'.mp3" type="audio/mpeg">';
+		$page .= '</audio>';		
+	}	
 }
 
 /** 
@@ -782,9 +780,12 @@ function warquest_battle_check($player, $other, $force) {
  */
 function warquest_clan_size($player_clan, $other_clan) {
 
-	$query1 =  'select pid from player_clan where cid='.$player_clan->cid;
-	$result1 = warquest_db_query($query1);	 
-	$count1 = warquest_db_num_rows($result1);
+	$count1 = 0; 
+	if ( isset($player_clan->cid) ) {
+		$query1 =  'select pid from player_clan where cid='.$player_clan->cid;
+		$result1 = warquest_db_query($query1);	 
+		$count1 = warquest_db_num_rows($result1);
+	}
 
 	$count2 = 0;
 	if ( isset($other_clan->cid) ) {
@@ -984,8 +985,17 @@ function warquest_clan_war_battle_do() {
 	/* Fetch player clan data */	
 	$data = warquest_db_player_clan($player->pid);
 	
-	if (isset($data->cid)) {
+		
+	$money = 0;
+	if ( isset($data->cid) ) {
+	
 		$player_clan = warquest_db_clan($data->cid);
+		
+		$query1 = 'select sid from sector where cid='.$data->cid.' and planet='.$player->planet;
+		$result1 = warquest_db_query($query1);	
+		$count1 = warquest_db_num_rows($result1);
+	
+		$money = ($count1+1) * 10000 * ($player->lid*9);	
 	}
 			
 	/* Fetch sector data */	
@@ -993,13 +1003,7 @@ function warquest_clan_war_battle_do() {
 
 	/* Fetch other clan data */	
 	$other_clan = warquest_db_clan($sector->cid);
-		
-	$query1 = 'select sid from sector where cid='.$data->cid.' and planet='.$player->planet;
-	$result1 = warquest_db_query($query1);	
-	$count1 = warquest_db_num_rows($result1);
-	
-	$money = ($count1+1) * 10000 * ($player->lid*9);
-	
+			
 	/* Get battle result */
 	$result = warquest_clan_war_battle($player_clan, $other_clan, warquest_get_default_force());
 		
@@ -1086,8 +1090,7 @@ function warquest_clan_war_battle_do() {
 			$message .= t('BATTLE_CLAN_SECTOR_DAMAGE', alliance_format(($sector->damage/$config["max_sector_damage"])*100) );			
 		}
 						
-		$message .= $result->body;	
-		$message .= warquest_battle_sound();
+		$message .= $result->body;		
 		$message .= warquest_battle_unit_lost(warquest_get_default_force());
 		$message .= warquest_battle_building_lost(warquest_get_default_force());
 		$message .= warquest_lootoption($player->lid);
@@ -1106,6 +1109,8 @@ function warquest_clan_war_battle_do() {
 		$log = 'Clan war won, won '.number_format2($money).' ['.$player->pid.']';		
 		warquest_user_log($player, $log);
 		
+		warquest_battle_sound();
+			
 	} else {
 		
 		/* PLAYER LOST */
@@ -1142,8 +1147,7 @@ function warquest_clan_war_battle_do() {
 					clan_format($other_clan),
 					health_format($health_losser));
 		
-		$message .= $result->body;	
-		$message .= warquest_battle_sound();
+		$message .= $result->body;			
 		$message .= warquest_battle_unit_lost(warquest_get_default_force());
 		$message .= warquest_battle_building_lost(warquest_get_default_force());
 		$message .= warquest_show_ads();
@@ -1151,6 +1155,8 @@ function warquest_clan_war_battle_do() {
 		$link = warquest_link('mid='.$mid.'&sid='.$sid.'&uid='.$uid.'&eid=3',t('LINK_ATTACK'), 'attack-0');
 		
 		$popup .= warquest_box("warning", $message, $link);
+		
+		warquest_battle_sound();
 	}
 }
 
@@ -1446,8 +1452,7 @@ function warquest_battle_do() {
 		
 		$message .= warquest_lootoption($player->lid);
 		
-		$message .= warquest_show_ads();
-		$message .= warquest_battle_sound();
+		$message .= warquest_show_ads();	
 				
 		if ($sid!=PAGE_BOUNTY) {
 			$link = warquest_link('mid='.$mid.'&sid='.$sid.'&oid='.$other->pid.'&uid='.$uid.'&eid=1',t('LINK_ATTACK'), 'attack-0');
@@ -1457,6 +1462,8 @@ function warquest_battle_do() {
 		}
 			
 		$popup .= warquest_box("info", $message, $link);
+		
+		warquest_battle_sound();
 				
 	} else {
 		
@@ -1519,10 +1526,11 @@ function warquest_battle_do() {
 		$message .= warquest_battle_building_lost(warquest_get_default_force());
 		
 		$message .= warquest_show_ads();
-		$message .= warquest_battle_sound();
-		
+				
 		$link =  warquest_link('mid='.$mid.'&sid='.$sid.'&oid='.$other->pid.'&uid='.$uid.'&eid=1',t('LINK_ATTACK'), 'attack-0');
 		$popup .= warquest_box("warning", $message, $link);
+		
+		warquest_battle_sound();
 	}
 	
 	/* Save other player direcly else battle view is now updated! */
