@@ -1419,6 +1419,25 @@ function convert_date_mysql($date) {
 }
 
 
+/**
+ * Play mp3 sound file 
+ */
+function warquest_sound( $filename ) {
+
+	/* input */
+	global $player;
+
+	/* output */
+	global $page;
+	
+	if (warquest_db_query_pattern($player, PATTERN_SOUND)==1) {
+	
+		$page .= '<audio autoplay>';
+		$page .= '<source src="mp3/'.$filename.'" type="audio/mpeg">';
+		$page .= '</audio>';		
+	}
+}
+
 /* 
 ** ----------------------
 ** TIMERS

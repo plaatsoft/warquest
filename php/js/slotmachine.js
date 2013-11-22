@@ -220,75 +220,49 @@ function Wincheck() {
 	SmallLeft=Reel0[Line[0]]+Reel1[Line[1]];
 	SmallRight=Reel1[Line[1]]+Reel2[Line[2]];
 	Large=Reel0[Line[0]]+Reel1[Line[1]]+Reel2[Line[2]];
-	if(Large=="barbarbar"){
+	if(Large=="barbarbar") {
 		simpleHttpRequest(75, bet);
-	}
-	if(Large=="grapegrapegrape") {
+	} else if(Large=="grapegrapegrape") {
 		simpleHttpRequest(50, bet);
-	}
-	if(Large=="appleappleapple") {
+	} else if(Large=="appleappleapple") {
 		simpleHttpRequest(40, bet);
-	}
-	if(Large=="pinepinepine") {
+	} else if(Large=="pinepinepine") {
 		simpleHttpRequest(30, bet);
-	}
-	if(Large=="pearpearpear") {
+	} else if(Large=="pearpearpear") {
 		simpleHttpRequest(20, bet);
-	}
-	if(Large=="orangeorangeorange") {
+	} else if(Large=="orangeorangeorange") {
 		simpleHttpRequest(15, bet);
-	}
-	if(Large=="bananabananabanana") {
+	} else if(Large=="bananabananabanana") {
 		simpleHttpRequest(10, bet);
-	}
-	else
-	{		
-		if(SmallLeft=="orangeorange") {
-			simpleHttpRequest(1, bet);
-		}
-		if(SmallLeft=="pearpear") {
-			simpleHttpRequest(2, bet);
-		}
-		if(SmallLeft=="grapegrape") {
-			simpleHttpRequest(3, bet);
-		}	
-		if(SmallLeft=="appleapple") {
-			simpleHttpRequest(4, bet);
-		}
-		if(SmallLeft=="bananabanana") {
-			simpleHttpRequest(5, bet);
-		}
-		if(SmallLeft=="pinepine") {
-			simpleHttpRequest(6, bet);
-		}	
-		if(SmallLeft=="barbar") {
-			simpleHttpRequest(12, bet);
-		}			
-		if(SmallRight=="orangeorange") {
-			simpleHttpRequest(1, bet);
-		}
-		if(SmallRight=="pearpear") {
-			simpleHttpRequest(2, bet);
-		}
-		if(SmallRight=="grapegrape") {
-			simpleHttpRequest(3, bet);
-		}	
-		if(SmallRight=="appleapple") {
-			simpleHttpRequest(4, bet);
-		}
-		if(SmallRight=="bananabanana") {
-			simpleHttpRequest(5, bet);
-		}
-		if(SmallRight=="pinepine") {
-			simpleHttpRequest(6, bet);
-		}	
-		if(SmallRight=="barbar") {
-			simpleHttpRequest(12, bet);
-		}	
-		
-	}
-	
-	if (HeldCheck==1) {
+	} else if(SmallLeft=="orangeorange") {
+		simpleHttpRequest(1, bet);
+	} else if(SmallLeft=="pearpear") {
+		simpleHttpRequest(2, bet);
+	} else if(SmallLeft=="grapegrape") {
+		simpleHttpRequest(3, bet);
+	} else if(SmallLeft=="appleapple") {
+		simpleHttpRequest(4, bet);
+	} else if(SmallLeft=="bananabanana") {
+		simpleHttpRequest(5, bet);
+	} else if(SmallLeft=="pinepine") {
+		simpleHttpRequest(6, bet);
+	} else if(SmallLeft=="barbar") {
+		simpleHttpRequest(12, bet);
+	} else if(SmallRight=="orangeorange") {
+		simpleHttpRequest(1, bet);
+	} else if(SmallRight=="pearpear") {
+		simpleHttpRequest(2, bet);
+	} else if(SmallRight=="grapegrape") {
+		simpleHttpRequest(3, bet);
+	} else if(SmallRight=="appleapple") {
+		simpleHttpRequest(4, bet);
+	} else if(SmallRight=="bananabanana") {
+		simpleHttpRequest(5, bet);
+	} else if(SmallRight=="pinepine") {
+		simpleHttpRequest(6, bet);
+	} else if(SmallRight=="barbar") {
+		simpleHttpRequest(12, bet);
+	} else {
 		simpleHttpRequest(0, bet);
 	}
 }
