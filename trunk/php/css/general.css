@@ -249,6 +249,11 @@ a:hover {
 	color:rgb(0,215,0);
 }
 
+.gold {
+	font-weight: bold;
+	color:rgb(255,175,0);
+}
+
 .negative {
 	color:rgb(215,60,60);
 }

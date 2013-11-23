@@ -1694,21 +1694,31 @@ $lang['BUILDING_16'] = 'Nuclear Testing Facility';
 $lang['BUILDING_25'] = 'Water Treatment Facility';
 $lang['BUILDING_17'] = 'Solar Satellite Network';
 
-/* Defence (Earth) - Group 2 */
+/* Defence (Earth) - Group 2 - Calvary */
 $lang['BUILDING_2']  = 'Bunker';
-$lang['BUILDING_21'] = 'Sea minefield';
-$lang['BUILDING_5']  = 'Guard tower';
-$lang['BUILDING_51'] = 'Embassy';
-$lang['BUILDING_7']  = 'Short range launcher';
+$lang['BUILDING_5']  = 'Tank wall';
+$lang['BUILDING_11'] = 'Guard tower';
+$lang['BUILDING_15'] = 'Land minefield';
+$lang['BUILDING_56'] = 'Magnetic cannon';
+
+/* Defence (Earth) - Group 2 - Navy */
+$lang['BUILDING_21'] = 'Coast Bunker';
 $lang['BUILDING_22'] = 'Torpedo launcher';
-$lang['BUILDING_9']  = 'Long range launcher';
-$lang['BUILDING_11'] = 'Land minefield';
-$lang['BUILDING_52'] = 'Intel command center';
-$lang['BUILDING_20'] = 'Airfield';
-$lang['BUILDING_23'] = 'Submarine factory';
-$lang['BUILDING_15'] = 'Magnetic cannon';
-$lang['BUILDING_53'] = 'Drone control center';
-$lang['BUILDING_54'] = 'Cyberspace warfare';
+$lang['BUILDING_23'] = 'Sea minefield';
+$lang['BUILDING_57'] = 'Submarine factory';
+
+/* Defence (Earth) - Group 2 - Airforce */
+$lang['BUILDING_7']  = 'Anti Aircraft gun';
+$lang['BUILDING_9']  = 'Short range launcher';
+$lang['BUILDING_20'] = 'Long range launcher';
+$lang['BUILDING_58'] = 'Airfield';
+
+/* Defence (Earth) - Group 2 - Intel */
+$lang['BUILDING_51'] = 'Embassy';
+$lang['BUILDING_52'] = 'Spy Radar';
+$lang['BUILDING_53'] = 'Intel command center';
+$lang['BUILDING_54'] = 'Drone control center';
+$lang['BUILDING_59'] = 'Cyberspace warfare';
 
 /* Energy (Earth) - Group 3 */
 $lang['BUILDING_4']  = 'Solar power unit';
@@ -2875,6 +2885,16 @@ $lang['USER_EMAIL_CONFIRM_SENT'] = 'Confirmation email sent to %s';
 $lang['USER_EMAIL_CONFIRM_NEEDED'] = 'Please confirm your email address by clicking %s!';
 $lang['USER_EMAIL_HERE'] = 'here';
 $lang['USER_EMAIL_VALID'] = 'Your email address is validated. Thank you!';
+
+
+/*
+** ------------------
+** GOLD FEATURES
+** ------------------
+*/
+
+$lang['BUILDING_NO_GOLD'] = 'Not enough gold to buy %s %s for %s.';
+$lang['GENERAL_GOLD'] = 'gold';
 
 
 /*

@@ -753,6 +753,7 @@ function warquest_db_player_update($player) {
 	$query .= 'money='.$player->money.", ";
 	$query .= 'money_step='.$player->money_step.", ";
 	$query .= 'money_date="'.$player->money_date.'", ';
+	$query .= 'gold='.$player->gold.", ";
 	$query .= 'upkeep='.$player->upkeep.", ";
 	$query .= 'experience='.$player->experience.", ";
 	$query .= 'lid='.$player->lid.", ";
@@ -806,7 +807,7 @@ function warquest_db_player($pid) {
 	$query  = 'select pid, name, twitter, country, health, energy, ammo, money, lid, won_level, ';
 	$query .= 'experience, mission, won, lost, ';	
 	$query .= 'energy_step, health_step, language, background, ';
-	$query .= 'money_step, money_date, energy_date, health_date, ammo_date, ammo_step, news, comment, ';
+	$query .= 'money_step, money_date, gold, energy_date, health_date, ammo_date, ammo_step, news, comment, ';
 	$query .= 'alliance, invite, bank1, bank2, bank3, upkeep, damage_units, damage_buildings, last_battle, ';
 	$query .= 'default_force, default_mission, default_amount, ';
 	$query .= 'bonus_date, request, request_date, ads, casino, ';
