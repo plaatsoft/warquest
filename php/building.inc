@@ -62,7 +62,7 @@ function warquest_building_buy_do() {
 	$discount = warquest_discount($player, $player->planet);
 		
 	/* Get building information */
-	$query  = 'select bid, price, income, defense, energy, max from building where bid='.$uid;
+	$query  = 'select bid, price, gold, income, defense, energy, max from building where bid='.$uid;
 	$result = warquest_db_query($query);	 
  	$building=warquest_db_fetch_object($result); 
 		
@@ -75,17 +75,20 @@ function warquest_building_buy_do() {
 	} 
 	$totalAmount=$amountOld;
 	
-	/* Calculate total citizens cost */
+	/* Calculate total upkeep cost */
 	$query3  = 'select sum(a.amount * b.upkeep) as total from building_unit a, unit b where a.uid=b.uid and bid='.$uid;
 	$result3 = warquest_db_query($query3);	
-	$data3=warquest_db_fetch_object($result3);
+	$data3 = warquest_db_fetch_object($result3);
 		
 	/* Calculate total price of buying building transaction */
-	$total=0;
+	$totalPrice=0;
 	$price =$building->price;
 	for ($tmp=$amountOld; $tmp<($amountOld+$amount); $tmp++) {
-		$total += warquest_rente($price ,$tmp, $discount);
+		$totalPrice += warquest_rente($price ,$tmp, $discount);
 	}
+	
+	/* Calculate total gold cost */
+	$totalGold = $building->gold * $amount;
 		
 	if (($amountOld + $amount) > $building->max ) {
 
@@ -102,7 +105,7 @@ function warquest_building_buy_do() {
 			
 		$type = "warning";
 	
-	} else if ($player->money < $total) {
+	} else if (($totalPrice>0) && ($player->money < $totalPrice)) {
 	
 		$message = '<table>';
 		$message .= '<tr>';
@@ -110,7 +113,22 @@ function warquest_building_buy_do() {
 		$message .= warquest_building_image($building,0,0);
 		$message .= '</td>';
 		$message .= '<td>';
-		$message .= t('BUILDING_NO_MONEY', $amount, t('BUILDING_'.$uid), money_format1($total));
+		$message .= t('BUILDING_NO_MONEY', $amount, t('BUILDING_'.$uid), money_format1($totalPrice));
+		$message .= '</td>';
+		$message .= '</tr>';
+		$message .= '</table>';
+
+		$type = "warning";	
+		
+	} else if (($totalGold>0) && ($player->gold<$totalGold)) {
+	
+		$message = '<table>';
+		$message .= '<tr>';
+		$message .= '<td width="100">';
+		$message .= warquest_building_image($building,0,0);
+		$message .= '</td>';
+		$message .= '<td>';
+		$message .= t('BUILDING_NO_GOLD', $amount, t('BUILDING_'.$uid), gold_format($totalGold));
 		$message .= '</td>';
 		$message .= '</tr>';
 		$message .= '</table>';
@@ -126,7 +144,7 @@ function warquest_building_buy_do() {
 		$message .= warquest_building_image($building,0,0);
 		$message .= '</td>';
 		$message .= '<td>';
-		$message .= t('BUILDING_LOW_UPKEEP2' ,$amount, t('BUILDING_'.$uid), money_format1($total));
+		$message .= t('BUILDING_LOW_UPKEEP2' ,$amount, t('BUILDING_'.$uid), money_format1($totalPrice));
 		$message .= '</td>';
 		$message .= '</tr>';
 		$message .= '</table>';
@@ -136,7 +154,7 @@ function warquest_building_buy_do() {
    } else {		
 	
 		$player->energy_step += ($building->energy * $amount);
-		$player->money -= $total; 
+		$player->money -= $totalPrice; 
 		$totalAmount = $amountOld+$amount; 
 		
 		if ($amountOld==0)	{	
@@ -172,14 +190,14 @@ function warquest_building_buy_do() {
 		$message .= warquest_building_image($building,0,0);
 		$message .= '</td>';
 		$message .= '<td>';
-		$message .= t('BUILDING_BUY', $amount, t('BUILDING_'.$uid), money_format1($total), deploy_format($amountOld + $amount));
+		$message .= t('BUILDING_BUY', $amount, t('BUILDING_'.$uid), money_format1($totalPrice), deploy_format($amountOld + $amount));
 		$message .= '</td>';
 		$message .= '</tr>';
 		$message .= '</table>';
 		
 		$type = "info";
 		
-		$log = 'Buy '.number_format2($amount).' '.t('BUILDING_'.$uid).' ['.$uid.'] for '.number_format2($total);		
+		$log = 'Buy '.number_format2($amount).' '.t('BUILDING_'.$uid).' ['.$uid.'] for '.number_format2($totalPrice);		
 		warquest_user_log($player, $log);
 	}
 	
@@ -219,7 +237,7 @@ function warquest_building_sell_do() {
 	$discount = warquest_discount($player, $player->planet);
 	
 	/* Get building */
-	$query  = "select bid, price, income, defense, energy from building where bid=".$uid;
+	$query  = "select bid, price, gold, income, defense, energy from building where bid=".$uid;
 	$result = warquest_db_query($query);	
  	$building = warquest_db_fetch_object($result); 
 		
@@ -236,15 +254,17 @@ function warquest_building_sell_do() {
 	$result3 = warquest_db_query($query3);	
 	$data3 = warquest_db_fetch_object($result3);
 	
-	/* Calculate total price of selling building transaction */
-	$total=0;
+	/* Calculate total price for selling building(s) */
+	$totalPrice=0;
 	$price = $building->price;
 	for ($tmp=$amountOld; $tmp>($amountOld-$amount); $tmp--) {
-		$total += warquest_rente($price ,$tmp, $discount);
+		$totalPrice += warquest_rente($price ,$tmp, $discount);
 	}
-
-	/* Decrease money (60% of buy price) */
-	$total = round($total * $config["building_sell_ratio"] );
+	$totalPrice = round($totalPrice * $config["building_sell_ratio"] );
+	
+	/* Calculate total gold for selling building(s) */
+	$totalGold = $building->gold * $amount;
+	$totalGold = round($totalGold * $config["building_sell_ratio"] );
 		
 	if (($amountOld-$amount) < 0) {
 	
@@ -269,7 +289,7 @@ function warquest_building_sell_do() {
 		$message .= warquest_building_image($building,0,0);
 		$message .= '</td>';
 		$message .= '<td>';
-		$message .= t('BUILDING_LOW_UPKEEP' ,$amount, t('BUILDING_'.$uid), money_format1($total));
+		$message .= t('BUILDING_LOW_UPKEEP' ,$amount, t('BUILDING_'.$uid), money_format1($totalPrice));
 		$message .= '</td>';
 		$message .= '</tr>';
 		$message .= '</table>';
@@ -279,7 +299,8 @@ function warquest_building_sell_do() {
 	} else {
 			
 		$player->energy_step -= ($building->energy * $amount);
-		$player->money += $total; 
+		$player->money += $totalPrice; 
+		$player->gold += $totalGold; 
 
 		/* First update */
 		$query  = "update player_building set amount=".($amountOld-$amount)." where pid=".$player->pid." and bid=".$uid; 
@@ -315,14 +336,14 @@ function warquest_building_sell_do() {
 		$message .= warquest_building_image($building, 0,0);
 		$message .= '</td>';
 		$message .= '<td>';
-		$message .= t('BUILDING_SELL', $amount, t('BUILDING_'.$uid), money_format1($total), deploy_format($amountOld-$amount));
+		$message .= t('BUILDING_SELL', $amount, t('BUILDING_'.$uid), money_format1($totalPrice), deploy_format($amountOld-$amount));
 		$message .= '</td>';
 		$message .= '</tr>';
 		$message .= '</table>';
 		
 		$type = "info";		
 		
-		$log = 'Sell '.number_format2($amount).' '.t('BUILDING_'.$uid).' ['.$uid.'] for '.number_format2($total);		
+		$log = 'Sell '.number_format2($amount).' '.t('BUILDING_'.$uid).' ['.$uid.'] for '.number_format2($totalPrice);		
 		warquest_user_log($player, $log);
 	}
 	
@@ -380,7 +401,7 @@ function warquest_building_form() {
 	$total = warquest_db_num_rows($result);
 	
 	/* Get building data combine with player data */
-	$query  = 'select b.ugid, b.bid, b.price, b.income, b.defense, b.energy, b.discount, b.maintenance,  ';
+	$query  = 'select b.ugid, b.bid, b.price, b.gold, b.income, b.defense, b.energy, b.discount, b.maintenance,  ';
 	$query .= 'b.max, IFNULL(a.amount, 0) as amount ';
 	$query .= 'from building b left join player_building a ';
 	$query .= 'on a.bid=b.bid and a.pid='.$player->pid.' where b.lid<='.$player->lid.' ';  
@@ -490,12 +511,20 @@ function warquest_building_form() {
 			$page .= '</span>';
 		}		  
 	
-		/* Calculate price */
-		$price = $data->price;
-		$price = warquest_rente($price ,$data->amount, $discount);
+		
 				
 		$page .= '<br/><br/><b>';
-		$page .= t('BUILDING_PRICE').':</b><br/>'.money_format2($price);
+		$page .= t('BUILDING_PRICE').':</b><br/>';
+				
+		/* Calculate price */
+		if ($data->price>0) {
+			$price = $data->price;
+			$price = warquest_rente($price ,$data->amount, $discount);		
+			$page .= money_format2($price);
+		} else {
+			$page .= gold_format($data->gold);
+		}
+		
 		$page .= '<br/><br/><b>';
 		$page .= t('BUILDING_DEPLOYED').':</b><br/>'.deploy_format($data->amount).'<br/>';
 			
@@ -602,12 +631,12 @@ function warquest_building() {
 		/* output */
 	global $popup;
 	
-	if ($sequence != $player->request) {
+	/*if ($sequence != $player->request) {
 	
 		$message = t('SYSTEM_HACK_DETECTED');
 		$popup .= warquest_box_icon("warning", $message);	
 		return;
-	}
+	}*/
 		
 	/* event handler */
 	switch ($eid) {

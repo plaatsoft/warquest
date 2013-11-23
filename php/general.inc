@@ -2804,6 +2804,11 @@ function player_format($pid, $name, $country, $size=0) {
 	}
 }
 			
+function gold_format($value) {
+
+	return '<span class="gold">'.number_format($value,0,",",".").'</span> '.t('GENERAL_GOLD');	
+}
+			
 function money_format1($value) {
    
 	if ($value>=0) {
