@@ -224,6 +224,12 @@ a:hover {
 	width: 510px;
 }
 
+.submenu {
+	font-size: 1.0em;
+	padding: 2px 0px 2px 0px; 
+	width: 510px;
+}
+
 .info {
 	font-size: 1.0em;
 	color:rgb(0,255,0);

@@ -74,15 +74,24 @@ function warquest_create_title($title) {
 					break;
 	
 				case MENU_BUILDINGS:
-					$query = 'select type from building_group where bgid='.$sid;
-					$result = warquest_db_query($query);
-					$data = warquest_db_fetch_object($result);
+					$query1 = 'select type from building_group where bgid='.$sid;
+					$result1 = warquest_db_query($query1);
+					$data1 = warquest_db_fetch_object($result1);
 					
-					$query = 'select bgid from building_group where type='.$data->type.' and planet='.$planet;
-					$result = warquest_db_query($query);
-					$data = warquest_db_fetch_object($result);
+					$query2 = 'select bgid from building_group where type='.$data1->type.' and planet='.$planet;
+					$result2 = warquest_db_query($query2);
+					$data2 = warquest_db_fetch_object($result2);
 					
-					$tmp .= '&sid='.$data->bgid;
+					$tmp .= '&sid='.$data2->bgid;
+					
+					if ($data1->type==2) {
+						$query3 = 'select ugid from unit_group where type=2 and planet='.$planet;
+						$result3 = warquest_db_query($query3);
+						$data3 = warquest_db_fetch_object($result3);
+						
+						$tmp .= '&ssid='.$data3->ugid;
+					}
+	
 					break;
 					
 				default: 

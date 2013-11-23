@@ -47,6 +47,8 @@ function warquest_building_buy_do() {
 	/* input */
 	global $mid;
 	global $sid;
+	global $ssid;
+	
 	global $eid;
 	global $gid;	
 	global $uid;
@@ -184,7 +186,7 @@ function warquest_building_buy_do() {
 	$amountDiff = $building->max - $totalAmount;
 	if ($amountDiff<0) $amountDiff=0;
 	
-	$link  = warquest_link('mid='.$mid.'&sid='.$sid.'&uid='.$uid.'&eid='.$eid.'&gid='.$gid, t('LINK_BUY_AGAIN'), 'buy-0');
+	$link  = warquest_link('mid='.$mid.'&sid='.$sid.'&ssid='.$ssid.'&uid='.$uid.'&eid='.$eid.'&gid='.$gid, t('LINK_BUY_AGAIN'), 'buy-0');
 	$link .= '<br/><br/>'.t('GENERAL_AMOUNT').'<br/>';
 	$link .= warquest_amount_selected($amountDiff);
 
@@ -200,6 +202,8 @@ function warquest_building_sell_do() {
 	/* input */
 	global $mid;
 	global $sid;
+	global $ssid;
+	
 	global $eid;
 	global $gid;
 	global $player;
@@ -324,7 +328,7 @@ function warquest_building_sell_do() {
 	
 	$link = "";
 	if (($amountOld-$amount)>0) {
-		$link = warquest_link('mid='.$mid.'&sid='.$sid.'&uid='.$uid.'&eid='.$eid.'&gid='.$gid, t('LINK_SELL_AGAIN'), 'sell-1');
+		$link = warquest_link('mid='.$mid.'&sid='.$sid.'&ssid='.$ssid.'&uid='.$uid.'&eid='.$eid.'&gid='.$gid, t('LINK_SELL_AGAIN'), 'sell-1');
 		$link .= '<br/><br/>'.t('GENERAL_AMOUNT').'<br/>';
 		$link .= warquest_amount_selected($amountOld-$amount);
 	}
@@ -347,9 +351,10 @@ function warquest_building_form() {
 	
 	/* input */
 	global $uid;
-	global $sid;
 	global $mid;
-	global $uid;
+	global $sid;
+	global $ssid;
+	
 	global $amount;
 	global $player;
 	global $config;
@@ -364,29 +369,51 @@ function warquest_building_form() {
 	 
 	$discount = warquest_discount($player, $player->planet);
 	
-	/* Get mission data */
-	$query  = 'select count(bid) as total from building ';
-	$query .= 'where bgid='.$sid.' and lid<='.$player->lid;
-	$result = warquest_db_query($query);
-	$total = 0;
-	if ($data = warquest_db_fetch_object($result)) {
-		$total = $data->total;
+	/* Count selected buildings */
+	$query  = 'select bid from building ';
+	$query .= 'where bgid='.$sid.' and lid<='.$player->lid.' ';
+	if ($building_group->type==2) {
+		$query .= 'and ugid='.$ssid.' ';
 	}
-		
-	/* Get player data */
+	
+	$result = warquest_db_query($query);
+	$total = warquest_db_num_rows($result);
+	
+	/* Get building data combine with player data */
 	$query  = 'select b.ugid, b.bid, b.price, b.income, b.defense, b.energy, b.discount, b.maintenance,  ';
 	$query .= 'b.max, IFNULL(a.amount, 0) as amount ';
 	$query .= 'from building b left join player_building a ';
 	$query .= 'on a.bid=b.bid and a.pid='.$player->pid.' where b.lid<='.$player->lid.' ';  
 	$query .= 'and b.bgid='.$sid.' ';
+	
+	if ($building_group->type==2) {
+		$query .= 'and b.ugid='.$ssid.' ';
+	}
+	
 	$query .= 'order by b.lid';
 	
 	$result = warquest_db_query($query);	
 	
-	if (($building_group->sell==1) && ($uid==0)) {
-		$page .= warquest_amount_radiobox();		
+	if ($building_group->sell==1) { 
+		
+		if ($uid==0) {
+	
+			$page .= warquest_amount_radiobox();		
+			
+		} else {
+		
+			$page .= '<div class="box">';
+			$page .= '<br/>';
+			$page .= '</div>';		
+		}
+		
 	} else {
+	
 		$player->default_amount=1;
+	}
+	
+	if ($building_group->type==2) {
+		$page .= warquest_subsubmenu_building();
 	}
 	
 	$page .= '<div class="box">';
@@ -454,12 +481,12 @@ function warquest_building_form() {
 		$page .= '</td>';
 	
 		$page .= '<td valign="top" width="100">';
-		$page .= warquest_link('mid='.$mid.'&sid='.$sid.'&uid='.$data->bid.'&eid=1', t('LINK_BUY'),"buy-".$count1);
+		$page .= warquest_link('mid='.$mid.'&sid='.$sid.'&ssid='.$ssid.'&uid='.$data->bid.'&eid=1', t('LINK_BUY'),"buy-".$count1);
 			
 		/* Prevent buy with discount, sell without discount */
 		if ($building_group->sell==1) {
 			$page .= '<span class="right2">';
-			$page .= warquest_link('mid='.$mid.'&sid='.$sid.'&uid='.$data->bid.'&eid=2', t('LINK_SELL'), "sell-".$count1);
+			$page .= warquest_link('mid='.$mid.'&sid='.$sid.'&ssid='.$ssid.'&uid='.$data->bid.'&eid=2', t('LINK_SELL'), "sell-".$count1);
 			$page .= '</span>';
 		}		  
 	
@@ -485,10 +512,15 @@ function warquest_building_form() {
 	
 	/* Unlock next building */
 	$query  = 'select bid, lid, income, defense, energy, discount, maintenance, ugid from building where lid>'.$player->lid.' ';
-	$query .= 'and bgid='.$sid.' order by income asc, defense asc, energy asc, discount asc, maintenance asc limit 0,1'; 
+	$query .= 'and bgid='.$sid.' ';
+	if ($building_group->type==2) {
+		$query .= 'and ugid='.$ssid.' ';
+	}
+	$query .= 'order by income asc, defense asc, energy asc, discount asc, maintenance asc limit 0,1'; 
+	
 	$result = warquest_db_query($query);	
 		
-	if ($data=warquest_db_fetch_object($result)) {
+	if ($data = warquest_db_fetch_object($result)) {
 		
 		$count1++;
 		

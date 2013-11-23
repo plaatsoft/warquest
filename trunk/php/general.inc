@@ -1362,10 +1362,12 @@ function warquest_amount_selected($max=0) {
 
 function warquest_amount_radiobox() {
 
-	/* input */
-	global $player;
+	/* input */	
 	global $mid;
 	global $sid;
+	global $ssid;
+			
+	global $player;
 			
 	$values = array(1, 2, 5, 10, 20, 50, 100, 200, 500);
 		
@@ -1376,12 +1378,12 @@ function warquest_amount_radiobox() {
 
 		$count++;
 		if ($player->default_amount==$value) {
-			$page .= '<input type="radio" name="amount2" value="'.$value.'" checked>'.number_format2($value).' </input>';	
+			$page .= '<input type="radio" name="amount2" value="'.$value.'" checked />'.number_format2($value).' ';	
 		} else {
 			$page .= '<input type="radio" name="amount2" value="'.$value.
 								'" onclick="javascript:link(\''.
-								warquest_token('mid='.$mid.'&sid='.$sid).'\');">'.
-								number_format2($value).' </input>';	
+								warquest_token('mid='.$mid.'&sid='.$sid.'&ssid='.$ssid).'\');" />'.
+								number_format2($value).' ';	
 		}	
 	}
 	
@@ -2328,15 +2330,27 @@ function warquest_ui_language($tag, $id, $readonly) {
    return $page;
 }
 
-function warquest_ui_menu($mid, $sid, $label, $active_id, $notification=0) {
+function warquest_ui_menu($mid, $sid, $ssid, $label, $active_id, $notification=0) {
    
-	$menu = warquest_link('mid='.$mid.'&sid='.$sid, $label, strtolower($label));
+	$menu = warquest_link('mid='.$mid.'&sid='.$sid.'&ssid='.$ssid, $label, strtolower($label));
 	if (($mid==$active_id) || ($sid==$active_id)) {
 		$menu = '<b>'.$menu.'</b>';
 	} 
 	if ( $notification > 0 ) {
 		$menu .= '<span class="notification">'.$notification.'</span>';	
 	}
+	$menu .= ' ';
+	
+	return $menu;
+}
+
+function warquest_ui_subsubmenu($mid, $sid, $ssid, $label, $active_id) {
+   
+	$menu = warquest_link('mid='.$mid.'&sid='.$sid.'&ssid='.$ssid, $label, strtolower($label));
+	if (($ssid==$active_id)) {
+		$menu = '<b>'.$menu.'</b>';
+	} 
+
 	$menu .= ' ';
 	
 	return $menu;
