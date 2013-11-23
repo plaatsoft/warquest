@@ -133,32 +133,6 @@ function warquest_client_overview() {
 }
 
 /**
- * Login menu bar
- */
-function warquest_login_menu() {
-
-	/* input */
-	global $mid;
-	global $sid;
-	global $version;
-	
-	$page  = '<center>';
-		
-	$page .= warquest_ui_menu($mid, PAGE_LOGIN, t('LINK_LOGIN'), $sid);
-	$page .= warquest_ui_menu($mid, PAGE_REGISTER, t('LINK_REGISTER'), $sid);
-	$page .= warquest_ui_menu($mid, PAGE_RECOVER, t('LINK_RECOVER'), $sid);
-	$page .= warquest_ui_menu($mid, PAGE_FACEBOOK, t('LINK_FACEBOOK'), $sid);
-		
-	if (strlen($version)==0) {
-		$page .= '<a target="_blank" href="rss.php">'.t('LINK_RSS').'</a>'; 
-	}
-		
-	$page .= '</center>';
-	
-	return $page;
-}
-
-/**
  * Login page header
  */
 function warquest_login_header() {

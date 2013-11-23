@@ -469,7 +469,7 @@ function warquest_db_building_delete($pid, $bid, $amount, $direct=0) {
 
 function warquest_db_building_group($bgid) {
 			
-	$query  = 'select planet, sell from building_group where bgid='.$bgid; 
+	$query  = 'select planet, sell, type from building_group where bgid='.$bgid; 
 	$result = warquest_db_query($query);
 	$data = warquest_db_fetch_object($result);
 	
