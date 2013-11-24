@@ -640,12 +640,12 @@ function warquest_building() {
 		/* output */
 	global $popup;
 	
-	/*if ($sequence != $player->request) {
+	if ($sequence != $player->request) {
 	
 		$message = t('SYSTEM_HACK_DETECTED');
 		$popup .= warquest_box_icon("warning", $message);	
 		return;
-	}*/
+	}
 		
 	/* event handler */
 	switch ($eid) {

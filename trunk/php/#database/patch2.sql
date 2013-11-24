@@ -85,3 +85,19 @@ INSERT INTO `building` (`bid`, `price`, `gold`, `lid`, `income`, `defense`, `ene
 UPDATE player a left join skill b on a.pid=b.pid set a.gold=(b.trade_points*500);
 
 TABLE `skill` DROP `trade_points`;
+
+
+-- Earth Units
+
+UPDATE  `unit` SET  `lid` =  '94' WHERE  `unit`.`uid` =127;
+
+INSERT INTO `unit` (`uid`, `lid`, `price`, `gold`, `attack`, `defense`, `max`, `ugid`, `upkeep`) 
+	VALUES ('128', '95', '0', '10', '625', '575', '5000', '2', '0');
+
+UPDATE  `unit` SET  `lid` =  '98' WHERE  `unit`.`uid` =228;
+
+INSERT INTO `unit` (`uid`, `lid`, `price`, `gold`, `attack`, `defense`, `max`, `ugid`, `upkeep`) 
+	VALUES ('229', '99', '0', '10', '775', '725', '5000', '3', '0');
+	
+INSERT INTO `unit` (`uid`, `lid`, `price`, `gold`, `attack`, `defense`, `max`, `ugid`, `upkeep`) 
+	VALUES ('327', '97', '0', '10', '775', '825', '5000', '4', '0');

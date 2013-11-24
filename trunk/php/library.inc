@@ -327,6 +327,30 @@ parachute and then guides itself to the nearest vehicle.<br/><br/>
 return $info;
 }
 
+
+function warquest_unit128() {
+	
+$info = '
+<span class="subparagraph2">Background:</span><br/>
+Approximately the size of the U.S. Minuteman ICBM, the SS-25 carries a single-warhead atop a three stage system. The SS-25 is road mobile, making the missile inherently survivable and capable of reload/refire operations. It can fire from field deployment sites or through the sliding roof garage it occupies at its base. The SS-25 joined operational Soviet SRF regiments in 1985. A total area of approximately 190,000 square kilometers could be required to deploy a force consisting of 500 road-mobile SS-25 ICBMs. A much higher number of personnel for the maintenance of the mobile versions than for the fixed missiles, and the maintenance and operation of mobile ICBMs are significantly more expensive.
+</br></br>
+The three stage solid propellant RT-2PM Topol became the first Soviet mobile ICBM. It was deployed after almost two decades of unsuccessful attempts undertaken by different design bureaus. It emerged from the line of development of mobile missiles such as the SS-X-16 Temp-2S and the SS-20 Pioneer, and was deployed as a replacement for the widely deployed SS-11 SEGO.
+</br></br>
+All three stages are made of composite materials. During the first stage operation the flight control is implemented through four aerodynamic and four jet vanes. Four similar trellised aerodynamic surfaces serve for stabilization. During the second and third stage of flight gas is injected into the diverging part of the nozzle.With a throw-weight of 1000 kg the "Topol" carries a single warhead with a yield of 550 Kt and an accuracy (CEP) of 900m according to Russian sources [or 300m according to Western sources].
+</br></br>
+The missile is deployed in a transport-launch canister stationed on a mobile launch vehicle. The Transporter Erector Launcher is mounted on cross-country 7-axle chassis which incorprates jacks, gas and hydraulic drives and cylinders, with a power of several hundred tons, for jacking and leveling of the launcher, speeded up (combat) and slowed down (maintenance) elevation of the container with the missile to the vertical position. The TEL is accompanied by a Mobile command post, which carries support facilities mounted on cross-country 4-axle chassis with unified vans. The complex is equipped with an onboard inertial navigation system which provides a capability to conduct the launch independently from its field deployment sites. This topo-geodesic support and navigation subsystem, created by the ?Signal? Research Institute, provides a quick and highly precise tie-in of the launcher in a field position and enables its crew to carry out missile launches from any combat patrol route point. The launch can also be carried out at regimental bases from the garrison garage, which has a sliding roof.
+</br></br>
+The order to begin the development of this missile was approved on July 19, 1977 and carried out by the Moscow Institute of Thermal Technology headed by A. D. Nadiradzye. The flight tests were conducted on the Plesetsk test site from 08 February through 23 December 1985. During this period the battle management system constituted the main problem that had to be resolved. After the first test series was successfully conducted in April 1985, the first regiment with Topol missiles was put on 23 July 1985. Through this time work on improving the battle management system continued. The first regiment with "Topol"-missiles employing a modernized mobile command center (in area the of Irkutsk) were put on alert on 27 May 1988. The test missile firings were finally completed on 23 December 1987.
+</br></br>
+At the time of the signing of the Start-1 treaty in 1991 the Soviet Union had deployed some 288 Topol missiles. Deployment continued, and at the end of 1996 a total of 360 Topol missiles were deployed.
+</br></br>
+The Topol missile was deployed at previously developed deployment sites. After the INF-Treaty was signed in 1987 several SS-20 Pioneer deployment sites were adapted for the SS-25 Topol missiles. The United States expressed specific concerns during the INF treaty negotiations. When the SS-25 missile system was deployed in the field, with its missile inside the canister and mounted on the launcher, the US contended that the canister might conceal an SS-20 missile. The one distinguishing characteristic between the two systems, US treaty negotiators argued, was that the SS-25 had a single nuclear warhead, while the SS-20 had three warheads. After considerable discussion, the Soviet Union agreed to a provision in the treaty allowing the inspecting party the right to use radiation detection equipment to measure the fast neutron intensity flux emanating from the launch canister. A launch canister with a missile inside containing a single warhead (SS-25) emitted a different pattern of fast neutrons than did one with a missile having three warheads (SS-20). In the Memorandum of Agreement of 21 December 1989, the USSR and the U.S. agreed on procedures on how measurements would be taken during an on-site inspection.
+</br></br>
+As the provisions of the SALT-2 agreement prohibited the deployment of more than one new missile (which became RT-23UTTh), it was officially declared by the Soviet Union that the SS-25 Topol was developed to upgrade the silo based SS-13 RT-2P. The US government disputed this view, contending that the missile was clearly more than 5% larger and had twice the throw-weight as the SS-13.';
+
+return $info;
+}
+
 function warquest_unit206() {
 	
 $info = '
@@ -426,7 +450,7 @@ speed.';
 return $info;
 }
 
-function warquest_unit227() {
+function warquest_unit229() {
 	
 $info = '
 <span class="subparagraph2">Specifications:</span><br/>
@@ -1397,6 +1421,22 @@ excess of 20,000 feet (6,096 meters) per second.';
 return $info;
 }
 
+function warquest_unit327() {
+
+$info = '
+<span class="subparagraph2">History:</span><br/>
+The Titan Missile Museum, also known as Air Force Facility Missile Site 8 or as Titan II ICBM Site 571-7, is a former ICBM missile site located at 1580 West Duval Mine Road, Sahuarita, Arizona in the United States. It is located about 15 mi (24 km) south of Tucson. It is now a museum run by the nonprofit Arizona Aerospace Foundation and includes an inert Titan II intercontinental ballistic missile in the silo, as well as the original launch facilities.
+<br/><br/>
+The 103-foot (31 m) Titan II missile inside the silo has neither warhead nor has it ever been fueled, allowing it to be safely displayed to visitors. In accordance with a US/USSR agreement, the silo doors are permanently blocked from opening more than half way. The dummy reentry vehicle mounted on the missile has a prominent hole cut in it to prove it is inert. All of the support facilities at the site remain intact, complete with all of their original equipment.
+<br/><br/>
+The silo became operational in 1963 and was deactivated in 1982 as part of President Reagans policy (announced in 1981) of decommissioning the Titan II missiles as part of a weapon systems modernization program. All operational Titan II silos throughout the country were demolished, including 18 sites around McConnell AFB in Wichita, Kansas, 17 sites near Little Rock AFB, Arkansas (one additional site previously damaged beyond repair in a mishap/non-nuclear explosion) and 17 other sites by Davis-Monthan AFB and Tucson with the exception of this one. It is now a National Historic Landmark.
+';
+
+return $info;
+
+}
+
+
 function warquest_library_form($uid, $info) {
 
 	/* output */	
@@ -1437,13 +1477,16 @@ function warquest_library($uid, $show) {
 		case 124:	$info = warquest_unit124();	
 						break;
 						
+		case 128:	$info = warquest_unit128();	
+						break;
+						
 		case 206:	$info = warquest_unit206();	
 						break;
 						
 		case 214:	$info = warquest_unit214();	
 						break;
 		
-		case 227:	$info = warquest_unit227();	
+		case 229:	$info = warquest_unit229();	
 						break;
 						
 		case 302:	$info = warquest_unit302();
@@ -1480,6 +1523,9 @@ function warquest_library($uid, $show) {
 						break;
 						
 		case 326:	$info = warquest_unit326();
+						break;
+						
+		case 327:	$info = warquest_unit327();
 						break;
 						
 		default:		$returnValue = 0;
