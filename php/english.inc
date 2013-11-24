@@ -1699,26 +1699,26 @@ $lang['BUILDING_2']  = 'Bunker';
 $lang['BUILDING_5']  = 'Tank wall';
 $lang['BUILDING_11'] = 'Guard tower';
 $lang['BUILDING_15'] = 'Land minefield';
-$lang['BUILDING_56'] = 'Magnetic cannon';
+$lang['BUILDING_56'] = 'Nuclear bomb bunker';
 
 /* Defence (Earth) - Group 2 - Navy */
 $lang['BUILDING_21'] = 'Coast Bunker';
 $lang['BUILDING_22'] = 'Torpedo launcher';
 $lang['BUILDING_23'] = 'Sea minefield';
-$lang['BUILDING_57'] = 'Submarine factory';
+$lang['BUILDING_57'] = 'Navy shipyard';
 
 /* Defence (Earth) - Group 2 - Airforce */
 $lang['BUILDING_7']  = 'Anti Aircraft gun';
 $lang['BUILDING_9']  = 'Short range launcher';
 $lang['BUILDING_20'] = 'Long range launcher';
-$lang['BUILDING_58'] = 'Airfield';
+$lang['BUILDING_58'] = 'Military airfield';
 
 /* Defence (Earth) - Group 2 - Intel */
 $lang['BUILDING_51'] = 'Embassy';
-$lang['BUILDING_52'] = 'Spy Radar';
-$lang['BUILDING_53'] = 'Intel command center';
-$lang['BUILDING_54'] = 'Drone control center';
-$lang['BUILDING_59'] = 'Cyberspace warfare';
+$lang['BUILDING_52'] = 'Intel command center';
+$lang['BUILDING_53'] = 'Drone control center';
+$lang['BUILDING_54'] = 'Cyberspace warfare';
+$lang['BUILDING_59'] = 'Spy Radar';
 
 /* Energy (Earth) - Group 3 */
 $lang['BUILDING_4']  = 'Solar power unit';
@@ -1789,6 +1789,11 @@ $lang['BUILDING_712'] = 'Colony defence shield';
 $lang['BUILDING_713'] = 'Underground factory';
 $lang['BUILDING_714'] = 'Spacecraft launcher';
 
+$lang['BUILDING_716'] = 'Research Lab';
+$lang['BUILDING_717'] = 'Mine explorer unit';
+$lang['BUILDING_718'] = 'Photon research lab';
+$lang['BUILDING_719'] = 'Explorer Village';
+
 /* Energy (Moon) - Group 8 */
 $lang['BUILDING_800'] = 'Gas research center';
 $lang['BUILDING_801'] = 'Petroleum research center';
@@ -1856,6 +1861,11 @@ $lang['BUILDING_1208'] = 'Long range launcher';
 $lang['BUILDING_1209'] = 'Tasers weapon factory';
 $lang['BUILDING_1210'] = 'Explorer factory';
 
+$lang['BUILDING_1211'] = 'Drone upgrade lab';
+$lang['BUILDING_1212'] = 'Warrior upgrade lab';
+$lang['BUILDING_1213'] = 'Greenhouse Lab';
+$lang['BUILDING_1214'] = 'Explorer training center';
+
 /* Energy (Mars) - Group 13 */
 $lang['BUILDING_1300'] = 'Energy research center';
 $lang['BUILDING_1301'] = 'Gas power facility';
@@ -1916,6 +1926,11 @@ $lang['BUILDING_1706'] = 'Alien Detect unit';
 $lang['BUILDING_1707'] = 'Long range launcher';
 $lang['BUILDING_1708'] = 'Photonic weapon factory';
 $lang['BUILDING_1709'] = 'Tasers weapon factory';
+
+$lang['BUILDING_1710'] = 'Drone factory';
+$lang['BUILDING_1711'] = 'Warrior Upgrade lab';
+$lang['BUILDING_1712'] = 'Solar attack unit';
+$lang['BUILDING_1713'] = 'Planet Destroyer';
 
 /* Energy (Asteroid) - Group 18 */
 $lang['BUILDING_1800'] = 'Energy research center';
