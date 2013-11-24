@@ -295,7 +295,7 @@ function warquest_unit_form() {
 	$ads_pos = rand(1,$count);
 	
 	/* Get player unit data */
-	$query  = "select a.uid, a.price, a.attack, a.defense, a.upkeep, a.max, a.ugid, ";
+	$query  = "select a.uid, a.price, a.gold, a.attack, a.defense, a.upkeep, a.max, a.ugid, ";
 	$query .= "IFNULL(b.amount, 0) as amount from unit a left join player_unit b ";
 	$query .= "ON a.uid=b.uid and b.pid=".$player->pid." where a.ugid=".$sid." and a.lid<=".$player->lid.' ';  
 	$query .= 'order by a.lid';
@@ -336,9 +336,15 @@ function warquest_unit_form() {
 		}		
 		if ($data->upkeep > 0) {
 			$page .= '<br/>'.t('GENERAL_UPKEEP').': +'.money_format1($data->upkeep);
-		}
+		}		
 		$page .= '</td>';
-		$page .= '<td width="80">'.money_format2($data->price).'<br/>';
+		
+		$page .= '<td width="80">';
+		if ($data->price>0) {
+			$page .= money_format2($data->price).'<br/>';
+		} else {
+			$page .= gold_format($data->gold).'<br/>';
+		}
 		$page .= warquest_link('eid=1&mid='.$mid.'&uid='.$data->uid.'&sid='.$sid, t('LINK_DEPLOY'),'deploy-'.($count+100));
 		$page .= '</td>';
 		
@@ -424,12 +430,12 @@ function warquest_unit() {
 		/* output */
 	global $page;
 	
-	if ($sequence != $player->request) {
+	/*if ($sequence != $player->request) {
 	
 		$message = t('SYSTEM_HACK_DETECTED');
 		$page .= warquest_box_icon("warning", $message);	
 		return;
-	}
+	}*/
 	
 	/* Event handler */
 	switch ($eid) {

@@ -1296,29 +1296,6 @@ $lang['UNIT_GROUP_24'] 	= 'Army';
 
 /* Calvary (Earth) - Group 2 */
 $lang['UNIT_1'] = 'Minigunner';
-$lang['UNIT_2'] = 'Recruit';
-$lang['UNIT_3'] = 'Marines';
-$lang['UNIT_4'] = 'Paratrooper';
-$lang['UNIT_5'] = 'Medic';
-$lang['UNIT_6'] = 'Grenadier';
-$lang['UNIT_7'] = 'Military police';
-$lang['UNIT_8'] = 'Navy Seal';
-$lang['UNIT_9'] = 'Machine Gunner';
-$lang['UNIT_10'] = 'Rocketlaunchers';
-$lang['UNIT_11'] = 'Captain';
-$lang['UNIT_12'] = 'Commando';
-$lang['UNIT_13'] = 'UAV Squad';
-$lang['UNIT_14'] = 'XM-25 Gunner';
-$lang['UNIT_15'] = 'Tank Demolisher';
-$lang['UNIT_16'] = 'Navy Seal';
-$lang['UNIT_17'] = 'FELIN Combat Infantry';
-$lang['UNIT_18'] = 'Heavy Assault Squad';
-$lang['UNIT_19'] = 'Force Warrior Squad';
-$lang['UNIT_20'] = 'Machine Gun Squad';
-$lang['UNIT_21'] = 'Sniper Team';
-$lang['UNIT_22'] = 'Grenade Squad';
-$lang['UNIT_23'] = 'Rail Gun Troopers';
-$lang['UNIT_24'] = 'Mobile Marines';
 $lang['UNIT_101'] = 'Military Car';
 $lang['UNIT_102'] = 'Humvee';
 $lang['UNIT_103'] = 'Truck';
@@ -1346,6 +1323,7 @@ $lang['UNIT_124'] = 'M198 Howitzer';
 $lang['UNIT_125'] = 'Heavy Artillery';
 $lang['UNIT_126'] = 'Missile Launcher';
 $lang['UNIT_127'] = 'Mobile Anti Aircraft';
+$lang['UNIT_128'] = 'ICBM Launcher';
 
 /* Navy (Earth) - Group 3 */
 $lang['UNIT_201'] = 'Rubber boat';
@@ -1374,8 +1352,9 @@ $lang['UNIT_223'] = 'Kanimbla AT ship';
 $lang['UNIT_224'] = 'Aircraft Carrier';
 $lang['UNIT_225'] = 'Landing Platform Dock';
 $lang['UNIT_226'] = 'Type 23 Frigate';
-$lang['UNIT_227'] = 'Ohio Submarine';
+$lang['UNIT_227'] = 'Type 28 Frigate';
 $lang['UNIT_228'] = 'Nuclear Cruiser';
+$lang['UNIT_229'] = 'Ohio ICBM Submarine';
 
 /* Airforce (Earth) - Group 4 */
 $lang['UNIT_301'] = 'Cessna 172';
@@ -1401,6 +1380,7 @@ $lang['UNIT_323'] = 'F-35 Lightning II';
 $lang['UNIT_324'] = 'B-52 Stratofortress';
 $lang['UNIT_325'] = 'F-22 Raptor';
 $lang['UNIT_326'] = 'Trident II Missile';
+$lang['UNIT_327'] = 'Titan II Missile';
 
 /* Citizens (Earth) - Group 5 */
 $lang['UNIT_401'] = 'Construction Engineer';

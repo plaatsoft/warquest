@@ -21,11 +21,13 @@ $notes = '
 <span class="subparagraph2">24-11-2013</span><br/>
 <i>Game Server v5.9</i><br/>
 - Added 16 premium gold defence buildings.</br>
+- Added 16 premium gold units.</br>
 - Existing trade points are converted to gold (1:500).</br>
 - Adapted trade page to use gold instead of trade points.</br>
 - Remove earth cavalry soldier units. Too much units.</br>
 - Update help and donation page information.</br>
 - Update Admin page to support gold.</br>
+- Added building defence submenu for better overview.</br>
 - All existing players will receive 500 gold as bonus.</br></br>
 
 <i>General</i><br/>
