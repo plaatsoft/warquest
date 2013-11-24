@@ -416,13 +416,6 @@ $lang['HOME_MAP_NOTE'] = 'Jede Mission muss dreimal absolviert, werden um den Ko
 
 $lang['HOME_TRAVEL_TO'] = 'Reise zu';
 
-$lang['HOME_WARQUEST_ONE_YEAR_TITLE'] = 'WarQuest Ein-Jahres Party';
-$lang['HOME_WARQUEST_ONE_YEAR'] = 'Exactly one year ago WarQuest\'s development started. So time for a 
-small flashback. It was a great first year. The Windows client and the Android app were downloaded 
-more then <b>8.500</b> times. More then <b>7.000</b> players joined the game and more then <b>5.300.000</b> 
-server requests were handled. Because of this special day each player received <b>10</b> extra trade points! 
-I wish you all a nice day and keep on playing. Cheers!';
-
 $lang['HOME_INTRO_PLACE1'] = 'Du bist auf dem <b>%s</b> Platz in der allgemeinen Rangliste '; 
 $lang['HOME_INTRO_PLACE2'] = 'und auf dem <b>%s</b> Platz auf der <b>%s</b> Rangliste. '; 
 $lang['HOME_PLAYERS_ONLINE'] = 'In den letzten 24 Stunden waren %s Spieler online.';
@@ -566,10 +559,6 @@ $lang['PLAYER_SKILL_REJECTED2']  = '%s s Wert ist auf der kleinsten Stufe.';
 ** HOME - TRADE
 ** ------------------
 */
-
-$lang['HOME_TRADE_TITLE1'] = 'Trade points';
-$lang['HOME_TRADE_TITLE2'] = 'Trade points [%s available]';
-$lang['HOME_TRADE_NOTE']  = 'Note: Purchased trade points (see help - donate page) can be exchanged in to skill points, cash money or can be used to improve your health, energy or ammo restore timer.';
 
 $lang['HOME_TRADE_CONDITION'] = 'Current';
 $lang['HOME_TRADE_MINIMAL'] = 'Minimal';

@@ -196,7 +196,7 @@ function warquest_settings_account_reset_do() {
 	$data->health_timer = 0;
 	$data->energy_timer = 0;
 	$data->ammo_timer = 0;	
-	$data->trade_points = 0;
+
 	warquest_db_skill_update($data);
 	
 	/* Reset player data */	

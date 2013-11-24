@@ -440,13 +440,6 @@ $lang['HOME_MAP_NOTE'] = 'Each continent consist out of three regions which can 
 
 $lang['HOME_TRAVEL_TO'] = 'Travel to';
 
-$lang['HOME_WARQUEST_ONE_YEAR_TITLE'] = 'WarQuest One Year Party';
-$lang['HOME_WARQUEST_ONE_YEAR'] = 'Exactly one year ago WarQuest\'s development started. So time for a 
-small flashback. It was a great first year. The Windows client and the Android app were downloaded 
-more then <b>8.500</b> times. More then <b>7.000</b> players joined the game and more then <b>5.300.000</b> 
-server requests were handled. Because of this special day each player received <b>10</b> extra trade points! 
-I wish you all a nice day and keep on playing. Cheers!';
-
 $lang['HOME_INTRO_PLACE1'] = 'You are on <b>%s</b> place on the overall leaderboard '; 
 $lang['HOME_INTRO_PLACE2'] = 'and <b>%s</b> place on the <b>%s</b> leaderboard. '; 
 $lang['HOME_PLAYERS_ONLINE'] = 'Last 24hs %s players were online.';
@@ -602,36 +595,38 @@ $lang['PLAYER_SKILL_REJECTED2']  = '%s skill have reach minimal level.';
 ** ------------------
 */
 
-$lang['HOME_TRADE_TITLE1'] = 'Trade points';
-$lang['HOME_TRADE_TITLE2'] = 'Trade points [%s available]';
-$lang['HOME_TRADE_NOTE']  = 'Note: Purchased trade points (see help - donate page) can be exchanged in to skill points, cash money or can be used to improve your health, energy or ammo restore timer.';
+$lang['HOME_TRADE_TITLE1'] = 'Trade';
+
+$lang['HOME_TRADE_NOTE']  = 'Note: Purchased gold (see help - donate page) can be exchanged in to skill points, cash money or can be used to improve your health, energy or ammo restore timer.';
 
 $lang['HOME_TRADE_CONDITION'] = 'Current';
 $lang['HOME_TRADE_MINIMAL'] = 'Minimal';
 
 $lang['HOME_TRADE1'] = 'Health Timer';
-$lang['HOME_TRADE1_NOTE'] = 'Decrease health timer so your health restores faster. It takes 1 trade point to decrease your health timer with 5 seconds.';
+$lang['HOME_TRADE1_NOTE'] = 'Decrease health timer so your health restores faster. It takes %s to decrease your health timer with 5 seconds.';
 
 $lang['HOME_TRADE2'] = 'Energy Timer';
-$lang['HOME_TRADE2_NOTE'] = 'Decrease energy timer so your energy restores faster. It takes 1 trade point to decrease your energy timer with 5 seconds.';
+$lang['HOME_TRADE2_NOTE'] = 'Decrease energy timer so your energy restores faster. It takes %s to decrease your energy timer with 5 seconds.';
 
 $lang['HOME_TRADE3'] = 'Ammo Timer';
-$lang['HOME_TRADE3_NOTE'] = 'Decrease ammo timer so your ammo restores faster. It takes 1 trade point to decrease your ammo timer with 5 seconds.';
+$lang['HOME_TRADE3_NOTE'] = 'Decrease ammo timer so your ammo restores faster. It takes %s to decrease your ammo timer with 5 seconds.';
 
 $lang['HOME_TRADE4'] = 'Cash';
-$lang['HOME_TRADE4_NOTE'] = 'Get cash to buy new units, buildings, etc.. It takes 1 trade point to increase your cash with %s dollar.';
+$lang['HOME_TRADE4_NOTE'] = 'Get cash to buy new units, buildings, etc.. It takes %s to increase your cash with %s dollar.';
 
 $lang['HOME_TRADE5'] = 'Skill Point';
-$lang['HOME_TRADE5_NOTE'] = 'Get skill points to improve your attack, defence, health, energy or ammo skill. It takes 1 trade point to get 2 skill points.';
+$lang['HOME_TRADE5_NOTE'] = 'Get skill points to improve your attack, defence, health, energy or ammo skill. It takes %s to get 1 skill point.';
 
 $lang['HOME_TRADE_SKILL_POINTS'] = 'skill point(s)';
 $lang['HOME_TRADE_IN'] = 'Trade-In';
 $lang['HOME_MAX_REACHED'] = 'Max Reached';
-$lang['HOME_TRADE_NO_POINTS'] = 'You do not own %s trade point(s).';
+
 $lang['HOME_TRADE_HEALTH_TIMER_TO_LARGE'] = 'Health timer has reached minimum value.';
 $lang['HOME_TRADE_ENERGY_TIMER_TO_LARGE'] = 'Energy timer has reached minimum value.';
 $lang['HOME_TRADE_AMMO_TIMER_TO_LARGE'] = 'Ammo timer has reached minimum value.';
-$lang['HOME_TRADE_SUCCESFULL'] = 'The trade point is succesfully processed!';
+$lang['HOME_TRADE_SUCCESFULL'] = 'The trade-in is succesfully processed! ';
+
+$lang['HOME_TRADE_NO_GOLD'] = 'You do not own %s.';
 
 /*
 ** ------------------
@@ -1192,7 +1187,7 @@ $lang['MISSION_REBEL'] = 'Rebellion';
 $lang['MISSION_COMPLETE_PLANET_0'] = 'Excellent! You completed all Earth missions. You received 100 million dollar bonus.';
 $lang['MISSION_COMPLETE_PLANET_1'] = 'Excellent! You completed all moon missions. You received 500 million dollar bonus.';
 $lang['MISSION_COMPLETE_PLANET_2'] = 'Excellent! You completed all mars missions. You received 999 billion dollar bonus.';
-$lang['MISSION_COMPLETE_PLANET_3'] = 'Excellent! You completed all asteroid missions. You received 50 trade points bonus.';
+$lang['MISSION_COMPLETE_PLANET_3'] = 'Excellent! You completed all asteroid missions. You received 2500 gold bonus.';
 
 $lang['MISSION_NO_MISSIONS'] = 'No missions available!';
 
@@ -2285,7 +2280,7 @@ The following extra bonus is given when all planet missions are completed:<br/>
 EARTH: 100 Million dollars<br/>
 MOON: 500 Million dollars<br/>
 MARS: 999 Billion dollars<br/>
-ASTEROID: 50 trade points';
+ASTEROID: 2500 gold';
 
 $lang['HELP_BATTLE_TITLE'] = 'Battle';
 $lang['HELP_BATTLE'] =	'Fight other players to gain money and experience points to reach the next 
@@ -2316,9 +2311,9 @@ $lang['HELP_SKILL_POINTS'] = 'During the game skill points can be received. Depl
 increase attack, defence, health, energy and/or ammo skills. Ammo skill upgrade costs 2 skill points, 
 others will cost you only 1 skill point. You can also trade in 2:1 skillpoints to change your skills.';
 
-$lang['HELP_TRADE_POINTS_TITLE'] = 'Trade Points';
-$lang['HELP_TRADE_POINTS']  = 'Trade points can be purchased by donate some real dollars. See Help -> Donate. 
-Purchase trade points can be exchanged in to skill points, cash money or can be used to improve your 
+$lang['HELP_GOLD_TITLE'] = 'Gold';
+$lang['HELP_GOLD']  = 'Gold can be purchased by donate some real dollars. See Help -> Donate. 
+Purchase gold can be used to buy premium units / buildings or can be exchanged in to skill points, cash money or can be used to improve your 
 health, energy or ammo restore timer.';
 
 $lang['HELP_TACTICS_TITLE'] = 'Tactics';
@@ -2489,8 +2484,8 @@ over the years, and also help reduce the costs of running the web server, we do 
 donations.';
 
 $lang['HELP_SUBTITLE_DONATE2'] = 'Reward';
-$lang['HELP_DONATE2'] = 'Each dollar donated will be rewarded with 1 trade point. Purchased trade points 
-can be exchanged in to skill points, cash money or can be used to improve your health, energy or ammo 
+$lang['HELP_DONATE2'] = 'Each dollar donated will be rewarded with %s. Purchased gold 
+can be used to buy premium units / buildings or can be exchanged in to skill points, cash money. Also you can improve your health, energy or ammo 
 restore timer. The reward is manually processed so keep in mind that it takes a few hours before it is available.';
 
 $lang['HELP_SUBTITLE_DONATE3'] = 'PayPal';
@@ -2910,6 +2905,9 @@ $lang['USER_EMAIL_VALID'] = 'Your email address is validated. Thank you!';
 
 $lang['BUILDING_NO_GOLD'] = 'Not enough gold to buy %s %s for %s.';
 $lang['GENERAL_GOLD'] = 'gold';
+$lang['PLAYER_GOLD'] = 'Gold'; 
+$lang['BUILDING_BUY_GOLD'] = 'You bought %s %s for %s. Now %s deployed.';
+$lang['BUILDING_SELL_GOLD'] = 'You sold %s %s for %s. Still %s deployed.';
 
 
 /*

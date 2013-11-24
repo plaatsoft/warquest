@@ -431,8 +431,8 @@ function warquest_help_donate_form() {
 	$page .= t('HELP_DONATE1').'<br/>';
 	$page .= '<br/>';
 	
-	$page .= '<span class="subparagraph2">'.t('HELP_SUBTITLE_DONATE2').'</span><br/>';
-	$page .= t('HELP_DONATE2').'<br/>';
+	$page .= '<span class="subparagraph2">'.t('HELP_SUBTITLE_DONATE2' ).'</span><br/>';
+	$page .= t('HELP_DONATE2', gold_format($config["dollar_gold_ratio"])).'<br/>';
 	$page .= '<br/>';
 	
 	$page .= '<span class="subparagraph2">'.t('HELP_SUBTITLE_DONATE3').'</span><br/>';
@@ -939,6 +939,11 @@ function warquest_help_general_form() {
 	$page .= '<br/>';
 
 	$page .= '<br/>';
+	$page .= '<span class="subparagraph2">'.t('HELP_GOLD_TITLE').'</span><br/>';
+	$page .= t('HELP_GOLD');
+	$page .= '<br/>';
+	
+	$page .= '<br/>';
 	$page .= '<span class="subparagraph2">'.t('HELP_BOUNTY_TITLE').'</span><br/>';
 	$page .= t('HELP_BOUNTY');
 	$page .= '<br/>';
@@ -981,11 +986,6 @@ function warquest_help_general_form() {
 	$page .= '<br/>';
 	$page .= '<span class="subparagraph2">'.t('HELP_SKILL_POINTS_TITLE').'</span><br/>';
 	$page .= t('HELP_SKILL_POINTS');
-	$page .= '<br/>';
-
-	$page .= '<br/>';
-	$page .= '<span class="subparagraph2">'.t('HELP_TRADE_POINTS_TITLE').'</span><br/>';
-	$page .= t('HELP_TRADE_POINTS');
 	$page .= '<br/>';
 
 	$page .= '<br/>';

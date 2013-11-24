@@ -433,8 +433,6 @@ $lang['HOME_OVERVIEW_TITLE']= 'Riepilogo';
 $lang['HOME_MAP_TITLE'] = 'Continenti conquistati';
 $lang['HOME_MAP_NOTE'] = 'Ogni continente consiste in tre regioni che possono essere conquistate attraverso le missioni.';
 
-$lang['HOME_WARQUEST_ONE_YEAR_TITLE'] = 'Party del primo anno di WarQuest';
-
 $lang['HOME_INTRO_PLACE1'] = 'Sei al <b>%so</b> posto nella tabella generale dei giocatori '; 
 $lang['HOME_INTRO_PLACE2'] = 'e al <b>%so</b> posto sulla tabella  dell\'<b>%s</b>. '; 
 $lang['HOME_PLAYERS_ONLINE'] = 'Nelle ultime 24 ore %s giocatori erano online.';

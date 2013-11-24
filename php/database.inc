@@ -753,7 +753,7 @@ function warquest_db_player_update($player) {
 	$query .= 'money='.$player->money.", ";
 	$query .= 'money_step='.$player->money_step.", ";
 	$query .= 'money_date="'.$player->money_date.'", ';
-	$query .= 'gold='.$player->gold.", ";
+	$query .= 'gold='.$player->gold.', ';
 	$query .= 'upkeep='.$player->upkeep.", ";
 	$query .= 'experience='.$player->experience.", ";
 	$query .= 'lid='.$player->lid.", ";
@@ -796,7 +796,7 @@ function warquest_db_player_update($player) {
 	$query .= 'rebel_level='.$player->rebel_level.', ';	
 	$query .= 'pattern="'.$player->pattern.'" ';	
 	$query .= 'where pid='.$player->pid; 	
-	
+		
 	warquest_db_query($query);
 }
 
@@ -965,7 +965,7 @@ function warquest_db_skill_insert($pid, $amount) {
 	/* input */
 	global $config;
 		
-	$query  = 'insert into skill (pid, attack_max, defense_max, health_max, energy_max, ammo_max, skill_points, health_timer, energy_timer, ammo_timer, trade_points) ';
+	$query  = 'insert into skill (pid, attack_max, defense_max, health_max, energy_max, ammo_max, skill_points, health_timer, energy_timer, ammo_timer ) ';
 	$query .= 'values ('.$pid.','.$config["init_attack_max"].','.$config["init_defense_max"].','.$config["init_health_max"].',';
 	$query .= $config["init_energy_max"].','.$config["init_ammo_max"].','.$amount.',0,0,0,0)';
 	
@@ -985,8 +985,7 @@ function warquest_db_skill_update($skill) {
 	$query .= "skill_points=". $skill->skill_points.", ";	
 	$query .= "health_timer=". $skill->health_timer.", ";
 	$query .= "energy_timer=". $skill->energy_timer.", ";
-	$query .= "ammo_timer=". $skill->ammo_timer.", ";
-	$query .= "trade_points=". $skill->trade_points." ";	
+	$query .= "ammo_timer=". $skill->ammo_timer." ";
 	$query .= "where pid=".$skill->pid; 
 		
 	warquest_db_query($query);	
@@ -1005,7 +1004,7 @@ function warquest_db_skill($pid) {
 	
 	/* Get skill data */
 	$query  = "select pid, attack_max, defense_max, health_max, energy_max, ammo_max, skill_points, ";
-	$query .= "health_timer, energy_timer, ammo_timer, trade_points ";
+	$query .= "health_timer, energy_timer, ammo_timer ";
 	$query .= "from skill where pid=".$pid;  
 	
 	$result = warquest_db_query($query);	

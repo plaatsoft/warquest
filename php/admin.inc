@@ -1349,18 +1349,15 @@ function warquest_admin_edit_do() {
 		$bank = str_replace(".", "", $bank);
 	} 
 	
-	/* trade points parameter */
-	$trade=0;
-	if (isset($_POST['trade']) && $_POST['trade'] != "") {
-		$trade = $_POST['trade'];
+	/* gold parameter */
+	$gold=0;
+	if (isset($_POST['gold']) && $_POST['gold'] != "") {
+		$gold = $_POST['gold'];
 		
-		if ($trade>0) {
-			$log = 'Admin add '.$trade.' trade points';		
+		if ($gold>0) {
+			$log = 'Admin add '.$gold.' gold';		
 			warquest_user_log($other, $log);
-		
-			$data = warquest_db_skill($other->pid);
-			$data->trade_points += $trade;
-			warquest_db_skill_update($data);		
+			$other->gold += $gold;
 		}
 	} 
 	
@@ -1491,8 +1488,8 @@ function warquest_admin_player_form() {
 	$page .= '</tr>';
 	
 	$page .= '<tr>';
-	$page .= '<td>Trade Points:</td>';
-	$page .= '<td><input name="trade" type="text" size="3 maxlength="3" value="0"/></td>';
+	$page .= '<td>Gold:</td>';
+	$page .= '<td><input name="gold" type="text" size="6" maxlength="6" value="0"/></td>';
 	$page .= '</tr>';
 		
 	$page .= '<tr>';

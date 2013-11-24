@@ -1509,6 +1509,11 @@ function warquest_profile($id) {
 		$page .= '<table>';
 	
 		$page .= '<tr>';
+		$page .= '<td width="170"><b>'.t('PLAYER_GOLD').':</b></td>';
+		$page .= '<td>'.gold_format($data->gold).'</td>';
+		$page .= '</tr>';
+		
+		$page .= '<tr>';
 		$page .= '<td width="170"><b>'.t('PLAYER_CASH_MONEY').':</b></td>';
 		$page .= '<td>'.money_format1($data->money).' '.t('GENERAL_DOLLAR').'</td>';
 		$page .= '</tr>';

@@ -46,7 +46,7 @@ function warquest_ui_mainmenu() {
 	$page  = '<div class="menu">';
 	
 	$page .= warquest_ui_menu(MENU_HOME, PAGE_OVERVIEW, 0, t('LINK_HOME'), $mid, 
-					$player->news + $player->comment + $skill->skill_points + $skill->trade_points);
+					$player->news + $player->comment + $skill->skill_points);
 	
 	if ($player->holiday_date <= date("Y-m-d H:i:s", time())) {
 		
@@ -130,7 +130,7 @@ function warquest_menu_home() {
 	$page .= warquest_ui_menu($mid, PAGE_BATTLE_NEWS, 0, t('LINK_NEWS'), $sid, $player->news);
 	$page .= warquest_ui_menu($mid, PAGE_MESSAGES, 0, t('LINK_COMMENTS'), $sid, $player->comment);
 	$page .= warquest_ui_menu($mid, PAGE_SKILLS, 0, t('LINK_SKILLS'), $sid, $skill->skill_points);
-	$page .= warquest_ui_menu($mid, PAGE_TRADE, 0, t('LINK_TRADE'), $sid, $skill->trade_points);
+	$page .= warquest_ui_menu($mid, PAGE_TRADE, 0, t('LINK_TRADE'), $sid );
 	$page .= warquest_ui_menu($mid, PAGE_RESTORE, 0, t('LINK_RESTORE'), $sid);
 	$page .= warquest_ui_menu($mid, PAGE_SETTINGS, 0, t('LINK_SETTINGS'), $sid);
 	

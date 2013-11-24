@@ -82,9 +82,7 @@ function warquest_mission_planet_complet_bonus() {
 								break;
 							
 					case PLANET_ASTEROID:	
-								$skill = warquest_db_skill($player->pid);	
-								$skill->trade_points += 50;
-								warquest_db_skill_update($skill);
+								$player->gold += 2500;
 								break;
 				}
 			}

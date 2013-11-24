@@ -36,10 +36,29 @@ function warquest_trade_do() {
 	global $player;
 	global $popup;
 	
+	switch ($uid) {
 		
-	if ($amount > $skill->trade_points) {
+		case 1: 	$gold = 50;
+					break;
+						
+		case 2: 	$gold = 50;
+					break;
+						
+		case 3:  $gold = 50;
+					break;
+						
+		case 4:  $gold = 250;
+					break;
+						
+		case 5:	$gold = 200;
+					break;
+	}
+
+	$totalGold = $amount * $gold;
+						
+	if ($totalGold > $player->gold) {
 				
-		$message = t('HOME_TRADE_NO_POINTS', $amount);
+		$message = t('HOME_TRADE_NO_GOLD', gold_format($totalGold));
 		$popup .= warquest_box_icon("warning", $message);
 		
 	} else if (($uid==1) && ($skill->health_timer>=$config['max_health_reduction'])) {
@@ -58,41 +77,43 @@ function warquest_trade_do() {
 		$popup .= warquest_box_icon("warning", $message);
 		
 	} else {
-		
-		$skill->trade_points -= $amount;
-		
+				
+		$player->gold -= $totalGold;
+				
 		switch ($uid) {
 		
-			case 1: 	$skill->health_timer+=$amount;
+			case 1: 	$skill->health_timer += $amount;						
 						$max = $config['max_health_reduction'] - $skill->health_timer; 
 						break;
 						
-			case 2: 	$skill->energy_timer+=$amount;
+			case 2: 	$skill->energy_timer += $amount;
 						$max = $config['max_energy_reduction'] - $skill->energy_timer; 
 						break;
 						
-			case 3: 	$skill->ammo_timer+=$amount;
+			case 3: 	$skill->ammo_timer += $amount;
 						$max = $config['max_ammo_reduction'] - $skill->ammo_timer; 
 						break;
 						
 			case 4:  $player->money += (10000000000 * $amount);
-						$max = $skill->trade_points;
+						$max = 10000;
 						break;
 						
-			case 5:	$skill->skill_points += (2 * $amount);
-						$max = $skill->trade_points;
+			case 5:	$skill->skill_points += $amount;
+						$max = 10000;
 						break;
 		}
 		warquest_db_skill_update($skill);	
 				
 		$message = t('HOME_TRADE_SUCCESFULL');
+						
 		$link = warquest_link('mid='.$mid.'&sid='.$sid.'&eid=20&uid='.$uid, t('HOME_TRADE_IN'), "trade");
+			
+		if ($player->gold > 0) {
 		
-		if ($max > $skill->trade_points) {
-			$max = $skill->trade_points;
-		}
+			if (($max*$gold )> $player->gold) {
+				$max = round($player->gold / $gold)-1;
+			}	
 		
-		if ($skill->trade_points>0) {
 			$link .= '<br/><br/>'.t('GENERAL_AMOUNT').'<br/>';		
 			$link .= warquest_amount_selected($max);
 		}
@@ -122,7 +143,7 @@ function warquest_trade_form() {
 	
 	$title = t('HOME_TRADE_TITLE1');
 	
-	$page .= '<div class="subparagraph">'.t('HOME_TRADE_TITLE2', $skill->trade_points).'</div>';
+	$page .= '<div class="subparagraph">'.t('HOME_TRADE_TITLE1').'</div>';
 			
 	$page .= '<div class="box">';
 	
@@ -147,7 +168,7 @@ function warquest_trade_form() {
 	$page .= '<b>'.t('HOME_TRADE1').'</b>';
 	$page .= '</div>';
 		
-	$page .= '<i>'.t('HOME_TRADE1_NOTE').'</i>';
+	$page .= '<i>'.t('HOME_TRADE1_NOTE', gold_format(50)).'</i>';
 	$page .= '<br/><br/>';	
 			
 	$tmp = $config["init_health_timer"] - ($skill->health_timer * 5);	
@@ -184,7 +205,7 @@ function warquest_trade_form() {
 	$page .= '<b>'.t('HOME_TRADE2').'</b>';
 	$page .= '</div>';
 		
-	$page .= '<i>'.t('HOME_TRADE2_NOTE').'</i>';
+	$page .= '<i>'.t('HOME_TRADE2_NOTE', gold_format(50)).'</i>';
 	$page .= '<br/><br/>';	
 	
 	$tmp = $config["init_energy_timer"] - ($skill->energy_timer * 5); 		
@@ -221,7 +242,7 @@ function warquest_trade_form() {
 	$page .= '<b>'.t('HOME_TRADE3').'</b>';
 	$page .= '</div>';
 		
-	$page .= '<i>'.t('HOME_TRADE3_NOTE').'</i>';
+	$page .= '<i>'.t('HOME_TRADE3_NOTE', gold_format(50)).'</i>';
 	$page .= '<br/><br/>';	
 	
 	$tmp = $config["init_ammo_timer"] - ($skill->ammo_timer * 5);		
@@ -258,7 +279,7 @@ function warquest_trade_form() {
 	$page .= '<b>'.t('HOME_TRADE4').'</b>';
 	$page .= '</div>';
 		
-	$page .= '<i>'.t('HOME_TRADE4_NOTE', money_format1(10000000000)).'</i>';
+	$page .= '<i>'.t('HOME_TRADE4_NOTE', gold_format(250), money_format1(10000000000)).'</i>';
 	$page .= '<br/><br/>';		
 	$page .= t('HOME_TRADE_CONDITION').': '.money_format1($player->money).' '.t('GENERAL_DOLLAR');
 			
@@ -286,7 +307,7 @@ function warquest_trade_form() {
 	$page .= '<b>'.t('HOME_TRADE5').'</b>';
 	$page .= '</div>';
 		
-	$page .= '<i>'.t('HOME_TRADE5_NOTE').'</i>';
+	$page .= '<i>'.t('HOME_TRADE5_NOTE', gold_format(200)).'</i>';
 	$page .= '<br/><br/>';	
 	$page .= t('HOME_TRADE_CONDITION').': '.level_format($skill->skill_points).' '.t('HOME_TRADE_SKILL_POINTS');
 		

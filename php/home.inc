@@ -640,18 +640,6 @@ function warquest_daily_bonus() {
 			$player->bank1+=$bonus;		
 			warquest_bank_insert($player->pid, 0, 1, $bonus, $player->bank1, 6);				
 		}	
-	}
-	
-	/* One year WarQuest bonus */
-	if ( date("Y-m-d", strtotime("08-02-2012")) == date("Y-m-d") ) {
-				
-		$message = '<div class="box">';
-		$message .= warquest_image("other/oneyear.jpg").'<br/>';
-		
-		$message .= '<div class="paragraph"><span class="info">'.t('HOME_WARQUEST_ONE_YEAR_TITLE').'</span></div>';
-		$message .= t('HOME_WARQUEST_ONE_YEAR' );		
-	
-		$message = '</div>';
 	}		
 }
 
