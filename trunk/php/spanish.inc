@@ -438,13 +438,6 @@ $lang['HOME_MAP_NOTE'] = 'Cada continente consiste de tres regiones que pueden s
 
 $lang['HOME_TRAVEL_TO'] = 'Viajar a';
 
-$lang['HOME_WARQUEST_ONE_YEAR_TITLE'] = 'WarQuest Fiesta Anual';
-$lang['HOME_WARQUEST_ONE_YEAR'] = 'Hace exactamente un año comenzó el desarrollo de WarQuest. Así que es momento de un 
-pequeño flashback. Ha sido un gran primer año. La version para Windows y la aplicacion de Android fueron descargadas 
-mas de <b>8.500</b> veces. Mas de <b>7.000</b> jugadores se unieron al juego y luego más de <b>5.300.000</b> 
-conexiones al servidor se gestionaron. Debido a este día tan especial, cada jugador recibió <b>10</b> puntos extra para comerciar! 
-Les deseo a todos un buen día y seguir jugando. ¡Salud!';
-
 $lang['HOME_INTRO_PLACE1'] = 'Usted ocupa el <b>%s</b> lugar en la clasificación general '; 
 $lang['HOME_INTRO_PLACE2'] = 'y el <b>%s</b> lugar de la clasificacion de <b>%s</b>. '; 
 $lang['HOME_PLAYERS_ONLINE'] = 'Las ultimas 24 h %s jugadores estuvieron conectados.';

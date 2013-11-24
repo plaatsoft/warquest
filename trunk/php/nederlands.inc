@@ -1972,24 +1972,6 @@ $lang['HELP_STATS_REQUESTS'] = 'Server aanvragen (laatste 14 dagen)';
 ** ------------------
 */
 
-$lang['HELP_DONATE_TITLE1'] = 'Donatie';
-$lang['HELP_DONATE_TITLE2'] = 'Donatie (English only)';
-
-$lang['HELP_SUBTITLE_DONATE1'] = 'General';
-$lang['HELP_DONATE1'] = 'WarQuest software may be used free of charge, but if you wish to express 
-your appreciation for the time and resources the author spent developing and supporting it 
-over the years, and also help reduce the costs of running the web server, we do accept and appreciate 
-donations.';
-
-$lang['HELP_SUBTITLE_DONATE2'] = 'Reward';
-$lang['HELP_DONATE2'] = 'Each dollar donated will be rewarded with 1 trade point. Purchased trade points 
-can be exchanged in to skill points, cash money or can be used to improve your health, energy or ammo 
-restore timer. The reward is manually processed so keep in mind that it takes a few hours before it is available.';
-
-$lang['HELP_SUBTITLE_DONATE3'] = 'PayPal';
-$lang['HELP_DONATE3'] = 'To make a donation online using your credit card, or PayPal account, click 
-below and enter the amount you would like to contribute. Your credit card will be processed by PayPal, 
-a trusted name in secure online transactions. Many thanks for your support.';
 
 /*
 ** ------------------

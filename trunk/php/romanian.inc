@@ -440,12 +440,6 @@
 
  $lang['HOME_TRAVEL_TO'] = 'calatoreste pe';
 
- $lang['HOME_WARQUEST_ONE_YEAR_TITLE'] = 'WarQuest aniversarea de 1 an';
- $lang['HOME_WARQUEST_ONE_YEAR'] = 'exact acum 1 an WarQuest\'s development a inceput. este timpul pentru a ne reaminti.a fost un minunat prim an.Clintul Windows si aplicatia Android au fost downloadate 
- mai mult de <b>8.500</b> ori. mai mult de <b>7.000</b> jucatori s-au inregistrat si peste <b>5.300.000</b> 
- servere au fost pornite.cu ocazia acestei zile fiecare jucator primeste <b>10</b> puncte de schimb! 
- va dorim o zi buna si spor la joc.Bafta!';
-
  $lang['HOME_INTRO_PLACE1'] = 'esti pe locul <b>%s</b> general '; 
  $lang['HOME_INTRO_PLACE2'] = 'si locul <b>%s</b> din <b>%s</b> .'; 
  $lang['HOME_PLAYERS_ONLINE'] = 'in ultimele 24hs %s jucatori au fost on-line.';

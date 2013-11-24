@@ -148,14 +148,14 @@ function warquest_login_header() {
 	$page .= '<table>';
 	$page .= '<tr>';
 	$page .= '<td align="left">';	
-	$page .= warquest_unit_image(rand(1,24),0,0,140,100, 'id="i1"');
+	$page .= warquest_unit_image(rand(101,127),0,0,140,100, 'id="i1"');
 	$page .= '</td>';
 	$page .= '<td align="center" width="100%">';
 	$page .= '<div class="title">'.$config["applName"].'</div>'.'';
 	$page .= '<span class="subparagraph">'.$config["applVersion"].'</span>';
 	$page .= '</td>';	
 	$page .= '<td align="right">';	
-	$page .= warquest_unit_image(rand(101,127),0,0,140,100, 'id="i2"');
+	$page .= warquest_unit_image(rand(201,228),0,0,140,100, 'id="i2"');
 	$page .= '</td>';
 	$page .= '</tr>';
 	$page .= '</table>';
@@ -173,8 +173,8 @@ function warquest_login_header() {
 		$page .= '<br/>';
 	}
 		
-	warquest_login_refresh(1,24,"i1");
-	warquest_login_refresh(101,27,"i2");
+	warquest_login_refresh(101,27,"i1");
+	warquest_login_refresh(201,28,"i2");
 }
 
 /** 
@@ -221,7 +221,7 @@ function warquest_login_footer() {
 	$page .= '<table>';
 	$page .= '<tr>';
 	$page .= '<td align="left">';
-	$page .= warquest_unit_image(rand(201,228),0,0,140,100, 'id="i3"');
+	$page .= warquest_unit_image(rand(301,326),0,0,140,100, 'id="i3"');
 	$page .= '</td>';
 	$page .= '<td width="100%">';
 	
@@ -264,15 +264,15 @@ function warquest_login_footer() {
 
 	$page .= '</td>';	
 	$page .= '<td align="right">';
-	$page .= warquest_unit_image(rand(301,326),0,0,140,100, 'id="i4"');
+	$page .= warquest_unit_image(rand(501,512),0,0,140,100, 'id="i4"');
 	$page .= '</td>';
 	$page .= '</tr>';
 
 	$page .= '</table>';
 	$page .= '</div>';
 				
-	warquest_login_refresh(201,27,"i3");
-	warquest_login_refresh(301,26,"i4");	
+	warquest_login_refresh(301,26,"i3");
+	warquest_login_refresh(501,12,"i4");	
 }
 
 /**

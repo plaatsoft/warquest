@@ -6,19 +6,21 @@ ALTER TABLE `player` ADD `gold` INT NOT NULL AFTER `money_date`;
 
 -- New earth gold building
 
+delete from building where (bid>55 and bid<60);
+
 UPDATE `building` SET `lid` = '42' WHERE `building`.`bid` =54;
 
 INSERT INTO `building` (`bid`, `price`, `gold`, `lid`, `income`, `defense`, `energy`, `discount`, `maintenance`, `max`, `bgid`, `ugid`) 
-		VALUES ('56', 0, '10', '40', '0', '500', '0', '0', '0', '600', '2', '2');
+		VALUES ('56', 0, '10', '40', '0', '450', '0', '0', '0', '600', '2', '2');
 		
 INSERT INTO `building` (`bid`, `price`, `gold`, `lid`, `income`, `defense`, `energy`, `discount`, `maintenance`, `max`, `bgid`, `ugid`) 
-		VALUES ('57', 0, '10', '41', '0', '500', '0', '0', '0', '600', '2', '3');
+		VALUES ('57', 0, '10', '41', '0', '400', '0', '0', '0', '600', '2', '3');
 		
 INSERT INTO `building` (`bid`, `price`, `gold`, `lid`, `income`, `defense`, `energy`, `discount`, `maintenance`, `max`, `bgid`, `ugid`) 
-		VALUES ('58', 0, '10', '41', '0', '500', '0', '0', '0', '600', '2', '4');
+		VALUES ('58', 0, '10', '41', '0', '350', '0', '0', '0', '600', '2', '4');
 
 INSERT INTO `building` (`bid`, `price`, `gold`, `lid`, `income`, `defense`, `energy`, `discount`, `maintenance`, `max`, `bgid`, `ugid`) 
-		VALUES ('59', 0, '10', '45', '0', '750', '0', '0', '0', '600', '2', '6');
+		VALUES ('59', 0, '10', '45', '0', '600', '0', '0', '0', '600', '2', '6');
 
 -- Remove old soldiers calvalry units
 
@@ -44,7 +46,7 @@ UPDATE  building SET  `lid` =  '144' WHERE  bid=710;
 
 -- New Mars gold building
 
-UPDATE  `unit` SET  `lid` =  '194'  WHERE  `unit`.`uid` =1609;
+UPDATE  `unit` SET  `lid` =  '194'  WHERE  `unit`.`uid` = 1609;
 
 UPDATE  `building` SET  `lid` =  '190' WHERE  `building`.`bid` =1210;
 
@@ -76,3 +78,10 @@ INSERT INTO `building` (`bid`, `price`, `gold`, `lid`, `income`, `defense`, `ene
 		
 INSERT INTO `building` (`bid`, `price`, `gold`, `lid`, `income`, `defense`, `energy`, `discount`, `maintenance`, `max`, `bgid`, `ugid`) 
 		VALUES ('1713', 0, '10', '242', '0', '1000', '0', '0', '0', '600', '17', '22');
+		
+		
+-- Convert tradepoints
+
+UPDATE player a left join skill b on a.pid=b.pid set a.gold=(b.trade_points*500);
+
+TABLE `skill` DROP `trade_points`;
