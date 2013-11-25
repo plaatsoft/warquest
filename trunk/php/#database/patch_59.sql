@@ -8,10 +8,11 @@ ALTER TABLE `player` ADD `gold` INT NOT NULL AFTER `money_date`;
 
 UPDATE player a left join skill b on a.pid=b.pid set a.gold=(b.trade_points*500);
 
-ALTER TABLE skill DROP trade_points;
-
 /* Add initial gold to player */
 UPDATE player a set a.gold=(a.gold+500);
+
+ALTER TABLE skill DROP trade_points;
+
 
 -- New earth gold buildings
 
@@ -20,16 +21,16 @@ delete from building where (bid>55 and bid<60);
 UPDATE `building` SET `lid` = '42' WHERE `building`.`bid` =54;
 
 INSERT INTO `building` (`bid`, `price`, `gold`, `lid`, `income`, `defense`, `energy`, `discount`, `maintenance`, `max`, `bgid`, `ugid`) 
-		VALUES ('56', 0, '10', '40', '0', '450', '0', '0', '0', '600', '2', '2');
+		VALUES ('56', 0, '10', '40', '0', '370', '0', '0', '0', '600', '2', '2');
 		
 INSERT INTO `building` (`bid`, `price`, `gold`, `lid`, `income`, `defense`, `energy`, `discount`, `maintenance`, `max`, `bgid`, `ugid`) 
-		VALUES ('57', 0, '10', '41', '0', '400', '0', '0', '0', '600', '2', '3');
+		VALUES ('57', 0, '10', '41', '0', '300', '0', '0', '0', '600', '2', '3');
 		
 INSERT INTO `building` (`bid`, `price`, `gold`, `lid`, `income`, `defense`, `energy`, `discount`, `maintenance`, `max`, `bgid`, `ugid`) 
-		VALUES ('58', 0, '10', '41', '0', '350', '0', '0', '0', '600', '2', '4');
+		VALUES ('58', 0, '10', '41', '0', '250', '0', '0', '0', '600', '2', '4');
 
 INSERT INTO `building` (`bid`, `price`, `gold`, `lid`, `income`, `defense`, `energy`, `discount`, `maintenance`, `max`, `bgid`, `ugid`) 
-		VALUES ('59', 0, '10', '45', '0', '600', '0', '0', '0', '600', '2', '6');
+		VALUES ('59', 0, '10', '45', '0', '375', '0', '0', '0', '600', '2', '6');
 
 -- Remove old soldiers calvalry units
 
@@ -46,7 +47,7 @@ INSERT INTO `building` (`bid`, `price`, `gold`, `lid`, `income`, `defense`, `ene
 		VALUES ('717', 0, '10', '147', '0', '1100', '0', '0', '0', '600', '7', '8');
 		
 INSERT INTO `building` (`bid`, `price`, `gold`, `lid`, `income`, `defense`, `energy`, `discount`, `maintenance`, `max`, `bgid`, `ugid`) 
-		VALUES ('718', 0, '10', '147', '0', '1000', '0', '0', '0', '600', '7', '9');
+		VALUES ('718', 0, '10', '149', '0', '1000', '0', '0', '0', '600', '7', '9');
 		
 INSERT INTO `building` (`bid`, `price`, `gold`, `lid`, `income`, `defense`, `energy`, `discount`, `maintenance`, `max`, `bgid`, `ugid`) 
 		VALUES ('719', 0, '10', '148', '0', '1100', '0', '0', '0', '600', '7', '12');
@@ -88,6 +89,8 @@ INSERT INTO `building` (`bid`, `price`, `gold`, `lid`, `income`, `defense`, `ene
 		VALUES ('1713', 0, '10', '243', '0', '1000', '0', '0', '0', '600', '17', '22');
 		
 -- Add Earth Gold Units
+
+UPDATE `unit` SET `price` = '500' WHERE `unit`.`uid` =1;
 
 UPDATE  `unit` SET  `lid` =  '94' WHERE  `unit`.`uid` =127;
 

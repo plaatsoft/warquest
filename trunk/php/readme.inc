@@ -18,7 +18,7 @@
 
 $notes = '
 
-<span class="subparagraph2">24-11-2013</span><br/>
+<span class="subparagraph2">25-11-2013</span><br/>
 <i>Game Server v5.9</i><br/>
 - Added premium gold features:</br>
 &nbsp;&nbsp;- Added 16 gold defence buildings.</br>
