@@ -1404,7 +1404,7 @@ $lang['UNIT_509'] = 'AS-102 Stealth Ship';
 $lang['UNIT_510'] = 'US-101 Predator';
 $lang['UNIT_511'] = 'Heron Drone';
 $lang['UNIT_512'] = 'HG101 Satellite';
-$lang['UNIT_513'] = '';
+$lang['UNIT_513'] = 'Aurora Hypersonic Spy';
 
 /* ---------------------------------------------------- */
 
@@ -2311,12 +2311,12 @@ Purchase gold can be used to buy premium units & buildings or can be exchanged i
 Benefits of gold buildings:<br/>
 - Higher defence strength the normal buildings<br/>
 - No hourly cost<br/>
-- In-mortal during fights<br>
-<br/><br/>
+- Immortal during fights<br>
+<br/>
 Benefits of gold units:<br/>
 - Higher attack / defence strength the normal units<br/>
 - 50% lower hourly cost the normal units<br/>
-- In-mortal during fights<br>';
+- Immortal during fights';
 
 $lang['HELP_TACTICS_TITLE'] = 'Tactics';
 $lang['HELP_TACTICS'] = 'One thing to keep in mind is that units used in missions are also subject to 

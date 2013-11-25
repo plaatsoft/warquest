@@ -141,7 +141,8 @@ function warquest_robot_trade($other, $planet) {
 		case 2:  /* Robot sell some units */		
 					$query  = 'select a.uid, a.price, b.amount from unit a left join player_unit b on a.uid=b.uid ';
 					$query .= 'left join unit_group c on a.ugid=c.ugid ';
-					$query .= 'where b.pid='.$other->pid.' and c.planet='.$planet.' and c.type!=6 and b.amount>2 order by rand() limit 0, 1';
+					$query .= 'where b.pid='.$other->pid.' and c.planet='.$planet.' and c.type!=6 and b.amount>2 and a.gold=0 ';
+					$query .= 'order by rand() limit 0, 1';
 								
 					$result = warquest_db_query($query);	
 					while ($data = warquest_db_fetch_object($result)) {
@@ -150,8 +151,6 @@ function warquest_robot_trade($other, $planet) {
 						$other->money += $total * $data->price;								
 							
 						warquest_db_unit_delete($other->pid, $data->uid, $total);			
-						
-						//echo 'Sell '.$total.' '.t('UNIT_'.$data->uid).' unit(s).<br/>';
 					}
 					break;
 										
@@ -161,7 +160,7 @@ function warquest_robot_trade($other, $planet) {
 						$tmp=0;
 					}
 					$query  = 'select bid, price, max from building where lid between '.$tmp.' and '.$other->lid.' ';
-					$query .= 'order by rand() limit 0, 1';
+					$query .= 'and gold=0 order by rand() limit 0, 1';
 					
 					$result = warquest_db_query($query);	
 					while ($data = warquest_db_fetch_object($result)) {
@@ -182,8 +181,6 @@ function warquest_robot_trade($other, $planet) {
 						if ($total>0) {
 							$other->money -= $total * $data->price;								
 							warquest_db_building_add($other->pid, $data->bid, $total);
-														
-							//echo 'Buy '.$total.' '.t('UNIT_'.$data->bid).' building(s).<br/>';	
 						}
 					}
 					break;

@@ -342,7 +342,7 @@ function warquest_restore_form() {
 		$page .= t('PLAYER_BUILDINGS_CONDITION').': '.indication_format($tmp1,1);
 		$page .= '<br/>';
 		$page .= t('PLAYER_REPAIR_PRICE').': ';
-		$page .= dollar_format1($tmp);			
+		$page .= dollar_format($tmp);			
 		
 		$page .= '</td>';
 		$page .= '</tr>';	
