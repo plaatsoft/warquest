@@ -1015,7 +1015,7 @@ function warquest_lootoption($level) {
 	{		
 		$query  = 'select a.uid, a.defense, a.attack, a.upkeep from unit a ';
 		$query .= 'left join unit_group b on a.ugid=b.ugid where ';
-		$query .= 'b.type in (1,2,3,4,5) and b.planet='.$player->planet;
+		$query .= 'b.type in (1,2,3,4,5) and a.gold=0 and b.planet='.$player->planet;
 		
 		/* Get max level related to active planet */
 		$max = $level;
@@ -2508,7 +2508,7 @@ function warquest_ui_header( $title = "") {
 	}
  
 	$page .= '<link href="'.$config["content_url"].'images/favicon.ico" rel="shortcut icon" type="image/x-icon" />'; 
-	$page .= '<link href="'.$config["content_url"].'css/general.css" rel="stylesheet" type="text/css" />';
+	$page .= '<link href="'.$config["content_url"].'css/general3.css" rel="stylesheet" type="text/css" />';
 
 	if (($mid==MENU_MONEY) && ($sid==PAGE_STOCK_EXCHANGE)) {	
 		$page .= '<link href="'.$config["content_url"].'css/jquery.css" rel="stylesheet" type="text/css" />';
@@ -2616,17 +2616,20 @@ function warquest_ui_banner() {
 	
 	$page .= '<td valign="top" width="180">';
 	$page .= warquest_link_hidden('mid='.MENU_ALLIANCE.'&sid='.PAGE_BEST_PLAYER, t('STATUS_CASH')).': ';
-	$page .= '<span id="moneyvalue"></span>';
+	$page .= '<span class="value" id="moneyvalue"></span>';
 	if (($player->money_step!=0) && ($player->holiday_date <= date("Y-m-d H:i:s", time()))) {	
 		$page .= '<br/>';
 		$page .= '<span class="timer">'.money_format1($player->money_step).' in </span>';
-		$page .= '<span class="timer" id="moneycountdown"></span>';	
+		$page .= '<span class="timer" id="moneycountdown"></span> ';
+	}
+	if ($player->gold>0) {
+		$page .= ' - <span class="timer">'.gold_format($player->gold).'</span>';
 	}
 	$page .= '</td>';
 	
 	$page .= '<td valign="top" width="180">';
 	$page .= warquest_link_hidden('mid='.MENU_ALLIANCE.'&sid='.PAGE_BEST_COUNTRY, t('STATUS_EXP')).': ';
-	$page .= '<span class="experience">'.number_format($player->experience,0,",",".");
+	$page .= '<span class="value experience">'.number_format($player->experience,0,",",".");
 	$page .= '</span>';
 	if ($player->lid!=$config["max_level"]) {
 		$page .= ' / '.number_format($level->experience,0,",",".");
@@ -2650,7 +2653,7 @@ function warquest_ui_banner() {
 	
 	$page .= '<td valign="top">';
 	$page .= warquest_link_hidden('mid='.MENU_FORUMS.'&sid='.PAGE_FORUM, t('STATUS_LEVEL')).': ';
-	$page .= '<span class="level">'.$player->lid.'</span>';
+	$page .= '<span class="value level">'.$player->lid.'</span>';
 	if ($player->lid>1) {
 		$page .= '<br/><span class="timer">'.t('STATUS_ALLIANCE_SIZE').': ';
 		$page .= alliance_format($player->alliance).' / '.($player->lid*$config["max_ally_factor"]).'</span>';
@@ -2669,21 +2672,21 @@ function warquest_ui_banner() {
 	}
 		
 	$page .= warquest_link_hidden('mid='.MENU_HOME.'&sid='.PAGE_RESTORE, t('STATUS_HEALTH')).': ';
-	$page .= '<span class="health" id="healthvalue"></span> / '.number_format($skill->health_max,0,",",".");
+	$page .= '<span class="value health" id="healthvalue"></span> / '.number_format($skill->health_max,0,",",".");
 	$page .= '<br/>';
 	$page .= '<span class="timer" id="healthcountdown"></span>';
 	$page .= '</td>';
 		
 	$page .= '<td valign="top" >';
 	$page .= warquest_link_hidden('mid='.MENU_HOME.'&sid='.PAGE_PROFILE, t('STATUS_ENERGY')).': ';
-	$page .= '<span class="energy" id="energyvalue"></span> / '.number_format($skill->energy_max,0,",",".");
+	$page .= '<span class="value energy" id="energyvalue"></span> / '.number_format($skill->energy_max,0,",",".");
 	$page .= '<br/>';
 	$page .= '<span class="timer" id="energycountdown"></span>';
 	$page .= '</td>';
 	
 	$page .= '<td valign="top">';
 	$page .= warquest_link_hidden('mid='.MENU_HOME.'&sid='.PAGE_SKILLS, t('STATUS_AMMO')).': ';
-	$page .= '<span class="ammo" id="ammovalue"></span> / '.$skill->ammo_max;
+	$page .= '<span class="value ammo" id="ammovalue"></span> / '.$skill->ammo_max;
 	$page .= '<br/>';
 	$page .= '<span class="timer" id="ammocountdown"></span>';
 	$page .= '</td>';
@@ -2701,7 +2704,7 @@ function warquest_ui_banner() {
 	if (($player->money_date!=0) && ($player->holiday_date <= date("Y-m-d H:i:s", time()))) {
 		$diff=strtotime($player->money_date) - strtotime(date("Y-m-d H:i:s"));
 	}
-	$page .= 'moneytimer('.$diff.','.$player->money.','.$player->money_step.','.$player->gold.');';
+	$page .= 'moneytimer('.$diff.','.$player->money.','.$player->money_step.');';
 	$page .= 'moneycountdown();';
 
 	$diff=-1;

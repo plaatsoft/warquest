@@ -159,9 +159,13 @@ a:hover {
 	background-color: red;
 }
 
-.banner {	
-	font-weight: bold;
+.banner {		
 	font-size: 1.0em;
+}
+
+.value {
+	font-size: 1.1em;
+	font-weight: bold;
 }
 
 .note {
@@ -257,11 +261,11 @@ a:hover {
 }
 
 .discount {
-	color:rgb(0,10,240);
+	color:rgb(0,150,240);
 }
 
 .maintenance {
-	color:rgb(0,10,240);
+	color:rgb(0,150,240);
 }
 
 .alliance {

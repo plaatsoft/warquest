@@ -38,7 +38,7 @@ function warquest_trade_do() {
 	
 	$gold = $config["gold_trade_feature".$uid];	
 	$totalGold = $amount * $gold;
-						
+							
 	if ($totalGold > $player->gold) {
 				
 		$message = t('HOME_TRADE_NO_GOLD', gold_format($totalGold));
@@ -94,6 +94,9 @@ function warquest_trade_do() {
 
 			if (($max*$gold )> $player->gold) {
 				$max = round($player->gold / $gold)-1;
+				if ($max<0) {
+					$max=0;
+				}
 			}	
 		
 			$link  = warquest_link('mid='.$mid.'&sid='.$sid.'&eid=20&uid='.$uid, t('HOME_TRADE_IN'), "trade");

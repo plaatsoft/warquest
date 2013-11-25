@@ -49,7 +49,7 @@ INSERT INTO `building` (`bid`, `price`, `gold`, `lid`, `income`, `defense`, `ene
 		VALUES ('718', 0, '10', '147', '0', '1000', '0', '0', '0', '600', '7', '9');
 		
 INSERT INTO `building` (`bid`, `price`, `gold`, `lid`, `income`, `defense`, `energy`, `discount`, `maintenance`, `max`, `bgid`, `ugid`) 
-		VALUES ('719', 0, '10', '147', '0', '1100', '0', '0', '0', '600', '7', '12');
+		VALUES ('719', 0, '10', '148', '0', '1100', '0', '0', '0', '600', '7', '12');
 		
 UPDATE  building SET  `lid` =  '144' WHERE  bid=710;
 
@@ -85,7 +85,7 @@ INSERT INTO `building` (`bid`, `price`, `gold`, `lid`, `income`, `defense`, `ene
 		VALUES ('1712', 0, '10', '242', '0', '900', '0', '0', '0', '600', '17', '21');
 		
 INSERT INTO `building` (`bid`, `price`, `gold`, `lid`, `income`, `defense`, `energy`, `discount`, `maintenance`, `max`, `bgid`, `ugid`) 
-		VALUES ('1713', 0, '10', '242', '0', '1000', '0', '0', '0', '600', '17', '22');
+		VALUES ('1713', 0, '10', '243', '0', '1000', '0', '0', '0', '600', '17', '22');
 		
 -- Add Earth Gold Units
 
@@ -112,17 +112,19 @@ INSERT INTO `unit` (`uid`, `lid`, `price`, `gold`, `attack`, `defense`, `max`, `
 -- Add Moon Gold Units
 
 INSERT INTO `unit` (`uid`, `lid`, `price`, `gold`, `attack`, `defense`, `max`, `ugid`, `upkeep`) 
-	VALUES ('711', '146', '0', '10', '725', '675', '5000', '7', '32500');
+	VALUES ('711', '145', '0', '10', '725', '675', '5000', '7', '32500');
 
 INSERT INTO `unit` (`uid`, `lid`, `price`, `gold`, `attack`, `defense`, `max`, `ugid`, `upkeep`) 
 	VALUES ('811', '149', '0', '10', '225', '200', '5000', '8', '12500');	
 
 UPDATE  `unit` SET  `lid` =  '147' WHERE  `unit`.`uid` =810;
 
+UPDATE `unit` SET `lid` = '147' WHERE `unit`.`uid` = 916;
+
 INSERT INTO `unit` (`uid`, `lid`, `price`, `gold`, `attack`, `defense`, `max`, `ugid`, `upkeep`) 
 	VALUES ('917', '148', '0', '10', '5525', '4425', '5000', '9', '100000');		
 	
-UPDATE  `unit` SET  `lid` =  '148' WHERE  `unit`.`uid` =1211;
+UPDATE `unit` SET  `lid` =  '148' WHERE  `unit`.`uid` =1211;
 
 INSERT INTO `unit` (`uid`, `lid`, `price`, `gold`, `attack`, `defense`, `max`, `ugid`, `upkeep`) 
 	VALUES ('1212', '149', '0', '10', '2775', '2425', '5000', '12', '22500');		
@@ -130,10 +132,10 @@ INSERT INTO `unit` (`uid`, `lid`, `price`, `gold`, `attack`, `defense`, `max`, `
 -- Add Mars Gold Units
 
 INSERT INTO `unit` (`uid`, `lid`, `price`, `gold`, `attack`, `defense`, `max`, `ugid`, `upkeep`) 
-	VALUES ('1310', '196', '0', '10', '675', '575', '5000', '13', '25000');
+	VALUES ('1310', '199', '0', '10', '675', '575', '5000', '13', '25000');
 	
 INSERT INTO `unit` (`uid`, `lid`, `price`, `gold`, `attack`, `defense`, `max`, `ugid`, `upkeep`) 
-	VALUES ('1410', '196', '0', '10', '1775', '1725', '5000', '14', '60000');
+	VALUES ('1410', '197', '0', '10', '1775', '1725', '5000', '14', '60000');
 
 INSERT INTO `unit` (`uid`, `lid`, `price`, `gold`, `attack`, `defense`, `max`, `ugid`, `upkeep`) 
 	VALUES ('1510', '197', '0', '10', '3625', '3825', '5000', '15', '175000');	
@@ -153,6 +155,6 @@ INSERT INTO `unit` (`uid`, `lid`, `price`, `gold`, `attack`, `defense`, `max`, `
 	VALUES ('2110', '246', '0', '10', '3625', '3825', '5000', '21', '175000');
 
 INSERT INTO `unit` (`uid`, `lid`, `price`, `gold`, `attack`, `defense`, `max`, `ugid`, `upkeep`) 
-	VALUES ('2210', '240', '0', '10', '1825', '1825', '5000', '21', '125000');
+	VALUES ('2210', '240', '0', '10', '1825', '1825', '5000', '22', '125000');
 		
 	
