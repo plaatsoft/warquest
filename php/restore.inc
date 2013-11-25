@@ -259,7 +259,7 @@ function warquest_restore_form() {
 		$page .= t('PLAYER_HEALTH_CONDITION').': '.level_format(round(($player->health / $skill->health_max)*100)).'%';
 		$page .= '<br/>';
 		$page .= t('PLAYER_RESTORE_PRICE').': ';
-		$page .= money_format1($tmp).' '.t('GENERAL_DOLLAR');			
+		$page .= dollar_format($tmp);			
 		$page .= '</td>';
 		
 		$page .= '</tr>';	
@@ -300,7 +300,7 @@ function warquest_restore_form() {
 		$page .= t('PLAYER_UNITS_CONDITION').': '.indication_format($tmp1,1);
 		$page .= '<br/>';
 		$page .= t('PLAYER_REPAIR_PRICE').': ';
-		$page .= money_format1($tmp).' '.t('GENERAL_DOLLAR');		
+		$page .= dollar_format($tmp);		
 	
 		$page .= '</td>';
 		$page .= '</tr>';	
@@ -342,7 +342,7 @@ function warquest_restore_form() {
 		$page .= t('PLAYER_BUILDINGS_CONDITION').': '.indication_format($tmp1,1);
 		$page .= '<br/>';
 		$page .= t('PLAYER_REPAIR_PRICE').': ';
-		$page .= money_format1($tmp).' '.t('GENERAL_DOLLAR');			
+		$page .= dollar_format1($tmp);			
 		
 		$page .= '</td>';
 		$page .= '</tr>';	
@@ -379,7 +379,7 @@ function warquest_restore_form() {
 		$page .= t('PLAYER_REBELLION_CONDITION').': '.indication_format($player->rebel_status,0);
 		$page .= '<br/>';
 		$page .= t('PLAYER_RESTORE_PRICE').': ';
-		$page .= money_format1($tmp).' '.t('GENERAL_DOLLAR');		
+		$page .= dollar_format($tmp);		
 	
 		$page .= '</td>';
 		$page .= '</tr>';
@@ -430,7 +430,7 @@ function warquest_restore_form() {
 		$page .= t('PLAYER_ENERGY_CONDITION').': '.level_format(round(($player->energy / $skill->energy_max)*100)).'%';
 		$page .= '<br/>';
 		$page .= t('PLAYER_RESTORE_PRICE').': ';
-		$page .= money_format1($tmp).' '.t('GENERAL_DOLLAR');		
+		$page .= dollar_format($tmp);		
 	
 		$page .= '</td>';
 		$page .= '</tr>';
@@ -481,7 +481,7 @@ function warquest_restore_form() {
 		$page .= t('PLAYER_AMMO_CONDITION').': '.level_format(round(($player->ammo / $skill->ammo_max)*100)).'%';
 		$page .= '<br/>';
 		$page .= t('PLAYER_RESTORE_PRICE').': ';
-		$page .= money_format1($tmp).' '.t('GENERAL_DOLLAR');		
+		$page .= dollar_format($tmp);		
 	
 		$page .= '</td>';
 		$page .= '</tr>';
@@ -547,7 +547,7 @@ function warquest_restore_form() {
 		$page .= '<i>'.t('PLAYER_CEASE_FIRE_NOTE').'</i>';
 		$page .= '<br/><br/>';	
 		$page .= t('PLAYER_RESTORE_PRICE_PER_DAY').': ';
-		$page .= money_format1($tmp).' '.t('GENERAL_DOLLAR');		
+		$page .= dollar_format($tmp);		
 	
 		$page .= '</td>';
 		$page .= '</tr>';
@@ -618,7 +618,7 @@ function warquest_restore_form() {
 		$page .= '<i>'.t('PLAYER_HOLIDAY_NOTE').'</i>';
 		$page .= '<br/><br/>';	
 		$page .= t('PLAYER_RESTORE_PRICE_PER_DAY').': ';
-		$page .= money_format1($tmp).' '.t('GENERAL_DOLLAR');		
+		$page .= dollar_format($tmp);		
 	
 		$page .= '</td>';
 		$page .= '</tr>';

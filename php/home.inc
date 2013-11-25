@@ -775,26 +775,25 @@ function warquest_home_welcome() {
 	
 	$query =  'select count(*) as count, sum(request) as request, sum(won) as won from player';
 	$result = warquest_db_query($query); 
-	$data=warquest_db_fetch_object($result);
+	$data = warquest_db_fetch_object($result);
 		
 	$query =  'select distinct(country) from player';
 	$result = warquest_db_query($query); 
-	$count=warquest_db_num_rows($result);
+	$count = warquest_db_num_rows($result);
 		
 	$ranking = floor($player->experience/30) + $player->won - $player->lost;
 	$query =  'select pid from player where country="'.$player->country.'" and ((experience/30)+won-lost)>='.$ranking;
 	$result = warquest_db_query($query);
-	$count2=warquest_db_num_rows($result);
+	$count2 = warquest_db_num_rows($result);
 		
 	$query =  'select pid from player where ((experience/30)+won-lost)>='.$ranking.' and country!="EU"';
 	$result = warquest_db_query($query);
-	$count3=warquest_db_num_rows($result);
+	$count3 = warquest_db_num_rows($result);
 	
-
 	$yesterday = mktime(date("H"), date("i"), date("s"), date("m"), date("d")-1, date("Y"));
 	$query4  = 'select count(*) as count from member where last_login > "'.date("Y-m-d H:i:s", $yesterday).'" ';		
 	$result4 = warquest_db_query($query4);
-	$data4=warquest_db_fetch_object($result4);
+	$data4 =  warquest_db_fetch_object($result4);
 		
 	$page .= '<div class="subparagraph">'.t('HOME_OVERVIEW_TITLE').'</div>';
 	
@@ -847,14 +846,6 @@ function warquest_home_welcome() {
 		$page .= t('HOME_INTRO_BUILDINGS', warquest_link('mid='.MENU_BUILDINGS.'&sid='.$data2->bgid, t('LINK_BUILDINGS'), 'building1'));
 		$page .= t('HOME_INTRO_ENEMY');
 		$page .= '<br/>';			
-	}
-	
-	if ( $config["home_banner"]==1 ) {
-		$page .= '<br/>';
-		$page .= '<center>';
-		$page .= warquest_link('mid='.$mid.'&sid='.$sid.'&eid=10', warquest_image('other/ad.gif'), 'banner');
-		$page .= '</center>';
-		$page .= '<br/>';
 	}
 	
 	$page .= warquest_show_ads();

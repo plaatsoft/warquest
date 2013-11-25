@@ -32,20 +32,27 @@ define('DEBUG', 0);
 $config["dbuser"]							= "";
 $config["dbpass"]							= "";
 $config["dbname"]							= "";
-$config["dbhost"]							= "localhost";
+$config["dbhost"]							= "127.0.0.1";
 $config["content_url"]					= "";
 $config["base_url"]						= "http://www.warquest.nl";
 $config['backup_period']   		   = 30;
 $config["webservices"]					= 1;
 
 /* Server version */
-$config["applVersion"]					= 'Version 5.8';
+$config["applVersion"]					= 'Version 5.9';
 
 /* Client version settings */
 $config["windows_client_version"]	= '1.4';
 $config["windows_client_url"] 		= 'http://www.plaatsoft.nl/download/41/';
 $config["android_client_version"]	= '2.6';
-$config["home_banner"] 					= 0;
+
+/* Gold features */
+$config["gold_dollar_ratio"]			= 500;
+$config["gold_trade_feature1"]		= 50;
+$config["gold_trade_feature2"]		= 50;
+$config["gold_trade_feature3"]		= 50;
+$config["gold_trade_feature4"]		= 250;
+$config["gold_trade_feature5"]		= 200;
 
 /*
 ** ---------------------------------------------------------------- 

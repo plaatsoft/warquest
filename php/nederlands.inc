@@ -89,7 +89,7 @@ $lang['LINK_SKILLS'] = 'Vaardigheid';
 $lang['LINK_RECRUIT']  = 'Werven';
 $lang['LINK_INCREASE'] = 'Verhoog';
 $lang['LINK_DECREASE'] = 'Verlaag';
-$lang['LINK_RESTORE_NOW']  = 'Herstel voor %s euro';
+$lang['LINK_RESTORE_NOW']  = 'Herstel voor %s dollar';
 $lang['LINK_CHANGE'] = 'Wijzig';
 $lang['LINK_REPORT'] = 'Rapport';
 $lang['LINK_BOUNTY'] = 'Premie';
@@ -179,7 +179,7 @@ $lang['AGO_SECS']  = ' sec';
 
 $lang['COPYRIGHT'] = 'Copyright © 2008-2013 - Alle rechten voorbehouden - <a target="new" href="http://www.plaatsoft.nl">PlaatSoft</a>';
 
-$lang['STATUS_MONEY']  = 'Geld';
+$lang['STATUS_CASH']  = 'Geld';
 $lang['STATUS_EXP']  = 'Erv.';
 $lang['STATUS_LEVEL']  = 'Nivo';
 $lang['STATUS_HEALTH'] = 'Gezondheid';
@@ -191,8 +191,8 @@ $lang['BOX_INFO'] = 'INFORMATIE';
 $lang['BOX_WARN'] = 'WAARSCHUWING';
 $lang['BOX_ERROR'] = 'ERROR';
 
-$lang['GENERAL_NEXT_LEVEL'] = 'Geweldig! Je hebt het volgende nivo bereikt! Je ontvangt %s ervaringspunten en %s euro. Je gezondheid, energie en munitie is hersteld.';
-$lang['GENERAL_BATTLE_LEVEL'] = 'Briljant! Je hebt %s gevechten gewonnen. Je hebt %s ervaringspunt(en) en %s euro verdiend.';
+$lang['GENERAL_NEXT_LEVEL'] = 'Geweldig! Je hebt het volgende nivo bereikt! Je ontvangt %s ervaringspunten en %s dollar. Je gezondheid, energie en munitie is hersteld.';
+$lang['GENERAL_BATTLE_LEVEL'] = 'Briljant! Je hebt %s gevechten gewonnen. Je hebt %s ervaringspunt(en) en %s dollar verdiend.';
 $lang['GENERAL_BOUNTY_LEVEL'] = 'Great! You have set %s bounties and received %s extra skill point(s) and %s dollars.';
 $lang['GENERAL_REBEL_LEVEL'] = 'Great! You started %s rebellions and received %s extra skill point(s) and %s dollars.';
 $lang['GENERAL_BATTLE_AWARD_WON'] = 'gevechten gewonnen';
@@ -207,7 +207,7 @@ $lang['GENERAL_DEFENSE'] = 'verdediging';
 $lang['GENERAL_INCOME'] = 'inkomen';
 $lang['GENERAL_ENERGY'] = 'energie';
 $lang['GENERAL_EXPERIENCE']  = 'ervaringspunten';
-$lang['GENERAL_DOLLAR'] = 'euro';
+$lang['GENERAL_DOLLAR'] = 'dollar';
 $lang['GENERAL_ALLIANCE_SIZE'] = 'alliantie grootte';
 $lang['GENERAL_EXPERIENCE_POINTS'] = 'ervaringspunten';
 $lang['GENERAL_UPKEEP'] = 'Uur prijs';
@@ -425,7 +425,7 @@ $lang['HOME_CLICK_HERE'] = 'hier';
 $lang['HOME_CLICK_TEXT'] = 'Klik %s om de download te starten.';
 
 $lang['HOME_EMAIL_MISSING'] = 'Je email adres ontbreekt!';
-$lang['HOME_DAILY_BONUS'] = 'Je hebt %s euro gevonden op een vijandelijke locatie!';
+$lang['HOME_DAILY_BONUS'] = 'Je hebt %s dollar gevonden op een vijandelijke locatie!';
 
 $lang['HOME_WELCOME'] = 'Welkom';
 $lang['HOME_LAST_LOGIN'] = 'Laatste bezoek was <b>%s</b> geleden.';
@@ -528,10 +528,10 @@ $lang['HOME_BATTLE_YOU_LOST'] = 'Je <b>verloor</b>! ';
 $lang['HOME_BATTLE_YOU_EXP'] = 'Je ervaring steeg met %s  ';
 $lang['HOME_BATTLE_TOOK_DAMAGE'] = 'en liep %s schade op.';
 $lang['HOME_BATTLE_TAKING_DAMAGE'] = 'en liep %s schade op.';
-$lang['HOME_BATTLE_YOU_MONEY'] = 'Je verloor %s euro ';
+$lang['HOME_BATTLE_YOU_MONEY'] = 'Je verloor %s dollar ';
 $lang['HOME_BATTLE_NO_NEWS'] = 'Geen nieuws beschikbaar op dit moment!';
 
-$lang['HOME_BOUNTY_NEWS'] = '%s heeft %s euro op jouw hoofd gezet. Als je verslagen wordt verlies je %s ervaringspunten.';
+$lang['HOME_BOUNTY_NEWS'] = '%s heeft %s dollar op jouw hoofd gezet. Als je verslagen wordt verlies je %s ervaringspunten.';
 
 /*
 ** ------------------
@@ -582,41 +582,41 @@ $lang['PLAYER_RESTORE_SUBTITLE2'] = 'Reparatie';
 $lang['PLAYER_RESTORE_UNLOCKED'] = 'Herstel & Reparatie is ontgrendeld in nivo %s.';
 $lang['PLAYER_RESTORE_PRICE'] = 'Herstel prijs';
 $lang['PLAYER_REPAIR_PRICE'] = 'Repareer prijs';
-$lang['PLAYER_RESTORED_FAILED'] = 'Je bezit geen %s euro om deze actie uit te voeren!';
+$lang['PLAYER_RESTORED_FAILED'] = 'Je bezit geen %s dollar om deze actie uit te voeren!';
 
 $lang['PLAYER_HEALTH_TITLE'] = 'Herstel gezondheid';
 $lang['PLAYER_HEALTH_NOTE'] = 'Betaal het ziekenhuis om je gezondheid meteen te herstellen. Herstel kan maar een keer per 10 minuten gebruikt worden. Gezondheid hersteld ook automatisch.';		
 $lang['PLAYER_HEALTH_CONDITION'] = 'Gezondheid conditie';
-$lang['PLAYER_HEALTH_RESTORED'] = 'Gezondheid is hersteld voor %s euro.';
+$lang['PLAYER_HEALTH_RESTORED'] = 'Gezondheid is hersteld voor %s dollar.';
 $lang['PLAYER_HEALTH_CONFIRM'] = 'Wil je echt je gezondheid herstellen?';
 
 $lang['PLAYER_ENERGY_TITLE'] = 'Herstel energie';
 $lang['PLAYER_ENERGY_NOTE'] = 'Betaal de oliemaatschappij om je energie meteen te herstellen. Herstel kan maar een keer per 24 uur gebruikt worden. Energie hersteld ook automatisch.';	
 $lang['PLAYER_ENERGY_CONDITION'] = 'Energie conditie';
-$lang['PLAYER_ENERGY_RESTORED'] = 'Energie is hersteld voor %s euro.';
+$lang['PLAYER_ENERGY_RESTORED'] = 'Energie is hersteld voor %s dollar.';
 $lang['PLAYER_ENERGY_CONFIRM'] = 'Wil je echt je energie herstellen?';
 
 $lang['PLAYER_AMMO_TITLE'] = 'Herstel munitie';
 $lang['PLAYER_AMMO_NOTE'] = 'Betaal de wapenleverancier om je munitie meteen te herstellen. Herstel kan maar een keer per 24 uur gebruikt worden. Munitie hersteld ook automatisch.';	
 $lang['PLAYER_AMMO_CONDITION'] = 'Munitie conditie';
-$lang['PLAYER_AMMO_RESTORED'] = 'Munitie is hersteld voor %s euro.';
+$lang['PLAYER_AMMO_RESTORED'] = 'Munitie is hersteld voor %s dollar.';
 $lang['PLAYER_AMMO_CONFIRM'] = 'Wil je echt je munitie herstellen?';
 
 $lang['PLAYER_CEASE_FIRE_TITLE'] = 'Wapenstilstand';
 $lang['PLAYER_CEASE_FIRE_NOTE'] = 'Herstel door een wapenstilstand te activeren. Tijdens de wapenstilstand kan niemand je aanvallen, maar jij kan ook niemand aanvallen.';	
-$lang['PLAYER_CEASE_FIRE_ACTIVATED'] = 'Wapenstilstand geactiveerd voor %s euro.';
+$lang['PLAYER_CEASE_FIRE_ACTIVATED'] = 'Wapenstilstand geactiveerd voor %s dollar.';
 $lang['PLAYER_CEASE_FIRE_CONFIRM'] = 'Wil je echt een wapenstilstand periode activeren?';
 
 $lang['PLAYER_UNITS_TITLE'] = 'Repareer eenheden';
 $lang['PLAYER_UNITS_NOTE'] = 'Repareer je eenheden van je leger. Als eenheden conditie 0% wordt verlies je een aantal eenheden en de overige eenheden worden automatisch gerepareerd.';	
 $lang['PLAYER_UNITS_CONDITION'] = 'Eenheden conditie';
-$lang['PLAYER_UNITS_REPAIRED'] = 'Je eenheden zijn gerepareert voor %s euro.';
+$lang['PLAYER_UNITS_REPAIRED'] = 'Je eenheden zijn gerepareert voor %s dollar.';
 $lang['PLAYER_UNITS_CONFIRM'] = 'Wil je echt je eenheden repareren?';
 
 $lang['PLAYER_BUILDINGS_TITLE'] = 'Repareer gebouwen';
 $lang['PLAYER_BUILDINGS_NOTE'] = 'Repareer je gebouwen van je basis. Als de conditie 0% wordt verlies je een aantal gebouwen en de overige gebouwen worden automatisch gerepareerd.';	
 $lang['PLAYER_BUILDINGS_CONDITION'] = 'Gebouwen conditie';
-$lang['PLAYER_BUILDINGS_REPAIRED'] = 'Je gebouwen zijn gerepareert voor %s euro.';
+$lang['PLAYER_BUILDINGS_REPAIRED'] = 'Je gebouwen zijn gerepareert voor %s dollar.';
 $lang['PLAYER_BUILDINGS_CONFIRM'] = 'Wil je echt je gebouwen repareren?';
 
 /*
@@ -984,7 +984,7 @@ $lang['MISSION_287'] = 'Crater Ebenezer';
 */
  
 $lang['MISSION_TITLE'] = 'MISSIES';
-$lang['MISSION_NOTE'] = 'Opmerking: Speel missies om geld en ervaringspunten te krijgen en zo het volgende nivo te bereiken. Als een missie 100% voltooid is krijg je 2x zoveel geld. Als je %s 100% veroverd hebt wordt je uur inkomen met %s euro verhoogd.';
+$lang['MISSION_NOTE'] = 'Opmerking: Speel missies om geld en ervaringspunten te krijgen en zo het volgende nivo te bereiken. Als een missie 100% voltooid is krijg je 2x zoveel geld. Als je %s 100% veroverd hebt wordt je uur inkomen met %s dollar verhoogd.';
 
 $lang['MISSION_ALLIANCE_SIZE'] = 'alliantie grote';
 $lang['MISSION_GAIN'] = 'Win';
@@ -995,12 +995,12 @@ $lang['MISSION_CHANCE_LOOT'] = 'Kans op buit';
 
 $lang['MISSION_YOU_USED'] = 'Je gebruikte';
 $lang['MISSION_YOU_GAIN'] = 'Je krijgt';
-$lang['MISSION_DOLLAR_AND'] = ' euro en ';
+$lang['MISSION_DOLLAR_AND'] = ' dollar en ';
 $lang['MISSION_ABORTED'] = 'Missie afgebroken!';
 $lang['MISSION_NO_ENERGY'] = 'Je hebt niet genoeg energie om de missie te voltooien. Wacht een paar minuten om je energie op te laden.';
 $lang['MISSION_LOW_ALLIANCE'] = 'Je Alliantie grootte is te klein om deze missie te spelen.';
 $lang['MISSION_MISSING_UNITS'] = 'Je beschikt niet over de juiste hoeveelheid eenheden om de missie te voltooien. Ontbrekende eenheden: ';
-$lang['MISSION_MISSING_UNITS_PRICE'] = 'Totale prijs om de eenheden te kopen is %s euro. Onderhoudskosten zullen stijgen met %s euro.';
+$lang['MISSION_MISSING_UNITS_PRICE'] = 'Totale prijs om de eenheden te kopen is %s dollar. Onderhoudskosten zullen stijgen met %s dollar.';
 $lang['MISSION_UNITS_LOST'] = 'Tijdens de missie verloor je de volgende eenheden';
 $lang['MISSION_LOOT_WON'] = 'Je won de volgende buit tijdens de missie';
 $lang['MISSION_UNLOCKED'] = 'Ga nu verder met de vecht training.';
@@ -1024,7 +1024,7 @@ $lang['BATTLE_GENERAL_TITLE'] = 'Strijd';
 $lang['BATTLE_BOUNTY_TITLE'] = 'Premie jagen';
 
 $lang['BATTLE_LOST'] =  'Je %s viel %s aan. Gevecht verloren! %s schade opgelopen, %s schade toegebracht aan %s';
-$lang['BATTLE_WON'] = 'Je %s viel %s aan. Gevecht gewonnen, je liep %s schade op en bracht %s schade toe aan %s. Je nam %s euro in beslag en kreeg %s ervaringspunten.';
+$lang['BATTLE_WON'] = 'Je %s viel %s aan. Gevecht gewonnen, je liep %s schade op en bracht %s schade toe aan %s. Je nam %s dollar in beslag en kreeg %s ervaringspunten.';
 $lang['BATTLE_DEFENDER_HEALTH_LOW'] = '%s gezondheid is te laag om te vechten!';
 $lang['BATTLE_ATTACKER_HEALTH_LOW'] = 'Je gezondheid is te laag om te vechten!. Bezoek het ziekenhuis voor een snel herstel of wacht op automatische herstel van je gezondheid.';
 $lang['BATTLE_AMMO_LOW'] = 'Je hebt geen munitie meer! Wacht een paar minuten op het herladen of wissel vaardigheidspunten in voor meer munitie.';
@@ -1048,16 +1048,16 @@ $lang['BATTLE_FORCE_TYPE'] = '';
 $lang['BATTLE_ENEMIES'] = 'Vijanden';
 $lang['BATTLE_BOUNTY'] = 'Premiejagen';
 $lang['BATTLE_NO_BOUNTY_PLAYERS'] = 'Op dit moment zijn er geen speler(s) met een premie beschikbaar.';
-$lang['BATTLE_BOUNTY_BONUS'] = 'Extra premie van %s euro ontvangen!'; 
-$lang['BATTLE_HOSPITAL_BONUS'] = '%s geeft tijdelijk op. Je ontvangt %s euro bonus!';
-$lang['BATTLE_BOUNTY_LOST'] = 'Je werd aangevallen door de %s van %s. Je <b>verloor</b>. Je verloor %s euro, %s gezondheid en %s ervaringspunten.';
-$lang['BATTLE_BOUNTY_CONFIRM'] = 'Wil je een premie van %s euro zetten?';
+$lang['BATTLE_BOUNTY_BONUS'] = 'Extra premie van %s dollar ontvangen!'; 
+$lang['BATTLE_HOSPITAL_BONUS'] = '%s geeft tijdelijk op. Je ontvangt %s dollar bonus!';
+$lang['BATTLE_BOUNTY_LOST'] = 'Je werd aangevallen door de %s van %s. Je <b>verloor</b>. Je verloor %s dollar, %s gezondheid en %s ervaringspunten.';
+$lang['BATTLE_BOUNTY_CONFIRM'] = 'Wil je een premie van %s dollar zetten?';
 
 $lang['BATTLE_CEASE_FIRE_PERIOD'] = 'Wapenstilstand periode geactiveerd! %s';
 $lang['BATTLE_AND'] = 'en';
 
-$lang['BATTLE_NO_BOUNTY_MONEY'] = 'Je bezit geen %s euro om als premie op %s hoofd te zetten.';
-$lang['BATTLE_BOUNTY_SET'] = 'Je hebt %s euro op het hoofd van %s gezet. Als %s wordt verslagen verlies hij %s vaardigheidspunten.'; 
+$lang['BATTLE_NO_BOUNTY_MONEY'] = 'Je bezit geen %s dollar om als premie op %s hoofd te zetten.';
+$lang['BATTLE_BOUNTY_SET'] = 'Je hebt %s dollar op het hoofd van %s gezet. Als %s wordt verslagen verlies hij %s vaardigheidspunten.'; 
 
 $lang['BATTLE_MOON_UNLOCKED'] = 'Maan gevechten kunnen vanaf nivo 100.';
 $lang['BATTLE_MARS_UNLOCKED'] = 'Mars gevechten kunnen vanaf nivo 150.';
@@ -1375,12 +1375,12 @@ $lang['UNIT_NOTE_15'] = 'Note: Buy Mars Spacecraft units to improve your Spacecr
 $lang['UNIT_NOTE_16'] = 'Note: Buy Mars Expore units to improve  your Explorers force strenght. Batlle, win to initialize rebellion on the moon and steal some money from your opponent Traquara or SwissCore bank account.';
 
 
-$lang['UNIT_DISBAND'] = 'Je verkocht %s %s voor %s euro. Er zijn er nog %s actief.';
+$lang['UNIT_DISBAND'] = 'Je verkocht %s %s voor %s. Er zijn er nog %s actief.';
 $lang['UNIT_DISBAND_FAILED'] = 'Je bezit geen %s %s. Er zijn er nog %s actief.';
 
-$lang['UNIT_DEPLOY'] = 'Je kocht %s %s voor %s euro. Er zijn er nu %s actief.';
+$lang['UNIT_DEPLOY'] = 'Je kocht %s %s voor %s. Er zijn er nu %s actief.';
 $lang['UNIT_NO_UPKEEP'] = 'Niet genoeg netto inkomen om %s %s te bekostigen';
-$lang['UNIT_NO_MONEY'] = 'Niet genoeg geld om %s %s voor %s euro aan te kopen.';
+$lang['UNIT_NO_FONDS'] = 'Niet genoeg gemiddelen om %s %s voor %s aan te kopen.';
 $lang['UNIT_MAX'] = 'Niet meer dan %s %s zijn toegestaan!';
 
 /*
@@ -1630,15 +1630,14 @@ $lang['BUILDING_NOTE13'] = 'Opmerking: Door middel van het aankopen van energie 
 $lang['BUILDING_NOTE14'] = 'Opmerking: Door middel van het aankopen van korting gebouwen krijg je meer korting op de gebouw prijzen.';
 $lang['BUILDING_NOTE15'] = 'Opmerking: Door middel van het aankopen van onderhoudsgebouwen worden eenheden beter gerepareerd zodat je minder eenheden verlies tijdens gevechten.';
 
-
-$lang['BUILDING_SELL'] = 'Je verkocht %s %s voor %s euro. Er zijn er nog %s actief.';
-$lang['BUILDING_LOW_UPKEEP'] = 'Niet genoeg netto inkomen om %s %s te verkopen voor % euro.';
+$lang['BUILDING_SELL'] = 'Je verkocht %s %s voor %s. Er zijn er nog %s actief.';
+$lang['BUILDING_LOW_UPKEEP'] = 'Niet genoeg netto inkomen om %s %s te verkopen voor %.';
 $lang['BUILDING_NOT_OWNED'] = 'Je bezit geen %s %s.';
 
-$lang['BUILDING_BUY'] = 'Je kocht %s %s voor %s euro. Er zijn er nu %s actief.';
+$lang['BUILDING_BUY'] = 'Je kocht %s %s voor %s. Er zijn er nu %s actief.';
 $lang['BUILDING_MAX'] = 'Niet meer dan %s(s) zijn toegestaan.';
-$lang['BUILDING_NO_MONEY'] = 'Niet genoeg geld om %s %s voor %s euro aan te kopen.'; 
-$lang['BUILDING_LOW_UPKEEP2'] = 'Niet genoeg netto inkomen om %s %s te kopen voor % euro.';
+$lang['BUILDING_NO_FUNDS'] = 'Niet genoeg middelen om %s %s voor %s aan te kopen.'; 
+$lang['BUILDING_LOW_UPKEEP2'] = 'Niet genoeg netto inkomen om %s %s te kopen voor %.';
 
 $lang['BUILDING_UPKEEP'] = 'Uur prijs';
 $lang['BUILDING_PRICE'] = 'Prijs';
@@ -1680,11 +1679,11 @@ $lang['BANK_TRANSACTION_TYPE_6'] = 'Bonus';
 
 $lang['BANK_TRANSACTION_LOG'] = 'Transacties';
 
-$lang['BANK_WITHDRAW']= '%s euro opgenomen van bank';
-$lang['BANK_WITHDRAW_FAILED'] = 'Geen %s euro op de bank!';
+$lang['BANK_WITHDRAW']= '%s dollar opgenomen van bank';
+$lang['BANK_WITHDRAW_FAILED'] = 'Geen %s dollar op de bank!';
 
-$lang['BANK_DEPOSIT'] = '%s euro gestort op bank.';
-$lang['BANK_DEPOSIT_FAILED'] = 'Je bezit geen %s euro.';
+$lang['BANK_DEPOSIT'] = '%s dollar gestort op bank.';
+$lang['BANK_DEPOSIT_FAILED'] = 'Je bezit geen %s dollar.';
 
 /* 
 ** ------------------
@@ -1698,12 +1697,12 @@ $lang['STOCK_GROUP_3'] = 'AEX';
 $lang['STOCK_GROUP_4'] = 'Personelijk';
 
 $lang['STOCK_BROKER_ERROR'] = 'Beurs connectie ligt er uit. Hierdoor kan nu niet gehandeld worden. Probeer het later opnieuw.';
-$lang['STOCK_BUY'] = 'Je kocht %s %s aandelen voor %s euro. %s aandelen in bezit.';
-$lang['STOCK_NO_MONEY'] = 'Niet genoeg geld om %s %s aandelen voor %s euro te kopen.';
+$lang['STOCK_BUY'] = 'Je kocht %s %s aandelen voor %s dollar. %s aandelen in bezit.';
+$lang['STOCK_NO_MONEY'] = 'Niet genoeg geld om %s %s aandelen voor %s dollar te kopen.';
 $lang['STOCK_PRICE'] = 'Aandeel prijs %s [%s]';
 $lang['STOCK_PROFIT'] = 'Aandeel winst %s [%s]';
 $lang['STOCK_NOT_OWNED'] = 'Je bezit niet %s %s aandelen.';
-$lang['STOCK_SELL'] = 'Je verkocht %s %s aandelen voor %s euro. Bank transactie kosten zijn %s euro. %s aandelen nog in bezit.';
+$lang['STOCK_SELL'] = 'Je verkocht %s %s aandelen voor %s dollar. Bank transactie kosten zijn %s dollar. %s aandelen nog in bezit.';
 $lang['STOCK_NOTE'] = 'Opmerking: Je kan aandelen kopen en verkopen zodat je winst kan maken. De aandelen koers wordt realtime gesynchoniseerd met de geselecteerd aandelenbeurs. Elke verkoop transactie kosten %s%.';
 $lang['STOCK_PRICE_TO_LOW'] = 'Stock price to low. Trading blocked!';
 
@@ -1742,19 +1741,19 @@ $lang['CASINO_ROLL'] = 'Draai';
 
 $lang['CASINO_NO_BET'] = 'Voer een inzet in!';
 $lang['CASINO_NO_LUCKY_NUMBER'] = 'Voer een geluksgetal in!';
-$lang['CASINO_BET_TO_LARGE'] = 'Inzet te hoog! Maximaal mag je %s euro inzetten.'; 
+$lang['CASINO_BET_TO_LARGE'] = 'Inzet te hoog! Maximaal mag je %s dollar inzetten.'; 
 $lang['CASINO_NO_MONEY'] = 'Niet genoeg geld!'; 
 
-$lang['CASINO_WIN'] = 'Winnende getal was %s. Je won %s euro.';
-$lang['CASINO_LOST'] = 'Winnende getal was %s. Je verloor %s euro.';
+$lang['CASINO_WIN'] = 'Winnende getal was %s. Je won %s dollar.';
+$lang['CASINO_LOST'] = 'Winnende getal was %s. Je verloor %s dollar.';
 
 $lang['CASINO_NOTE1'] = 'Tip: Wiel van Geluk. Selecteer je geluksnummer en spel. Als je wint krijg je 10 keer de inzet.';
 $lang['CASINO_NOTE2'] = 'Tip: Slot Machine. Doe een inzet en spel. Als je wint krijg je X keer de inzet.';
 
 $lang['CASINO_UNLOCK'] = '%s is ontgrendeld in nivo %s';
 
-$lang['CASINO_SLOTMACHINE_WIN'] = 'Je won %s keer je inzet. Je won %s euro.';
-$lang['CASINO_SLOTMACHINE_LOST'] = 'Je verloor %s euro.';
+$lang['CASINO_SLOTMACHINE_WIN'] = 'Je won %s keer je inzet. Je won %s dollar.';
+$lang['CASINO_SLOTMACHINE_LOST'] = 'Je verloor %s dollar.';
 $lang['CASINO_SLOTMACHINE_HELP'] = 'Met de volgende combinaties win je X keer je inzet';
 
 /*

@@ -230,10 +230,10 @@ function warquest_bank_log() {
 		if ($data->action == 5) {
 			$page .= warquest_link('mid='.$mid.'&sid='.PAGE_PROFILE.'&oid='.$data->pid2, $data->name).' ';
 			$page .= t('BANK_TRANSACTION_TYPE_'.$data->action);
-			$page .= ' '.money_format1($data->amount).' '.t('GENERAL_DOLLAR').'.';
+			$page .= ' '.dollar_format($data->amount).'.';
 		} else {
 			$page .= t('BANK_TRANSACTION_TYPE_'.$data->action);
-			$page .= ' '.money_format1($data->amount).' '.t('GENERAL_DOLLAR').'.';
+			$page .= ' '.dollar_format($data->amount).'.';
 		}
 		
 		$page .= '</td>';

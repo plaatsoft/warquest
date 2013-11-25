@@ -582,7 +582,7 @@ function warquest_show_attack_army($data2, $ugid) {
 }
 
 /** 
- * Battle building lost 
+ * Battle building lost (Premium gold building are excluded)
  */
 function warquest_battle_building_lost($ugid) {
 
@@ -603,6 +603,7 @@ function warquest_battle_building_lost($ugid) {
 	$query  = 'select a.bid, a.energy, a.income, a.defense, a.discount, a.ugid, c.amount ';
 	$query .= 'from building a left join building_group b on a.bgid=b.bgid, player_building c ';
 	$query .= 'where b.planet='.$player->planet.' and b.sell=1 and a.bid=c.bid and c.pid='.$player->pid.' ';	
+	$query .= 'and a.gold=0 ';
 	$query .= 'order by rand() limit '.rand(1,2);
 		
 	$result = warquest_db_query($query);	
@@ -637,7 +638,7 @@ function warquest_battle_building_lost($ugid) {
 }
 
 /** 
- * Battle unit lost 
+ * Battle unit lost (Premium gold units are excluded)
  */
 function warquest_battle_unit_lost($ugid) {
 
@@ -655,7 +656,7 @@ function warquest_battle_unit_lost($ugid) {
 	
 	/* First determinate which units are involved in battle */
 	$query  = 'select a.uid, b.amount from unit a, player_unit b where ';
-   $query .= 'a.uid=b.uid and b.pid='.$player->pid.' ';
+   $query .= 'a.uid=b.uid and b.pid='.$player->pid.' and a.gold=0 ';
 	
 	switch ($ugid) {
 	
@@ -682,12 +683,9 @@ function warquest_battle_unit_lost($ugid) {
 	$tmp="";
 	while ($data = warquest_db_fetch_object($result)) {
 					
-		if ($size >= $data->amount) {
-			
-			$size -= $data->amount;
-			
-		} else {
-		
+		if ($size >= $data->amount) {			
+			$size -= $data->amount;			
+		} else {		
 			$size -= $size;	
 		}
 		
@@ -706,7 +704,7 @@ function warquest_battle_unit_lost($ugid) {
 	/* get random some units */
 	$query  = 'select a.uid, a.defense, a.attack, b.amount, a.upkeep from ';
 	$query .= 'unit a, player_unit b where ';
-	$query .= 'a.uid=b.uid and b.pid='.$player->pid.' and a.uid>='.$tmp.' ';
+	$query .= 'a.uid=b.uid and b.pid='.$player->pid.' and a.uid>='.$tmp.' and a.gold=0 ';
 	
 	switch ($ugid) {
 		case 0: 	$query .= ' and a.ugid between 1 and 4';

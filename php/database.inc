@@ -718,7 +718,8 @@ function warquest_db_player_insert($nickname, $pid) {
 	 	
 	/* Update player */
 	$query  = "update player set "; 
-	$query .= 'country = "'.warquest_getlocation($_SERVER["REMOTE_ADDR"]).'" ';  
+	$query .= 'country = "'.warquest_getlocation($_SERVER["REMOTE_ADDR"]).'", ';  
+	$query .= 'gold = '.$config["gold_dollar_ratio"].' ';  
 	$query .= "where pid=".$pid; 
 	
 	warquest_db_query($query);

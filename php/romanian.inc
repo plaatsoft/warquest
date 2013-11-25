@@ -178,7 +178,7 @@
 
  $lang['COPYRIGHT'] = 'Copyright © 2008-2013 - toate drepturile rezervate - <a target="new" href="http://www.plaatsoft.nl">PlaatSoft</a>';
 
- $lang['STATUS_MONEY'] = 'bani';
+ $lang['STATUS_CASH'] = 'bani';
  $lang['STATUS_EXP'] = 'Experienta.';
  $lang['STATUS_LEVEL'] = 'nivel';
  $lang['STATUS_HEALTH'] = 'viata';
@@ -603,28 +603,27 @@
  $lang['HOME_TRADE_MINIMAL'] = 'Minim';
 
  $lang['HOME_TRADE1'] = 'Timpul pentru viata';
- $lang['HOME_TRADE1_NOTE'] = 'descreste-ti timpul pentru viata pentru ca aceasta sa se regenereze mai repede.Te costa 1 punct de schimb ca sa iti descresti timpul cu 5 secunde.';
+ $lang['HOME_TRADE1_NOTE'] = 'descreste-ti timpul pentru viata pentru ca aceasta sa se regenereze mai repede. Te costa %s ca sa iti descresti timpul cu 5 secunde.';
 
  $lang['HOME_TRADE2'] = 'Timpul pentru energie';
- $lang['HOME_TRADE2_NOTE'] = 'descreste-ti timpul pentru energie pentru ca aceasta sa se regenereze mai repede. Te costa 1 punct de schimb ca sa iti descresti timpul cu 5 secunde.';
+ $lang['HOME_TRADE2_NOTE'] = 'descreste-ti timpul pentru energie pentru ca aceasta sa se regenereze mai repede. Te costa %s ca sa iti descresti timpul cu 5 secunde.';
 
  $lang['HOME_TRADE3'] = 'Timpul pentru munitie';
- $lang['HOME_TRADE3_NOTE'] = 'descreste-ti timpul pentru munitie pentru ca aceasta sa se regenereze mai repede. Te costa 1 punct de schimb ca sa iti descresti timpul cu 5 secunde.';
+ $lang['HOME_TRADE3_NOTE'] = 'descreste-ti timpul pentru munitie pentru ca aceasta sa se regenereze mai repede. Te costa %s ca sa iti descresti timpul cu 5 secunde.';
 
  $lang['HOME_TRADE4'] = 'BANI';
- $lang['HOME_TRADE4_NOTE'] = 'Obtine bani pentru a-ti putea cumpara armata,costrui cladiri,etc ..Te costa 1 punct de schimb ca sa iti cresti banii cu %s dollar.';
+ $lang['HOME_TRADE4_NOTE'] = 'Obtine bani pentru a-ti putea cumpara armata,costrui cladiri,etc ..Te costa %s ca sa iti cresti banii cu %s dollar.';
 
  $lang['HOME_TRADE5'] = 'Puncte de aptitudine';
- $lang['HOME_TRADE5_NOTE'] = 'i=ati puncte de aptitudine pentru a mari atacul ,apararea viata energia sau munitia. te costa 1 punct de schimb pentru a primi 2 puncte de aptitudine';
+ $lang['HOME_TRADE5_NOTE'] = 'i=ati puncte de aptitudine pentru a mari atacul ,apararea viata energia sau munitia. te costa %s pentru a primi 1 puncte de aptitudine';
 
  $lang['HOME_TRADE_SKILL_POINTS'] = 'punct(e) de aptitudine ';
  $lang['HOME_TRADE_IN'] = 'SCHIMBA';
  $lang['HOME_MAX_REACHED'] = 'Maxim atins';
- $lang['HOME_TRADE_NO_POINTS'] = 'nu ai %s punct(e) de schimb.';
+
  $lang['HOME_TRADE_HEALTH_TIMER_TO_LARGE'] = 'timpul pentru viata a ajuns la minim.';
  $lang['HOME_TRADE_ENERGY_TIMER_TO_LARGE'] = 'timpul pentru energie a ajuns la minim.';
  $lang['HOME_TRADE_AMMO_TIMER_TO_LARGE'] = 'timpul pentru munitie a ajuns la minim.';
- $lang['HOME_TRADE_SUCCESFULL'] = 'Punctele de schimb au fost procesate cu succes!';
 
  /*
  ** ------------------
@@ -1705,12 +1704,12 @@ $lang['UNIT_NOTE_26'] = 'Note: Cumpara wariori solari pentru a-ti imbunatati for
 $lang['UNIT_NOTE_27'] = 'Note: Cumpara nave spatiale solare pentru a-ti imbunatati forta aeriana.';
 $lang['UNIT_NOTE_28'] = 'Note: Cumpara exploratori solari pentru a-ti imbunatati forta de explorare.';
 
-$lang['UNIT_DISBAND'] = 'ai vandut %s %s pentru %s dolari. inca %s disponibili.';
+$lang['UNIT_DISBAND'] = 'ai vandut %s %s pentru %s. inca %s disponibili.';
 $lang['UNIT_DISBAND_FAILED'] = 'nu ai %s %s. inca %s disponibil.';
 
-$lang['UNIT_DEPLOY'] = 'You deploy %s %s for %s dolari. acum %s deployed.';
+$lang['UNIT_DEPLOY'] = 'You deploy %s %s for %s. acum %s deployed.';
 $lang['UNIT_NO_UPKEEP'] = 'insuficient profit pentru a cumpara %s %s.';
-$lang['UNIT_NO_MONEY'] = 'insuficienti bani pentru a cumpara %s %s pentru %s dolari.';
+$lang['UNIT_NO_FUNDS'] = 'insuficienti bani pentru a cumpara %s %s pentru %s.';
 $lang['UNIT_MAX'] = 'Nu mai mult de %s %s(s) permisi!';
 
 $lang['UNITS_NO_UNITS'] = 'nici o unitate disponibila!';
@@ -2044,14 +2043,14 @@ $lang['BUILDING_NOTE23'] = 'Nota: cladirile de energie ofera recuperea mai rapid
 $lang['BUILDING_NOTE24'] = 'Nota: Reducerea costului cladirilor ofera reducere la  achizitoinarea cladirilor de pe soare.';
 $lang['BUILDING_NOTE25'] = 'Nota: Mentenanta cladirilor permite repararea mai rapida a unitatilor astfel vei pierde mai putine unitati in timpul bataliilor de pe soare.';
 
-$lang['BUILDING_SELL'] = 'Ai vandut %s %s pentru %s dolari. ai inca %s disponibile.';
-$lang['BUILDING_LOW_UPKEEP'] = 'Nu ai suficient profit pentru a vinde %s %s pentru %s dolari.';
+$lang['BUILDING_SELL'] = 'Ai vandut %s %s pentru %s. ai inca %s disponibile.';
+$lang['BUILDING_LOW_UPKEEP'] = 'Nu ai suficient profit pentru a vinde %s %s pentru %s.';
 $lang['BUILDING_NOT_OWNED'] = 'nu ai %s %s.';
 
-$lang['BUILDING_BUY'] = 'Ai cumparat %s %s pentru %s dolari. ai %s cumparate.';
+$lang['BUILDING_BUY'] = 'Ai cumparat %s %s pentru %s. ai %s cumparate.';
 $lang['BUILDING_MAX'] = 'nu mai mult de %s %s(s) permise!';
-$lang['BUILDING_NO_MONEY'] = 'nu ai suficieni bani pentru a cumpara %s %s pentru %s dolari.'; 
-$lang['BUILDING_LOW_UPKEEP2'] = 'nu ai suficient profit pentru a cumpara  %s %s pentru %s dolari.';
+$lang['BUILDING_NO_FUNDS'] = 'nu ai suficieni bani pentru a cumpara %s %s pentru %s.'; 
+$lang['BUILDING_LOW_UPKEEP2'] = 'nu ai suficient profit pentru a cumpara  %s %s pentru %s.';
 
 $lang['BUILDING_UPKEEP'] = 'Cost pe ora';
 $lang['BUILDING_PRICE'] = 'Pret';
@@ -2515,11 +2514,6 @@ $lang['HELP_DONATE_TITLE2'] = 'Doneaza (English only)';
 $lang['HELP_SUBTITLE_DONATE1'] = 'General';
 $lang['HELP_DONATE1'] = 'WarQuest poate fi jucat de placere gratis, dar daca vrei sa iti arati recunostinta pentru acest joc,
 pentru autor pentru resursele folosite pentru timpul pierdut dealungul anilor o poti face printr-o donatie cat de mica.';
-
-$lang['HELP_SUBTITLE_DONATE2'] = 'Recompense';
-$lang['HELP_DONATE2'] = 'Fiecare dolar donat va fi recompensat cu 1 punct de schimb. Puntele de schimb achizitionate pot fi schimbate 
-in punte de experienta,bani sau pentru a scurta timpul de regenerare a vietii,energiei sau a munitiei. Premiul este procesat manual
-deci poate dura pana la cateva ora pana sa fie disponibil.';
 
 $lang['HELP_SUBTITLE_DONATE3'] = 'PayPal';
 $lang['HELP_DONATE3'] = 'Pentru a face o donatie on-line folosind cardul ,sau contul de PayPal apasa aici si intro valoarea

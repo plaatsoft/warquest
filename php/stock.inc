@@ -623,13 +623,13 @@ function warquest_stock_form() {
 				$tmp = 0;
 			}
 			
-			$page .= t('STOCK_PRICE', money_format3($price), procent_format($tmp));
+			$page .= t('STOCK_PRICE', stock_format($price), procent_format($tmp));
 			$page .= '<br/>';
 			$tmp=0;
 			if ($data->amount>0) {
 				$tmp = (($data->amount * $price)-$data->cost) / $data->amount;				
 				$tmp2 = (($tmp * $data->amount)/ $data->cost)*100;				
-				$page .= t('STOCK_PROFIT', money_format3($tmp), procent_format($tmp2));
+				$page .= t('STOCK_PROFIT', stock_format($tmp), procent_format($tmp2));
 			}
 			$page .= '</div></td>';
 			

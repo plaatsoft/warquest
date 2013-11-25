@@ -178,7 +178,7 @@ $lang['AGO_SECS']  = ' secondi';
 
 $lang['COPYRIGHT'] = 'Copyright © 2008-2013 - Tutti i diritti riservati - <a target="new" href="http://www.plaatsoft.nl">PlaatSoft</a>';	
 
-$lang['STATUS_MONEY']  = 'Contante';
+$lang['STATUS_CASH']  = 'Contante';
 $lang['STATUS_EXP']  = 'Esp.';
 $lang['STATUS_LEVEL']  = 'Livello';
 $lang['STATUS_HEALTH'] = 'Salute';
@@ -1536,12 +1536,12 @@ $lang['UNIT_NOTE_20'] = 'Nota: Compra Guerrieri Asteroidali per migliorare la po
 $lang['UNIT_NOTE_21'] = 'Nota: Compra Navicelle Asteroidali per migliorare la potenza dele tue Navicelle. Lotta, vinci e ruba soldi dal conto del tuo avversario.';
 $lang['UNIT_NOTE_22'] = 'Nota: Compra Esploratori Asteroidali per migliorare la potenza dei tuoi Esploratori. Lotta, vinci per iniziare una rivolta nelle regioni marziani e ruba soldi dal conto Trasquera o SwissCore del tuo avversario.';
 
-$lang['UNIT_DISBAND'] = 'Hai rimosso %s %s per %s dollari. Ancora %s posizionati.';
+$lang['UNIT_DISBAND'] = 'Hai rimosso %s %s per %s. Ancora %s posizionati.';
 $lang['UNIT_DISBAND_FAILED'] = 'Non hai %s %s. Ancora %s posizionati.';
 
-$lang['UNIT_DEPLOY'] = 'Hai posizionato %s %s per %s dollari. Ora %s posizionati.';
+$lang['UNIT_DEPLOY'] = 'Hai posizionato %s %s per %s. Ora %s posizionati.';
 $lang['UNIT_NO_UPKEEP'] = 'Non hai abbastanza introito orario per sostenere %s %s.';
-$lang['UNIT_NO_MONEY'] = 'Non hai abbastanza soldi per comprare %s %s per %s dollari.';
+$lang['UNIT_NO_FUNDS'] = 'Non hai abbastanza soldi per comprare %s %s per %s.';
 $lang['UNIT_MAX'] = 'Non più di %s %s(s) permessi!';
 
 /*
@@ -1863,14 +1863,14 @@ $lang['BUILDING_NOTE18'] = 'Nota: Gli edifici energetici marziani accelerano il 
 $lang['BUILDING_NOTE19'] = 'Nota: Gli edifici sconto asteroidali offrono prezzi scontanti sull\'acquisto degli edifici.';
 $lang['BUILDING_NOTE20'] = 'Nota: Gli edifici da manutenzione asteroidali accelerano le riparazioni delle unità che equivale a meno unità perse durante le lotte.';
 
-$lang['BUILDING_SELL'] = 'Hai venduto %s %s per %s dollari. Ancora %s posizionati.';
-$lang['BUILDING_LOW_UPKEEP'] = 'Non hai abbastanza introito orario per vendere %s %s per %s dollari.';
+$lang['BUILDING_SELL'] = 'Hai venduto %s %s per %s. Ancora %s posizionati.';
+$lang['BUILDING_LOW_UPKEEP'] = 'Non hai abbastanza introito orario per vendere %s %s per %s.';
 $lang['BUILDING_NOT_OWNED'] = 'Non hai %s %s.';
 
-$lang['BUILDING_BUY'] = 'Hai comprato %s %s per %s dollari. Ora %s posizionati.';
+$lang['BUILDING_BUY'] = 'Hai comprato %s %s per %s. Ora %s posizionati.';
 $lang['BUILDING_MAX'] = 'Non più di %s %s permessi!';
-$lang['BUILDING_NO_MONEY'] = 'Non hai abbastanza soldi per comprare %s %s per %s dollari.'; 
-$lang['BUILDING_LOW_UPKEEP2'] = 'Non hai abbastanza introito orario per comprare %s %s per %s dollari.';
+$lang['BUILDING_NO_FUNDS'] = 'Non hai abbastanza soldi per comprare %s %s per %s.'; 
+$lang['BUILDING_LOW_UPKEEP2'] = 'Non hai abbastanza introito orario per comprare %s %s per %s.';
 
 $lang['BUILDING_UPKEEP'] = 'Costo orario';
 $lang['BUILDING_PRICE'] = 'Prezzo';
@@ -2307,10 +2307,6 @@ $lang['HELP_SUBTITLE_DONATE1'] = 'Generale';
 $lang['HELP_DONATE1'] = 'Il software di WarQuest può essere usato senza costi, ma se desideri esprimere 
 il tuo apprezzamento per il tempo e le risorse che l\'autore ha speso svillupandolo e sostenendolo nel tempo, 
 e anche per aiutare alla riduzione del costo per far andare il webserver, accettiamo e apprezziamo le donazioni.';
-
-$lang['HELP_SUBTITLE_DONATE2'] = 'Premio';
-$lang['HELP_DONATE2'] = 'Ogni dollaro donato sarà ricompensato con 1 trade point. 
-Il premio viene lavorato manualmente in modo da tenere a mente che ci vogliono poche ore prima che sia disponibile.';
 
 $lang['HELP_SUBTITLE_DONATE3'] = 'PayPal';
 $lang['HELP_DONATE3'] = 'Per fare una donazione online usando la tua carta di credito o conto PayPal, clicca 

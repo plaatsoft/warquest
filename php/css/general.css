@@ -105,18 +105,6 @@ a:hover {
 	color: yellow;
 } 
 
-.header {
-	border: solid 2px; 
-	padding: 2px 8px; 
-	-moz-border-radius: 5px; 
-	-khtml-border-radius: 5px; 
-	-webkit-border-radius: 5px; 
-	border-radius: 5px; 
-	margin-bottom: 3px; 
-	text-align: justify; 
-   background-color:rgba(25, 25, 25, 0.7); 
-}
-
 .box {
 	border: solid 2px; 
 	padding: 2px 8px; 
@@ -141,18 +129,6 @@ a:hover {
 	text-align: justify;  
 	width: 66%; 
 	background-color:rgba(25, 25, 25, 0.7);
-}
-
-.ads {
-	border: solid 1px; 
-	padding: 2px 8px; 
-	-moz-border-radius: 5px; 
-	-khtml-border-radius: 5px; 
-	-webkit-border-radius: 5px; 
-	border-radius: 5px; 
-	margin-bottom: 3px; 
-	text-align: justify; 
-	background: white; 
 }
 
 .tooltip {
@@ -183,6 +159,11 @@ a:hover {
 	background-color: red;
 }
 
+.banner {	
+	font-weight: bold;
+	font-size: 1.0em;
+}
+
 .note {
 	font-size: 0.85em;
 	text-align: justify; 
@@ -190,7 +171,12 @@ a:hover {
 	width: 100%; 
 }
 	
-.banner {
+.header {
+	margin: 5px 0px; 
+	width: 100%; 
+}
+
+.footer {
 	margin: 5px 0px; 
 	width: 100%; 
 }
@@ -270,6 +256,14 @@ a:hover {
 	color:rgb(0,250,255);
 }
 
+.discount {
+	color:rgb(0,10,240);
+}
+
+.maintenance {
+	color:rgb(0,10,240);
+}
+
 .alliance {
 	color:rgb(0,100,250);
 }
@@ -292,10 +286,6 @@ a:hover {
 
 .deploy {
 	color:rgb(255,84,84);
-}
-
-.value {
-	font-size: 1.2em;
 }
 
 .timer {

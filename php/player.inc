@@ -332,7 +332,7 @@ function warquest_continent_info_form($other) {
 		}
 		
 		$page .= '<td>';
-		$page .= money_format2($bonus).' '.t('GENERAL_DOLLAR');
+		$page .= dollar_format($bonus);
 		$page .= '</td>';
 								
 		$page .= '</tr>';
@@ -358,7 +358,7 @@ function warquest_continent_info_form($other) {
 	$page .= '</td>';
 
 	$page .= '<td>';
-	$page .= '<b>'.money_format1(($totalBonus),0,",",".").' '.t('GENERAL_DOLLAR').'</b>';
+	$page .= '<b>'.dollar_format($totalBonus).'</b>';
 	$page .= '</td>';
 			
 	$page .= '</tr>';
@@ -443,7 +443,7 @@ function warquest_upkeep_info_form($other) {
 		
 		$page .= '<td>';
 		$page .= '<b>'.t('UNIT_'.$data->uid).'</b><br/>' ;
-		$page .= t('GENERAL_UPKEEP').': '.money_format1($data->upkeep).' '.t('GENERAL_DOLLAR');
+		$page .= t('GENERAL_UPKEEP').': '.dollar_format($data->upkeep);
 		$page .= '</td>';
 				
 		$page .= '<td>';
@@ -561,7 +561,7 @@ function warquest_income_info_form($other) {
 		
 		$page .= '<td>';
 		$page .= '<b>'.t('BUILDING_'.$data->bid).'</b><br/>' ;
-		$page .= money_format1($data->income).' '.t('GENERAL_DOLLAR');
+		$page .= dollar_format($data->income);
 		$page .= '</td>';
 				
 		$page .= '<td>';
@@ -1515,32 +1515,32 @@ function warquest_profile($id) {
 		
 		$page .= '<tr>';
 		$page .= '<td width="170"><b>'.t('PLAYER_CASH_MONEY').':</b></td>';
-		$page .= '<td>'.money_format1($data->money).' '.t('GENERAL_DOLLAR').'</td>';
+		$page .= '<td>'.dollar_format($data->money).'</td>';
 		$page .= '</tr>';
 	
 		$page .= '<tr>';
 		$page .= '<td><b>'.t('BANK_GROUP_1').' '.t('PLAYER_BANK').':</b></td>';
-		$page .= '<td>'.money_format1($data->bank1).' '.t('GENERAL_DOLLAR').'</td>';
+		$page .= '<td>'.dollar_format($data->bank1).'</td>';
 		$page .= '</tr>';
 
 		$page .= '<tr>';
 		$page .= '<td><b>'.t('BANK_GROUP_2').' '.t('PLAYER_BANK').':</b></td>';
-		$page .= '<td>'.money_format1($data->bank2).' '.t('GENERAL_DOLLAR').'</td>';
+		$page .= '<td>'.dollar_format($data->bank2).'</td>';
 		$page .= '</tr>';
 	
 		$page .= '<tr>';
 		$page .= '<td><b>'.t('BANK_GROUP_3').' '.t('PLAYER_BANK').':</b></td>';
-		$page .= '<td>'.money_format1($data->bank3).' '.t('GENERAL_DOLLAR').'</td>';
+		$page .= '<td>'.dollar_format($data->bank3).'</td>';
 		$page .= '</tr>';
 	
 		$page .= '<tr>';
 		$page .= '<td><b>'.t('GENERAL_STOCKS').':</b></td>';
-		$page .= '<td>'.money_format1(warquest_bank_assest($id)).' '.t('GENERAL_DOLLAR').'</td>';
+		$page .= '<td>'.dollar_format(warquest_bank_assest($id)).'</td>';
 		$page .= '</tr>';
 		
 		$page .= '<tr>';
 		$page .= '<td><b>'.t('PLAYER_TOTAL_HOURLY_INCOME').':</b></td>';
-		$page .= '<td>'.money_format1($data->money_step).' '.t('GENERAL_DOLLAR').'</td>';
+		$page .= '<td>'.dollar_format($data->money_step).'</td>';
 		$page .= '</tr>';
 		
 		$page .= '</table>';

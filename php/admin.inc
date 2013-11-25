@@ -400,8 +400,6 @@ function warquest_admin_action_form() {
 
 	$page .= '<br/>';
 	$page .= '</div>';	
-	
-	$page .= warquest_show_ads();	
 }
 
 /*
@@ -531,9 +529,7 @@ function warquest_admin_browser_report() {
 	$page .= '</tr>';	
 	
 	$page .= '</table>';
-	$page .= '</div>';	
-		
-	$page .= warquest_show_ads();		
+	$page .= '</div>';			
 }
 
 /*
@@ -602,8 +598,6 @@ function warquest_admin_level_form() {
 	$page .= '<div class="note">';
 	$page .= 'Note: Report show amount of players per level.';
    $page .= '</div>';
-	
-	$page .= warquest_show_ads();	
 }
 
 /*
@@ -700,8 +694,6 @@ function warquest_admin_messages_form() {
 	$page .= '<div class="note">';
 	$page .= 'Note: Show last 50 messages of players.';
 	$page .= '</div>';
-	
-	$page .= warquest_show_ads();	
 }
 
 /*
@@ -872,8 +864,6 @@ function warquest_admin_news_log() {
 	}
 	$page .= '</table>';
 	$page .= '</div>';
-	
-	$page .= warquest_show_ads();	
 }
 
 /**
@@ -1835,8 +1825,6 @@ function warquest_admin_member_do() {
 	$page .= '<div class="note">';
 	$page .= 'Note: Report show all or filter members.';
    $page .= '</div>';
-	
-	$page .= warquest_show_ads();
 }
 
 	

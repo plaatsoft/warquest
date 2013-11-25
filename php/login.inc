@@ -144,7 +144,7 @@ function warquest_login_header() {
 	/* output */
 	global $page;
 	
-	$page .= '<div class="banner">';
+	$page .= '<div class="header">';
 	$page .= '<table>';
 	$page .= '<tr>';
 	$page .= '<td align="left">';	
@@ -217,7 +217,7 @@ function warquest_login_footer() {
 			
 	$page .= '<br/>';	
 		
-	$page .= '<div class="banner">';
+	$page .= '<div class="footer">';
 	$page .= '<table>';
 	$page .= '<tr>';
 	$page .= '<td align="left">';

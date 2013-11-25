@@ -1699,7 +1699,7 @@ function warquest_nextlevel($player) {
 			
 			$tmp .= '<td width="250"><b>'.t('BUILDING_'.$data->bid).'</b><br/>' ;
 			if ($data->income > 0) {
-				$tmp .= t('GENERAL_INCOME').': '.money_format1($data->income).' '.t('GENERAL_DOLLAR');
+				$tmp .= t('GENERAL_INCOME').': '.dollar_format($data->income);
 			} else if ($data->defense > 0) {
 				$tmp .= t('GENERAL_DEFENSE').': +'.$data->defense;
 			} else if ($data->energy > 0) {
@@ -2555,7 +2555,7 @@ function warquest_ui_header( $title = "") {
 	$page .= '<script language="JavaScript" src="'.$config["content_url"].'js/link3.js" type="text/javascript"></script>';
 	
 	if ($mid!=0) {
-		$page .= '<script language="JavaScript" src="'.$config["content_url"].'js/money2.js" type="text/javascript"></script>';
+		$page .= '<script language="JavaScript" src="'.$config["content_url"].'js/money3.js" type="text/javascript"></script>';
 		$page .= '<script language="JavaScript" src="'.$config["content_url"].'js/health2.js" type="text/javascript"></script>';
 		$page .= '<script language="JavaScript" src="'.$config["content_url"].'js/energy2.js" type="text/javascript"></script>';
 		$page .= '<script language="JavaScript" src="'.$config["content_url"].'js/ammo2.js" type="text/javascript"></script>';
@@ -2607,26 +2607,27 @@ function warquest_ui_banner() {
 		
 	$level = warquest_db_level($player->lid);
 		
-	$page = '<div class="fixed">'; 
-	$page .= '<div class="header">'; 
+	$page  = '<div class="fixed">'; 
+	$page .= '<div class="box">'; 
+	$page .= '<div class="banner">'; 
 	$page .= '<table>';
 	
 	$page .= '<tr>';
 	
 	$page .= '<td valign="top" width="180">';
-	$page .= warquest_link_hidden('mid='.MENU_ALLIANCE.'&sid='.PAGE_BEST_PLAYER, t('STATUS_MONEY')).': ';
-	$page .= '<b><span class="value money" id="moneyvalue"></span></b>';
-	if (($player->money_step!=0) && ($player->holiday_date <= date("Y-m-d H:i:s", time()))) {
-	
-		$page .= '<br/><span class="timer">'.money_format1($player->money_step).' in </span>';
+	$page .= warquest_link_hidden('mid='.MENU_ALLIANCE.'&sid='.PAGE_BEST_PLAYER, t('STATUS_CASH')).': ';
+	$page .= '<span id="moneyvalue"></span>';
+	if (($player->money_step!=0) && ($player->holiday_date <= date("Y-m-d H:i:s", time()))) {	
+		$page .= '<br/>';
+		$page .= '<span class="timer">'.money_format1($player->money_step).' in </span>';
 		$page .= '<span class="timer" id="moneycountdown"></span>';	
 	}
 	$page .= '</td>';
 	
 	$page .= '<td valign="top" width="180">';
 	$page .= warquest_link_hidden('mid='.MENU_ALLIANCE.'&sid='.PAGE_BEST_COUNTRY, t('STATUS_EXP')).': ';
-	$page .= '<b><span class="value experience">'.number_format($player->experience,0,",",".");
-	$page .= '</span></b>';
+	$page .= '<span class="experience">'.number_format($player->experience,0,",",".");
+	$page .= '</span>';
 	if ($player->lid!=$config["max_level"]) {
 		$page .= ' / '.number_format($level->experience,0,",",".");
 	}
@@ -2649,7 +2650,7 @@ function warquest_ui_banner() {
 	
 	$page .= '<td valign="top">';
 	$page .= warquest_link_hidden('mid='.MENU_FORUMS.'&sid='.PAGE_FORUM, t('STATUS_LEVEL')).': ';
-	$page .= '<b><span class="value level">'.$player->lid.'</span></b>';
+	$page .= '<span class="level">'.$player->lid.'</span>';
 	if ($player->lid>1) {
 		$page .= '<br/><span class="timer">'.t('STATUS_ALLIANCE_SIZE').': ';
 		$page .= alliance_format($player->alliance).' / '.($player->lid*$config["max_ally_factor"]).'</span>';
@@ -2668,29 +2669,30 @@ function warquest_ui_banner() {
 	}
 		
 	$page .= warquest_link_hidden('mid='.MENU_HOME.'&sid='.PAGE_RESTORE, t('STATUS_HEALTH')).': ';
-	$page .= '<b><span class="value health" id="healthvalue"></span></b>';
-   $page .= ' / '.number_format($skill->health_max,0,",",".");
-	$page .= '<br/><span class="timer" id="healthcountdown"></span>';
+	$page .= '<span class="health" id="healthvalue"></span> / '.number_format($skill->health_max,0,",",".");
+	$page .= '<br/>';
+	$page .= '<span class="timer" id="healthcountdown"></span>';
 	$page .= '</td>';
 		
 	$page .= '<td valign="top" >';
 	$page .= warquest_link_hidden('mid='.MENU_HOME.'&sid='.PAGE_PROFILE, t('STATUS_ENERGY')).': ';
-	$page .= '<b><span class="value energy" id="energyvalue"></span></b>';
-   $page .= ' / '.number_format($skill->energy_max,0,",",".");
-	$page .= '<br/><span class="timer" id="energycountdown"></span>';
+	$page .= '<span class="energy" id="energyvalue"></span> / '.number_format($skill->energy_max,0,",",".");
+	$page .= '<br/>';
+	$page .= '<span class="timer" id="energycountdown"></span>';
 	$page .= '</td>';
 	
 	$page .= '<td valign="top">';
 	$page .= warquest_link_hidden('mid='.MENU_HOME.'&sid='.PAGE_SKILLS, t('STATUS_AMMO')).': ';
-	$page .= '<b><span class="value ammo" id="ammovalue"></span></b>';
-	$page .= ' / '.$skill->ammo_max;
-	$page .= '<br/><span class="timer" id="ammocountdown"></span>';
+	$page .= '<span class="ammo" id="ammovalue"></span> / '.$skill->ammo_max;
+	$page .= '<br/>';
+	$page .= '<span class="timer" id="ammocountdown"></span>';
 	$page .= '</td>';
 	
 	$page .= '</tr>';
 	
 	$page .= '</table>';
 	$page .= '</div>'; 
+	$page .= '</div>';
 	$page .= '</div>';
 	
 	$page .= '<script language="JavaScript" type="text/javascript">'; 
@@ -2699,7 +2701,7 @@ function warquest_ui_banner() {
 	if (($player->money_date!=0) && ($player->holiday_date <= date("Y-m-d H:i:s", time()))) {
 		$diff=strtotime($player->money_date) - strtotime(date("Y-m-d H:i:s"));
 	}
-	$page .= 'moneytimer('.$diff.','.$player->money.','.$player->money_step.');';
+	$page .= 'moneytimer('.$diff.','.$player->money.','.$player->money_step.','.$player->gold.');';
 	$page .= 'moneycountdown();';
 
 	$diff=-1;
@@ -2808,7 +2810,16 @@ function gold_format($value) {
 
 	return '<span class="gold">'.number_format($value,0,",",".").'</span> '.t('GENERAL_GOLD');	
 }
-			
+
+function dollar_format($value) {
+   
+	if ($value>=0) {
+		return '<span class="money">'.number_format($value,0,",",".").'</span> '.t('GENERAL_DOLLAR');	
+	} else {
+		return '<span class="negative">'.number_format($value,0,",",".").'</span> '.t('GENERAL_DOLLAR');
+	}
+}
+	
 function money_format1($value) {
    
 	if ($value>=0) {
@@ -2830,7 +2841,7 @@ function money_format2($value) {
 	}
 }
 
-function money_format3($value) {
+function stock_format($value) {
    
 	if ($value>=0) {
 		return '<span class="money">'.number_format($value,2,",",".").'</span>';	
@@ -2843,7 +2854,6 @@ function money_negative($value) {
    
 	return '<span class="negative">'.number_format($value,0,",",".").'</span>';
 }
-
 
 function experience_format($value) {
    
@@ -2863,6 +2873,16 @@ function country_format($value) {
 function deploy_format($value) {
    
 	return '<span class="deploy">'.number_format($value,0,",",".").'</span>';
+}
+
+function discount_format($value) {
+   
+	return '<span class="discount">'.$value.'</span>';
+}
+
+function maintenance_format($value) {
+   
+	return '<span class="maintenance">'.$value.'</span>';
 }
 
 function health_format($value) {

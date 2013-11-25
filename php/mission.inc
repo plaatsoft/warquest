@@ -267,7 +267,7 @@ function warquest_buy_missing_units_do() {
 			$message .= warquest_unit_image($unit->uid, 0, 0);
 			$message .= '</td>';
 			$message .= '<td>';
-			$message .= t('UNIT_NO_MONEY', $unit->total, t('UNIT_'.$unit->uid), money_format1($money));
+			$message .= t('UNIT_NO_MONEY', $unit->total, t('UNIT_'.$unit->uid), dollar_format($money));
 			$message .= '</td>';
 			$message .= '</tr>';
 			$message .= '</table>';
@@ -318,7 +318,7 @@ function warquest_buy_missing_units_do() {
 }
 
 /** 
- * Mission Do
+ * Play Mission 
  */ 
 function warquest_mission_do() {
 
@@ -577,7 +577,7 @@ function warquest_mission_form() {
 			$page .= '<br/>';
 			$page .= '<b>'.t('MISSION_GAIN').':</b><br/>';
 			$page .= money_format1($data->min_price).' - ';
-			$page .= money_format1($data->max_price).' '.t('GENERAL_DOLLAR').'<br/>';
+			$page .= dollar_format($data->max_price).'<br/>';
 			$page .= experience_format($data->experience).' '.t('GENERAL_EXPERIENCE').'<br/>';
 			if ($data->loot==1) {
 				$page .= '<span class="loot">'.t('MISSION_CHANCE_LOOT').'</span><br/>';
@@ -605,12 +605,12 @@ function warquest_mission_form() {
 			$page .= alliance_format($data->alliance).' '.t('GENERAL_ALLIANCE_SIZE');
 			$page .= '</td>';
 		
-			$query  = 'select b.uid, a.amount, b.attack, b.defense, b.upkeep from mission_unit a, ';
-			$query .= 'unit b where b.uid=a.uid and mid='.$data->mid;  
-			$result2 = warquest_db_query($query); 
+			$query2  = 'select b.uid, a.amount, b.attack, b.defense, b.upkeep from mission_unit a, ';
+			$query2 .= 'unit b where b.uid=a.uid and mid='.$data->mid;  
+			$result2 = warquest_db_query($query2); 
 		
 			$count=0;
-			while ($data2=warquest_db_fetch_object($result2)) {
+			while ($data2 = warquest_db_fetch_object($result2)) {
 		
 				$count++;
 				$page .= '<td align="right" width="100">';   
@@ -618,8 +618,10 @@ function warquest_mission_form() {
 				$page .= '<br/><center>'.$data2->amount.'x</center>';
 				$page .= '</td>';
 			}
+			
+			/* fill up table */
 			for ($tmp=0; $tmp<(3-$count); $tmp++) {
-				$page .= '<td width="100" >&nbsp;</td>';
+				$page .= '<td align="right" width="100">&nbsp;</td>';
 			}
 			$page .= '</tr>';
 		
@@ -646,7 +648,7 @@ function warquest_mission_form() {
 		
 			$page .= '<b>'.t('MISSION_GAIN').':</b><br/>';
 			$page .= money_format1($data->min_price).' - ';
-			$page .= money_format1($data->max_price).' '.t('GENERAL_DOLLAR').'<br/>';
+			$page .= dollar_format($data->max_price).'<br/>';
 			$page .= experience_format($data->experience).' '.t('GENERAL_EXPERIENCE').'<br/>';
 			if ($data->loot==1) {
 				$page .= '<span class="loot">'.t('MISSION_CHANCE_LOOT').'</span><br/>';
@@ -667,18 +669,12 @@ function warquest_mission_form() {
 			$page .= alliance_format($data->alliance).' '.t('GENERAL_ALLIANCE_SIZE');
 			$page .= '</td>';
 		
-			$page .= '<td width="100">';
-			$page .= warquest_image('other/unlock.png');
-			$page .= '</td>';
-		
-			$page .= '<td width="100">';
-			$page .= warquest_image('other/unlock.png');
-			$page .= '</td>';
-		
-			$page .= '<td width="100">';
-			$page .= warquest_image('other/unlock.png');
-			$page .= '</td>';
-
+			for ($tmp=0; $tmp<3; $tmp++) {
+				$page .= '<td width="100">';
+				$page .= warquest_image('other/unlock.png');
+				$page .= '</td>';
+			}
+			
 			$page .= '</tr>';	
 		
 			$page .= '</table>';
