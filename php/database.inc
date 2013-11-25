@@ -968,7 +968,7 @@ function warquest_db_skill_insert($pid, $amount) {
 		
 	$query  = 'insert into skill (pid, attack_max, defense_max, health_max, energy_max, ammo_max, skill_points, health_timer, energy_timer, ammo_timer ) ';
 	$query .= 'values ('.$pid.','.$config["init_attack_max"].','.$config["init_defense_max"].','.$config["init_health_max"].',';
-	$query .= $config["init_energy_max"].','.$config["init_ammo_max"].','.$amount.',0,0,0,0)';
+	$query .= $config["init_energy_max"].','.$config["init_ammo_max"].','.$amount.',0,0,0)';
 	
 	warquest_db_query($query);
 }

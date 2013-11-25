@@ -2617,14 +2617,19 @@ function warquest_ui_banner() {
 	$page .= '<td valign="top" width="180">';
 	$page .= warquest_link_hidden('mid='.MENU_ALLIANCE.'&sid='.PAGE_BEST_PLAYER, t('STATUS_CASH')).': ';
 	$page .= '<span class="value" id="moneyvalue"></span>';
+	
+	$tmp = "";
 	if (($player->money_step!=0) && ($player->holiday_date <= date("Y-m-d H:i:s", time()))) {	
+		$tmp .= '<br/>';
+		$tmp .= '<span class="timer">'.money_format1($player->money_step).' in </span>';
+		$tmp .= '<span class="timer" id="moneycountdown"></span> ';
+	}
+	if (strlen($tmp)>0) {
+		$page .= $tmp.' / ';
+	} else {
 		$page .= '<br/>';
-		$page .= '<span class="timer">'.money_format1($player->money_step).' in </span>';
-		$page .= '<span class="timer" id="moneycountdown"></span> ';
 	}
-	if ($player->gold>0) {
-		$page .= ' - <span class="timer">'.gold_format($player->gold).'</span>';
-	}
+	$page .= '<span class="timer">'.gold_format($player->gold).'</span>';
 	$page .= '</td>';
 	
 	$page .= '<td valign="top" width="180">';
@@ -2654,7 +2659,7 @@ function warquest_ui_banner() {
 	$page .= '<td valign="top">';
 	$page .= warquest_link_hidden('mid='.MENU_FORUMS.'&sid='.PAGE_FORUM, t('STATUS_LEVEL')).': ';
 	$page .= '<span class="value level">'.$player->lid.'</span>';
-	if ($player->lid>1) {
+	if ($player->lid>0) {
 		$page .= '<br/><span class="timer">'.t('STATUS_ALLIANCE_SIZE').': ';
 		$page .= alliance_format($player->alliance).' / '.($player->lid*$config["max_ally_factor"]).'</span>';
 	}

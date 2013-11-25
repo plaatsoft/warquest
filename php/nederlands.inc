@@ -100,7 +100,7 @@ $lang['LINK_BUY_PLAY'] = 'Koop en Speel';
 $lang['LINK_DO_AGAIN'] = 'Speel nogeens';
 
 /* Battle */
-$lang['LINK_ATTACK'] = 'Val Aan';
+$lang['LINK_ATTACK'] = 'Aanval';
 $lang['LINK_BATTLES']  = 'Gevechten';
 $lang['LINK_SP'] = 'Vaardigheden';
 
@@ -455,8 +455,8 @@ $lang['PLAYER_ALLIANCE_SIZE'] = 'Alliantie grootte';
 $lang['PLAYER_EXP_POINTS']  = 'Ervaringspunten';
 $lang['PLAYER_SERVER_REQUEST']  = 'Server verzoeken';
 $lang['PLAYER_MISSION_COMPLETED'] = 'Missies uitgevoerd';
-$lang['PLAYER_DEFENSE_STRENGTH']  = 'Verdedigingskracht';
-$lang['PLAYER_ATTACK_STRENGTH'] = 'Aanvalskracht';
+$lang['PLAYER_DEFENSE_STRENGTH']  = 'Verdediging';
+$lang['PLAYER_ATTACK_STRENGTH'] = 'Aanval';
 $lang['PLAYER_FIGHTS_LOST'] = 'Gevechten verloren';
 $lang['PLAYER_FIGHTS_WON']  = 'Gevechten gewonnen';
 $lang['PLAYER_BUILDING_INCOME'] = 'Vastgoed inkomen';
@@ -1417,23 +1417,23 @@ $lang['BUILDING_1'] = 'Militaire opslagplaats';
 $lang['BUILDING_2'] = 'Bunker';
 $lang['BUILDING_3'] = 'Raffinaderij';
 $lang['BUILDING_4'] = 'Zonne energie unit';
-$lang['BUILDING_5'] = 'Wachttoren';
+$lang['BUILDING_5'] = 'Tankwal';
 $lang['BUILDING_6'] = 'Wapen fabriek';
-$lang['BUILDING_7'] = 'Korte afstand luchtafweer';
+$lang['BUILDING_7'] = 'Luchtafweer geschut';
 $lang['BUILDING_8'] = 'Communicatie Centrum';
-$lang['BUILDING_9'] = 'Lange afstand luchtafweer';
+$lang['BUILDING_9'] = 'Korte afstand luchtafweer';
 $lang['BUILDING_10'] = 'Mobiele Aggregaat';
-$lang['BUILDING_11'] = 'Landmijnenveld';
+$lang['BUILDING_11'] = 'Wachttoren';
 $lang['BUILDING_12'] = 'Olie Booreiland';
 $lang['BUILDING_13'] = 'Kolen energie centrale';
 $lang['BUILDING_14'] = 'Militair ontwikkel lab';
-$lang['BUILDING_15'] = 'Magnetisch kanon';
+$lang['BUILDING_15'] = 'Mijnenveld';
 $lang['BUILDING_16'] = 'Nucleair test lab';
 $lang['BUILDING_17'] = 'Satelliet netwerk';
 $lang['BUILDING_18'] = 'Windmolenpark';
 $lang['BUILDING_19'] = 'Olie bron';
-$lang['BUILDING_20'] = 'Vliegveld';
-$lang['BUILDING_21'] = 'Zeemijnenveld';
+$lang['BUILDING_20'] = 'Lange afstand luchtafweer';
+$lang['BUILDING_21'] = 'Kust bunker';
 $lang['BUILDING_22'] = 'Torpedo launcher';
 $lang['BUILDING_23'] = 'Onderzeeboot fabriek';
 $lang['BUILDING_24'] = 'Bio science lab';
@@ -1465,144 +1465,8 @@ $lang['BUILDING_49'] = 'Energie centrale onderhoud';
 $lang['BUILDING_50'] = 'Vliegtuig onderhoud';
 $lang['BUILDING_51'] = 'Ambassade';
 $lang['BUILDING_52'] = 'Spion Commando Centrum';
-$lang['BUILDING_53'] = 'Drone Controlle Centrum';
+$lang['BUILDING_53'] = 'Drone bedieningscentrum';
 $lang['BUILDING_54'] = 'Cyberspace Centrum';
-
-/* ---------------------------------------------- */
-
-/* Income (Moon) - Group 6 */
-$lang['BUILDING_600'] = 'Initial Base';
-$lang['BUILDING_601'] = 'Expore Research Centre';
-$lang['BUILDING_602'] = 'Living Quator';
-$lang['BUILDING_603'] = 'Oxygen Factory';
-$lang['BUILDING_604'] = 'Water Factory';
-$lang['BUILDING_605'] = 'Communication Centre';
-$lang['BUILDING_606'] = 'Greenhouse';
-$lang['BUILDING_607'] = 'Construction Factory';
-$lang['BUILDING_608'] = 'Metal Mining Centre';
-$lang['BUILDING_609'] = 'Spacecraft Launch Centre';
-$lang['BUILDING_610'] = 'Space Hostipal';
-$lang['BUILDING_611'] = 'Terraforming Centre';
-
-/* Defense (Moon) - Group 7 */
-$lang['BUILDING_700'] = 'Defense Research Centre';
-$lang['BUILDING_701'] = 'Dron Factory';
-$lang['BUILDING_702'] = 'Short Range Missile';
-$lang['BUILDING_703'] = 'Warrior Factory';
-$lang['BUILDING_704'] = 'Early Warning System';
-$lang['BUILDING_705'] = 'Long Range Laser';
-$lang['BUILDING_706'] = 'Spacecraft Factory';
-$lang['BUILDING_707'] = 'Energy Shield';
-$lang['BUILDING_708'] = 'Nuclear Missile Launcher';
-$lang['BUILDING_709'] = 'Tasers Weapon Factory';
-$lang['BUILDING_710'] = 'Photon Weapon Factory';
-$lang['BUILDING_711'] = 'Mobile Android Defender';
-$lang['BUILDING_712'] = 'Colony Defense Shield';
-$lang['BUILDING_713'] = 'Underground Factory';
-$lang['BUILDING_714'] = 'Spacecraft Lancher';
-
-/* Energy (Moon) - Group 8 */
-$lang['BUILDING_800'] = 'Gas Research Centre';
-$lang['BUILDING_801'] = 'Petrol Research Centre';
-$lang['BUILDING_802'] = 'Gas Well';
-$lang['BUILDING_803'] = 'Petrol Well';
-$lang['BUILDING_804'] = 'Solar Power Plant';
-$lang['BUILDING_805'] = 'Gas Power Plant';
-$lang['BUILDING_806'] = 'Mini Orbit Solar Plant';
-$lang['BUILDING_807'] = 'Nuclear Power Plant';
-$lang['BUILDING_808'] = 'Large Orbit Solar Plant';
-$lang['BUILDING_809'] = 'Mini Space Colony';
-$lang['BUILDING_810'] = 'Solar Grid System';
-$lang['BUILDING_811'] = 'Large Space Colony';
-
-/* Discount (Moon) - Group 9 */
-$lang['BUILDING_900'] = 'Moon Skyscraper';
-$lang['BUILDING_901'] = 'Moon Bridge';
-$lang['BUILDING_902'] = 'Moon Rock Village';
-$lang['BUILDING_903'] = 'Military Headquarters';
-$lang['BUILDING_904'] = 'Moon Volcano Base';
-$lang['BUILDING_905'] = 'Moon Village';
-$lang['BUILDING_906'] = 'Moon Training Camp';
-$lang['BUILDING_907'] = 'Moon Missile Launchers';
-$lang['BUILDING_908'] = 'Moon President Office';
-$lang['BUILDING_909'] = 'Moon Military Academy';
-$lang['BUILDING_910'] = 'Moon Recreation Facility';
-$lang['BUILDING_911'] = 'Moon Command Centre';
-
-/* Maintenance (Moon) - Group 10 */
-$lang['BUILDING_1000'] = 'Unit Repair Centre';
-$lang['BUILDING_1001'] = 'Drone Repair Centre';
-$lang['BUILDING_1002'] = 'Rocket Repair Centre';
-$lang['BUILDING_1003'] = 'Explore Repair Centre';
-$lang['BUILDING_1004'] = 'Vehicle Repair Centre';
-$lang['BUILDING_1005'] = 'Warrior Repair Centre';
-$lang['BUILDING_1006'] = 'Infra Repair Centre';
-$lang['BUILDING_1007'] = 'Moon Architect Centre';
-$lang['BUILDING_1008'] = 'Power Repair Centre';
-$lang['BUILDING_1009'] = 'Robot Repair Centre';
-
-/* ---------------------------------------------- */
-
-/* Income (Mars) - Group 11 */
-$lang['BUILDING_1100'] = 'Initial Base';
-$lang['BUILDING_1101'] = 'Expore Research Centre';
-$lang['BUILDING_1102'] = 'Oxygen Factory';
-$lang['BUILDING_1103'] = 'Living Quator';
-$lang['BUILDING_1104'] = 'Water Factory';
-$lang['BUILDING_1105'] = 'Metal Mining Centre';
-$lang['BUILDING_1106'] = 'Communication Centre';
-$lang['BUILDING_1107'] = 'Converance Centre';
-$lang['BUILDING_1108'] = 'Greenhouse';
-$lang['BUILDING_1109'] = 'Mars Hotel';
-
-/* Defense (Mars) - Group 12 */
-$lang['BUILDING_1200'] = 'Research Centre';
-$lang['BUILDING_1201'] = 'Weapon Factory';
-$lang['BUILDING_1202'] = 'Short Range Missile';
-$lang['BUILDING_1203'] = 'Warrior Factory';
-$lang['BUILDING_1204'] = 'Early Warning System';
-$lang['BUILDING_1205'] = 'Spacecraft Factory';
-$lang['BUILDING_1206'] = 'Long Range Launcher';
-$lang['BUILDING_1207'] = 'Explorer Factory';
-$lang['BUILDING_1208'] = 'Dron Factory';
-$lang['BUILDING_1209'] = 'Warrior Factory';
-
-/* Energy (Mars) - Group 13 */
-$lang['BUILDING_1300'] = 'Energy Research Centre';
-$lang['BUILDING_1301'] = 'Gas Plant';
-$lang['BUILDING_1302'] = 'Petrol Research Centre';
-$lang['BUILDING_1303'] = 'Petrol Well';
-$lang['BUILDING_1304'] = 'Solar Power Plant';
-$lang['BUILDING_1305'] = 'Gas Power Plant';
-$lang['BUILDING_1306'] = 'Mining Centre';
-$lang['BUILDING_1307'] = 'Nuclear Power Plant';
-$lang['BUILDING_1308'] = 'Large Orbit Solar Plant';
-$lang['BUILDING_1309'] = 'Large Mars Colony';
-
-/* Discount (Mars) - Group 14 */
-$lang['BUILDING_1400'] = 'Training Centre';
-$lang['BUILDING_1401'] = 'Terra Forum Centre';
-$lang['BUILDING_1402'] = 'Military Village';
-$lang['BUILDING_1403'] = 'Military Headquarters';
-$lang['BUILDING_1404'] = 'Shoping Centre';
-$lang['BUILDING_1405'] = 'Construction Builder';
-$lang['BUILDING_1406'] = 'Training Camp';
-$lang['BUILDING_1407'] = 'President Office';
-$lang['BUILDING_1408'] = 'Village';
-
-/* Maintenance (Mars) - Group 15 */
-$lang['BUILDING_1500'] = 'Unit Repair Centre';
-$lang['BUILDING_1501'] = 'Drone Repair Centre';
-$lang['BUILDING_1502'] = 'Rocket Repair Centre';
-$lang['BUILDING_1503'] = 'Explore Repair Centre';
-$lang['BUILDING_1504'] = 'Vehicle Repair Centre';
-$lang['BUILDING_1505'] = 'Warrior Repair Centre';
-$lang['BUILDING_1506'] = 'Infra Repair Centre';
-$lang['BUILDING_1507'] = 'Architect Centre';
-$lang['BUILDING_1508'] = 'Power Repair Centre';
-$lang['BUILDING_1509'] = 'Robot Repair Centre';
-
-/* ---------------------------------------------- */
 
 /*
 ** ------------------
@@ -2298,6 +2162,15 @@ $landcode['yt'] = "Mayotte";
 $landcode['za'] = "Zuid Afrika";
 $landcode['zm'] = "Zambia";
 $landcode['zw'] = "Zimbabwe";
+
+/*
+** ------------------
+** GOLD FEATURES
+** ------------------
+*/
+
+$lang['GENERAL_GOLD'] = 'goud';
+$lang['PLAYER_GOLD'] = 'Goud'; 
 
 /*
 ** ------------------

@@ -378,6 +378,10 @@ function warquest_admin_action_form() {
 	$page .= ' - '.warquest_link('mid='.$mid.'&sid='.$sid.'&eid=32', 'Optimize database tables');
 	$page .= '<br/>';
 	
+	$page .= '<br/>'; 
+	$page .= ' - '.warquest_link('mid='.$mid.'&sid='.$sid.'&eid=35', 'Make database backup');
+	$page .= '<br/>';
+	
 	$page .= '<br/><br/>';
 	$page .= '<b>SPECIAL ACTIONS</b>'; 
 	$page .= '<br/>';
@@ -1975,6 +1979,10 @@ function warquest_admin() {
 			
 		case 34:
 			warquest_admin_post_tweet_do();
+			break;
+			
+		case 35:
+			warquest_cron_backup();
 			break;
 			
 		case 500: 
