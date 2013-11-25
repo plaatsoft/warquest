@@ -178,7 +178,7 @@ $lang['AGO_SEC']   = ' sec';
 $lang['AGO_SECS']  = ' secs';
 	
 $lang['COPYRIGHT'] = 'Copyright © 2008-2013 - All Rights Reserved - <a target="new" href="http://www.plaatsoft.nl">PlaatSoft</a>';
-$lang['STATUS_MONEY']  = 'Cash';
+$lang['STATUS_CASH']  = 'Cash';
 $lang['STATUS_EXP']  = 'Exp.';
 $lang['STATUS_LEVEL']  = 'Level';
 $lang['STATUS_HEALTH'] = 'Health';
@@ -624,7 +624,7 @@ $lang['HOME_MAX_REACHED'] = 'Max Reached';
 $lang['HOME_TRADE_HEALTH_TIMER_TO_LARGE'] = 'Health timer has reached minimum value.';
 $lang['HOME_TRADE_ENERGY_TIMER_TO_LARGE'] = 'Energy timer has reached minimum value.';
 $lang['HOME_TRADE_AMMO_TIMER_TO_LARGE'] = 'Ammo timer has reached minimum value.';
-$lang['HOME_TRADE_SUCCESFULL'] = 'The trade-in is succesfully processed! ';
+$lang['HOME_TRADE_SUCCESFULL'] = 'The trade is succesfully processed! ';
 
 $lang['HOME_TRADE_NO_GOLD'] = 'You do not own %s.';
 
@@ -1380,7 +1380,7 @@ $lang['UNIT_323'] = 'F-35 Lightning II';
 $lang['UNIT_324'] = 'B-52 Stratofortress';
 $lang['UNIT_325'] = 'F-22 Raptor';
 $lang['UNIT_326'] = 'Trident II Missile';
-$lang['UNIT_327'] = 'Titan II Missile';
+$lang['UNIT_327'] = 'Titan ICBM Missile';
 
 /* Citizens (Earth) - Group 5 */
 $lang['UNIT_401'] = 'Construction Engineer';
@@ -1404,6 +1404,7 @@ $lang['UNIT_509'] = 'AS-102 Stealth Ship';
 $lang['UNIT_510'] = 'US-101 Predator';
 $lang['UNIT_511'] = 'Heron Drone';
 $lang['UNIT_512'] = 'HG101 Satellite';
+$lang['UNIT_513'] = '';
 
 /* ---------------------------------------------------- */
 
@@ -1419,6 +1420,7 @@ $lang['UNIT_707'] = 'Catigernus VIII';
 $lang['UNIT_708'] = 'Catutigernos IX';
 $lang['UNIT_709'] = 'Cedric X';
 $lang['UNIT_710'] = 'Cheveyo XI';
+$lang['UNIT_711'] = 'Acis I';
 
 /* Drones (Moon) - Group 8 */
 $lang['UNIT_800'] = 'Basic Rover I';
@@ -1433,6 +1435,7 @@ $lang['UNIT_807'] = 'Fuel Transporter IX';
 $lang['UNIT_808'] = 'Fuel Explorer X';
 $lang['UNIT_809'] = 'Moon Explorer XI';
 $lang['UNIT_810'] = 'Transporter XII';
+$lang['UNIT_811'] = 'Abderus V';
 
 /* Spacecrafts (Moon) - Group 9 */
 $lang['UNIT_900'] = 'Moon Cruiser';
@@ -1452,6 +1455,7 @@ $lang['UNIT_913'] = 'Imperial landing craft';
 $lang['UNIT_914'] = 'Star Skiff II';
 $lang['UNIT_915'] = 'Star Destroyer';
 $lang['UNIT_916'] = 'Flag Ship';
+$lang['UNIT_917'] = 'Adapa III';
 
 /* Citizens (Moon) - Group 10 */
 $lang['UNIT_1000'] = 'Astronaut';
@@ -1471,6 +1475,7 @@ $lang['UNIT_1208'] = 'Deepspace Relay Station';
 $lang['UNIT_1209'] = 'Lightspeed Explorer';
 $lang['UNIT_1210'] = 'Planet Destroyer';
 $lang['UNIT_1211'] = 'Galaxy Explorer';
+$lang['UNIT_1212'] = 'Adonis II';
 
 /* ---------------------------------------------------- */
 
@@ -1485,6 +1490,7 @@ $lang['UNIT_1306'] = 'Irapeke VII';
 $lang['UNIT_1307'] = 'Heriberto VIII';
 $lang['UNIT_1308'] = 'Kerbasi IX';
 $lang['UNIT_1309'] = 'Karna X';
+$lang['UNIT_1310'] = 'Bedros XI';
 
 /* Warriors (Mars) - Group 14 */
 $lang['UNIT_1400'] = 'Gervaso I';
@@ -1497,9 +1503,10 @@ $lang['UNIT_1406'] = 'Fenyang VII';
 $lang['UNIT_1407'] = 'Finnegan VIII';
 $lang['UNIT_1408'] = 'Clodovea IX';
 $lang['UNIT_1409'] = 'Eferhilda X';
+$lang['UNIT_1410'] = 'Boreas XI';
 
 /* Spacecrafts (Mars) - Group 15 */
-$lang['UNIT_1500'] = 'Mars Cruiser I';
+$lang['UNIT_1500'] = 'Caesar I';
 $lang['UNIT_1501'] = 'Cocon II';
 $lang['UNIT_1502'] = 'Hawk Eye III';
 $lang['UNIT_1503'] = 'Ariane IV';
@@ -1509,6 +1516,7 @@ $lang['UNIT_1506'] = 'Jannus VII';
 $lang['UNIT_1507'] = 'Tango VIII';
 $lang['UNIT_1508'] = 'Rader IX';
 $lang['UNIT_1509'] = 'Eloy  X';
+$lang['UNIT_1510'] = 'Basta XI';
 
 /* Explorers (Mars) - Group 16 */
 $lang['UNIT_1600'] = 'Cadabyr I';
@@ -1521,6 +1529,7 @@ $lang['UNIT_1606'] = 'Cochise VII';
 $lang['UNIT_1607'] = 'Czarine VIII';
 $lang['UNIT_1608'] = 'Caddawyc IX';
 $lang['UNIT_1609'] = 'Chlodwig X';
+$lang['UNIT_1610'] = 'Calida XI';
 
 /* Citizens (Mars) - Group 17 */
 $lang['UNIT_1700'] = 'Astronaut';
@@ -1540,6 +1549,7 @@ $lang['UNIT_1906'] = 'Jonesy VII';
 $lang['UNIT_1907'] = 'Pendejo VIII';
 $lang['UNIT_1908'] = 'Vorpal IX';
 $lang['UNIT_1909'] = 'Iyona X';
+$lang['UNIT_1910'] = 'Castor XI';
 
 /* Warriors (Asteroid) - Group 20 */
 $lang['UNIT_2000'] = 'Grandmaster I';
@@ -1552,6 +1562,7 @@ $lang['UNIT_2006'] = 'Happyelf VII';
 $lang['UNIT_2007'] = 'Rainbow VIII';
 $lang['UNIT_2008'] = 'MerryLad IX';
 $lang['UNIT_2009'] = 'Drenar X';
+$lang['UNIT_2010'] = 'Demetrius XI';
 
 /* Spacecrafts (Asteroid) - Group 21 */
 $lang['UNIT_2100'] = 'Halvilion I';
@@ -1564,6 +1575,7 @@ $lang['UNIT_2106'] = 'Voronthil VII';
 $lang['UNIT_2107'] = 'Anion VIII';
 $lang['UNIT_2108'] = 'Partharaon IX';
 $lang['UNIT_2109'] = 'Erudil X';
+$lang['UNIT_2110'] = 'Dice XI';
 
 /* Explorers (Asteroid) - Group 22 */
 $lang['UNIT_2200'] = 'Girlyman I';
@@ -1572,10 +1584,11 @@ $lang['UNIT_2202'] = 'Sissy III';
 $lang['UNIT_2203'] = 'Tauren IV';
 $lang['UNIT_2204'] = 'Hykon V';
 $lang['UNIT_2205'] = 'Talenx VI';
-$lang['UNIT_2206'] = 'DDazra VII';
+$lang['UNIT_2206'] = 'Dazra VII';
 $lang['UNIT_2207'] = 'Hexa VIII';
 $lang['UNIT_2208'] = 'Marest IX';
 $lang['UNIT_2209'] = 'Rawrgrable X';
+$lang['UNIT_2210'] = 'Dinos XI';
 
 /* Citizens (Asteroid) - Group 23 */
 $lang['UNIT_2300'] = 'Astronaut';
@@ -1611,12 +1624,12 @@ $lang['UNIT_NOTE_20'] = 'Note: Buy asteroid warrior units to improve your warrio
 $lang['UNIT_NOTE_21'] = 'Note: Buy asteroid spacecraft units to improve your spacecraft force strength. Battle, win and steal money from your opponent\'s cash account.';
 $lang['UNIT_NOTE_22'] = 'Note: Buy asteroid explore units to improve your explorers force strength. Batlle, win to start rebellions on Asteroid and steal some money from your opponent\'s Trasquera or SwissCore bank account.';
 
-$lang['UNIT_DISBAND'] = 'You disbanded %s %s for %s dollars. Still %s deployed.';
+$lang['UNIT_DISBAND'] = 'You disbanded %s %s for %s. Still %s deployed.';
 $lang['UNIT_DISBAND_FAILED'] = 'You do not own %s %s. Still %s deployed.';
 
-$lang['UNIT_DEPLOY'] = 'You deploy %s %s for %s dollar. Now %s deployed.';
+$lang['UNIT_DEPLOY'] = 'You deploy %s %s for %s. Now %s deployed.';
 $lang['UNIT_NO_UPKEEP'] = 'Not enough hourly income to fund %s %s.';
-$lang['UNIT_NO_MONEY'] = 'Not enough money to buy %s %s for %s dollars.';
+$lang['UNIT_NO_FUNDS'] = 'Not enough funds to buy %s %s for %s.';
 $lang['UNIT_MAX'] = 'No more then %s %s(s) allowed!';
 
 $lang['UNITS_NO_UNITS'] = 'No units available!';
@@ -1974,14 +1987,14 @@ $lang['BUILDING_NOTE18'] = 'Note: Energy buildings provide faster energy recover
 $lang['BUILDING_NOTE19'] = 'Note: Discount buildings provide price discount on your asteroid building purchase.';
 $lang['BUILDING_NOTE20'] = 'Note: Maintenance buildings provide faster asteroid unit repair wich results in less unit loss during battles.';
 
-$lang['BUILDING_SELL'] = 'You sold %s %s for %s dollars. Still %s deployed.';
-$lang['BUILDING_LOW_UPKEEP'] = 'Not enough hourly income to sell %s %s for %s dollars.';
+$lang['BUILDING_SELL'] = 'You sold %s %s for %s. Still %s deployed.';
+$lang['BUILDING_LOW_UPKEEP'] = 'Not enough hourly income to sell %s %s for %s.';
 $lang['BUILDING_NOT_OWNED'] = 'You do not have %s %s.';
 
-$lang['BUILDING_BUY'] = 'You bought %s %s for %s dollars. Now %s deployed.';
+$lang['BUILDING_BUY'] = 'You bought %s %s for %s. Now %s deployed.';
 $lang['BUILDING_MAX'] = 'No more then %s %s(s) allowed!';
-$lang['BUILDING_NO_MONEY'] = 'Not enough money to buy %s %s for %s dollars.'; 
-$lang['BUILDING_LOW_UPKEEP2'] = 'Not enough hourly income to buy %s %s for %s dollars.';
+$lang['BUILDING_NO_FUNDS'] = 'Not enough funds to buy %s %s for %s.'; 
+$lang['BUILDING_LOW_UPKEEP2'] = 'Not enough hourly income to buy %s %s for %s.';
 
 $lang['BUILDING_UPKEEP'] = 'Hourly Cost';
 $lang['BUILDING_PRICE'] = 'Price';
@@ -2293,8 +2306,17 @@ others will cost you only 1 skill point. You can also trade in 2:1 skillpoints t
 
 $lang['HELP_GOLD_TITLE'] = 'Gold';
 $lang['HELP_GOLD']  = 'Gold can be purchased by donate some real dollars. See Help -> Donate. 
-Purchase gold can be used to buy premium units / buildings or can be exchanged in to skill points, cash money or can be used to improve your 
-health, energy or ammo restore timer.';
+Purchase gold can be used to buy premium units & buildings or can be exchanged in to skill points, cash money or can be used to improve your health, energy or ammo restore timer.
+<br/><br/>
+Benefits of gold buildings:<br/>
+- Higher defence strength the normal buildings<br/>
+- No hourly cost<br/>
+- In-mortal during fights<br>
+<br/><br/>
+Benefits of gold units:<br/>
+- Higher attack / defence strength the normal units<br/>
+- 50% lower hourly cost the normal units<br/>
+- In-mortal during fights<br>';
 
 $lang['HELP_TACTICS_TITLE'] = 'Tactics';
 $lang['HELP_TACTICS'] = 'One thing to keep in mind is that units used in missions are also subject to 
@@ -2876,19 +2898,14 @@ $lang['USER_EMAIL_CONFIRM_NEEDED'] = 'Please confirm your email address by click
 $lang['USER_EMAIL_HERE'] = 'here';
 $lang['USER_EMAIL_VALID'] = 'Your email address is validated. Thank you!';
 
-
 /*
 ** ------------------
 ** GOLD FEATURES
 ** ------------------
 */
 
-$lang['BUILDING_NO_GOLD'] = 'Not enough gold to buy %s %s for %s.';
 $lang['GENERAL_GOLD'] = 'gold';
 $lang['PLAYER_GOLD'] = 'Gold'; 
-$lang['BUILDING_BUY_GOLD'] = 'You bought %s %s for %s. Now %s deployed.';
-$lang['BUILDING_SELL_GOLD'] = 'You sold %s %s for %s. Still %s deployed.';
-
 
 /*
 ** ------------------

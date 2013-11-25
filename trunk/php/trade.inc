@@ -36,24 +36,7 @@ function warquest_trade_do() {
 	global $player;
 	global $popup;
 	
-	switch ($uid) {
-		
-		case 1: 	$gold = 50;
-					break;
-						
-		case 2: 	$gold = 50;
-					break;
-						
-		case 3:  $gold = 50;
-					break;
-						
-		case 4:  $gold = 250;
-					break;
-						
-		case 5:	$gold = 200;
-					break;
-	}
-
+	$gold = $config["gold_trade_feature".$uid];	
 	$totalGold = $amount * $gold;
 						
 	if ($totalGold > $player->gold) {
@@ -105,15 +88,15 @@ function warquest_trade_do() {
 		warquest_db_skill_update($skill);	
 				
 		$message = t('HOME_TRADE_SUCCESFULL');
-						
-		$link = warquest_link('mid='.$mid.'&sid='.$sid.'&eid=20&uid='.$uid, t('HOME_TRADE_IN'), "trade");
-			
+	
+		$link = "";
 		if ($player->gold > 0) {
-		
+
 			if (($max*$gold )> $player->gold) {
 				$max = round($player->gold / $gold)-1;
 			}	
 		
+			$link  = warquest_link('mid='.$mid.'&sid='.$sid.'&eid=20&uid='.$uid, t('HOME_TRADE_IN'), "trade");
 			$link .= '<br/><br/>'.t('GENERAL_AMOUNT').'<br/>';		
 			$link .= warquest_amount_selected($max);
 		}
@@ -168,7 +151,7 @@ function warquest_trade_form() {
 	$page .= '<b>'.t('HOME_TRADE1').'</b>';
 	$page .= '</div>';
 		
-	$page .= '<i>'.t('HOME_TRADE1_NOTE', gold_format(50)).'</i>';
+	$page .= '<i>'.t('HOME_TRADE1_NOTE', gold_format($config["gold_trade_feature1"])).'</i>';
 	$page .= '<br/><br/>';	
 			
 	$tmp = $config["init_health_timer"] - ($skill->health_timer * 5);	
@@ -205,7 +188,7 @@ function warquest_trade_form() {
 	$page .= '<b>'.t('HOME_TRADE2').'</b>';
 	$page .= '</div>';
 		
-	$page .= '<i>'.t('HOME_TRADE2_NOTE', gold_format(50)).'</i>';
+	$page .= '<i>'.t('HOME_TRADE2_NOTE', gold_format($config["gold_trade_feature2"])).'</i>';
 	$page .= '<br/><br/>';	
 	
 	$tmp = $config["init_energy_timer"] - ($skill->energy_timer * 5); 		
@@ -242,7 +225,7 @@ function warquest_trade_form() {
 	$page .= '<b>'.t('HOME_TRADE3').'</b>';
 	$page .= '</div>';
 		
-	$page .= '<i>'.t('HOME_TRADE3_NOTE', gold_format(50)).'</i>';
+	$page .= '<i>'.t('HOME_TRADE3_NOTE', gold_format($config["gold_trade_feature3"])).'</i>';
 	$page .= '<br/><br/>';	
 	
 	$tmp = $config["init_ammo_timer"] - ($skill->ammo_timer * 5);		
@@ -279,9 +262,9 @@ function warquest_trade_form() {
 	$page .= '<b>'.t('HOME_TRADE4').'</b>';
 	$page .= '</div>';
 		
-	$page .= '<i>'.t('HOME_TRADE4_NOTE', gold_format(250), money_format1(10000000000)).'</i>';
+	$page .= '<i>'.t('HOME_TRADE4_NOTE', gold_format($config["gold_trade_feature4"]), money_format1(10000000000)).'</i>';
 	$page .= '<br/><br/>';		
-	$page .= t('HOME_TRADE_CONDITION').': '.money_format1($player->money).' '.t('GENERAL_DOLLAR');
+	$page .= t('HOME_TRADE_CONDITION').': '.dollar_format($player->money);
 			
 	$page .= '</td>';
 	$page .= '</tr>';	
@@ -307,7 +290,7 @@ function warquest_trade_form() {
 	$page .= '<b>'.t('HOME_TRADE5').'</b>';
 	$page .= '</div>';
 		
-	$page .= '<i>'.t('HOME_TRADE5_NOTE', gold_format(200)).'</i>';
+	$page .= '<i>'.t('HOME_TRADE5_NOTE', gold_format($config["gold_trade_feature5"])).'</i>';
 	$page .= '<br/><br/>';	
 	$page .= t('HOME_TRADE_CONDITION').': '.level_format($skill->skill_points).' '.t('HOME_TRADE_SKILL_POINTS');
 		
@@ -342,7 +325,5 @@ function warquest_trade_event() {
 			break;					
 	}	
 }
-
-
 
 ?>

@@ -174,7 +174,7 @@ $lang['AGO_SECS']  = ' Sek';
 	
 $lang['COPYRIGHT'] = 'Copyright © 2008-2013 - All Rights Reserved - <a target="new" href="http://www.plaatsoft.nl">PlaatSoft</a>';
 
-$lang['STATUS_MONEY']  = 'Geld';
+$lang['STATUS_CASH']  = 'Geld';
 $lang['STATUS_EXP']  = 'Exp.';
 $lang['STATUS_LEVEL']  = 'Rang';
 $lang['STATUS_HEALTH'] = 'Gesundheit';
@@ -564,28 +564,28 @@ $lang['HOME_TRADE_CONDITION'] = 'Current';
 $lang['HOME_TRADE_MINIMAL'] = 'Minimal';
 
 $lang['HOME_TRADE1'] = 'Health Timer';
-$lang['HOME_TRADE1_NOTE'] = 'Decrease health timer so your health restores faster. It takes 1 trade point to decrease your health timer with 5 seconds.';
+$lang['HOME_TRADE1_NOTE'] = 'Decrease health timer so your health restores faster. It takes %s to decrease your health timer with 5 seconds.';
 
 $lang['HOME_TRADE2'] = 'Energy Timer';
-$lang['HOME_TRADE2_NOTE'] = 'Decrease energy timer so your energy restores faster. It takes 1 trade point to decrease your energy timer with 5 seconds.';
+$lang['HOME_TRADE2_NOTE'] = 'Decrease energy timer so your energy restores faster. It takes %s to decrease your energy timer with 5 seconds.';
 
 $lang['HOME_TRADE3'] = 'Ammo Timer';
-$lang['HOME_TRADE3_NOTE'] = 'Decrease ammo timer so your ammo restores faster. It takes 1 trade point to decrease your ammo timer with 5 seconds.';
+$lang['HOME_TRADE3_NOTE'] = 'Decrease ammo timer so your ammo restores faster. It takes %s to decrease your ammo timer with 5 seconds.';
 
 $lang['HOME_TRADE4'] = 'Cash';
-$lang['HOME_TRADE4_NOTE'] = 'Get cash to buy new units, buildings, etc.. It takes 1 trade point to increase your cash with %s dollar.';
+$lang['HOME_TRADE4_NOTE'] = 'Get cash to buy new units, buildings, etc.. It takes %s to increase your cash with %s dollar.';
 
 $lang['HOME_TRADE5'] = 'Skill Point';
-$lang['HOME_TRADE5_NOTE'] = 'Get skill points to improve your attack, defence, health, energy or ammo skill. It takes 1 trade point to get 2 skill points.';
+$lang['HOME_TRADE5_NOTE'] = 'Get skill points to improve your attack, defence, health, energy or ammo skill. It takes %s point to get 1 skill point.';
 
 $lang['HOME_TRADE_SKILL_POINTS'] = 'skill point(s)';
 $lang['HOME_TRADE_IN'] = 'Trade-In';
 $lang['HOME_MAX_REACHED'] = 'Max Reached';
-$lang['HOME_TRADE_NO_POINTS'] = 'You do not own %s trade point(s).';
+
 $lang['HOME_TRADE_HEALTH_TIMER_TO_LARGE'] = 'Health timer has reached minimum value.';
 $lang['HOME_TRADE_ENERGY_TIMER_TO_LARGE'] = 'Energy timer has reached minimum value.';
 $lang['HOME_TRADE_AMMO_TIMER_TO_LARGE'] = 'Ammo timer has reached minimum value.';
-$lang['HOME_TRADE_SUCCESFULL'] = 'The trade point is succesfully processed!';
+$lang['HOME_TRADE_SUCCESFULL'] = 'The trade is succesfully processed!';
 
 /*
 ** ------------------
@@ -1559,13 +1559,12 @@ $lang['UNIT_NOTE_20'] = 'Note: Buy asteroid warrior units to improve your warrio
 $lang['UNIT_NOTE_21'] = 'Note: Buy asteroid spacecraft units to improve your spacecraft strength. Battle, win and steal money from your opponent\'s cash account.';
 $lang['UNIT_NOTE_22'] = 'Note: Buy asteroid explore units to improve your explorers strength. Batlle, win to start rebellions on Mars and steal some money from your opponent\'s Trasquera or SwissCore bank account.';
 
-
-$lang['UNIT_DISBAND'] = 'You disband %s %s for %s dollar. Still %s deployed.';
+$lang['UNIT_DISBAND'] = 'You disband %s %s for %s. Still %s deployed.';
 $lang['UNIT_DISBAND_FAILED'] = 'You do not own %s %s. Still %s deployed.';
 
-$lang['UNIT_DEPLOY'] = 'You deploy %s %s for %s dollar. Now %s deployed.';
+$lang['UNIT_DEPLOY'] = 'You deploy %s %s for %s. Now %s deployed.';
 $lang['UNIT_NO_UPKEEP'] = 'Not enough hourly income to fund %s %s.';
-$lang['UNIT_NO_MONEY'] = 'Not enough money to buy %s %s for %s dollar.';
+$lang['UNIT_NO_FUNDS'] = 'Not enough funds to buy %s %s for %s.';
 $lang['UNIT_MAX'] = 'No more then %s %s(s) allowed!';;
 
 /*
@@ -1890,14 +1889,14 @@ $lang['BUILDING_NOTE18'] = 'Note: Energy buildings provide faster energy recover
 $lang['BUILDING_NOTE19'] = 'Note: Discount buildings provide price discount on your asteroid building purchase.';
 $lang['BUILDING_NOTE20'] = 'Note: Maintenance buildings provide faster asteroid unit repair wich results in less unit loss during battles.';
 
-$lang['BUILDING_SELL'] = 'You sell %s %s for %s dollar. Still %s deployed.';
-$lang['BUILDING_LOW_UPKEEP'] = 'Not enough hourly income to sell %s %s for %s dollar.';
+$lang['BUILDING_SELL'] = 'You sell %s %s for %s. Still %s deployed.';
+$lang['BUILDING_LOW_UPKEEP'] = 'Not enough hourly income to sell %s %s for %s.';
 $lang['BUILDING_NOT_OWNED'] = 'You do not own %s %s.';
 
-$lang['BUILDING_BUY'] = 'You buy %s %s for %s dollar. Now %s deployed.';
+$lang['BUILDING_BUY'] = 'You buy %s %s for %s. Now %s deployed.';
 $lang['BUILDING_MAX'] = 'No more then %s %s(s) allowed!';
-$lang['BUILDING_NO_MONEY'] = 'Not enough money to buy %s %s for %s dollar.'; 
-$lang['BUILDING_LOW_UPKEEP2'] = 'Not enough hourly income to buy %s %s for %s dollar.';
+$lang['BUILDING_NO_FUNDS'] = 'Not enough funds to buy %s %s for %s.'; 
+$lang['BUILDING_LOW_UPKEEP2'] = 'Not enough hourly income to buy %s %s for %s.';
 
 $lang['BUILDING_UPKEEP'] = 'Stündliche Kosten';
 $lang['BUILDING_PRICE'] = 'Preis';
@@ -2320,24 +2319,6 @@ $lang['HELP_REBEL_AWARDS'] = 'The following rebellion rise awards can be earned:
 ** ------------------
 */
 
-$lang['HELP_DONATE_TITLE1'] = 'Donate';
-$lang['HELP_DONATE_TITLE2'] = 'Donate (English only)';
-
-$lang['HELP_SUBTITLE_DONATE1'] = 'General';
-$lang['HELP_DONATE1'] = 'WarQuest software may be used free of charge, but if you wish to express 
-your appreciation for the time and resources the author spent developing and supporting it 
-over the years, and also help reduce the costs of running the web server, we do accept and appreciate 
-donations.';
-
-$lang['HELP_SUBTITLE_DONATE2'] = 'Reward';
-$lang['HELP_DONATE2'] = 'Each dollar donated will be rewarded with 1 trade point. Purchased trade points 
-can be exchanged in to skill points, cash money or can be used to improve your health, energy or ammo 
-restore timer. The reward is manually processed so keep in mind that it takes a few hours before it is available.';
-
-$lang['HELP_SUBTITLE_DONATE3'] = 'PayPal';
-$lang['HELP_DONATE3'] = 'To make a donation online using your credit card, or PayPal account, click 
-below and enter the amount you would like to contribute. Your credit card will be processed by PayPal, 
-a trusted name in secure online transactions. Many thanks for your support.';
 /*
 ** ------------------
 ** HELP - STATS

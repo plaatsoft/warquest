@@ -57,10 +57,9 @@ function warquest_unit_deploy_do() {
 	global $popup;
 	
 	/* Get unit info */
-	$query = 'select price, attack, defense, max, upkeep from unit where uid='.$uid;
-	$result = warquest_db_query($query);
-	
- 	$unit=warquest_db_fetch_object($result); 
+	$query = 'select price, gold, attack, defense, max, upkeep from unit where uid='.$uid;
+	$result = warquest_db_query($query);	
+ 	$unit = warquest_db_fetch_object($result); 
 
 	/* Get amount of units already deployed */
 	$query  = "select amount from player_unit where uid=".$uid." and pid=".$player->pid;
@@ -72,7 +71,8 @@ function warquest_unit_deploy_do() {
 	} 
 	$totalAmount=$amountOld;
 		
-	$total = $unit->price*$amount;
+	$totalPrice = $unit->price * $amount;
+	$totalGold = $unit->gold * $amount;
 	
 	if (($unit->max!=0) && (($amountOld+$amount) > $unit->max)) {
 	
@@ -89,7 +89,7 @@ function warquest_unit_deploy_do() {
 		
 		$type = "warning";
 				
-	} else if ($player->money < $total) {
+	} else if ( (($totalPrice>0) && ($player->money < $totalPrice)) || (($totalGold>0) && ($player->gold < $totalGold)) ) {
 		
 		$message = '<table>';
 		$message .= '<tr>';
@@ -97,7 +97,11 @@ function warquest_unit_deploy_do() {
 		$message .= warquest_unit_image($uid, 0, 0);
 		$message .= '</td>';
 		$message .= '<td>';
-		$message .= t('UNIT_NO_MONEY', number_format2($amount), t('UNIT_'.$uid), money_format1($total));
+		if ($totalPrice>0) {
+			$message .= t('UNIT_NO_FUNDS', number_format2($amount), t('UNIT_'.$uid), dollar_format($totalPrice));
+		} else {
+			$message .= t('UNIT_NO_FUNDS', number_format2($amount), t('UNIT_'.$uid), gold_format($totalGold));
+		}
 		$message .= '</td>';
 		$message .= '</tr>';
 		$message .= '</table>';
@@ -121,12 +125,12 @@ function warquest_unit_deploy_do() {
 		
 	} else {
 	
+		/* Buy unit(s) */
+		
 		/* Process player statistics. */
-		$player->money -= $total;
-		
-		$log = 'Deploy '.number_format2($amount).' '.t('UNIT_'.$uid).' ['.$uid.'] for '.number_format2($total);		
-		warquest_user_log($player, $log);
-		
+		$player->money -= $totalPrice;
+		$player->gold -= $totalGold;
+				
 		/* save data in database */
 		$totalAmount = warquest_db_unit_add($player->pid, $uid, $amount);
 		
@@ -135,32 +139,39 @@ function warquest_unit_deploy_do() {
 		
 		$message = '<table>';
 		$message .= '<tr>';
+		
 		$message .= '<td width="100">';
 		$message .= warquest_unit_image($uid, 0, 0);
 		$message .= '</td>';
+		
 		$message .= '<td>';
-		$message .= t('UNIT_DEPLOY', 
-						number_format2($amount), 
-						t('UNIT_'.$uid), 
-						money_format1($total), 
-						deploy_format($totalAmount));
+		if ($totalPrice>0) {
+			$message .= t('UNIT_DEPLOY', number_format2($amount), t('UNIT_'.$uid), dollar_format($totalPrice), deploy_format($totalAmount));
+		} else {
+			$message .= t('UNIT_DEPLOY', number_format2($amount), t('UNIT_'.$uid), gold_format($totalGold), deploy_format($totalAmount));
+		}
 		$message .= '</td>';
+		
 		$message .= '</tr>';
 		$message .= '</table>';
 		
 		$type = "info";		
+		
+		if ($totalPrice>0) {
+			$log = 'Deploy '.number_format2($amount).' '.t('UNIT_'.$uid).' ['.$uid.'] for '.dollar_format($totalPrice);		
+		} else {
+			$log = 'Deploy '.number_format2($amount).' '.t('UNIT_'.$uid).' ['.$uid.'] for '.gold_format($totalGold);		
+		}
+		warquest_user_log($player, $log);
 	}
 	
+	$link="";
 	$amountDiff = $unit->max - $totalAmount;
-	if ($amountDiff<0) $amountDiff=0;
-	
-	$link  = warquest_link('mid='.$mid.'&uid='.$uid.'&eid='.$eid.'&sid='.$sid, t('LINK_DEPLOY_AGAIN'), 'deploy-0');
-	$link .= '<br/><br/>'.t('GENERAL_AMOUNT').'<br/>';
-	$link .= warquest_amount_selected($amountDiff);
-		
-	if (($unit->max>0) && ($amountDiff==0)) {
-		$link="";			
-	}	
+	if ($amountDiff>0) {
+		$link  = warquest_link('mid='.$mid.'&uid='.$uid.'&eid='.$eid.'&sid='.$sid, t('LINK_DEPLOY_AGAIN'), 'deploy-0');
+		$link .= '<br/><br/>'.t('GENERAL_AMOUNT').'<br/>';
+		$link .= warquest_amount_selected($amountDiff);
+	}
 		
 	$popup .= warquest_box($type, $message, $link);
 }
@@ -184,7 +195,7 @@ function warquest_unit_disband_do() {
 	global $popup;
 	
 	/* Get unit  */
-	$query  = "select price, attack, defense, upkeep from unit where uid=".$uid;
+	$query  = "select price, gold, attack, defense, upkeep from unit where uid=".$uid;
 	$result = warquest_db_query($query);
 	
  	$unit=warquest_db_fetch_object($result);
@@ -217,12 +228,11 @@ function warquest_unit_disband_do() {
 	} else {
 		
 		/* Increase money (60% of deploy price) of player */
-		$price =  round($unit->price * $amount * $config["unit_sell_ratio"] );
-		$player->money += $price;
-		
-		$log = 'Disband '.number_format2($amount).' '.t('UNIT_'.$uid).' ['.$uid.'] for '.number_format2($price);		
-		warquest_user_log($player, $log);
-		
+		$totalPrice =  round($unit->price * $amount * $config["unit_sell_ratio"] );
+		$totalGold =  round($unit->gold * $amount * $config["unit_sell_ratio"] );
+		$player->money += $totalPrice;
+		$player->gold += $totalGold;
+	
 		$totalAmount -= $amount;
 		
 		/* Delete amount out database */
@@ -239,17 +249,24 @@ function warquest_unit_disband_do() {
 		$message .= '</td>';
 		
 		$message .= '<td>';
-		$message .= t('UNIT_DISBAND', 
-						number_format2($amount), 
-						t('UNIT_'.$uid), 
-						money_format1($price), 
-						deploy_format($totalAmount));
+		if ($totalPrice  > 0) {
+			$message .= t('UNIT_DISBAND',	number_format2($amount), t('UNIT_'.$uid), dollar_format($totalPrice), deploy_format($totalAmount));
+		} else {
+			$message .= t('UNIT_DISBAND',	number_format2($amount), t('UNIT_'.$uid), gold_format($totalGold), deploy_format($totalAmount));
+		}
 		$message .= '</td>';
 		
 		$message .= '</tr>';
 		$message .= '</table>';	
 		
 		$type= "info";		
+		
+		if ($totalPrice  > 0) {
+			$log = 'Disband '.number_format2($amount).' '.t('UNIT_'.$uid).' ['.$uid.'] for '.dollar_format($totalPrice);		
+		} else {
+			$log = 'Disband '.number_format2($amount).' '.t('UNIT_'.$uid).' ['.$uid.'] for '.gold_format($totalGold);	
+		}
+		warquest_user_log($player, $log);
 	}
 	
 	$link = "";

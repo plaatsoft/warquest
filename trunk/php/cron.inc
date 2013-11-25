@@ -46,7 +46,7 @@ function warquest_cron_backup() {
 	$filename = 'backup/warquest-'.date("Ymd").'.sql';
 	 
    $backupFile = 'database_backup_'.date("YmdHis").'.sql';
-	$command = 'mysqldump --user='.$config["dbuser"].' --password='.$config["dbpass"].' '.$config["dbname"].' > '.$filename;
+	$command = 'mysqldump --user='.$config["dbuser"].' --password='.$config["dbpass"].' --host='.$config["dbhost"].' '.$config["dbname"].' > '.$filename;
 	system($command);
 		
 	$message = 'Create new backup file '.$filename.'<br/>';

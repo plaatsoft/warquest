@@ -105,7 +105,7 @@ function warquest_building_buy_do() {
 			
 		$type = "warning";
 	
-	} else if (($totalPrice>0) && ($player->money < $totalPrice)) {
+	} else if ( (($totalPrice>0) && ($player->money < $totalPrice)) || (($totalGold>0) && ($player->gold < $totalGold)) ) {
 	
 		$message = '<table>';
 		$message .= '<tr>';
@@ -113,28 +113,17 @@ function warquest_building_buy_do() {
 		$message .= warquest_building_image($building,0,0);
 		$message .= '</td>';
 		$message .= '<td>';
-		$message .= t('BUILDING_NO_MONEY', $amount, t('BUILDING_'.$uid), money_format1($totalPrice));
+		if ($totalPrice>0) {
+			$message .= t('BUILDING_NO_FUNDS', $amount, t('BUILDING_'.$uid), dollar_format($totalPrice));
+		} else {
+			$message .= t('BUILDING_NO_FUNDS', $amount, t('BUILDING_'.$uid), gold_format($totalGold));
+		}
 		$message .= '</td>';
 		$message .= '</tr>';
 		$message .= '</table>';
 
 		$type = "warning";	
-		
-	} else if (($totalGold>0) && ($player->gold < $totalGold)) {
-	
-		$message = '<table>';
-		$message .= '<tr>';
-		$message .= '<td width="100">';
-		$message .= warquest_building_image($building,0,0);
-		$message .= '</td>';
-		$message .= '<td>';
-		$message .= t('BUILDING_NO_GOLD', $amount, t('BUILDING_'.$uid), gold_format($totalGold));
-		$message .= '</td>';
-		$message .= '</tr>';
-		$message .= '</table>';
-
-		$type = "warning";	
-	
+			
 	} else if ((($player->money_step>0) && ($player->money_step+($building->income*$amount)-($data3->total*$amount))<0)
 			|| (($player->money_step<0) && (($building->income*$amount)-($data3->total*$amount)<0)) ) {
 	
@@ -144,7 +133,11 @@ function warquest_building_buy_do() {
 		$message .= warquest_building_image($building,0,0);
 		$message .= '</td>';
 		$message .= '<td>';
-		$message .= t('BUILDING_LOW_UPKEEP2' ,$amount, t('BUILDING_'.$uid), money_format1($totalPrice));
+		if ($totalPrice>0) {
+			$message .= t('BUILDING_LOW_UPKEEP2' ,$amount, t('BUILDING_'.$uid), dollar_format($totalPrice));
+		} else {
+			$message .= t('BUILDING_LOW_UPKEEP2' ,$amount, t('BUILDING_'.$uid), gold_format($totalGold));
+		}
 		$message .= '</td>';
 		$message .= '</tr>';
 		$message .= '</table>';
@@ -153,6 +146,7 @@ function warquest_building_buy_do() {
 		
    } else {		
 	
+		/* Buy building(s) */
 		$player->energy_step += ($building->energy * $amount);
 		$player->money -= $totalPrice; 
 		$player->gold -= $totalGold; 
@@ -192,9 +186,9 @@ function warquest_building_buy_do() {
 		$message .= '</td>';
 		$message .= '<td>';
 		if ($totalPrice > 0 ) {
-			$message .= t('BUILDING_BUY', $amount, t('BUILDING_'.$uid), money_format1($totalPrice), deploy_format($amountOld + $amount));
+			$message .= t('BUILDING_BUY', $amount, t('BUILDING_'.$uid), dollar_format($totalPrice), deploy_format($amountOld + $amount));
 		} else {
-			$message .= t('BUILDING_BUY_GOLD', $amount, t('BUILDING_'.$uid), gold_format($totalGold), deploy_format($amountOld + $amount));
+			$message .= t('BUILDING_BUY', $amount, t('BUILDING_'.$uid), gold_format($totalGold), deploy_format($amountOld + $amount));
 		}
 		$message .= '</td>';
 		$message .= '</tr>';
@@ -202,16 +196,21 @@ function warquest_building_buy_do() {
 		
 		$type = "info";
 		
-		$log = 'Buy '.number_format2($amount).' '.t('BUILDING_'.$uid).' ['.$uid.'] for '.number_format2($totalPrice);		
+		if ($totalPrice > 0 ) {
+			$log = 'Buy '.number_format2($amount).' '.t('BUILDING_'.$uid).' ['.$uid.'] for '.dollar_format($totalPrice);		
+		} else {
+			$log = 'Buy '.number_format2($amount).' '.t('BUILDING_'.$uid).' ['.$uid.'] for '.gold_format($totalGold);		
+		}
 		warquest_user_log($player, $log);
 	}
 	
+	$link = "";
 	$amountDiff = $building->max - $totalAmount;
-	if ($amountDiff<0) $amountDiff=0;
-	
-	$link  = warquest_link('mid='.$mid.'&sid='.$sid.'&ssid='.$ssid.'&uid='.$uid.'&eid='.$eid.'&gid='.$gid, t('LINK_BUY_AGAIN'), 'buy-0');
-	$link .= '<br/><br/>'.t('GENERAL_AMOUNT').'<br/>';
-	$link .= warquest_amount_selected($amountDiff);
+	if ($amountDiff>0) {	
+		$link  = warquest_link('mid='.$mid.'&sid='.$sid.'&ssid='.$ssid.'&uid='.$uid.'&eid='.$eid.'&gid='.$gid, t('LINK_BUY_AGAIN'), 'buy-0');
+		$link .= '<br/><br/>'.t('GENERAL_AMOUNT').'<br/>';
+		$link .= warquest_amount_selected($amountDiff);
+	}
 
 	$message .= warquest_show_ads();
 	$popup .= warquest_box($type, $message, $link);	
@@ -229,7 +228,6 @@ function warquest_building_sell_do() {
 	
 	global $eid;
 	global $gid;
-	global $player;
 	global $uid;
 	global $amount;
 	global $config;
@@ -294,7 +292,12 @@ function warquest_building_sell_do() {
 		$message .= warquest_building_image($building,0,0);
 		$message .= '</td>';
 		$message .= '<td>';
-		$message .= t('BUILDING_LOW_UPKEEP' ,$amount, t('BUILDING_'.$uid), money_format1($totalPrice));
+		if ($totalPrice>0) {
+			$message .= t('BUILDING_LOW_UPKEEP' ,$amount, t('BUILDING_'.$uid), dollar_format($totalPrice));
+		} else {
+			$message .= t('BUILDING_LOW_UPKEEP' ,$amount, t('BUILDING_'.$uid), gold_format($totalGold));
+		}
+			
 		$message .= '</td>';
 		$message .= '</tr>';
 		$message .= '</table>';
@@ -303,6 +306,7 @@ function warquest_building_sell_do() {
 	
 	} else {
 			
+		/* Sell building(s) */
 		$player->energy_step -= ($building->energy * $amount);
 		$player->money += $totalPrice; 
 		$player->gold += $totalGold; 
@@ -342,9 +346,9 @@ function warquest_building_sell_do() {
 		$message .= '</td>';
 		$message .= '<td>';
 		if ($totalPrice>0) {
-			$message .= t('BUILDING_SELL', $amount, t('BUILDING_'.$uid), money_format1($totalPrice), deploy_format($amountOld-$amount));
+			$message .= t('BUILDING_SELL', $amount, t('BUILDING_'.$uid), dollar_format($totalPrice), deploy_format($amountOld-$amount));
 		} else {
-			$message .= t('BUILDING_SELL_GOLD', $amount, t('BUILDING_'.$uid), gold_format($totalGold), deploy_format($amountOld-$amount));
+			$message .= t('BUILDING_SELL', $amount, t('BUILDING_'.$uid), gold_format($totalGold), deploy_format($amountOld-$amount));
 		}
 		$message .= '</td>';
 		$message .= '</tr>';
@@ -352,7 +356,11 @@ function warquest_building_sell_do() {
 		
 		$type = "info";		
 		
-		$log = 'Sell '.number_format2($amount).' '.t('BUILDING_'.$uid).' ['.$uid.'] for '.number_format2($totalPrice);		
+		if ($totalPrice>0) {
+			$log = 'Sell '.number_format2($amount).' '.t('BUILDING_'.$uid).' ['.$uid.'] for '.dollar_format($totalPrice);		
+		} else {
+			$log = 'Sell '.number_format2($amount).' '.t('BUILDING_'.$uid).' ['.$uid.'] for '.gold_format($totalGold);		
+		}
 		warquest_user_log($player, $log);
 	}
 	
@@ -363,8 +371,7 @@ function warquest_building_sell_do() {
 		$link .= warquest_amount_selected($amountOld-$amount);
 	}
 		
-	$message .= warquest_show_ads();
-		
+	$message .= warquest_show_ads();		
 	$popup .= warquest_box($type, $message, $link);
 }
 
@@ -395,8 +402,7 @@ function warquest_building_form() {
 		
 	$title = t('BUILDING_GROUP_'.$sid);
 	
-	$building_group = warquest_db_building_group($sid);
-	 
+	$building_group = warquest_db_building_group($sid);	 
 	$discount = warquest_discount($player, $player->planet);
 	
 	/* Count selected buildings */
@@ -404,8 +410,7 @@ function warquest_building_form() {
 	$query .= 'where bgid='.$sid.' and lid<='.$player->lid.' ';
 	if ($building_group->type==2) {
 		$query .= 'and ugid='.$ssid.' ';
-	}
-	
+	}	
 	$result = warquest_db_query($query);
 	$total = warquest_db_num_rows($result);
 	
@@ -414,12 +419,10 @@ function warquest_building_form() {
 	$query .= 'b.max, IFNULL(a.amount, 0) as amount ';
 	$query .= 'from building b left join player_building a ';
 	$query .= 'on a.bid=b.bid and a.pid='.$player->pid.' where b.lid<='.$player->lid.' ';  
-	$query .= 'and b.bgid='.$sid.' ';
-	
+	$query .= 'and b.bgid='.$sid.' ';	
 	if ($building_group->type==2) {
 		$query .= 'and b.ugid='.$ssid.' ';
-	}
-	
+	}	
 	$query .= 'order by b.lid';
 	
 	$result = warquest_db_query($query);	
@@ -465,7 +468,7 @@ function warquest_building_form() {
 		$page .= '<b>'.t('BUILDING_GAIN').':</b><br/>';
 	
 		if ($data->income>0) {
-			$page .= t('BUILDING_INCOME').': +'.money_format1($data->income).' '.t('GENERAL_DOLLAR');
+			$page .= t('BUILDING_INCOME').': +'.dollar_format($data->income);
 		}
 		if ($data->defense>0) {
 			$page .= t('UNIT_GROUP_'.$data->ugid).' '.t('GENERAL_DEFENSE').': +'.$data->defense;
@@ -474,10 +477,10 @@ function warquest_building_form() {
 			$page .= t('BUILDING_ENERGY').': +'.energy_format($data->energy);
 		}
 		if ($data->discount>0) {
-			$page .= t('GENERAL_DISCOUNT').': +'.$data->discount.'%';
+			$page .= t('GENERAL_DISCOUNT').': +'.discount_format($data->discount).'%';
 		}		
 		if ($data->maintenance>0) {
-			$page .= t('GENERAL_MAINTENANCE').': +'.$data->maintenance.'%';	
+			$page .= t('GENERAL_MAINTENANCE').': +'.maintenance_format($data->maintenance).'%';	
 		}		
 	
 		$page .= '<br/><br/><b>'.t('BUILDING_REQUIRED').':</b><br/>';
@@ -520,8 +523,6 @@ function warquest_building_form() {
 			$page .= '</span>';
 		}		  
 	
-		
-				
 		$page .= '<br/><br/><b>';
 		$page .= t('BUILDING_PRICE').':</b><br/>';
 				
@@ -579,7 +580,7 @@ function warquest_building_form() {
 		$page .= '<b>'.t('BUILDING_GAIN').':</b><br/>';
 	
 		if ($data->income>0) {
-			$page .= t('BUILDING_INCOME').': +'.money_format1($data->income).' '.t('GENERAL_DOLLAR');
+			$page .= t('BUILDING_INCOME').': +'.dollar_format($data->income);
 		}
 						
 		if ($data->defense>0) {
@@ -591,11 +592,11 @@ function warquest_building_form() {
 		}
 					
 		if ($data->discount>0) {
-			$page .= t('GENERAL_DISCOUNT').': +'.$data->discount.'%';
+			$page .= t('GENERAL_DISCOUNT').': +'.discount_format($data->discount).'%';
 		}		
 				
 		if ($data->maintenance>0) {
-			$page .= t('GENERAL_MAINTENANCE').': +'.$data->maintenance.'%';	
+			$page .= t('GENERAL_MAINTENANCE').': +'.maintenance_format($data->maintenance).'%';	
 		}		
 		$page .= '</td>';
 	

@@ -178,7 +178,7 @@ $lang['AGO_SECS']  = ' segs';
 	
 $lang['COPYRIGHT'] = 'Copyright © 2008-2013 - Todos los derechos reservados - <a target="new" href="http://www.plaatsoft.nl">PlaatSoft</a>';
 
-$lang['STATUS_MONEY']  = 'Dinero';
+$lang['STATUS_CASH']  = 'Dinero';
 $lang['STATUS_EXP']  = 'Exp.';
 $lang['STATUS_LEVEL']  = 'Nivel';
 $lang['STATUS_HEALTH'] = 'Salud';
@@ -576,11 +576,11 @@ $lang['PLAYER_HEALTH']  = 'SALUD';
 $lang['PLAYER_ENERGY']  = 'ENERGÍA'; 
 $lang['PLAYER_AMMO']  = 'MUNICIÓN'; 
 
-$lang['PLAYER_ATTACK_TIP']  = 'Aumente su habilidad de ataque para causar más daños y ganar los combates. Se necesita 1 punto de habilidad para aumentar su fuerza de ataque en %s. Disminuya su habilidad de ataque en %s para conseguir 1 punto de habilidad a cambio.';
-$lang['PLAYER_DEFENSE_TIP'] = 'Aumente su habilidad de defensa para resistir contra los ataques. Se necesita 1 punto de habilidad para aumentar su fuerza de defensa con %s. Disminuya su habilidad de defensa en %s para conseguir 1 punto de habilidad a cambio.';
-$lang['PLAYER_HEALTH_TIP']  = 'Aumente su habilidad de salud máx. para sobrevivir a largas luchas. Se necesita 1 punto de habilidad para aumentar el nivel max de salud en 10. Disminuya su nivel de salud en 20 para conseguir 1 punto de habilidad a cambio.';
-$lang['PLAYER_ENERGY_TIP']  = 'Aumente su habilidad de energia máx. para jugar mas misiones. Se necesita 1 punto de habilidad para aumentar el nivel max de energia en 10. Disminuya su nivel de energia en 20 para conseguir 1 punto de habilidad a cambio.';
-$lang['PLAYER_AMMO_TIP']  = 'Aumente su habilidad de munición máx. para aumentar su capacidad de lucha. Se necesitan 2 puntos de habilidad para aumentar tu municion en 1. Disminuya su nivel de municion en 1 para conseguir 1 punto de habilidad a cambio.';
+$lang['PLAYER_ATTACK_TIP']  = 'Aumente su habilidad de ataque para causar más daños y ganar los combates. Se necesita %s para aumentar su fuerza de ataque en %s. Disminuya su habilidad de ataque en %s para conseguir 1 punto de habilidad a cambio.';
+$lang['PLAYER_DEFENSE_TIP'] = 'Aumente su habilidad de defensa para resistir contra los ataques. Se necesita %s para aumentar su fuerza de defensa con %s. Disminuya su habilidad de defensa en %s para conseguir 1 punto de habilidad a cambio.';
+$lang['PLAYER_HEALTH_TIP']  = 'Aumente su habilidad de salud máx. para sobrevivir a largas luchas. Se necesita %s para aumentar el nivel max de salud en 10. Disminuya su nivel de salud en 20 para conseguir 1 punto de habilidad a cambio.';
+$lang['PLAYER_ENERGY_TIP']  = 'Aumente su habilidad de energia máx. para jugar mas misiones. Se necesita %s para aumentar el nivel max de energia en 10. Disminuya su nivel de energia en 20 para conseguir 1 punto de habilidad a cambio.';
+$lang['PLAYER_AMMO_TIP']  = 'Aumente su habilidad de munición máx. para aumentar su capacidad de lucha. Se necesitan %s para aumentar tu municion en 1. Disminuya su nivel de municion en 1 para conseguir 1 punto de habilidad a cambio.';
 
 $lang['PLAYER_SKILL_ACCEPTED1']  = '%s habilidad aumentada.';
 $lang['PLAYER_SKILL_REJECTED1']  = 'Necesita %s punto(s) de habilidad para cambiar esta habilidad.';
@@ -618,11 +618,10 @@ $lang['HOME_TRADE5_NOTE'] = 'Consiga puntos de habilidad para mejorar su ataque,
 $lang['HOME_TRADE_SKILL_POINTS'] = 'punto(s) habilidad';
 $lang['HOME_TRADE_IN'] = 'Comerciar';
 $lang['HOME_MAX_REACHED'] = 'Máximo alcanzado';
-$lang['HOME_TRADE_NO_POINTS'] = 'No dispone de %s punto(s) de comercio.';
+
 $lang['HOME_TRADE_HEALTH_TIMER_TO_LARGE'] = 'El temporizador de Salud ha alcanzado el valor mínimo.';
 $lang['HOME_TRADE_ENERGY_TIMER_TO_LARGE'] = 'El temporizador de Energia ha alcanzado el valor mínimo.';
 $lang['HOME_TRADE_AMMO_TIMER_TO_LARGE'] = 'El temporizador de Municion ha alcanzado el valor mínimo.';
-$lang['HOME_TRADE_SUCCESFULL'] = 'El punto de Comercio ha sido procesado con éxito!';
 
 /*
 ** ------------------
@@ -1605,12 +1604,12 @@ $lang['UNIT_NOTE_20'] = 'Nota: Compre unidades de Guerreros para el Asteroide y 
 $lang['UNIT_NOTE_21'] = 'Nota: Compre unidades de Naves espaciales para el Asteroide y mejore su fuerza aeroespacial. Combate, vence y roba el dinero de tu oponente de sus cuentas de efectivo.';
 $lang['UNIT_NOTE_22'] = 'Nota: Compre unidades de Exploradores para el Asteroide y mejore su fuerza de exploración. Combate, vence e inicia rebeliones en la Luna además de robar el dinero de tu oponente en las cuentas bancarias de Trasquera o SwissCore.';
 
-$lang['UNIT_DISBAND'] = 'Ha licenciado %s %s por %s dólares. Actualmente %s alistados.';
+$lang['UNIT_DISBAND'] = 'Ha licenciado %s %s por %s. Actualmente %s alistados.';
 $lang['UNIT_DISBAND_FAILED'] = 'No dispone de %s %s. Actualmente %s alistados.';
 
-$lang['UNIT_DEPLOY'] = 'Ha reclutado %s %s por %s dólares. Ahora %s alistados.';
+$lang['UNIT_DEPLOY'] = 'Ha reclutado %s %s por %s. Ahora %s alistados.';
 $lang['UNIT_NO_UPKEEP'] = 'No hay suficientes ingresos por hora para financiar %s %s.';
-$lang['UNIT_NO_MONEY'] = 'No tiene suficiente dinero para comprar %s %s por %s dólares.';
+$lang['UNIT_NO_MONEY'] = 'No tiene suficiente dinero para comprar %s %s por %s.';
 $lang['UNIT_MAX'] = 'No más de %s %s(s) permitidos!';
 
 /*
@@ -1933,14 +1932,14 @@ $lang['BUILDING_NOTE18'] = 'Nota: Los edificios de Energía proporcionan una recu
 $lang['BUILDING_NOTE19'] = 'Nota: Los edificios de Descuento ofrecen precio de descuento en su compra de edificios en el Asteroide.';
 $lang['BUILDING_NOTE20'] = 'Nota: los edificios de Mantenimiento proporcionan reparación más rápida de las unidades resultando en una menor pérdida de unidades durante las batallas.';
 
-$lang['BUILDING_SELL'] = 'Ha vendido %s %s por %s dólares. Todavía %s disponibles.';
-$lang['BUILDING_LOW_UPKEEP'] = 'No tiene suficiente ingreso por hora para vender %s %s por %s dólares.';
+$lang['BUILDING_SELL'] = 'Ha vendido %s %s por %s. Todavía %s disponibles.';
+$lang['BUILDING_LOW_UPKEEP'] = 'No tiene suficiente ingreso por hora para vender %s %s por %s.';
 $lang['BUILDING_NOT_OWNED'] = 'No dispone de %s %s.';
 
-$lang['BUILDING_BUY'] = 'Usted compró %s %s por %s dólares. Ahora %s disponibles.';
+$lang['BUILDING_BUY'] = 'Usted compró %s %s por %s. Ahora %s disponibles.';
 $lang['BUILDING_MAX'] = 'No más de %s %s(s) permitidos!';
-$lang['BUILDING_NO_MONEY'] = 'No tiene suficiente dinero para comprar %s %s por %s dólares.'; 
-$lang['BUILDING_LOW_UPKEEP2'] = 'No tiene suficiente ingreso por hora para comprar %s %s por %s dólares.';
+$lang['BUILDING_NO_FUNDS'] = 'No tiene suficiente dinero para comprar %s %s por %s.'; 
+$lang['BUILDING_LOW_UPKEEP2'] = 'No tiene suficiente ingreso por hora para comprar %s %s por %s.';
 
 $lang['BUILDING_UPKEEP'] = 'Coste por hora';
 $lang['BUILDING_PRICE'] = 'Precio';
@@ -2425,11 +2424,6 @@ $lang['HELP_DONATE1'] = 'El software de WarQuest se puede utilizar de forma grat
 su agradecimiento por el tiempo y los recursos que el autor ha dedicado a desarrollar y mantener la aplicación 
 lo largo de los años, y también ayudar a reducir los costes de funcionamiento del servidor web, aceptamos y apreciamos 
 sus donaciones.';
-
-$lang['HELP_SUBTITLE_DONATE2'] = 'Recompensa';
-$lang['HELP_DONATE2'] = 'Cada dólar donado será recompensado con 1 punto de Comercio. Los puntos de Comercio comprados 
-se pueden cambiar por puntos de habilidad, dinero en efectivo o se pueden utilizar para mejorar su temporizador de salud, 
-energía o munición . La recompensa se procesa manualmente por lo que hay que tener en cuenta que pueden pasar un par de horas antes de estar disponible.';
 
 $lang['HELP_SUBTITLE_DONATE3'] = 'PayPal';
 $lang['HELP_DONATE3'] = 'Para hacer una donación en línea con tarjeta de crédito, o cuenta de PayPal, haga clic 

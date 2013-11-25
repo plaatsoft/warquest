@@ -49,7 +49,7 @@ function warquest_help_about_form() {
 	$page .= '<br/>';	
 		
 	$page .= '<span class="subparagraph2">'.t('HELP_BROWSERS_TITLE').'</span><br/>';
-	$page .= '- Microsoft Internet Explorer 9.x and higher<br/>';
+	$page .= '- Microsoft Internet Explorer 10.x and higher<br/>';
 	$page .= '- Mozilla Firefox 3.x and higher<br/>';
 	$page .= '- Apple Safari 5.x and higher<br/>';
 	$page .= '- Opera 11.x and higher<br/>';
@@ -432,7 +432,7 @@ function warquest_help_donate_form() {
 	$page .= '<br/>';
 	
 	$page .= '<span class="subparagraph2">'.t('HELP_SUBTITLE_DONATE2' ).'</span><br/>';
-	$page .= t('HELP_DONATE2', gold_format($config["dollar_gold_ratio"])).'<br/>';
+	$page .= t('HELP_DONATE2', gold_format($config["gold_dollar_ratio"])).'<br/>';
 	$page .= '<br/>';
 	
 	$page .= '<span class="subparagraph2">'.t('HELP_SUBTITLE_DONATE3').'</span><br/>';
