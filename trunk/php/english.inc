@@ -2309,13 +2309,13 @@ $lang['HELP_GOLD']  = 'Gold can be purchased by donate some real dollars. See He
 Purchase gold can be used to buy premium units & buildings or can be exchanged in to skill points, cash money or can be used to improve your health, energy or ammo restore timer.
 <br/><br/>
 Benefits of gold buildings:<br/>
-- Higher defence strength the normal buildings<br/>
+- Higher defence strength then normal buildings<br/>
 - No hourly cost<br/>
 - Immortal during fights<br>
 <br/>
 Benefits of gold units:<br/>
 - Higher attack / defence strength the normal units<br/>
-- 50% lower hourly cost the normal units<br/>
+- 50% lower hourly cost then normal units<br/>
 - Immortal during fights';
 
 $lang['HELP_TACTICS_TITLE'] = 'Tactics';

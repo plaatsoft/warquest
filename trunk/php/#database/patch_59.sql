@@ -93,42 +93,55 @@ INSERT INTO `building` (`bid`, `price`, `gold`, `lid`, `income`, `defense`, `ene
 UPDATE `unit` SET `price` = '500' WHERE `unit`.`uid` =1;
 
 UPDATE  `unit` SET  `lid` =  '94' WHERE  `unit`.`uid` =127;
-
-INSERT INTO `unit` (`uid`, `lid`, `price`, `gold`, `attack`, `defense`, `max`, `ugid`, `upkeep`) 
-	VALUES ('128', '95', '0', '10', '650', '700', '5000', '2', '75000');
-
 UPDATE  `unit` SET  `lid` =  '91' WHERE  `unit`.`uid` =226;
 UPDATE  `unit` SET  `lid` =  '93' WHERE  `unit`.`uid` =227;
 UPDATE  `unit` SET  `lid` =  '94' WHERE  `unit`.`uid` =228;
-
-INSERT INTO `unit` (`uid`, `lid`, `price`, `gold`, `attack`, `defense`, `max`, `ugid`, `upkeep`) 
-	VALUES ('229', '99', '0', '10', '800', '750', '5000', '3', '98500');
-	
 UPDATE  `unit` SET  `lid` =  '95' WHERE  `unit`.`uid` =326;
 
+delete from unit where uid=128;
+
 INSERT INTO `unit` (`uid`, `lid`, `price`, `gold`, `attack`, `defense`, `max`, `ugid`, `upkeep`) 
-	VALUES ('327', '97', '0', '10', '800', '850', '5000', '4', '75500');
-		
+	VALUES ('128', '95', '0', '10', '675', '450', '5000', '2', '75000');
+
+delete from unit where uid=229;
+
 INSERT INTO `unit` (`uid`, `lid`, `price`, `gold`, `attack`, `defense`, `max`, `ugid`, `upkeep`) 
-	VALUES ('513', '92', '0', '10', '2125', '2125', '5000', '6', '64000');
+	VALUES ('229', '99', '0', '10', '900', '665', '5000', '3', '98500');
+
+delete from unit where uid=327;
+
+INSERT INTO `unit` (`uid`, `lid`, `price`, `gold`, `attack`, `defense`, `max`, `ugid`, `upkeep`) 
+	VALUES ('327', '97', '0', '10', '800', '585', '5000', '4', '75500');
+
+delete from unit where uid=513;
+
+INSERT INTO `unit` (`uid`, `lid`, `price`, `gold`, `attack`, `defense`, `max`, `ugid`, `upkeep`) 
+	VALUES ('513', '92', '0', '10', '765', '480', '5000', '6', '64000');
 	
 -- Add Moon Gold Units
+
+UPDATE  `unit` SET  `lid` =  '144' WHERE  `unit`.`uid` =710;
+UPDATE  `unit` SET  `lid` =  '147' WHERE  `unit`.`uid` =810;
+UPDATE `unit` SET `lid` = '147' WHERE `unit`.`uid` = 916;
+UPDATE `unit` SET  `lid` =  '148' WHERE  `unit`.`uid` =1211;
+
+delete from unit where uid=711;
 
 INSERT INTO `unit` (`uid`, `lid`, `price`, `gold`, `attack`, `defense`, `max`, `ugid`, `upkeep`) 
 	VALUES ('711', '145', '0', '10', '750', '700', '5000', '7', '32500');
 
+delete from unit where uid=811;
+
 INSERT INTO `unit` (`uid`, `lid`, `price`, `gold`, `attack`, `defense`, `max`, `ugid`, `upkeep`) 
 	VALUES ('811', '149', '0', '10', '250', '225', '5000', '8', '12500');	
 
-UPDATE  `unit` SET  `lid` =  '147' WHERE  `unit`.`uid` =810;
-
-UPDATE `unit` SET `lid` = '147' WHERE `unit`.`uid` = 916;
+delete from unit where uid=917;
 
 INSERT INTO `unit` (`uid`, `lid`, `price`, `gold`, `attack`, `defense`, `max`, `ugid`, `upkeep`) 
-	VALUES ('917', '148', '0', '10', '5550', '4450', '5000', '9', '100000');		
+	VALUES ('917', '148', '0', '10', '5550', '5350', '5000', '9', '100000');		
 	
-UPDATE `unit` SET  `lid` =  '148' WHERE  `unit`.`uid` =1211;
-
+delete from unit where uid=1212
+	
 INSERT INTO `unit` (`uid`, `lid`, `price`, `gold`, `attack`, `defense`, `max`, `ugid`, `upkeep`) 
 	VALUES ('1212', '149', '0', '10', '2800', '2450', '5000', '12', '22500');		
 	
@@ -142,6 +155,8 @@ INSERT INTO `unit` (`uid`, `lid`, `price`, `gold`, `attack`, `defense`, `max`, `
 
 INSERT INTO `unit` (`uid`, `lid`, `price`, `gold`, `attack`, `defense`, `max`, `ugid`, `upkeep`) 
 	VALUES ('1510', '197', '0', '10', '3650', '3850', '5000', '15', '175000');	
+	
+
 	
 INSERT INTO `unit` (`uid`, `lid`, `price`, `gold`, `attack`, `defense`, `max`, `ugid`, `upkeep`) 
 	VALUES ('1610', '199', '0', '10', '1850', '1850', '5000', '16', '125000');
