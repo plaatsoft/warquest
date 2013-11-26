@@ -1272,29 +1272,6 @@ $lang['UNIT_GROUP_24'] 	= 'Ejército';
 
 /* Calvary (Earth) - Group 2 */
 $lang['UNIT_1'] = 'Mini-artillero';
-$lang['UNIT_2'] = 'Cadetes';
-$lang['UNIT_3'] = 'Marines';
-$lang['UNIT_4'] = 'Paracaidistas';
-$lang['UNIT_5'] = 'Médico';
-$lang['UNIT_6'] = 'Granadero';
-$lang['UNIT_7'] = 'Policía Militar';
-$lang['UNIT_8'] = 'Navy Seal';
-$lang['UNIT_9'] = 'Ametrallador';
-$lang['UNIT_10'] = 'Lanzacohetes';
-$lang['UNIT_11'] = 'Capitán';
-$lang['UNIT_12'] = 'Comando';
-$lang['UNIT_13'] = 'Escuadra UAV';
-$lang['UNIT_14'] = 'Artillero XM-25';
-$lang['UNIT_15'] = 'Caza tanques';
-$lang['UNIT_16'] = 'Comando Navy Seal';
-$lang['UNIT_17'] = 'FELIN Infantería de combate';
-$lang['UNIT_18'] = 'Escuadrón de Asalto Pesado';
-$lang['UNIT_19'] = 'Fuerzas de asalto';
-$lang['UNIT_20'] = 'Escuadrón Ametralladoras';
-$lang['UNIT_21'] = 'Equipo francotirador';
-$lang['UNIT_22'] = 'Escuadrón Granaderos';
-$lang['UNIT_23'] = 'Rail Gun Troopers';
-$lang['UNIT_24'] = 'Infantería de marina móvil';
 $lang['UNIT_101'] = 'Vehículo militar';
 $lang['UNIT_102'] = 'Humvee';
 $lang['UNIT_103'] = 'Camión';
@@ -1661,16 +1638,10 @@ $lang['BUILDING_17'] = 'Red de satélites solares';
 /* Defence (Earth) - Group 2 */
 $lang['BUILDING_2']  = 'Búnker';
 $lang['BUILDING_21'] = 'Minas marinas';
-$lang['BUILDING_5']  = 'Torre de vigilancia';
 $lang['BUILDING_51'] = 'Embajada';
-$lang['BUILDING_7']  = 'Misil de corto alcance';
 $lang['BUILDING_22'] = 'Lanza torpedos';
 $lang['BUILDING_9']  = 'Misil de largo alcance';
-$lang['BUILDING_11'] = 'Minas terrestres';
 $lang['BUILDING_52'] = 'Centro de mando Inteligencia';
-$lang['BUILDING_20'] = 'Base aérea';
-$lang['BUILDING_23'] = 'Fáfrica de submarinos';
-$lang['BUILDING_15'] = 'Cañón magnético';
 $lang['BUILDING_53'] = 'Centro de control de Drones';
 $lang['BUILDING_54'] = 'Guerra ciberespacial';
 

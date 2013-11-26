@@ -95,69 +95,69 @@ UPDATE `unit` SET `price` = '500' WHERE `unit`.`uid` =1;
 UPDATE  `unit` SET  `lid` =  '94' WHERE  `unit`.`uid` =127;
 
 INSERT INTO `unit` (`uid`, `lid`, `price`, `gold`, `attack`, `defense`, `max`, `ugid`, `upkeep`) 
-	VALUES ('128', '95', '0', '10', '625', '575', '5000', '2', '75000');
+	VALUES ('128', '95', '0', '10', '650', '700', '5000', '2', '75000');
 
 UPDATE  `unit` SET  `lid` =  '91' WHERE  `unit`.`uid` =226;
 UPDATE  `unit` SET  `lid` =  '93' WHERE  `unit`.`uid` =227;
 UPDATE  `unit` SET  `lid` =  '94' WHERE  `unit`.`uid` =228;
 
 INSERT INTO `unit` (`uid`, `lid`, `price`, `gold`, `attack`, `defense`, `max`, `ugid`, `upkeep`) 
-	VALUES ('229', '99', '0', '10', '775', '725', '5000', '3', '98500');
+	VALUES ('229', '99', '0', '10', '800', '750', '5000', '3', '98500');
 	
 UPDATE  `unit` SET  `lid` =  '95' WHERE  `unit`.`uid` =326;
 
 INSERT INTO `unit` (`uid`, `lid`, `price`, `gold`, `attack`, `defense`, `max`, `ugid`, `upkeep`) 
-	VALUES ('327', '97', '0', '10', '775', '825', '5000', '4', '75500');
+	VALUES ('327', '97', '0', '10', '800', '850', '5000', '4', '75500');
 		
 INSERT INTO `unit` (`uid`, `lid`, `price`, `gold`, `attack`, `defense`, `max`, `ugid`, `upkeep`) 
-	VALUES ('513', '92', '0', '10', '2100', '2100', '5000', '6', '64000');
+	VALUES ('513', '92', '0', '10', '2125', '2125', '5000', '6', '64000');
 	
 -- Add Moon Gold Units
 
 INSERT INTO `unit` (`uid`, `lid`, `price`, `gold`, `attack`, `defense`, `max`, `ugid`, `upkeep`) 
-	VALUES ('711', '145', '0', '10', '725', '675', '5000', '7', '32500');
+	VALUES ('711', '145', '0', '10', '750', '700', '5000', '7', '32500');
 
 INSERT INTO `unit` (`uid`, `lid`, `price`, `gold`, `attack`, `defense`, `max`, `ugid`, `upkeep`) 
-	VALUES ('811', '149', '0', '10', '225', '200', '5000', '8', '12500');	
+	VALUES ('811', '149', '0', '10', '250', '225', '5000', '8', '12500');	
 
 UPDATE  `unit` SET  `lid` =  '147' WHERE  `unit`.`uid` =810;
 
 UPDATE `unit` SET `lid` = '147' WHERE `unit`.`uid` = 916;
 
 INSERT INTO `unit` (`uid`, `lid`, `price`, `gold`, `attack`, `defense`, `max`, `ugid`, `upkeep`) 
-	VALUES ('917', '148', '0', '10', '5525', '4425', '5000', '9', '100000');		
+	VALUES ('917', '148', '0', '10', '5550', '4450', '5000', '9', '100000');		
 	
 UPDATE `unit` SET  `lid` =  '148' WHERE  `unit`.`uid` =1211;
 
 INSERT INTO `unit` (`uid`, `lid`, `price`, `gold`, `attack`, `defense`, `max`, `ugid`, `upkeep`) 
-	VALUES ('1212', '149', '0', '10', '2775', '2425', '5000', '12', '22500');		
+	VALUES ('1212', '149', '0', '10', '2800', '2450', '5000', '12', '22500');		
 	
 -- Add Mars Gold Units
 
 INSERT INTO `unit` (`uid`, `lid`, `price`, `gold`, `attack`, `defense`, `max`, `ugid`, `upkeep`) 
-	VALUES ('1310', '199', '0', '10', '675', '575', '5000', '13', '25000');
+	VALUES ('1310', '199', '0', '10', '700', '600', '5000', '13', '25000');
 	
 INSERT INTO `unit` (`uid`, `lid`, `price`, `gold`, `attack`, `defense`, `max`, `ugid`, `upkeep`) 
-	VALUES ('1410', '197', '0', '10', '1775', '1725', '5000', '14', '60000');
+	VALUES ('1410', '197', '0', '10', '1800', '1750', '5000', '14', '60000');
 
 INSERT INTO `unit` (`uid`, `lid`, `price`, `gold`, `attack`, `defense`, `max`, `ugid`, `upkeep`) 
-	VALUES ('1510', '197', '0', '10', '3625', '3825', '5000', '15', '175000');	
+	VALUES ('1510', '197', '0', '10', '3650', '3850', '5000', '15', '175000');	
 	
 INSERT INTO `unit` (`uid`, `lid`, `price`, `gold`, `attack`, `defense`, `max`, `ugid`, `upkeep`) 
-	VALUES ('1610', '199', '0', '10', '1825', '1825', '5000', '16', '125000');
+	VALUES ('1610', '199', '0', '10', '1850', '1850', '5000', '16', '125000');
 
 -- Add Asteroid Gold Units	
 
 INSERT INTO `unit` (`uid`, `lid`, `price`, `gold`, `attack`, `defense`, `max`, `ugid`, `upkeep`) 
-	VALUES ('1910', '236', '0', '10', '675', '575', '5000', '19', '25000');
+	VALUES ('1910', '236', '0', '10', '700', '600', '5000', '19', '25000');
 	
 INSERT INTO `unit` (`uid`, `lid`, `price`, `gold`, `attack`, `defense`, `max`, `ugid`, `upkeep`) 
-	VALUES ('2010', '238', '0', '10', '1775', '1725', '5000', '20', '60000');
+	VALUES ('2010', '238', '0', '10', '1800', '1750', '5000', '20', '60000');
 	
 INSERT INTO `unit` (`uid`, `lid`, `price`, `gold`, `attack`, `defense`, `max`, `ugid`, `upkeep`) 
-	VALUES ('2110', '246', '0', '10', '3625', '3825', '5000', '21', '175000');
+	VALUES ('2110', '246', '0', '10', '3650', '3850', '5000', '21', '175000');
 
 INSERT INTO `unit` (`uid`, `lid`, `price`, `gold`, `attack`, `defense`, `max`, `ugid`, `upkeep`) 
-	VALUES ('2210', '240', '0', '10', '1825', '1825', '5000', '22', '125000');
+	VALUES ('2210', '240', '0', '10', '1850', '1850', '5000', '22', '125000');
 		
 	

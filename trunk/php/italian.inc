@@ -1207,29 +1207,6 @@ $lang['UNIT_GROUP_24'] 	= 'Esercito';
 
 /* Cavalleria (Terra) - Gruppo 2 */
 $lang['UNIT_1'] = 'Minimitragliatore';
-$lang['UNIT_2'] = 'Reclute';
-$lang['UNIT_3'] = 'Marines';
-$lang['UNIT_4'] = 'Parà';
-$lang['UNIT_5'] = 'Medico';
-$lang['UNIT_6'] = 'Granatiere';
-$lang['UNIT_7'] = 'Polizia Militare';
-$lang['UNIT_8'] = 'Seal Marina';
-$lang['UNIT_9'] = 'Mitragliatore pesante';
-$lang['UNIT_10'] = 'Lanciarazzi';
-$lang['UNIT_11'] = 'Capitano';
-$lang['UNIT_12'] = 'Commando';
-$lang['UNIT_13'] = 'Squadra UAV';
-$lang['UNIT_14'] = 'Mitragliatore XM-25';
-$lang['UNIT_15'] = 'Demolitore Carri';
-$lang['UNIT_16'] = 'Seal Marina Avanzati';
-$lang['UNIT_17'] = 'Fanteria assalto FELIN';
-$lang['UNIT_18'] = 'Squadra assalto pesante';
-$lang['UNIT_19'] = 'Squadra guerrieri';
-$lang['UNIT_20'] = 'Squadra mitragliatori';
-$lang['UNIT_21'] = 'Team cecchini';
-$lang['UNIT_22'] = 'Squadra granatieri';
-$lang['UNIT_23'] = 'Truppe RailGun';
-$lang['UNIT_24'] = 'Marines mobili';
 $lang['UNIT_101'] = 'Auto militare';
 $lang['UNIT_102'] = 'Hummer';
 $lang['UNIT_103'] = 'Camion';
@@ -1593,16 +1570,11 @@ $lang['BUILDING_17'] = 'Rete satellitare solare';
 /* Difesa (Terra) - Gruppo 2 */
 $lang['BUILDING_2']  = 'Bunker';
 $lang['BUILDING_21'] = 'Campo minato marino';
-$lang['BUILDING_5']  = 'Torre di guardia';
 $lang['BUILDING_51'] = 'Ambasciata';
-$lang['BUILDING_7']  = 'Lanciamissili a corto raggio';
 $lang['BUILDING_22'] = 'Lanciatorpedo';
-$lang['BUILDING_9']  = 'Lanciamissili a lungo raggio';
 $lang['BUILDING_11'] = 'Campo minato terrestre';
 $lang['BUILDING_52'] = 'Centro commando Intelligence';
-$lang['BUILDING_20'] = 'Aeroporto';
 $lang['BUILDING_23'] = 'Fabbrica sottomarini';
-$lang['BUILDING_15'] = 'Cannone magnetico';
 $lang['BUILDING_53'] = 'Centro controllo droni';
 $lang['BUILDING_54'] = 'Centro strategico cyberspazio';
 
