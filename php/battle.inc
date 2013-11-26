@@ -2054,7 +2054,7 @@ function warquest_battle_enemy_form() {
 		}
 		
 		if (warquest_db_query_pattern($player, PATTERN_SORT2)==1) {
-			$query .= 'order by a.last_battle asc limit 0, 30'; 
+			$query .= 'order by a.last_battle asc limit 0, 20'; 
 		} else { 		
 			$query .= 'order by rand() limit 0, 20';	
 		}
