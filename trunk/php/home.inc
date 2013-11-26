@@ -773,7 +773,7 @@ function warquest_home_welcome() {
 	
 	$title = t('HOME_OVERVIEW_TITLE');
 	
-	$query =  'select count(*) as count, sum(request) as request, sum(won) as won from player';
+	$query =  'select count(pid) as count, sum(request) as request, sum(won) as won from player';
 	$result = warquest_db_query($query); 
 	$data = warquest_db_fetch_object($result);
 		
@@ -791,7 +791,7 @@ function warquest_home_welcome() {
 	$count3 = warquest_db_num_rows($result);
 	
 	$yesterday = mktime(date("H"), date("i"), date("s"), date("m"), date("d")-1, date("Y"));
-	$query4  = 'select count(*) as count from member where last_login > "'.date("Y-m-d H:i:s", $yesterday).'" ';		
+	$query4  = 'select count(pid) as count from member where last_login > "'.date("Y-m-d H:i:s", $yesterday).'" ';		
 	$result4 = warquest_db_query($query4);
 	$data4 =  warquest_db_fetch_object($result4);
 		

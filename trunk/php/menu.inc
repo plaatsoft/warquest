@@ -130,8 +130,8 @@ function warquest_menu_home() {
 	$page .= warquest_ui_menu($mid, PAGE_BATTLE_NEWS, 0, t('LINK_NEWS'), $sid, $player->news);
 	$page .= warquest_ui_menu($mid, PAGE_MESSAGES, 0, t('LINK_COMMENTS'), $sid, $player->comment);
 	$page .= warquest_ui_menu($mid, PAGE_SKILLS, 0, t('LINK_SKILLS'), $sid, $skill->skill_points);
-	$page .= warquest_ui_menu($mid, PAGE_TRADE, 0, t('LINK_TRADE'), $sid );
 	$page .= warquest_ui_menu($mid, PAGE_RESTORE, 0, t('LINK_RESTORE'), $sid);
+	$page .= warquest_ui_menu($mid, PAGE_TRADE, 0, t('LINK_TRADE'), $sid );
 	$page .= warquest_ui_menu($mid, PAGE_SETTINGS, 0, t('LINK_SETTINGS'), $sid);
 	
 	$member=warquest_db_member($player->pid);

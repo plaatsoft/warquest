@@ -149,8 +149,12 @@ function warquest_building_buy_do() {
 		/* Buy building(s) */
 		$player->energy_step += ($building->energy * $amount);
 		$player->money -= $totalPrice; 
-		$player->gold -= $totalGold; 
-		$totalAmount = $amountOld+$amount; 
+		$player->gold -= $totalGold;
+
+		/* Update Statistics */
+		warquest_gold_use($totalGold);
+ 
+		$totalAmount = $amountOld + $amount; 
 		
 		if ($amountOld==0)	{	
 			$query  = 'insert into player_building (bid, pid, amount) ';

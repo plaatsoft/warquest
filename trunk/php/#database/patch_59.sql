@@ -174,5 +174,6 @@ INSERT INTO `unit` (`uid`, `lid`, `price`, `gold`, `attack`, `defense`, `max`, `
 
 INSERT INTO `unit` (`uid`, `lid`, `price`, `gold`, `attack`, `defense`, `max`, `ugid`, `upkeep`) 
 	VALUES ('2210', '240', '0', '10', '1850', '1850', '5000', '22', '125000');
+	
 		
 	

@@ -2258,12 +2258,11 @@ $lang['HELP_LEVEL_FEATURES'] = 'Schema sblocco novità';
 
 $lang['HELP_STATS_TITLE'] = 'Statistiche';
 $lang['HELP_STATS_NOTE'] = 'Nota: In questa pagina vengono mostrate le statistiche in tempo reale di WarQuest.';
-$lang['HELP_STATS_PLAYERS'] = 'Nuovi giocatori (ultimi 14 giorni)';
-$lang['HELP_STATS_ONLINE'] = 'Giocatori online (ultimi 14 giorni)';
-$lang['HELP_STATS_FIGHTS'] = 'Lotte tra giocatori (ultimi 14 giorni)';
-$lang['HELP_STATS_MISSIONS'] = 'Missioni giocate (ultimi 14 giorni)';
-$lang['HELP_STATS_CASINO'] = 'Partite Casinò giocate(ultimi 14 giorni)';
-$lang['HELP_STATS_ADS'] = 'Pubblicità mostrate (ultimi 14 giorni)';
+$lang['HELP_STATS_PLAYERS'] = 'Nuovi giocatori (ultimi 31 giorni)';
+$lang['HELP_STATS_ONLINE'] = 'Giocatori online (ultimi 31 giorni)';
+$lang['HELP_STATS_FIGHTS'] = 'Lotte tra giocatori (ultimi 31 giorni)';
+$lang['HELP_STATS_MISSIONS'] = 'Missioni giocate (ultimi 31 giorni)';
+$lang['HELP_STATS_CASINO'] = 'Partite Casinò giocate(ultimi 31 giorni)';
 $lang['HELP_STATS_REQUESTS'] = 'Richieste server (ultimi 14 giorni)';
 
 /*

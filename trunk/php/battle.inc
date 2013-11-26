@@ -335,25 +335,6 @@ function warquest_robot_battle($player, $other) {
 }
 
 /** 
- * Battle sound 
- */
- function warquest_battle_sound() {
-
-	/* input */
-	global $player;
-	
-	/* output */
-	global $page;
-		
-	if (warquest_db_query_pattern($player, PATTERN_SOUND)==1) {
-		
-		$page .= '<audio autoplay>';
-		$page .= '<source src="mp3/battle'.rand(1,8).'.mp3" type="audio/mpeg">';
-		$page .= '</audio>';		
-	}	
-}
-
-/** 
  * Battle show attack army 
  */
 function warquest_show_attack_army($data2, $ugid) {
@@ -1104,7 +1085,7 @@ function warquest_clan_war_battle_do() {
 		$log = 'Clan war won, won '.number_format2($money).' ['.$player->pid.']';		
 		warquest_user_log($player, $log);
 		
-		warquest_battle_sound();
+		warquest_sound('battle'.rand(1,8).'.mp3');
 			
 	} else {
 		
@@ -1151,7 +1132,7 @@ function warquest_clan_war_battle_do() {
 		
 		$popup .= warquest_box("warning", $message, $link);
 		
-		warquest_battle_sound();
+		warquest_sound('battle'.rand(1,8).'.mp3');
 	}
 }
 
@@ -1458,7 +1439,7 @@ function warquest_battle_do() {
 			
 		$popup .= warquest_box("info", $message, $link);
 		
-		warquest_battle_sound();
+		warquest_sound('battle'.rand(1,8).'.mp3');
 				
 	} else {
 		
@@ -1525,7 +1506,7 @@ function warquest_battle_do() {
 		$link =  warquest_link('mid='.$mid.'&sid='.$sid.'&oid='.$other->pid.'&uid='.$uid.'&eid=1',t('LINK_ATTACK'), 'attack-0');
 		$popup .= warquest_box("warning", $message, $link);
 		
-		warquest_battle_sound();
+		warquest_sound('battle'.rand(1,8).'.mp3');
 	}
 	
 	/* Save other player direcly else battle view is now updated! */

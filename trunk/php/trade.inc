@@ -62,6 +62,7 @@ function warquest_trade_do() {
 	} else {
 				
 		$player->gold -= $totalGold;
+		warquest_gold_use($totalGold);
 				
 		switch ($uid) {
 		
