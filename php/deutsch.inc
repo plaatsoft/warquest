@@ -1748,16 +1748,6 @@ $lang['HELP_REBEL_AWARDS'] = 'The following rebellion rise awards can be earned:
 ** ------------------
 */
 
-$lang['HELP_STATS_TITLE'] = 'Statistics';
-$lang['HELP_STATS_NOTE'] = 'Note: On this page realtime WarQuest statistics are showed.';
-$lang['HELP_STATS_PLAYERS'] = 'New players (last 14 days)';
-$lang['HELP_STATS_ONLINE'] = 'Players online (last 14 days)';
-$lang['HELP_STATS_FIGHTS'] = 'Player fights (last 14 days)';
-$lang['HELP_STATS_MISSIONS'] = 'Missions played (last 14 days)';
-$lang['HELP_STATS_CASINO'] = 'Casino games played (last 14 days)';
-$lang['HELP_STATS_ADS'] = 'Ads showed (last 14 days)';
-$lang['HELP_STATS_REQUESTS'] = 'Server requests (last 14 days)';
-
 /*
 ** ------------------
 ** HELP - ABOUT

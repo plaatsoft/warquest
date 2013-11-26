@@ -104,45 +104,39 @@ function warquest_cron_statistics($output=0) {
 	global $config;	
 		
 	$query1  = 'select count(*) as count, sum(request) as request, sum(won) as won, ';
-	$query1 .= 'sum(mission) as missions, sum(ads) as ads, sum(casino) as casino from player';
+	$query1 .= 'sum(mission) as missions, sum(casino) as casino from player';
 	$result1 = warquest_db_query($query1);	
-	$data1=warquest_db_fetch_object($result1);
+	$data1 = warquest_db_fetch_object($result1);
 					
-	$yesterday = mktime(date("H"), date("i"), date("s"), date("m"), date("d")-1, date("Y"));
+	$date = mktime(date("H"), date("i"), date("s"), date("m"), date("d")-1, date("Y"));
 	
-	$query2  = 'select count(*) as count from member where last_login > "'.date("Y-m-d H:i:s", $yesterday).'" ';			
+	$query2  = 'select count(*) as count from member where last_login > "'.date("Y-m-d H:i:s", $date).'" ';			
 	$result2 = warquest_db_query($query2);	
-	$data2=warquest_db_fetch_object($result2);
+	$data2 = warquest_db_fetch_object($result2);
 	
 	if ($output==1) {
-		$yesterday = mktime(date("H"), date("i"), date("s"), date("m"), date("d"), date("Y"));
+		$date = mktime(date("H"), date("i"), date("s"), date("m"), date("d"), date("Y"));
 	}
 	
-	$query3 = 'select id from statistics where date = "'.date("Y-m-d", $yesterday).'"';
-	$result3 = warquest_db_query($query3);	
- 
-	if ($data3=warquest_db_fetch_object($result3)) {
+	$stats = warquest_db_statistics($date);
+	 
+	if ( isset($stats->id) ) {
 
-		$query  = 'update statistics set ';
-		$query .= 'requests='.$data1->request.', ';
-		$query .= 'fights='.$data1->won.', ';
-		$query .= 'players='.$data1->count.', ';
-		$query .= 'logins='.$data2->count.', ';
-		$query .= 'missions='.$data1->missions.', ';
-		$query .= 'ads='.$data1->ads.', ';
-		$query .= 'casino='.$data1->casino.' ';
-		$query .= 'where id='.$data3->id; 
+		$stats->requests = $data1->request;
+		$stats->fights = $data1->won;
+		$stats->players = $data1->count;
+		$stats->logins = $data2->count;
+		$stats->missions = $data1->missions;
+		$stats->casino = $data1->casino;
+		
+		warquest_db_statistics_update($stats);		
 		
 	} else {
 	
-		$query  = 'insert into statistics (date, requests, fights, players,  logins, missions, ads, casino) ';
-		$query .= 'VALUES ("'.date("Y-m-d", $yesterday).'",'.$data1->request.','.$data1->won.',';
-		$query .= $data1->count.', '.$data2->count.', '.$data1->missions.', '.$data1->ads.', '.$data1->casino.')';
+		warquest_db_statistics_insert($date, $data1->request, $data1->won, $data1->count, $data2->count, $data1->missions, 0, $data1->casino);	
 	}
-	
-	warquest_db_query($query);
-		
-	$message = 'Statistics of '.date("d-m-Y", $yesterday).' updated!'; 
+			
+	$message = 'Statistics of '.date("d-m-Y", $date).' updated!'; 
 	
 	if ($output!=1) {
 	

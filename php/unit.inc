@@ -130,7 +130,10 @@ function warquest_unit_deploy_do() {
 		/* Process player statistics. */
 		$player->money -= $totalPrice;
 		$player->gold -= $totalGold;
-				
+		
+		/* Update Statistics */
+		warquest_gold_use($totalGold);
+						
 		/* save data in database */
 		$totalAmount = warquest_db_unit_add($player->pid, $uid, $amount);
 		

@@ -160,7 +160,45 @@ function warquest_db_num_rows($value) {
 	return $value;
 }
 
+/* 
+** -----------------
+** STATISTICS
+** ----------------- 
+*/
 
+function warquest_db_statistics_update($data) {
+
+	$query  = 'update statistics set ';
+	$query .= 'requests='.$data->requests.', ';
+	$query .= 'fights='.$data->fights.', ';
+	$query .= 'players='.$data->players.', ';
+	$query .= 'logins='.$data->logins.', ';
+	$query .= 'missions='.$data->missions.', ';
+	$query .= 'gold='.$data->gold.', ';
+	$query .= 'casino='.$data->casino.' ';
+	$query .= 'where id='.$data->id; 
+
+	warquest_db_query($query);	
+}
+
+function warquest_db_statistics_insert($date, $request, $fights, $players, $logins, $missions, $gold, $casino) {
+
+	$query  = 'insert into statistics (date, requests, fights, players,  logins, missions, gold, casino) ';
+	$query .= 'VALUES ("'.date("Y-m-d", $date).'",'.$request.','.$fights.',';
+	$query .= $players.', '.$logins.', '.$missions.', '.$gold.', '.$casino.')';
+		
+	warquest_db_query($query);	
+}
+
+function warquest_db_statistics($date) {
+
+	$query  = 'select id, requests, fights, players, logins, missions, gold, casino from statistics where date = "'.date("Y-m-d", $date).'"';
+
+	$result = warquest_db_query($query);
+	$data = warquest_db_fetch_object($result);
+				
+	return $data;	
+}
 
 /* 
 ** -----------------
@@ -377,7 +415,7 @@ function warquest_discount($player, $planet) {
 
 	$discount=0;
 
-	$query  = 'select ifnull(sum(a.discount*c.amount),0) as discount from building a ';
+	$query  = 'select ifnull(sum(a.discount),0) as discount from building a ';
 	$query .= 'left join building_group b on a.bgid=b.bgid ';
 	$query .= 'left join player_building c on c.bid=a.bid ';
 	$query .= 'where b.planet='.$planet.' and a.discount>0 and c.pid='.$player->pid;
@@ -395,7 +433,7 @@ function warquest_maintenance($player, $planet) {
 
 	$maintenance=0;
 
-	$query  = 'select ifnull(sum(a.maintenance*c.amount),0) as maintenance from building a ';
+	$query  = 'select ifnull(sum(a.maintenance),0) as maintenance from building a ';
 	$query .= 'left join building_group b on a.bgid=b.bgid ';
 	$query .= 'left join player_building c on c.bid=a.bid ';
 	$query .= 'where b.planet='.$planet.' and a.maintenance>0 and c.pid='.$player->pid;

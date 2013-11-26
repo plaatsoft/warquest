@@ -30,8 +30,9 @@ $notes = '
 &nbsp;&nbsp;- All existing and new players receive 500 gold as introduction bonus.</br>
 &nbsp;&nbsp;- Existing trade points are converted to gold (ratio 1:500).</br>
 &nbsp;&nbsp;- Trade features are now payed with gold instead of trade points.</br>
+&nbsp;&nbsp;- Log gold use on Help -> Stats page.</br>
 - Added building defence submenu for better overview.</br>
-- Cleanup earth cavalry units. Removed weakest unit to make a shorter list.</br></br>
+- Cleanup earth cavalry units. Removed weakest units to make a shorter list.</br></br>
 
 <i>General</i><br/>
 - Please visit www.gravatar.com to upload a player image.<br/><br/>

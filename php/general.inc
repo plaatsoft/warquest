@@ -459,7 +459,31 @@ function warquest_debug($text) {
 	}
 }
 
-/*
+/** 
+ * Updaet gold use statistics
+ */
+function warquest_gold_use($gold) {
+
+	if ($gold>0) {
+	
+		$date = mktime(date("H"), date("i"), date("s"), date("m"), date("d"), date("Y"));
+	
+		$stats = warquest_db_statistics($date);
+	 
+		if ( !isset($stats->id) ) {
+
+			warquest_cron_statistics(1);
+			$stats = warquest_db_statistics($date);
+				
+		}
+	
+		$stats->gold += $gold;
+
+		warquest_db_statistics_update($stats);	
+	}
+}
+
+	/*
 ** ---------------------------------------------------------------- 
 ** CALCULATE FORCE
 ** ----------------------------------------------------------------
@@ -1415,11 +1439,13 @@ function warquest_convert_date($value) {
   return $day.'-'.$month.'-'.$year.' '.$time;
 }
 
+/**
+ * Convert data mysql 
+ */
 function convert_date_mysql($date) {
 	$part = preg_split('/-/', $date);
 	return $part[2].'-'.$part[1].'-'.$part[0];
 }
-
 
 /**
  * Play mp3 sound file 

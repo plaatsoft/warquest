@@ -126,10 +126,10 @@ function warquest_help_graphs() {
 	
 	include "graph.php";
 	
-	$first = mktime(0,0,0,date("m"),date("d")-14,date("Y"));
+	$first = mktime(0,0,0,date("m"),date("d")-31,date("Y"));
 	$last = mktime(0,0,0,date("m"),date("d"),date("Y"));
 
-	$query  = 'select DATE_FORMAT(date,"%e-%m") as day_nr, players, requests, logins, fights, missions, ads, casino ';
+	$query  = 'select DATE_FORMAT(date,"%e-%m") as day_nr, players, requests, logins, fights, missions, gold, casino ';
 	$query .= 'from statistics where date between "'.date("Y-m-d", $first).'" ';
 	$query .= ' and "'.date("Y-m-d", $last).'" order by date asc';
 			
@@ -140,7 +140,7 @@ function warquest_help_graphs() {
 	$logins = array();
 	$fights = array();
 	$missions = array();
-	$ads = array();
+	$gold = array();
 	$casino = array();
 
 	$count = 0;
@@ -152,7 +152,7 @@ function warquest_help_graphs() {
 			$fights[$data->day_nr]=$data->fights-$tmp3;
 			$logins[$data->day_nr]=$data->logins;
 			$missions[$data->day_nr]=$data->missions-$tmp4;	
-			$ads[$data->day_nr]=$data->ads-$tmp5;	
+			$gold[$data->day_nr]=$data->gold;	
 			$casino[$data->day_nr]=$data->casino-$tmp6;	
 		}
 		
@@ -160,7 +160,7 @@ function warquest_help_graphs() {
 		$tmp2=$data->requests;
 		$tmp3=$data->fights;
 		$tmp4=$data->missions;
-		$tmp5=$data->ads;
+		$tmp5=$data->gold;
 		$tmp6=$data->casino;
 	}
 	
@@ -287,11 +287,11 @@ function warquest_help_graphs() {
 	$graph5->setDataPointColor('yellow');
 		
 	$graph5->createGraph();
-		
-	/* Ads graph */
+			
+	/* Casino played graph */
 	
-	$graph6 = new PHPGraphLib(490,300, 'graph/ads.png');
-	$graph6->addData($ads);
+	$graph6 = new PHPGraphLib(490,300, 'graph/casino.png');
+	$graph6->addData($casino);
 
 	$graph6->setBars(false);
 	$graph6->setLine(true);
@@ -313,10 +313,11 @@ function warquest_help_graphs() {
 	
 	$graph6->createGraph();
 	
-	/* Casino played graph */
 	
-	$graph7 = new PHPGraphLib(490,300, 'graph/casino.png');
-	$graph7->addData($casino);
+	/* Gold graph */
+	
+	$graph7 = new PHPGraphLib(490,300, 'graph/gold.png');
+	$graph7->addData($gold);
 
 	$graph7->setBars(false);
 	$graph7->setLine(true);
@@ -386,8 +387,8 @@ function warquest_help_stats_form() {
 	$page .= '<br/>';
 		
 	$page .= '<br/>';
-	$page .= '<center>'.t('HELP_STATS_ADS').'</center>';	
-	$page .= '<img src="graph/ads.png" />';	
+	$page .= '<center>'.t('HELP_STATS_GOLD').'</center>';	
+	$page .= '<img src="graph/gold.png" />';	
 	$page .= '<br/>';
 			
 	$page .= '<br/>';
