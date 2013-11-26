@@ -1,0 +1,32 @@
+/* WarQuest Style sheet - All copyrights reserved (c) 2008-2013 PlaatSoft */
+
+body {
+	font-size: 10px;
+}
+
+.title {
+	font-size: 1.8em;
+}
+
+button {
+	 padding: 0px;
+	 margin: 0px;
+    border: 0px solid #f00;	 
+    background: none;
+}
+
+button:hover {
+	 padding: 0px;
+	 margin: 0px;
+    border: 0px solid #f00;
+    background: none;
+}
+
+.note {
+	font-size: 1.0em;
+	text-align: justify; 
+	margin: 5px 0px; 
+	width: 100%; 
+}
+ 
+

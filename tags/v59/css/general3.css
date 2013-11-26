@@ -1,0 +1,342 @@
+/* WarQuest Style sheet - All copyrights reserved (c) 2008-2013 PlaatSoft */
+
+body {	
+	color: white;
+	font-family: Arial;
+	font-size: 14px;
+	-webkit-text-size-adjust:none;
+	width: 510px;
+	padding: 0px;
+}
+
+th {
+	font-size: 1.0em;
+	font-weight: bold;
+	text-align: left; 
+	padding: 0px 0px 5px 0px;
+}
+
+.help {
+	margin: 0px 0px 0px 3px;
+	overflow: hidden;
+	font-size: 0.8em;
+	display: -moz-inline-stack;
+	display: inline-block;
+	white-space: nowrap;
+}
+
+.fixed { 
+	z-index: 2;  
+	width: 510px;
+}
+
+.scroll {
+	top: 80px;
+	width: 510px;
+   z-index: 1;
+}
+
+pre {
+	font-family: Arial;
+	font-size: 1.0em;
+}
+
+table {  
+	border: solid 0px; 
+	border-spacing: 0px 0px;
+	font-size: 1.0em;
+}
+
+input {
+	font-size: 0.9em;
+}
+
+textarea {
+	font-size: 0.9em;
+}
+
+td {  
+	border: solid 0px; 
+}
+
+i {
+	font-size: 0.85em;
+}
+
+img {
+	border: 0;	
+	vertical-align:middle;
+}
+
+a {
+	padding: 0px;
+	text-decoration: none; 
+	color: orange;
+}
+
+a:hover {
+	padding: 0px;
+	text-decoration: underline overline; 
+	color: yellow;
+} 
+
+.countdown {
+	display:inline-block;
+	color: orange;
+}
+
+.link {	
+	text-decoration: none; 
+	color: orange;
+}
+
+.link:hover {
+	text-decoration: underline overline; 
+	color: yellow;
+} 
+
+.hide_link {
+	text-decoration: none;
+	color: white;
+} 
+
+.hide_link:hover {
+	text-decoration: underline overline; 
+	color: yellow;
+} 
+
+.box {
+	border: solid 2px; 
+	padding: 2px 8px; 
+	-moz-border-radius: 5px; 
+	-khtml-border-radius: 5px; 
+	-webkit-border-radius: 5px; 
+	border-radius: 5px; 
+	margin-bottom: 3px; 
+	text-align: justify;  
+	background-color:rgba(25, 25, 25, 0.7);
+}
+
+.box2 {
+	border: solid 2px; 
+	padding: 2px 8px; 
+	-moz-border-radius: 5px; 
+	-khtml-border-radius: 5px; 
+	-webkit-border-radius: 5px; 
+	border-radius: 5px; 
+	margin-bottom: 3px; 
+	margin-left: 75px; 
+	text-align: justify;  
+	width: 66%; 
+	background-color:rgba(25, 25, 25, 0.7);
+}
+
+.tooltip {
+   visibility: hidden; 
+   position: absolute; 
+   top: 0;  
+   left: 0; 
+   z-index: 2; 
+	-moz-border-radius: 5px; 
+	-khtml-border-radius: 5px; 
+	-webkit-border-radius: 5px; 
+	border-radius: 5px; 
+	font-size: 0.85em;
+   padding: 3px; 
+   border: solid 1px; 
+   background-image: url(../images/other/box.png); 
+}
+
+.notification {
+	border: solid 1px; 
+	padding: 1px 1px; 
+	margin: 2px 2px; 
+	-moz-border-radius: 4px; 
+	-khtml-border-radius: 4px; 
+	-webkit-border-radius: 4px; 
+	border-radius: 4px; 
+	text-align: justify; 
+	background-color: red;
+}
+
+.banner {		
+	font-size: 1.0em;
+}
+
+.value {
+	font-size: 1.1em;
+	font-weight: bold;
+}
+
+.note {
+	font-size: 0.85em;
+	text-align: justify; 
+	margin: 5px 0px; 
+	width: 100%; 
+}
+	
+.header {
+	margin: 5px 0px; 
+	width: 100%; 
+}
+
+.footer {
+	margin: 5px 0px; 
+	width: 100%; 
+}
+
+.title {
+	font-size: 2.2em;
+	padding: 10px 0px 2px 0px; 
+}
+
+.paragraph {
+	font-size: 1.6em;
+	padding: 5px 0px 2px 0px; 
+}
+
+.subparagraph {
+	font-size: 1.2em;
+	padding: 10px 0px 2px 0px; 
+}
+
+.subparagraph2 {
+	font-size: 1.0em;
+	padding: 10px 0px 2px 0px; 
+	text-decoration: underline; 
+	font-weight: bold;
+	color: orange;
+}
+
+.menu {
+	font-size: 1.0em;
+	padding: 6px 0px 6px 0px; 
+	width: 510px;
+}
+
+.submenu {
+	font-size: 1.0em;
+	padding: 2px 0px 2px 0px; 
+	width: 510px;
+}
+
+.info {
+	font-size: 1.0em;
+	color:rgb(0,255,0);
+}
+
+.warning {
+	font-size: 1.0em;
+	color:rgb(255,0,0);
+}
+
+.error {
+	font-size: 1.0em;
+	color:rgb(255,0,0);
+}
+
+.money {
+	color:rgb(0,215,0);
+}
+
+.gold {
+	font-weight: bold;
+	color:rgb(250,234,4);
+}
+
+.negative {
+	color:rgb(215,60,60);
+}
+
+.energy {
+	color:rgb(255,50,0);
+}
+
+.experience {
+	color:rgb(155,150,100);
+}
+
+.health {
+	color:rgb(0,250,255);
+}
+
+.discount {
+	color:rgb(0,150,240);
+}
+
+.maintenance {
+	color:rgb(0,150,240);
+}
+
+.alliance {
+	color:rgb(0,100,250);
+}
+
+.level {
+	color:rgb(155,255,255);
+}
+
+.ammo {
+	color:rgb(155,100,255);
+}
+
+.loot {
+	color:rgb(255,185,15);
+}
+
+.country {
+	color:rgb(0,128,231);
+}
+
+.deploy {
+	color:rgb(255,84,84);
+}
+
+.timer {
+	font-size: 0.8em;
+}
+
+.stock {
+	font-size: 0.9em;
+}
+
+.right {
+	float: right;
+	clear: right;
+	padding: 10px 0px 0px 10px; 
+}
+
+.right2 {
+	float: right;
+	clear: right; 
+}
+
+.debug {
+	font-size: 0.65em;
+	text-align: justify; 
+	margin: 5px 0px; 
+	width: 100%; 
+}
+
+.vote {
+	font-size: 1.1em;
+	text-decoration: underline; 
+	color: yellow;
+}
+
+.green {
+	color: rgb(0,215,0);
+}
+
+.yellow {
+	color: yellow;
+}
+
+.red {
+	color: rgb(255,50,0);
+}
+
+.tip {
+	font-size: 0.95em;
+	color: rgb(128,215,200);
+}
