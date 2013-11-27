@@ -166,7 +166,7 @@ function warquest_login_header() {
 	$page .= warquest_login_menu();
 	
 	if ($sid!=5) {
-		$page .= '<div class="note">';
+		$page .= '<div class="note2">';
 		$page .= t('HELP_INTRO');
 		$page .= '</div>';
 		
@@ -211,7 +211,7 @@ function warquest_login_footer() {
 		
 	$page .= '<br/>';	
 	
-	$page .= '<div class="note">';
+	$page .= '<div class="note2">';
 	$page .= t('LOGIN_BEST_VIEWED');
 	$page .= '</div>';
 			

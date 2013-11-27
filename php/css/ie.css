@@ -1,6 +1,5 @@
 body {	
-	display:block;
-	text-align:center;
+	display:block;	
 	width: 510px;
 }
 
@@ -12,24 +11,16 @@ body {
 	text-align:left;
 }
 
+.note2 {
+	width: 510px;
+}
+
 .box {
 	width: 510px;
 }
 
 .box2 {
-	margin:20px 70px 20px 70px;	
+	margin:40px 50px 40px 50px;	
 	padding:10px;	
-}
-
-.note {
-	width: 510px;
-}
-
-.banner {
-	width: 510px; 
-}
-
-.fixed { 
-	width: 510px;
 }
 
