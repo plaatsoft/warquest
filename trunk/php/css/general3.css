@@ -176,6 +176,13 @@ a:hover {
 	width: 100%; 
 }
 	
+.note2 {
+	font-size: 0.85em;
+	text-align: justify; 
+	margin: 5px 0px; 
+	width: 100%; 
+}
+
 .header {
 	margin: 5px 0px; 
 	width: 100%; 
