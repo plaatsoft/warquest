@@ -1,5 +1,7 @@
 body {	
+	display:block;
 	text-align:center;
+	width: 510px;
 }
 
 .fixed { 
@@ -15,15 +17,19 @@ body {
 }
 
 .box2 {
-	margin-left: 0px; 
-	width: 370px;
+	margin:20px 70px 20px 70px;	
+	padding:10px;	
 }
 
 .note {
-	width: 490px;
+	width: 510px;
 }
 
 .banner {
 	width: 510px; 
+}
+
+.fixed { 
+	width: 510px;
 }
 

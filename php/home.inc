@@ -418,8 +418,10 @@ function warquest_ui_breaking_news() {
 	
 	if (preg_match("/Symbian/", $browser)) {
 	   $page .= '<marquee behavior="scroll" direction="left" scrollamount="3">';
+		
 	} else if (preg_match("/MSIE/", $browser)) {
-		//$page .= '<div id="TICKER" STYLE="overflow:hidden; width:490px">';
+		$page .= '<marquee behavior="scroll" direction="left" scrollamount="3">';
+		
 	} else {
 		$page .= '<div id="TICKER" STYLE="overflow:hidden; width:500px">';
 	}
@@ -429,6 +431,11 @@ function warquest_ui_breaking_news() {
 	if (preg_match("/Symbian/", $browser)) {
 		$page .= '</marquee>';
 		$page .= '</div>';
+		
+	} else if (preg_match("/MSIE/", $browser)) {
+		$page .= '</marquee>';
+		$page .= '</div>';
+		
 	} else {
 		$page .= '</div>';
 		$page .= '</div>';
