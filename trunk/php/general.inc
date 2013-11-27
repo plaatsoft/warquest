@@ -2093,7 +2093,7 @@ function warquest_format_part($part) {
 */
 
 /** 
- * Conver data to ago format.
+ * get html ago
  */		
 function warquest_ui_ago($date) {
 
@@ -2136,7 +2136,7 @@ function warquest_ui_ago($date) {
 
 
 /** 
- * Get checkbox on screen 
+ * Get html checkbox 
  */
 function warquest_ui_checkbox($name, $value, $checked) {
 
@@ -2151,7 +2151,7 @@ function warquest_ui_checkbox($name, $value, $checked) {
 }
 
 /** 
- * Get checkbox on screen 
+ * Get html radiobox 
  */
 function warquest_ui_radiobox($name, $value, $checked, $disabled) {
 
@@ -2168,7 +2168,9 @@ function warquest_ui_radiobox($name, $value, $checked, $disabled) {
 	
 	return $tmp;	
 }
-
+/**
+ * Get HTML map
+ */
 function warquest_ui_map($player, $planet) {
 	
 	/* input */
@@ -2249,6 +2251,9 @@ function warquest_ui_map($player, $planet) {
 	return $page;
 }
 
+/**
+ * Get HTML input
+ */
 function warquest_ui_input($name, $size, $maxlength, $value, $readonly=false) {
 	
 	$page  = '<input ';
@@ -2268,6 +2273,9 @@ function warquest_ui_input($name, $size, $maxlength, $value, $readonly=false) {
 	return $page;
 }
 
+/**
+ * Get HTML backgorund selector
+ */
 function warquest_ui_background($tag, $id, $readonly) {
 				
 	$array = array( "0" =>  t('BACKGROUND_0'), 
@@ -2301,6 +2309,9 @@ function warquest_ui_background($tag, $id, $readonly) {
 	return $page;
 }
 
+/**
+ * Get HTML country selector
+ */
 function warquest_ui_country($tag, $id, $readonly) {
 	
 	/* input */
@@ -2329,6 +2340,9 @@ function warquest_ui_country($tag, $id, $readonly) {
    return $page;
 }
 
+/**
+ * Get HTML language selector
+ */
 function warquest_ui_language($tag, $id, $readonly) {
 
 	$array = array( "nl" => t('PLAYER_LANG_DUTCH'),
@@ -2356,6 +2370,9 @@ function warquest_ui_language($tag, $id, $readonly) {
    return $page;
 }
 
+/**
+ * Get HTML menu bar
+ */
 function warquest_ui_menu($mid, $sid, $ssid, $label, $active_id, $notification=0) {
    
 	$menu = warquest_link('mid='.$mid.'&sid='.$sid.'&ssid='.$ssid, $label, strtolower($label));
@@ -2370,6 +2387,9 @@ function warquest_ui_menu($mid, $sid, $ssid, $label, $active_id, $notification=0
 	return $menu;
 }
 
+/**
+ * Get HTML submenu bar
+ */
 function warquest_ui_subsubmenu($mid, $sid, $ssid, $label, $active_id) {
    
 	$menu = warquest_link('mid='.$mid.'&sid='.$sid.'&ssid='.$ssid, $label, strtolower($label));
@@ -2382,6 +2402,9 @@ function warquest_ui_subsubmenu($mid, $sid, $ssid, $label, $active_id) {
 	return $menu;
 }
 
+/**
+ * Get HTML tip
+ */
 function warquest_ui_tip() {
 
 	/* input */
@@ -2458,8 +2481,7 @@ function warquest_box_icon($title, $message, $link="") {
 		
 		$page .= '<td width="400">';
 		$page .= '<div class="paragraph"><span class="error">'.t('BOX_ERROR').'</span></div>';
-		
-	
+			
 	} else if ($title=="classified") {
 		$page .= '<td width="70" valign="top">'; 
 		$page .= warquest_image('other/classified.png',' width="64" height="64" ');
@@ -2769,6 +2791,9 @@ function warquest_ui_banner() {
 	return $page;
 }
 
+/**
+ * Get HTML footer
+ */
 function warquest_ui_footer($renderTime, $queries) {
 
 	global $browser;
@@ -2817,6 +2842,9 @@ function warquest_ui_footer($renderTime, $queries) {
 ** ---------------------
 */
 
+/**
+ * Get clan html format
+ */
 function clan_format($clan) {
 
 	$value = "?";
@@ -2829,6 +2857,9 @@ function clan_format($clan) {
 	return $value;
 }
 
+/**
+ * Get player html format
+ */
 function player_format($pid, $name, $country, $size=0) {
 
 	global $mid;
@@ -2840,11 +2871,17 @@ function player_format($pid, $name, $country, $size=0) {
 	}
 }
 			
+/**
+ * Get gold html format
+ */
 function gold_format($value) {
 
 	return '<span class="gold">'.number_format($value,0,",",".").'</span> '.t('GENERAL_GOLD');	
 }
 
+/**
+ * Get dollar html format
+ */
 function dollar_format($value) {
    
 	if ($value>=0) {
@@ -2854,6 +2891,9 @@ function dollar_format($value) {
 	}
 }
 	
+/**
+ * Get money html format
+ */
 function money_format1($value) {
    
 	if ($value>=0) {
@@ -2863,6 +2903,9 @@ function money_format1($value) {
 	}
 }
 
+/**
+ * Get money html format
+ */
 function money_format2($value) {
    
 	if ($value>=10000000) {
@@ -2875,6 +2918,9 @@ function money_format2($value) {
 	}
 }
 
+/**
+ * Get stock html format
+ */
 function stock_format($value) {
    
 	if ($value>=0) {
@@ -2884,71 +2930,113 @@ function stock_format($value) {
 	}
 }
 
+/**
+ * Get money negative html format
+ */
 function money_negative($value) {
    
 	return '<span class="negative">'.number_format($value,0,",",".").'</span>';
 }
 
+/**
+ * Get experience html format
+ */
 function experience_format($value) {
    
 	return '<span class="experience">'.number_format($value,0,",",".").'</span>';
 }
 
+/**
+ * Get energy html format
+ */
 function energy_format($value) {
    
 	return '<span class="energy">'.number_format($value,0,",",".").'</span>';
 }
 
+/**
+ * Get country html format
+ */
 function country_format($value) {
    
 	return '<span class="country">'.number_format($value,0,",",".").'</span>';
 }
 
+/**
+ * Get deploy html format
+ */
 function deploy_format($value) {
    
 	return '<span class="deploy">'.number_format($value,0,",",".").'</span>';
 }
 
+/**
+ * Get discount html format
+ */
 function discount_format($value) {
    
 	return '<span class="discount">'.$value.'</span>';
 }
 
+/**
+ * Get maintenance html format
+ */
 function maintenance_format($value) {
    
 	return '<span class="maintenance">'.$value.'</span>';
 }
 
+/**
+ * Get health html format
+ */
 function health_format($value) {
    
 	return '<span class="health">'.number_format($value,0,",",".").'</span>';
 }
 
+/**
+ * Get alliance html format
+ */
 function alliance_format($value) {
    
 	return '<span class="alliance">'.number_format($value,0,",",".").'</span>';
 }
 
+/**
+ * Get level html format
+ */
 function level_format($value) {
    
 	return '<span class="level">'.number_format($value,0,",",".").'</span>';
 }
 
+/**
+ * Get ammo html format
+ */
 function ammo_format($value) {
    
 	return '<span class="ammo">'.number_format($value,0,",",".").'</span>';
 }
 
+/**
+ * Get loot html format
+ */
 function loot_format($value) {
    
 	return '<span class="loot">'.$value.'</span>';
 }
 
+/**
+ * Get number html format
+ */
 function number_format2($value) {
    
 	return number_format($value,0,",",".");
 }
 
+/**
+ * Get procentage html format
+ */
 function procent_format($value) {
    
 	if ($value>=0) {
@@ -2958,6 +3046,9 @@ function procent_format($value) {
 	}
 }
 
+/**
+ * Get indication html format
+ */
 function indication_format($value, $pos) {
 
 	if ($pos==1) {
@@ -2996,8 +3087,6 @@ function validate_email($address) {
 	} else {
 		return false;
 	}
-
-   //return !preg_match("/[A-Za-z0-9_-]+([\.]{1}[A-Za-z0-9_-]+)*@[A-Za-z0-9-]+([\.]{1}[A-Za-z0-9-]+)+/",$address);
 }
 
 /*
@@ -3006,6 +3095,9 @@ function validate_email($address) {
 ** ---------------------
 */
 
+/**
+ * Get general image
+ */
 function warquest_image($filename, $options="") {
 
 	/*  input */
@@ -3015,6 +3107,9 @@ function warquest_image($filename, $options="") {
 	return $image;
 }	
 
+/**
+ * Get planet image
+ */ 
 function warquest_planet_image($id) {
 
 	/* input */
@@ -3025,6 +3120,9 @@ function warquest_planet_image($id) {
 	return $image;
 }
 
+/**
+ * Get battle image
+ */
 function warquest_battle_image($id, $won) {
 
 	/* input */
@@ -3042,6 +3140,9 @@ function warquest_battle_image($id, $won) {
 	return $image;
 }
 
+/**
+ * Get bounty image
+ */
 function warquest_bounty_image($id, $amount) {
 
 	/* input */
@@ -3059,6 +3160,9 @@ function warquest_bounty_image($id, $amount) {
 	return $image;
 }
 
+/**
+ * Get rebel image
+ */
 function warquest_rebel_image($id, $amount) {
 
 	/* input */
@@ -3076,6 +3180,9 @@ function warquest_rebel_image($id, $amount) {
 	return $image;
 }
 
+/**
+ * Get rank image
+ */
 function warquest_rank_image($lid, $width=0, $height=0) {
 
 	/* input */
@@ -3103,6 +3210,9 @@ function warquest_rank_image($lid, $width=0, $height=0) {
 	return $image;
 }
 
+/**
+ * Get flag image
+ */
 function warquest_flag_image($country, $width=0, $height=0) {	
 	
 	/*  input */
@@ -3118,6 +3228,9 @@ function warquest_flag_image($country, $width=0, $height=0) {
 	return $image;	
 }
 
+/**
+ * Get platform image
+ */
 function warquest_platform_image($platform) {
 
 	/* input */
@@ -3154,6 +3267,9 @@ function warquest_platform_image($platform) {
 	return $image;
 }
 
+/**
+ * Get mission image
+ */
 function warquest_mission_image($mission, $width=90, $height=65) {
 
 	/* input */
@@ -3190,6 +3306,9 @@ function warquest_mission_image($mission, $width=90, $height=65) {
 	return $image;
 }	
 
+/**
+ * Get casino image
+ */
 function warquest_casino_image($id, $width=90, $height=65) {
 
 	/* input */
@@ -3208,6 +3327,9 @@ function warquest_casino_image($id, $width=90, $height=65) {
 	return $image;
 }
 
+/**
+ * Get bank image
+ */
 function warquest_bank_image($id, $width=90, $height=65) {
 
 	/* input */
@@ -3219,6 +3341,9 @@ function warquest_bank_image($id, $width=90, $height=65) {
 	return $image;
 }
 
+/**
+ * Get unit image
+ */
 function warquest_unit_image($unit, $count, $tip=1, $width=90, $height=65, $options="") {
 
 	/* input */
@@ -3255,6 +3380,9 @@ function warquest_unit_image($unit, $count, $tip=1, $width=90, $height=65, $opti
 	return $image;
 }	
 
+/**
+ * Get building image
+ */
 function warquest_building_image($building, $count=0, $tip=1, $width=90, $height=65) {
 
 	/*  input */
@@ -3298,6 +3426,9 @@ function warquest_building_image($building, $count=0, $tip=1, $width=90, $height
 	return $image;
 }
 
+/**
+ * Get stock image
+ */
 function warquest_stock_image($stock, $width=90, $height=65) {
 
 	/*  input */
@@ -3305,14 +3436,14 @@ function warquest_stock_image($stock, $width=90, $height=65) {
 	
 	if ($stock->sid < 300) {
 	
-		$tmp = $config["content_url"].'images/stock/stock'.$stock->sid.'.jpg';
+		$filename = $config["content_url"].'images/stock/stock'.$stock->sid.'.jpg';
 		
 	} else {	
 	
-		$tmp = $config["content_url"].'images/stock/stock0.jpg';
+		$filename = $config["content_url"].'images/stock/stock0.jpg';
 	}	
 	
-	$image = '<img src="'.$tmp.'" width="'.$width.'" height="'.$height.'" />';
+	$image = '<img src="'.$filename.'" width="'.$width.'" height="'.$height.'" />';
 	return $image;
 }
 
