@@ -28,7 +28,7 @@ function warquest_email_layout($subject, $content) {
 	$tmp .= '<body>';	
 	
 	$tmp .= '<a href='.$config["base_url"].'>';
-	$tmp .= '<img src="'.$config["base_url"].'/images/other/ad.png" />';
+	$tmp .= '<img src="'.$config["base_url"].'/images/other/ad1.png" />';
 	$tmp .= '</a>';
 	
 	$tmp .= '<h2>'.$subject.'</h2>';	

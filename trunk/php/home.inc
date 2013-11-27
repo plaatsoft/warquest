@@ -868,6 +868,27 @@ function warquest_show_breaking_news() {
 	warquest_ui_breaking_news();	
 }
 	
+/** 
+ * Auto refresh ad image 
+ */
+function warquest_auto_refresh_ad($offset, $range, $id) {
+
+	/* input */
+	global $config;
+
+	/* output */
+	global $page;
+	
+	$page .= '<script language="JavaScript" type="text/javascript">';
+   $page .= 'function Start'.$id.'() { ';
+	$page .= 'var nr = "'.$config["content_url"].'images/other/ad" + (Math.floor(Math.random() * '.$range.') + '.$offset.') + ".png"; ';
+   $page .= 'document.forms[\'warquest\'].elements["'.$id.'"].src = nr; ';
+   $page .= 'setTimeout("Start'.$id.'('.$offset.')", 2000); ';
+   $page .= '} ';
+   $page .= 'Start'.$id.'('.$offset.'); ';
+   $page .= '</script>'; 
+}
+
 function warquest_home_ad() {
 
 	/* input */
@@ -881,10 +902,14 @@ function warquest_home_ad() {
 		$page .= '<div class="subparagraph">'.t('HOME_ANNOUNCEMENTS').'</div>';
 			
 		$page .= '<a href="javascript:link(\''.warquest_token('mid='.MENU_HELP.'&sid='.PAGE_DONATE).'\')">';			
-		$page .= warquest_image('other/ad2.png', 'width=510 height=75');
+		$page .= warquest_image('other/ad2.png', 'width="510" height="75" id="ad" ');
 		$page .= '</a>';
 	}	
+	warquest_auto_refresh_ad(1,2,"ad");
 }
+
+
+
 
 /*
 ** --------------- 
