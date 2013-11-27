@@ -2906,6 +2906,7 @@ $lang['USER_EMAIL_VALID'] = 'Your email address is validated. Thank you!';
 
 $lang['GENERAL_GOLD'] = 'gold';
 $lang['PLAYER_GOLD'] = 'Gold'; 
+$lang['HOME_ANNOUNCEMENTS'] = 'Announcements';
 
 /*
 ** ------------------

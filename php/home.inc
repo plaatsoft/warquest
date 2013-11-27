@@ -757,14 +757,6 @@ function warquest_view_awards() {
 	return $page;
 }	
 
-function warquest_set_background_do() {
-
-	/* output */
-	global $player;
-	
-	$player->background=1;
-}
-
 
 function warquest_home_welcome() {
 
@@ -876,6 +868,24 @@ function warquest_show_breaking_news() {
 	warquest_ui_breaking_news();	
 }
 	
+function warquest_home_ad() {
+
+	/* input */
+	global $config;
+
+	/* output */
+	global $page;
+	
+	if ($config["gold_ad_active"]==1) {
+			
+		$page .= '<div class="subparagraph">'.t('HOME_ANNOUNCEMENTS').'</div>';
+			
+		$page .= '<a href="javascript:link(\''.warquest_token('mid='.MENU_HELP.'&sid='.PAGE_DONATE).'\')">';			
+		$page .= warquest_image('other/ad2.png', 'width=510 height=75');
+		$page .= '</a>';
+	}	
+}
+
 /*
 ** --------------- 
 ** Handler
@@ -905,10 +915,6 @@ function warquest_home() {
 			warquest_home_comment_delete_do();
 			break;
 			
-		case 10:
-			warquest_set_background_do();
-			break;
-
 		case 500: 
 			warquest_switch_planet_do();
 			break;
@@ -934,7 +940,8 @@ function warquest_home() {
 					warquest_home_welcome();
 					warquest_show_breaking_news();
 					warquest_lastest_forum_post();						
-					warquest_show_map();						
+					warquest_show_map();	
+					warquest_home_ad();
 					break;
 												
 		case PAGE_BATTLE_NEWS:	
