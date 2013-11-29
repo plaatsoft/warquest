@@ -2815,7 +2815,7 @@ function warquest_ui_footer($renderTime, $queries) {
 		}
 	}
 		
-	$page .= '<div class="note">';
+	$page .= '<div class="copyright">';
 	$page .= '<center>';
 	$page .= '<i>';
 	$page .= t('COPYRIGHT');
