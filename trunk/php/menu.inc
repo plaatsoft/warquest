@@ -93,7 +93,8 @@ function warquest_login_menu() {
 	global $sid;
 	global $version;
 	
-	$page  = '<center>';
+	$page  = '<div class="submenu">';
+	$page .= '<center>';
 		
 	$page .= warquest_ui_menu($mid, PAGE_LOGIN, 0, t('LINK_LOGIN'), $sid);
 	$page .= warquest_ui_menu($mid, PAGE_REGISTER, 0, t('LINK_REGISTER'), $sid);
@@ -105,6 +106,7 @@ function warquest_login_menu() {
 	}
 		
 	$page .= '</center>';
+	$page .= '</div>';
 	
 	return $page;
 }
