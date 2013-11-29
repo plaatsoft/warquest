@@ -191,7 +191,7 @@ function warquest_login_refresh($offset, $range, $id) {
 	$page .= '<script language="JavaScript" type="text/javascript">';
    $page .= 'function Start'.$id.'() { ';
 	$page .= 'var nr = "'.$config["content_url"].'images/units/unit" + (Math.floor(Math.random() * '.$range.') + '.$offset.') + ".jpg"; ';
-   $page .= 'document.forms[\'warquest\'].elements["'.$id.'"].src = nr; ';
+   $page .= 'document.getElementById("'.$id.'").src = nr; ';
    $page .= 'setTimeout("Start'.$id.'('.$offset.')", 2000); ';
    $page .= '} ';
    $page .= 'Start'.$id.'('.$offset.'); ';
