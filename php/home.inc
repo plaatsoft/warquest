@@ -26,10 +26,13 @@ $comment = warquest_post('comment', '');
  
 /*
 ** --------------- 
-** Messages
+** Actions
 ** ---------------
 */
 
+/** 
+ * Home message delete action
+ */
 function warquest_home_comment_delete_do() {
 	
 	/* input */
@@ -49,6 +52,9 @@ function warquest_home_comment_delete_do() {
 	}
 }
 
+/** 
+ * Home message save action
+ */
 function warquest_home_comment_save_do() {
 
 	/* input */
@@ -94,6 +100,9 @@ function warquest_home_comment_save_do() {
 	}
 }
 
+/** 
+ * Home message edit action
+ */
 function warquest_home_comment_edit_do() {
 
 	/* input */
@@ -146,6 +155,15 @@ function warquest_home_comment_edit_do() {
 	$page .= '</div>';	
 }
 
+/*
+** --------------- 
+** UI
+** ---------------
+*/
+
+/** 
+ * Home messages page 
+ */
 function warquest_home_messages() {
    
 	/* input */
@@ -245,13 +263,10 @@ function warquest_home_messages() {
 	$page .= warquest_show_ads();
 }
 
-/*
-** --------------- 
-** NEWS
-** ---------------
-*/
 
-
+/** 
+ * Home News page 
+ */
 function warquest_home_news() {
    
 	/* input */
@@ -381,68 +396,9 @@ function warquest_home_news() {
 	$page .= warquest_show_ads();
 }
 
-/*
-** --------------- 
-** OVERVIEW
-** ---------------
-*/
-
-function warquest_ui_breaking_news() {
-
-	/* input */
-	global $page;
-	global $player;
-	global $config;
-	global $browser;
-		
-	$language="en";
-	if (isset($player) && (strlen($player->language)>0)) {
-		$language=$player->language;
-	} 
-		
-	$query  = 'select date, body, content from news where language="en" order by id desc ';
-	$result = warquest_db_query($query);
-	
-	$message = '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;';
-	
-	while ($data=warquest_db_fetch_object($result)) {
-			
-		$message .= '<span class="money">';
-		$message .= $data->body;
-		$message .= '</span> ';
-		$message .= $data->content;
-		$message .= '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;';
-	}
-		
-	$page .= '<div class="box">';
-	
-	if (preg_match("/Symbian/", $browser)) {
-	   $page .= '<marquee behavior="scroll" direction="left" scrollamount="3">';
-		
-	} else if (preg_match("/MSIE/", $browser)) {
-		$page .= '<marquee behavior="scroll" direction="left" scrollamount="3">';
-		
-	} else {
-		$page .= '<div id="TICKER" STYLE="overflow:hidden; width:500px">';
-	}
-		
-	$page .= $message;
-			
-	if (preg_match("/Symbian/", $browser)) {
-		$page .= '</marquee>';
-		$page .= '</div>';
-		
-	} else if (preg_match("/MSIE/", $browser)) {
-		$page .= '</marquee>';
-		$page .= '</div>';
-		
-	} else {
-		$page .= '</div>';
-		$page .= '</div>';
-		$page .= '<script type="text/javascript" src="'.$config["content_url"].'js/news.js" language="javascript"></script>';
-	}
-}
-
+/** 
+ * Last Forum post item on home page 
+ */
 function warquest_lastest_forum_post() {
 	
 	global $mid;
@@ -526,7 +482,9 @@ function warquest_lastest_forum_post() {
 	$page .= '</div>';
 }
 
-	
+/** 
+ * New client version item on home page 
+ */
 function warquest_new_version_check() {
 	
 	/* input */
@@ -562,6 +520,9 @@ function warquest_new_version_check() {
 	}
 }
 
+/** 
+ * Holiday item on home page 
+ */
 function warquest_holiday_message() {
 
 	/* input */
@@ -599,6 +560,9 @@ function warquest_holiday_message() {
 	}
 }
 		
+/** 
+ * Daily bonus item on home page 
+ */
 function warquest_daily_bonus() {
 
 	/* input */
@@ -650,6 +614,9 @@ function warquest_daily_bonus() {
 	}		
 }
 
+/** 
+ * Mission map item on home page 
+ */
 function warquest_show_map() {
 
 	/* input */
@@ -672,6 +639,9 @@ function warquest_show_map() {
 	$page .= '</div>';
 }
 
+/** 
+ * Award item on home page 
+ */
 function warquest_view_awards() {
 
 	/* input */
@@ -757,7 +727,9 @@ function warquest_view_awards() {
 	return $page;
 }	
 
-
+/** 
+ * Welcome item on home page
+ */
 function warquest_home_welcome() {
 
 	/* input */
@@ -859,36 +831,77 @@ function warquest_home_welcome() {
 	$page .= warquest_ui_tip();	
 }
 
+/** 
+ * Show break news item on home page 
+ */
 function warquest_show_breaking_news() { 
 
+	/* input */
 	global $page;
+	global $player;
+	global $config;
+	global $browser;
 
 	$page .= '<div class="subparagraph">'.t('HOME_FLASH_NEWS_TITLE').'</div>';
 	
-	warquest_ui_breaking_news();	
+	$language="en";
+	if (isset($player) && (strlen($player->language)>0)) {
+		$language=$player->language;
+	} 
+		
+	$query  = 'select date, body, content from news where language="en" order by id desc ';
+	$result = warquest_db_query($query);
+	
+	$message = '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;';
+	
+	while ($data=warquest_db_fetch_object($result)) {
+			
+		$message .= '<span class="money">';
+		$message .= $data->body;
+		$message .= '</span> ';
+		$message .= $data->content;
+		$message .= '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;';
+	}
+		
+	$page .= '<div class="box">';
+	
+	if (preg_match("/Symbian/", $browser)) {
+	   $page .= '<marquee behavior="scroll" direction="left" scrollamount="3">';
+		
+	} else if (preg_match("/MSIE/", $browser)) {
+		$page .= '<marquee behavior="scroll" direction="left" scrollamount="3">';
+	
+	} else if (preg_match("/Chrome/", $browser)) {
+		$page .= '<marquee behavior="scroll" direction="left" scrollamount="3">';
+		
+	} else {
+		$page .= '<div id="TICKER" STYLE="overflow:hidden; width:500px">';
+	}
+		
+	$page .= $message;
+			
+	if (preg_match("/Symbian/", $browser)) {
+		$page .= '</marquee>';
+		$page .= '</div>';
+		
+	} else if (preg_match("/MSIE/", $browser)) {
+		$page .= '</marquee>';
+		$page .= '</div>';
+		
+	} else if (preg_match("/Chrome/", $browser)) {
+		$page .= '</marquee>';
+		$page .= '</div>';
+		
+	} else {
+		$page .= '</div>';
+		$page .= '</div>';
+		$page .= '<script type="text/javascript" src="'.$config["content_url"].'js/news.js" language="javascript"></script>';
+	}
 }
 	
 /** 
- * Auto refresh ad image 
+ * Show ad on home page 
  */
-function warquest_auto_refresh_ad($offset, $range, $id) {
-
-	/* input */
-	global $config;
-
-	/* output */
-	global $page;
-	
-	$page .= '<script language="JavaScript" type="text/javascript">';
-   $page .= 'function Start'.$id.'() { ';
-	$page .= 'var nr = "'.$config["content_url"].'images/other/ad" + (Math.floor(Math.random() * '.$range.') + '.$offset.') + ".png"; ';
-   $page .= 'document.forms[\'warquest\'].elements["'.$id.'"].src = nr; ';
-   $page .= 'setTimeout("Start'.$id.'('.$offset.')", 2000); ';
-   $page .= '} ';
-   $page .= 'Start'.$id.'('.$offset.'); ';
-   $page .= '</script>'; 
-}
-
 function warquest_home_ad() {
 
 	/* input */
@@ -904,12 +917,20 @@ function warquest_home_ad() {
 		$page .= '<a href="javascript:link(\''.warquest_token('mid='.MENU_HELP.'&sid='.PAGE_DONATE).'\')">';			
 		$page .= warquest_image('other/ad2.png', 'width="510" height="75" id="ad" ');
 		$page .= '</a>';
+		
+		$page .= '<script language="JavaScript" type="text/javascript">';
+		$page .= 'var AdCount=1; ';
+		$page .= 'var filename=""; ';
+		$page .= 'function StartAd() { ';
+		$page .= '  if (++AdCount>2) { AdCount=1; } ';
+		$page .= '  filename = "'.$config["content_url"].'images/other/ad" + AdCount + ".png"; ';
+		$page .= '  document.getElementById("ad").src = filename; ';
+		$page .= '  setTimeout("StartAd()", 3000); ';
+		$page .= '} ';
+		$page .= 'StartAd();';
+		$page .= '</script>'; 
 	}	
-	warquest_auto_refresh_ad(1,2,"ad");
 }
-
-
-
 
 /*
 ** --------------- 
