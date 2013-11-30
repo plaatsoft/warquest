@@ -845,6 +845,8 @@ function warquest_clan_form() {
 	global $page;
 	global $title;
 	
+	$lid = 15;
+	
 	$title = t('CLAN_TITLE');
 
 	$player_clan = warquest_db_player_clan($player->pid);
@@ -853,18 +855,21 @@ function warquest_clan_form() {
 	$page .= '<div class="subparagraph">';
 	$page .= t('CLAN_TITLE');
 	$page .= '</div>';
-		
-	$page .= '<div class="box">';
-	$page .= t('CLAN_CREATE').':';	
-	$page .= ' ';	
-	$page .= '<input name="clan" type="text" id="clan" size="10" maxlength="5" onkeydown="if (event.keyCode == 13) return false"/>';	
-	$page .= ' ';
-	$page .= warquest_link('mid='.$mid.'&sid='.$sid.'&cid='.$cid.'&eid=5', t('CLAN_ADD'), 'add');
-	$page .= '</div>';
 	
-	$page .= '<div class="note">';
-	$page .= t('CLAN_CREATE_NOTE');
-	$page .= '</div>';
+	if ($player->lid >= $lid) {
+	
+		$page .= '<div class="box">';
+		$page .= t('CLAN_CREATE').':';	
+		$page .= ' ';	
+		$page .= '<input name="clan" type="text" id="clan" size="10" maxlength="5" onkeydown="if (event.keyCode == 13) return false"/>';	
+		$page .= ' ';
+		$page .= warquest_link('mid='.$mid.'&sid='.$sid.'&cid='.$cid.'&eid=5', t('CLAN_ADD'), 'add');
+		$page .= '</div>';
+		
+		$page .= '<div class="note">';
+		$page .= t('CLAN_CREATE_NOTE');
+		$page .= '</div>';
+	}
 	
 	$query  = 'select a.cid, a.name, a.date, a.won, a.lost, a.pid, ';
 	$query .= '(select name from player where pid=a.pid) as name2, ';
@@ -880,7 +885,22 @@ function warquest_clan_form() {
 	
 		$message = t('CLAN_NO_CLANS');
 		$page .= warquest_box_icon('info', $message);
+		
+	} else if ($player->lid < $lid) {
 			
+		$message = '<table>';
+		$message .= '<tr>';
+		$message .= '<td>';
+		$message .= warquest_image("other/unlock.png");
+		$message .= '</td>';
+		$message .= '<td>';
+		$message .= t('BATTLE_CLAN_WAR_UNLOCKED', $lid);
+		$message .= '</td>';
+		$message .= '</tr>';
+		$message .= '</table>';
+		
+		$page .= warquest_box("", $message);
+		
 	} else {		
 	
 		$page .= '<div class="box">';
@@ -985,7 +1005,7 @@ function warquest_clan_list_form() {
 	global $title;
 	
 	$count = 1;
-
+	
 	$clan = warquest_db_clan($cid);
 	
 	$page .= '<div class="subparagraph">';

@@ -36,11 +36,13 @@ function process_data($data, $image) {
 				if (($y % 2)==0) {
 					$xoffset+=44;
 				}
-				
-				$color = ImageColorAllocatealpha($image, 255, 0, 0, 80);	
-				
+								
 				if ($owner==1) {
 					$color = ImageColorAllocatealpha($image, 0, 255, 0, 60);	
+				} else if ($owner==2) {
+					$color = ImageColorAllocatealpha($image, 255, 165, 0, 80);
+				} else {				
+					$color = ImageColorAllocatealpha($image, 255, 0, 0, 80);	
 				}
 
 				fillPologon($image, $color, $x, $y);
@@ -50,7 +52,8 @@ function process_data($data, $image) {
 					$yoffset-=3;
 				}
 					
-				imagefttext($image, 7, 0, 20+($x*88)+$xoffset, 20+($y*18)+$yoffset, $white, 'ttf/font.ttf', $name);	
+				//imagefttext($image, 7, 0, 20+($x*88)+$xoffset, 20+($y*18)+$yoffset, $white, 'ttf/font.ttf', $x.','.$y);	
+				imagefttext($image, 7, 0, 20+($x*88)+$xoffset, 20+($y*18)+$yoffset, $white, 'ttf/font.ttf', $name);
 							
 				if ($damage>0) {
 					imagefttext($image, 7, 0, 27+($x*88)+$xoffset, 30+($y*18)+$yoffset+2, $white, 'ttf/font.ttf', $damage.'%');	
