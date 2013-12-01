@@ -16,26 +16,6 @@ th {
 	padding: 0px 0px 5px 0px;
 }
 
-.help {
-	margin: 0px 0px 0px 3px;
-	overflow: hidden;
-	font-size: 0.8em;
-	display: -moz-inline-stack;
-	display: inline-block;
-	white-space: nowrap;
-}
-
-.fixed { 
-	z-index: 2;  
-	width: 510px;
-}
-
-.scroll {
-	top: 80px;
-	width: 510px;
-   z-index: 1;
-}
-
 pre {
 	font-family: Arial;
 	font-size: 1.0em;
@@ -79,6 +59,26 @@ a:hover {
 	text-decoration: underline overline; 
 	color: yellow;
 } 
+
+.help {
+	margin: 0px 0px 0px 3px;
+	overflow: hidden;
+	font-size: 0.8em;
+	display: -moz-inline-stack;
+	display: inline-block;
+	white-space: nowrap;
+}
+
+.fixed { 
+	z-index: 2;  
+	width: 510px;
+}
+
+.scroll {
+	top: 80px;
+	width: 510px;
+   z-index: 1;
+}
 
 .countdown {
 	display:inline-block;
@@ -353,4 +353,9 @@ a:hover {
 .tip {
 	font-size: 0.95em;
 	color: rgb(128,215,200);
+}
+
+.slogan {
+	color: rgb(128,215,200);
+	font-size: 1.3em;
 }

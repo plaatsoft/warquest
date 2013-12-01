@@ -1394,7 +1394,8 @@ function warquest_db_clan_update($data) {
 	$query  = "update clan set "; 
 	$query .= 'name = "'.warquest_db_escape($data->name).'", ';
 	$query .= 'won = '.$data->won.', ';
-	$query .= 'lost = '.$data->lost.' ';	
+	$query .= 'lost = '.$data->lost.', ';	
+	$query .= 'slogan = "'.warquest_db_escape($data->slogan).'" ';	
 	$query .= "where cid=".$data->cid; 
 	
 	return warquest_db_query($query);  
@@ -1409,7 +1410,7 @@ function warquest_db_clan_delete($cid) {
 
 function warquest_db_clan($cid) {
 
-	$query  = 'select cid, name, date, won, lost, pid from clan where cid='.$cid;	
+	$query  = 'select cid, name, slogan, date, won, lost, pid from clan where cid='.$cid;	
 	
 	$result = warquest_db_query($query);
 	
