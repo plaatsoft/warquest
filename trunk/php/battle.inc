@@ -770,19 +770,18 @@ function warquest_clan_size($player_clan, $other_clan) {
 		$count2 = warquest_db_num_rows($result2);
 	}
 	
-	/* Get smallest clan size */
-	$size = $count1;
-	if (($count2>0) && ($count2<$count1)) {
+	/* Get smallest clan size */	
+	if ($count1>$count2) {
 		$size = $count2;
-		if ($size<6) {
-			if ($count1>6) {
-				$size = 6;
-			} else {
-				$size = $count1;
-			}
-		}		
-	} 
-	
+	} else {
+		$size = $count1;
+	}
+
+	/* Minimal size is 6 */
+	if ($size<6) {
+		$size=6;
+	}
+
 	return $size;
 }
 
@@ -801,7 +800,7 @@ function warquest_clan_war_battle($player_clan, $other_clan, $ugid) {
 	/* Get minimal attack vs defense clan size */
 	$size = warquest_clan_size($player_clan, $other_clan);
 		
-	if ($size>0) {
+	if (isset($player_clan->cid) && ($size>0)) {
 	
 		$unit_group = warquest_db_unit_group($ugid);
 	
@@ -853,8 +852,11 @@ function warquest_clan_war_battle($player_clan, $other_clan, $ugid) {
 		/* Compare each clan member */
 		for ($i=0; $i<$size; $i++) {
 		
+			$attack=0;
 			$data1 = warquest_db_fetch_object($result1);
-			$attack = warquest_attack_strength($data1, $ugid);
+			if ( isset($data1->pid) ) {				
+				$attack = warquest_attack_strength($data1, $ugid);
+			}
 		
 			$defense = 0;
 			if ( isset($other_clan->cid) ) {
@@ -867,12 +869,18 @@ function warquest_clan_war_battle($player_clan, $other_clan, $ugid) {
 			$page->body .= '<tr>';
 		
 			$page->body .= '<td style="border-top:1px solid;border-color:gray;">';
-			$page->body .= player_format($data1->pid, $data1->name, $data1->country);
+			if ( isset($data1->pid) ) {
+				$page->body .= player_format($data1->pid, $data1->name, $data1->country);
+			}
 			$page->body .= '</td>';
 						
 			$page->body .= '<td style="border-top:1px solid;border-color:gray;">';
-			$page->body .= warquest_link('mid='.$mid.'&sid='.PAGE_ATTACK.'&oid='.$data1->pid.'&uid='.$unit_group->type,
+			if ( isset($data1->pid) ) {
+				$page->body .= warquest_link('mid='.$mid.'&sid='.PAGE_ATTACK.'&oid='.$data1->pid.'&uid='.$unit_group->type,
 										number_format($attack,0,",","."), "attack_strenght");			
+			}else {
+				$page->body .= '0';
+			}
 			$page->body .= '</td>';
 			
 			$page->body .= '<td style="border-top:1px solid;border-color:gray;">';
@@ -961,8 +969,8 @@ function warquest_clan_war_battle_do() {
 	/* Fetch player clan data */	
 	$data = warquest_db_player_clan($player->pid);
 	
-		
 	$money = 0;
+	$player_clan = 0;
 	if ( isset($data->cid) ) {
 	
 		$player_clan = warquest_db_clan($data->cid);
@@ -1698,13 +1706,13 @@ function warquest_battle_clan_war_form() {
 		$result = warquest_db_query($query);
 		
 		$cell = array();
-				
+		
 		/* Calculate cells with can be attack by clan */
 		$count=0;
 		while ($data = warquest_db_fetch_object($result)) {		
 		
 			$owner=0;
-			if ($data->cid == $data2->cid) {
+			if ( isset($data2->cid) && ($data->cid == $data2->cid)) {
 				$owner=1;
 			}
 		
@@ -1716,13 +1724,13 @@ function warquest_battle_clan_war_form() {
 		for ($y=0; $y<15; $y++) {
 			
 			for ($x=0; $x<5; $x++) {
-					
+				
 				if ($cell[$x][$y]['owner']==1) {
 				
 					$count++;
-				
+			
 					if (($y % 2)==1) {
-						
+					
 						if ( (($x-1)>=0) && (($y-1)>=0) && ($cell[$x-1][$y-1]['owner']==0) ) {
 							$cell[$x-1][$y-1]['owner']=2;
 						} 
@@ -1766,7 +1774,7 @@ function warquest_battle_clan_war_form() {
 				}
 			}
 		}
-		
+
 		$tmp = "";
 		for ($y=0; $y<15; $y++) {
 		
@@ -1776,7 +1784,7 @@ function warquest_battle_clan_war_form() {
 				$tmp .= (($cell[$x][$y]['damage']/$config["max_sector_damage"])*100).',';
 			}
 		}
-					
+		
 		$width = 483;
 		$height = 300;
 	
