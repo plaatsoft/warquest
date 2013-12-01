@@ -592,7 +592,7 @@ function warquest_mission_form() {
 			}
 		
 			$page .= t('MISSION_PART').' '.warquest_format_part($data->part).'/'.$max.'<br/>';
-			$page .= warquest_link('eid=1&mid='.$mid.'&sid='.$sid.'&uid='.$data->mid,t('LINK_PLAY'),'play'.$line);
+			$page .= warquest_link('mid='.$mid.'&sid='.$sid.'&eid=1&uid='.$data->mid,t('LINK_PLAY'),'play'.$line);
 			$page .= '</td>';
 		
 			$page .= '</tr>';

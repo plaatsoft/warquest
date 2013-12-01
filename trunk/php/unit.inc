@@ -365,11 +365,11 @@ function warquest_unit_form() {
 		} else {
 			$page .= gold_format($data->gold).'<br/>';
 		}
-		$page .= warquest_link('eid=1&mid='.$mid.'&uid='.$data->uid.'&sid='.$sid, t('LINK_DEPLOY'),'deploy-'.($count+100));
+		$page .= warquest_link('mid='.$mid.'&sid='.$sid.'&eid=1&uid='.$data->uid, t('LINK_DEPLOY'),'deploy-'.($count+100));
 		$page .= '</td>';
 		
 		$page .= '<td width="110">'.t('GENERAL_DEPLOYED').': '.deploy_format($data->amount).'<br/>';
-		$page .= warquest_link('eid=2&mid='.$mid.'&uid='.$data->uid.'&sid='.$sid, t('LINK_DISBAND'),'disband-'.$count);
+		$page .= warquest_link('mid='.$mid.'&sid='.$sid.'&eid=2&uid='.$data->uid, t('LINK_DISBAND'),'disband-'.$count);
 
 		$page .= '</td>';
 		
