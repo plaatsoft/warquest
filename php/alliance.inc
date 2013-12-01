@@ -230,7 +230,7 @@ function warquest_alliance_invite_form() {
 			$page .= '</td>';			
 			
 			$page .= '<td>';
-			$page .= warquest_link('mid='.$mid.'&sid='.$sid.'&oid='.$data->pid.'&eid=1&sort='.$sort.'&offset='.$offset, t('LINK_RECRUIT'), "recuit".$count++);
+			$page .= warquest_link('mid='.$mid.'&sid='.$sid.'&oid='.$data->pid.'&eid='.EVENT_ALLIANCE_INVITE.'&sort='.$sort.'&offset='.$offset, t('LINK_RECRUIT'), "recuit".$count++);
 			$page .= '</td>';
 			
 			$page .= '</tr>';
@@ -484,7 +484,7 @@ function warquest_alliance_accepted_form() {
 			$page .= '</td>';
 			
 			$page .= '<td>';
-			$page .= warquest_link('mid='.$mid.'&sid='.$sid.'&oid='.$data->pid2.'&eid=4&offset='.$offset, t('LINK_DROP') ,"drop".$count);
+			$page .= warquest_link('mid='.$mid.'&sid='.$sid.'&oid='.$data->pid2.'&eid='.EVENT_ALLIANCE_DROP.'&offset='.$offset, t('LINK_DROP') ,"drop".$count);
 			$page .= '</td>';
 			
 			$page .= '</tr>';
@@ -564,11 +564,11 @@ function warquest_alliance_pending_form() {
 			$tmp1 .= '</td>';	
 	
 			$tmp1 .= '<td>';
-			$tmp1 .= warquest_link('mid='.$mid.'&sid='.$sid.'&oid='.$data->pid1.'&eid=3', t('LINK_REJECT'), "reject");
+			$tmp1 .= warquest_link('mid='.$mid.'&sid='.$sid.'&oid='.$data->pid1.'&eid='.EVENT_ALLIANCE_REJECT, t('LINK_REJECT'), "reject");
 			$tmp1 .= '</td>';
 			
 			$tmp1 .= '<td>';
-			$tmp1 .= warquest_link('mid='.$mid.'&sid='.$sid.'&oid='.$data->pid1.'&eid=2', t('LINK_ACCEPT'), "accept");
+			$tmp1 .= warquest_link('mid='.$mid.'&sid='.$sid.'&oid='.$data->pid1.'&eid='.EVENT_ALLIANCE_ACCEPT, t('LINK_ACCEPT'), "accept");
 			$tmp1 .= '</td>';
 			
 			$tmp1 .= '</tr>';
@@ -625,7 +625,7 @@ function warquest_alliance_pending_form() {
 			$tmp2 .= '</td>';
 			
 			$tmp2 .= '<td>';
-			$tmp2 .= warquest_link('mid='.$mid.'&sid='.$sid.'&oid='.$data->pid2.'&eid=4', t('LINK_DROP') ,"drop".$count);
+			$tmp2 .= warquest_link('mid='.$mid.'&sid='.$sid.'&oid='.$data->pid2.'&eid='.EVENT_ALLIANCE_DROP, t('LINK_DROP') ,"drop".$count);
 			$tmp2 .= '</td>';
 			
 			$tmp2 .= '</tr>';
@@ -897,7 +897,7 @@ function warquest_clan_form() {
 		$page .= ' ';	
 		$page .= '<input name="clan" type="text" id="clan" size="10" maxlength="5" onkeydown="if (event.keyCode == 13) return false"/>';	
 		$page .= ' ';
-		$page .= warquest_link('mid='.$mid.'&sid='.$sid.'&cid='.$cid.'&eid=5', t('CLAN_ADD'), 'add');
+		$page .= warquest_link('mid='.$mid.'&sid='.$sid.'&cid='.$cid.'&eid='.EVENT_CLAN_CREATE, t('CLAN_ADD'), 'add');
 		$page .= '</div>';
 		
 		$page .= '<div class="note">';
@@ -999,13 +999,13 @@ function warquest_clan_form() {
 			
 				if ($data->cid == $player_clan->cid) {
 			
-					$page .= warquest_link('mid='.$mid.'&sid='.PAGE_CLAN.'&cid='.$data->cid.'&eid=7', t('LINK_LEAVE'));			
+					$page .= warquest_link('mid='.$mid.'&sid='.PAGE_CLAN.'&cid='.$data->cid.'&eid='.EVENT_CLAN_LEAVE, t('LINK_LEAVE'));			
 				
 				}
 				
 			} else {
 			
-				$page .= warquest_link('mid='.$mid.'&sid='.PAGE_CLAN.'&cid='.$data->cid.'&eid=6', t('LINK_JOIN'));				
+				$page .= warquest_link('mid='.$mid.'&sid='.PAGE_CLAN.'&cid='.$data->cid.'&eid='.EVENT_CLAN_JOIN, t('LINK_JOIN'));				
 			} 
 				
 			$page .= '</td>';
@@ -1066,7 +1066,7 @@ function warquest_clan_list_form() {
 		$page .= warquest_show_smilies('slogan');
 		$page .= '<br/><br/>';
 	
-		$page .= warquest_link('mid='.$mid.'&sid='.$sid.'&cid='.$cid.'&eid=9', t('LINK_SAVE'), 'save');
+		$page .= warquest_link('mid='.$mid.'&sid='.$sid.'&cid='.$cid.'&eid='.EVENT_CLAN_SLOGAN, t('LINK_SAVE'), 'save');
 		
 		$page .= '</td>';
 		$page .= '</tr>';
@@ -1162,7 +1162,7 @@ function warquest_clan_list_form() {
 				
 			$page .= '<td>';
 			if ($clan->pid == $player->pid) {			
-				$page .= warquest_link('mid='.$mid.'&sid='.PAGE_CLAN_LIST.'&cid='.$cid.'&oid='.$data->pid.'&eid=8', t('LINK_DROP'));							
+				$page .= warquest_link('mid='.$mid.'&sid='.PAGE_CLAN_LIST.'&cid='.$cid.'&oid='.$data->pid.'&eid='.EVENT_CLAN_LEAVE, t('LINK_DROP'));							
 			}
 			$page .= '</td>';
 				
@@ -1200,39 +1200,39 @@ function warquest_alliance() {
 	/* Event Handler */
 	switch ($eid) {
 			
-		case 1:
+		case EVENT_ALLIANCE_INVITE:
 			warquest_alliance_invite_do();
 			break;
 			
-		case 2:
+		case EVENT_ALLIANCE_ACCEPT:
 			warquest_alliance_accept_do();
 			break;	
 			
-		case 3:
+		case EVENT_ALLIANCE_REJECT:
 			warquest_alliance_reject_do();
 			break;	
 					
-		case 4:
+		case EVENT_ALLIANCE_DROP:
 			warquest_alliance_drop_do();
 			break;	
 			
-		case 5:
+		case EVENT_CLAN_CREATE:
 			warquest_clan_create_do();
 			break;	
 			
-		case 6:
+		case EVENT_CLAN_JOIN:
 			warquest_clan_join_do();
 			break;	
 			
-		case 7:
+		case EVENT_CLAN_LEAVE:
 			warquest_clan_leave_do();
 			break;	
 						
-		case 8:
+		case EVENT_CLAN_DROP:
 			warquest_clan_drop_do();
 			break;	
 			
-		case 9:
+		case EVENT_CLAN_SLOGAN:
 			warquest_clan_slogan_do();
 			break;	
 			

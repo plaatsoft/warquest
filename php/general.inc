@@ -138,6 +138,16 @@ define("EVENT_EMAIL_CHANGE", 	4000);
 define("EVENT_EMAIL_CONFIRM", 4001);
 define("EVENT_VALID_EMAIL",   4002);
 
+define("EVENT_ALLIANCE_INVITE",  5000);
+define("EVENT_ALLIANCE_ACCEPT",  5001);
+define("EVENT_ALLIANCE_REJECT",  5002);
+define("EVENT_ALLIANCE_DROP",    5003);
+define("EVENT_CLAN_CREATE",      5004);
+define("EVENT_CLAN_JOIN",        5005);
+define("EVENT_CLAN_LEAVE",       5006);
+define("EVENT_CLAN_DROP",        5007);
+define("EVENT_CLAN_SLOGAN",      5008);
+
 /*
 ** ------------------
 ** PATTERN

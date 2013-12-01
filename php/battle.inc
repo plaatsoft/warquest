@@ -1804,7 +1804,7 @@ function warquest_battle_clan_war_form() {
 			}
 			if (($count==0) || ($cell[$data->x][$data->y]['owner']==2)) {
 				$page .= '<area shape="poly" coords="'.calcPologon($data->x,$data->y).'" title="'.$tmp.'" href="javascript:link(\'';
-				$page .= warquest_token('mid='.MENU_BATTLE.'&sid='.PAGE_CLAN_WAR.'&uid='.$data->sid.'&eid=3').'\');" />';
+				$page .= warquest_token('mid='.$mid.'&sid='.$sid.'&uid='.$data->sid.'&eid=3').'\');" />';
 			}		
 		}
 		$page .= '</map>';	
