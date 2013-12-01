@@ -1278,7 +1278,7 @@ $link_counter=0;
 /**
  * Create link 
  */
-function warquest_link($parameters, $label, $id="") {
+function warquest_link($parameters, $label, $id="", $title="") {
    
 	global $browser;	
 	global $link_counter;
@@ -1296,6 +1296,9 @@ function warquest_link($parameters, $label, $id="") {
 		$link  = '<a href="javascript:link(\''.warquest_token($parameters).'\');" class="link" ';			
 		if (strlen($id)!=0) {
 			$link .= ' id="'.strtolower($id).'"';
+		}
+		if (strlen($title)!=0) {
+			$link .= ' title="'.strtolower($title).'"';
 		}
 		$link .= '>'.$label.'</a>';	
 	}
@@ -2851,7 +2854,7 @@ function clan_format($clan) {
 	
 	if (isset($clan->cid)) {
 	
-		$value = warquest_link('mid='.MENU_ALLIANCE.'&sid='.PAGE_CLAN_LIST.'&id='.$clan->cid, $clan->name);
+		$value = warquest_link('mid='.MENU_ALLIANCE.'&sid='.PAGE_CLAN_LIST.'&id='.$clan->cid, $clan->name, "", $clan->slogan);
 	}
 	
 	return $value;

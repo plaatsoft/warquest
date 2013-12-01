@@ -2867,6 +2867,12 @@ $lang['CLAN_NO_MEMBERS'] = 'No clan members yet';
 $lang['CLAN_CREATED'] = 'Clan [%s] created!';
 $lang['CLAN_NO_SKILL_POINT'] = 'You need 1 skill point to create a new clan.';
 
+$lang['CLAN_SLOGAN'] = 'Clan slogan:';
+$lang['CLAN_SLOGAN_NOTE'] = 'Enter or update then clan slogan!';
+$lang['CLAN_SLOGAN_SAVED'] = 'Clan slogan is saved';
+$lang['CLAN_SLOGAN_TOO_SHORT'] = 'Clan slogan is to short';
+$lang['CLAN_SLOGAN_TOO_LONG'] = 'Clan slogan is to long. Maximum 200 characters allowed.';
+
 $lang['CLAN_LIST_TITLE'] = 'Clan List [%s]';
 
 $lang['BATTLE_CLAN_WAR_UNLOCKED'] = 'Clan war is unlocked at level %s.';

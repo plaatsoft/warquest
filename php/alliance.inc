@@ -22,13 +22,10 @@
 ** ----------
 */
 
-if (isset($_POST['clan']) && $_POST['clan'] != "") {
-	$clan = $_POST['clan'];
-	$clan = stripslashes($clan);
-	$clan = warquest_db_escape($clan);
-	$clan = strtoupper($clan);
-}
-		
+$clan = warquest_post('clan', '');
+$slogan = warquest_post('slogan', '');
+
+	
 /*
 ** ---------------------
 ** Invite
@@ -776,6 +773,43 @@ function warquest_clan_join_do() {
 	}
 }
 
+function warquest_clan_slogan_do() {
+
+	/* input */
+	global $player;
+	global $other;
+	global $skill;
+	global $clan;
+	global $cid;
+	global $slogan;	
+		
+	/* output */
+	global $popup;	
+	
+	$clan = warquest_db_clan($cid);
+	 	
+	if (strlen($slogan) < 5) {
+			
+		$message = t('CLAN_SLOGAN_TOO_SHORT');
+		$popup .= warquest_box_icon("warning", $message);
+
+	} else if (strlen($slogan) > 200) {
+			
+		$message = t('CLAN_SLOGAN_TOO_LONG');
+		$popup .= warquest_box_icon("warning", $message);
+		
+	} else {
+	
+		$clan->slogan = $slogan;
+		
+		warquest_db_clan_update($clan);
+	
+		$message = t('CLAN_SLOGAN_SAVED');
+		$popup .= warquest_box_icon("info", $message);			
+	}
+}
+
+
 function warquest_clan_create_do() {
 
 	/* input */
@@ -1007,13 +1041,56 @@ function warquest_clan_list_form() {
 	$count = 1;
 	
 	$clan = warquest_db_clan($cid);
+	$comment = $clan->slogan;
 	
+	$title = t('CLAN_LIST_TITLE', $clan->name);
+		
 	$page .= '<div class="subparagraph">';
 	$page .= t('CLAN_LIST_TITLE', $clan->name);
 	$page .= '</div>';
 
-	$title = t('CLAN_LIST_TITLE', $clan->name);
+	if ($clan->pid==$player->pid) {	
+		
+		$page .= '<div class="box">';
+		
+		$page .= "<script language=\"JavaScript\" type=\"text/javascript\">function limitText(limitField, limitNum) { if (limitField.value.length >= limitNum) { limitField.value = limitField.value.substring(0, limitNum); } } </script>";
+					
+		$page .= '<table>';
+		$page .= '<tr>';
+		$page .= '<td width="500">';
+
+		$page .= t('CLAN_SLOGAN').'<br/>'; 
 	
+		$page .= '<textarea style="width:100%" id="slogan" name="slogan" rows="3" ';
+		$page .= 'onKeyDown="limitText(this,199)">'.$comment.'</textarea><br/>';
+		$page .= warquest_show_smilies('slogan');
+		$page .= '<br/><br/>';
+	
+		$page .= warquest_link('mid='.$mid.'&sid='.$sid.'&cid='.$cid.'&eid=9', t('LINK_SAVE'), 'save');
+		
+		$page .= '</td>';
+		$page .= '</tr>';
+		$page .= '</table>';
+		$page .= '</div>';
+		
+		$page .= '<div class="note">';
+		$page .= t('CLAN_SLOGAN_NOTE');
+		$page .= '</div>';	
+				
+	} else {
+	
+		$page .= '<div class="box">';
+	
+		$page .= t('CLAN_SLOGAN').'<br/>';
+	
+		$page .= '<div class="slogan">';
+		$page .= warquest_parse_smilies($comment);
+		$page .= '</div>';
+		
+		$page .= '</div>';
+	} 
+	
+		
 	$query  = 'select a.date, b.pid, b.name, b.country, b.lid, b.experience ';
 	$query .= 'from player_clan a, player b where a.pid=b.pid and a.cid='.$cid.' ';
 	$query .= 'order by b.lid desc';
@@ -1153,6 +1230,10 @@ function warquest_alliance() {
 						
 		case 8:
 			warquest_clan_drop_do();
+			break;	
+			
+		case 9:
+			warquest_clan_slogan_do();
 			break;	
 			
 		case 500: 
