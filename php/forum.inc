@@ -172,12 +172,13 @@ function warquest_comment_form() {
 	$page .= '<br/><br/>';
 	
 	if (isset($other)) {
-		$page .= warquest_link('mid='.$mid.'&sid='.$sid.'&eid=1&fid='.$fid.'&tid='.$tid.'&oid='.$other->pid.'&uid='.$uid, t('LINK_SAVE'), 'save-0');
+		$page .= warquest_link('mid='.$mid.'&sid='.$sid.'&eid='.EVENT_FORUM_COMMENT_SAVE.'&fid='.$fid.'&tid='.$tid.'&oid='.$other->pid.'&uid='.$uid, t('LINK_SAVE'), 'save-0');
 	} else {
-		$page .= warquest_link('mid='.$mid.'&sid='.$sid.'&eid=1&fid='.$fid.'&tid='.$tid.'&oid=0&uid='.$uid, t('LINK_SAVE'), 'save-0');
+		$page .= warquest_link('mid='.$mid.'&sid='.$sid.'&eid='.EVENT_FORUM_COMMENT_SAVE.'&fid='.$fid.'&tid='.$tid.'&oid=0&uid='.$uid, t('LINK_SAVE'), 'save-0');
 	}
 	if ($uid!=0) {
-		$page .= ' '.warquest_link('mid='.$mid.'&sid='.$sid.'&eid=2&fid='.$fid.'&tid='.$tid.'&uid='.$uid, t('LINK_DELETE'), 'delete-0');
+		$page .= ' ';
+		$page .= warquest_link('mid='.$mid.'&sid='.$sid.'&eid='.EVENT_FORUM_COMMENT_DELETE.'&fid='.$fid.'&tid='.$tid.'&uid='.$uid, t('LINK_DELETE'), 'delete-0');
 	}
 	
 	$page .= '</td>';
@@ -396,9 +397,9 @@ function warquest_topic_form() {
 		$page .= warquest_show_smilies('topic');
 		$page .= '<br/><br/>';
 	
-		$page .= warquest_link('mid='.$mid.'&sid='.$sid.'&tid='.$tid.'&fid='.$fid.'&eid=3', t('LINK_SAVE'), 'save-0').' ';
+		$page .= warquest_link('mid='.$mid.'&sid='.$sid.'&tid='.$tid.'&fid='.$fid.'&eid='.EVENT_FORUM_TOPIC_SAVE, t('LINK_SAVE'), 'save-0').' ';
 		if ($tid!=0) {
-			$page .= warquest_link('mid='.$mid.'&sid='.$sid.'&tid='.$tid.'&fid='.$fid.'&eid=4', t('LINK_DELETE'), 'delete-0');
+			$page .= warquest_link('mid='.$mid.'&sid='.$sid.'&tid='.$tid.'&fid='.$fid.'&eid='.EVENT_FORUM_TOPIC_DELETE, t('LINK_DELETE'), 'delete-0');
 		}
 	}
 
@@ -575,7 +576,8 @@ function warquest_forum_form() {
 	$page .=	'<div class="box">';	
 	$page .=	'<b>'.t('GENERAL_TOPIC').'</b>:&nbsp;&nbsp;&nbsp;</td>';
 	$page .=	'<input name="search" type="text" id="search" size="52" maxlength="45" value="'.$search.'" onkeydown="if (event.keyCode == 13) return false" >';
-	$page .= ' '.warquest_link('mid='.$mid.'&sid='.PAGE_TOPIC,t('LINK_SEARCH'),'search-0');
+	$page .= ' ';
+	$page .= warquest_link('mid='.$mid.'&sid='.PAGE_TOPIC,t('LINK_SEARCH'),'search-0');
 	$page .=	'</div>';
 		
 	$page .= '<div class="box">';
@@ -706,23 +708,23 @@ function warquest_forum() {
 	/* Event Handler */
 	switch ($eid) {
 				
-		case 1:
+		case EVENT_FORUM_COMMENT_SAVE:
 			warquest_comment_save_do();
 			break;
 			
-		case 2:
+		case EVENT_FORUM_COMMENT_DELETE:
 			warquest_comment_delete_do();
 			break;
 					
-		case 3:
+		case EVENT_FORUM_TOPIC_SAVE:
 			warquest_topic_save_do();
 			break;
 			
-		case 4:
+		case EVENT_FORUM_TOPIC_DELETE:
 			warquest_topic_delete_do();
 			break;
 			
-		case 500: 
+		case EVENT_SWITCH_PLANET: 
 			warquest_switch_planet_do();
 			break;	
 	}

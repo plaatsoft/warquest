@@ -16,6 +16,7 @@
 **  All copyrights reserved (c) 2008-2013 PlaatSoft
 */
 
+include "constants.inc";
 include "general.inc";
 
 function process_earth_data($data, $image) {
@@ -659,15 +660,8 @@ function process_default_data($data, $image) {
 ** --------------------------
 */
 
-$planet = 0;
-if (isset($_GET['planet'])) {
-	$planet = $_GET['planet'];
-}
-
-$data = "";
-if (isset($_GET['data'])) {
-	$data = $_GET['data'];
-}
+$planet = warquest_get('planet', 0);
+$data = warquest_get('data', '');
 
 switch($planet) {
 

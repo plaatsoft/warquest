@@ -9,6 +9,11 @@ body {
 	padding: 0px;
 }
 
+ul {
+	list-style-type:circle;
+	font-size: 1.3em;
+}
+
 th {
 	font-size: 1.0em;
 	font-weight: bold;

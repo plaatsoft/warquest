@@ -955,7 +955,7 @@ $notes = '
 - Added dutch translation. Thanks SuperT.<br/>
 - Update about page.<br/>
 - Detect very old WarQuest windows client. Force upgrade!<br/>
-- Remove URL GET parameter processing.<br/>
+- Remove URL get parameter processing.<br/>
 - Remove jquery dependency. Improve performance 5%.<br/>
 - Added picture to hospital page.
 - Improve award pictures.<br/>

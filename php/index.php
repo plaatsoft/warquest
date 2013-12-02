@@ -22,6 +22,7 @@ $time_start = microtime(true);
 
 /* Include php classes */
 include 'config.inc';
+include 'constants.inc';
 include 'database.inc';
 include 'general.inc';
 include "email.inc";
@@ -38,13 +39,14 @@ include 'cron.inc';
 
 warquest_debug("==============================================");
 
-$pid = 0;
 $mid = MENU_LOGIN;
 $sid = PAGE_LOGIN;
-$cid = 1;
+$eid = EVENT_NONE;
+
+$id = 1;
+$pid = 0;
 $uid = 0;
 $oid = 0;
-$eid = 0;
 $tid = 0;
 $fid = 0;
 $sort = 0;
@@ -87,7 +89,6 @@ if (strlen($token)>0) {
 ** Database
 ** ---------------------------------------------------------------- 
 */
-
 
 /* Connect to database */
 if (@warquest_db_connect($config["dbhost"], $config["dbuser"], $config["dbpass"], $config["dbname"])) {
@@ -135,7 +136,7 @@ if ($mid!=MENU_LOGIN) {
 		/* No login redirect to login page. */
 		$mid = MENU_LOGIN;
 		$sid = PAGE_LOGIN;
-		$eid = 0;
+		$eid = EVENT_NONE;
 	} 
 }
 
@@ -323,7 +324,7 @@ warquest_cron();
 */
 
 /* If pdf output sent do not sent any HTML */
-if ($eid!=39) {
+if ($eid!=EVENT_PLAYER_PDF_REPORT) {
 		
 	/* html banner */
 	echo warquest_ui_header($title);

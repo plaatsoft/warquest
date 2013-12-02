@@ -62,37 +62,30 @@ function warquest_home_comment_save_do() {
 	global $uid;
 	global $other;
 	global $comment;
-	
+
 	/* output */
 	global $popup;
 
 	if (strlen($comment)>0) {
 	
 		if ($uid==0) {
-	
 			warquest_db_comment_insert(0, $player->pid, $other->pid, $comment);
-				
-			if ($other->pid!=0) {
-			
-				$other->comment++;
-				warquest_comment_mail($other->pid, $comment, $player->name);
-				$message = t('ALLIANCE_COMMENT_PLAYER', player_format($other->pid, $other->name, $other->country));
-			
-			} else {
+		} else {		
+			warquest_db_comment_update($uid, $comment);
+		}
 		
-				$message = t('ALLIANCE_COMMENT_ALL');
-				warquest_info("Post message: ".$comment);
-			}
+		if (isset($other->pid)) {
+		
+			$other->comment++;
+			warquest_comment_mail($other->pid, $comment, $player->name);
+			$message = t('ALLIANCE_COMMENT_PLAYER', player_format($other->pid, $other->name, $other->country));
 			
 		} else {
 		
-			$query  = 'update comment set comment="'.$comment.'" where id='.$uid;			
-			warquest_db_query($query);
-			
 			$message = t('ALLIANCE_COMMENT_ALL');
-			warquest_info("Post message: ".$comment);	
-		}
-		
+			warquest_info("Post message: ".$comment);		
+		}		
+
 		/* Clear input parameters */
 		$uid = 0;
 		
@@ -136,16 +129,27 @@ function warquest_home_comment_edit_do() {
 	$page .= '<tr>';
 	$page .= '<td width="500">';
 
-	$page .= t('ALLIANCE_COMMENT_TEXT2', player_format($other->pid, $other->name, $other->country)).'<br/>'; 
+	if (isset($other->pid)) {
+		$tmp = player_format($other->pid, $other->name, $other->country);
+	} else {
+		$tmp = t('GENERAL_ALL');
+	}
+	$page .= t('ALLIANCE_COMMENT_TEXT2', $tmp).'<br/>'; 
 	
 	$page .= '<textarea style="width:100%" id="comment" name="comment" rows="5" ';
 	$page .= 'onKeyDown="limitText(this,400)">'.$comment.'</textarea><br/>';
 	$page .= warquest_show_smilies();
 	$page .= '<br/><br/>';
 	
-	$page .= warquest_link('mid='.$mid.'&sid='.$sid.'&eid=2&oid='.$other->pid.'&uid='.$uid, t('LINK_SAVE'), 'save').' ';
+	if (isset($other->pid)) {
+		$page .= warquest_link('mid='.$mid.'&sid='.$sid.'&eid='.EVENT_HOME_COMMENT_SAVE.'&oid='.$other->pid.'&uid='.$uid, t('LINK_SAVE'), 'save').' ';
+	} else {
+		$page .= warquest_link('mid='.$mid.'&sid='.$sid.'&eid='.EVENT_HOME_COMMENT_SAVE.'&uid='.$uid, t('LINK_SAVE'), 'save').' ';
+	}
+	
 	if ($uid!=0) {
-		$page .= ' '.warquest_link('mid='.$mid.'&sid='.$sid.'&eid=3&uid='.$uid, t('LINK_DELETE'), 'delete');
+		$page .= ' ';
+		$page .= warquest_link('mid='.$mid.'&sid='.$sid.'&eid='.EVENT_HOME_COMMENT_DELETE.'&uid='.$uid, t('LINK_DELETE'), 'delete');
 	}
 	
 	$page .= '</td>';
@@ -188,7 +192,8 @@ function warquest_home_messages() {
 	$total = warquest_db_num_rows($result);
 	
 	$query  = 'select a.id, a.pid1, a.pid2, a.date, a.comment, b.name, b.country from comment a, player b ';
-   $query .= 'where ((a.pid1=b.pid and pid2='.$player->pid.') or (a.pid2=b.pid and pid1='.$player->pid.')) and deleted=0 order by a.date desc ';
+   $query .= 'where ((a.pid1=b.pid and pid2='.$player->pid.') or (a.pid2=b.pid and pid1='.$player->pid.')) ';
+	$query .= 'and deleted=0 order by a.date desc ';
 	$query .= 'limit '.$offset.','.$limit;
 	$result = warquest_db_query($query);
 	$count = warquest_db_num_rows($result);
@@ -221,30 +226,34 @@ function warquest_home_messages() {
 			$page .= '</td>';
 			
 			$page .= '<td>';
+			
 			$page .= '<span class="subparagraph2">';
-			if ($data->pid2==$player->pid) {
+			if ($player->pid==$data->pid2) {
 				$page .= player_format($data->pid1, $data->name, $data->country);
 				$page .= ' -> '.player_format($player->pid, $player->name, $player->country);
 			} else {
-				$page .= player_format($player->pid, $player->name, $player->country).'-> ';
-				$page .= player_format($data->pid2, $data->name, $data->country);
+				$page .= player_format($player->pid, $player->name, $player->country);
+				$page .= ' -> ';
+				if ($data->pid2!=0) {
+					$page .= player_format($data->pid2, $data->name, $data->country);
+				} else {
+					$page .= t('GENERAL_ALL');
+				}
 			}
 			$page .= '</span>';
 			$page .= '<br/>';
-
 			$page .= warquest_parse_smilies(wordwrap($data->comment, 40, "\n\r", true));
 			
 			$page .= '</td>';
 			
 			$page .= '<td align="right">';
 			
-			if ($data->pid2==$player->pid) {
-				$page .= warquest_link('mid='.$mid.'&sid='.$sid.'&eid=1&oid='.$data->pid1, t('LINK_REPLY'), "reply".$count);	
-			} else {
-				if ($player->pid==$data->pid1) {
-					$page .= warquest_link('mid='.$mid.'&sid='.$sid.'&eid=1&uid='.$data->id.'&oid='.$data->pid2, t('LINK_EDIT'), 'edit'.$count);
-				}
+			if ($player->pid==$data->pid2) {
+				$page .= warquest_link('mid='.$mid.'&sid='.$sid.'&eid='.EVENT_HOME_COMMENT_EDIT.'&oid='.$data->pid1, t('LINK_REPLY'), "reply".$count);	
+			} else if ($player->pid==$data->pid1) {
+				$page .= warquest_link('mid='.$mid.'&sid='.$sid.'&eid='.EVENT_HOME_COMMENT_EDIT.'&oid='.$data->pid2.'&uid='.$data->id, t('LINK_EDIT'), 'edit'.$count);
 			}
+			
 			$page .= '</td>';
 			
 			$page .= '</tr>';
@@ -300,7 +309,7 @@ function warquest_home_news() {
 	$query .= 'limit '.$offset.','.$limit;
 	
 	$result = warquest_db_query($query); 
-	$count=warquest_db_num_rows($result);
+	$count = warquest_db_num_rows($result);
 		
 	$page .= '<div class="subparagraph">'.t('HOME_BATTLE_TITLE').'</div>';
 		
@@ -376,7 +385,7 @@ function warquest_home_news() {
 				  ($data->cease_fire_date < date("Y-m-d H:i:s", time())) && 
 				  ($player->holiday_date < date("Y-m-d H:i:s", time())) && 
 				  ($data->holiday_date < date("Y-m-d H:i:s", time())) ) {
-				$page .= warquest_link('mid='.MENU_BATTLE.'&sid='.PAGE_ENEMIES.'&oid='.$data->pid1.'&eid=1', t('LINK_ATTACK'), "attack");			
+				$page .= warquest_link('mid='.MENU_BATTLE.'&sid='.PAGE_ENEMIES.'&oid='.$data->pid1.'&eid='.EVENT_BATTLE_NORMAL, t('LINK_ATTACK'), "attack");			
 			}
 			
 			$page .= '</td>';
@@ -408,7 +417,7 @@ function warquest_lastest_forum_post() {
 	
 	global $page;
 	
-	if (warquest_db_query_pattern($player, PATTERN_FORUM_POST)==0) {
+	if (warquest_db_query_pattern($player, PATTERN_FORUM_SORT)==0) {
 		return;
 	}
 	
@@ -421,7 +430,7 @@ function warquest_lastest_forum_post() {
 	$result = warquest_db_query($query);	
 	$data = warquest_db_fetch_object($result);
 	
-	$page .= '<div class="subparagraph">'.t('HOME_LASTEST_FORUM_POST').'</div>';
+	$page .= '<div class="subparagraph">'.t('HOME_LASTEST_FORUM_ITEM').'</div>';
 	$page .= '<div class="box">';
 	
 	$page .= '<table>';
@@ -949,19 +958,19 @@ function warquest_home() {
 	/* Event handler */
 	switch ($eid) {
 			
-		case 1:
+		case EVENT_HOME_COMMENT_EDIT:
 			warquest_home_comment_edit_do();
 			break;
 			
-		case 2:
+		case EVENT_HOME_COMMENT_SAVE:
 			warquest_home_comment_save_do();
 			break;
 
-		case 3:
+		case EVENT_HOME_COMMENT_DELETE:
 			warquest_home_comment_delete_do();
 			break;
 			
-		case 500: 
+		case EVENT_SWITCH_PLANET: 
 			warquest_switch_planet_do();
 			break;
 	}	

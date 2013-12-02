@@ -1421,22 +1421,6 @@ excess of 20,000 feet (6,096 meters) per second.';
 return $info;
 }
 
-function warquest_unit327() {
-
-$info = '
-<span class="subparagraph2">History:</span><br/>
-The Titan Missile Museum, also known as Air Force Facility Missile Site 8 or as Titan II ICBM Site 571-7, is a former ICBM missile site located at 1580 West Duval Mine Road, Sahuarita, Arizona in the United States. It is located about 15 mi (24 km) south of Tucson. It is now a museum run by the nonprofit Arizona Aerospace Foundation and includes an inert Titan II intercontinental ballistic missile in the silo, as well as the original launch facilities.
-<br/><br/>
-The 103-foot (31 m) Titan II missile inside the silo has neither warhead nor has it ever been fueled, allowing it to be safely displayed to visitors. In accordance with a US/USSR agreement, the silo doors are permanently blocked from opening more than half way. The dummy reentry vehicle mounted on the missile has a prominent hole cut in it to prove it is inert. All of the support facilities at the site remain intact, complete with all of their original equipment.
-<br/><br/>
-The silo became operational in 1963 and was deactivated in 1982 as part of President Reagans policy (announced in 1981) of decommissioning the Titan II missiles as part of a weapon systems modernization program. All operational Titan II silos throughout the country were demolished, including 18 sites around McConnell AFB in Wichita, Kansas, 17 sites near Little Rock AFB, Arkansas (one additional site previously damaged beyond repair in a mishap/non-nuclear explosion) and 17 other sites by Davis-Monthan AFB and Tucson with the exception of this one. It is now a National Historic Landmark.
-';
-
-return $info;
-
-}
-
-
 function warquest_library_form($uid, $info) {
 
 	/* output */	
@@ -1523,9 +1507,6 @@ function warquest_library($uid, $show) {
 						break;
 						
 		case 326:	$info = warquest_unit326();
-						break;
-						
-		case 327:	$info = warquest_unit327();
 						break;
 						
 		default:		$returnValue = 0;

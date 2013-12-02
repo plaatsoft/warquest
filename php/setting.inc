@@ -18,7 +18,7 @@
 
 /*
 ** ---------------------
-** POST
+** Paramaters
 ** ---------------------
 */
 
@@ -362,13 +362,13 @@ function warquest_settings_change_general_do() {
 	
 	/* forum parameter */
 	if (isset($_POST['forum'])) {		
-		if (warquest_db_query_pattern($player, PATTERN_FORUM_POST)==0) {
-			warquest_db_set_pattern($player, PATTERN_FORUM_POST, 1);
+		if (warquest_db_query_pattern($player, PATTERN_FORUM_SORT)==0) {
+			warquest_db_set_pattern($player, PATTERN_FORUM_SORT, 1);
 			$changed=1;
 		}
 	} else {
-		if (warquest_db_query_pattern($player, PATTERN_FORUM_POST)==1) {
-			warquest_db_set_pattern($player, PATTERN_FORUM_POST, 0);
+		if (warquest_db_query_pattern($player, PATTERN_FORUM_SORT)==1) {
+			warquest_db_set_pattern($player, PATTERN_FORUM_SORT, 0);
 			$changed=1;
 		}
 	}
@@ -607,7 +607,7 @@ function warquest_settings_form() {
 	$page .= '<tr>';
 	$page .= '<td></td>';
 	$page .= '<td>';
-	$page .= warquest_link('mid='.$mid.'&sid='.$sid.'&eid=7', t('LINK_CHANGE'), 'change-1');
+	$page .= warquest_link('mid='.$mid.'&sid='.$sid.'&eid='.EVENT_HOME_SETTINGS_SAVE, t('LINK_CHANGE'), 'change-1');
 	$page .= '</td>';
 	$page .= '</tr>';
 			
@@ -653,8 +653,8 @@ function warquest_settings_form() {
 	$page .= '</tr>';
 	
 	$page .= '<tr>';
-	$page .= '<td>'.warquest_ui_checkbox("forum", "forum", warquest_db_query_pattern($player, PATTERN_FORUM_POST)).'</td>';
-	$page .= '<td>'.t('SETTING_FORUM_POST').'</td>';
+	$page .= '<td>'.warquest_ui_checkbox("forum", "forum", warquest_db_query_pattern($player, PATTERN_FORUM_SORT)).'</td>';
+	$page .= '<td>'.t('SETTING_FORUM_SORT').'</td>';
 	$page .= '</tr>';
 	
 	$page .= '<tr>';
@@ -679,7 +679,7 @@ function warquest_settings_form() {
 	
 	$page .= '<tr>';
 	$page .= '<td></td>';
-	$page .= '<td>'.warquest_link('mid='.$mid.'&sid='.$sid.'&eid=7', t('LINK_CHANGE'), 'change-2').'</td>';
+	$page .= '<td>'.warquest_link('mid='.$mid.'&sid='.$sid.'&eid='.EVENT_HOME_SETTINGS_SAVE, t('LINK_CHANGE'), 'change-2').'</td>';
 	$page .= '</tr>';
 	
 	$page .= '</table>';
@@ -703,7 +703,7 @@ function warquest_settings_form() {
 		
 	if ($member->email_valid==0) {
 		
-		$link = warquest_link('mid='.$mid.'&sid='.$sid.'&eid='.EVENT_EMAIL_CONFIRM.'&id='.$player->pid, t('USER_EMAIL_HERE'));
+		$link = warquest_link('mid='.$mid.'&sid='.$sid.'&eid='.EVENT_HOME_EMAIL_CONFIRM.'&id='.$player->pid, t('USER_EMAIL_HERE'));
 		
 		$page .= '<span class="help">';
 		$page .= ' '.t('USER_EMAIL_CONFIRM_NEEDED',$link);
@@ -731,7 +731,7 @@ function warquest_settings_form() {
 	$page .= '<tr>';
 	$page .= '<td>&nbsp;</td>';
 	$page .= '<td>';
-	$page .= warquest_link('mid='.$mid.'&sid='.$sid.'&eid='.EVENT_EMAIL_CHANGE, t('LINK_CHANGE'), 'change-3');
+	$page .= warquest_link('mid='.$mid.'&sid='.$sid.'&eid='.EVENT_HOME_EMAIL_CHANGE, t('LINK_CHANGE'), 'change-3');
 	$page .= '</td>';
 	$page .= '</tr>';
 
@@ -780,7 +780,7 @@ function warquest_settings_form() {
 		$page .= '<tr>';
 		$page .= '<td>&nbsp;</td>';
 		$page .= '<td>';
-		$page .= warquest_link('mid='.$mid.'&sid='.$sid.'&eid=9', t('LINK_CHANGE'), 'change-4');
+		$page .= warquest_link('mid='.$mid.'&sid='.$sid.'&eid='.EVENT_HOME_CHANGE_LOGIN, t('LINK_CHANGE'), 'change-4');
 		$page .= '</td>';
 		$page .= '</tr>';
 	
@@ -797,7 +797,7 @@ function warquest_settings_form() {
 	$page .= '</div>';		
 	$page .= '<div class="box">';	
 	$page .= t('SETTING_ACCOUNT_RESET').' ';
-	$page .= warquest_link_confirm('mid='.$mid.'&sid='.$sid.'&eid=10', t('SETTING_YES'), t('SETTING_SURE'));
+	$page .= warquest_link_confirm('mid='.$mid.'&sid='.$sid.'&eid='.EVENT_HOME_ACCOUNT_RESET, t('SETTING_YES'), t('SETTING_SURE'));
 	$page .= ' '.t('SETTING_NO_REVERSE');	
 	$page .= '</div>';
 	
@@ -832,23 +832,23 @@ function warquest_settings_events() {
 	/* Event handler */
 	switch ($eid) {
 						
-		case 7:
+		case EVENT_HOME_SETTINGS_SAVE:
 			warquest_settings_change_general_do();
 			break;
 						
-		case 9:
+		case EVENT_HOME_CHANGE_LOGIN:
 			warquest_settings_change_login_do();
 			break;
 			
-		case 10:
+		case EVENT_HOME_ACCOUNT_RESET:
 			warquest_settings_account_reset_do();
 			break;
 			
-		case EVENT_EMAIL_CHANGE: 
+		case EVENT_HOME_EMAIL_CHANGE: 
 			warquest_settings_change_email_do();
 			break;		
 			
-		case EVENT_EMAIL_CONFIRM:
+		case EVENT_HOME_EMAIL_CONFIRM:
 			warquest_user_email_confirm_do();
 			break;
 	}	

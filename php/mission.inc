@@ -267,7 +267,7 @@ function warquest_buy_missing_units_do() {
 			$message .= warquest_unit_image($unit->uid, 0, 0);
 			$message .= '</td>';
 			$message .= '<td>';
-			$message .= t('UNIT_NO_MONEY', $unit->total, t('UNIT_'.$unit->uid), dollar_format($money));
+			$message .= t('UNIT_NO_FUNDS', $unit->total, t('UNIT_'.$unit->uid), dollar_format($money));
 			$message .= '</td>';
 			$message .= '</tr>';
 			$message .= '</table>';
@@ -402,7 +402,7 @@ function warquest_mission_do() {
 		}
 		
 		$link .= t('MISSION_PART').' '.warquest_format_part($part).'/'.$max.'<br/>';
-		$link .= warquest_link('mid='.$mid.'&sid='.$sid.'&uid='.$uid.'&eid=2', t('LINK_BUY_PLAY'), 'buyplay');
+		$link .= warquest_link('mid='.$mid.'&sid='.$sid.'&uid='.$uid.'&eid='.EVENT_MISSION_BUY_PLAY, t('LINK_BUY_PLAY'), 'buyplay');
 		
 		$popup .= warquest_box(t('GENERAL_CONQUER').' '.t('MISSION_'.$uid), $message, $link);
 		
@@ -421,7 +421,7 @@ function warquest_mission_do() {
 		}
 		
 		$link .= t('MISSION_PART').' '.warquest_format_part($part).'/'.$max.'<br/>';
-		$link .= warquest_link('eid=1&mid='.$mid.'&sid='.$sid.'&uid='.$uid, t('LINK_DO_AGAIN'),'doagain');
+		$link .= warquest_link('mid='.$mid.'&sid='.$sid.'&eid='.EVENT_MISSION_PLAY.'&uid='.$uid, t('LINK_DO_AGAIN'),'doagain');
 		
 		$popup .= warquest_box(t('GENERAL_CONQUER').' '.t('MISSION_'.$uid), $message, $link);
 		
@@ -507,7 +507,7 @@ function warquest_mission_do() {
 			}
 		
 			$link .= t('MISSION_PART').' '.warquest_format_part($part).'/'.$max.'<br/>';
-			$link .= warquest_link('eid=1&mid='.$mid.'&sid='.$sid.'&uid='.$uid, t('LINK_DO_AGAIN'), "doagain");
+			$link .= warquest_link('mid='.$mid.'&sid='.$sid.'&eid='.EVENT_MISSION_PLAY.'&uid='.$uid, t('LINK_DO_AGAIN'), "doagain");
 		
 			$popup .= warquest_box(t('GENERAL_CONQUER').' '.t('MISSION_'.$uid), $message, $link);
 		} 
@@ -592,7 +592,7 @@ function warquest_mission_form() {
 			}
 		
 			$page .= t('MISSION_PART').' '.warquest_format_part($data->part).'/'.$max.'<br/>';
-			$page .= warquest_link('mid='.$mid.'&sid='.$sid.'&eid=1&uid='.$data->mid,t('LINK_PLAY'),'play'.$line);
+			$page .= warquest_link('mid='.$mid.'&sid='.$sid.'&eid='.EVENT_MISSION_PLAY.'&uid='.$data->mid,t('LINK_PLAY'),'play'.$line);
 			$page .= '</td>';
 		
 			$page .= '</tr>';
@@ -716,14 +716,17 @@ function warquest_mission() {
 	/* Event handler */
 	switch ($eid ) {
 	
-		case 1: 		warquest_mission_do();
-						break;		
-				  
-		case 2: 		warquest_buy_missing_units_do();
+		case EVENT_MISSION_PLAY: 		
 						warquest_mission_do();
 						break;		
 				  
-		case 500: 	warquest_switch_planet_do();
+		case EVENT_MISSION_BUY_PLAY: 		
+						warquest_buy_missing_units_do();
+						warquest_mission_do();
+						break;		
+				  
+		case EVENT_SWITCH_PLANET: 	
+						warquest_switch_planet_do();
 						break;
 	}				
 		

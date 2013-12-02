@@ -17,11 +17,14 @@
 */
 
 /*
-** ---------
-** MAIN MENU
-** ---------
+** ---------------------------
+** MENU
+** ---------------------------
 */
 
+/**
+ * Main menu
+ */
 function warquest_ui_mainmenu() {
 	
 	/* input */
@@ -30,15 +33,17 @@ function warquest_ui_mainmenu() {
 	global $player;
 	global $skill;
 	
-	/* Count not accepted recruit request */
+	/* Count not accepted alliance requests */
 	$query  = 'select pid1 from player_player where approved=0 and pid2='.$player->pid; 
 	$result = warquest_db_query($query);
 	$recruit = warquest_db_num_rows($result);	
 	
+	/* get default unit */
 	$query2 = 'select ugid from unit_group where type=2 and planet='.$player->planet;
 	$result2 = warquest_db_query($query2);
 	$data2 = warquest_db_fetch_object($result2);
 
+	/* get default building */
 	$query3 = 'select bgid from building_group where planet='.$player->planet.' order by bgid limit 1';
 	$result3 = warquest_db_query($query3);
 	$data3 = warquest_db_fetch_object($result3);
@@ -50,22 +55,16 @@ function warquest_ui_mainmenu() {
 	
 	if ($player->holiday_date <= date("Y-m-d H:i:s", time())) {
 		
-		$page .= warquest_ui_menu(MENU_MISSIONS, warquest_get_default_mission($player->planet), 0, t('LINK_MISSIONS'), $mid);
-	
+		$page .= warquest_ui_menu(MENU_MISSIONS, warquest_get_default_mission($player->planet), 0, t('LINK_MISSIONS'), $mid);	
 		$page .= warquest_ui_menu(MENU_BATTLE, PAGE_ENEMIES, 0, t('LINK_BATTLE'), $mid);
-
-		$page .= warquest_ui_menu(MENU_UNITS, $data2->ugid, 0, t('LINK_UNITS'), $mid);
-			
+		$page .= warquest_ui_menu(MENU_UNITS, $data2->ugid, 0, t('LINK_UNITS'), $mid);			
 		$page .= warquest_ui_menu(MENU_BUILDINGS, $data3->bgid, 0, t('LINK_BUILDINGS'), $mid);
-
 		$page .= warquest_ui_menu(MENU_MONEY, PAGE_BANK, 0, t('LINK_MONEY'), $mid);
 			
 	}
 		
-	$page .= warquest_ui_menu(MENU_ALLIANCE, PAGE_PENDING, 0, t('LINK_ALLIANCE'), $mid, $recruit);
-		
-	$page .= warquest_ui_menu(MENU_FORUMS, PAGE_FORUM, 0, t('LINK_FORUM'), $mid);
-	
+	$page .= warquest_ui_menu(MENU_ALLIANCE, PAGE_PENDING, 0, t('LINK_ALLIANCE'), $mid, $recruit);		
+	$page .= warquest_ui_menu(MENU_FORUMS, PAGE_FORUM, 0, t('LINK_FORUM'), $mid);	
 	$page .= warquest_ui_menu(MENU_HELP, PAGE_INSTRUCTIONS, 0, t('LINK_HELP'), $mid);
 
 	if ($player->pid==$config["adminPid"]) {
@@ -138,7 +137,7 @@ function warquest_menu_home() {
 	
 	$member=warquest_db_member($player->pid);
 	if ($member->auto_login==0) {
-		$link = warquest_link('mid='.MENU_LOGIN.'&sid='.PAGE_LOGIN.'&eid=4', t('LINK_LOGOUT'), "logout");
+		$link = warquest_link('mid='.MENU_LOGIN.'&sid='.PAGE_LOGIN.'&eid='.EVENT_LOGOUT, t('LINK_LOGOUT'), "logout");
 		$page .= $link.' ';
 	}
 	
@@ -167,9 +166,7 @@ function warquest_menu_mission() {
 		$sid=1;
 	}
 			
-	$query  = 'select mgid from mission_group where planet='.$player->planet;
-	$query .= ' and mgid!=0 order by mgid';
-	
+	$query  = 'select mgid from mission_group where planet='.$player->planet.' and mgid!=0 order by mgid';
 	$result = warquest_db_query($query);	
 	
 	$page  = '<div class="submenu">';
@@ -184,7 +181,6 @@ function warquest_menu_mission() {
 		while ($data=warquest_db_fetch_object($result)) {
 	
 			$page .= warquest_ui_menu($mid, $data->mgid, 0, t('MISSION_GROUP_'.$data->mgid), $sid);
-
 		}
 	}
 	
@@ -236,8 +232,7 @@ function warquest_menu_unit() {
 	
 	while ($data=warquest_db_fetch_object($result)) {
 			
-		$page .= warquest_ui_menu($mid, $data->ugid, 0, t('UNIT_GROUP_'.$data->ugid), $sid);
-	
+		$page .= warquest_ui_menu($mid, $data->ugid, 0, t('UNIT_GROUP_'.$data->ugid), $sid);	
 	}
 
 	$page .= '</div>';
@@ -258,6 +253,7 @@ function warquest_menu_building() {
 	global $sid;
 	global $player;
 	
+	/* Get unit types */
 	$query2 = 'select ugid from unit_group where type=2 and planet='.$player->planet;
 	$result2 = warquest_db_query($query2);
 	$data2 = warquest_db_fetch_object($result2);
@@ -292,14 +288,14 @@ function warquest_subsubmenu_building() {
 	global $player;
 
 	$page  = '<div class="submenu">';
-				
+
+	/* Get building types */
 	$query  = 'select ugid from unit_group where planet='.$player->planet.' and type!=0 and type!=6 order by type';
 	$result = warquest_db_query($query);	
 	
 	while ($data = warquest_db_fetch_object($result)) {
 			
 		$page .= warquest_ui_subsubmenu($mid, $sid, $data->ugid, t('UNIT_GROUP_'.$data->ugid), $ssid);
-
 	}
 	
 	$page .= '</div>';
@@ -319,7 +315,8 @@ function warquest_menu_money() {
 	/* input */
 	global $mid;
 	global $sid;
-	global $cid;
+	global $id;
+	global $config;
 		
 	$page  = '<div class="submenu">';
 		
@@ -332,11 +329,16 @@ function warquest_menu_money() {
 	switch ( $sid ) { 
 	
 		case PAGE_BANK: 
-			$tmp = array(1, 2, 3);
-			foreach ($tmp as $id) {
-	
-				$menu = warquest_link('mid='.$mid.'&sid='.$sid.'&cid='.$id, t('BANK_GROUP_'.$id), t('BANK_GROUP_'.$id));
-				if ($id==$cid) {
+		
+			/* Get bank group types */
+			$query = 'select bgid from bank_group order by bgid';
+			$result = warquest_db_query($query);	
+		
+			while ($data = warquest_db_fetch_object($result)) {
+			
+				$menu = warquest_link('mid='.$mid.'&sid='.$sid.'&id='.$data->bgid, 
+								t('BANK_GROUP_'.$data->bgid), t('BANK_GROUP_'.$data->bgid));
+				if ($data->bgid==$id) {
 					$menu = '<b>'.$menu.'</b>';
 				} 
 				$page .= $menu.' ';
@@ -344,11 +346,15 @@ function warquest_menu_money() {
 			break;
 		
 		case PAGE_STOCK_EXCHANGE: 
-			$tmp = array(1, 2, 3, 4);
-			foreach ($tmp as $id) {
-	
-				$menu = warquest_link('mid='.$mid.'&sid='.$sid.'&cid='.$id, t('STOCK_GROUP_'.$id), t('STOCK_GROUP_'.$id));
-				if ($id==$cid) {
+		
+			/* Get stock group types */
+			$query = 'select sgid from stock_group order by sgid';
+			$result = warquest_db_query($query);			
+			
+			while ($data = warquest_db_fetch_object($result)) {
+		
+				$menu = warquest_link('mid='.$mid.'&sid='.$sid.'&id='.$data->sgid, t('STOCK_GROUP_'.$data->sgid), t('STOCK_GROUP_'.$data->sgid));
+				if ($data->sgid==$id) {
 					$menu = '<b>'.$menu.'</b>';
 				} 
 				$page .= $menu.' ';
@@ -356,23 +362,14 @@ function warquest_menu_money() {
 			break;
 			
 		case PAGE_CASINO:
-			$menu = warquest_link('mid='.$mid.'&sid='.$sid.'&cid=1', t('CASINO_1'), 'casino1');
-			if ($cid==1) {
-				$menu = '<b>'.$menu.'</b>';
-			} 
-			$page .= $menu.' ';
-	
-			$menu = warquest_link('mid='.$mid.'&sid='.$sid.'&cid=2', t('CASINO_2'), 'casino2');
-			if ($cid==2) {
-				$menu = '<b>'.$menu.'</b>';
-			} 
-			$page .= $menu.' ';
-			
-			$menu = warquest_link('mid='.$mid.'&sid='.$sid.'&cid=3', t('CASINO_3'), 'casino3');
-			if ($cid==3) {
-				$menu = '<b>'.$menu.'</b>';
-			} 
-			$page .= $menu.' ';
+			for($cgid=1; $cgid<=$config["max_casio_groups"]; $cgid++) {	
+		
+				$menu = warquest_link('mid='.$mid.'&sid='.$sid.'&id='.$cgid, t('CASINO_'.$cgid), t('CASINO_'.$cgid));
+				if ($cgid==$id) {
+					$menu = '<b>'.$menu.'</b>';
+				} 
+				$page .= $menu.' ';
+			}
 			break;
 	}
 
@@ -492,9 +489,9 @@ function warquest_menu_admin() {
 }
 
 /*
-** ---------
-** SUBMENU
-** ---------
+** -------------
+** STATE MACHINE
+** -------------
 */
 
 function warquest_ui_submenu() {

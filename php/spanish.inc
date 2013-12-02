@@ -157,8 +157,6 @@ $lang['LINK_STATS']  = 'Estadísticas';
 $lang['LINK_DONATE']  = 'Donaciones';
 $lang['LINK_ABOUT']  = 'Credits';
 
-$lang['LINK_DISABLED'] = 'Deshabilitado';
-
 /*
 ** ------------------
 ** GENERAL 
@@ -406,7 +404,7 @@ $lang['HOME_TITLE'] = 'INICIO';
 
 $lang['HOME_FLASH_NEWS_TITLE'] = 'Noticias de última hora';
 
-$lang['HOME_LASTEST_FORUM_POST'] = 'Último mensaje en el foro';
+$lang['HOME_LASTEST_FORUM_ITEM'] = 'Último mensaje en el foro';
 
 $lang['HOME_INTRO_PLAYERS'] = 'En este momento %s jugadores de %s países están activos, ';
 $lang['HOME_INTRO_FIGHTS'] = '%s combates han tenido lugar ';
@@ -701,7 +699,7 @@ $lang['SETTING_SOUND'] = 'Activar sonido (Experimental)';
 $lang['SETTING_BOUNTY'] = 'Activar aviso emergente de recompensa.';
 $lang['SETTING_RESTORE'] = 'Activar aviso emergente de restaurar & reparar.';
 $lang['SETTING_CONDITION'] = 'Activar cartel de información unidad / edificio / rebeliones.';
-$lang['SETTING_FORUM_POST'] = 'Activar el último mensaje del foro en la página principal de visión general.';
+$lang['SETTING_FORUM_SORT'] = 'Activar el último mensaje del foro en la página principal de visión general.';
 $lang['SETTING_SORT1'] = 'Activar ver mensaje más reciente en la parte superior en los foros.';
 $lang['SETTING_SORT2'] = 'Activar ver el jugador más antiguo con el que ha combatido en la parte superior de la lista de batallas.';
 $lang['SETTING_NO_BOT_NEWS'] = 'Desactivar noticias de batalla y notificaciones de los robots.';

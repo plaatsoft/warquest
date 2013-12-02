@@ -22,19 +22,8 @@
 ** ----------
 */
 
-$period1=0;
-if (isset($_POST['period1']) && $_POST['period1'] != "") {
-	$period1 = $_POST['period1'];
-	$period1 = stripslashes($period1);
-	$period1 = warquest_db_escape($period1);
-}
-
-$period2=0;
-if (isset($_POST['period2']) && $_POST['period2'] != "") {
-	$period2 = $_POST['period2'];
-	$period2 = stripslashes($period2);
-	$period2 = warquest_db_escape($period2);
-}
+$period1 = warquest_post('period1', '0');
+$period2 = warquest_post('period2', '0');
 
 /*
 ** ---------------------
@@ -236,9 +225,9 @@ function warquest_restore_form() {
 		if ($value==0) {
 		
 			if (warquest_db_query_pattern($player, PATTERN_RESTORE)==0) {
-				$page .= warquest_link('mid='.$mid.'&sid='.$sid.'&eid=6&uid=1', t('LINK_RESTORE'), "restore1");
+				$page .= warquest_link('mid='.$mid.'&sid='.$sid.'&eid='.EVENT_HOME_RESTORE.'&uid=1', t('LINK_RESTORE'), "restore1");
 			} else {
-				$page .= warquest_link_confirm('mid='.$mid.'&sid='.$sid.'&eid=6&uid=1', t('LINK_RESTORE'), t('PLAYER_HEALTH_CONFIRM'));
+				$page .= warquest_link_confirm('mid='.$mid.'&sid='.$sid.'&eid='.EVENT_HOME_RESTORE.'&uid=1', t('LINK_RESTORE'), t('PLAYER_HEALTH_CONFIRM'));
 			}			
 			
 		} else {		
@@ -281,9 +270,9 @@ function warquest_restore_form() {
 	
 		$page .= '<div class="right" >';	
 		if (warquest_db_query_pattern($player, PATTERN_RESTORE)==0) {
-			$page .= warquest_link('mid='.$mid.'&sid='.$sid.'&eid=6&uid=4', t('LINK_REPAIR'), "repair1");
+			$page .= warquest_link('mid='.$mid.'&sid='.$sid.'&eid='.EVENT_HOME_RESTORE.'&uid=4', t('LINK_REPAIR'), "repair1");
 		} else {
-			$page .= warquest_link_confirm('mid='.$mid.'&sid='.$sid.'&eid=6&uid=4', t('LINK_REPAIR'), t('PLAYER_UNITS_CONFIRM'));
+			$page .= warquest_link_confirm('mid='.$mid.'&sid='.$sid.'&eid='.EVENT_HOME_RESTORE.'&uid=4', t('LINK_REPAIR'), t('PLAYER_UNITS_CONFIRM'));
 		}
 		$page .= '</div>';
 		
@@ -322,9 +311,9 @@ function warquest_restore_form() {
 	
 		$page .= '<div class="right">';
 		if (warquest_db_query_pattern($player, PATTERN_RESTORE)==0) {
-			$page .= warquest_link('mid='.$mid.'&sid='.$sid.'&eid=6&uid=5', t('LINK_REPAIR'), "repair2");
+			$page .= warquest_link('mid='.$mid.'&sid='.$sid.'&eid='.EVENT_HOME_RESTORE.'&uid=5', t('LINK_REPAIR'), "repair2");
 		} else {
-			$page .= warquest_link_confirm('mid='.$mid.'&sid='.$sid.'&eid=6&uid=5', t('LINK_REPAIR'), t('PLAYER_BUILDINGS_CONFIRM'));
+			$page .= warquest_link_confirm('mid='.$mid.'&sid='.$sid.'&eid='.EVENT_HOME_RESTORE.'&uid=5', t('LINK_REPAIR'), t('PLAYER_BUILDINGS_CONFIRM'));
 		}
 		$page .= '</div>';
 		
@@ -365,9 +354,9 @@ function warquest_restore_form() {
 			
 		$page .= '<div class="right">';
 		if (warquest_db_query_pattern($player, PATTERN_RESTORE)==0) {
-			$page .= warquest_link('mid='.$mid.'&sid='.$sid.'&eid=6&uid=7', t('LINK_RESTORE'), "restore7");
+			$page .= warquest_link('mid='.$mid.'&sid='.$sid.'&eid='.EVENT_HOME_RESTORE.'&uid=7', t('LINK_RESTORE'), "restore7");
 		} else {
-			$page .= warquest_link_confirm('mid='.$mid.'&sid='.$sid.'&eid=6&uid=7', t('LINK_RESTORE'), t('PLAYER_REBELLION_CONFIRM'));
+			$page .= warquest_link_confirm('mid='.$mid.'&sid='.$sid.'&eid='.EVENT_HOME_RESTORE.'&uid=7', t('LINK_RESTORE'), t('PLAYER_REBELLION_CONFIRM'));
 		}
 		$page .= '</div>';
 	
@@ -408,9 +397,9 @@ function warquest_restore_form() {
 		if ($value==0) {
 		
 			if (warquest_db_query_pattern($player, PATTERN_RESTORE)==0) {
-				$page .= warquest_link('mid='.$mid.'&sid='.$sid.'&eid=6&uid=2', t('LINK_RESTORE'), "restore2");
+				$page .= warquest_link('mid='.$mid.'&sid='.$sid.'&eid='.EVENT_HOME_RESTORE.'&uid=2', t('LINK_RESTORE'), "restore2");
 			} else {
-				$page .= warquest_link_confirm('mid='.$mid.'&sid='.$sid.'&eid=6&uid=2', t('LINK_RESTORE'), t('PLAYER_ENERGY_CONFIRM'));
+				$page .= warquest_link_confirm('mid='.$mid.'&sid='.$sid.'&eid='.EVENT_HOME_RESTORE.'&uid=2', t('LINK_RESTORE'), t('PLAYER_ENERGY_CONFIRM'));
 			}
 			
 		} else {
@@ -459,9 +448,9 @@ function warquest_restore_form() {
 		if ($value==0) {
 		
 			if (warquest_db_query_pattern($player, PATTERN_RESTORE)==0) {
-				$page .= warquest_link('mid='.$mid.'&sid='.$sid.'&eid=6&uid=3', t('LINK_RESTORE'), "restore3");
+				$page .= warquest_link('mid='.$mid.'&sid='.$sid.'&eid='.EVENT_HOME_RESTORE.'&uid=3', t('LINK_RESTORE'), "restore3");
 			} else {
-				$page .= warquest_link_confirm('mid='.$mid.'&sid='.$sid.'&eid=6&uid=3', t('LINK_RESTORE'), t('PLAYER_AMMO_CONFIRM'));
+				$page .= warquest_link_confirm('mid='.$mid.'&sid='.$sid.'&eid='.EVENT_HOME_RESTORE.'&uid=3', t('LINK_RESTORE'), t('PLAYER_AMMO_CONFIRM'));
 			}
 			
 		} else {
@@ -522,11 +511,11 @@ function warquest_restore_form() {
 			} else {
 			
 				if (warquest_db_query_pattern($player, PATTERN_RESTORE)==0) {
-					$page .= warquest_link('mid='.$mid.'&sid='.$sid.'&eid=6&uid=6', t('LINK_ACTIVATE'), "restore6");
+					$page .= warquest_link('mid='.$mid.'&sid='.$sid.'&eid='.EVENT_HOME_RESTORE.'&uid=6', t('LINK_ACTIVATE'), "restore6");
 					$page .= '<br>';
 					$page .= warquest_cease_fire_period();
 				} else {
-					$page .= warquest_link_confirm('mid='.$mid.'&sid='.$sid.'&eid=6&uid=6', t('LINK_ACTIVATE'), t('PLAYER_CEASE_FIRE_CONFIRM'));
+					$page .= warquest_link_confirm('mid='.$mid.'&sid='.$sid.'&eid='.EVENT_HOME_RESTORE.'&uid=6', t('LINK_ACTIVATE'), t('PLAYER_CEASE_FIRE_CONFIRM'));
 					$page .= '<br>';
 					$page .= warquest_cease_fire_period();
 				}
@@ -589,11 +578,11 @@ function warquest_restore_form() {
 			} else {
 			
 				if (warquest_db_query_pattern($player, PATTERN_RESTORE)==0) {
-					$page .= warquest_link('mid='.$mid.'&sid='.$sid.'&eid=6&uid=8', t('LINK_ACTIVATE'), "restore7");
+					$page .= warquest_link('mid='.$mid.'&sid='.$sid.'&eid='.EVENT_HOME_RESTORE.'&uid=8', t('LINK_ACTIVATE'), "restore8");
 					$page .= '<br>';
 					$page .= warquest_holiday_period();
 				} else {
-					$page .= warquest_link_confirm('mid='.$mid.'&sid='.$sid.'&eid=6&uid=8', t('LINK_ACTIVATE'), t('PLAYER_HOLIDAY_CONFIRM'));
+					$page .= warquest_link_confirm('mid='.$mid.'&sid='.$sid.'&eid='.EVENT_HOME_RESTORE.'&uid=8', t('LINK_ACTIVATE'), t('PLAYER_HOLIDAY_CONFIRM'));
 					$page .= '<br>';
 					$page .= warquest_holiday_period();
 				}
@@ -608,9 +597,7 @@ function warquest_restore_form() {
 			$page .= "countdown5.init(".$value.", 'countdown_time5', '00:00:00');"; 
 			$page .= '</script>';
 		}
-				
-		/* $page .= warquest_link('mid='.$mid.'&sid='.$sid, t('LINK_DISABLED'));*/
-		
+
 		$page .= '</div>';
 	
 		$page .= '<div class="subparagraph"><b>'.t('PLAYER_HOLIDAY_TITLE').'</b></div>';
@@ -647,7 +634,8 @@ function warquest_restore_event() {
 	/* Event handler */
 	switch ($eid) {
 											
-		case 6:	warquest_restore_do();
+		case EVENT_HOME_RESTORE:	
+					warquest_restore_do();
 					break;
 	}	
 }

@@ -54,7 +54,7 @@ function warquest_maintenance_info_form($other) {
 
 	$page .= '<br/>';
 	$page .= t('PLAYER_MAINTENANCE_TEXT', 
-						warquest_link('mid='.$mid.'&sid='.PAGE_PROFILE.'&oid='.$other->pid, $other->name),
+						warquest_link('mid='.$mid.'&sid='.PAGE_PROFILE.'&oid='.$other->pid, player_format($other->pid, $other->name, $other->country)),
 						strtolower(t('GENERAL_PLANET_'.$player->planet)));
 	$page .= '<br/><br/>';
 
@@ -170,7 +170,7 @@ function warquest_discount_info_form($other) {
 
 	$page .= '<br/>';
 	$page .= t('PLAYER_BUILDING_TEXT', 
-						warquest_link('mid='.$mid.'&sid='.PAGE_PROFILE.'&oid='.$other->pid, $other->name),
+						warquest_link('mid='.$mid.'&sid='.PAGE_PROFILE.'&oid='.$other->pid, player_format($other->pid, $other->name, $other->country)),
 						strtolower(t('GENERAL_PLANET_'.$player->planet)));
 	$page .= '<br/><br/>';
 
@@ -286,7 +286,7 @@ function warquest_continent_info_form($other) {
 
 	$page .= '<br/>';
 	$page .= t('PLAYER_CONTINENT_TEXT', 
-						warquest_link('mid='.$mid.'&sid='.PAGE_PROFILE.'&oid='.$other->pid, $other->name),
+						warquest_link('mid='.$mid.'&sid='.PAGE_PROFILE.'&oid='.$other->pid, player_format($other->pid, $other->name, $other->country)),
 						strtolower(t('GENERAL_PLANET_'.$player->planet)));
 	$page .= '<br/><br/>';
 
@@ -388,7 +388,6 @@ function warquest_upkeep_info_form($other) {
 	$title = t('PLAYER_UPKEEP_COST');
 	$page .= '<div class="subparagraph">'.$title.'</div>';
 		
-	
 	/* Calculate upkeep cost of all player units  */
 	$query  = 'select a.uid, a.attack, a.defense, a.upkeep, c.amount ';
 	$query .= 'from unit a left join unit_group b on a.ugid=b.ugid, ';
@@ -403,7 +402,7 @@ function warquest_upkeep_info_form($other) {
 
 	$page .= '<br/>';
 	$page .= t('PLAYER_UPKEEP_TEXT', 
-						warquest_link('mid='.$mid.'&sid='.PAGE_PROFILE.'&oid='.$other->pid, $other->name),
+						warquest_link('mid='.$mid.'&sid='.PAGE_PROFILE.'&oid='.$other->pid, player_format($other->pid, $other->name, $other->country)),
 						strtolower(t('GENERAL_PLANET_'.$player->planet)));
 	$page .= '<br/><br/>';
 
@@ -528,7 +527,7 @@ function warquest_income_info_form($other) {
 
 	$page .= '<br/>';
 	$page .= t('PLAYER_BUILDING_TEXT', 
-						warquest_link('mid='.$mid.'&sid='.PAGE_PROFILE.'&oid='.$other->pid, $other->name),
+						warquest_link('mid='.$mid.'&sid='.PAGE_PROFILE.'&oid='.$other->pid, player_format($other->pid, $other->name, $other->country)),
 						strtolower(t('GENERAL_PLANET_'.$player->planet)));
 	$page .= '<br/><br/>';
 
@@ -664,7 +663,7 @@ function warquest_attack_info_form($other) {
 		
 	$page .= '<br/>';
 	$page .= t('PLAYER_ATTACK_TEXT', 
-						warquest_link('mid='.$mid.'&sid='.PAGE_PROFILE.'&oid='.$other->pid, $other->name),
+						warquest_link('mid='.$mid.'&sid='.PAGE_PROFILE.'&oid='.$other->pid, player_format($other->pid, $other->name, $other->country)),
 						$data2->alliance,
 						$size,
 						strtolower(t('UNIT_GROUP_'.$data1->ugid)));
@@ -850,7 +849,7 @@ function warquest_defense_info_form($other) {
 		
 	$page .= '<br/>';
 	$page .= t('PLAYER_DEFENSE_TEXT', 
-						warquest_link('mid='.$mid.'&sid='.PAGE_PROFILE.'&oid='.$other->pid, $other->name),
+						warquest_link('mid='.$mid.'&sid='.PAGE_PROFILE.'&oid='.$other->pid, player_format($other->pid, $other->name, $other->country)),
 						$data2->alliance, 
 						$size,
 						strtolower(t('UNIT_GROUP_'.$data1->ugid)) );
@@ -1187,7 +1186,7 @@ function warquest_profile($id) {
 	$page .= '<td align="right">';
 	
 	if ($player->pid==$id) {
-		$page .= warquest_link('mid='.$mid.'&sid='.$sid.'&eid=39&oid='.$id, t('LINK_REPORT'), "report").' ';
+		$page .= warquest_link('mid='.$mid.'&sid='.$sid.'&eid='.EVENT_PLAYER_PDF_REPORT.'&oid='.$id, t('LINK_REPORT'), "report").' ';
 	}
 		
 	if ($player->pid!=$id) {	
@@ -1201,7 +1200,7 @@ function warquest_profile($id) {
 			  ($other->holiday_date < date("Y-m-d H:i:s", time())) && 
 			  ($player->holiday_date < date("Y-m-d H:i:s", time())))  {
 		
-			$page .= warquest_link('mid='.MENU_BATTLE.'&sid='.PAGE_ENEMIES.'&eid=1&oid='.$id, t('LINK_ATTACK'), "attack").' ';
+			$page .= warquest_link('mid='.MENU_BATTLE.'&sid='.PAGE_ENEMIES.'&eid='.EVENT_BATTLE_NORMAL.'&oid='.$id, t('LINK_ATTACK'), "attack").' ';
 		}
 		
 		if ( ($player->lid>0) &&
@@ -1210,7 +1209,7 @@ function warquest_profile($id) {
 			  ($player->holiday_date < date("Y-m-d H:i:s", time())) &&
 			  (warquest_db_ally($player->pid, $id)==0) ) {
 			
-			$page .= warquest_link('mid='.MENU_ALLIANCE.'&sid='.PAGE_INVITE.'&eid=1&oid='.$id, t('LINK_INVITE'), "invite").' ';
+			$page .= warquest_link('mid='.MENU_ALLIANCE.'&sid='.PAGE_INVITE.'&eid='.EVENT_ALLIANCE_INVITE.'&oid='.$id, t('LINK_INVITE'), "invite").' ';
 		}
 	
 		if (($player->lid>=9) && 
@@ -1222,7 +1221,7 @@ function warquest_profile($id) {
 			 ($data->country!="EU")) {
 		
 			if (warquest_db_query_pattern($player, PATTERN_BOUNTY)==0) {
-				$page .= warquest_link('mid='.MENU_BATTLE.'&sid='.PAGE_BOUNTY.'&eid=2&oid='.$data->pid, t('LINK_BOUNTY'), "bounty");
+				$page .= warquest_link('mid='.MENU_BATTLE.'&sid='.PAGE_BOUNTY.'&eid='.EVENT_BATTLE_BOUNTY.'&oid='.$data->pid, t('LINK_BOUNTY'), "bounty");
 				
 			} else {
 				
@@ -1684,7 +1683,7 @@ function warquest_player() {
 	/* Event handler */
 	switch ($eid) {
 						
-		case 39:
+		case EVENT_PLAYER_PDF_REPORT:
 			if ($other->pid!=0) {
 				warquest_player_report_do($other->pid);
 			} else  {

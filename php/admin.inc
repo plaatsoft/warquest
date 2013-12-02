@@ -24,7 +24,7 @@
 
 /*
 ** ---------------------
-** POST PARAMETERS
+** Post parameters
 ** ---------------------
 */
 
@@ -344,65 +344,69 @@ function warquest_admin_action_form() {
 	
 	$page .= '<br/>';
 	$page .= '<b>GENERAL ACTIONS</b>'; 
-	$page .= '<br/>';
-
-	$page .= '<br/>'; 
-	$page .= ' - '.warquest_link('mid='.$mid.'&sid='.$sid.'&eid=29', 'Players level update.');
-	$page .= '<br/>';
 	
-	$page .= '<br/>'; 
-	$page .= ' - '.warquest_link('mid='.$mid.'&sid='.$sid.'&eid=28', 'Players awards update.');
-	$page .= '<br/>';
+	$page .= '<ul>'; 
+	
+	$page .= '<li>';
+	$page .= warquest_link('mid='.$mid.'&sid='.$sid.'&eid='.EVENT_ADMIN_UPDATE_LEVELS, 'Players level update. (HIGH DATABASE LOAD)');
+	$page .= '</li>';
+	
+	$page .= '<li>'; 
+	$page .= warquest_link('mid='.$mid.'&sid='.$sid.'&eid='.EVENT_ADMIN_UPDATE_AWARDS, 'Players awards update. (HIGH DATABASE LOAD)');
+	$page .= '</li>';
 		
-	$page .= '<br/>'; 
-	$page .= ' - '.warquest_link('mid='.$mid.'&sid='.$sid.'&eid=31', 'Accept all robot ally requested (cron job)');
-	$page .= '<br/>';
+	$page .= '<li>'; 
+	$page .= warquest_link('mid='.$mid.'&sid='.$sid.'&eid='.EVENT_ADMIN_UPDATE_ROBOTS, 'Accept all robot ally requested (cron job)');
+	$page .= '</li>';
 
-	$page .= '<br/>'; 
-	$page .= ' - '.warquest_link('mid='.$mid.'&sid='.$sid.'&eid=30', 'Players clean battle log (cron job)');
-	$page .= '<br/>';
+	$page .= '<li>'; 
+	$page .= warquest_link('mid='.$mid.'&sid='.$sid.'&eid='.EVENT_ADMIN_CLEAN_BATTLE_LOG, 'Players clean battle log (cron job)');
+	$page .= '</li>';
 	
-	$page .= '<br/>'; 
-	$page .= ' - '.warquest_link('mid='.$mid.'&sid='.$sid.'&eid=21', 'Players clean bank log (cron job)');
-	$page .= '<br/>';
+	$page .= '<li>'; 
+	$page .= warquest_link('mid='.$mid.'&sid='.$sid.'&eid='.EVENT_ADMIN_CLEAN_BANK_LOG, 'Players clean bank log (cron job)');
+	$page .= '</li>';
 	
-	$page .= '<br/>'; 
-	$page .= ' - '.warquest_link('mid='.$mid.'&sid='.$sid.'&eid=27', 'Delete long pending alliance requests (cron job)');
-	$page .= '<br/>';
+	$page .= '<li>'; 
+	$page .= warquest_link('mid='.$mid.'&sid='.$sid.'&eid='.EVENT_ADMIN_UPDATE_INVITATIONS, 'Delete long pending alliance requests (cron job)');
+	$page .= '</li>';
 	
-	$page .= '<br/>'; 
-	$page .= ' - '.warquest_link('mid='.$mid.'&sid='.$sid.'&eid=33', 'Update players with negative hourly income (cron job)');
-	$page .= '<br/>';
+	$page .= '<li>'; 
+	$page .= warquest_link('mid='.$mid.'&sid='.$sid.'&eid='.EVENT_ADMIN_UPDATE_INCOME, 'Update players with negative hourly income (cron job)');
+	$page .= '</li>';
 	
-	$page .= '<br/>'; 
-	$page .= ' - '.warquest_link('mid='.$mid.'&sid='.$sid.'&eid=32', 'Optimize database tables');
-	$page .= '<br/>';
+	$page .= '<li>'; 
+	$page .= warquest_link('mid='.$mid.'&sid='.$sid.'&eid='.EVENT_ADMIN_BACKUP_DATABASE, 'Make database backup (cron job)');
+	$page .= '</li>';
+
+	$page .= '<li>'; 
+	$page .= warquest_link('mid='.$mid.'&sid='.$sid.'&eid='.EVENT_ADMIN_OPTIMIZE_DATABASE, 'Optimize database tables');
+	$page .= '</li>';
 	
-	$page .= '<br/>'; 
-	$page .= ' - '.warquest_link('mid='.$mid.'&sid='.$sid.'&eid=35', 'Make database backup');
-	$page .= '<br/>';
+	$page .= '</ul>';
 	
-	$page .= '<br/><br/>';
 	$page .= '<b>SPECIAL ACTIONS</b>'; 
-	$page .= '<br/>';
 	
-	$page .= '<br/>'; 
-	$page .= ' - '.warquest_link('mid='.$mid.'&sid='.$sid.'&eid=8', 'Generate 24h extra robot income.');
-	$page .= '<br/>';
+	$page .= '<ul>';
+	
+	$page .= '<li>'; 
+	$page .= warquest_link('mid='.$mid.'&sid='.$sid.'&eid='.EVENT_ADMIN_UPDATE_TIMERS, 'Generate 24h extra robot income.');
+	$page .= '</li>';
 		
-	$page .= '<br/>'; 
-	$page .= ' - '.warquest_link('mid='.$mid.'&sid='.$sid.'&eid=10', 'Players money update.');
-	$page .= '<br/>';
+	$page .= '<li>'; 
+	$page .= warquest_link('mid='.$mid.'&sid='.$sid.'&eid='.EVENT_ADMIN_UPDATE_MONEY, 'Players money update. (HIGH DATABASE LOAD)');
+	$page .= '</li>';
 					
-	$page .= '<br/>'; 
-	$page .= ' - '.warquest_link('mid='.$mid.'&sid='.$sid.'&eid=18', 'Players citizens update.');
-	$page .= '<br/>';
+	$page .= '<li>'; 
+	$page .= warquest_link('mid='.$mid.'&sid='.$sid.'&eid='.EVENT_ADMIN_UPDATE_STAFF, 'Players citizens update. (HIGH DATABASE LOAD)');
+	$page .= '</li>';
 	
-	$page .= '<br/>'; 
-	$page .= ' - '.warquest_link('mid='.$mid.'&sid='.$sid.'&eid=20', 'Pay bank interest (cron job)');
-	$page .= '<br/>';
+	$page .= '<li>'; 
+	$page .= warquest_link('mid='.$mid.'&sid='.$sid.'&eid='.EVENT_ADMIN_UPDATE_INTEREST, 'Pay bank interest (cron job)');
+	$page .= '</li>';
 
-	$page .= '<br/>';
+	$page .= '</ul>';
+	
 	$page .= '</div>';	
 }
 
@@ -645,13 +649,15 @@ function warquest_admin_messages_form() {
 	$result = warquest_db_query($query);	
 	$total = warquest_db_num_rows($result);
 	
-	$query  = 'select b.name as name1, b.country as country1, c.name as name2, c.country as country2, ';
-	$query .= 'a.id, a.pid1, a.pid2, a.date, a.comment from comment a left join player b ';
+	$query  = 'select a.id, a.date, a.comment, ';
+	$query .= 'a.pid1, b.name as name1, b.country as country1, ';
+	$query .= 'a.pid2, c.name as name2, c.country as country2 ';
+	$query .= 'from comment a left join player b ';
 	$query .= 'on b.pid=a.pid1 left join player c on c.pid=a.pid2 ';
 	$query .= 'where a.deleted=0 order by a.date desc ';
 	$query .= 'limit '.$offset.','.$limit;
 	$result = warquest_db_query($query);	
-	$count=warquest_db_num_rows($result);
+	$count = warquest_db_num_rows($result);
 	
 	if ($count>0) {
 	
@@ -672,8 +678,9 @@ function warquest_admin_messages_form() {
 			$page .= '<td width="340" valign="top">';
 			$page .= '<span class="subparagraph2">';
 			$page .= player_format($data->pid1, $data->name1, $data->country1).' -> ';
-			if (strlen($data->name2)==0) {
-				$page .= "All";
+			
+			if ($data->pid2==0) {
+				$page .= t("GENERAL_ALL");
 			} else {
 				$page .= player_format($data->pid2, $data->name2, $data->country2);
 			}
@@ -684,7 +691,7 @@ function warquest_admin_messages_form() {
 			$page .= '</td>';
 		
 			$page .= '<td align="right" valign="top">';
-			$page .= warquest_link_confirm('mid='.$mid.'&sid='.$sid.'&eid=3&uid='.$data->id, 'Delete', 'Delete message. Are your sure?');
+			$page .= warquest_link_confirm('mid='.$mid.'&sid='.$sid.'&eid='.EVENT_ADMIN_DELETE_MSG.'&uid='.$data->id, 'Delete', 'Delete message. Are your sure?');
 			$page .= '</td>';
 		
 			$page .= '</tr>';
@@ -962,11 +969,13 @@ function warquest_admin_news() {
 	$page .= '<tr>';
 	$page .= '<td>';
 	$page .= '<br/>';
-	$page .= warquest_link('mid='.$mid.'&sid='.$sid.'&eid=16&uid='.$uid, t('LINK_SAVE'));
+	$page .= warquest_link('mid='.$mid.'&sid='.$sid.'&eid='.EVENT_ADMIN_NEWS_SAVE.'&uid='.$uid, t('LINK_SAVE'));
 	if ($uid!=0) {
-		$page .= ' '.warquest_link('mid='.$mid.'&sid='.$sid.'&eid=17&uid='.$uid, t('LINK_DELETE'));
+		$page .= ' ';
+		$page .= warquest_link('mid='.$mid.'&sid='.$sid.'&eid='.EVENT_ADMIN_NEWS_DELETE.'&uid='.$uid, t('LINK_DELETE'));
 	}
-	$page .= ' '.warquest_link('mid='.$mid.'&sid='.$sid.'&eid=34&uid='.$uid, 'Tweet');
+	$page .= ' ';
+	$page .= warquest_link('mid='.$mid.'&sid='.$sid.'&eid='.EVENT_ADMIN_SAVE_TWEET.'&uid='.$uid, 'Tweet');
 	$page .= '</td>';
 	$page .= '</tr>';
 		
@@ -1167,7 +1176,7 @@ function warquest_admin_copy_form() {
 	$page .= '<tr>';
 	$page .= '<td>&nbsp;</td>';
 	$page .= '<td>';
-	$page .= '<input type="hidden" name="token" value="'.warquest_token('mid='.$mid.'&sid='.$sid.'&oid='.$other->pid.'&eid=6').'">';
+	$page .= '<input type="hidden" name="token" value="'.warquest_token('mid='.$mid.'&sid='.$sid.'&oid='.$other->pid.'&eid='.EVENT_ADMIN_COPY).'">';
 	$page .= '<input type="submit" name="Submit" value="Copy">';
 	$page .= '</td>';
 	$page .= '</tr>';
@@ -1383,10 +1392,12 @@ function warquest_admin_personal_messages() {
 	/* output */
 	global $page;
 			
-	$query  = 'select a.id, a.pid1, a.pid2, a.date, a.comment, b.name, b.country from comment a, player b ';
-   $query .= 'where ((a.pid1=b.pid and pid2='.$other->pid.') or (a.pid2=b.pid and pid1='.$other->pid.')) ';
-	$query .= 'and deleted=0 order by a.date desc ';
-	$query .= 'limit 0,50';
+	$query  = 'select a.id, a.date, a.comment, ';
+	$query .= 'a.pid1, b.name as name1, b.country as country1, ';
+	$query .= 'a.pid2, c.name as name2, c.country as country2 ';
+	$query .= 'from comment a, player b, player c ';
+   $query .= 'where a.pid1=b.pid and a.pid2=c.pid and ((pid1='.$other->pid.') or (pid2='.$other->pid.')) ';
+	$query .= 'and a.deleted=0 order by a.date desc limit 0,50';
 	$result = warquest_db_query($query);
 	$count = warquest_db_num_rows($result);
 			
@@ -1416,13 +1427,16 @@ function warquest_admin_personal_messages() {
 			
 			$page .= '<td>';
 			$page .= '<span class="subparagraph2">';
-			if ($data->pid2==$other->pid) {
-				$page .= player_format($data->pid1, $data->name, $data->country);
-				$page .= ' -> '.$other->name;
+			
+			$page .= player_format($data->pid1, $data->name1, $data->country1);
+			$page .= ' -> ';
+			
+			if ($data->pid2==0) {
+				$page .= t('GENERAL_ALL');
 			} else {
-				$page .= $other->name.'-> ';
-				$page .= player_format($data->pid2, $data->name, $data->country);
+				$page .= player_format($data->pid2, $data->name2, $data->country2);
 			}
+			
 			$page .= '</span>';
 			$page .= '<br/>';
 
@@ -1509,7 +1523,7 @@ function warquest_admin_player_form() {
 	$page .= '<tr>';
 	$page .= '<td>&nbsp;</td>';
 	$page .= '<td>';
-	$page .= '<input type="hidden" name="token" value="'.warquest_token('mid='.$mid.'&sid='.PAGE_PLAYERS.'&eid=2&oid='.$other->pid).'" />';
+	$page .= '<input type="hidden" name="token" value="'.warquest_token('mid='.$mid.'&sid='.PAGE_PLAYERS.'&eid='.EVENT_ADMIN_EDIT.'&oid='.$other->pid).'" />';
 	$page .= '<input type="submit" name="Submit" value="Change" />';
 	$page .= '</td>';
 	$page .= '</tr>';		
@@ -1564,11 +1578,12 @@ function warquest_admin_player_form() {
 	$page .= '<table>';
 	$page .= '<tr>';
 	$page .= '<td width="165" align="left">';
-	$page .= warquest_link_confirm('mid='.$mid.'&oid='.$other->pid.'&sid='.PAGE_PLAYER_LIST.'&eid=7', 'Delete account' ,'Delete '.$other->name.'. Are you sure?');
+	$page .= warquest_link_confirm('mid='.$mid.'&oid='.$other->pid.'&sid='.PAGE_PLAYER_LIST.'&eid='.EVENT_ADMIN_DELETE_PLAYER, 
+						'Delete account' ,'Delete '.$other->name.'. Are you sure?');
 	$page .= '</td>';
 		
 	$page .= '<td width="165" align="center">';
-	$page .= warquest_link('mid='.$mid.'&oid='.$other->pid.'&sid='.PAGE_PLAYER_LIST.'&eid=19', 'Hack Session');
+	$page .= warquest_link('mid='.$mid.'&oid='.$other->pid.'&sid='.PAGE_PLAYER_LIST.'&eid='.EVENT_ADMIN_HACK_ACCOUNT, 'Hack Session');
 	$page .= '</td>';
 	$page .= '<td width="165" align="right">';
 	$page .= warquest_link('mid='.$mid.'&oid='.$other->pid.'&sid='.PAGE_PLAYER_COPY, 'Copy account');
@@ -1858,7 +1873,7 @@ function warquest_admin_member_form() {
 	$page .=	'</td>';
 	
 	$page .=	'<td width="130" align="right">';
-	$page .=	'<input type="hidden" name="token" value="'.warquest_token('mid='.$mid.'&sid='.PAGE_PLAYER_LIST.'&eid=1').'" />';
+	$page .=	'<input type="hidden" name="token" value="'.warquest_token('mid='.$mid.'&sid='.PAGE_PLAYER_LIST).'" />';
 	$page .=	'<input type="submit" name="Submit" value="Search" />';
 	$page .=	'</td>';
 	
@@ -1901,91 +1916,91 @@ function warquest_admin() {
 	/* Event handler */
 	switch ($eid) {
 						
-		case 2:
+		case EVENT_ADMIN_EDIT:
 			warquest_admin_edit_do();
 			break;
 			
-	   case 3:
+	   case EVENT_ADMIN_DELETE_MSG:
 			warquest_admin_message_delete_do();
 			break;
 			
-		case 6:
+		case EVENT_ADMIN_COPY:
 			warquest_admin_copy_do();
 			break;
 			
-		case 7:
+		case EVENT_ADMIN_DELETE_PLAYER:
 			warquest_admin_delete_do();
 			break;
 			
-		case 8:
+		case EVENT_ADMIN_UPDATE_TIMERS:
 			warquest_admin_update_all_timers_do();
 			break;
 					
-		case 10:
+		case EVENT_ADMIN_UPDATE_MONEY:
 			warquest_admin_update_all_money_do();
 			break;
 		
-		case 16:	
+		case EVENT_ADMIN_NEWS_SAVE:	
 			warquest_admin_news_save_do();
 			break;
 			
-		case 17:	
+		case EVENT_ADMIN_NEWS_DELETE:	
 			warquest_admin_news_delete_do();
 			break;
 			
-		case 18:	
+		case EVENT_ADMIN_UPDATE_STAFF:	
 			warquest_admin_update_building_staff_do();
 			break;
 			
-		case 19:
+		case EVENT_ADMIN_HACK_ACCOUNT:
 			warquest_admin_hack();
 			break;
 			
-		case 20:
+		case EVENT_ADMIN_UPDATE_INTEREST:
 			warquest_cron_player_interest(1);
 			break;
 
-		case 21:
+		case EVENT_ADMIN_CLEAN_BANK_LOG:
 			warquest_cron_clean_bank_log(1);
 			break;			
 			
-		case 27: 
+		case EVENT_ADMIN_UPDATE_INVITATIONS: 
 			warquest_cron_delete_pending_invitations(1);		
 			break;
 			
-		case 28:
+		case EVENT_ADMIN_UPDATE_AWARDS:
 			warquest_admin_player_award_update_do();
 			break;
 
-		case 29:
+		case EVENT_ADMIN_UPDATE_LEVELS:
 			warquest_admin_update_player_level_do();
 			break;
 			
-		case 30:
+		case EVENT_ADMIN_CLEAN_BATTLE_LOG:
 			warquest_cron_clean_battle_log(1);	
 			break;
 			
-		case 31:
+		case EVENT_ADMIN_UPDATE_ROBOTS:
 			warquest_cron_robot_alliancy_update(1);
 			break;
 			
-		case 32:
+		case EVENT_ADMIN_OPTIMIZE_DATABASE:
 			warquest_admin_optimize_tables_do();
 			break;
 			
-		case 33:
+		case EVENT_ADMIN_UPDATE_INCOME:
 			warquest_cron_negative_income(1);
 			break;
 			
-		case 34:
+		case EVENT_ADMIN_SAVE_TWEET:
 			warquest_admin_post_tweet_do();
 			break;
 			
-		case 35:
-			warquest_cron_backup();
+		case EVENT_ADMIN_BACKUP_DATABASE:
+			warquest_cron_backup(1);
 			break;
 			
-		case 500: 
+		case EVENT_SWITCH_PLANET: 
 			warquest_switch_planet_do();
 			break;	
 	}	

@@ -1082,7 +1082,7 @@ function warquest_clan_war_battle_do() {
 		$message .= warquest_lootoption($player->lid);
 		$message .= warquest_show_ads();
 		
-		$link = warquest_link('mid='.$mid.'&sid='.$sid.'&uid='.$uid.'&eid=3',t('LINK_ATTACK'), 'attack-0');
+		$link = warquest_link('mid='.$mid.'&sid='.$sid.'&uid='.$uid.'&eid='.EVENT_BATTLE_CLAN_WAR,t('LINK_ATTACK'), 'attack-0');
 	
 		$popup .= warquest_box("info", $message, $link);
 		
@@ -1138,7 +1138,7 @@ function warquest_clan_war_battle_do() {
 		$message .= warquest_battle_building_lost(warquest_get_default_force());
 		$message .= warquest_show_ads();
 			
-		$link = warquest_link('mid='.$mid.'&sid='.$sid.'&uid='.$uid.'&eid=3',t('LINK_ATTACK'), 'attack-0');
+		$link = warquest_link('mid='.$mid.'&sid='.$sid.'&uid='.$uid.'&eid='.EVENT_BATTLE_CLAN_WAR,t('LINK_ATTACK'), 'attack-0');
 		
 		$popup .= warquest_box("warning", $message, $link);
 		
@@ -1206,7 +1206,7 @@ function warquest_battle_do() {
 	
 		$message = t('BATTLE_DEFENDER_HEALTH_LOW', 
 								player_format($other->pid, $other->name, $other->country));
-		$link = warquest_link('mid='.$mid.'&sid='.$sid.'&oid='.$other->pid.'&uid='.$uid.'&eid=1', t('LINK_ATTACK') ,'attack');
+		$link = warquest_link('mid='.$mid.'&sid='.$sid.'&oid='.$other->pid.'&uid='.$uid.'&eid='.EVENT_BATTLE_NORMAL, t('LINK_ATTACK') ,'attack');
 		$popup .= warquest_box_icon("warning", $message, $link);
 		
 		/* Update battle timestamp */
@@ -1441,7 +1441,7 @@ function warquest_battle_do() {
 		$message .= warquest_show_ads();	
 				
 		if ($sid!=PAGE_BOUNTY) {
-			$link = warquest_link('mid='.$mid.'&sid='.$sid.'&oid='.$other->pid.'&uid='.$uid.'&eid=1',t('LINK_ATTACK'), 'attack-0');
+			$link = warquest_link('mid='.$mid.'&sid='.$sid.'&oid='.$other->pid.'&uid='.$uid.'&eid='.EVENT_BATTLE_NORMAL,t('LINK_ATTACK'), 'attack-0');
 		} else {
 			/* If player wins during bounty hunting, no repeat attack needed */
 			$link = "";
@@ -1513,7 +1513,7 @@ function warquest_battle_do() {
 		
 		$message .= warquest_show_ads();
 				
-		$link =  warquest_link('mid='.$mid.'&sid='.$sid.'&oid='.$other->pid.'&uid='.$uid.'&eid=1',t('LINK_ATTACK'), 'attack-0');
+		$link =  warquest_link('mid='.$mid.'&sid='.$sid.'&oid='.$other->pid.'&uid='.$uid.'&eid='.EVENT_BATTLE_NORMAL,t('LINK_ATTACK'), 'attack-0');
 		$popup .= warquest_box("warning", $message, $link);
 		
 		warquest_sound('battle'.rand(1,8).'.mp3');
@@ -1633,7 +1633,7 @@ function warquest_battle_clan_war_form() {
 	$title = t('BATTLE_CLAN_WAR_TITLE');
 	
 	$lid=15;
-
+		
 	if (($player->planet==PLANET_MOON) && ($player->lid<100)) {
 	
 		$message = '<table>';
@@ -1693,6 +1693,19 @@ function warquest_battle_clan_war_form() {
 		$message .= '</table>';
 		
 		$page .= warquest_box("", $message);
+
+	} else if ($player->cease_fire_date > date("Y-m-d H:i:s", time())) {
+	
+		$value = strtotime($player->cease_fire_date)-time();
+	
+		$page .= '<script language="JavaScript" src="'.$config["content_url"].'js/countdown4.js" type="text/javascript"></script>';
+	
+		$tmp = '<div class="countdown"><div id="countdown_time4"></div></div>';		
+		$page .= warquest_box_icon('info', t('BATTLE_CEASE_FIRE_PERIOD', $tmp));
+		
+		$page .= '<script language="JavaScript" type="text/javascript">';
+		$page .= "countdown4.init(".$value.", 'countdown_time4', '00:00:00');"; 
+		$page .= '</script>';
 	
 	} else {	
 	
@@ -1804,7 +1817,7 @@ function warquest_battle_clan_war_form() {
 			}
 			if (($count==0) || ($cell[$data->x][$data->y]['owner']==2)) {
 				$page .= '<area shape="poly" coords="'.calcPologon($data->x,$data->y).'" title="'.$tmp.'" href="javascript:link(\'';
-				$page .= warquest_token('mid='.$mid.'&sid='.$sid.'&uid='.$data->sid.'&eid=3').'\');" />';
+				$page .= warquest_token('mid='.$mid.'&sid='.$sid.'&uid='.$data->sid.'&eid='.EVENT_BATTLE_CLAN_WAR).'\');" />';
 			}		
 		}
 		$page .= '</map>';	
@@ -1996,7 +2009,7 @@ function warquest_battle_bounty_form() {
 				
 				$page .= '<td align="right">';
 				if (($player->pid!=$data->pid2) && ($data->approved==0)) {
-					$page .= warquest_link('mid='.$mid.'&sid='.$sid.'&oid='.$data->pid1.'&uid='.$data->id.'&eid=1', t('LINK_ATTACK'), "attack-".$count);
+					$page .= warquest_link('mid='.$mid.'&sid='.$sid.'&oid='.$data->pid1.'&uid='.$data->id.'&eid='.EVENT_BATTLE_NORMAL, t('LINK_ATTACK'), "attack-".$count);
 				}
 				$page .= '</td>';
 				
@@ -2187,12 +2200,12 @@ function warquest_battle_enemy_form() {
 				if (($player->lid>=10) && ($data->bounty==0) && ($data->country!="EU") && ($data->approved==0)) {
 		
 					if (warquest_db_query_pattern($player, PATTERN_BOUNTY)==0) {
-						$page .= warquest_link('mid='.$mid.'&sid='.$sid.'&eid=2&oid='.$data->pid, t('LINK_BOUNTY'), "bounty-".($count+100)).' ';
+						$page .= warquest_link('mid='.$mid.'&sid='.$sid.'&eid='.EVENT_BATTLE_BOUNTY.'&oid='.$data->pid, t('LINK_BOUNTY'), "bounty-".($count+100)).' ';
 					} else {
 					
 						/* Calculate bounty price */
 						$money = $data->lid * $data->lid * $data->lid * 100;
-						$page .= warquest_link_confirm('mid='.$mid.'&sid='.$sid.'&eid=2&oid='.$data->pid, t('LINK_BOUNTY'), 
+						$page .= warquest_link_confirm('mid='.$mid.'&sid='.$sid.'&eid='.EVENT_BATTLE_BOUNTY.'&oid='.$data->pid, t('LINK_BOUNTY'), 
 							t('BATTLE_BOUNTY_CONFIRM',number_format($money,0,",",".")));
 					}			
 				}
@@ -2200,7 +2213,7 @@ function warquest_battle_enemy_form() {
 					
 				$page .= '<td align="right">';
 				if ( $data->approved==0 ) {
-					$page .= warquest_link('mid='.$mid.'&sid='.$sid.'&oid='.$data->pid.'&eid=1', t('LINK_ATTACK'), "attack-".$count);
+					$page .= warquest_link('mid='.$mid.'&sid='.$sid.'&oid='.$data->pid.'&eid='.EVENT_BATTLE_NORMAL, t('LINK_ATTACK'), "attack-".$count);
 				}
 				$page .= '</td>';
 				$page .= '</tr>';
@@ -2268,17 +2281,21 @@ function warquest_battle() {
 	/* Event handler */
 	switch ($eid ) {
 	
-		case 1:  warquest_battle_do();
+		case EVENT_BATTLE_NORMAL:  
+					warquest_battle_do();
 					break;
 							  				  
-		case 2:	warquest_player_bounty_do();
+		case EVENT_BATTLE_BOUNTY:	
+					warquest_player_bounty_do();
 					break;	
 
-		case 3:	warquest_clan_war_battle_do();
+		case EVENT_BATTLE_CLAN_WAR:	
+					warquest_clan_war_battle_do();
 					break;	
 					
-		case 500: 	warquest_switch_planet_do();
-						break;					  
+		case EVENT_SWITCH_PLANET: 	
+					warquest_switch_planet_do();
+					break;					  
 	}
 		
 	/* Page handler */

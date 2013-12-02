@@ -158,8 +158,6 @@ $lang['LINK_STATS']  = 'Stats';
 $lang['LINK_ABOUT']  = 'Over';
 $lang['LINK_DONATE']  = 'Donatie';
 
-$lang['LINK_DISABLED'] = 'Gedeactiveerd';
-
 /*
 ** ------------------
 ** GENERAL 
@@ -406,7 +404,7 @@ $lang['HOME_TITLE'] = 'START';
 
 $lang['HOME_FLASH_NEWS_TITLE'] = 'Laatste Nieuws';
 
-$lang['HOME_LASTEST_FORUM_POST'] = 'Laatste forum bericht';
+$lang['HOME_LASTEST_FORUM_ITEM'] = 'Laatste forum bericht';
 
 $lang['HOME_INTRO_PLAYERS'] = 'Op dit moment zijn er %s spelers uit %s landen actief, ';
 $lang['HOME_INTRO_FIGHTS'] = '%s gevechten hebben plaats gevonden en ';
@@ -636,7 +634,7 @@ $lang['SETTING_SOUND'] = 'Geluid aanzetten (Experiment)';
 $lang['SETTING_BOUNTY'] = 'Activeer premie bevestigingspopup';
 $lang['SETTING_RESTORE'] = 'Activeer herstel / repareer bevestigingspopup';
 $lang['SETTING_CONDITION'] = 'Activeer eenheden/gebouwen conditie informatie in header';
-$lang['SETTING_FORUM_POST'] = 'Activeer laatste forum post op home pagina';
+$lang['SETTING_FORUM_SORT'] = 'Activeer laatste forum post op home pagina';
 $lang['SETTING_SORT1'] = 'Activeer laatste forum bericht on thuis scherm.';
 $lang['SETTING_SORT2'] = ' Enable oldest battle player on top at battle list.';
 $lang['SETTING_NO_BOT_NEWS'] = 'Deactiveer robot vecht nieuws.';

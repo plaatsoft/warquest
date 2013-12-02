@@ -518,12 +518,12 @@ function warquest_building_form() {
 		$page .= '</td>';
 	
 		$page .= '<td valign="top" width="100">';
-		$page .= warquest_link('mid='.$mid.'&sid='.$sid.'&ssid='.$ssid.'&uid='.$data->bid.'&eid=1', t('LINK_BUY'),"buy-".$count1);
+		$page .= warquest_link('mid='.$mid.'&sid='.$sid.'&ssid='.$ssid.'&uid='.$data->bid.'&eid='.EVENT_BUILDING_BUY, t('LINK_BUY'),"buy-".$count1);
 			
 		/* Prevent buy with discount, sell without discount */
 		if ($building_group->sell==1) {
 			$page .= '<span class="right2">';
-			$page .= warquest_link('mid='.$mid.'&sid='.$sid.'&ssid='.$ssid.'&uid='.$data->bid.'&eid=2', t('LINK_SELL'), "sell-".$count1);
+			$page .= warquest_link('mid='.$mid.'&sid='.$sid.'&ssid='.$ssid.'&uid='.$data->bid.'&eid='.EVENT_BUILDING_SELL, t('LINK_SELL'), "sell-".$count1);
 			$page .= '</span>';
 		}		  
 	
@@ -639,29 +639,20 @@ function warquest_building() {
 	
 	/* input */
 	global $eid;
-	global $sequence;
-	global $player;
 	
-		/* output */
-	global $popup;
-	
-	/*if ($sequence != $player->request) {
-	
-		$message = t('SYSTEM_HACK_DETECTED');
-		$popup .= warquest_box_icon("warning", $message);	
-		return;
-	}*/
-		
 	/* event handler */
 	switch ($eid) {
 	
-		case 1:  	warquest_building_buy_do();
+		case EVENT_BUILDING_BUY:  	
+						warquest_building_buy_do();
 						break;
 				
-		case 2:   	warquest_building_sell_do();
+		case EVENT_BUILDING_SELL:   	
+						warquest_building_sell_do();
 						break;	
 
-		case 500: 	warquest_switch_planet_do();
+		case EVENT_SWITCH_PLANET: 	
+						warquest_switch_planet_do();
 						break;			  
 	}
 

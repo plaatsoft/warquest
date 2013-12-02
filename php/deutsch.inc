@@ -384,7 +384,7 @@ $lang['HOME_TITLE'] = 'HOME';
 
 $lang['HOME_FLASH_NEWS_TITLE'] = 'Breaking News';
 
-$lang['HOME_LASTEST_FORUM_POST'] = 'Letzter Forum Post';
+$lang['HOME_LASTEST_FORUM_ITEM'] = 'Letzter Forum Post';
 
 $lang['HOME_INTRO_PLAYERS'] = 'Im Moment sind %s Spieler aus %s Ländern aktiv, ';
 $lang['HOME_INTRO_FIGHTS'] = '%s Kämpfe wurden ausgetragen und ';
@@ -660,7 +660,7 @@ $lang['SETTING_SOUND'] = 'Sound aktivieren (Experimental)';
 $lang['SETTING_BOUNTY'] = 'Kopfgeld Bestätigung aktivieren.';
 $lang['SETTING_RESTORE'] = 'Wiederherstellen & Reparatur Bestätigung aktivieren.';
 $lang['SETTING_CONDITION'] = 'Zustand von Einheiten/Gebäuden/Aufstand in einem Banner aktivieren.';
-$lang['SETTING_FORUM_POST'] = 'Letzten Eintrag vom Forum auf der Start-Seite aktivieren.';
+$lang['SETTING_FORUM_SORT'] = 'Letzten Eintrag vom Forum auf der Start-Seite aktivieren.';
 $lang['SETTING_SORT1'] = 'Die neuesten Nachrichten oben im Forum.';
 $lang['SETTING_SORT2'] = 'Älteste Spieler nach oben in der Kampf-Liste.';
 

@@ -403,7 +403,7 @@ $lang['HOME_TITLE'] = 'HOME';
 
 $lang['HOME_FLASH_NEWS_TITLE'] = 'Notizie dell\'ultima ora';
 
-$lang['HOME_LASTEST_FORUM_POST'] = 'Post più recente nel forum';
+$lang['HOME_LASTEST_FORUM_ITEM'] = 'Post più recente nel forum';
 
 $lang['HOME_INTRO_PLAYERS'] = 'Al momento %s giocatori da %s paesi sono attivi, ';
 $lang['HOME_INTRO_FIGHTS'] = '%s lotte hanno avuto luogo e ';
@@ -648,7 +648,7 @@ $lang['SETTING_SOUND'] = 'Attiva audio (Sperimentale)';
 $lang['SETTING_BOUNTY'] = 'Abilita pop-up conferma taglia.';
 $lang['SETTING_RESTORE'] = 'Abilita pop-up conferma ricarica & ripara.';
 $lang['SETTING_CONDITION'] = 'Abilita info Unità/Edifici/Condizione rivolta nel banner principale.';
-$lang['SETTING_FORUM_POST'] = 'Abilita post forum più recente nella pagina di riepilogo nella Home.';
+$lang['SETTING_FORUM_SORT'] = 'Abilita post forum più recente nella pagina di riepilogo nella Home.';
 $lang['SETTING_SORT1'] = 'Mostra il messaggio più recente in cima al forum.';
 $lang['SETTING_SORT2'] = 'Mostra il giocatore più vecchio in cima alla lista delle lotte.';
 
