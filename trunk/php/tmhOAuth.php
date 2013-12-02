@@ -211,7 +211,7 @@ class tmhOAuth {
    * Prepares the HTTP method for use in the base string by converting it to
    * uppercase.
    *
-   * @param string $method an HTTP method such as GET or POST
+   * @param string $method an HTTP method such as get or post
    * @return void value is stored to a class variable
    * @author themattharris
    */
@@ -274,7 +274,7 @@ class tmhOAuth {
     // Ref: Spec: 9.1.1 (1)
     uksort($this->signing_params, 'strcmp');
 
-    // encode. Also sort the signed parameters from the POST parameters
+    // encode. Also sort the signed parameters from the post parameters
     foreach ($this->signing_params as $k => $v) {
       $k = $this->safe_encode($k);
       $v = $this->safe_encode($v);
@@ -350,7 +350,7 @@ class tmhOAuth {
    * Signs the request and adds the OAuth signature. This runs all the request
    * parameter preparation methods.
    *
-   * @param string $method the HTTP method being used. e.g. POST, GET, HEAD etc
+   * @param string $method the HTTP method being used. e.g. post, get, HEAD etc
    * @param string $url the request URL without query string parameters
    * @param array $params the request parameters as an array of key=value pairs
    * @param string $useauth whether to use authentication when making the request.
@@ -379,7 +379,7 @@ class tmhOAuth {
    * Make an HTTP request using this library. This method doesn't return anything.
    * Instead the response should be inspected directly.
    *
-   * @param string $method the HTTP method being used. e.g. POST, GET, HEAD etc
+   * @param string $method the HTTP method being used. e.g. post, get, HEAD etc
    * @param string $url the request URL without query string parameters
    * @param array $params the request parameters as an array of key=value pairs
    * @param string $useauth whether to use authentication when making the request. Default true.
@@ -402,7 +402,7 @@ class tmhOAuth {
    * Using this method expects a callback which will receive the streaming
    * responses.
    *
-   * @param string $method the HTTP method being used. e.g. POST, GET, HEAD etc
+   * @param string $method the HTTP method being used. e.g. post, get, HEAD etc
    * @param string $url the request URL without query string parameters
    * @param array $params the request parameters as an array of key=value pairs
    * @param string $callback the callback function to stream the buffer to.
@@ -544,11 +544,11 @@ class tmhOAuth {
       case 'POST':
         break;
       default:
-        // GET, DELETE request so convert the parameters to a querystring
+        // get, DELETE request so convert the parameters to a querystring
         if ( ! empty($this->request_params)) {
           foreach ($this->request_params as $k => $v) {
             // Multipart params haven't been encoded yet.
-            // Not sure why you would do a multipart GET but anyway, here's the support for it
+            // Not sure why you would do a multipart get but anyway, here's the support for it
             if ($this->config['multipart']) {
               $params[] = $this->safe_encode($k) . '=' . $this->safe_encode($v);
             } else {

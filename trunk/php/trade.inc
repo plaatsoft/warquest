@@ -100,7 +100,7 @@ function warquest_trade_do() {
 				}
 			}	
 		
-			$link  = warquest_link('mid='.$mid.'&sid='.$sid.'&eid=20&uid='.$uid, t('HOME_TRADE_IN'), "trade");
+			$link  = warquest_link('mid='.$mid.'&sid='.$sid.'&eid='.EVENT_HOME_TRADE.'&uid='.$uid, t('HOME_TRADE_IN'), "trade");
 			$link .= '<br/><br/>'.t('GENERAL_AMOUNT').'<br/>';		
 			$link .= warquest_amount_selected($max);
 		}
@@ -148,7 +148,7 @@ function warquest_trade_form() {
 	$page .= '<td width="330" valign="top" >';
 	
 	$page .= '<div class="right">';
-	$page .= warquest_link('mid='.$mid.'&sid='.$sid.'&eid=20&uid=1', t('HOME_TRADE_IN'), "trade1");
+	$page .= warquest_link('mid='.$mid.'&sid='.$sid.'&eid='.EVENT_HOME_TRADE.'&uid=1', t('HOME_TRADE_IN'), "trade1");
 	$page .= '</div>';
 		
 	$page .= '<div class="subparagraph">';
@@ -185,7 +185,7 @@ function warquest_trade_form() {
 	$page .= '<td width="330" valign="top" >';
 	
 	$page .= '<div class="right">';
-	$page .= warquest_link('mid='.$mid.'&sid='.$sid.'&eid=20&uid=2', t('HOME_TRADE_IN'), "trade2");
+	$page .= warquest_link('mid='.$mid.'&sid='.$sid.'&eid='.EVENT_HOME_TRADE.'&uid=2', t('HOME_TRADE_IN'), "trade2");
 	$page .= '</div>';
 		
 	$page .= '<div class="subparagraph">';
@@ -222,7 +222,7 @@ function warquest_trade_form() {
 	$page .= '<td width="330" valign="top" >';
 	
 	$page .= '<div class="right">';
-	$page .= warquest_link('mid='.$mid.'&sid='.$sid.'&eid=20&uid=3', t('HOME_TRADE_IN'), "trade3");
+	$page .= warquest_link('mid='.$mid.'&sid='.$sid.'&eid='.EVENT_HOME_TRADE.'&uid=3', t('HOME_TRADE_IN'), "trade3");
 	$page .= '</div>';
 		
 	$page .= '<div class="subparagraph">';
@@ -259,7 +259,7 @@ function warquest_trade_form() {
 	$page .= '<td width="330" valign="top" >';
 	
 	$page .= '<div class="right">';
-	$page .= warquest_link('mid='.$mid.'&sid='.$sid.'&eid=20&uid=4', t('HOME_TRADE_IN'), "trade4");
+	$page .= warquest_link('mid='.$mid.'&sid='.$sid.'&eid='.EVENT_HOME_TRADE.'&uid=4', t('HOME_TRADE_IN'), "trade4");
 	$page .= '</div>';
 		
 	$page .= '<div class="subparagraph">';
@@ -287,7 +287,7 @@ function warquest_trade_form() {
 	$page .= '<td width="330" valign="top" >';
 	
 	$page .= '<div class="right">';
-	$page .= warquest_link('mid='.$mid.'&sid='.$sid.'&eid=20&uid=5', t('HOME_TRADE_IN'), "trade5");
+	$page .= warquest_link('mid='.$mid.'&sid='.$sid.'&eid='.EVENT_HOME_TRADE.'&uid=5', t('HOME_TRADE_IN'), "trade5");
 	$page .= '</div>';
 		
 	$page .= '<div class="subparagraph">';
@@ -324,10 +324,16 @@ function warquest_trade_event() {
 				
 	switch ($eid) {
 										
-		case 20:
-			warquest_trade_do();
-			break;					
+		case EVENT_HOME_TRADE:
+				warquest_trade_do();
+				break;					
 	}	
 }
+
+/*
+** ------------
+** THE END
+** ------------
+*/
 
 ?>

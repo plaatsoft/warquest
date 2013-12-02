@@ -24,10 +24,7 @@ include "english.inc";
 warquest_db_connect($config["dbhost"], $config["dbuser"], $config["dbpass"], $config["dbname"]);
 
 /* Fetch HTML posted token variable */
-$token="";
-if (isset($_GET["token"])) {
-	$token = $_GET["token"];
-} 
+$token = warquest_get('token' ,'');
 
 if (strlen($token)>0) {
 	

@@ -158,8 +158,6 @@ $lang['LINK_STATS']  = 'Stats';
 $lang['LINK_DONATE']  = 'Donate';
 $lang['LINK_ABOUT']  = 'About';
 
-$lang['LINK_DISABLED'] = 'Disabled';
-
 /*
 ** ------------------
 ** GENERAL 
@@ -408,7 +406,7 @@ $lang['HOME_TITLE'] = 'HOME';
 
 $lang['HOME_FLASH_NEWS_TITLE'] = 'Breaking news';
 
-$lang['HOME_LASTEST_FORUM_POST'] = 'Latest forum post';
+$lang['HOME_LASTEST_FORUM_ITEM'] = 'Latest forum post';
 
 $lang['HOME_INTRO_PLAYERS'] = 'At the moment %s players from %s countries are active, ';
 $lang['HOME_INTRO_FIGHTS'] = '%s fights took place and ';
@@ -706,7 +704,7 @@ $lang['SETTING_SOUND'] = 'Enable sound (Experimental)';
 $lang['SETTING_BOUNTY'] = 'Enable bounty confirmation popup.';
 $lang['SETTING_RESTORE'] = 'Enable restore & repair confirmation popup.';
 $lang['SETTING_CONDITION'] = 'Enable Unit/Building/Rebel condition information in banner.';
-$lang['SETTING_FORUM_POST'] = 'Enable latest forum post on home overview page.';
+$lang['SETTING_FORUM_SORT'] = 'Enable latest forum post on home overview page.';
 $lang['SETTING_SORT1'] = 'Enable newest message on top at forum.';
 $lang['SETTING_SORT2'] = 'Enable oldest battle player on top at battle list.';
 $lang['SETTING_NO_BOT_NEWS'] = 'Disable robot battle news and notifcations.';
@@ -2844,6 +2842,7 @@ $lang['GENERAL_COMMANDER'] = 'Commander';
 $lang['GENERAL_CREATED'] = 'Created';
 $lang['GENERAL_RESULT'] = 'Result';
 $lang['GENERAL_CLAN'] = 'Clan';
+$lang['GENERAL_ALL']  = 'All';
 
 $lang['LINK_JOIN'] = 'Join';
 $lang['LINK_LEAVE'] = 'Leave';

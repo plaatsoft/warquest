@@ -31,10 +31,13 @@
 /**
  * Cron backup job 
  */
-function warquest_cron_backup() {
+function warquest_cron_backup($output=0) {
 
 	/* input */
 	global $config;
+	
+	/* output */
+	global $popup;
 	
 	/* Remove old database backup file */
 	$prev_date = mktime(date("H"), date("i"), date("s"), date("m"), date("d")-$config['backup_period'], date("Y"));
@@ -50,7 +53,12 @@ function warquest_cron_backup() {
 	system($command);
 		
 	$message = 'Create new backup file '.$filename.'<br/>';
-	warquest_info($message);
+	
+	if ($output==1) {
+		$popup .= warquest_box_icon("info", $message);
+	} else {
+		warquest_info($message);
+	}
 }
 
 
@@ -59,7 +67,7 @@ function warquest_cron_negative_income($output=0) {
 	/* input */
 	global $config;
 	
-		/* output */
+	/* output */
 	global $popup;
 	
 	$query1 = 'select pid from player where money_step<0'; 
@@ -89,11 +97,8 @@ function warquest_cron_negative_income($output=0) {
 	$message = 'Unit sold by '.$count.' player(s) to get positive hourly income again!<br/>';
 
 	if ($output==1) {
-	
-		$popup .= warquest_box_icon("info", $message);
-		
+		$popup .= warquest_box_icon("info", $message);	
 	} else {
-	
 		warquest_info($message);
 	}
 }
@@ -139,7 +144,6 @@ function warquest_cron_statistics($output=0) {
 	$message = 'Statistics of '.date("d-m-Y", $date).' updated!'; 
 	
 	if ($output!=1) {
-	
 		warquest_info($message);
 	}	
 }
@@ -178,11 +182,8 @@ function warquest_cron_delete_pending_invitations($output=0) {
 	$message = $count.' pending ally request cleared! <br/>';
 
 	if ($output==1) {
-	
 		$popup .= warquest_box_icon("info", $message);
-		
 	} else {
-	
 		warquest_info($message);
 	}
 }
@@ -277,11 +278,8 @@ function warquest_cron_robot_alliancy_update($output=0) {
 	$message = $count.' alliance requested accepted!<br/>In total '.$robots.' robots checked.';
 	
 	if ($output==1) {
-	
 		$popup .= warquest_box_icon("info", $message);
-		
 	} else {
-	
 		warquest_info($message);
 	}
 }
@@ -342,11 +340,8 @@ function warquest_cron_player_interest($output=0) {
 	$message = number_format2($count).' players interest updated!';
 	
 	if ($output==1) {
-	
 		$popup .= warquest_box_icon("info", $message);
-		
 	} else {
-			
 		warquest_info($message);
 	}
 }
@@ -375,11 +370,8 @@ function warquest_cron_clean_bank_log($output=0) {
 	$message = $count.' bank records are deleted!';
 
 	if ($output==1) {
-	
 		$popup .= warquest_box_icon("info", $message);
-		
 	} else {
-	
 		warquest_info($message);
 	}
 }

@@ -64,7 +64,7 @@ function warquest_money() {
 	/* Event handler */
 	switch ($eid) {
 			
-		case 500: 
+		case EVENT_SWITCH_PLANET: 
 			warquest_switch_planet_do();
 			break;
 	}	

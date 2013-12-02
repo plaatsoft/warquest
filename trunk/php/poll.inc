@@ -251,9 +251,9 @@ function warquest_poll_form() {
 			
 		if ($data1->disabled==0) {
 			if ($answer==0) {
-				$page .= warquest_link('mid='.$mid.'&sid='.$sid.'&eid=100&tid='.$data1->poll_id, t('POLL_VOTE'), 'vote-'.$count);	
+				$page .= warquest_link('mid='.$mid.'&sid='.$sid.'&eid='.EVENT_FORUM_POLL_VOTE.'&tid='.$data1->poll_id, t('POLL_VOTE'), 'vote-'.$count);	
 			} else {
-				$page .= warquest_link('mid='.$mid.'&sid='.$sid.'&eid=101&tid='.$data1->poll_id, t('POLL_CANCEL'), 'cancel-'.$count);			
+				$page .= warquest_link('mid='.$mid.'&sid='.$sid.'&eid='.EVENT_FORUM_POLL_UNVOTE.'&tid='.$data1->poll_id, t('POLL_CANCEL'), 'cancel-'.$count);			
 			}
 			$page .= "<br/><br/>";
 		}
@@ -307,11 +307,13 @@ function warquest_poll_events() {
 	/* Event handler */
 	switch ($eid) {
 	
-		case 100: warquest_poll_vote_add_do();
-					 break;	
+		case EVENT_FORUM_POLL_VOTE: 
+					warquest_poll_vote_add_do();
+					break;	
 
-		case 101: warquest_poll_vote_remove_do();
-					 break;		
+		case EVENT_FORUM_POLL_UNVOTE: 
+					warquest_poll_vote_remove_do();
+					break;		
 					 
 	}
 }

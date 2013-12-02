@@ -22,13 +22,8 @@
 ** ----------
 */
 
-if (isset($_POST['symbol']) && $_POST['symbol'] != "") {
-	$symbol = $_POST['symbol'];
-	$symbol = stripslashes($symbol);
-	$symbol = warquest_db_escape($symbol);
-	$symbol = strtoupper($symbol);
-}
-	
+$symbol = warquest_post('symbol', '');	
+
 /*
 ** ----------
 ** UTILS
@@ -217,7 +212,7 @@ function warquest_stock_buy_do() {
 	/* input */
 	global $mid;
 	global $sid;
-	global $cid;
+	global $id;
 	
 	global $eid;
 	global $gid;	
@@ -282,7 +277,7 @@ function warquest_stock_buy_do() {
 		$message .= '</tr>';
 		$message .= '</table>';
 
-		$link  = warquest_link('mid='.$mid.'&sid='.$sid.'&cid='.$cid.'&uid='.$uid.'&eid='.$eid.'&gid='.$gid, t('LINK_BUY_AGAIN'), 'buy-0');
+		$link  = warquest_link('mid='.$mid.'&sid='.$sid.'&id='.$id.'&uid='.$uid.'&eid='.$eid.'&gid='.$gid, t('LINK_BUY_AGAIN'), 'buy-0');
 		$link .= '<br/><br/>Amount<br/>';
 		$link .= warquest_stock_amount_selected();
 		
@@ -304,11 +299,11 @@ function warquest_stock_buy_do() {
 		$message .= '</tr>';
 		$message .= '</table>';
 
-		$link  = warquest_link('mid='.$mid.'&sid='.$sid.'&cid='.$cid.'&uid='.$uid.'&eid='.$eid.'&gid='.$gid, t('LINK_BUY_AGAIN'), 'buy-0');
+		$link  = warquest_link('mid='.$mid.'&sid='.$sid.'&id='.$id.'&uid='.$uid.'&eid='.$eid.'&gid='.$gid, t('LINK_BUY_AGAIN'), 'buy-0');
 		$link .= '<br/><br/>Amount<br/>';
 		$link .= warquest_stock_amount_selected();
 		
-		$link  = warquest_link('mid='.$mid.'&sid='.$sid.'&cid='.$cid.'&uid='.$uid.'&eid='.$eid.'&gid='.$gid, t('LINK_BUY_AGAIN'), 'buy-0');
+		$link  = warquest_link('mid='.$mid.'&sid='.$sid.'&id='.$id.'&uid='.$uid.'&eid='.$eid.'&gid='.$gid, t('LINK_BUY_AGAIN'), 'buy-0');
 	
 		$popup .= warquest_box("warning", $message, $link);		
 	
@@ -345,7 +340,7 @@ function warquest_stock_buy_do() {
 		$message .= '</tr>';
 		$message .= '</table>';
 		
-		$link  = warquest_link('mid='.$mid.'&sid='.$sid.'&cid='.$cid.'&uid='.$uid.'&eid='.$eid.'&gid='.$gid, t('LINK_BUY_AGAIN'), 'buy-0');
+		$link  = warquest_link('mid='.$mid.'&sid='.$sid.'&id='.$id.'&uid='.$uid.'&eid='.$eid.'&gid='.$gid, t('LINK_BUY_AGAIN'), 'buy-0');
 		$link .= '<br/><br/>'.t('GENERAL_AMOUNT').'<br/>';
 		$link .= warquest_stock_amount_selected();
 			
@@ -358,7 +353,7 @@ function warquest_stock_sell_do() {
 	/* input */
 	global $mid;
 	global $sid;
-	global $cid;
+	global $id;
 	global $eid;
 	
 	global $gid;
@@ -419,12 +414,12 @@ function warquest_stock_sell_do() {
 		$message .= '</tr>';
 		$message .= '</table>';
 
-		$link = warquest_link('mid='.$mid.'&sid='.$sid.'&cid='.$cid.'&uid='.$uid.'&eid='.$eid.'&gid='.$gid, t('LINK_SELL_AGAIN'), 'sell-0');
+		$link = warquest_link('mid='.$mid.'&sid='.$sid.'&id='.$id.'&uid='.$uid.'&eid='.$eid.'&gid='.$gid, t('LINK_SELL_AGAIN'), 'sell-0');
 		$link .= '<br/><br/>'.t('GENERAL_AMOUNT').'<br/>';
 		$link .= warquest_stock_amount_selected($amountOld);
 		
-		if (($cid==4) && ($amountOld==0)) {
-			$link = warquest_link('mid='.$mid.'&sid='.$sid.'&cid='.$cid.'&uid='.$uid.'&eid=6', t('STOCK_REMOVE'), 'remove');
+		if (($id==4) && ($amountOld==0)) {
+			$link = warquest_link('mid='.$mid.'&sid='.$sid.'&id='.$id.'&uid='.$uid.'&eid='.EVENT_STOCK_REMOVE, t('STOCK_REMOVE'), 'remove');
 		}
 				
 		$popup .= warquest_box("warning", $message, $link);
@@ -442,7 +437,7 @@ function warquest_stock_sell_do() {
 		$message .= '</tr>';
 		$message .= '</table>';
 
-		$link  = warquest_link('mid='.$mid.'&sid='.$sid.'&cid='.$cid.'&uid='.$uid.'&eid='.$eid.'&gid='.$gid, t('LINK_BUY_AGAIN'), 'buy-0');
+		$link  = warquest_link('mid='.$mid.'&sid='.$sid.'&id='.$id.'&uid='.$uid.'&eid='.$eid.'&gid='.$gid, t('LINK_BUY_AGAIN'), 'buy-0');
 		$link .= '<br/><br/>Amount<br/>';
 		$link .= warquest_stock_amount_selected($amountOld);
 		
@@ -483,13 +478,13 @@ function warquest_stock_sell_do() {
 		
 		$link = "";
 		if (($amountOld-$amount2)>0) {
-			$link = warquest_link('mid='.$mid.'&sid='.$sid.'&cid='.$cid.'&uid='.$uid.'&eid='.$eid.'&gid='.$gid, t('LINK_SELL_AGAIN'), 'sell-0');
+			$link = warquest_link('mid='.$mid.'&sid='.$sid.'&id='.$id.'&uid='.$uid.'&eid='.$eid.'&gid='.$gid, t('LINK_SELL_AGAIN'), 'sell-0');
 			$link .= '<br/><br/>'.t('GENERAL_AMOUNT').'<br/>';
 			$link .= warquest_stock_amount_selected($amountOld-$amount2);
 		}
 
-		if (($cid==4) && (($amountOld-$amount2)==0)) {
-			$link = warquest_link('mid='.$mid.'&sid='.$sid.'&cid='.$cid.'&uid='.$uid.'&eid=6', t('STOCK_REMOVE'), 'remove');
+		if (($id==4) && (($amountOld-$amount2)==0)) {
+			$link = warquest_link('mid='.$mid.'&sid='.$sid.'&id='.$id.'&uid='.$uid.'&eid='.EVENT_STOCK_REMOVE, t('STOCK_REMOVE'), 'remove');
 		}
 					
 		$popup .= warquest_box("info", $message, $link);
@@ -507,7 +502,7 @@ function warquest_stock_add_form() {
 	/* input */
 	global $mid;
 	global $sid;
-	global $cid;
+	global $id;
 
 	global $uid;
 	global $player;
@@ -521,7 +516,7 @@ function warquest_stock_add_form() {
 	$page .= ' ';	
 	$page .= '<input name="symbol" type="text" id="symbol" size="15" maxlength="10" />';	
 	$page .= ' ';
-	$page .= warquest_link('mid='.$mid.'&sid='.$sid.'&cid='.$cid.'&eid=5', t('STOCK_ADD'), 'add');
+	$page .= warquest_link('mid='.$mid.'&sid='.$sid.'&id='.$id.'&eid='.EVENT_STOCK_ADD, t('STOCK_ADD'), 'add');
 	$page .= '</div>';
 	
 	$page .= '<div class="note">';
@@ -535,7 +530,7 @@ function warquest_stock_form() {
 	/* input */
 	global $mid;
 	global $sid;
-	global $cid;
+	global $id;
 
 	global $uid;
 	global $player;
@@ -545,15 +540,15 @@ function warquest_stock_form() {
 	global $page; 
 	global $title;
 
-	$title = t('STOCK_GROUP_'.$cid);
+	$title = t('STOCK_GROUP_'.$id);
 
 	$page .= '<div class="subparagraph">';	
-	$page .= t('STOCK_GROUP_'.$cid).' '.t('GENERAL_STOCKS');
+	$page .= t('STOCK_GROUP_'.$id).' '.t('GENERAL_STOCKS');
 	$page .= '</div>';
 	
 	/* Get player data */	
-	$query  = 'select symbol from stock where gsid='.$cid;
-	if ($cid==4) {
+	$query  = 'select symbol from stock where gsid='.$id;
+	if ($id==4) {
 		$query .= ' and pid='.$player->pid;
 	}
 	$query .= ' order by sid asc'; 
@@ -569,7 +564,7 @@ function warquest_stock_form() {
 		$symbols .= $data->symbol;
 	}
 
-	if ($cid==4) {
+	if ($id==4) {
 		$page .= warquest_stock_add_form();
 	}
 	
@@ -589,8 +584,8 @@ function warquest_stock_form() {
 		/* Get player data */
 		$query  = "select a.sid, a.symbol, IFNULL(b.amount, 0) as amount, IFNULL(b.cost, 0) as cost ";
 		$query .= 'from stock a left join player_stock b ';
-		$query .= 'on a.sid=b.sid and b.pid='.$player->pid.' where a.gsid='.$cid;		
-		if ($cid==4) {
+		$query .= 'on a.sid=b.sid and b.pid='.$player->pid.' where a.gsid='.$id;		
+		if ($id==4) {
 			$query .= ' and a.pid='.$player->pid;
 		}
 		$query .= ' order by a.symbol asc';  
@@ -635,12 +630,13 @@ function warquest_stock_form() {
 			
 			$page .= '<td width="100" >';		
 			$page .= money_format2($price*100);
-			$page .= '<br/>'.warquest_link('mid='.$mid.'&sid='.$sid.'&cid='.$cid.'&uid='.$data->sid.'&eid=3', t('LINK_BUY'),"buy-".$count);
+			$page .= '<br/>';
+			$page .= warquest_link('mid='.$mid.'&sid='.$sid.'&id='.$id.'&uid='.$data->sid.'&eid='.EVENT_STOCK_BUY, t('LINK_BUY'),"buy-".$count);
 			$page .= '</td>';
 			
 			$page .= '<td width="150" >';		
 			$page .= t('GENERAL_AMOUNT').': '.number_format2($data->amount).'<br/>';	
-			$page .= warquest_link('mid='.$mid.'&sid='.$sid.'&cid='.$cid.'&uid='.$data->sid.'&eid=4', t('LINK_SELL'), "sell-".($count+100));
+			$page .= warquest_link('mid='.$mid.'&sid='.$sid.'&id='.$id.'&uid='.$data->sid.'&eid='.EVENT_STOCK_SELL, t('LINK_SELL'), "sell-".($count+100));
 						
 			$page .= '</td>';
 		
@@ -679,21 +675,24 @@ function warquest_stock() {
 
 	/* input */
 	global $eid;
-	global $cid;
 			
 	/* Event handler */
-	switch ($eid ) {
+	switch ($eid) {
 	
-		case 3:	warquest_stock_buy_do();
+		case EVENT_STOCK_BUY:	
+					warquest_stock_buy_do();
 					break;		
 				
-		case 4:	warquest_stock_sell_do();
+		case EVENT_STOCK_SELL:	
+					warquest_stock_sell_do();
 					break;		
 					
-		case 5:	warquest_stock_add_do();
+		case EVENT_STOCK_ADD:	
+					warquest_stock_add_do();
 					break;	
 					
-		case 6:	warquest_stock_remove_do();
+		case EVENT_STOCK_REMOVE:	
+					warquest_stock_remove_do();
 					break;	
 	}
 	

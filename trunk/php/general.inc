@@ -18,153 +18,9 @@
 
 /*
 ** ------------------
-** DEFINES
-** ------------------
-*/
-
-define('PLANET_EARTH',        0);
-define('PLANET_MOON',         1);
-define('PLANET_MARS',         2);
-define('PLANET_ASTEROID',     3);
-define('PLANET_SUN',     		4);
-
-/* Main menu */
-define('MENU_LOGIN',          1000);
-define('MENU_HOME',           1001);
-define('MENU_MISSIONS',       1002);
-define('MENU_BATTLE',         1003);
-define('MENU_UNITS',          1004);
-define('MENU_BUILDINGS',      1005);
-define('MENU_MONEY',          1006);
-define('MENU_ALLIANCE',       1007);
-define('MENU_FORUMS',         1008);
-define('MENU_HELP',           1009);
-define('MENU_ADMIN',          1010);
-
-/* Login */
-define('PAGE_LOGIN',          2000);
-define('PAGE_REGISTER',       2001);
-define('PAGE_RECOVER',        2002);
-define('PAGE_FACEBOOK',       2003);
-define('PAGE_MAINTENANCE',    2004);
-
-/* Home */
-define('PAGE_OVERVIEW',       2100);
-define('PAGE_BATTLE_NEWS',    2102);
-define('PAGE_MESSAGES',       2103);
-define('PAGE_SKILLS',         2104);
-define('PAGE_TRADE',          2105);
-define('PAGE_RESTORE',        2106);
-define('PAGE_SETTINGS',       2107);
-
-/* Missions */
-define('PAGE_MISSION_TRAINING',  0);
-
-/* Battle */
-define('PAGE_ENEMIES',        2300);
-define('PAGE_BOUNTY',         2301);
-define('PAGE_CLAN_WAR',       2302);
-
-/* Units */
-define('PAGE_UNITS',          2400);
-define('PAGE_LIBRARY',        2401);
-
-/* Buildings */
-define('PAGE_BUILDINGS',      2500);
-
-/* Money */
-define('PAGE_BANK',           2600);
-define('PAGE_STOCK_EXCHANGE', 2601);
-define('PAGE_CASINO',         2602);
-
-/* Alliance */
-define('PAGE_PENDING',        2700);
-define('PAGE_INVITE',         2701);
-define('PAGE_ACCEPTED',       2702);
-define('PAGE_BEST_PLAYER',    2703);
-define('PAGE_BEST_COUNTRY',   2704);
-define('PAGE_BEST_COUNTRY2',  2705);
-define('PAGE_CLAN',           2706); 
-define('PAGE_CLAN_LIST',      2707);
-
-/* Forums */
-define('PAGE_FORUM',          2800);
-define('PAGE_TOPIC',          2801);
-define('PAGE_COMMENT',        2802);
-define('PAGE_POLL',           2803);
-define('PAGE_POLL_RESULT',    2804);
-define('PAGE_CHATROOM',       2805);
-define('PAGE_CHAT',           2806);
-		
-/* Help */
-define('PAGE_INSTRUCTIONS',   2900);
-define('PAGE_RELEASENOTES',   2901);
-define('PAGE_RANKS',          2902);
-define('PAGE_AWARDS',         2903);
-define('PAGE_LEVELS',         2904);
-define('PAGE_STATS',          2905);
-define('PAGE_DONATE',         2906);
-define('PAGE_ABOUT',          2907);
-		
-/* Admin */
-define('PAGE_PLAYER_LIST',    3000);
-define('PAGE_PLAYERS',        3001);
-define('PAGE_ADMIN_MESSAGES', 3002);
-define('PAGE_LEVEL',          3003); 
-define('PAGE_LEVEL_ZOOM',     3004);
-define('PAGE_PLAYER_COPY',    3005);
-define('PAGE_ACTIONS',        3006);
-define('PAGE_ADMIN_NEWS',     3007);
-define('PAGE_BROWSER',        3008);
-define('PAGE_INFO',           3009);
-
-/* Player */
-define('PAGE_PROFILE',        3100);
-define('PAGE_ATTACK',         3101);
-define('PAGE_DEFENCE',        3102);
-define('PAGE_INCOME',         3103);
-define('PAGE_UPKEEP',         3104);
-define('PAGE_CONTINENT',      3105);
-define('PAGE_DISCOUNT',       3106);
-define('PAGE_MAITENANCE',     3107);
-
-/*
-** ------------------
-** EVENTS
-** ------------------
-*/
-
-define("EVENT_EMAIL_CHANGE", 	4000);
-define("EVENT_EMAIL_CONFIRM", 4001);
-define("EVENT_VALID_EMAIL",   4002);
-
-define("EVENT_ALLIANCE_INVITE",  5000);
-define("EVENT_ALLIANCE_ACCEPT",  5001);
-define("EVENT_ALLIANCE_REJECT",  5002);
-define("EVENT_ALLIANCE_DROP",    5003);
-define("EVENT_CLAN_CREATE",      5004);
-define("EVENT_CLAN_JOIN",        5005);
-define("EVENT_CLAN_LEAVE",       5006);
-define("EVENT_CLAN_DROP",        5007);
-define("EVENT_CLAN_SLOGAN",      5008);
-
-/*
-** ------------------
 ** PATTERN
 ** ------------------
 */
-
-define("PATTERN_BOUNTY", 0);
-define("PATTERN_SOUND", 1);
-define("PATTERN_ADS", 2);
-define("PATTERN_CONDITION", 3);
-define("PATTERN_FORUM_POST", 4);
-define("PATTERN_RESTORE", 5);
-define("PATTERN_SORT1", 6);
-define("PATTERN_SORT2", 7);
-define("PATTERN_NO_BOT_NEWS", 8);
-define("PATTERN_ALLY_LIST", 9);
-define("PATTERN_BAN", 10);
 
 function warquest_db_query_pattern($player, $pos) {
 	
@@ -175,7 +31,6 @@ function warquest_db_set_pattern($player, $pos, $value) {
 
 	$player->pattern = substr_replace($player->pattern, $value, $pos, 1);
 }
-
 
 /*
 ** ------------------
@@ -289,9 +144,9 @@ function filterBadWords($str){
 }
 
 /*
-** ------------------
-** PROCESS POST OR GET
-** ------------------
+** -------------------
+** Proces Post and Get
+** -------------------
 */
 
 function warquest_post($label, $default) {

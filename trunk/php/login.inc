@@ -43,7 +43,6 @@ if (isset($_SERVER['HTTP_USERNAME'])) {
 if (isset($_SERVER['HTTP_PASSWORD'])) {
 	$mypassword = $_SERVER['HTTP_PASSWORD'];
 	$mypassword = stripslashes($mypassword);
-	/*$mypassword = warquest_db_escape($mypassword);*/
 	$mypassword = substr($mypassword,0,$config["max_password_length"]);
 }
 	
@@ -730,7 +729,7 @@ function warquest_recover_form() {
 	$page .= '<td>&nbsp;</td>';
 	$page .= '<td>';
 	$page .= '<br/>';
-	$page .= '<input type="hidden" name="token" value="'.warquest_token('mid='.$mid.'&sid='.PAGE_RECOVER.'&eid=3&version='.$version).'">';
+	$page .= '<input type="hidden" name="token" value="'.warquest_token('mid='.$mid.'&sid='.PAGE_RECOVER.'&eid='.EVENT_REGISTER.'&version='.$version).'">';
 	$page .= '<input type="submit" name="Submit" value="'.t('LINK_SEND').'">';
 	$page .= '</td>';
 	$page .= '</tr>';
@@ -801,7 +800,7 @@ function warquest_register_form() {
 	$page .= '<td>&nbsp;</td>';
 	$page .= '<td>';
 	$page .= '<br/>';
-	$page .= '<input type="hidden" name="token" value="'.warquest_token('mid='.$mid.'&sid='.PAGE_REGISTER.'&eid=2&version='.$version).'">';
+	$page .= '<input type="hidden" name="token" value="'.warquest_token('mid='.$mid.'&sid='.PAGE_REGISTER.'&eid='.EVENT_REGISTER.'&version='.$version).'">';
 	$page .= '<input type="submit" name="Submit" value="'.t('LINK_REGISTER').'">';
 	$page .= '</td>';
 	$page .= '</tr>';
@@ -865,7 +864,7 @@ function warquest_login_form() {
 	$page .= '<td>&nbsp;</td>';
 	$page .= '<td>';
 	$page .= '<br/>';
-	$page .= '<input type="hidden" name="token" value="'.warquest_token('mid='.$mid.'&sid='.$sid.'&eid=1&version='.$version).'" />';
+	$page .= '<input type="hidden" name="token" value="'.warquest_token('mid='.$mid.'&sid='.$sid.'&eid='.EVENT_LOGIN.'&version='.$version).'" />';
 	$page .= '<input type="submit" name="Submit" value="'.t('LINK_LOGIN').'">';
 	$page .= '</td>';
 	$page .= '</tr>';
@@ -902,22 +901,27 @@ function warquest_login() {
 	/* Process event */
 	switch ($eid) {
 	
-		case 1: 	warquest_login_do();
+		case EVENT_LOGIN: 	
+					warquest_login_do();
 					break;
 					
-		case 2:	/* Default Registration with 4 skill points */
+		case EVENT_REGISTER:	
+					/* Default Registration with 4 skill points */
 					if (warquest_register_do(4)==1) {
 						warquest_login_do();
 					}
 					break;
 					
-		case 3: 	warquest_email_do();
+		case EVENT_RECOVER: 	
+					warquest_email_do();
 					break;
 					
-		case 4:  warquest_logout_do();
+		case EVENT_LOGOUT:  
+					warquest_logout_do();
 					break;
 					
-		case 5:	/* Special registration with 10 skill points bonus */
+		case EVENT_REGISTER_SPECIAL:	
+					/* Special registration with 10 skill points bonus */
 					if (warquest_register_do(10)==1) {
 						warquest_login_do();
 					}

@@ -33,59 +33,15 @@ $price = warquest_post('price', 0);
 $result = warquest_post('result', 0);	
 $board = warquest_post('board', "");	
 
-if (isset($_POST['a00']) && $_POST['a00'] != "") {
-	$a00 = $_POST['a00'];
-} else {
-	$a00 = 'appletop.src';
-}
-
-if (isset($_POST['a01']) && $_POST['a01'] != "") {
-	$a01 = $_POST['a01'];
-} else {
-	$a01 = 'banana.src';
-}
-
-if (isset($_POST['a02']) && $_POST['a02'] != "") {
-	$a02 = $_POST['a02'];
-} else {
-	$a02 = 'pearbtm.src';
-}
-
-if (isset($_POST['a10']) && $_POST['a10'] != "") {
-	$a10 = $_POST['a10'];
-} else {
-	$a10 = 'peartop.src';
-}
-
-if (isset($_POST['a11']) && $_POST['a11'] != "") {
-	$a11 = $_POST['a11'];
-} else {
-	$a11 = 'bar.src';
-}
-
-if (isset($_POST['a12']) && $_POST['a12'] != "") {
-	$a12 = $_POST['a12'];
-} else {
-	$a12 = 'orangebtm.src';
-}
-
-if (isset($_POST['a20']) && $_POST['a20'] != "") {
-	$a20 = $_POST['a20'];
-} else {
-	$a20 = 'bananatop.src';
-}
-
-if (isset($_POST['a21']) && $_POST['a21'] != "") {
-	$a21 = $_POST['a21'];
-} else {
-	$a21 = 'orange.src';
-}
-
-if (isset($_POST['a22']) && $_POST['a22'] != "") {
-	$a22 = $_POST['a22'];
-} else {
-	$a22 = 'grapebtm.src';
-}
+$a00 = warquest_post('a00', 'appletop.src');	
+$a01 = warquest_post('a01', 'banana.src');	
+$a02 = warquest_post('a02', 'pearbtm.src');	
+$a10 = warquest_post('a10', 'peartop.src');
+$a11 = warquest_post('a11', 'bar.src');
+$a12 = warquest_post('a12', 'orangebtm.src');
+$a20 = warquest_post('a20', 'bananatop.src');
+$a21 = warquest_post('a21', 'orange.src');
+$a22 = warquest_post('a22', 'grapebtm.src');
 
 /*
 ** ---------------------------------------------------------------- 
@@ -155,28 +111,28 @@ function warquest_casino_wheel_play_do() {
 	/* New game, check parameters */
 	if ($bet==0) {			
 		
-		$eid=0;
+		$eid=EVENT_NONE;
 		
 		$message = t('CASINO_NO_BET');
 		$popup .= warquest_box_icon("warning", $message);		
 		
 	} else if ($number==0) {			
 	
-		$eid=0;
+		$eid=EVENT_NONE;
 		
 		$message = t('CASINO_NO_LUCKY_NUMBER');	
 		$popup .= warquest_box_icon("warning", $message);		
 	
 	} else if ($bet>10000000) {	
 		
-		$eid=0;
+		$eid=EVENT_NONE;
 		
 		$message = t('CASINO_BET_TO_LARGE', money_format1(10000000,0,",","."));	
 		$popup .= warquest_box_icon("warning", $message);		
 	
 	} else if ($bet > $player->money) {	
 		
-		$eid=0;	
+		$eid=EVENT_NONE;	
 		
 		$message = t('CASINO_NO_MONEY');
 		$popup .= warquest_box_icon("warning", $message);		
@@ -220,7 +176,7 @@ function warquest_casino_wheel() {
 	/* input */
 	global $mid;
 	global $sid;
-	global $cid;
+	global $id;
 	
 	global $eid;
 	global $player;
@@ -268,7 +224,7 @@ function warquest_casino_wheel() {
 	$page .= '<tr>';
 	
 	$page .= '<td width="160" >';	
-	$page .= warquest_casino_image($cid, 140, 100);
+	$page .= warquest_casino_image($id, 140, 100);
 	$page .= '</td>';
 	
 	$page .= "<td>";
@@ -288,7 +244,7 @@ function warquest_casino_wheel() {
 	$page .= "<td>";
 	$page .= t('CASINO_BET').":<br/>";
 	$page .= '<input type="text" id="bet" name="bet" size="10" maxlength="7" type="text" value="'.$bet.'" onkeydown="if (event.keyCode == 13) return false" > ';
-	$page .= warquest_link('mid='.$mid.'&sid='.$sid.'&cid='.$cid.'&eid=1', t('CASINO_PLAY'), 'play');
+	$page .= warquest_link('mid='.$mid.'&sid='.$sid.'&id='.$id.'&eid='.EVENT_CASINO_WHEEL_PLAY, t('CASINO_PLAY'), 'play');
 	$page .= "</td>";
 	$page .= "</tr>";
 	
@@ -307,11 +263,11 @@ function warquest_casino_wheel() {
 	
 	$page .= '<script language="JavaScript">'; 
 
-	$page .= 'initWheel('.$bet.','.$angle.','.$player->request.',\''.warquest_token('mid='.$mid.'&sid='.$sid.'&cid='.$cid.'&eid=6').'\');';
+	$page .= 'initWheel('.$bet.','.$angle.','.$player->request.',\''.warquest_token('mid='.$mid.'&sid='.$sid.'&id='.$id.'&eid='.EVENT_CASINO_WHEEL_RESULT).'\');';
 	$page .= 'drawWheel();';
 	
 	/* Start the wheel */
-	if (($wheel==0) && ($eid==1)) {		
+	if (($wheel==0) && ($eid==EVENT_CASINO_WHEEL_PLAY)) {		
 		$page .= 'document.getElementById("number").disabled = true;';
 		$page .= 'document.getElementById("bet").disabled = true;';
 		$page .= 'spinWheel();';
@@ -324,7 +280,7 @@ function warquest_casino_wheel() {
 	$page .= '</div>';	
 	
 	$page .= '<div class="note">';
-	$page .= t('CASINO_NOTE'.$cid);
+	$page .= t('CASINO_NOTE'.$id);
 	$page .= '</div>';
 	
 	$page .= warquest_show_ads();
@@ -394,21 +350,21 @@ function warquest_casino_slotmachine_play_do() {
 	/* New game, check parameters */
 	if ($bet==0) {			
 	
-		$eid=0;
+		$eid=EVENT_NONE;
 		
 		$message = t('CASINO_NO_BET');			
 		$popup .= warquest_box_icon("warning", $message);		
 		
 	} else if ($bet>10000000) {	
 	
-		$eid=0;
+		$eid=EVENT_NONE;
 		
 		$message = t('CASINO_BET_TO_LARGE', number_format(10000000,0,",","."));	
 		$popup .= warquest_box_icon("warning", $message);		
 		
 	} else if ($bet > $player->money) {	
 		
-		$eid=0;	
+		$eid=EVENT_NONE;	
 		
 		$message = t('CASINO_NO_MONEY').'<br/>';
 		$popup .= warquest_box_icon("warning", $message);		
@@ -426,11 +382,18 @@ function warquest_casino_slotmachine_help() {
 
 	/* output */
 	global $page;
+	global $title;
 	
-	$page .= t('CASINO_SLOTMACHINE_HELP');
+	$title = t('CASINO_2');
 	
+	$page .= '<div class="subparagraph">';	
+	$page .= $title;
+	$page .= '</div>';
+		
 	$page .= '<div class="box">';
 	
+	$page .= t('CASINO_SLOTMACHINE_HELP');
+		
 	$page .= '<table>';
 	
 	$page .= '<tr>';
@@ -620,7 +583,7 @@ function warquest_casino_slotmachine() {
 	/* input */
 	global $mid;
 	global $sid;
-	global $cid;
+	global $id;
 	
 	global $eid;
 	global $player;
@@ -677,7 +640,7 @@ function warquest_casino_slotmachine() {
 	$page .= '<tr>';
 	
 	$page .= '<td width="160" >';	
-	$page .= warquest_casino_image($cid, 140, 100);
+	$page .= warquest_casino_image($id, 140, 100);
 	$page .= '</td>';
 	
 	$page .= "<td>";
@@ -688,8 +651,8 @@ function warquest_casino_slotmachine() {
 	$page .= "<td>";
 	$page .= t('CASINO_BET').":<br/>";
 	$page .= '<input id="bet" name="bet" size="10" maxlength="7" type="text" value="'.$bet.'" onkeydown="if (event.keyCode == 13) return false" /> ';
-	if ($eid!=2) {
-		$page .= warquest_link('mid='.$mid.'&sid='.$sid.'&cid='.$cid.'&eid=2', t('CASINO_PLAY'), 'play');
+	if ($eid!=EVENT_CASINO_SLOT_PLAY) {
+		$page .= warquest_link('mid='.$mid.'&sid='.$sid.'&id='.$id.'&eid='.EVENT_CASINO_SLOT_PLAY, t('CASINO_PLAY'), 'play');
 	} else {
 		$page .= '<a href="javascript:Go()">'.t('CASINO_PLAY').'</a>';
 	}
@@ -699,7 +662,7 @@ function warquest_casino_slotmachine() {
 	$page .= "<tr>";
 	$page .= '<td>';	
 	$page .= '<br/>';	
-	$page .= warquest_link('mid='.$mid.'&sid='.$sid.'&cid=4', t('LINK_HELP'), 'help4');
+	$page .= warquest_link('mid='.$mid.'&sid='.$sid.'&id=4', t('LINK_HELP'), 'help4');
 	$page .= '</td>';
 	$page .= "</tr>";
 	
@@ -752,33 +715,32 @@ function warquest_casino_slotmachine() {
 
 	$page .= '<script language="JavaScript">';
 		
-	if (($price==0) && ($eid==2)) {		
+	if (($price==0) && ($eid==EVENT_CASINO_SLOT_PLAY)) {		
 
 		$page .= 'moneyStopTimer();';		
 		$page .= 'healthStopTimer();';		
 		$page .= 'energyStopTimer();';
 		$page .= 'ammoStopTimer();';
 		
-		$page .= 'Init("'.$a00.'","'.$a01.'","'.$a02.'","'.$a10.'","'.$a11.'","'.$a12.'","'.$a20.'","'.$a21.'","'.$a22.'","'.$bet.'","'.$player->request.'",\''.warquest_token('mid='.$mid.'&sid='.$sid.'&cid='.$cid.'&eid=3').'\' );';
+		$page .= 'Init("'.$a00.'","'.$a01.'","'.$a02.'","'.$a10.'","'.$a11.'","'.$a12.'","'.$a20.'","'.$a21.'","'.$a22.'","'.$bet.'","'.$player->request.'",\''.warquest_token('mid='.$mid.'&sid='.$sid.'&id='.$id.'&eid='.EVENT_CASINO_SLOT_RESULT).'\' );';
 		$page .= 'Go();';
 		
 		$page .= 'document.getElementById("bet").disabled = true;';
 		
 	} else {
 
-		$page .= 'Init("'.$a00.'","'.$a01.'","'.$a02.'","'.$a10.'","'.$a11.'","'.$a12.'","'.$a20.'","'.$a21.'","'.$a22.'","0","'.$player->request.'",\''.warquest_token('mid='.$mid.'&sid='.$sid.'&cid='.$cid.'&eid=3').'\');';
+		$page .= 'Init("'.$a00.'","'.$a01.'","'.$a02.'","'.$a10.'","'.$a11.'","'.$a12.'","'.$a20.'","'.$a21.'","'.$a22.'","0","'.$player->request.'",\''.warquest_token('mid='.$mid.'&sid='.$sid.'&id='.$id.'&eid='.EVENT_CASINO_SLOT_RESULT).'\');';
 		$page .= 'Show();';		 
 	}
 
 	$page .= '</script>'; 
 
 	$page .= '<div class="note">';
-	$page .= t('CASINO_NOTE'.$cid);
+	$page .= t('CASINO_NOTE'.$id);
 	$page .= '</div>';
 	
 	$page .= warquest_show_ads();
 }
-
 
 /*
 ** ---------------------------------------------------------------- 
@@ -789,7 +751,6 @@ function warquest_casino_slotmachine() {
 function warquest_casino_tictactoe_result_do() {
 
 	/* input */
-	global $sid;
 	global $bet;
 	global $key;
 	global $result;
@@ -797,7 +758,6 @@ function warquest_casino_tictactoe_result_do() {
 	/* output */
 	global $player;
 	global $popup;
-	global $page;
 	
 	if ($key != $player->request-1) {
 	
@@ -822,8 +782,7 @@ function warquest_casino_tictactoe_result_do() {
 	
 		$money = $bet * 1;
 		$player->money += $money;
-		
-		
+				
 		$message  = t('CASINO_TICTACTOE_DRAW', health_format(1), money_format1($money)); 		
 		$popup .= warquest_box_icon("info", $message);	
 		warquest_info($message);
@@ -849,59 +808,56 @@ function warquest_casino_tictactoe_play_do() {
 
 	/* input */
 	global $bet;
+	global $mid;
+	global $sid;
+	global $id;
 	global $player;
 	
 	/* output */
-	global $mid;
-	global $sid;
-	global $cid;
-	global $eid;
 	global $page;
 	global $popup;
-	global $page;
-	
-	/* New game, check parameters */
+	global $eid;
+
 	if ($bet==0) {			
-		$eid=0;		
+
+		$eid=EVENT_NONE;	
 		$message = t('CASINO_NO_BET').'<br/>';			
-	}
-		
-	if ($bet>10000000) {	
-		$eid=0;
-		$message = t('CASINO_BET_TO_LARGE', money_format1(10000000,0,",",".")).'<br/>';	
-	}
-	
-	if ($bet > $player->money) {	
-		$eid=0;	
-		$message = t('CASINO_NO_MONEY').'<br/>';
-	}
-		
-	if ($eid==0) {
-	
 		$popup .= warquest_box_icon("warning", $message);		
-	
-	} else {
 		
+	} else if ($bet>10000000) {	
+
+		$eid=EVENT_NONE;		
+		$message = t('CASINO_BET_TO_LARGE', money_format1(10000000,0,",",".")).'<br/>';	
+		$popup .= warquest_box_icon("warning", $message);		
+		
+	} else if ($bet > $player->money) {	
+	
+		$eid=EVENT_NONE;	
+		$message = t('CASINO_NO_MONEY').'<br/>';
+		$popup .= warquest_box_icon("warning", $message);		
+		
+	} else {
+
 		$player->money -= $bet;	
 		$player->casino++;
 		
-		$page .= warquest_sound("start.mp3");
+		warquest_sound("start.mp3");
 		
 		$page .= '<script language="JavaScript">'; 
-		$page .= 'initTicTacToe('.$bet.','.$player->request.',\''.warquest_token('mid='.$mid.'&sid='.$sid.'&cid='.$cid.'&eid=5').'\');';					
+		$page .= 'initTicTacToe('.$bet.','.$player->request.',\''.warquest_token('mid='.$mid.'&sid='.$sid.'&id='.$id.'&eid='.EVENT_CASINO_TIC_RESULT).'\');';					
 		$page .= '</script>';
 	}
 }
 
 /** 
- * Casino general bet form
+ * Casino TicTacToe form
  */
 function warquest_casino_tictactoe() {
 
 	/* input */
 	global $mid;
 	global $sid;
-	global $cid;
+	global $id;
 	
 	global $eid;
 	global $player;
@@ -942,14 +898,14 @@ function warquest_casino_tictactoe() {
 		return;
 	}
 	
-	$money=0;
+	$money = 0;
 		
 	$page .= '<div class="box">';
 	$page .= '<table>';
 	$page .= '<tr>';
 	
 	$page .= '<td width="160" >';	
-	$page .= warquest_casino_image($cid, 140, 100);
+	$page .= warquest_casino_image($id, 140, 100);
 	$page .= '</td>';
 	
 	$page .= "<td>";
@@ -962,7 +918,7 @@ function warquest_casino_tictactoe() {
 	$page .= t('CASINO_BET').":<br/>";
 	$page .= '<input type="text" id="bet" name="bet" size="10" maxlength="7" type="text" onkeydown="if (event.keyCode == 13) return false" value="'.$bet.'"> ';
 		
-	$page .= warquest_link('mid='.$mid.'&sid='.$sid.'&cid='.$cid.'&eid=4', t('CASINO_PLAY'), 'play');
+	$page .= warquest_link('mid='.$mid.'&sid='.$sid.'&id='.$id.'&eid='.EVENT_CASINO_TIC_PLAY, t('CASINO_PLAY'), 'play');
 		
 	$page .= "</td>";
 	$page .= "</tr>";
@@ -993,13 +949,13 @@ function warquest_casino_tictactoe() {
 	$page .= '</center>';
 	$page .= '<br/>';
 
-	if ($eid!=4) {
+	if ($eid!=EVENT_CASINO_TIC_PLAY) {
 		$page .= '<script language="JavaScript">'; 
 		$page .= 'disableTicTacToe();';		
 		$page .= '</script>';
 	}
 
-	if ($eid==5) {
+	if ($eid==EVENT_CASINO_TIC_RESULT) {
 		$page .= '<script language="JavaScript">'; 
 		$page .= 'showTicTacToe(\''.$board.'\')';
 		$page .= '</script>';
@@ -1008,7 +964,7 @@ function warquest_casino_tictactoe() {
 	$page .= '</div>';	
 	
 	$page .= '<div class="note">';
-	$page .= t('CASINO_NOTE'.$cid);
+	$page .= t('CASINO_NOTE'.$id);
 	$page .= '</div>';
 	
 	$page .= warquest_show_ads();
@@ -1027,34 +983,38 @@ function warquest_casino() {
 
 	/* input */
 	global $eid;
-	global $cid;
+	global $id;
 
-	
 	/* Event handler */
 	switch ($eid ) {
 	
-		case 1: 	warquest_casino_wheel_play_do();
+		case EVENT_CASINO_WHEEL_PLAY: 	
+					warquest_casino_wheel_play_do();
 					break;
 					
-		case 6: 	warquest_casino_wheel_result_do();
+		case EVENT_CASINO_WHEEL_RESULT: 	
+					warquest_casino_wheel_result_do();
 					break;					
 					
-		case 2: 	warquest_casino_slotmachine_play_do();
+		case EVENT_CASINO_SLOT_PLAY: 	
+					warquest_casino_slotmachine_play_do();
 					break;	
 
-		case 3: 	warquest_casino_slotmachine_result_do();
+		case EVENT_CASINO_SLOT_RESULT: 	
+					warquest_casino_slotmachine_result_do();
 					break;	
-	  				  
-		case 4: 	warquest_casino_tictactoe_play_do();
+	  				  				
+		case EVENT_CASINO_TIC_PLAY: 	
+					warquest_casino_tictactoe_play_do();
 					break;
 					
-		case 5: 	warquest_casino_tictactoe_result_do();
+		case EVENT_CASINO_TIC_RESULT: 	
+					warquest_casino_tictactoe_result_do();
 					break;
-					
 	}
 	
 	/* Page handler */
-	switch ($cid) {
+	switch ($id) {
 	
 		case 1: 	warquest_casino_wheel();
 					break;

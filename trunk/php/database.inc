@@ -241,7 +241,7 @@ function warquest_db_player_poll_vote_remove($pid, $poll_id) {
 function warquest_db_chat_insert($pid1, $pid2, $message) {
 
 	$query  = 'insert into chat (pid1, pid2, date, message) values (';
-	$query .= $pid1.','.$pid2.',"'.date("Y-m-d H:i:s", time()).'","'.$message.'")';	
+	$query .= $pid1.','.$pid2.',"'.date("Y-m-d H:i:s", time()).'","'.warquest_db_escape($message).'")';	
 	
 	warquest_db_query($query);
 }
@@ -319,7 +319,7 @@ function warquest_db_topic_delete($tid) {
 function warquest_db_topic_update($tid, $description) {
 	
 	/* Create user account */
-	$query  = 'update topic set description="'.$description.'" where tid='.$tid;
+	$query  = 'update topic set description="'.warquest_db_escape($description).'" where tid='.$tid;
 			
 	warquest_db_query($query);
 }
@@ -328,7 +328,7 @@ function warquest_db_topic_insert($pid, $fid, $description) {
 	
 	/* Create user account */
 	$query  = 'insert into topic (fid, pid, description, date, deleted ) ';
-	$query .= 'values ('.$fid.','.$pid.',"'.$description.'","'.date("Y-m-d H:i:s").'", 0)';
+	$query .= 'values ('.$fid.','.$pid.',"'.warquest_db_escape($description).'","'.date("Y-m-d H:i:s").'", 0)';
 			
 	warquest_db_query($query);
 }
@@ -660,9 +660,9 @@ function warquest_db_member_update($member) {
 	$query .= 'last_login = "'.$member->last_login.'", ';
 	$query .= 'prev_login = "'.$member->prev_login.'", ';
 	$query .= 'ip = "'.$member->ip.'", '; 
-	$query .= 'browser="'.$member->browser.'", ';
-	$query .= 'version="'.$member->version.'", ';
-	$query .= 'platform="'.$member->platform.'", ';
+	$query .= 'browser="'.warquest_db_escape($member->browser).'", ';
+	$query .= 'version="'.warquest_db_escape($member->version).'", ';
+	$query .= 'platform="'.warquest_db_escape($member->platform).'", ';
 	$query .= 'auto_login='.$member->auto_login.' ';
 	$query .= 'where pid='.$member->pid; 
 	
@@ -1376,7 +1376,7 @@ function warquest_db_bonus($pid, $bonus_id) {
 function warquest_db_clan_insert($name, $pid) {
 
 	$query  = 'insert into clan (name, pid, date) values ("';
-	$query .= $name.'",'.$pid.',"'.date("Y-m-d", time()).'")';	
+	$query .= warquest_db_escape($name).'",'.$pid.',"'.date("Y-m-d", time()).'")';	
 		
 	warquest_db_query($query);
 	

@@ -1236,7 +1236,7 @@ function warquest_alliance() {
 			warquest_clan_slogan_do();
 			break;	
 			
-		case 500: 
+		case EVENT_SWITCH_PLANET: 
 			warquest_switch_planet_do();
 			break;
 			

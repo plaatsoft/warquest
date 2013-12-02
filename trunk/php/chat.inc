@@ -18,17 +18,11 @@
 
 /*
 ** ---------
-** POST 
+** Post  
 ** ---------
 */
 
-$message="";
-if (isset($_POST['message']) && $_POST['message'] != "") {
-	$message = $_POST['message'];
-	$message = stripslashes($message);
-	$message = htmlspecialchars($message);
-	$message = warquest_db_escape($message);
-}
+$message = warquest_post('message', '');
 
 /*
 ** ---------
@@ -95,7 +89,7 @@ function warquest_chat_form() {
 	$page .= 'onKeyDown="limitText(this,400)">'.$message.'</textarea><br/>';
 	$page .= warquest_show_smilies("message");	
 	$page .= '<span class="right2">';
-	$page .= warquest_link('mid='.$mid.'&sid='.$sid.'&eid=300&oid='.$other->pid, t('LINK_SAVE'), 'save-0');
+	$page .= warquest_link('mid='.$mid.'&sid='.$sid.'&eid='.EVENT_FORUM_CHAT_UPDATE.'&oid='.$other->pid, t('LINK_SAVE'), 'save-0');
 	$page .= '</span>';
 	$page .= '</div>';
 	
@@ -232,7 +226,8 @@ function warquest_chat_events() {
 	/* Event handler */
 	switch ($eid) {
 	
-		case 300: 	warquest_chat_msg_do();
+		case EVENT_FORUM_CHAT_UPDATE: 	
+						warquest_chat_msg_do();
 						break;
 	}
 }

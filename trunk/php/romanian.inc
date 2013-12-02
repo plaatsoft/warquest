@@ -157,8 +157,6 @@
  $lang['LINK_DONATE'] = 'donare';
  $lang['LINK_ABOUT'] = 'despre';
 
- $lang['LINK_DISABLED'] = 'dezactivat';
-
  /*
  ** ------------------
  ** GENERAL 
@@ -408,7 +406,7 @@
 
  $lang['HOME_FLASH_NEWS_TITLE'] = 'Noutati';
 
- $lang['HOME_LASTEST_FORUM_POST'] = 'Ultimele postari pe forum';
+ $lang['HOME_LASTEST_FORUM_ITEM'] = 'Ultimele postari pe forum';
 
  $lang['HOME_INTRO_PLAYERS'] = 'in acest moment %s jucatori din %s tari sunt activi';
  $lang['HOME_INTRO_FIGHTS'] = '%s lupte au avut loc ';
@@ -703,7 +701,7 @@
  $lang['SETTING_BOUNTY'] = 'Activat cand se pune recompensa pe capul tau.';
  $lang['SETTING_RESTORE'] = 'Activat regenerare & reparatie confirmare.';
  $lang['SETTING_CONDITION'] = 'Activat Unitati/Cladiri/Revolte starea lor in fereastra pop-up.';
- $lang['SETTING_FORUM_POST'] = 'Activat ultimele postari pe forum pe pagina principala.';
+ $lang['SETTING_FORUM_SORT'] = 'Activat ultimele postari pe forum pe pagina principala.';
  $lang['SETTING_SORT1'] = 'Activat noile mesaje in partea de sus a forumului.';
  $lang['SETTING_SORT2'] = 'Activat vechile lupte la inceput.';
  $lang['SETTING_NO_BOT_NEWS'] = 'Dezactivat Raportul bataliilor si notificarile cand esti atacat.';

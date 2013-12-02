@@ -17,6 +17,15 @@
 */
 
 /*
+** ---------------
+** Post Parameters
+** ---------------
+*/
+
+$deposit = warquest_post('deposit', '0');
+$withdraw = warquest_post('withdraw', '0');
+
+/*
 ** ----------
 ** ACTIONS
 ** ----------
@@ -30,22 +39,15 @@ function warquest_bank_deposit_do() {
    /* input */
 	global $player;
 	global $sid;
-	global $cid;
+	global $id;
 	global $config;
+	global $deposit;
 	
 	/* output */
 	global $popup;
 	
-	/* Get posted deposit value */
-	$deposit=0;
-	if (isset($_POST['deposit']) && $_POST['deposit'] != "") {
-		$deposit = $_POST['deposit'];
-		$deposit = stripslashes($deposit);
-		$deposit = warquest_db_escape($deposit);
-		
-		/* Remove dots */
-		$deposit = str_replace(".", "", $deposit);
-	}
+	/* Remove dots */
+	$deposit = str_replace(".", "", $deposit);
 	
 	$price = $deposit;
 		
@@ -56,7 +58,7 @@ function warquest_bank_deposit_do() {
 			$player->money-=$price;
 			$balance=0;
 			
-			switch ($cid) {
+			switch ($id) {
 				case 1: 	$player->bank1+=$deposit;
 							$balance=$player->bank1;
 							$init_bank_deposit = $config["init_bank1_deposit"];
@@ -74,11 +76,11 @@ function warquest_bank_deposit_do() {
 			}
 			 		
 			/* Update transaction log.	*/
-			warquest_bank_insert($player->pid, 0, $cid, $deposit, $balance, 1);
+			warquest_bank_insert($player->pid, 0, $id, $deposit, $balance, 1);
 			
 			$handleFee = (round($deposit * ($init_bank_deposit/100)) * -1);
 			$balance=0;
-			switch ($cid) {
+			switch ($id) {
 				case 1: 	$player->bank1 += $handleFee;
 							$balance=$player->bank1;
 							break;
@@ -93,12 +95,12 @@ function warquest_bank_deposit_do() {
 			}
 		
 			/* Update transaction log. */
-			warquest_bank_insert($player->pid, 0, $cid, $handleFee, $balance, 2);
+			warquest_bank_insert($player->pid, 0, $id, $handleFee, $balance, 2);
 			
 			$message = t('BANK_DEPOSIT', money_format1($deposit));
 			$popup .= warquest_box_icon("info", $message);
 			
-			$log = 'Deposit '.number_format2($deposit).' to '.t('BANK_GROUP_'.$cid);		
+			$log = 'Deposit '.number_format2($deposit).' to '.t('BANK_GROUP_'.$id);		
 			warquest_user_log($player, $log);
 		
 		} else {
@@ -118,24 +120,17 @@ function warquest_bank_withdraw_do() {
 	/* input */
 	global $player;
 	global $sid;
-	global $cid;
+	global $id;
+	global $withdraw;
 	
 	/* output */
 	global $popup;
 	
-	/* Get posted withdraw value */
-	$withdraw=0;
-	if (isset($_POST['withdraw']) && $_POST['withdraw'] != "") {
-		$withdraw = $_POST['withdraw'];
-		$withdraw = stripslashes($withdraw);
-		$withdraw = warquest_db_escape($withdraw);
+	/* Remove dots */
+	$withdraw = str_replace(".", "", $withdraw);
 		
-		/* Remove dots */
-		$withdraw = str_replace(".", "", $withdraw);
-	}
-	
 	$balance=0;
-	switch ($cid) {
+	switch ($id) {
 		case 1: $balance=$player->bank1;
 				break;
 					
@@ -153,7 +148,7 @@ function warquest_bank_withdraw_do() {
 			/* Calculate new values	*/
 			$player->money += $withdraw;
 			
-			switch ($cid) {
+			switch ($id) {
 				case 1: 	$player->bank1 -= $withdraw;		
 							break;
 							
@@ -164,12 +159,12 @@ function warquest_bank_withdraw_do() {
 							break;			
 			}
 		
-			warquest_bank_insert($player->pid, 0, $cid, ($withdraw*-1), ($balance-$withdraw), 0);
+			warquest_bank_insert($player->pid, 0, $id, ($withdraw*-1), ($balance-$withdraw), 0);
 				
 			$message = t('BANK_WITHDRAW', money_format1($withdraw));
 			$popup .= warquest_box_icon("info", $message);
 			
-			$log = 'Withdraw '.number_format2($withdraw).' for '.t('BANK_GROUP_'.$cid);		
+			$log = 'Withdraw '.number_format2($withdraw).' for '.t('BANK_GROUP_'.$id);		
 			warquest_user_log($player, $log);
 		
 		} else {
@@ -194,7 +189,7 @@ function warquest_bank_log() {
 	/* input	*/
 	global $mid;
 	global $sid;
-	global $cid;
+	global $id;
 	global $player;	
 	global $config;
 	
@@ -205,7 +200,7 @@ function warquest_bank_log() {
 	$query  = 'select a.id, a.pid1, a.pid2, a.amount, a.action, a.balance, ';
 	$query .= 'date_format(a.date , "%d-%m-%Y %H:%i:%s") as date, ';
 	$query .= '(select name from player where pid=a.pid2) as name '; 
-	$query .= 'from bank a where a.pid1='.$player->pid.' and a.bgid='.$cid.' ';
+	$query .= 'from bank a where a.pid1='.$player->pid.' and a.bgid='.$id.' ';
 	$query .= 'order by a.id desc';
 
 	$result = warquest_db_query($query);	
@@ -255,7 +250,7 @@ function warquest_bank_form() {
 	/* input */
 	global $mid;
 	global $sid;
-	global $cid;
+	global $id;
 	global $player;
 	global $config;
 	
@@ -263,14 +258,14 @@ function warquest_bank_form() {
 	global $page;
 	global $title;
 	
-	$title = t('BANK_GROUP_'.$cid);
+	$title = t('BANK_GROUP_'.$id);
 			
 	$page .= '<div class="subparagraph">';	
-	$page .= t('BANK_GROUP_'.$cid).' '.t('GENERAL_BANK');
+	$page .= t('BANK_GROUP_'.$id).' '.t('GENERAL_BANK');
 	$page .= '</div>';
 				
 	$balance=0;
-	switch ($cid) {
+	switch ($id) {
 		case 1: $balance=$player->bank1;
 				break;
 					
@@ -286,7 +281,7 @@ function warquest_bank_form() {
 	$page .= '<table>';
 	$page .= '<tr>';
 	$page .= '<td width="160" >';	
-	$page .= warquest_bank_image($cid, 140, 100);
+	$page .= warquest_bank_image($id, 140, 100);
 	$page .= '</td>';
 	
 	$page .= '<td>';
@@ -309,19 +304,19 @@ function warquest_bank_form() {
 	$page .= "<td>";
 	$page .= t('LINK_DEPOSIT').":<br/>";
 	$page .= '<input id="text" name="deposit" size="16" maxlength="16" type="text" value="';
-	if ($cid<4) {
+	if ($id<4) {
 		$page .= number_format($player->money,0,",",".");
 	} else { 
 		$page .= '0';
 	}
 	$page .= '"><br/>';
-	$page .= warquest_link('mid='.$mid.'&sid='.$sid.'&cid='.$cid.'&eid=1', t('LINK_DEPOSIT'), 'deposit-0');
+	$page .= warquest_link('mid='.$mid.'&sid='.$sid.'&id='.$id.'&eid='.EVENT_BANK_DEPOSIT, t('LINK_DEPOSIT'), 'deposit-0');
 	$page .= "</td>";
 	
 	$page .= "<td>";
 	$page .= t('LINK_WITHDRAW').":<br/>";
 	$page .= '<input id="text" name="withdraw" size="16" maxlength="16" type="text" value="'.number_format($balance,0,",",".").'"><br/>';
-	$page .= warquest_link('mid='.$mid.'&sid='.$sid.'&cid='.$cid.'&eid=2', t('LINK_WITHDRAW'), 'withdraw-1');
+	$page .= warquest_link('mid='.$mid.'&sid='.$sid.'&id='.$id.'&eid='.EVENT_BANK_WITHDRAW, t('LINK_WITHDRAW'), 'withdraw-1');
 	$page .= "</td>";
 	$page .= "</tr>";
 	
@@ -333,7 +328,7 @@ function warquest_bank_form() {
 	
 	$page .= '</div>';
 	
-	switch ($cid) {
+	switch ($id) {
 		case 1: 	$init_bank_deposit = $config["init_bank1_deposit"];
 				   $init_bank_interest = $config["init_bank1_interest"];
 					break;
@@ -349,7 +344,7 @@ function warquest_bank_form() {
 					
 	$page .= '<div class="note">';
 	$page .= t('BANK_NOTE', $init_bank_deposit, $init_bank_interest);
-	if (($cid==2) || ($cid==3)) {
+	if (($id==2) || ($id==3)) {
 		$page .= '<br/>'.t('BANK_WARNING');
 	}
 	$page .= '</div>';	
@@ -365,15 +360,16 @@ function warquest_bank() {
 
 	/* input */
 	global $eid;
-	global $cid;	
 	
 	/* Event handler */
 	switch ($eid) {
 	
-		case 1:	warquest_bank_deposit_do();
+		case EVENT_BANK_DEPOSIT:	
+					warquest_bank_deposit_do();
 					break;
 					  
-		case 2:	warquest_bank_withdraw_do();
+		case EVENT_BANK_WITHDRAW:	
+					warquest_bank_withdraw_do();
 					break;	
 	}
 		

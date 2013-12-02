@@ -99,7 +99,7 @@ function warquest_create_title($title) {
 					break;
 		}
 		
-		$tmp .= '&planet_id='.$planet.'&uid='.$uid.'&eid=500';
+		$tmp .= '&planet_id='.$planet.'&uid='.$uid.'&eid='.EVENT_SWITCH_PLANET;
 		
 		/* opponent is added only when needed */
 		if ($oid!=$player->pid) {
@@ -177,5 +177,11 @@ function warquest_ui_title() {
 
 	return $page;
 }
+
+/*
+** ------------
+** THE END
+** ------------
+*/
 
 ?>

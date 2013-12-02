@@ -90,7 +90,7 @@ function warquest_decrease_skill_do() {
 	
 		$message = t('PLAYER_SKILL_ACCEPTED2', $tmp);
 		
-		$link = warquest_link('mid='.$mid.'&sid='.$sid.'&eid=5&uid='.$uid,t('LINK_DECREASE'), "decrease");
+		$link = warquest_link('mid='.$mid.'&sid='.$sid.'&eid='.EVENT_HOME_SKILL_DECREASE.'&uid='.$uid,t('LINK_DECREASE'), "decrease");
 		if ($max>1) {
 			$link .= '<br/><br/>'.t('GENERAL_AMOUNT').'<br/>';		
 			$link .= warquest_amount_selected($max);
@@ -102,7 +102,7 @@ function warquest_decrease_skill_do() {
 	
 		$message = t('PLAYER_SKILL_REJECTED2', $tmp);
 		
-		$link = warquest_link('mid='.$mid.'&sid='.$sid.'&eid=5&uid='.$uid,t('LINK_DECREASE'), "decrease");
+		$link = warquest_link('mid='.$mid.'&sid='.$sid.'&eid='.EVENT_HOME_SKILL_DECREASE.'&uid='.$uid,t('LINK_DECREASE'), "decrease");
 		if ($max>1) {
 			$link .= '<br/><br/>'.t('GENERAL_AMOUNT').'<br/>';		
 			$link .= warquest_amount_selected($max);
@@ -177,7 +177,7 @@ function warquest_increase_skill_do() {
 		
 		$message = t('PLAYER_SKILL_ACCEPTED1', $tmp);
 		
-		$link = warquest_link('mid='.$mid.'&sid='.$sid.'&eid=4&uid='.$uid,t('LINK_INCREASE'), "increase");
+		$link = warquest_link('mid='.$mid.'&sid='.$sid.'&eid='.EVENT_HOME_SKILL_INCREASE.'&uid='.$uid,t('LINK_INCREASE'), "increase");
 		
 		if ($max>0) {
 			$link .= '<br/><br/>'.t('GENERAL_AMOUNT').'<br/>';		
@@ -190,7 +190,7 @@ function warquest_increase_skill_do() {
 		
 		$message = t('PLAYER_SKILL_REJECTED1', $points);
 		
-		$link = warquest_link('mid='.$mid.'&sid='.$sid.'&eid=4&uid='.$uid,t('LINK_INCREASE'), "increase");
+		$link = warquest_link('mid='.$mid.'&sid='.$sid.'&eid='.EVENT_HOME_SKILL_INCREASE.'&uid='.$uid,t('LINK_INCREASE'), "increase");
 		
 		if ($max>0) {
 			$link .= '<br/><br/>'.t('GENERAL_AMOUNT').'<br/>';		
@@ -243,11 +243,11 @@ function warquest_skills_form() {
 		$page .= '</td>';
 	
 		$page .= '<td width="100">';
-		$page .= warquest_link('mid='.$mid.'&sid='.$sid.'&eid=4&uid=1',t('LINK_INCREASE'), "attack1");
+		$page .= warquest_link('mid='.$mid.'&sid='.$sid.'&eid='.EVENT_HOME_SKILL_INCREASE.'&uid=1',t('LINK_INCREASE'), "attack1");
 		$page .= '</td>';
 	
 		$page .= '<td width="65" align="right">';
-		$page .= warquest_link('mid='.$mid.'&sid='.$sid.'&eid=5&uid=1',t('LINK_DECREASE'), "attack2");
+		$page .= warquest_link('mid='.$mid.'&sid='.$sid.'&eid='.EVENT_HOME_SKILL_DECREASE.'&uid=1',t('LINK_DECREASE'), "attack2");
 		$page .= '</td>';
 	
 		$page .= '</tr>';
@@ -278,11 +278,11 @@ function warquest_skills_form() {
 		$page .='</td>';
 	
 		$page .= '<td>';
-		$page .= warquest_link('mid='.$mid.'&sid='.$sid.'&eid=4&uid=2', t('LINK_INCREASE'), "defense1");
+		$page .= warquest_link('mid='.$mid.'&sid='.$sid.'&eid='.EVENT_HOME_SKILL_INCREASE.'&uid=2', t('LINK_INCREASE'), "defense1");
 		$page .= '</td>';
 	
 		$page .= '<td align="right">';
-		$page .= warquest_link('mid='.$mid.'&sid='.$sid.'&eid=5&uid=2', t('LINK_DECREASE'), "defense2");
+		$page .= warquest_link('mid='.$mid.'&sid='.$sid.'&eid='.EVENT_HOME_SKILL_DECREASE.'&uid=2', t('LINK_DECREASE'), "defense2");
 		$page .= '</td>';
 	
 		$page .= '</tr>';
@@ -314,11 +314,11 @@ function warquest_skills_form() {
 		$page .= '<td width="200">'.t('PLAYER_MAX').': <b>'.number_format($skill->health_max,0,",",".").'</b></td>';
 	
 		$page .= '<td width="100">';
-		$page .= warquest_link('mid='.$mid.'&sid='.$sid.'&eid=4&uid=3',t('LINK_INCREASE'), "health1");
+		$page .= warquest_link('mid='.$mid.'&sid='.$sid.'&eid='.EVENT_HOME_SKILL_INCREASE.'&uid=3',t('LINK_INCREASE'), "health1");
 		$page .= '</td>';
 	
 		$page .= '<td width="65" align="right">';
-		$page .= warquest_link('mid='.$mid.'&sid='.$sid.'&eid=5&uid=3',t('LINK_DECREASE'), "health2");
+		$page .= warquest_link('mid='.$mid.'&sid='.$sid.'&eid='.EVENT_HOME_SKILL_DECREASE.'&uid=3',t('LINK_DECREASE'), "health2");
 		$page .= '</td>';
 	
 		$page .= '</tr>';
@@ -348,11 +348,11 @@ function warquest_skills_form() {
 		$page .= '<td>'.t('PLAYER_MAX').': <b>'.number_format($skill->energy_max,0,",",".").'</b></td>';
 	
 		$page .= '<td>';
-		$page .= warquest_link('mid='.$mid.'&sid='.$sid.'&eid=4&uid=4',t('LINK_INCREASE') ,"energy1");
+		$page .= warquest_link('mid='.$mid.'&sid='.$sid.'&eid='.EVENT_HOME_SKILL_INCREASE.'&uid=4',t('LINK_INCREASE') ,"energy1");
 		$page .= '</td>';
 
 		$page .= '<td align="right">';
-		$page .= warquest_link('mid='.$mid.'&sid='.$sid.'&eid=5&uid=4',t('LINK_DECREASE') ,"energy2");
+		$page .= warquest_link('mid='.$mid.'&sid='.$sid.'&eid='.EVENT_HOME_SKILL_DECREASE.'&uid=4',t('LINK_DECREASE') ,"energy2");
 		$page .= '</td>';
 		
 		$page .= '</tr>';
@@ -380,11 +380,11 @@ function warquest_skills_form() {
 	$page .= '<td>'.t('PLAYER_MAX').': <b>'.number_format($skill->ammo_max,0,",",".").'</b></td>';
 	
 	$page .= '<td>';
-	$page .= warquest_link('mid='.$mid.'&sid='.$sid.'&eid=4&uid=5',t('LINK_INCREASE') ,"ammo1");
+	$page .= warquest_link('mid='.$mid.'&sid='.$sid.'&eid='.EVENT_HOME_SKILL_INCREASE.'&uid=5',t('LINK_INCREASE') ,"ammo1");
 	$page .= '</td>';
 
 	$page .= '<td align="right">';
-	$page .= warquest_link('mid='.$mid.'&sid='.$sid.'&eid=5&uid=5',t('LINK_DECREASE') ,"ammo2");
+	$page .= warquest_link('mid='.$mid.'&sid='.$sid.'&eid='.EVENT_HOME_SKILL_DECREASE.'&uid=5',t('LINK_DECREASE') ,"ammo2");
 	$page .= '</td>';
 		
 	$page .= '</tr>';
@@ -423,11 +423,11 @@ function warquest_skills_event() {
 	/* Event handler */
 	switch ($eid) {
 										
-		case 4:
+		case EVENT_HOME_SKILL_INCREASE:
 			warquest_increase_skill_do();
 			break;
 			
-		case 5:
+		case EVENT_HOME_SKILL_DECREASE:
 			warquest_decrease_skill_do();
 			break;
 						

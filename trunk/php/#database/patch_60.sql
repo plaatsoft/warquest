@@ -64,3 +64,35 @@ UPDATE `warquest`.`building` SET `defense` = '550' WHERE `building`.`bid` =714;
 
 -- Rebalance Asteroid Buildings
 UPDATE `warquest`.`building` SET `defense` = '1000' WHERE `building`.`bid` =1701;
+
+-- Add bank_group
+CREATE TABLE IF NOT EXISTS `bank_group` (
+  `bgid` int(11) NOT NULL,
+  PRIMARY KEY (`bgid`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+--
+-- Gegevens worden uitgevoerd voor tabel `bank_group`
+--
+
+INSERT INTO `bank_group` (`bgid`) VALUES
+(1),
+(2),
+(3);
+
+
+-- Add stock_group
+CREATE TABLE IF NOT EXISTS `stock_group` (
+  `sgid` int(11) NOT NULL,
+  PRIMARY KEY (`sgid`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+--
+-- Gegevens worden uitgevoerd voor tabel `stock_group`
+--
+
+INSERT INTO `stock_group` (`sgid`) VALUES
+(1),
+(2),
+(3),
+(4);

@@ -341,11 +341,10 @@ function warquest_unit_form() {
 		$page .= '</td>';
 		
 		$page .= '<td width="210">';
-		$page .= '<b>'.t('UNIT_'.$data->uid).'</b>';
-			
+		$page .= '<b>'.t('UNIT_'.$data->uid).'</b>';			
 		if (warquest_library($data->uid,0)==1) {
-			$page .= '&nbsp;'.warquest_link('mid='.$mid.'&sid='.PAGE_LIBRARY.'&uid='.$data->uid, 
-				warquest_image('other/info.png','width="16" height="16"'),'info'.$count);
+			$page .= ' ';
+			$page .= warquest_link('mid='.$mid.'&sid='.PAGE_LIBRARY.'&uid='.$data->uid, warquest_image('other/info.png','width="16" height="16"'),'info'.$count);
 		}
 		$page .= '<br/>';
 		if ($data->attack > 0) {
@@ -365,11 +364,11 @@ function warquest_unit_form() {
 		} else {
 			$page .= gold_format($data->gold).'<br/>';
 		}
-		$page .= warquest_link('mid='.$mid.'&sid='.$sid.'&eid=1&uid='.$data->uid, t('LINK_DEPLOY'),'deploy-'.($count+100));
+		$page .= warquest_link('mid='.$mid.'&sid='.$sid.'&eid='.EVENT_UNIT_DEPLOY.'&uid='.$data->uid, t('LINK_DEPLOY'),'deploy-'.($count+100));
 		$page .= '</td>';
 		
 		$page .= '<td width="110">'.t('GENERAL_DEPLOYED').': '.deploy_format($data->amount).'<br/>';
-		$page .= warquest_link('mid='.$mid.'&sid='.$sid.'&eid=2&uid='.$data->uid, t('LINK_DISBAND'),'disband-'.$count);
+		$page .= warquest_link('mid='.$mid.'&sid='.$sid.'&eid='.EVENT_UNIT_DISBAND.'&uid='.$data->uid, t('LINK_DISBAND'),'disband-'.$count);
 
 		$page .= '</td>';
 		
@@ -444,39 +443,30 @@ function warquest_unit() {
 	global $eid;
 	global $sid;
 	global $uid;
-	global $sequence;
-	global $player;
-	
-		/* output */
-	global $page;
-	
-	/*if ($sequence != $player->request) {
-	
-		$message = t('SYSTEM_HACK_DETECTED');
-		$page .= warquest_box_icon("warning", $message);	
-		return;
-	}*/
 	
 	/* Event handler */
 	switch ($eid) {
 
-		case 1: warquest_unit_deploy_do();
-				  break;
+		case EVENT_UNIT_DEPLOY: 
+					warquest_unit_deploy_do();
+				   break;
 
-	   case 2: warquest_unit_disband_do();
-				  break;
+	   case EVENT_UNIT_DISBAND: 
+					warquest_unit_disband_do();
+				   break;
 				  
-		case 500: warquest_switch_planet_do();
-					 break;		
+		case EVENT_SWITCH_PLANET: 
+					warquest_switch_planet_do();
+					break;		
 	}
 		
 	/* Page handler */
 	switch ($sid) {
 	
-		default: warquest_unit_form();
-					break;
+		default: 
+				warquest_unit_form();
+				break;
 
-					
 		case PAGE_LIBRARY: 
 					warquest_library($uid, 1);
 					break;
