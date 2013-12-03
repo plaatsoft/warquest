@@ -86,7 +86,7 @@ function warquest_mission_planet_complet_bonus() {
 								break;
 				}
 			}
-		}
+		}		
 	}
 }
 
@@ -166,7 +166,7 @@ function warquest_mission_complet() {
 		warquest_db_query($query);		
 					
 		/* Update income value */
-		warquest_netto_income($player);			
+		warquest_netto_income($player);		
 	} 
 }
 
@@ -467,22 +467,20 @@ function warquest_mission_do() {
 		warquest_mission_complet();
 		warquest_mission_planet_complet_bonus();
 		
-		$show = 1;
 		$next = warquest_nextlevel($player);
 
 		if (($next==1) && ($player->lid==1)) {
 			
 			/* If training mission is complet, skip mission complet message. */
 		   $sid = 1;
-			$show = 0;
-		}
-		
-		if ($show == 1) {
+			
+		} else {
 			
 			$message = t('MISSION_YOU_GAIN').': '.money_format1($money).t('MISSION_DOLLAR_AND');
 			$message .= experience_format($mission->experience).' '.t('GENERAL_EXPERIENCE_POINTS').'<br/>';
 			$message .= t('MISSION_YOU_USED').': '.energy_format($mission->energy).' '.t('GENERAL_ENERGY').'<br/>';
 			$message .= warquest_mission_unit_lost();
+			
 			if ($mission->loot==1) {
 				$message .= warquest_lootoption($mission->lid);
 			}
@@ -500,6 +498,8 @@ function warquest_mission_do() {
 			$link .= warquest_link('mid='.$mid.'&sid='.$sid.'&eid='.EVENT_MISSION_PLAY.'&uid='.$uid, t('LINK_DO_AGAIN'), "doagain");
 		
 			$popup .= warquest_box(t('GENERAL_CONQUER').' '.t('MISSION_'.$uid), $message, $link);
+			
+			warquest_sound('mission'.rand(1,2).'.mp3');	
 		} 
 	}
 }
