@@ -1318,7 +1318,7 @@ function convert_date_mysql($date) {
 /**
  * Play mp3 sound file 
  */
-function warquest_sound( $filename ) {
+function warquest_sound( $filename, $loop=0) {
 
 	/* input */
 	global $player;
@@ -1328,7 +1328,11 @@ function warquest_sound( $filename ) {
 	
 	if (warquest_db_query_pattern($player, PATTERN_SOUND)==1) {
 	
-		$page .= '<audio autoplay>';
+		$page .= '<audio autoplay ';
+		if ($loop==1) {
+			$page .= 'loop';
+		}
+		$page .= '>'; 
 		$page .= '<source src="mp3/'.$filename.'" type="audio/mpeg">';
 		$page .= '</audio>';		
 	}
