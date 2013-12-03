@@ -924,7 +924,7 @@ function warquest_home_ad() {
 		$page .= '<div class="subparagraph">'.t('HOME_ANNOUNCEMENTS').'</div>';
 			
 		$page .= '<a href="javascript:link(\''.warquest_token('mid='.MENU_HELP.'&sid='.PAGE_DONATE).'\')">';			
-		$page .= warquest_image('other/ad2.png', 'width="510" height="75" id="ad" ');
+		$page .= warquest_image('other/ad1.png', 'width="510" height="75" id="ad" ');
 		$page .= '</a>';
 		
 		$page .= '<script language="JavaScript" type="text/javascript">';

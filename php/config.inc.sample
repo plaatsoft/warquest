@@ -39,7 +39,7 @@ $config['backup_period']   		   = 30;
 $config["webservices"]					= 1;
 
 /* Server version */
-$config["applVersion"]					= 'Version 5.9';
+$config["applVersion"]					= 'Version 6.0';
 
 /* Client version settings */
 $config["windows_client_version"]	= '1.4';
@@ -121,7 +121,7 @@ $config['max_cooldown_period']		= 8 * 60 * 60;
 $config["max_invite_period"]			= 2;
 $config["max_sector_damage"]		   = 10;
 $config["max_money_win"]            = 1500000000;
-$config["max_casio_groups"]
+$config["max_casio_groups"] 			= 3;
 
 $config["max_health_reduction"]		= 10;
 $config["max_energy_reduction"]		= 20;

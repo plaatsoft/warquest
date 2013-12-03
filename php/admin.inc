@@ -340,9 +340,8 @@ function warquest_admin_action_form() {
 					
 	$page .= '<div class="subparagraph">Actions</div>';
 	
-	$page .= '<div class="box">';
-	
-	$page .= '<br/>';
+	$page .= '<div class="box action">';
+		
 	$page .= '<b>GENERAL ACTIONS</b>'; 
 	
 	$page .= '<ul>'; 
@@ -385,6 +384,7 @@ function warquest_admin_action_form() {
 	
 	$page .= '</ul>';
 	
+	$page .= '<br/>';
 	$page .= '<b>SPECIAL ACTIONS</b>'; 
 	
 	$page .= '<ul>';

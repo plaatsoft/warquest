@@ -153,18 +153,10 @@ function warquest_building_buy_do() {
 
 		/* Update Statistics */
 		warquest_gold_use($totalGold);
- 
-		$totalAmount = $amountOld + $amount; 
 		
-		if ($amountOld==0)	{	
-			$query  = 'insert into player_building (bid, pid, amount) ';
-			$query .= "values (".$uid.",".$player->pid.",".$amount.")";	
-		} else {
-			$query  = "update player_building set amount=";
-			$query .= $totalAmount." where pid=".$player->pid." and bid=".$uid; 
-		} 		
-		warquest_db_query($query);
-			
+			/* save data in database */
+		$totalAmount = warquest_db_building_add($player->pid, $uid, $amount);
+		
 		/* Update income and defense value */
 		warquest_netto_income($player);
 		
@@ -315,10 +307,9 @@ function warquest_building_sell_do() {
 		$player->money += $totalPrice; 
 		$player->gold += $totalGold; 
 
-		/* First update */
-		$query  = "update player_building set amount=".($amountOld-$amount)." where pid=".$player->pid." and bid=".$uid; 
-		warquest_db_query($query);
-
+		/* Delete amount out database */
+		warquest_db_building_delete($player->pid, $uid, $amount);
+		
 		/* Update income and defense value */
 		warquest_netto_income($player);
 	
