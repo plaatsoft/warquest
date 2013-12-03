@@ -458,6 +458,8 @@ function warquest_help_donate_form() {
 
 	$page .= '</div>';	
 	
+	warquest_sound('donate.mp3');	
+	
 	$page .= warquest_show_ads();
 }
 
@@ -872,6 +874,8 @@ function warquest_help_notes_form() {
 	$page .= '</div>';		
 	
 	$page .= warquest_show_ads();
+	
+	warquest_sound('notes.mp3');	
 }
 
 
@@ -1020,6 +1024,8 @@ function warquest_help_general_form() {
 	$page .= '<br/>';
 			
 	$page .= '</div>';	
+	
+	warquest_sound('help.mp3');	
 }
 
 /*
