@@ -1117,6 +1117,60 @@ function warquest_bank_assest($pid) {
 
 /*
 ** ---------------------
+** PLAYER_STOCK
+** ---------------------
+*/
+
+function warquest_db_player_stock_add($pid, $sid, $amount, $cost) {
+
+	/* Get stock amount of player */
+	$query  = "select amount from player_stock where pid=".$pid." and sid=".$sid;
+	$result = warquest_db_query($query);
+		
+	/* If stock exist */
+	if ($data=warquest_db_fetch_object($result)) {
+			
+		$totalAmount = $data->amount + $amount;
+
+		$query  = 'update player_stock set amount=';
+		$query .= $totalAmount.', cost='.$cost.' where pid='.$pid.' and sid='.$sid; 
+		
+	} else {		
+	
+		$totalAmount = $amount;
+		
+		$query  = 'insert into player_stock (sid, pid, amount, cost) ';
+		$query .= 'values ('.$sid.','.$pid.','.$totalAmount.','.$cost.')';	    		
+	} 
+	
+	warquest_db_query($query);
+	
+	return $totalAmount;
+}
+
+function warquest_db_player_stock_delete($pid, $sid, $amount, $cost) {
+
+	/* Unit amount of player */
+	$query  = "select amount from player_stock where pid=".$pid." and sid=".$sid;	
+	$result = warquest_db_query($query);
+	
+	/* If stock exist */
+	if ($data=warquest_db_fetch_object($result)) {
+		
+		$totalAmount = $data->amount - $amount;
+	
+		if ( $totalAmount>0 ) {
+			$query = "update player_stock set amount=".$totalAmount.", cost=".$cost." where pid=".$pid." and sid=".$sid;
+		} else {
+			$query = "delete from player_stock where pid=".$pid." and sid=".$sid; 
+		}
+		
+		warquest_db_query($query);
+	}
+}
+
+/*
+** ---------------------
 ** STOCK
 ** ---------------------
 */
@@ -1148,7 +1202,8 @@ function warquest_db_check($symbol, $pid) {
 	
 	return $returnValue;
 }
-	
+
+
 /*
 ** ---------------------
 ** BATTLE

@@ -315,16 +315,9 @@ function warquest_stock_buy_do() {
 		warquest_user_log($player, $log);
 		
 		$cost = $costOld + $total;
-		 
-		if ($amountOld==0)	{	
-			$query  = 'insert into player_stock (sid, pid, amount, cost) ';
-			$query .= "values (".$uid.",".$player->pid.",".$amount2.",".$cost.")";	
-		} else {
-			$query  = 'update player_stock set amount=';
-			$query .= ($amountOld+$amount2).', cost='.$cost.' where pid='.$player->pid.' and sid='.$uid; 		
-		} 
-		warquest_db_query($query);
-				
+		
+		warquest_db_player_stock_add($player->pid, $uid, $amount2, $cost);
+		
 		$message = '<table>';
 		$message .= '<tr>';
 		$message .= '<td width="100">';
@@ -452,14 +445,9 @@ function warquest_stock_sell_do() {
 		warquest_user_log($player, $log);
 		
 		$cost = $data->cost - (($data->cost / $amountOld) * $amount2);
-			
-		if (($amountOld-$amount2)>0) {
-			$query  = "update player_stock set amount=".($amountOld-$amount2).", cost=".$cost." where pid=".$player->pid." and sid=".$uid; 
-		} else {
-			$query = "delete from player_stock where pid=".$player->pid." and sid=".$uid; 
-		}
-		warquest_db_query($query);
- 
+		
+		warquest_db_player_stock_delete($player->pid, $uid, $amount2, $cost);
+		
 		$message = '<table>';
 		$message .= '<tr>';
 		$message .= '<td width="100">';

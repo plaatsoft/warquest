@@ -298,18 +298,8 @@ function warquest_buy_missing_units_do() {
 			
 			$log = 'Buy missing units for mission '.number_format2($money);		
 			warquest_user_log($player, $log);
-		
-					
-			/* If unit exist */
-			if ($unit->amount>0) {		
-				$query  = "update player_unit set amount=".($unit->amount + $unit->total).' ';
-				$query .= "where pid=".$player->pid." and uid=".$unit->uid; 
-			} else {
-				$query  = "insert into player_unit (pid, uid, amount) values (";
-				$query .= $player->pid.",".$unit->uid.",".$unit->total.")";	    
-			} 
-			
-			warquest_db_query($query);
+	
+			warquest_db_unit_add($player->pid, $unit->uid, $unit->total);
 		}
 	}
 	

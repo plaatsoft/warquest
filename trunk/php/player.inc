@@ -125,7 +125,7 @@ function warquest_maintenance_info_form($other) {
 	$page .= '</td>';
 		
 	$page .= '<td>';
-	$page .= '<b>'.$total.'% </b>';
+	$page .= '<b>'.money_format1($total).'% </b>';
 	$page .= '</td>';
 	
 	$page .= '</tr>';
@@ -241,7 +241,7 @@ function warquest_discount_info_form($other) {
 	$page .= '</td>';
 		
 	$page .= '<td>';
-	$page .= '<b>'.$total.'% </b>';
+	$page .= '<b>'.money_format1($total).'% </b>';
 	$page .= '</td>';
 	
 	$page .= '</tr>';

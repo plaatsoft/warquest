@@ -1130,12 +1130,12 @@ function warquest_twitter($player) {
 function warquest_switch_planet_do() {
 
 	/* input */
-	global $planet_id;
+	global $planet;
 	
 	/* output */
 	global $player;
 	
-	$player->planet=$planet_id;
+	$player->planet=$planet;
 }
 
 $link_counter=0;
@@ -2424,7 +2424,7 @@ function warquest_ui_header( $title = "") {
 	}
  
 	$page .= '<link href="'.$config["content_url"].'images/favicon.ico" rel="shortcut icon" type="image/x-icon" />'; 
-	$page .= '<link href="'.$config["content_url"].'css/general3.css" rel="stylesheet" type="text/css" />';
+	$page .= '<link href="'.$config["content_url"].'css/general4.css" rel="stylesheet" type="text/css" />';
 
 	if (($mid==MENU_MONEY) && ($sid==PAGE_STOCK_EXCHANGE)) {	
 		$page .= '<link href="'.$config["content_url"].'css/jquery.css" rel="stylesheet" type="text/css" />';

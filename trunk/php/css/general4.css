@@ -11,7 +11,13 @@ body {
 
 ul {
 	list-style-type:circle;
-	font-size: 1.3em;
+	margin: 0px;
+	padding: 0px 0px 0px 15px ;
+}
+
+li {
+	margin: 0px;
+	padding: 0px;
 }
 
 th {
@@ -64,6 +70,10 @@ a:hover {
 	text-decoration: underline overline; 
 	color: yellow;
 } 
+
+.action {
+	font-size: 1.3em;
+}
 
 .help {
 	margin: 0px 0px 0px 3px;

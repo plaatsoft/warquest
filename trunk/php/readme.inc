@@ -18,98 +18,148 @@
 
 $notes = '
 
-<span class="subparagraph2">25-11-2013</span><br/>
-<i>Game Server v5.9</i><br/>
-- Added premium gold features:</br>
-&nbsp;&nbsp;- Added 16 gold defence buildings.</br>
-&nbsp;&nbsp;- Added 16 gold units.</br>
-&nbsp;&nbsp;- Gold units & buildings are immortal.</br>
-&nbsp;&nbsp;- Added gold information to game banner.</br>
-&nbsp;&nbsp;- Updated help and donation page information.</br>
-&nbsp;&nbsp;- Updated admin page to process manual gold donations.</br>
-&nbsp;&nbsp;- All existing and new players receive 500 gold as introduction bonus.</br>
-&nbsp;&nbsp;- Existing trade points are converted to gold (ratio 1:500).</br>
-&nbsp;&nbsp;- Trade features are now payed with gold instead of trade points.</br>
-&nbsp;&nbsp;- Added gold use to Help -> Stats page.</br>
-- Added building defence submenu for better overview.</br>
-- Cleanup earth cavalry units. Removed weakest units to make a shorter list.</br></br>
+<span class="subparagraph2">02-12-2013</span><br/>
+<i>Game Server v6.0</i>
+<ul>
+<li>Clan Wars improvements:</li>
+<ul>
+<li>Added bonus to each won clan war fight.</li>
+<li>Added clan slogan.</li>
+<li>Mininal clan size is now set to 6 during fights.</li>
+<li>Rebalance earth, moon, mars and asteroid units and buildings.</li>
+<li>Limit map access to neighbor sectors which are already conquered.</li>
+<li>Unlock clan wars at level 15.</li>
+</ul>
+<li>Update javascripts to support IE 6,7,8,9 and 10.</li>
+<li>Added gold promotion banner to home page.</li>
+<li>Replace all magic event numbers with constants in source code.</li>
+<li>Improve security of all POST / GET actions.</li>
+</ul>
+<br/>
 
-<i>General</i><br/>
-- Please visit www.gravatar.com to upload a player image.<br/><br/>
+<i>General</i>
+<ul>
+<li>Please visit www.gravatar.com to upload a player image.</li>
+</ul>
+<br/>
+
+<span class="subparagraph2">25-11-2013</span><br/>
+<i>Game Server v5.9</i>
+<ul>
+<li>Added premium gold features:</li>
+<ul>
+<li>Added 16 gold defence buildings.</li>
+<li>Added 16 gold units.</li>
+<li>Gold units & buildings are immortal.</li>
+<li>Added gold information to game banner.</li>
+<li>Updated help and donation page information.</li>
+<li>Updated admin page to process manual gold donations.</li>
+<li>All existing and new players receive 500 gold as introduction bonus.</li>
+<li>Existing trade points are converted to gold (ratio 1:500).</li>
+<li>Trade features are now payed with gold instead of trade points.</li>
+<li>Added gold use to Help -> Stats page.</li>
+</ul>
+<li>Added building defence submenu for better overview.</li>
+<li>Cleanup earth cavalry units. Removed weakest units to make a shorter list.</li>
+</ul>
+<br/>
 
 <span class="subparagraph2">21-11-2013</span><br/>
-<i>Game Server v5.8</i><br/>
-- Added third casino game: Tic Tac Toe.</br>
-- Added sound effects to casino games.</br>
-- Added email check to activate mail notifications.</br>
-- Improve WarQuest email layout. Now completly HTML based.</br>
-- Battle sounds functionality is now based on HTML5 standard.<br/>
-- Mission maps support now direct jump to mission page.<br>
-- Rebalance earth unit & building defense / attack values.</br>
-- Added clan wars functionality to WarQuest:<br/>
-&nbsp;&nbsp;- Added bonus to conquer sector event.</br>
-&nbsp;&nbsp;- Added Battle -> Clan-Wars battle page.<br/>
-&nbsp;&nbsp;- Added Alliance -> Clan configuration page.<br/>
-&nbsp;&nbsp;- Update Help -> Instruction page.<br/>
-&nbsp;&nbsp;- Update Player -> Profile page.<br/>
-- Bug fix: Create SessionId functionality is now transaction proof.<br/><br/>
+<i>Game Server v5.8</i>
+<ul>
+<li>Added clan wars functionality to WarQuest:</li>
+<ul>
+<li>Added bonus to conquer sector event.</li>
+<li>Added Battle -> Clan-Wars battle page.</li>
+<li>Added Alliance -> Clan configuration page.</li>
+<li>Update Help -> Instruction page.</li>
+<li>Update Player -> Profile page.</li>
+</ul>
+<li>Added third casino game: Tic Tac Toe.</li>
+<li>Added sound effects to casino games.</li>
+<li>Added email check to activate mail notifications.</li>
+<li>Improve WarQuest email layout. Now completly HTML based.</li>
+<li>Battle sounds functionality is now based on HTML5 standard.</li>
+<li>Mission maps support now direct jump to mission page.</li>
+<li>Rebalance earth unit & building defense / attack values.</li>
+<li>Bug fix: Create SessionId functionality is now transaction proof.</li>
+</ul>
 
-<i>Windows Client v1.5</i><br/>
-- Added HTML5 sound support.<br/>
-- Upgraded QT libraries to v5.1.1<br/>
-- The app was build with QtCreator v2.8.1<br/>
-- Released app on www.plaatsoft.nl<br/><br/>
+<br/>
+<i>Windows Client v1.5</i>
+<ul>
+<li>Added HTML5 sound support.</li>
+<li>Upgraded QT libraries to v5.1.1</li>
+<li>The app was build with QtCreator v2.8.1</li>
+<li>Released app on www.plaatsoft.nl</li>
+</ul>
+<br/>
 
 <span class="subparagraph2">8-11-2013</span><br/>
-<i>Game Server v5.7</i><br/>
-- Optimize mission planet images. Reduce filesize to improve load time.<br/>
-- Increase maximum level to 279.<br/>
-- Removed sun features.<br/>
-- Improve database optimize. (Admin mode).<br/>
-- Added backup cron  job.<br/>
-- Update jquery to 10.2.0.<br/>
-- Update jquery-ui to 10.3.0.<br/>
-- update jquery-css smooth to 10.3.0.<br/>
-- Added server php source code to google code.<br/></br/>
+<i>Game Server v5.7</i>
+<ul>
+<li>Optimize mission planet images. Reduce filesize to improve load time.</li>
+<li>Increase maximum level to 279.</li>
+<li>Removed sun features.</li>
+<li>Improve database optimize. (Admin mode).</li>
+<li>Added backup cron  job.</li>
+<li>Update jquery to 10.2.0.</li>
+<li>Update jquery-ui to 10.3.0.</li>
+<li>update jquery-css smooth to 10.3.0.</li>
+<li>Added server php source code to google code.</li>
+</ul>
+<br/>
 
 <span class="subparagraph2">07-02-2013</span><br/>
-<i>Game Server v5.6</i><br/>
-- Fixed bug in stock exchange buy functionality.<br/>
-- Increase maximum level to 275.<br/>
-- Updated copyright banner.<br/>
-- Added ban user optional. To lock cheater account (Admin mode).<br/><br/>
+<i>Game Server v5.6</i>
+<ul>
+<li>Fixed bug in stock exchange buy functionality.</li>
+<li>Increase maximum level to 275.</li>
+<li>Updated copyright banner.</li>
+<li>Added ban user optional. To lock cheater account (Admin mode).</li>
+</ul>
+<br/>
 
 <span class="subparagraph2">14-07-2012</span><br/>
-<i>Game Server v5.5</i><br/>
-- Added spanish translation. Thanks Algarobo!<br/>
-- Added romanian translation. Thanks Prepa!<br/>
-- Added eight extra levels<br/><br/>
+<i>Game Server v5.5</i>
+<ul>
+<li>Added spanish translation. Thanks Algarobo!</li>
+<li>Added romanian translation. Thanks Prepa!</li>
+<li>Added eight extra levels</li>
+</ul>
+<br/>
 
 <span class="subparagraph2">07-06-2012</span><br/>
-<i>Game Server v5.4</i><br/>
-- Added country selection box to settings page.<br/>
-- Space character(s) in nickname is not allowed anymore!<br/>
-- Now setting a bounty is rewarded with one expercience point.<br/>
-- Added sun planet (more is coming soon)<br>
-- Added two extra levels.<br/>
-- Added total hourly income information to player profile page.<br/>
-- Added planet mission bonus information to Help page.<br/>
-- Added option to switch from MySql to PostGreSQL database.<br/>
-- Added query counter information in footer.<br/>
-- Added loosely coupled database layer.<br/>
-- Added WarQuest for Linux hyperlink on login page.<br/>
-- Robots now random sell units / buildings. Make them less strong.<br/>
-- Improve Latest forum query on home page. 10 times faster :)<br/>
-- Improve two cron jobs for better performance.<br/>
-- Bug fix: Citizens are now showed again in player profile.<br/>
-- Bug fix: Bots counter attack cash win is limited to max 1.5 billion.<br/>
-- Bug fix: Mars bonus is now 999 billion.<br/><br/>
+<i>Game Server v5.4</i>
+<ul>
+<li>Added country selection box to settings page.</li>
+<li>Space character(s) in nickname is not allowed anymore!</li>
+<li>Now setting a bounty is rewarded with one expercience point.</li>
+<li>Added sun planet (more is coming soon)</li>
+<li>Added two extra levels.</li>
+<li>Added total hourly income information to player profile page.</li>
+<li>Added planet mission bonus information to Help page.</li>
+<li>Added option to switch from MySql to PostGreSQL database.</li>
+<li>Added query counter information in footer.</li>
+<li>Added loosely coupled database layer.</li>
+<li>Added WarQuest for Linux hyperlink on login page.</li>
+<li>Robots now random sell units / buildings. Make them less strong.</li>
+<li>Improve Latest forum query on home page. 10 times faster :)</li>
+<li>Improve two cron jobs for better performance.</li>
+<li>Bug fix: Citizens are now showed again in player profile.</li>
+<li>Bug fix: Bots counter attack cash win is limited to max 1.5 billion.</li>
+<li>Bug fix: Mars bonus is now 999 billion.</li>
+</ul>
+<br/>
 
-<i>Linux Client v1.0</i><br/>
-- First release of WarQuest linux client.<br/>
-- Use QT library 4.8.1 for Linux as engine.<br/>
-- The app was build with QtCreator v2.4.1<br/>
-- Released app on Ubuntu software center.<br/><br/>
+<i>Linux Client v1.0</i>
+<ul>
+<li>First release of WarQuest linux client.</li>
+<li>Use QT library 4.8.1 for Linux as engine.</li>
+<li>The app was build with QtCreator v2.4.1</li>
+<li>Released app on Ubuntu software center.</li>
+</ul>
+<br/>
 
 
 <span class="subparagraph2">20-05-2012</span><br/>

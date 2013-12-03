@@ -146,7 +146,7 @@ define('PAGE_MAITENANCE',     2107);
 ** ------------------
 */
 
-/* login (external used) */
+/* login (WARNING external used) */
 define("EVENT_NONE",   		     			  0);
 define("EVENT_LOGIN",    				     1);
 define("EVENT_REGISTER",        			  2);
@@ -251,7 +251,7 @@ define("EVENT_ADMIN_BACKUP_DATABASE",    3920);
 define("EVENT_PLAYER_PDF_REPORT", 	     4000);
 define("EVENT_SWITCH_PLANET", 	        4001);
 
-/* others (external used) */
+/* others (WARNING external used) */
 define("EVENT_VALID_EMAIL",              4002);
 
 /*
