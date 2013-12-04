@@ -149,13 +149,13 @@ function warquest_player_report_do($id) {
 			$this->SetFont('','B');
 			$this->Cell($width,$height, t('PLAYER_DISCOUNT_RATE'), 1, 0, 'L', true);
 			$this->SetFont('','');
-			$this->Cell($width,$height, '+'.warquest_discount($data, $data->planet).'%', 1, 0,'L',true);
+			$this->Cell($width,$height, '+'.warquest_db_discount($data, $data->planet).'%', 1, 0,'L',true);
 			$this->Ln();
 			
 			$this->SetFont('','B');
 			$this->Cell($width,$height, t('PLAYER_MAINTENANCE_RATE'), 1, 0, 'L', true);
 			$this->SetFont('','');
-			$this->Cell($width,$height, '+'.warquest_maintenance($data, $data->planet).'%', 1, 0,'L',true);
+			$this->Cell($width,$height, '+'.warquest_db_maintenance($data, $data->planet).'%', 1, 0,'L',true);
 			
 			$this->Ln(10);
 		}
@@ -309,7 +309,7 @@ function warquest_player_report_do($id) {
 			$this->SetFont('','B');
 			$this->Cell($width, $height, t('GENERAL_STOCKS'),1,0,'L',true);
 			$this->SetFont('','');
-			$this->Cell($width, $height, number_format(warquest_bank_assest($data->pid),0,",",".").' '.t('GENERAL_DOLLAR'), 1, 0,'L',true);
+			$this->Cell($width, $height, number_format(warquest_db_bank_assest($data->pid),0,",",".").' '.t('GENERAL_DOLLAR'), 1, 0,'L',true);
 			$this->Ln();
 					
 			$this->Ln(10);

@@ -841,7 +841,7 @@ function warquest_clan_create_do() {
 		
 	} else {
 	
-		$cid = warquest_db_clan_insert($clan, $player->pid);
+		$cid = warquest_db_clan_insert($player->pid, $clan);
 		
 		warquest_db_player_clan_insert($player->pid, $cid);
 		

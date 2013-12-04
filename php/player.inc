@@ -1216,7 +1216,7 @@ function warquest_profile($id) {
 			 (warquest_db_ally($player->pid,$id)==0) && 		     
 			 ($other->lid >= warquest_get_min_attack_level()) &&
 			 ($other->lid <= warquest_get_max_attack_level()) && 
-		    (warquest_bounty_possible($data->pid, $player->pid)==0) && 
+		    (warquest_db_bounty_possible($data->pid, $player->pid)==0) && 
 			 ($player->holiday_date < date("Y-m-d H:i:s", time())) &&
 			 ($data->country!="EU")) {
 		
@@ -1531,7 +1531,7 @@ function warquest_profile($id) {
 	
 		$page .= '<tr>';
 		$page .= '<td><b>'.t('GENERAL_STOCKS').':</b></td>';
-		$page .= '<td>'.dollar_format(warquest_bank_assest($id)).'</td>';
+		$page .= '<td>'.dollar_format(warquest_db_bank_assest($id)).'</td>';
 		$page .= '</tr>';
 		
 		$page .= '<tr>';
@@ -1555,13 +1555,13 @@ function warquest_profile($id) {
 		
 		$page .= '<tr>';
 		$page .= '<td width="170"><b>'.t('PLAYER_DISCOUNT_RATE').':</b></td>';
-		$link = warquest_link('mid='.$mid.'&sid='.PAGE_DISCOUNT.'&oid='.$id, warquest_discount($data, $player->planet), "discount");	
+		$link = warquest_link('mid='.$mid.'&sid='.PAGE_DISCOUNT.'&oid='.$id, warquest_db_discount($data, $player->planet), "discount");	
 		$page .= '<td>'.$link.'%</td>';
 		$page .= '</tr>';
 		
 		$page .= '<tr>';
 		$page .= '<td><b>'.t('PLAYER_MAINTENANCE_RATE').':</b></td>';
-		$link = warquest_link('mid='.$mid.'&sid='.PAGE_MAINTENANCE.'&oid='.$id, warquest_maintenance($data, $player->planet), "discount");		
+		$link = warquest_link('mid='.$mid.'&sid='.PAGE_MAINTENANCE.'&oid='.$id, warquest_db_maintenance($data, $player->planet), "discount");		
 		$page .= '<td>'.$link.'%</td>';
 		$page .= '</tr>';
 		

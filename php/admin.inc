@@ -1362,7 +1362,7 @@ function warquest_admin_edit_do() {
 		$log = 'Admin add '.number_format2($bank).' dollars as bonus to the national bank';		
 		warquest_user_log($other, $log);
 	
-		warquest_bank_insert($other->pid, 0, 1, $bank, $other->bank1, 6);		
+		warquest_db_bank_insert($other->pid, 0, 1, $bank, $other->bank1, 6);		
 		$message = 'Added '.$bank.' dollar as bonus to National Bank.<br/>';
 	}
 	

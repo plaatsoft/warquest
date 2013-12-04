@@ -189,7 +189,7 @@ function warquest_mission_unit_lost() {
 	}
 
 	/* Update mission damage */
-	$maintenance = warquest_maintenance($player, $player->planet);	
+	$maintenance = warquest_db_maintenance($player, $player->planet);	
 	$player->damage_units += round(((100-$maintenance)/100) * rand(1,10));
 		
 	/* Check if units damage is less then 100% then return */		

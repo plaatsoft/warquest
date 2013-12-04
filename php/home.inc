@@ -614,7 +614,7 @@ function warquest_daily_bonus() {
 			
 			$bonus = 10000000000;
 			$player->bank1+=$bonus;		
-			warquest_bank_insert($player->pid, 0, 1, $bonus, $player->bank1, 6);				
+			warquest_db_bank_insert($player->pid, 0, 1, $bonus, $player->bank1, 6);				
 		}	
 	}		
 }
