@@ -1,0 +1,44 @@
+/* WarQuest IE CSS - All copyrights reserved (c) 2008-2013 PlaatSoft */
+
+body {	
+	display:block;	
+	width: 510px;
+}
+
+.fixed { 
+	text-align:left;
+}
+
+.scroll {
+	text-align:left;
+}
+
+.header {
+	width: 510px;
+}
+
+.menu {
+	width: 510px;
+}
+
+.footer {
+	width: 510px;
+}
+
+.note2 {
+	width: 510px;
+}
+
+.copyright {
+	width: 510px;
+}
+
+.box {
+	width: 510px;
+}
+
+.box2 {
+	margin: 0px 0px 0px 50px;
+	width: 400px;
+}
+
