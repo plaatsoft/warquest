@@ -76,7 +76,7 @@ function warquest_bank_deposit_do() {
 			}
 			 		
 			/* Update transaction log.	*/
-			warquest_bank_insert($player->pid, 0, $id, $deposit, $balance, 1);
+			warquest_db_bank_insert($player->pid, 0, $id, $deposit, $balance, 1);
 			
 			$handleFee = (round($deposit * ($init_bank_deposit/100)) * -1);
 			$balance=0;
@@ -95,7 +95,7 @@ function warquest_bank_deposit_do() {
 			}
 		
 			/* Update transaction log. */
-			warquest_bank_insert($player->pid, 0, $id, $handleFee, $balance, 2);
+			warquest_db_bank_insert($player->pid, 0, $id, $handleFee, $balance, 2);
 			
 			$message = t('BANK_DEPOSIT', money_format1($deposit));
 			$popup .= warquest_box_icon("info", $message);
@@ -159,7 +159,7 @@ function warquest_bank_withdraw_do() {
 							break;			
 			}
 		
-			warquest_bank_insert($player->pid, 0, $id, ($withdraw*-1), ($balance-$withdraw), 0);
+			warquest_db_bank_insert($player->pid, 0, $id, ($withdraw*-1), ($balance-$withdraw), 0);
 				
 			$message = t('BANK_WITHDRAW', money_format1($withdraw));
 			$popup .= warquest_box_icon("info", $message);

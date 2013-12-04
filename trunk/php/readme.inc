@@ -24,6 +24,7 @@ $notes = '
 <li>Added sound effects to mission and help pages.</li>
 <li>Improve Help-Notes text layout.</li>
 <li>Remove Ads functionality (not used for long time).</li>
+<li>Added database layer unit tests to improve quality.</li>
 </ul>
 <br/>
 
@@ -901,7 +902,7 @@ $notes = '
 <li>Complete redesign of building functionality:</li>
 <ul>
 <li>Each building contain now citizens.</li>
-<li>Each citizen has hourly cost (so deploying buildings reduce your income).</li>
+<li>Each citizen has hourly cost.</li>
 <li>Added calculate initial player citizen size action (Admin mode)</li>
 <li>Improve building transaction messages.</li>
 </ul>
@@ -1239,7 +1240,7 @@ $notes = '
 <li>Added one extra defense building.</li>
 <li>Added multi language support.</li>
 <li>Move all database language labels to resource file.</li>
-<li>Improve performance (5% less database queries needed during game play)</li>
+<li>Improve performance (5% less database queries during game play)</li>
 <li>Optimize datamodel.</li>
 <li>Added English translation (100% ready).</li>
 <li>Improve inline source code documentation.</li>
@@ -1564,8 +1565,8 @@ $notes = '
 <br/>
 
 <div class="subparagraph2">08-02-2011</div>
-<ul>
 <i>Game Server v0.10</i>
+<ul>
 <li>Started programming.</li>
 <li>Added basic login, registration and logout page.</li>
 <li>Added css sheet.</li>

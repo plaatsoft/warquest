@@ -55,19 +55,19 @@ function warquest_robot_trade($other, $planet) {
 	
 	/* Withdraw all money of the bank, if any */
 	if ($other->bank1 > 0) {
-		warquest_bank_insert($other->pid, 0, 1, ($other->bank1*-1), 0, 0);	
+		warquest_db_bank_insert($other->pid, 0, 1, ($other->bank1*-1), 0, 0);	
 		$other->money += $other->bank1;
 		$other->bank1 = 0;
 	}
 		
 	if ($other->bank2 > 0) {
-		warquest_bank_insert($other->pid, 0, 2, ($other->bank2*-1), 0, 0);	
+		warquest_db_bank_insert($other->pid, 0, 2, ($other->bank2*-1), 0, 0);	
 		$other->money += $other->bank2;
 		$other->bank2 = 0;
 	}
 
 	if ($other->bank3 > 0) {
-		warquest_bank_insert($other->pid, 0, 3, ($other->bank3*-1), 0, 0);	
+		warquest_db_bank_insert($other->pid, 0, 3, ($other->bank3*-1), 0, 0);	
 		$other->money += $other->bank3;
 		$other->bank3 = 0;
 	}
@@ -253,7 +253,7 @@ function warquest_robot_battle($player, $other) {
 			$other->health -= $health_winner;
 			$other->won += 1;	
 			
-			$maintenance = warquest_maintenance($other, $other->planet);
+			$maintenance = warquest_db_maintenance($other, $other->planet);
 	
 			if ($level->unit_lost==1) {
 				$other->damage_units += round(((100-$maintenance)/100) * ($health_winner/2));
@@ -277,7 +277,7 @@ function warquest_robot_battle($player, $other) {
 				warquest_db_battle_insert($other->pid, $player->pid, $money, $health_losser, 0, 1, $force);
 			}
 			
-			$maintenance = warquest_maintenance($player, $player->planet);		
+			$maintenance = warquest_db_maintenance($player, $player->planet);		
 			
 			if ($level->unit_lost==1) {
 				$player->damage_units += round(((100-$maintenance)/100) * ($health_losser/2));
@@ -297,7 +297,7 @@ function warquest_robot_battle($player, $other) {
 			$other->health -= $health_losser;
 			$other->lost += 1;
 			
-			$maintenance = warquest_maintenance($other, $other->planet);		
+			$maintenance = warquest_db_maintenance($other, $other->planet);		
 			
 			if ($level->unit_lost==1) {
 				$other->damage_units += round(((100-$maintenance)/100)*($health_losser/2));
@@ -321,7 +321,7 @@ function warquest_robot_battle($player, $other) {
 				warquest_db_battle_insert($other->pid, $player->pid, 0, $health_winner, $exp, 0, $force);
 			}
 						
-			$maintenance = warquest_maintenance($player, $player->planet);
+			$maintenance = warquest_db_maintenance($player, $player->planet);
 		
 			if ($level->unit_lost==1) {
 				$player->damage_units += round(((100-$maintenance)/100) * ($health_winner/2));
@@ -1035,7 +1035,7 @@ function warquest_clan_war_battle_do() {
 		$player->health -= $health_winner;
 		$player->last_battle = date("Y-m-d H:i:s");
 		
-		$maintenance = warquest_maintenance($player, $player->planet);
+		$maintenance = warquest_db_maintenance($player, $player->planet);
 			
 		if ($level->unit_lost==1) {			
 			$player->damage_units += round(((100-$maintenance)/100)* ($health_winner/2) );
@@ -1116,7 +1116,7 @@ function warquest_clan_war_battle_do() {
 		$player->health -= $health_losser;
 		$player->last_battle = date("Y-m-d H:i:s");
 		
-		$maintenance = warquest_maintenance($player, $player->planet);
+		$maintenance = warquest_db_maintenance($player, $player->planet);
 			
 		if ($level->unit_lost==1) {			
 			$player->damage_units += round(((100-$maintenance)/100)* ($health_losser/2) );
@@ -1257,7 +1257,7 @@ function warquest_battle_do() {
 			
 							if ($money>0) {
 								$other->bank2 -= $money;
-								warquest_bank_insert($other->pid, $player->pid, 2, ($money*-1), $other->bank2, 5);
+								warquest_db_bank_insert($other->pid, $player->pid, 2, ($money*-1), $other->bank2, 5);
 							}
 							break;
 
@@ -1270,7 +1270,7 @@ function warquest_battle_do() {
 							
 							if ($money>0) {
 								$other->bank3 -= $money;
-								warquest_bank_insert($other->pid, $player->pid, 3, ($money*-1), $other->bank3, 5);
+								warquest_db_bank_insert($other->pid, $player->pid, 3, ($money*-1), $other->bank3, 5);
 							}
 							break;				
 			}
@@ -1315,7 +1315,7 @@ function warquest_battle_do() {
 		$player->experience += $exp;
 		$player->health -= $health_winner;
 		
-		$maintenance = warquest_maintenance($player, $player->planet);
+		$maintenance = warquest_db_maintenance($player, $player->planet);
 			
 		if ($level->unit_lost==1) {			
 			$player->damage_units += round(((100-$maintenance)/100)* ($health_winner/2) );
@@ -1331,7 +1331,7 @@ function warquest_battle_do() {
 		$other->last_battle = date("Y-m-d H:i:s");
 		$other->news++;
 		
-		$maintenance = warquest_maintenance($other, $other->planet);
+		$maintenance = warquest_db_maintenance($other, $other->planet);
 	
 		if ($level->unit_lost==1) {			
 			$other->damage_units += round(((100-$maintenance)/100)* ($health_losser/2) );
@@ -1390,7 +1390,7 @@ function warquest_battle_do() {
 				$other->experience=0;
 			}
 					
-			warquest_bounty_delete($uid);	
+			warquest_db_bounty_delete($uid);	
 			$message .= '<br/><br/>'.t('BATTLE_BOUNTY_BONUS', money_format1($data3->amount)); 						
 			
 			$log = 'Battle bounty bonus '.number_format2($data3->amount);		
@@ -1454,7 +1454,7 @@ function warquest_battle_do() {
 		$player->health -= $health_losser;
 		$player->lost += 1;
 		
-		$maintenance = warquest_maintenance($player, $player->planet);
+		$maintenance = warquest_db_maintenance($player, $player->planet);
 	
 		if ($level->unit_lost==1) {
 			$player->damage_units += round(((100-$maintenance)/100)* ($health_losser/2));
@@ -1471,7 +1471,7 @@ function warquest_battle_do() {
 		$other->last_battle = date("Y-m-d H:i:s");
 		$other->news++;
 		
-		$maintenance = warquest_maintenance($other, $other->planet);
+		$maintenance = warquest_db_maintenance($other, $other->planet);
 		
 		if ($level->unit_lost==1) {
 			$other->damage_units += round(((100-$maintenance)/100)* ($health_winner/2));
@@ -1559,7 +1559,7 @@ function warquest_player_bounty_do() {
 				
 	} else {
 	
-		if (warquest_bounty_possible($other->pid, $player->pid)==0) {		
+		if (warquest_db_bounty_possible($other->pid, $player->pid)==0) {		
 	
 			/* Pay the bounty price */
 			$player->money -= $money;
@@ -1570,7 +1570,7 @@ function warquest_player_bounty_do() {
 			warquest_user_log($player, $log);
 					
 			/* Insert bounty event */
-			warquest_bounty_insert($other->pid, $player->pid, $money, $exp);
+			warquest_db_bounty_insert($other->pid, $player->pid, $money, $exp);
 		
 			/* Inform other player with message */
 			warquest_db_battle_insert($player->pid, $other->pid, $money, 0, $exp, 0, 0, 1);

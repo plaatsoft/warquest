@@ -59,7 +59,7 @@ function warquest_building_buy_do() {
 	global $player;
 	global $popup;
 		
-	$discount = warquest_discount($player, $player->planet);
+	$discount = warquest_db_discount($player, $player->planet);
 		
 	/* Get building information */
 	$query  = 'select bid, price, gold, income, defense, energy, max from building where bid='.$uid;
@@ -232,7 +232,7 @@ function warquest_building_sell_do() {
 	global $player;
 	global $popup;
 	
-	$discount = warquest_discount($player, $player->planet);
+	$discount = warquest_db_discount($player, $player->planet);
 	
 	/* Get building */
 	$query  = "select bid, price, gold, income, defense, energy from building where bid=".$uid;
@@ -396,7 +396,7 @@ function warquest_building_form() {
 	$title = t('BUILDING_GROUP_'.$sid);
 	
 	$building_group = warquest_db_building_group($sid);	 
-	$discount = warquest_discount($player, $player->planet);
+	$discount = warquest_db_discount($player, $player->planet);
 	
 	/* Count selected buildings */
 	$query  = 'select bid from building ';
