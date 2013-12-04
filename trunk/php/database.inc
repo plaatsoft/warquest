@@ -5,7 +5,7 @@
 **  WARQUEST
 **  ========
 **
-**  Created by wplaat
+**  @author wplaat
 **
 **  For more information visit the following website.
 **  Website : www.plaatsoft.nl 
@@ -28,6 +28,11 @@
 ** ----------------- 
 */
 
+/**
+ * Connect to database 
+ * @unitTest
+ * @output:   0 = ok | 1 = failure
+ */
 function warquest_db_connect($dbhost, $dbuser, $dbpass, $dbname) {
 
 	global $popup;
@@ -54,6 +59,11 @@ function warquest_db_connect($dbhost, $dbuser, $dbpass, $dbname) {
 	return 0;
 }
 
+/**
+ * Disconnect from database 
+ * @unitTest
+ * @output:   0 = ok | 1 = failure
+ */
 function warquest_db_close() {
 
 	if (MYSQL == 1) {
@@ -64,8 +74,12 @@ function warquest_db_close() {
 	
 		pg_close();
 	}
+	return 0;
 }
 
+/**
+ * Show SQL error 
+ */
 function warquest_db_error() {
 
 	if (MYSQL == 1) {
@@ -80,6 +94,10 @@ function warquest_db_error() {
 	return $error;
 }
 
+/**
+ * Count queries 
+ * @output:   queries count
+ */
 $query_count=0;
 function warquest_db_count() {
 
@@ -88,6 +106,11 @@ function warquest_db_count() {
 	return $query_count;
 }
 
+/**
+ * Execute database query
+ * @unitTest
+ * @output:   Database result
+ */
 function warquest_db_query($query) {
 			
 	global $query_count;
@@ -118,6 +141,10 @@ function warquest_db_query($query) {
 	return $result;
 }
 
+/**
+ * Fetch query result 
+ * @unitTest
+ */
 function warquest_db_fetch_object($result) {
 	
 	if (MYSQL == 1) {
@@ -131,7 +158,11 @@ function warquest_db_fetch_object($result) {
 	
 	return $data;
 }
-	
+
+/**
+ * Escape SQL value 
+ * @unitTest
+ */
 function warquest_db_escape($value) {
 	
 	if (MYSQL == 1) {
@@ -146,6 +177,9 @@ function warquest_db_escape($value) {
 	return $value;
 }
 
+/**
+ * Return number of rows
+ */
 function warquest_db_num_rows($value) {
 	
 	if (MYSQL == 1) {
@@ -623,6 +657,10 @@ function warquest_db_alliance_delete($pid1, $pid2) {
 ** -----------------
 */
 
+/**
+ * get member by username and password
+ * @unitTest
+ */
 function warquest_db_member_pid($username, $password) {
 	
 	$pid=0;
@@ -635,7 +673,11 @@ function warquest_db_member_pid($username, $password) {
 	}
 	return $pid;
 }
-	
+
+/**
+ * Insert member 
+ * @unitTest
+ */
 function warquest_db_member_insert($username, $password, $email) {
 	
 	/* Create user account */
@@ -648,7 +690,11 @@ function warquest_db_member_insert($username, $password, $email) {
 
 	return warquest_db_member_pid($username, $password);
 }
-	
+
+/**
+ * Insert update
+ * @unitTest
+ */
 function warquest_db_member_update($member) {
 		
 	/* Update member */
@@ -669,7 +715,10 @@ function warquest_db_member_update($member) {
 	warquest_db_query($query);
 }
 
-
+/**
+ * Get member by pid
+ * @unitTest
+ */
 $member_cache;
 function warquest_db_member($pid) {
 	
@@ -687,23 +736,38 @@ function warquest_db_member($pid) {
 	
 	$result = warquest_db_query($query);
 	
-	$member_cache=warquest_db_fetch_object($result);
+	$member_cache = warquest_db_fetch_object($result);
 	
 	return $member_cache;
 }
 
-function warquest_db_member_username_update($pid, $username) {
+/**
+ * Update member username
+ */
+ function warquest_db_member_username_update($pid, $username) {
 
-	/* Update member username */
 	$query  = 'update member set username = "'.warquest_db_escape($username).'" where pid='.$pid; 
 	warquest_db_query($query);
 }
 
+/**
+ * Update member password
+ */
 function warquest_db_member_password_update($pid, $password) {
 
-	/* Update member password */
 	$query  = 'update member set password = "'.md5($password).'" where pid='.$pid; 
 	warquest_db_query($query);
+}
+
+/**
+ * Delete member
+ * @unitTest
+ */
+function warquest_db_member_delete($pid) {
+
+	$query  = 'delete from member where pid='.$pid;
+
+	warquest_db_query($query);	
 }
 	
 /* 
@@ -712,42 +776,35 @@ function warquest_db_member_password_update($pid, $password) {
 ** -----------------
 */
 
-/* Insert Player */
-function warquest_db_player_insert($nickname, $pid) {
+/*
+ * Insert Player 
+ * @unitTest
+ */
+function warquest_db_player_insert($name, $pid) {
 
 	/* input */
 	global $config;
 	
 	/* Create user account */
 	$query  = 'insert into player (  ';
-	$query .= 'name, twitter, country, ';
+	$query .= 'name,  ';
 	$query .= 'ammo, ammo_step, ammo_date,  ';
 	$query .= 'health, health_step, health_date, ';
 	$query .= 'energy, energy_step, energy_date, ';
 	$query .= 'money, money_step, money_date, ';
-	
-	$query .= 'upkeep, experience, won, lost, mission, invite, ';
-	$query .= 'damage_units, damage_buildings, maintenance, news, chat, comment, language, ';	
-	$query .= 'default_force, default_mission, bonus_date, ads, casino, ';
+	$query .= 'bonus_date, ';
 	$query .= 'restore_health, restore_energy, restore_ammo, cease_fire_date, holiday_date, ';
-	$query .= 'rebel_status, bounty, planet, rebel, ';
-	
 	$query .= 'bank1, bank2, bank3, ';	
 	$query .= 'lid, alliance, won_level, default_amount, bounty_level, rebel_level, ';
 	$query .= 'request, request_date, last_battle, background, pattern, pid ) ';
-	$query .= 'values (';
-	$query .= '"'.warquest_db_escape($nickname).'", "", "",';
+	$query .= 'values (';	
+	$query .= '"'.warquest_db_escape($name).'", ';
 	$query .= $config["init_ammo_max"].','.$config["init_ammo_step"].',"'.date("Y-m-d H:i:s", (time()+$config["init_ammo_timer"])).'",';
 	$query .= $config["init_health_max"].','.$config["init_health_step"].',"'.date("Y-m-d H:i:s", (time()+$config["init_health_timer"])).'",';	
 	$query .= $config["init_energy_max"].','.$config["init_energy_step"].',"'.date("Y-m-d H:i:s", (time()+$config["init_energy_timer"])).'",';
-	$query .= $config["init_money"].','.$config["init_money_step"].',"'.date("Y-m-d H:i:s", (time()+$config["init_money_timer"])).'",';
-	
-	$query .= '0, 0, 0, 0, 0, 0, ';
-	$query .= '0, 0, 0, 0, 0, 0, "", ';
-	$query .= '"", "", "'.date("Y-m-d H:i:s", time()-10).'", 0, 0, ';
+	$query .= $config["init_money"].','.$config["init_money_step"].',"'.date("Y-m-d H:i:s", (time()+$config["init_money_timer"])).'",';	
+	$query .= '"'.date("Y-m-d H:i:s", time()-10).'", ';
 	$query .= '"'.date("Y-m-d H:i:s", time()-10).'", "'.date("Y-m-d H:i:s", time()-10).'", "'.date("Y-m-d H:i:s", time()-10).'", "'.date("Y-m-d H:i:s", time()-10).'", "'.date("Y-m-d H:i:s", time()-10).'", ';
-	$query .= '0, 0, 0, 0, ';
-	
 	$query .= $config["init_money_bank1"].','.$config["init_money_bank2"].','.$config["init_money_bank3"].',';
 	$query .= $config["init_level"].',1, 1, 1, 1, 1,';
 	$query .= '1,"'.date("Y-m-d H:i:s", time()).'","'.date("Y-m-d H:i:s", time()).'",1,"0010000000000000",'.$pid.')';
@@ -774,7 +831,10 @@ function warquest_db_player_insert($nickname, $pid) {
 	}	
 }
 
-/* Update Player */
+/**
+ * Update Player 
+ * @unitTest
+ */
 function warquest_db_player_update($player) {
 	
 	$query  = 'update player set '; 
@@ -820,7 +880,6 @@ function warquest_db_player_update($player) {
 	$query .= 'request='.$player->request.', ';
 	$query .= 'request_date="'.$player->request_date.'", ';
 	$query .= 'bonus_date="'.$player->bonus_date.'", ';	
-	$query .= 'ads='.$player->ads.', ';
 	$query .= 'casino='.$player->casino.', ';
 	$query .= 'restore_health="'.$player->restore_health.'", ';
 	$query .= 'restore_energy="'.$player->restore_energy.'", ';
@@ -839,7 +898,10 @@ function warquest_db_player_update($player) {
 	warquest_db_query($query);
 }
 
-/* Load player */
+/**
+ * Get player 
+ * @unitTest
+ */
 function warquest_db_player($pid) {
 
 	/* Get player data */
@@ -849,7 +911,7 @@ function warquest_db_player($pid) {
 	$query .= 'money_step, money_date, gold, energy_date, health_date, ammo_date, ammo_step, news, comment, ';
 	$query .= 'alliance, invite, bank1, bank2, bank3, upkeep, damage_units, damage_buildings, last_battle, ';
 	$query .= 'default_force, default_mission, default_amount, ';
-	$query .= 'bonus_date, request, request_date, ads, casino, ';
+	$query .= 'bonus_date, request, request_date, casino, ';
 	$query .= 'restore_health, restore_energy, restore_ammo, cease_fire_date, holiday_date, rebel_status, ';
 	$query .= 'bounty, bounty_level, planet, pattern, chat, rebel, rebel_level ';
 	$query .= 'from player where pid='.$pid;  
@@ -857,6 +919,17 @@ function warquest_db_player($pid) {
 	$result = warquest_db_query($query);  
 
 	return warquest_db_fetch_object($result);	
+}
+
+/**
+ * Delete member
+ * @unitTest
+ */
+function warquest_db_player_delete($pid) {
+
+	$query  = 'delete from player where pid='.$pid;
+
+	warquest_db_query($query);	
 }
 
 function warquest_set_default_force($value) {
@@ -999,19 +1072,26 @@ function warquest_db_player_login_counter($pid) {
 ** -----------------
 */
 
-function warquest_db_skill_insert($pid, $amount) {
+/**
+ * Insert skill 
+ * @unitTest
+ */
+function warquest_db_skill_insert($pid, $skill_points) {
 	
 	/* input */
 	global $config;
 		
 	$query  = 'insert into skill (pid, attack_max, defense_max, health_max, energy_max, ammo_max, skill_points, health_timer, energy_timer, ammo_timer ) ';
 	$query .= 'values ('.$pid.','.$config["init_attack_max"].','.$config["init_defense_max"].','.$config["init_health_max"].',';
-	$query .= $config["init_energy_max"].','.$config["init_ammo_max"].','.$amount.',0,0,0)';
+	$query .= $config["init_energy_max"].','.$config["init_ammo_max"].','.$skill_points.',0,0,0)';
 	
 	warquest_db_query($query);
 }
 
-
+/**
+ * update skill 
+ * @unitTest
+ */
 function warquest_db_skill_update($skill) {
 	
 	/* update skill data */
@@ -1021,15 +1101,19 @@ function warquest_db_skill_update($skill) {
 	$query .= "health_max=".$skill->health_max.", ";
 	$query .= "energy_max=".$skill->energy_max.", ";
 	$query .= "ammo_max=".$skill->ammo_max.", ";
-	$query .= "skill_points=". $skill->skill_points.", ";	
-	$query .= "health_timer=". $skill->health_timer.", ";
-	$query .= "energy_timer=". $skill->energy_timer.", ";
-	$query .= "ammo_timer=". $skill->ammo_timer." ";
+	$query .= "skill_points=".$skill->skill_points.", ";	
+	$query .= "health_timer=".$skill->health_timer.", ";
+	$query .= "energy_timer=".$skill->energy_timer.", ";
+	$query .= "ammo_timer=".$skill->ammo_timer." ";
 	$query .= "where pid=".$skill->pid; 
 		
 	warquest_db_query($query);	
 }
 
+/**
+ * Get skill 
+ * @unitTest
+ */
 $skill_cache;
 function warquest_db_skill($pid) {
 	
@@ -1050,6 +1134,17 @@ function warquest_db_skill($pid) {
 	$skill_cache = warquest_db_fetch_object($result); 
 	
 	return $skill_cache;
+}
+
+/**
+ * Delete skill
+ * @unitTest
+ */
+function warquest_db_skill_delete($pid) {
+
+	$query  = 'delete from skill where pid='.$pid;
+
+	warquest_db_query($query);	
 }
 
 /*
@@ -1264,7 +1359,6 @@ function warquest_bounty_possible($pid1, $pid2) {
 
 function warquest_db_cron_update($cid) {
 		
-	/* Update member */
 	$query  = "update cron set "; 
 	$query .= 'last_run = "'.date("Y-m-d H:i:s").'" ';
 	$query .= "where cid=".$cid; 
@@ -1278,31 +1372,64 @@ function warquest_db_cron_update($cid) {
 ** ---------------------
 */
 
+/**
+ * Insert News
+ * @unitTest
+ */
 function warquest_db_news_insert($body, $content, $language ) {
 	
+	$now = date("Y-m-d H:i:s");
+	
 	$query  = 'insert into news (date, body, content, language) ';
-	$query .= 'values ("'.date("Y-m-d H:i:s").'","'.warquest_db_escape($body).'","';
+	$query .= 'values ("'.$now.'","'.warquest_db_escape($body).'","';
 	$query .= warquest_db_escape($content).'","'.$language.'")';
+	
+	warquest_db_query($query);  
+	
+	$query = 'select id from news where date="'.$now.'"';
+	$result = warquest_db_query($query);
+	$data = warquest_db_fetch_object($result);
+	
+	return $data->id;
+}
+
+/**
+ * Update News
+ * @unitTest
+ */
+function warquest_db_news_update($news) {
+
+	$query  = "update news set "; 
+	$query .= 'body = "'.warquest_db_escape($news->body).'", ';
+	$query .= 'content = "'.warquest_db_escape($news->content).'", ';
+	$query .= 'language = "'.$news->language.'" ';
+	$query .= "where id=".$news->id; 
 	
 	warquest_db_query($query);  
 }
 
+/**
+ * Get News
+ * @unitTest
+ */
+function warquest_db_news($id) {
+	
+	$query  = 'select id, body, content, language from news where id='.$id;
+	
+	$result = warquest_db_query($query);
+	
+	return warquest_db_fetch_object($result);
+}
+
+/**
+ * Delete News
+ * @unitTest
+ */
 function warquest_db_news_delete($id) {
 	
 	$query  = 'delete from news where id='.$id;
 	
 	warquest_db_query($query);
-}
-
-function warquest_db_news_update($body, $content, $language, $id) {
-
-	$query  = "update news set "; 
-	$query .= 'body = "'.warquest_db_escape($body).'", ';
-	$query .= 'content = "'.warquest_db_escape($content).'", ';
-	$query .= 'language = "'.$language.'" ';
-	$query .= "where id=".$id; 
-	
-	warquest_db_query($query);  
 }
 
 /*
@@ -1509,6 +1636,10 @@ function warquest_db_player_clan_delete($pid, $cid) {
 ** ---------------------
 */
 
+/**
+ * Get Sector
+ * @unitTest
+ */
 function warquest_db_sector($sid) {
 
 	$query = 'select sid, x, y, cid, damage from sector where sid='.$sid;
@@ -1516,7 +1647,11 @@ function warquest_db_sector($sid) {
 	
 	return warquest_db_fetch_object($result);	
 }
-	
+
+/**
+ * Update Sector
+ * @unitTest
+ */
 function warquest_db_sector_update($data) {
 
 	$query  = "update sector set "; 

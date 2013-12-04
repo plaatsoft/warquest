@@ -238,8 +238,6 @@ function warquest_bank_log() {
 	
 	$page .= '</table>';
 	$page .= '</div>';
-	
-	$page .= warquest_show_ads();
 }
 
 /** 

@@ -381,9 +381,7 @@ function warquest_mission_do() {
 		
 		$message .= '<br/>';
 		$message .= t('MISSION_MISSING_UNITS_PRICE',money_format2($total), money_format2($upkeep));
-		
-		$message .= warquest_show_ads();
-		
+
 		$link = warquest_image('bar/bar'.warquest_format_progress($progress, $part).'.png').'<br/>';
 		
 		$max = $config['max_mission_part'];
@@ -400,9 +398,7 @@ function warquest_mission_do() {
 
 		$message = '<span class="warning">'.t('MISSION_ABORTED').'</span><br/>';
 		$message .= t('MISSION_NO_ENERGY');
-		
-		$message .= warquest_show_ads();
-		
+				
 		$link  = warquest_image('bar/bar'.warquest_format_progress($progress, $part).'.png').'<br/>';
 		
 		$max = $config['max_mission_part'];
@@ -419,8 +415,6 @@ function warquest_mission_do() {
 	
 		$message = '<span class="warning">'.t('MISSION_ABORTED').'</span><br/>';
 		$message .= t('MISSION_LOW_ALLIANCE');
-		
-		$message .= warquest_show_ads();
 		
 		$popup .= warquest_box(t('GENERAL_CONQUER').' '.t('MISSION_'.$uid), $message);
 		
@@ -484,8 +478,6 @@ function warquest_mission_do() {
 			if ($mission->loot==1) {
 				$message .= warquest_lootoption($mission->lid);
 			}
-			
-			$message .= warquest_show_ads();
 			
 			$link  = warquest_image('bar/bar'.warquest_format_progress($progress, $part).'.png').'<br/>';
 			

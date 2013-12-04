@@ -139,13 +139,7 @@ function warquest_player_report_do($id) {
 			$this->SetFont('','');
 			$this->Cell($width,$height, number_format($data->casino,0,",","."), 1, 0,'L',true);
 			$this->Ln();
-
-			$this->SetFont('','B');
-			$this->Cell($width,$height, t('PLAYER_ADS_SHOWED'), 1, 0,'L',true);
-			$this->SetFont('','');
-			$this->Cell($width,$height, number_format($data->ads,0,",","."), 1, 0,'L',true);
-			$this->Ln();
-			
+		
 			$this->SetFont('','B');
 			$this->Cell($width,$height, t('PLAYER_SERVER_REQUEST'), 1, 0, 'L', true);
 			$this->SetFont('','');

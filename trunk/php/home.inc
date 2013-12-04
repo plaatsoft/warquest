@@ -268,8 +268,6 @@ function warquest_home_messages() {
 	
 		$page .= warquest_box_icon("info",t('HOME_NO_MESSAGES'));
 	}
-	
-	$page .= warquest_show_ads();
 }
 
 
@@ -401,8 +399,6 @@ function warquest_home_news() {
 	
 		$page .= warquest_box_icon("info",t('HOME_BATTLE_NO_NEWS'));
 	}	
-	
-	$page .= warquest_show_ads();
 }
 
 /** 
@@ -827,8 +823,6 @@ function warquest_home_welcome() {
 		$page .= t('HOME_INTRO_ENEMY');
 		$page .= '<br/>';			
 	}
-	
-	$page .= warquest_show_ads();
 		
 	if ($player->lid > 4) {
 		$page .= warquest_poll_teaser();	

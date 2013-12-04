@@ -190,9 +190,7 @@ function warquest_comment_form() {
 	/* ---------------------------------------------------- */
 
 	if (isset($other)) {
-	
-		$page .= warquest_show_ads();
-	
+		
 		return;
 	}
 	
@@ -279,8 +277,6 @@ function warquest_comment_form() {
 	$page .= warquest_page_control($offset, $limit, $total, 0, '&tid='.$tid.'&fid='.$fid);
 	
 	$page .= '</div>';
-	
-	$page .= warquest_show_ads();
 }
 
 /*
@@ -544,8 +540,6 @@ function warquest_topic_form() {
 
 	$page .= "</div>";	
 	$page .= '<div class="note">'.t('TOPIC_NOTE').'</div>';
-	
-	$page .= warquest_show_ads();
 }
 
 /*
@@ -655,8 +649,6 @@ function warquest_forum_form() {
 	$page .= '</div>';
 	
 	$page .= '<div class="note">'.t('FORUM_NOTE').'</div>';
-	
-	$page .= warquest_show_ads();
 }
 
 /*

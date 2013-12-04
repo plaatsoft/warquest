@@ -208,7 +208,6 @@ function warquest_building_buy_do() {
 		$link .= warquest_amount_selected($amountDiff);
 	}
 
-	$message .= warquest_show_ads();
 	$popup .= warquest_box($type, $message, $link);	
 }
 
@@ -366,7 +365,6 @@ function warquest_building_sell_do() {
 		$link .= warquest_amount_selected($amountOld-$amount);
 	}
 		
-	$message .= warquest_show_ads();		
 	$popup .= warquest_box($type, $message, $link);
 }
 

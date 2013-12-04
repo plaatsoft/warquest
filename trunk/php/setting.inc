@@ -811,8 +811,6 @@ function warquest_settings_form() {
 	** Reset account 
 	** ---------------------------------
 	*/
-	
-	$page .= warquest_show_ads();
 }
 
 /*

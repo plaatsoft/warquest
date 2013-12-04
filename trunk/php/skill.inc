@@ -402,8 +402,6 @@ function warquest_skills_form() {
 	$page .= '<p>';
 	$page .= '<div class="note">'.t('PLAYER_SKILL_NOTE').'</div>';
 	$page .=  '</p>';
-	
-	$page .= warquest_show_ads();
 }
 
 /*

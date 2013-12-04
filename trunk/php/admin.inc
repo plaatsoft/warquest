@@ -796,7 +796,13 @@ function warquest_admin_news_save_do() {
 		
 		} else {
 	
-			warquest_db_news_update($body, $content, $language, $uid);
+			$news = warquest_db_news($uid);
+			
+			$news->body = $body;
+			$news->content = $content;
+			$news->language = $language;
+			
+			warquest_db_news_update($news);
 				
 			$message = 'News item '.$uid.' updated!';
 			$popup .= warquest_box_icon("info", $message);
@@ -1127,7 +1133,6 @@ function warquest_admin_copy_do() {
 		$other2->experience += rand(1,5);
 		$other2->won = 0;
 		$other2->lost = 0;
-		$other2->ads = 0;
 		$other2->mission = 0;
 		$other2->casino = 0;
 		$other2->country = "EU";
@@ -1241,11 +1246,9 @@ function warquest_admin_delete_do() {
 	$query = 'delete from comment where pid1='.$other->pid.' or pid2='.$other->pid; 
 	warquest_db_query($query);
 	
-	$query = "delete from member where pid=".$other->pid; 
-	warquest_db_query($query);
-
-	$query = "delete from player where pid=".$other->pid; 
-	warquest_db_query($query);
+	warquest_db_member_delete($other->pid);
+	warquest_db_player_delete($other->pid);
+	warquest_db_skill_delete($other->pid);
 	
 	$query = "delete from player_building where pid=".$other->pid; 
 	warquest_db_query($query);	
@@ -1260,9 +1263,6 @@ function warquest_admin_delete_do() {
 	warquest_db_query($query);
 
 	$query = "delete from player_unit where pid=".$other->pid; 
-	warquest_db_query($query);
-	
-	$query = "delete from skill where pid=".$other->pid; 
 	warquest_db_query($query);
 	
 	$query = "delete from session where pid=".$other->pid; 
@@ -1324,16 +1324,7 @@ function warquest_admin_edit_do() {
 		$experience = str_replace(".", "", $experience);
 	} 
 	$other->experience=$experience;
-	
-	/* ads parameter */
-	$ads = warquest_db_query_pattern($other, PATTERN_ADS);
-	if (isset($_POST['ads'])) {
-		$ads = 1;
-	} else {
-		$ads = 0;
-	}
-	warquest_db_set_pattern($other, PATTERN_ADS, $ads);	
-	
+		
 	/* ban parameter */
 	$ban = warquest_db_query_pattern($other, PATTERN_BAN);
 	if (isset($_POST['ban'])) {
@@ -1508,11 +1499,6 @@ function warquest_admin_player_form() {
 	$page .= '<tr>';
 	$page .= '<td>Experience:</td>';
 	$page .= '<td><input name="experience" type="text" size="10" maxlength="10" value="'.number_format($other->experience,0,",",".").'" /></td>';
-	$page .= '</tr>';
-		
-	$page .= '<tr>';
-	$page .= '<td>Show Ads:</td>';
-	$page .= '<td>'.warquest_ui_checkbox("ads", "ads", warquest_db_query_pattern($other, PATTERN_ADS)).'</td>';
 	$page .= '</tr>';
 		
 	$page .= '<tr>';
@@ -1899,7 +1885,6 @@ function warquest_admin() {
 	global $config;
 	global $sid;
 	global $eid;		
-	global $other;
 	global $player;
 	
 	/* output */

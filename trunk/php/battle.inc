@@ -1080,7 +1080,6 @@ function warquest_clan_war_battle_do() {
 		$message .= warquest_battle_unit_lost(warquest_get_default_force());
 		$message .= warquest_battle_building_lost(warquest_get_default_force());
 		$message .= warquest_lootoption($player->lid);
-		$message .= warquest_show_ads();
 		
 		$link = warquest_link('mid='.$mid.'&sid='.$sid.'&uid='.$uid.'&eid='.EVENT_BATTLE_CLAN_WAR,t('LINK_ATTACK'), 'attack-0');
 	
@@ -1136,7 +1135,6 @@ function warquest_clan_war_battle_do() {
 		$message .= $result->body;			
 		$message .= warquest_battle_unit_lost(warquest_get_default_force());
 		$message .= warquest_battle_building_lost(warquest_get_default_force());
-		$message .= warquest_show_ads();
 			
 		$link = warquest_link('mid='.$mid.'&sid='.$sid.'&uid='.$uid.'&eid='.EVENT_BATTLE_CLAN_WAR,t('LINK_ATTACK'), 'attack-0');
 		
@@ -1437,8 +1435,6 @@ function warquest_battle_do() {
 		$message .= warquest_battle_building_lost(warquest_get_default_force());
 		
 		$message .= warquest_lootoption($player->lid);
-		
-		$message .= warquest_show_ads();	
 				
 		if ($sid!=PAGE_BOUNTY) {
 			$link = warquest_link('mid='.$mid.'&sid='.$sid.'&oid='.$other->pid.'&uid='.$uid.'&eid='.EVENT_BATTLE_NORMAL,t('LINK_ATTACK'), 'attack-0');
@@ -1510,9 +1506,7 @@ function warquest_battle_do() {
 		$message .= '<br/>'.warquest_show_defense_army($other, warquest_get_default_force());
 		$message .= warquest_battle_unit_lost(warquest_get_default_force());
 		$message .= warquest_battle_building_lost(warquest_get_default_force());
-		
-		$message .= warquest_show_ads();
-				
+						
 		$link =  warquest_link('mid='.$mid.'&sid='.$sid.'&oid='.$other->pid.'&uid='.$uid.'&eid='.EVENT_BATTLE_NORMAL,t('LINK_ATTACK'), 'attack-0');
 		$popup .= warquest_box("warning", $message, $link);
 		
