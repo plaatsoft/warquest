@@ -1235,8 +1235,6 @@ function warquest_profile($id) {
 	$page .= '</td>';	
 	$page .= '</tr>';
 	$page .= '</table>';
-	
-	$page .= warquest_show_ads();
 			
 	$page .= '</div>';
 	
@@ -1313,8 +1311,7 @@ function warquest_profile($id) {
 		$page .= '<tr>';
 		$page .= '<td><b>'.t('PLAYER_CASINO_PLAYED').':</b></td>';
 		$page .= '<td>'.number_format($data->casino,0,",",".").'</td>';
-		$page .= '<td><b>'.t('PLAYER_ADS_SHOWED').':</b></td>';
-		$page .= '<td>'.number_format($data->ads,0,",",".").'</td>';
+		$page .= '<td></td>';
 		$page .= '</tr>';
 				
 		$page .= '<tr>';

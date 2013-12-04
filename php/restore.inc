@@ -613,8 +613,6 @@ function warquest_restore_form() {
 		$page .= '</table>';
 		$page .= '</div>'; 
 	}
-	
-	$page .= warquest_show_ads();
 }
 
 /*

@@ -312,7 +312,6 @@ function warquest_unit_form() {
 	$query  = "select uid from unit where ugid=".$sid." and lid<=".$player->lid;
 	$result = warquest_db_query($query); 
 	$count = warquest_db_num_rows($result);
-	$ads_pos = rand(1,$count);
 	
 	/* Get player unit data */
 	$query  = "select a.uid, a.price, a.gold, a.attack, a.defense, a.upkeep, a.max, a.ugid, ";
@@ -373,12 +372,6 @@ function warquest_unit_form() {
 		$page .= '</td>';
 		
 		$page .= '</tr>';
-		
-		if ($count==$ads_pos) {		
-			$begin = '<tr><td colspan="4"><br/>';
-			$end = '<br/></td></tr>';	
-			$page .= warquest_show_ads($begin, $end);				
-		}
 	}
 	
 	/* Show first locked unit  */

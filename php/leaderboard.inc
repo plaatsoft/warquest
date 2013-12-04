@@ -162,8 +162,6 @@ function warquest_leaderboard3_form() {
 	$page .= '<div class="note">';
 	$page .= t('LEADERBORD_PLAYER_COUNTRY_NOTE');
    $page .= '</div>';
-	
-	$page .= warquest_show_ads();
 }
 
 /*
@@ -284,8 +282,6 @@ function warquest_leaderboard2_form() {
 	$page .= '<div class="note">';
 	$page .= t('LEADERBORD_BEST_COUNTRY_NOTE');
    $page .= '</div>';
-	
-	$page .= warquest_show_ads();
 }
 
 /*
@@ -429,8 +425,6 @@ function warquest_leaderboard1_form() {
 	$page .= '<div class="note">';
 	$page .= t('LEADERBORD_BEST_PLAYER_NOTE');
    $page .= '</div>';
-	
-	$page .= warquest_show_ads();
 }
 
 ?>

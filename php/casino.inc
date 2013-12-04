@@ -282,8 +282,6 @@ function warquest_casino_wheel() {
 	$page .= '<div class="note">';
 	$page .= t('CASINO_NOTE'.$id);
 	$page .= '</div>';
-	
-	$page .= warquest_show_ads();
 }
 
 
@@ -738,8 +736,6 @@ function warquest_casino_slotmachine() {
 	$page .= '<div class="note">';
 	$page .= t('CASINO_NOTE'.$id);
 	$page .= '</div>';
-	
-	$page .= warquest_show_ads();
 }
 
 /*
@@ -966,8 +962,6 @@ function warquest_casino_tictactoe() {
 	$page .= '<div class="note">';
 	$page .= t('CASINO_NOTE'.$id);
 	$page .= '</div>';
-	
-	$page .= warquest_show_ads();
 }
 
 /*

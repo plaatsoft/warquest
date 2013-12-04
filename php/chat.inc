@@ -208,8 +208,6 @@ function warquest_chatroom_form() {
 	$page .= '<div class="note">';
 	$page .= t('CHATROOM_NOTE');
    $page .= '</div>';
-	
-	$page .= warquest_show_ads();
 }
 	
 /*

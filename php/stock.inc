@@ -543,7 +543,6 @@ function warquest_stock_form() {
 	
 	$result = warquest_db_query($query);	
 	$count = warquest_db_num_rows($result);
-	$ads_pos = rand(1,$count);
 	
 	$symbols="";
 	while ($data=warquest_db_fetch_object($result)) {
@@ -629,13 +628,6 @@ function warquest_stock_form() {
 			$page .= '</td>';
 		
 			$page .= '</tr>';
-			
-			if ($count==$ads_pos) {
-		
-				$begin = '<tr><td colspan="4"><br/>';
-				$end = '<br/></td></tr>';	
-				$page .= warquest_show_ads($begin, $end);		
-			}
 		}
 	
 		$page .= "</table>";	

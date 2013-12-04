@@ -113,8 +113,6 @@ function warquest_help_about_form() {
 		
 	$page .= '</div>';		
 
-	$page .= warquest_show_ads();
-	
 	warquest_sound('about.mp3' ,1);	
 }
 
@@ -401,8 +399,6 @@ function warquest_help_stats_form() {
 	$page .= t('HELP_STATS_NOTE');
 	$page .= '</div>';
 	
-	$page .= warquest_show_ads();	
-	
 	warquest_sound('stats.mp3', 1);	
 }
 
@@ -463,8 +459,6 @@ function warquest_help_donate_form() {
 	$page .= '</div>';	
 	
 	warquest_sound('donate.mp3', 1);	
-	
-	$page .= warquest_show_ads();
 }
 
 /*
@@ -640,8 +634,6 @@ function warquest_help_awards_form() {
 	}
 	$page .= '</table>';	
 	$page .= '</div>';	
-	
-	$page .= warquest_show_ads();			
 
 	warquest_sound('awards.mp3', 1);				
 }
@@ -711,8 +703,6 @@ function warquest_help_ranks_form() {
 	$page .= '</table>';
 		
 	$page .= '</div>';	
-			
-	$page .= warquest_show_ads();
 	
 	warquest_sound('rank.mp3', 1);	
 }
@@ -849,8 +839,6 @@ function warquest_help_levels_form() {
 		
 	$page .= '</div>';	
 	
-	$page .= warquest_show_ads();
-	
 	warquest_sound('levels.mp3', 1);				
 }
 
@@ -882,8 +870,6 @@ function warquest_help_notes_form() {
 	
 	$page .= warquest_parse_smilies($notes);
 	$page .= '</div>';		
-	
-	$page .= warquest_show_ads();
 	
 	warquest_sound('notes.mp3', 1);	
 }

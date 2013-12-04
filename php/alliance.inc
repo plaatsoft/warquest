@@ -125,7 +125,7 @@ function warquest_alliance_invite_form() {
 		$query .= '(select pid2 from player_player where pid1='.$player->pid.') and pid!='.$player->pid.' ';
 		$query .= 'and (alliance+invite)<(lid*'.$config["max_ally_factor"].') ';
 		$result = warquest_db_query($query);	 
-		$total=warquest_db_num_rows($result);
+		$total = warquest_db_num_rows($result);
 		
 		/* Show all not recruited players */
 		$query  = 'select pid, name, country, lid, experience, alliance, request_date ';
@@ -244,8 +244,6 @@ function warquest_alliance_invite_form() {
 	$page .= '<div class="note">';
 	$page .= t('ALLIANCE_INVITE_NOTE', $player->lid * $config["max_ally_factor"]);
    $page .= '</div>';		
-	
-	$page .= warquest_show_ads();
 }
 
 /*
@@ -498,8 +496,6 @@ function warquest_alliance_accepted_form() {
 	$page .= '<div class="note">';
 	$page .= t('ALLIANCE_NOTE');
    $page .= '</div>';	
-	
-	$page .= warquest_show_ads();
 }
 
 function warquest_alliance_pending_form() {
@@ -682,8 +678,6 @@ function warquest_alliance_pending_form() {
 	$page .= '<div class="note">';
 	$page .= t('ALLIANCE_NOTE');
    $page .= '</div>';	
-	
-	$page .= warquest_show_ads();
 }
 
 /*
@@ -1020,8 +1014,6 @@ function warquest_clan_form() {
 	$page .= '<div class="note">';
 	$page .= t('CLAN_NOTE');
    $page .= '</div>';	
-	
-	$page .= warquest_show_ads();
 }
 
 function warquest_clan_list_form() {
@@ -1178,8 +1170,6 @@ function warquest_clan_list_form() {
 	$page .= '<div class="note">';
 	$page .= t('CLAN_NOTE');
    $page .= '</div>';	
-	
-	$page .= warquest_show_ads();
 }
 
 /*
@@ -1276,7 +1266,6 @@ function warquest_alliance() {
 		case PAGE_CLAN_LIST: 
 					warquest_clan_list_form();
 					break; 
-					
 	}				  
 	
 	warquest_player();	
