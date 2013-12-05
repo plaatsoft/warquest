@@ -18,7 +18,7 @@
 
 $notes = '
 
-<div class="subparagraph2">03-12-2013</div>
+<div class="subparagraph2">05-12-2013</div>
 <i>Game Server v6.x</i>
 <ul>
 <li>Added sound effects to mission and help pages.</li>
