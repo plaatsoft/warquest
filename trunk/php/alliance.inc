@@ -24,7 +24,6 @@
 
 $clan = warquest_post('clan', '');
 $slogan = warquest_post('slogan', '');
-
 	
 /*
 ** ---------------------

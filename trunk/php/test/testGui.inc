@@ -34,35 +34,103 @@ class WebTest extends PHPUnit_Extensions_Selenium2TestCase {
    }
 	 
 	public function testLoginPage() {
-	
-		/* test data */
+
 		$username = "test1";
 		$password = "test1";
 	
       $this->url($this->website);
        		 
-		$this->clickOnElement('login');     
+		$this->clickOnElementOnElement('login');     
 		$this->assertEquals('WarQuest - Member login', $this->title());
 
-		$this->clickOnElement('registration'); 
+		$this->clickOnElementOnElement('registration'); 
 		$this->assertEquals('WarQuest - Free registration', $this->title());
 
-		$this->clickOnElement('recovery');     
+		$this->clickOnElementOnElement('recovery');     
 		$this->assertEquals('WarQuest - Password recovery', $this->title());
 		 
-		$this->clickOnElement('facebook'); 
+		$this->clickOnElementOnElement('facebook'); 
 		$this->assertEquals('WarQuest - Facebook', $this->title());
 
-		$this->clickOnElement('login'); 
+		$this->clickOnElementOnElement('login'); 
 		$this->assertEquals('WarQuest - Member login', $this->title());
 		
 		$input = $this->byId('myusername');
 		$input->value($username);		
 		$input = $this->byId('mypassword');
 		$input->value($password);		
-		$this->clickOnElement('do');  		
+		$this->clickOnElementOnElement('do');  		
 		$this->assertEquals('WarQuest - Overview', $this->title());
 	}
+	
+	 public function testMyTestCase() {
+	 
+	 
+		$username = "test1";
+		$password = "test1";
+		
+    $this->url($this->website);
+	 
+	$input = $this->byId('myusername');
+	$input->value($username);		
+	$input = $this->byId('mypassword');
+	$input->value($password);		
+				
+    $this->clickOnElement("do");
+    
+    $this->clickOnElement("missions");
+    
+    $this->clickOnElement("battle");
+    
+    $this->clickOnElement("units");
+    
+    $this->clickOnElement("money");
+    
+    $this->clickOnElement("alliance");
+    
+    $this->clickOnElement("forums");
+    
+    $this->clickOnElement("help");
+    
+    $this->clickOnElement("release-notes");
+    
+    $this->clickOnElement("ranks");
+    
+    $this->clickOnElement("awards");
+    
+    $this->clickOnElement("levels");
+    
+    $this->clickOnElement("stats");
+    
+    $this->clickOnElement("donate");
+    
+    $this->clickOnElement("about");
+    
+    $this->clickOnElement("home");
+    
+    $this->clickOnElement("settings");
+        
+    $this->clickOnElement("help");
+    
+    $this->clickOnElement("release-notes");
+    
+    $this->clickOnElement("ranks");
+    
+    $this->clickOnElement("awards");
+    
+    $this->clickOnElement("levels");
+    
+    $this->clickOnElement("stats");
+    
+    $this->clickOnElement("donate");
+    
+    $this->clickOnElement("about");
+    
+    $this->clickOnElement("home");
+    
+    $this->clickOnElement("logout");
+    
+  }
 
 }
 ?>
