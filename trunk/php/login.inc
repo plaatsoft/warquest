@@ -645,6 +645,9 @@ function warquest_facebook_form() {
 
 	/* output */
 	global $page;
+	global $title;
+	
+	$title = t('LOGIN_FACEBOOK_TITLE');
 	
 	$page .= '<style type="text/css">';
 	$page .= '.background {';
@@ -730,7 +733,7 @@ function warquest_recover_form() {
 	$page .= '<td>';
 	$page .= '<br/>';
 	$page .= '<input type="hidden" name="token" value="'.warquest_token('mid='.$mid.'&sid='.PAGE_RECOVER.'&eid='.EVENT_REGISTER.'&version='.$version).'">';
-	$page .= '<input type="submit" name="Submit" value="'.t('LINK_SEND').'">';
+	$page .= '<input type="submit" name="Submit" id="do" value="'.t('LINK_SEND').'">';
 	$page .= '</td>';
 	$page .= '</tr>';
 	$page .= '</table>';
@@ -801,7 +804,7 @@ function warquest_register_form() {
 	$page .= '<td>';
 	$page .= '<br/>';
 	$page .= '<input type="hidden" name="token" value="'.warquest_token('mid='.$mid.'&sid='.PAGE_REGISTER.'&eid='.EVENT_REGISTER.'&version='.$version).'">';
-	$page .= '<input type="submit" name="Submit" value="'.t('LINK_REGISTER').'">';
+	$page .= '<input type="submit" name="Submit" id="do" value="'.t('LINK_REGISTER').'">';
 	$page .= '</td>';
 	$page .= '</tr>';
 	$page .= '</table>';
@@ -865,7 +868,7 @@ function warquest_login_form() {
 	$page .= '<td>';
 	$page .= '<br/>';
 	$page .= '<input type="hidden" name="token" value="'.warquest_token('mid='.$mid.'&sid='.$sid.'&eid='.EVENT_LOGIN.'&version='.$version).'" />';
-	$page .= '<input type="submit" name="Submit" value="'.t('LINK_LOGIN').'">';
+	$page .= '<input type="submit" name="Submit" id="do" value="'.t('LINK_LOGIN').'">';
 	$page .= '</td>';
 	$page .= '</tr>';
 	$page .= '</table>';

@@ -11,7 +11,7 @@ CREATE TABLE IF NOT EXISTS `clan` (
   `lost` int(11) NOT NULL,
   PRIMARY KEY (`cid`),
   UNIQUE KEY `cid` (`cid`)
-) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=0 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=0;
 
 --
 -- Tabelstructuur voor tabel `player_clan`
