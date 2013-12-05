@@ -31,7 +31,7 @@
 /**
  * Connect to database 
  * @unitTest
- * @output:   0 = ok | 1 = failure
+ * @output:   1 = ok | 0 = failure
  */
 function warquest_db_connect($dbhost, $dbuser, $dbpass, $dbname) {
 
@@ -54,27 +54,27 @@ function warquest_db_connect($dbhost, $dbuser, $dbpass, $dbname) {
 		$popup .= warquest_box_icon("error", $message);
 		warquest_error($message);	
 		
-		return 1;		
+		return 0;		
 	}
-	return 0;
+	return 1;
 }
 
 /**
  * Disconnect from database 
- * @unitTest
- * @output:   0 = ok | 1 = failure
+ * @unitTest   
  */
 function warquest_db_close() {
 
 	if (MYSQL == 1) {
 
-		mysql_close();
+		$result = mysql_close();
 
 	} else {
 	
-		pg_close();
+		$result = pg_close();
 	}
-	return 0;
+	
+	return $result;
 }
 
 /**
@@ -104,6 +104,22 @@ function warquest_db_count() {
 	global $query_count;
 
 	return $query_count;
+}
+
+/**
+ * Execute database multi query
+ * @unitTest
+ */
+function warquest_db_multi_query($queries) {
+
+	$tokens = @preg_split("/;/", $queries);
+	foreach ($tokens as $token) {
+	
+		$token=trim($token);
+		if (strlen($token)>3) {
+			warquest_db_query($token);		
+		}
+	}
 }
 
 /**

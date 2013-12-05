@@ -140,7 +140,7 @@ delete from unit where uid=917;
 INSERT INTO `unit` (`uid`, `lid`, `price`, `gold`, `attack`, `defense`, `max`, `ugid`, `upkeep`) 
 	VALUES ('917', '148', '0', '10', '5550', '5350', '5000', '9', '100000');		
 	
-delete from unit where uid=1212
+delete from unit where uid=1212;
 	
 INSERT INTO `unit` (`uid`, `lid`, `price`, `gold`, `attack`, `defense`, `max`, `ugid`, `upkeep`) 
 	VALUES ('1212', '149', '0', '10', '2800', '2450', '5000', '12', '22500');		
@@ -174,6 +174,3 @@ INSERT INTO `unit` (`uid`, `lid`, `price`, `gold`, `attack`, `defense`, `max`, `
 
 INSERT INTO `unit` (`uid`, `lid`, `price`, `gold`, `attack`, `defense`, `max`, `ugid`, `upkeep`) 
 	VALUES ('2210', '240', '0', '10', '1850', '1850', '5000', '22', '125000');
-	
-		
-	

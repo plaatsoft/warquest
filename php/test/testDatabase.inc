@@ -18,15 +18,43 @@
 
 require_once "../general.inc";
 require_once "../config.inc";
+require_once "config.inc";
 require_once "../database.inc";
 
 class TestDatabase extends PHPUnit_Framework_TestCase {
-	 
+
+	/**
+	* @test create database tables
+	*/ 	
+   function testCreateDatabaseTables() {
+	
+		echo "testCreateDatabaseTables()\r\n";
+		
+		global $config;
+		global $popup;
+		
+		/* test data */
+		$_SERVER["REMOTE_ADDR"] = "127.0.0.1";
+		
+		$result = warquest_db_connect($config["dbhost"], $config["dbuser"], $config["dbpass"], $config["dbname"]);
+		$this->assertEquals($result, 1);
+		
+		warquest_db_multi_query( file_get_contents('../#database/base_57.sql', true) );
+		warquest_db_multi_query( file_get_contents('../#database/patch_58.sql', true) );
+		warquest_db_multi_query( file_get_contents('../#database/patch_59.sql', true) );
+		warquest_db_multi_query( file_get_contents('../#database/patch_60.sql', true) );
+		
+		$result = warquest_db_close();
+		$this->assertEquals($result, 1);	
+	}
+	
 	/**
 	* @test member database api
 	*/ 
    public function testMemberAPI() {
 		
+		echo "testMemberAPI()\r\n";
+			
 		global $config;
 		global $popup;
 
@@ -36,10 +64,10 @@ class TestDatabase extends PHPUnit_Framework_TestCase {
 		$password  = "1234567";
 		$email     = "test@plaatsoft.nl";
 		$_SERVER["REMOTE_ADDR"] = "127.0.0.1";
-		
+				
 		$result = warquest_db_connect($config["dbhost"], $config["dbuser"], $config["dbpass"], $config["dbname"]);
-		$this->assertEquals($result, 0);
-						
+		$this->assertEquals($result, 1);
+		
 		$pid = warquest_db_member_insert($username1, $password, $email);
 		$this->assertNotEquals($pid, 0);
 					
@@ -54,17 +82,20 @@ class TestDatabase extends PHPUnit_Framework_TestCase {
 		
 		$member2 = warquest_db_member($pid);
 		$this->assertEquals($member2->username, $username2);
-					
+		
 		$result = warquest_db_member_delete($pid);		
 		$this->assertEquals($result, 1);
 		
-		warquest_db_close();
-   }
+		$result = warquest_db_close();
+		$this->assertEquals($result, 1);	
+	}
 	
 	/**
 	* @test player database api
 	*/ 
    public function testPlayerAPI() {
+		
+		echo "testPlayerAPI()\r\n";
 		
 		global $config;
 		global $popup;
@@ -72,11 +103,11 @@ class TestDatabase extends PHPUnit_Framework_TestCase {
 		/* test data */
 		$name1 = "test1";
 		$name2 = "test2";
-		$pid = 100000000;
+		$pid = 1;
 		$_SERVER["REMOTE_ADDR"] = "127.0.0.1";
 						
 		$result = warquest_db_connect($config["dbhost"], $config["dbuser"], $config["dbpass"], $config["dbname"]);
-		$this->assertEquals($result, 0);
+		$this->assertEquals($result, 1);
 		
 		/* Clear old data, if any */
 		$result = warquest_db_player_delete($pid);	
@@ -99,25 +130,28 @@ class TestDatabase extends PHPUnit_Framework_TestCase {
 		$result = warquest_db_player_delete($pid);		
 		$this->assertEquals($result, 1);
 		
-		warquest_db_close();
+		$result = warquest_db_close();
+		$this->assertEquals($result, 1);	
    }
 	
 	/**
 	* @test skill database api
 	*/ 
    public function testSkillAPI() {
+
+		echo "testSkillAPI()\r\n";
 		
 		global $config;
 		global $popup;
 
 		/* test data */
-		$pid = 100000000;
+		$pid = 1;
 		$skill_points1 = 10;
 		$skill_points2 = 15;
 		$_SERVER["REMOTE_ADDR"] = "127.0.0.1";
 						
 		$result = warquest_db_connect($config["dbhost"], $config["dbuser"], $config["dbpass"], $config["dbname"]);
-		$this->assertEquals($result, 0);
+		$this->assertEquals($result, 1);
 	
 		/* Clear old data, if any */
 		$result = warquest_db_skill_delete($pid);		
@@ -139,13 +173,16 @@ class TestDatabase extends PHPUnit_Framework_TestCase {
 		$result = warquest_db_skill_delete($pid);		
 		$this->assertEquals($result, 1);
 		
-		warquest_db_close();
+		$result = warquest_db_close();
+		$this->assertEquals($result, 1);	
    }
 	
 	/**
 	* @test news database api
 	*/ 
    public function testNewsAPI() {
+		
+		echo "testNewsAPI()\r\n";
 		
 		global $config;
 		global $popup;
@@ -160,7 +197,7 @@ class TestDatabase extends PHPUnit_Framework_TestCase {
 		$_SERVER["REMOTE_ADDR"] = "127.0.0.1";
 						
 		$result = warquest_db_connect($config["dbhost"], $config["dbuser"], $config["dbpass"], $config["dbname"]);
-		$this->assertEquals($result, 0);
+		$this->assertEquals($result, 1);
 	
 		$id = warquest_db_news_insert($body1, $content1, $language1);
 		$this->assertNotEquals($id, 0);
@@ -184,13 +221,16 @@ class TestDatabase extends PHPUnit_Framework_TestCase {
 		$result = warquest_db_news_delete($id);
 		$this->assertEquals($result, 1);
 				
-		warquest_db_close();
+		$result = warquest_db_close();
+		$this->assertEquals($result, 1);	
    }
 	
 	/**
 	* @test sector database api
 	*/ 
    public function testSectorAPI() {
+		
+		echo "testSectorAPI()\r\n";
 		
 		global $config;
 		global $popup;
@@ -201,7 +241,7 @@ class TestDatabase extends PHPUnit_Framework_TestCase {
 		$_SERVER["REMOTE_ADDR"] = "127.0.0.1";
 						
 		$result = warquest_db_connect($config["dbhost"], $config["dbuser"], $config["dbpass"], $config["dbname"]);
-		$this->assertEquals($result, 0);
+		$this->assertEquals($result, 1);
 	
 		$sector1 = warquest_db_sector($cid);
 			
@@ -219,7 +259,8 @@ class TestDatabase extends PHPUnit_Framework_TestCase {
 		$result = warquest_db_sector_update($sector1);
 		$this->assertEquals($result, 1);
 		
-		warquest_db_close();
+		$result = warquest_db_close();
+		$this->assertEquals($result, 1);	
    }
 	
 	
@@ -228,17 +269,19 @@ class TestDatabase extends PHPUnit_Framework_TestCase {
 	*/ 
    public function testClanAPI() {
 		
+		echo "testClanAPI()\r\n";
+		
 		global $config;
 		global $popup;
-
+		
 		/* test data */
-		$pid = 100000000;
+		$pid = 1;
 		$name1 = "TEST";
 		$name2 = "TEST";
 		$_SERVER["REMOTE_ADDR"] = "127.0.0.1";
 						
 		$result = warquest_db_connect($config["dbhost"], $config["dbuser"], $config["dbpass"], $config["dbname"]);
-		$this->assertEquals($result, 0);
+		$this->assertEquals($result, 1);
 		
 		$cid = warquest_db_clan_insert($pid, $name1);
 		$this->assertNotEquals($cid, 0);
@@ -256,25 +299,27 @@ class TestDatabase extends PHPUnit_Framework_TestCase {
 		$result = warquest_db_clan_delete($cid);		
 		$this->assertEquals($result, 1);
 		
-		warquest_db_close();
+		$result = warquest_db_close();
+		$this->assertEquals($result, 1);	
    }
-	
 	
 	/**
 	* @test player_clan database api
 	*/ 
    public function testPlayerClanAPI() {
+
+		echo "testPlayerClanAPI()\r\n";
 		
 		global $config;
 		global $popup;
 
 		/* test data */
-		$pid = 100000000;
-		$cid = 100000000;
+		$pid = 1;
+		$cid = 1;
 		$_SERVER["REMOTE_ADDR"] = "127.0.0.1";
 						
 		$result = warquest_db_connect($config["dbhost"], $config["dbuser"], $config["dbpass"], $config["dbname"]);
-		$this->assertEquals($result, 0);
+		$this->assertEquals($result, 1);
 		
 		$result = warquest_db_player_clan_insert($pid, $cid);
 		$this->assertEquals($result, 1);
@@ -285,8 +330,37 @@ class TestDatabase extends PHPUnit_Framework_TestCase {
 		$result = warquest_db_player_clan_delete($pid, $cid);
 		$this->assertEquals($result, 1);
 		
-		warquest_db_close();
+		$result = warquest_db_close();
+		$this->assertEquals($result, 1);	
    }
+	
+	/**
+	* @test drop database tables
+	*/ 
+   public function testDropDatabaseTables() {
+		
+		echo "testDropDatabaseTables()\r\n";
+		
+		global $config;
+		global $popup;
+		
+		/* test data */
+		$_SERVER["REMOTE_ADDR"] = "127.0.0.1";
+		
+		$query = 'DROP TABLE `bank`, `bank_group`, `battle`, `battle_award`, `bonus`, `bounty`, `bounty_award`, `building`, `building_group`, `building_unit`, 	
+			`chat`, `clan`, `cron`, `level`, `member`, `mission`, `mission_group`, `mission_unit`, `news`, `player`, `player_building`, `player_clan`,
+			`player_mission`, `player_player`, `player_poll`, `player_stock`, `player_unit`, `poll`, `poll_answer`, `rebel_award`, `sector`, `session`, `skill`,
+			`statistics`, `stock`, `stock_group`, `topic`, `unit`, `unit_group`;'; 
+			
+		$result = warquest_db_connect($config["dbhost"], $config["dbuser"], $config["dbpass"], $config["dbname"]);
+		$this->assertEquals($result, 1);
+		
+		$result = warquest_db_query($query);
+		$this->assertEquals($result, 1);	
+		
+		$result = warquest_db_close();
+		$this->assertEquals($result, 1);	
+	}
 }
 
 ?>

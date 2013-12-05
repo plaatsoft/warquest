@@ -91,7 +91,7 @@ if (strlen($token)>0) {
 */
 
 /* Connect to database */
-if (@warquest_db_connect($config["dbhost"], $config["dbuser"], $config["dbpass"], $config["dbname"])) {
+if (@warquest_db_connect($config["dbhost"], $config["dbuser"], $config["dbpass"], $config["dbname"])!=1) {
 
 	/* Database down detected, swith to maintenance mode. */
 	include "login.inc";	

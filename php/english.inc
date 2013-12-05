@@ -359,6 +359,7 @@ $lang['TIP_200'] = 'Start your own asteroid colony!';
 $lang['LOGIN_MEMBER_TITLE'] = 'Member login';
 $lang['LOGIN_REGISTER_TITLE'] = 'Free registration';
 $lang['LOGIN_RECOVER_TITLE'] = 'Password recovery';
+$lang['LOGIN_FACEBOOK_TITLE'] = 'Facebook';
 $lang['LOGIN_MANUAL_TITLE'] = 'Manual';
 
 $lang['LOGIN_PLAYERS'] = 'players';
