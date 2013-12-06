@@ -320,7 +320,7 @@ function warquest_menu_money() {
 		
 	$page  = '<div class="submenu">';
 		
-	$page  = warquest_ui_menu($mid, PAGE_BANK, 0, t('LINK_BANK'), $sid);
+	$page .= warquest_ui_menu($mid, PAGE_BANK, 0, t('LINK_BANK'), $sid);
 	$page .= warquest_ui_menu($mid, PAGE_STOCK_EXCHANGE, 0, t('LINK_STOCKEXCHANGE'), $sid);
 	$page .= warquest_ui_menu($mid, PAGE_CASINO, 0, t('LINK_CASINO'), $sid);
 	

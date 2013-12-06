@@ -262,17 +262,17 @@ function warquest_db_player_poll_voted($pid, $poll_id) {
 	
 	$result = warquest_db_query($query);
 	
-	$id=0;
+	$answer_id = 0;
 	if ($data = warquest_db_fetch_object($result)) {
-		$id = $data->answer_id;
+		$answer_id = $data->answer_id;
 	}
 			
-	return $id;
+	return $answer_id;
 }
 
-function warquest_db_player_poll_vote_add($pid, $answer_id, $poll_id) {
+function warquest_db_player_poll_vote_add($pid, $poll_id, $answer_id) {
 
-	$query  = 'insert into player_poll (pid, answer_id, poll_id) values ('.$pid.','.$answer_id.','.$poll_id.')';		
+	$query  = 'insert into player_poll (pid, poll_id, answer_id ) values ('.$pid.','.$poll_id.','.$answer_id.')';		
 	
 	return warquest_db_query($query);
 }

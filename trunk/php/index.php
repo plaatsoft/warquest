@@ -68,7 +68,6 @@ $browser = $_SERVER['HTTP_USER_AGENT'];
 
 $session = warquest_post('session', '');
 $token = warquest_post('token', '');
-$sequence = warquest_post('sequence', '');
 $amount = warquest_post('amount', 1);
 $action = warquest_get("action", "");
 
@@ -347,7 +346,7 @@ if ($eid!=EVENT_PLAYER_PDF_REPORT) {
 		/* Show Page title */
 		echo warquest_ui_title();
 		
-		/* Show sub menu */
+		/* Show submenu */
 		echo warquest_ui_submenu();
 	}
 

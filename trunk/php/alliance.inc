@@ -989,15 +989,10 @@ function warquest_clan_form() {
 			$page .= '<td>';
 
 			if (isset($player_clan->cid)) {		
-			
 				if ($data->cid == $player_clan->cid) {
-			
 					$page .= warquest_link('mid='.$mid.'&sid='.PAGE_CLAN.'&cid='.$data->cid.'&eid='.EVENT_CLAN_LEAVE, t('LINK_LEAVE'));			
-				
 				}
-				
 			} else {
-			
 				$page .= warquest_link('mid='.$mid.'&sid='.PAGE_CLAN.'&cid='.$data->cid.'&eid='.EVENT_CLAN_JOIN, t('LINK_JOIN'));				
 			} 
 				
@@ -1081,7 +1076,6 @@ function warquest_clan_list_form() {
 		$page .= '</div>';
 	} 
 	
-		
 	$query  = 'select a.date, b.pid, b.name, b.country, b.lid, b.experience ';
 	$query .= 'from player_clan a, player b where a.pid=b.pid and a.cid='.$cid.' ';
 	$query .= 'order by b.lid desc';

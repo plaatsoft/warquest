@@ -241,11 +241,11 @@ function warquest_stock_buy_do() {
 	$query  = 'select sid, symbol from stock where sid='.$uid;
 	$result = warquest_db_query($query);	
  
- 	$stock=warquest_db_fetch_object($result); 		
-	$stocklist=warquest_stocklist($stock->symbol);
+ 	$stock = warquest_db_fetch_object($result); 		
+	$stocklist = warquest_stocklist($stock->symbol);
 	
 	/* Get amount of stocks */
-	$query  = "select amount, cost from player_stock where sid=".$uid." and pid=".$player->pid;
+	$query = "select amount, cost from player_stock where sid=".$uid." and pid=".$player->pid;
 	$result = warquest_db_query($query);	
 	
 	$amountOld=0;
