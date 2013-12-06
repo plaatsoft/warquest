@@ -17,39 +17,6 @@
 */
 
 /*
-** ----------
-** SUBMENU
-** ----------
-*/
-
-function warquest_money_title($title) {
-
-	/* input */
-	global $mid;
-	global $sid;
-	global $player;
-	global $config;
-	
-	$page = '<table>';
-	$page .= '<tr>';
-	
-	$page .= '<td width="300" align="left">';
-	$page .= '<span class="paragraph">';
-	$page .= warquest_planet_image($player->planet);
-	$page .= $title;
-	$page .= '</span>';	
-	$page .= '</td>';
-	
-	$page .= '<td width="200" align="right">';
-	$page .= '</td>';
-	
-	$page .= '</tr>';
-	$page .= '</table>';
-
-	return $page;
-}
-
-/*
 ** -------------
 ** HANDLER
 ** -------------

@@ -25,6 +25,7 @@ $notes = '
 <li>Improve Help-Notes text layout.</li>
 <li>Remove Ads functionality (not used for long time).</li>
 <li>Added database layer unit tests to improve quality.</li>
+<li>Bug fix: Fixed vote exploit!</li>
 </ul>
 <br/>
 

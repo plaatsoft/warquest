@@ -2327,7 +2327,6 @@ function warquest_ui_header( $title = "") {
 	global $player;
 	global $session;
 	global $version;
-	global $sequence;
 	
 	$page  = '<html>';
 	$page .= '<head>';
@@ -2340,13 +2339,13 @@ function warquest_ui_header( $title = "") {
 		/* Added Apple icon  */
 		$page .= '<link rel="apple-touch-icon" href="images/WarQuest.png"/>';
 	
-	} elseif (preg_match('/iPod/',$browser)) {
+	} else if (preg_match('/iPod/',$browser)) {
 		$page .= '<meta name="viewport" content="width=520" />';
 		$page .= '<meta name="format-detection" content="telephone=no" />';
 		/* Added Apple icon  */
 		$page .= '<link rel="apple-touch-icon" href="images/WarQuest.png"/>';
 		
-	} elseif (preg_match('/iPad/',$browser)) {
+	} else if (preg_match('/iPad/',$browser)) {
 		$page .= '<meta name="viewport" content="width=530" />';
 		$page .= '<meta name="format-detection" content="telephone=no" />';
 		/* Added Apple icon  */
@@ -2435,7 +2434,6 @@ function warquest_ui_header( $title = "") {
 	
 	/* Store session information for next request */	
 	$page .= '<input type="hidden" name="session" value="'.$session.'" />';
-	$page .= '<input type="hidden" name="sequence" value="'.@$player->request.'" />';
 	
 	if ($mid==MENU_LOGIN) {
 		$page .= '<input type="hidden" name="version" value="'.$version.'" />';

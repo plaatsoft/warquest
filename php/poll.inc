@@ -36,12 +36,12 @@ function warquest_poll_teaser() {
 	/* input */		
 	global $player; 
 	
-	$page ="";
+	$page = "";
 		
 	$query  = 'select poll_id, question from poll where disabled=0 order by poll_id desc limit 0,1 '; 
 	$result = warquest_db_query($query);
 	
-	if ($data=warquest_db_fetch_object($result)) {
+	if ($data = warquest_db_fetch_object($result)) {
 	
 		if ( warquest_db_player_poll_voted($player->pid, $data->poll_id)==0) {
 		
@@ -67,46 +67,56 @@ function warquest_poll_teaser() {
 function warquest_poll_vote_remove_do() {
 
 	/* input */			
-	global $tid;
+	global $poll;
 	
 	/* output */
 	global $player;
 	global $popup;
 
-	warquest_db_player_poll_vote_remove($player->pid, $tid);
+	$value = warquest_db_player_poll_voted($player->pid, $poll);		
+	if ($value > 0 ) {
 	
-	$player->experience-=10;
+		warquest_db_player_poll_vote_remove($player->pid, $poll);
 	
-	$message = t('POLL_VOTE_REMOVE');
-	$popup .= warquest_box_icon("info", $message);
+		$player->experience-=10;
+	
+		$message = t('POLL_VOTE_REMOVE');
+		$popup .= warquest_box_icon("info", $message);		
+	} 		
 }
 
 function warquest_poll_vote_add_do() {
 
 	/* input */		
-	global $tid;
+	global $poll;
 	
 	/* output */
 	global $player;
 	global $popup;
 
-	/* myusername parameter */
-	if (isset($_POST['poll'.$tid])) {
-		$answer_id = $_POST['poll'.$tid];
-
-		warquest_db_player_poll_vote_add($player->pid, $answer_id, $tid);
+	/* get pol id */
+	$answer = 0;
+	if (isset($_POST['answer'.$poll])) {
+		$answer = $_POST['answer'.$poll];
+   }
+	
+	$value = warquest_db_player_poll_voted($player->pid, $poll);		
+		
+	if ($answer == 0) {	
+		
+		/* No answer found */			
+		$message = t('POLL_WARNING');
+		$popup .= warquest_box_icon("warning", $message);
+	
+	} else if ($value == 0) {	
+	
+		/* No vote found, so vote */	
+		warquest_db_player_poll_vote_add($player->pid, $poll, $answer);
+		$player->experience+=10;
 	
 		$message = t('POLL_VOTE_ADD');
 		$popup .= warquest_box_icon("info", $message);
-		
-		$player->experience+=10;
-		
-	} else {
-	
-		$message = t('POLL_WARNING');
-		$popup .= warquest_box_icon("warning", $message);
-	}
-		
+	} 
 }
 
 /*
@@ -120,7 +130,7 @@ function warquest_poll_result_form() {
 	/* input */		
 	global $mid;
 	global $sid;
-	global $tid;
+	global $poll;
 	global $player;
 	
 	/* output */
@@ -133,35 +143,35 @@ function warquest_poll_result_form() {
 	$page .= $title;
 	$page .= '</div>';
 	
-	$query1  = 'select question from poll where poll_id='.$tid;
-	$result1 = warquest_db_query($query1);
-	$data1 = warquest_db_fetch_object($result1);
-	
-	$query2  = 'select a.pid, (select name from player where pid=a.pid) as name, ';
-	$query2 .= '(select country from player where pid=a.pid) as country, ';
-	$query2 .= '(select answer from poll_answer where answer_id=a.answer_id) as answer ';
-	$query2 .= 'from player_poll a where a.poll_id='.$tid.' order by answer_id asc';
-	$result2 = warquest_db_query($query2);
+	$query  = 'select question from poll where poll_id='.$poll;
+	$result = warquest_db_query($query);
+	$data = warquest_db_fetch_object($result);
 	
 	$page .= '<div class="box">';
 		
 	$page .= '<div class="vote">';
-	$page .= $data1->question;
+	$page .= $data->question;
 	$page .= '</div>';
+	
+	$query  = 'select a.pid, (select name from player where pid=a.pid) as name, ';
+	$query .= '(select country from player where pid=a.pid) as country, ';
+	$query .= '(select answer from poll_answer where answer_id=a.answer_id) as answer ';
+	$query .= 'from player_poll a where a.poll_id='.$poll.' order by answer_id asc';
+	$result = warquest_db_query($query);
 		
 	$tmp = "";
-	while ($data2=warquest_db_fetch_object($result2)) {
+	while ($data = warquest_db_fetch_object($result)) {
 
-		if ($tmp!=$data2->answer) {			
+		if ($tmp != $data->answer) {			
 			$page .= '<br/>';
-			$page .= $data2->answer;
+			$page .= $data->answer;
 			$page .= '<br/>';
 		}
 		
-		$page .= player_format($data2->pid,$data2->name, $data2->country);
+		$page .= player_format($data->pid, $data->name, $data->country);
 		$page .= '<br/>';
 		
-		$tmp = $data2->answer;
+		$tmp = $data->answer;
 	}
 	
 	$page .= '<br/>';
@@ -234,7 +244,7 @@ function warquest_poll_form() {
 				$tmp = ($data2->total/$data1->total)*100;
 			}
 	
-			$page .= warquest_ui_radiobox('poll'.$data1->poll_id, $data2->answer_id, $answer == $data2->answer_id, (($data1->disabled==1) || ($answer!=0)));		
+			$page .= warquest_ui_radiobox('answer'.$data1->poll_id, $data2->answer_id, $answer == $data2->answer_id, (($data1->disabled==1) || ($answer!=0)));		
 			$page .= ' '.$data2->answer;
 			
 			if ((($data1->disabled==1) || ($answer!=0)) && ($tmp>0)) {
@@ -251,15 +261,15 @@ function warquest_poll_form() {
 			
 		if ($data1->disabled==0) {
 			if ($answer==0) {
-				$page .= warquest_link('mid='.$mid.'&sid='.$sid.'&eid='.EVENT_FORUM_POLL_VOTE.'&tid='.$data1->poll_id, t('POLL_VOTE'), 'vote-'.$count);	
+				$page .= warquest_link('mid='.$mid.'&sid='.$sid.'&eid='.EVENT_FORUM_POLL_VOTE.'&poll='.$data1->poll_id, t('POLL_VOTE'), 'vote-'.$count);	
 			} else {
-				$page .= warquest_link('mid='.$mid.'&sid='.$sid.'&eid='.EVENT_FORUM_POLL_UNVOTE.'&tid='.$data1->poll_id, t('POLL_CANCEL'), 'cancel-'.$count);			
+				$page .= warquest_link('mid='.$mid.'&sid='.$sid.'&eid='.EVENT_FORUM_POLL_UNVOTE.'&poll='.$data1->poll_id, t('POLL_CANCEL'), 'cancel-'.$count);			
 			}
 			$page .= "<br/><br/>";
 		}
 		
 		if ($player->pid==$config['adminPid']) {
-			$page .= warquest_link('mid='.$mid.'&sid='.PAGE_POLL_RESULT.'&tid='.$data1->poll_id, t('POLL_RESULTS'), 'results'.$count);	
+			$page .= warquest_link('mid='.$mid.'&sid='.PAGE_POLL_RESULT.'&poll='.$data1->poll_id, t('POLL_RESULTS'), 'results'.$count);	
 		}
 		$page .= '</td>';
 				

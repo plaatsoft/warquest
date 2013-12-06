@@ -131,9 +131,7 @@ function warquest_robot_trade($other, $planet) {
 						
 						if ($total>0) {
 							$other->money -= $total * $data->price;								
-							warquest_db_unit_add($other->pid, $data->uid, $total);	
-
-							//echo 'Buy '.$total.' '.t('UNIT_'.$data->uid).' unit(s)<br/>';					
+							warquest_db_unit_add($other->pid, $data->uid, $total);				
 						}						
 					}
 					break;
@@ -197,8 +195,6 @@ function warquest_robot_trade($other, $planet) {
 						$other->money += $total * $data->price;								
 							
 						warquest_db_building_delete($other->pid, $data->bid, $total);
-												
-						//echo 'Sell '.$total.' '.t('BUILDING_'.$data->bid).' building(s).<br/>';
 					}
 					break;
 	}
