@@ -3,6 +3,22 @@
 --
 
 --
+-- Table structure for table `comment`
+--
+
+CREATE TABLE IF NOT EXISTS `comment` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `tid` int(11) NOT NULL,
+  `pid1` int(11) NOT NULL,
+  `pid2` int(11) NOT NULL,
+  `date` datetime NOT NULL,
+  `comment` varchar(400) NOT NULL,
+  `deleted` int(11) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+
+
+--
 -- Table structure for table `bank`
 --
 
@@ -20,7 +36,7 @@ CREATE TABLE `bank` (
   `action` int(11) NOT NULL,
   PRIMARY KEY (`id`),
   KEY `pid1` (`pid1`)
-) ENGINE=MyISAM AUTO_INCREMENT=22906292 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=1 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -43,7 +59,7 @@ CREATE TABLE `battle` (
   `bounty` int(11) NOT NULL,
   PRIMARY KEY (`id`),
   KEY `pid2` (`pid2`)
-) ENGINE=MyISAM AUTO_INCREMENT=12296736 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=1 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -94,7 +110,7 @@ CREATE TABLE `bounty` (
   UNIQUE KEY `rid_2` (`id`),
   UNIQUE KEY `pid1` (`pid1`,`pid2`),
   KEY `rid` (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=194019 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=1 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -207,24 +223,7 @@ CREATE TABLE `chat` (
   `date` datetime NOT NULL,
   `message` varchar(400) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=3143 DEFAULT CHARSET=latin1;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Table structure for table `chat`
---
-
-DROP TABLE IF EXISTS `chat`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `chat` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `pid1` int(11) NOT NULL,
-  `pid2` int(11) NOT NULL,
-  `date` datetime NOT NULL,
-  `message` varchar(400) NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=3143 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=1 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -304,7 +303,7 @@ CREATE TABLE `member` (
   `platform` varchar(128) NOT NULL,
   `auto_login` int(11) NOT NULL,
   PRIMARY KEY (`pid`)
-) ENGINE=MyISAM AUTO_INCREMENT=50204 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=1 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -401,7 +400,7 @@ CREATE TABLE `news` (
   `content` varchar(1024) NOT NULL,
   `language` varchar(5) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=124 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=1 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -658,7 +657,7 @@ CREATE TABLE `session` (
   `date` datetime NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `session_id` (`session_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=581679 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=1 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -702,7 +701,7 @@ CREATE TABLE `statistics` (
   `ads` int(11) NOT NULL,
   `casino` int(11) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=984 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=1 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -718,7 +717,7 @@ CREATE TABLE `stock` (
   `gsid` int(11) NOT NULL,
   `pid` int(11) NOT NULL,
   PRIMARY KEY (`sid`)
-) ENGINE=MyISAM AUTO_INCREMENT=2119 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=2000 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -747,7 +746,7 @@ CREATE TABLE `topic` (
   `date` datetime NOT NULL,
   `deleted` int(11) NOT NULL,
   PRIMARY KEY (`tid`)
-) ENGINE=MyISAM AUTO_INCREMENT=1032 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=1 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
