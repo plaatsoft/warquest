@@ -1069,21 +1069,24 @@ function warquest_get_default_mission($planet) {
 function warquest_db_player_login_counter($pid) {
 
 	/* Get player data */
-	$query =  "select request from player where pid=".$pid;  
-	$result = warquest_db_query($query);
-	
+	$query =  "select pid, request, request_date from player where pid=".$pid;  
+	$result = warquest_db_query($query);	
 	$data = warquest_db_fetch_object($result);
 	
-	$data->request_date = date("Y-m-d H:i:s", time());
-	$data->request+=1;
+	if (isset($data->pid)) {
+		$data->request_date = date("Y-m-d H:i:s", time());
+		$data->request+=1;
 
-	/* update player data */
-	$query  = 'update player set '; 	
-	$query .= 'request='.$data->request.', ';
-	$query .= 'request_date="'.$data->request_date.'" ';
-	$query .= 'where pid='.$pid; 	
+		/* update player data */
+		$query  = 'update player set '; 	
+		$query .= 'request='.$data->request.', ';
+		$query .= 'request_date="'.$data->request_date.'" ';
+		$query .= 'where pid='.$pid; 
+
+		$result = warquest_db_query($query);	
+	}
 	
-	return warquest_db_query($query);
+	return $result;
 }
 
 /*
@@ -1471,7 +1474,7 @@ function warquest_db_session_add($pid) {
 	/* Create new session */
 	$now = date("Y-m-d H:i:s");
 	
-	$query  = 'insert into session (date, session_id, pid) values ("'.$now.'","",'.$pid.')';	
+	$query  = 'insert into session (date, session_id, pid) values ("'.$now.'","'.$pid.'",'.$pid.')';	
 	warquest_db_query($query);
 	
 	/* Return new session entry */
