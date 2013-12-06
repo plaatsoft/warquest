@@ -24,7 +24,7 @@
 
 /*
 ** ---------------------
-** Leaderboard best player per land
+** Leaderboard best player per country
 ** ---------------------
 */
 
@@ -42,17 +42,20 @@ function warquest_leaderboard3_form() {
 	global $page;
 	global $title;
 	
+	sscanf($uid, "%03d%03d", $code[0], $code[1]);
+	$code = chr($code[0]).chr($code[1]);
+	
 	$title = t('LEADERBORD_PLAYER_COUNTRY',warquest_landcode($uid));
 	
 	$limit = 50;
 
-	$query  = 'select pid from player where country="'.$uid.'"';
+	$query  = 'select pid from player where country="'.$code.'"';
 	$result = warquest_db_query($query);	
 	$total=warquest_db_num_rows($result);
 	
 	/* Get alliance players */
 	$query  = 'select pid, country, name, lid, experience, won, lost, ((experience/30)+won-lost) as ranking ';
-	$query .= 'from player where country="'.$uid.'" ';
+	$query .= 'from player where country="'.$code.'" ';
 	
 	switch ($sort) {
 		
@@ -258,7 +261,8 @@ function warquest_leaderboard2_form() {
 		$page .= warquest_flag_image($data->country);
 		$page .= '</td>';
 		$page .= '<td>';
-		$page .= warquest_link('mid='.$mid.'&sid='.PAGE_BEST_COUNTRY2.'&uid='.$data->country, warquest_landcode($data->country) ,$data->country);
+		$code = sprintf("%03d%03d",ord($data->country[0]),ord($data->country[1]));
+		$page .= warquest_link('mid='.$mid.'&sid='.PAGE_BEST_COUNTRY2.'&uid='.$code, warquest_landcode($data->country) ,$data->country);
 		$page .= '</td>';
 		$page .= '<td>';
 		$page .= number_format($data->total,0,",",".");;
