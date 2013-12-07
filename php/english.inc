@@ -2478,7 +2478,7 @@ $lang['HELP_STATS_REQUESTS'] = 'Server requests (last 31 days)';
 */
 
 $lang['HELP_DONATE_TITLE1'] = 'Donate';
-$lang['HELP_DONATE_TITLE2'] = 'Donate (English only)';
+$lang['HELP_DONATE_TITLE2'] = 'Donate';
 
 $lang['HELP_SUBTITLE_DONATE1'] = 'General';
 $lang['HELP_DONATE1'] = 'WarQuest software may be used free of charge, but if you wish to express 
@@ -2923,8 +2923,7 @@ $lang['USER_EMAIL_VALID'] = 'Your email address is validated. Thank you!';
 */
 
 $lang['GIFT_SHOP_TITLE'] = 'Gift Shop';
-$lang['GIFT_SHOP_INTRO'] = 'The gift shop contain the following discount packages:';
-$lang['GIFT_SHOP_NOTE'] = 'Gold is an in-game currency that gives access to various additional options.';
+$lang['GIFT_SHOP_NOTE'] = 'The gift shop containing on this moment the above packages';
 $lang['GENERAL_USD'] = 'USD';
 
 $lang['GENERAL_GOLD'] = 'gold';

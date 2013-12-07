@@ -554,14 +554,14 @@ function warquest_building_form() {
 		
 	if ($data = warquest_db_fetch_object($result)) {
 		
-		$count1++;
-		
 		if ($count1>0) {
 			$page .= '<tr>';
 			$page .= '<td colspan="3"><hr></td>';
 			$page .= '</tr>';			
 		}
-					
+		
+		$count1++;
+			
 		$page .= '<tr>';	
 		$page .= '<td width="215">'; 
 		$page .= '<span class="subparagraph">'.t('BUILDING_'.$data->bid).'</span><br/>';
