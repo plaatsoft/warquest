@@ -152,8 +152,12 @@ $config['user_secret']					= '';
 ** ---------------------------------------------------------------- 
 */
 
-$config['paypal_customer_key']		= '';
-
+$config['paypal_donate_key']		= '';
+$config['paypal_buy_key1']			= '';
+$config['paypal_buy_key2']			= '';
+$config['paypal_buy_key3']			= '';
+$config['paypal_buy_key4']			= '';
+$config['paypal_buy_key5']			= '';
 /*
 ** ---------------------------------------------------------------- 
 ** THE END
