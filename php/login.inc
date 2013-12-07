@@ -732,7 +732,7 @@ function warquest_recover_form() {
 	$page .= '<td>&nbsp;</td>';
 	$page .= '<td>';
 	$page .= '<br/>';
-	$page .= '<input type="hidden" name="token" value="'.warquest_token('mid='.$mid.'&sid='.PAGE_RECOVER.'&eid='.EVENT_REGISTER.'&version='.$version).'">';
+	$page .= '<input type="hidden" name="token" value="'.warquest_token('mid='.$mid.'&sid='.PAGE_RECOVER.'&eid='.EVENT_RECOVER.'&version='.$version).'">';
 	$page .= '<input type="submit" name="Submit" id="do" value="'.t('LINK_SEND').'">';
 	$page .= '</td>';
 	$page .= '</tr>';
