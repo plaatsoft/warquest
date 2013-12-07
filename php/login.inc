@@ -243,7 +243,7 @@ function warquest_login_footer() {
 		$result4 = warquest_db_query($query4);
 		$data4=warquest_db_fetch_object($result4);
 		
-		$page .= '<center/>';	
+		$page .= '<center>';	
 		
 		$page .= '<span class="energy">';
 		$page .= number_format($data->count,0,",",".");
