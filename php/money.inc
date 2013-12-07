@@ -49,6 +49,10 @@ function warquest_money() {
 		case PAGE_CASINO:
 					warquest_casino();
 					break;
+					
+		case PAGE_GOLD:
+					warquest_gold();
+					break;
 		
 	}
 	warquest_player();	

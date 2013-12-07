@@ -88,6 +88,7 @@ define('PAGE_BUILDINGS',      1501);
 define('PAGE_BANK',           1601);
 define('PAGE_STOCK_EXCHANGE', 1602);
 define('PAGE_CASINO',         1603);
+define('PAGE_GOLD',           1604);
 
 /* Alliance */
 define('PAGE_PENDING',        1701);

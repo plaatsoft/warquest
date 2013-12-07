@@ -2724,9 +2724,9 @@ function money_format2($value) {
 function stock_format($value) {
    
 	if ($value>=0) {
-		return '<span class="money">'.number_format($value,2,",",".").'</span>';	
+		return '<span class="money">'.number_format($value,2,".",".").'</span>';	
 	} else {
-		return '<span class="negative">'.number_format($value,2,",",".").'</span>';
+		return '<span class="negative">'.number_format($value,2,".",".").'</span>';
 	}
 }
 

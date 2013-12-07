@@ -119,7 +119,7 @@ $lang['LINK_BUY_AGAIN'] = 'Buy again';
 $lang['LINK_SELL'] = 'Sell';
 $lang['LINK_SELL_AGAIN'] = 'Sell again';
 
-/* Bank / Exchange / Casino */
+/* Money */
 $lang['LINK_BANK'] = 'Bank';
 $lang['LINK_STOCKEXCHANGE'] = 'Stock-Exchange';
 $lang['LINK_CASINO'] = 'Casino';
@@ -157,6 +157,8 @@ $lang['LINK_LEVELS']  = 'Levels';
 $lang['LINK_STATS']  = 'Stats';
 $lang['LINK_DONATE']  = 'Donate';
 $lang['LINK_ABOUT']  = 'About';
+
+/* Admin */
 
 /*
 ** ------------------
@@ -2485,9 +2487,18 @@ over the years, and also help reduce the costs of running the web server, we do 
 donations.';
 
 $lang['HELP_SUBTITLE_DONATE2'] = 'Reward';
-$lang['HELP_DONATE2'] = 'Each dollar donated will be rewarded with %s. Purchased gold 
-can be used to buy premium units / buildings or can be exchanged in to skill points, cash money. Also you can improve your health, energy or ammo 
-restore timer. The reward is manually processed so keep in mind that it takes a few hours before it is available.';
+$lang['HELP_DONATE2'] = 'Each dollar donated will be rewarded with %s. 
+Gold is an in-game currency that gives access to various additional options.  With gold in your in-game wallet, you can:
+<ul>
+<li>buy premium units</li>
+<li>buy premium buildings</li>
+<li>buy extra skill points</li>
+<li>buy extra cash</li> 
+<li>upgrade your health timer</li>
+<li>upgrade your energy timer</li>
+<li>upgrade your ammo timers</li>
+</ul>
+The donation is manually processed so keep in mind that it takes a few hours before the gold is available.';
 
 $lang['HELP_SUBTITLE_DONATE3'] = 'PayPal';
 $lang['HELP_DONATE3'] = 'To make a donation online using your credit card, or PayPal account, click 
@@ -2911,8 +2922,14 @@ $lang['USER_EMAIL_VALID'] = 'Your email address is validated. Thank you!';
 ** ------------------
 */
 
+$lang['GIFT_SHOP_TITLE'] = 'Gift Shop';
+$lang['GIFT_SHOP_INTRO'] = 'The gift shop contain the following discount packages:';
+$lang['GIFT_SHOP_NOTE'] = 'Gold is an in-game currency that gives access to various additional options.';
+$lang['GENERAL_USD'] = 'USD';
+
 $lang['GENERAL_GOLD'] = 'gold';
 $lang['PLAYER_GOLD'] = 'Gold'; 
+
 $lang['HOME_ANNOUNCEMENTS'] = 'Announcements';
 
 /*

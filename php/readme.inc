@@ -21,6 +21,7 @@ $notes = '
 <div class="subparagraph2">05-12-2013</div>
 <i>Game Server v6.x</i>
 <ul>
+<li>Added giftshop section to Help-Donate page.</li>
 <li>Added sound effects to mission and help pages.</li>
 <li>Improve Help-Notes text layout.</li>
 <li>Remove Ads functionality (not used for long time).</li>

@@ -458,6 +458,8 @@ function warquest_help_donate_form() {
 
 	$page .= '</div>';	
 	
+	warquest_giftshop_form();
+	
 	warquest_sound('donate.mp3', 1);	
 }
 
