@@ -241,7 +241,7 @@ switch ($mid) {
 			include "money.inc";
 			include "bank.inc";
 			include "stock.inc";
-			include "casino.inc";
+			include "casino.inc";			
 			include "player.inc";
 			warquest_money();
 			break;
@@ -268,6 +268,7 @@ switch ($mid) {
 	case MENU_HELP:
 			include "readme.inc";
 			include "help.inc";
+			include "giftshop.inc";
 			warquest_help();
 			break;
 				

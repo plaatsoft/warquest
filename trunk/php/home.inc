@@ -925,7 +925,7 @@ function warquest_home_ad() {
 		$page .= 'var AdCount=1; ';
 		$page .= 'var filename=""; ';
 		$page .= 'function StartAd() { ';
-		$page .= '  if (++AdCount>2) { AdCount=1; } ';
+		$page .= '  if (++AdCount>3) { AdCount=1; } ';
 		$page .= '  filename = "'.$config["content_url"].'images/other/ad" + AdCount + ".png"; ';
 		$page .= '  document.getElementById("ad").src = filename; ';
 		$page .= '  setTimeout("StartAd()", 3000); ';
