@@ -27,7 +27,17 @@
 ** ACTIONS
 ** ----------
 */
-	
+
+
+/*<form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+<input type="hidden" name="cmd" value="_s-xclick">
+<input type="hidden" name="hosted_button_id" value="F625JH8Z9EXXQ">
+<input type="image" src="https://www.paypalobjects.com/nl_NL/NL/i/btn/btn_buynowCC_LG.gif" border="0" name="submit" alt="PayPal, de veilige en complete manier van online betalen.">
+<img alt="" border="0" src="https://www.paypalobjects.com/nl_NL/i/scr/pixel.gif" width="1" height="1">
+</form>*/
+
+
+
 
 /*
 ** ----------
@@ -35,19 +45,19 @@
 ** ----------
 */
 
-function warquest_paypal($gold, $price) {
+function warquest_paypal($gold, $price, $key) {
 
 	global $config;
 	global $player;
 
-	$tag = 'WarQuest - '.$player->name.' ['.$player->pid.'] - '.$gold.' gold - '.$price.' USD';
+	$tag = 'WarQuest - '.$player->name.' ['.$player->pid.']';
 	
 	$page =	'<form action="https://www.paypal.com/cgi-bin/webscr" method="post">';	  
 	$page .=	'<input type="hidden" name="cmd" value="_s-xclick">';
 	$page .=	'<input type="hidden" name="item_name" value="'.$tag.'">';
-	$page .=	'<input type="hidden" name="hosted_button_id" value="'.$config['paypal_customer_key'].'">';
-	$page .=	'<input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif" border="0" name="submit" alt="">';
-	$page .=	'<img alt="" border="0" src="https://www.paypalobjects.com/nl_NL/i/scr/pixel.gif" width="1" height="1">';
+	$page .=	'<input type="hidden" name="hosted_button_id" value="'.$config['paypal_buy_key'.$key].'">';
+	$page .=	'<input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_buynow_LG.gif" border="0" name="submit" alt="">';
+	$page .=	'<img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">';
 	$page .=	'</form>';
 	
 	return $page;
@@ -100,7 +110,7 @@ function warquest_giftshop_form() {
 		$page .= stock_format($price[$i-1]).' '.t("GENERAL_USD");
 		$page .= '<br/>'; 
 		$page .= '<br/>';
-		$page .= warquest_paypal($gold[$i-1], $price[$i-1]);	
+		$page .= warquest_paypal($gold[$i-1], $price[$i-1], $i);	
 		$page .= '</td>';		
 		$page .= '</tr>';
 	}
