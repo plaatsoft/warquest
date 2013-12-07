@@ -68,32 +68,33 @@ function warquest_giftshop_form() {
 	
 	/* output */
 	global $page;
-	global $title;
-	
-	$title = t('GIFT_SHOP_TITLE');
 	
 	$page .=	'</form>';	
 		
 	$page .= '<div class="subparagraph">';	
 	$page .= t('GIFT_SHOP_TITLE');
 	$page .= '</div>';
-											
-	
-	$page .= t('GIFT_SHOP_INTRO');
-	
-	$gold = array(1000,2600,5500,12000,25000);
+												
+	$gold = array(1000,2500,5500,12000,25000);
 	$price = array(1.95, 4.95, 9.95, 19.95, 39.95);
+
+	$page .= '<div class="box">';	
+
+	$page .= '<table class="shop">';
 
 	for($i=1; $i<6; $i++) {
 	
-		$page .= '<div class="box">';	
-	
-		$page .= '<table class="shop">';
+		if ($i>1) {
+			$page .= '<tr>';
+			$page .= '<td colspan="2"><hr></td>';
+			$page .= '</tr>';			
+		}
+			
 		$page .= '<tr>';
 		$page .= '<td>';
 		$page .= warquest_image('gold/gold'.$i.'.jpg', 'width="225" height="160"');
 		$page .= '</td>';
-		$page .= '<td width="250" align="center">';
+		$page .= '<td width="300" align="center">';
 		$page .= gold_format($gold[$i-1]);
 		$page .= '<br/>';
 		$page .= stock_format($price[$i-1]).' '.t("GENERAL_USD");
@@ -102,10 +103,10 @@ function warquest_giftshop_form() {
 		$page .= warquest_paypal($gold[$i-1], $price[$i-1]);	
 		$page .= '</td>';		
 		$page .= '</tr>';
-		$page .= '</table>';
-		
-		$page .= '</div>';
 	}
+	
+	$page .= '</table>';
+	$page .= '</div>';
 	
 	$page .= t('GIFT_SHOP_NOTE');
 }
