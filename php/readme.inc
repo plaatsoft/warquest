@@ -18,14 +18,15 @@
 
 $notes = '
 
-<div class="subparagraph2">05-12-2013</div>
-<i>Game Server v6.x</i>
+<div class="subparagraph2">08-12-2013</div>
+<i>Game Server v6.1 (Release still in development)</i>
 <ul>
 <li>Added gift shop to Help-Donate page.</li>
 <li>Added sound effects to mission and help pages.</li>
-<li>Improve Help-Notes text layout.</li>
+<li>Improve Release-Notes text layout.</li>
 <li>Remove Ads functionality (not used for long time).</li>
 <li>Added database layer unit tests to improve quality.</li>
+<li>Bug fix: Planet swith on clan list page is now working correct.</li>
 <li>Bug fix: Fixed vote exploit!</li>
 </ul>
 <br/>

@@ -795,6 +795,8 @@ function warquest_clan_war_battle($player_clan, $other_clan, $ugid) {
 	
 	/* Get minimal attack vs defense clan size */
 	$size = warquest_clan_size($player_clan, $other_clan);
+
+	$page = (object) array();
 		
 	if (isset($player_clan->cid) && ($size>0)) {
 	
@@ -811,8 +813,7 @@ function warquest_clan_war_battle($player_clan, $other_clan, $ugid) {
 			$query2 .= 'a.pid=b.pid and a.cid='.$other_clan->cid.' order by rand() desc limit 0,'.$size;
 			$result2 = warquest_db_query($query2);	 
 		}
-	
-		$page = (object) array();
+			
 		$page->body = '<br/><br/>';
 		$page->body .= '<table>';
 		
@@ -1101,7 +1102,7 @@ function warquest_clan_war_battle_do() {
 		warquest_db_clan_update($player_clan);
 		
 		/* Update defend clan stats */
-		if (isset($other_clan)) {
+		if (isset($other_clan->won)) {
 			$other_clan->won++;
 			warquest_db_clan_update($other_clan);
 		}

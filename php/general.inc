@@ -219,11 +219,11 @@ function warquest_write_file($type, $text) {
 	
 	$message = udate('d-m-Y H:i:s:u').' ['.$_SERVER["REMOTE_ADDR"];
 	
-	if (isset($player)) {
+	if (isset($player->pid)) {
 		$message .= '|'.$player->pid;
 	}
 	
-	if (isset($other)) {
+	if (isset($other->pid)) {
 		$message .= '|'.$other->pid;
 	}
 	

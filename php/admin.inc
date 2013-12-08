@@ -659,10 +659,15 @@ function warquest_admin_messages_form() {
 	$result = warquest_db_query($query);	
 	$count = warquest_db_num_rows($result);
 	
-	if ($count>0) {
-	
-		$page .= '<div class="subparagraph">'.$title.'</div>';
-	
+			
+	$page .= '<div class="subparagraph">'.$title.'</div>';
+			
+	if ($count==0) {
+		
+		$page .= warquest_box_icon("info",t('HOME_NO_MESSAGES'));
+		
+	} else {	
+			
 		$page .= '<div class="box">';
 		
 		$page .= warquest_page_control($offset, $limit, $total, 1);
