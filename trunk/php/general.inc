@@ -2027,7 +2027,7 @@ function warquest_ui_clan_war_map($player, $planet, $mode) {
 	
 	$query  = 'select a.sid, a.x, a.y, a.cid, a.damage, ';
 	$query .= '(select b.name from clan b where b.cid=a.cid ) as name ';
-	$query .= 'from sector a where a.planet='.$player->planet;	
+	$query .= 'from sector a where a.planet='.$planet;	
 	$result = warquest_db_query($query);
 		
 	$cell = array();
@@ -2114,10 +2114,10 @@ function warquest_ui_clan_war_map($player, $planet, $mode) {
 	$height = 300;
 	
 	$page .= '<center>';
-	$page .= '<img src="map.php?planet='.$player->planet.'&data='.$tmp.'" width="'.$width.'" height="'.$height.'" usemap="#map">';	
+	$page .= '<img src="map.php?planet='.$planet.'&data='.$tmp.'" width="'.$width.'" height="'.$height.'" usemap="#map">';	
 	$page .= '<map name="map">';
 	
-	$query  = 'select a.sid, a.x, a.y, a.cid, a.mid from sector a where a.planet='.$player->planet;		
+	$query  = 'select a.sid, a.x, a.y, a.cid, a.mid from sector a where a.planet='.$planet;		
 	$result = warquest_db_query($query);			
 	while ($data=warquest_db_fetch_object($result)) {			
 		
