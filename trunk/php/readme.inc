@@ -68,13 +68,13 @@ $notes = '
 <li>Added gold information to game banner.</li>
 <li>Updated help and donation page information.</li>
 <li>Updated admin page to process manual gold donations.</li>
-<li>All existing and new players receive 500 gold as introduction bonus.</li>
+<li>All existing players receive 500 gold as introduction bonus.</li>
 <li>Existing trade points are converted to gold (ratio 1:500).</li>
 <li>Trade features are now payed with gold instead of trade points.</li>
 <li>Added gold use to Help -> Stats page.</li>
 </ul>
 <li>Added building defence submenu for better overview.</li>
-<li>Cleanup earth cavalry units. Removed weakest units to make a shorter list.</li>
+<li>Removed weakest cavalry units to make a shorter list.</li>
 </ul>
 <br/>
 
