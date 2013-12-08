@@ -245,24 +245,31 @@ function warquest_player_report_do($id) {
 			$this->Cell($width, $height, number_format($building_income,0,",",".").' '.t('GENERAL_DOLLAR'), 1, 0,'L',true);
 			$this->Ln();
 			
-			$continent_bonus = warquest_continent_bonus($data, $data->planet);
+			$continent_income = warquest_continent_income($data, $data->planet);
 		
 			$this->SetFont('','B');
 			$this->Cell($width, $height, t('PLAYER_CONTINENT_INCOME'),1,0,'L',true);
 			$this->SetFont('','');
-			$this->Cell($width, $height, number_format($continent_bonus ,0,",",".").' '.t('GENERAL_DOLLAR'), 1, 0,'L',true);
-
+			$this->Cell($width, $height, number_format($continent_income ,0,",",".").' '.t('GENERAL_DOLLAR'), 1, 0,'L',true);
 			$this->Ln();
 			
+			$clan_war_income = warquest_clan_war_income($data, $data->planet);
+		
+			$this->SetFont('','B');
+			$this->Cell($width, $height, t('PLAYER_CLAN_WAR_INCOME'),1,0,'L',true);
+			$this->SetFont('','');
+			$this->Cell($width, $height, number_format($clan_war_income ,0,",",".").' '.t('GENERAL_DOLLAR'), 1, 0,'L',true);
+			$this->Ln();
+					
 			$unit_upkeep = warquest_unit_upkeep($data, $data->planet);
 		
 			$this->SetFont('','B');
 			$this->Cell($width, $height, t('PLAYER_UPKEEP'),1,0,'L',true);
 			$this->SetFont('','');
-			$this->Cell($width, $height, number_format($unit_upkeep,0,",",".").' '.t('GENERAL_DOLLAR'), 1, 0,'L',true);
+			$this->Cell($width, $height, '-'.number_format($unit_upkeep,0,",",".").' '.t('GENERAL_DOLLAR'), 1, 0,'L',true);
 			$this->Ln();
 			
-			$netto_income = $building_income + $continent_bonus - $unit_upkeep;
+			$netto_income = $building_income + $continent_income + $clan_war_income - $unit_upkeep;
 		
 			$this->SetFont('','B');
 			$this->Cell($width, $height, t('PLAYER_NETTO_INCOME'), 1, 0,'L',true);

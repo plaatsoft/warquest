@@ -54,92 +54,93 @@ define('MENU_ADMIN',          1010);
 */
 
 /* Login */
-define('PAGE_LOGIN',          1101);
-define('PAGE_REGISTER',       1102);
-define('PAGE_RECOVER',        1103);
-define('PAGE_FACEBOOK',       1104);
-define('PAGE_MAINTENANCE',    1105);
+define('PAGE_LOGIN',         		1101);
+define('PAGE_REGISTER',      		1102);
+define('PAGE_RECOVER',       		1103);
+define('PAGE_FACEBOOK',       	1104);
+define('PAGE_MAINTENANCE',    	1105);
 
 /* Home */
-define('PAGE_OVERVIEW',       1200);
-define('PAGE_BATTLE_NEWS',    1201);
-define('PAGE_MESSAGES',       1202);
-define('PAGE_SKILLS',         1203);
-define('PAGE_TRADE',          1204);
-define('PAGE_RESTORE',        1205);
-define('PAGE_SETTINGS',       1206);
+define('PAGE_OVERVIEW',       	1200);
+define('PAGE_BATTLE_NEWS',    	1201);
+define('PAGE_MESSAGES',       	1202);
+define('PAGE_SKILLS',         	1203);
+define('PAGE_TRADE',          	1204);
+define('PAGE_RESTORE',        	1205);
+define('PAGE_SETTINGS',       	1206);
 
 /* Missions */
 define('PAGE_MISSION_TRAINING',  0);
 
 /* Battle */
-define('PAGE_ENEMIES',        1301);
-define('PAGE_BOUNTY',         1302);
-define('PAGE_CLAN_WAR',       1303);
+define('PAGE_ENEMIES',        	1301);
+define('PAGE_BOUNTY',         	1302);
+define('PAGE_CLAN_WAR',       	1303);
 
 /* Units */
-define('PAGE_UNITS',          1401);
-define('PAGE_LIBRARY',        1402);
+define('PAGE_UNITS',          	1401);
+define('PAGE_LIBRARY',        	1402);
 
 /* Buildings */
-define('PAGE_BUILDINGS',      1501);
+define('PAGE_BUILDINGS',      	1501);
 
 /* Money */
-define('PAGE_BANK',           1601);
-define('PAGE_STOCK_EXCHANGE', 1602);
-define('PAGE_CASINO',         1603);
-define('PAGE_GOLD',           1604);
+define('PAGE_BANK',          		1601);
+define('PAGE_STOCK_EXCHANGE',		1602);
+define('PAGE_CASINO',         	1603);
+define('PAGE_GOLD',           	1604);
 
 /* Alliance */
-define('PAGE_PENDING',        1701);
-define('PAGE_INVITE',         1702);
-define('PAGE_ACCEPTED',       1703);
-define('PAGE_BEST_PLAYER',    1704);
-define('PAGE_BEST_COUNTRY',   1705);
-define('PAGE_BEST_COUNTRY2',  1706);
-define('PAGE_CLAN',           1707); 
-define('PAGE_CLAN_LIST',      1708);
+define('PAGE_PENDING',        	1701);
+define('PAGE_INVITE',        		1702);
+define('PAGE_ACCEPTED',      		1703);
+define('PAGE_BEST_PLAYER',    	1704);
+define('PAGE_BEST_COUNTRY',   	1705);
+define('PAGE_BEST_COUNTRY2',  	1706);
+define('PAGE_CLAN',           	1707); 
+define('PAGE_CLAN_LIST',      	1708);
 
 /* Forums */
-define('PAGE_FORUM',          1801);
-define('PAGE_TOPIC',          1802);
-define('PAGE_COMMENT',        1803);
-define('PAGE_POLL',           1804);
-define('PAGE_POLL_RESULT',    1805);
-define('PAGE_CHATROOM',       1806);
-define('PAGE_CHAT',           1807);
+define('PAGE_FORUM',          	1801);
+define('PAGE_TOPIC',          	1802);
+define('PAGE_COMMENT',        	1803);
+define('PAGE_POLL',           	1804);
+define('PAGE_POLL_RESULT',    	1805);
+define('PAGE_CHATROOM',       	1806);
+define('PAGE_CHAT',           	1807);
 		
 /* Help */
-define('PAGE_INSTRUCTIONS',   1901);
-define('PAGE_RELEASENOTES',   1902);
-define('PAGE_RANKS',          1903);
-define('PAGE_AWARDS',         1904);
-define('PAGE_LEVELS',         1905);
-define('PAGE_STATS',          1906);
-define('PAGE_DONATE',         1907);
-define('PAGE_ABOUT',          1908);
+define('PAGE_INSTRUCTIONS',   	1901);
+define('PAGE_RELEASENOTES',   	1902);
+define('PAGE_RANKS',          	1903);
+define('PAGE_AWARDS',        		1904);
+define('PAGE_LEVELS',        		1905);
+define('PAGE_STATS',          	1906);
+define('PAGE_DONATE',         	1907);
+define('PAGE_ABOUT',          	1908);
 		
 /* Admin */
-define('PAGE_PLAYER_LIST',    2000);
-define('PAGE_PLAYERS',        2001);
-define('PAGE_ADMIN_MESSAGES', 2002);
-define('PAGE_LEVEL',          2003); 
-define('PAGE_LEVEL_ZOOM',     2004);
-define('PAGE_PLAYER_COPY',    2005);
-define('PAGE_ACTIONS',        2006);
-define('PAGE_ADMIN_NEWS',     2007);
-define('PAGE_BROWSER',        2008);
-define('PAGE_INFO',           2009);
+define('PAGE_PLAYER_LIST',    	2000);
+define('PAGE_PLAYERS',        	2001);
+define('PAGE_ADMIN_MESSAGES', 	2002);
+define('PAGE_LEVEL',          	2003); 
+define('PAGE_LEVEL_ZOOM',    		2004);
+define('PAGE_PLAYER_COPY',    	2005);
+define('PAGE_ACTIONS',        	2006);
+define('PAGE_ADMIN_NEWS',     	2007);
+define('PAGE_BROWSER',         	2008);
+define('PAGE_INFO',           	2009);
 
 /* Player */
-define('PAGE_PROFILE',        2100);
-define('PAGE_ATTACK',         2101);
-define('PAGE_DEFENCE',        2102);
-define('PAGE_INCOME',         2103);
-define('PAGE_UPKEEP',         2104);
-define('PAGE_CONTINENT',      2105);
-define('PAGE_DISCOUNT',       2106);
-define('PAGE_MAITENANCE',     2107);
+define('PAGE_PROFILE',         	2100);
+define('PAGE_ATTACK',         	2101);
+define('PAGE_DEFENCE',         	2102);
+define('PAGE_BUILDING_INCOME', 	2103);
+define('PAGE_UNIT_UPKEEP',   		2104);
+define('PAGE_CONTINENT_INCOME',	2105);
+define('PAGE_CLAN_WAR_INCOME',	2106);
+define('PAGE_DISCOUNT',        	2107);
+define('PAGE_MAITENANCE',      	2108);
 
 /*
 ** ------------------
