@@ -254,11 +254,11 @@ function warquest_discount_info_form($other) {
 
 /*
 ** ---------------------
-** CONTENT OVERVIEW PAGE
+** CONTINENT INCOME PAGE
 ** ---------------------
 */
 
-function warquest_continent_info_form($other) {
+function warquest_continent_income_form($other) {
 
 	/* input */
 	global $mid;
@@ -370,11 +370,96 @@ function warquest_continent_info_form($other) {
 
 /*
 ** ---------------------
+** CLAN WAR INCOME PAGE
+** ---------------------
+*/
+
+function warquest_clan_war_income_form($other) {
+
+	/* input */
+	global $mid;
+	global $sid;
+	global $uid;
+	global $player;
+	global $config;
+	
+	/* output */
+	global $page;
+	global $title;
+	
+	$title = t('PLAYER_CLAN_WAR_OVERVIEW');
+	
+	$clan = warquest_db_player_clan($player->pid);
+	
+	$count = 0;		
+	if (isset($clan->cid)) { 
+	
+		$query = 'select sid from sector where cid='.$clan->cid.' and planet='.$other->planet;
+		$result = warquest_db_query($query);
+		$count = warquest_db_num_rows($result);
+	}
+		
+	$page .= '<div class="subparagraph">'.$title.'</div>';
+	
+	/* ------------------------------------------------- */
+		
+	$page .= '<div class="box">';
+
+	$page .= '<br/>';
+	$page .= t('PLAYER_CLAN_WAR_TEXT', 
+						warquest_link('mid='.$mid.'&sid='.PAGE_PROFILE.'&oid='.$other->pid, player_format($other->pid, $other->name, $other->country)),
+						strtolower(t('GENERAL_PLANET_'.$player->planet)));
+	$page .= '<br/><br/>';
+
+	$page .= warquest_ui_clan_war_map($other, $other->planet, false);
+	$page .= '<br/>';
+	$page .= '<br/>';
+
+	$page .= '<table>';
+	$page .= '<tr>';	
+	
+	$page .= '<td width="150">';
+	$page .= '<b>'.t('GENERAL_SECTORS').'</b>';
+	$page .= '</td>';
+
+	$page .= '<td width="200">';
+	$page .= '<b>'.t('GENERAL_INCOME_SECTOR').'</b>';
+	$page .= '</td>';
+
+	$page .= '<td width="150">';
+	$page .= '<b>'.t('PLAYER_INCOME').' ['.t('GENERAL_DOLLAR').']</b>';
+	$page .= '</td>';
+
+	$page .= '</tr>';
+	
+	$page .= '<td>';
+	$page .= $count;
+	$page .= '</td>';
+		
+	$page .= '<td>';
+	$page .= dollar_format(1000 * $player->lid);
+	$page .= '</td>';
+							
+	$page .= '<td>';
+	$page .= dollar_format(warquest_clan_war_income($player, $player->planet));	
+	$page .= '</td>';
+				
+	$page .= '</tr>';
+		
+	$page .= '</table>';
+	
+	$page .= '<br/>';
+	$page .= '</div>';
+}
+
+
+/*
+** ---------------------
 ** PLAYER UPKEEP PAGE
 ** ---------------------
 */
 
-function warquest_upkeep_info_form($other) {
+function warquest_unit_upkeep_form($other) {
 
    /* input */
 	global $mid;
@@ -500,7 +585,7 @@ function warquest_upkeep_info_form($other) {
 ** ---------------------
 */
 
-function warquest_income_info_form($other) {
+function warquest_building_income_form($other) {
 
 	/* input */
 	global $mid;
@@ -1454,39 +1539,51 @@ function warquest_profile($id) {
 		$page .= '<td width="170"><b>'.t('PLAYER_BUILDING_INCOME').':</b></td>';
 		
 		$page .= '<td>';
-		$link = warquest_link('mid='.$mid.'&sid='.PAGE_INCOME.'&oid='.$id, number_format($building_income, 0,",","."), "income");	
+		$link = warquest_link('mid='.$mid.'&sid='.PAGE_BUILDING_INCOME.'&oid='.$id, number_format($building_income, 0,",","."), "income");	
 		$page .= $link;
 		$page .= '</td>';
 
 		$page .= '</tr>';
 	
-		$continent_bonus= warquest_continent_bonus($data, $player->planet);
+		$continent_income = warquest_continent_income($data, $player->planet);
 		
 		$page .= '<tr>';
 		$page .= '<td><b>'.t('PLAYER_CONTINENT_INCOME').':</b></td>';
 		
 		$page .= '<td>';
-		$link = warquest_link('mid='.$mid.'&sid='.PAGE_CONTINENT.'&oid='.$id, number_format($continent_bonus, 0,",","."), "continent");	
+		$link = warquest_link('mid='.$mid.'&sid='.PAGE_CONTINENT_INCOME.'&oid='.$id, number_format($continent_income, 0,",","."), "continent");	
 		$page .= $link;
 		$page .= '</td>';
 		
 		$page .= '</tr>';
 		
+		$clan_war_income = warquest_clan_war_income($data, $player->planet);
+		
+		$page .= '<tr>';
+		$page .= '<td><b>'.t('PLAYER_CLAN_WAR_INCOME').':</b></td>';
+		
+		$page .= '<td>';
+		$link = warquest_link('mid='.$mid.'&sid='.PAGE_CLAN_WAR_INCOME.'&oid='.$id, number_format($clan_war_income, 0,",","."), "earth2");	
+		$page .= $link;
+		$page .= '</td>';
+	
+		$page .= '</tr>';
+				
 		$unit_upkeep = warquest_unit_upkeep($data, $player->planet);
 		
 		$page .= '<tr>';
 		$page .= '<td><b>'.t('PLAYER_UPKEEP').':</b></td>';
 		
 		$page .= '<td>';
-		$link = warquest_link('mid='.$mid.'&sid='.PAGE_UPKEEP.'&oid='.$id, number_format(($unit_upkeep*-1), 0,",","."), "earth2");	
+		$link = warquest_link('mid='.$mid.'&sid='.PAGE_UNIT_UPKEEP.'&oid='.$id, number_format(($unit_upkeep*-1), 0,",","."), "earth2");	
 		$page .= $link;
 		$page .= '</td>';
 	
 		$page .= '</tr>';
-		
+			
 		$page .= '<tr>';
 		$page .= '<td><b>'.t('PLAYER_NETTO_INCOME').':</b></td>';		
-		$page .= '<td>'.money_format1($building_income+$continent_bonus-$unit_upkeep).'</td>';
+		$page .= '<td>'.money_format1($building_income + $continent_income + $clan_war_income - $unit_upkeep).'</td>';
 		$page .= '</tr>';
 		
 		$page .= '</table>';
@@ -1717,27 +1814,35 @@ function warquest_player() {
 					}
 					break;
 					
-		case PAGE_INCOME:
+		case PAGE_BUILDING_INCOME:
 					if ((isset($other->pid)) && ($other->pid!=0) && ($player->pid!=$other->pid)) {
-						warquest_income_info_form($other);
+						warquest_building_income_form($other);
 					} else {
-						warquest_income_info_form($player);
+						warquest_building_income_form($player);
 					}
 					break;
 					
-		case PAGE_UPKEEP:
+		case PAGE_UNIT_UPKEEP:
 					if ((isset($other->pid)) && ($other->pid!=0) && ($player->pid!=$other->pid)) {
-						warquest_upkeep_info_form($other);
+						warquest_unit_upkeep_form($other);
 					} else {
-						warquest_upkeep_info_form($player);
+						warquest_unit_upkeep_form($player);
 					}
 					break;
 					
-		case PAGE_CONTINENT: 
+		case PAGE_CONTINENT_INCOME: 
 					if ((isset($other->pid)) && ($other->pid!=0) && ($player->pid!=$other->pid)) {
-						warquest_continent_info_form($other);
+						warquest_continent_income_form($other);
 					} else {
-						warquest_continent_info_form($player);
+						warquest_continent_income_form($player);
+					}
+					break;
+					
+		case PAGE_CLAN_WAR_INCOME: 
+					if ((isset($other->pid)) && ($other->pid!=0) && ($player->pid!=$other->pid)) {
+						warquest_clan_War_income_form($other);
+					} else {
+						warquest_clan_war_income_form($player);
 					}
 					break;
 	

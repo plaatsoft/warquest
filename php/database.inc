@@ -832,7 +832,7 @@ function warquest_db_player_insert($name, $pid) {
 	$query .= $config["init_money_bank1"].','.$config["init_money_bank2"].','.$config["init_money_bank3"].',';
 	$query .= $config["init_level"].', 1, 1, 1, 1, 1,';
 	$query .= '1,"'.date("Y-m-d H:i:s", time()).'", "'.date("Y-m-d H:i:s", time()).'",1,"0010000000000000", ';
-	$query .= '"'.warquest_getlocation($_SERVER["REMOTE_ADDR"]).'", '.$config["gold_dollar_ratio"].')';  
+	$query .= '"'.warquest_getlocation($_SERVER["REMOTE_ADDR"]).'", 0)';  
 		
 	$result = warquest_db_query($query);
 	

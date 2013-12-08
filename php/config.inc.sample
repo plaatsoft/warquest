@@ -102,9 +102,10 @@ $config["init_ammo_timer"]				= 140;
 $config["unit_sell_ratio"]				= .6;
 $config["building_sell_ratio"]		= .6;
 
+$config["min_clan_size"]				= 6;
+
 $config["max_planets"]					= 4;
 $config["max_level"]				 	   = 279;
-
 $config["max_attack_level_diff"]		= 3;
 $config["max_linear_attack_level"]	= 30;
 $config["max_username_length"]		= 15;
@@ -122,14 +123,13 @@ $config["max_invite_period"]			= 2;
 $config["max_sector_damage"]		   = 10;
 $config["max_money_win"]            = 1500000000;
 $config["max_casio_groups"] 			= 3;
-
 $config["max_health_reduction"]		= 10;
 $config["max_energy_reduction"]		= 20;
 $config["max_ammo_reduction"]			= 10;
-
-$config["restore_warning_level"]    = 90;
 $config["max_battle_log_age"]       = 2;
 $config["max_bank_log_age"]         = 30;
+
+$config["restore_warning_level"]    = 90;
 
 $config["casino_unlock_level_1"]    = 10;
 $config["casino_unlock_level_2"]    = 15;

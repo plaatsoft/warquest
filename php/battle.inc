@@ -752,6 +752,9 @@ function warquest_battle_check($player, $other, $force) {
  */
 function warquest_clan_size($player_clan, $other_clan) {
 
+	/*input */
+	global $config;
+	
 	$count1 = 0; 
 	if ( isset($player_clan->cid) ) {
 		$query1 =  'select pid from player_clan where cid='.$player_clan->cid;
@@ -773,9 +776,9 @@ function warquest_clan_size($player_clan, $other_clan) {
 		$size = $count1;
 	}
 
-	/* Minimal size is 6 */
-	if ($size<6) {
-		$size=6;
+	/* Set Minimal size if needed */
+	if ($size<$config["min_clan_size"]) {
+		$size=$config["min_clan_size"];
 	}
 
 	return $size;
@@ -940,6 +943,40 @@ function warquest_clan_war_battle($player_clan, $other_clan, $ugid) {
 	return $page;
 }
 
+function warquest_clan_income_update($player_clan,$other_clan) {
+
+	/* input */
+	global $player;
+	
+	warquest_netto_income($player);
+	
+	if ( isset($player_clan->cid) ) {
+		
+		$query1 = 'select pid from player_clan where cid='.$player_clan->cid.' and pid<>'.$player->pid;
+		$result1 = warquest_db_query($query1);	
+
+		while ($data1=warquest_db_fetch_object($result1)) {
+		
+			$data2 = warquest_db_player($data1->pid);
+			warquest_netto_income($data2);
+			warquest_db_player_update($data2);
+		}
+	}
+			
+	if ( isset($other_clan->cid) ) {
+		
+		$query1 = 'select pid from player_clan where cid='.$other_clan->cid;
+		$result1 = warquest_db_query($query1);	
+
+		while ($data1=warquest_db_fetch_object($result1)) {
+		
+			$data2 = warquest_db_player($data1->pid);
+			warquest_netto_income($data2);
+			warquest_db_player_update($data2);
+		}
+	}
+}
+
 /*
 ** -----------
 ** ACTIONS
@@ -976,7 +1013,7 @@ function warquest_clan_war_battle_do() {
 		$result1 = warquest_db_query($query1);	
 		$count1 = warquest_db_num_rows($result1);
 	
-		$money = (($count1+1) * 10000 * ($player->lid*9) / 5)+ rand(10000, 60000);	
+		$money = (($count1+1) * 2000 * ($player->lid*9))+ rand(10000, 60000);	
 	}
 			
 	/* Fetch sector data */	
@@ -1061,7 +1098,10 @@ function warquest_clan_war_battle_do() {
 			warquest_db_sector_update($sector);
 			
 			$message .= t('BATTLE_CLAN_SECTOR_CONQUER');
-		
+			
+			/* Update clan players hourly income */
+			warquest_clan_income_update($player_clan, $other_clan);
+					
 		} else {
 		
 			/* Sector damage increase with 1 */
@@ -1700,120 +1740,8 @@ function warquest_battle_clan_war_form() {
 	
 	} else {	
 	
-		$query  = 'select cid from player_clan where pid='.$player->pid;
-		$result = warquest_db_query($query);	
-		$data2 = warquest_db_fetch_object($result);
-			
-		$query  = 'select a.sid, a.x, a.y, a.cid, a.damage, ';
-		$query .= '(select b.name from clan b where b.cid=a.cid ) as name ';
-		$query .= 'from sector a where a.planet='.$player->planet;	
-		$result = warquest_db_query($query);
-		
-		$cell = array();
-		
-		/* Calculate cells with can be attack by clan */
-		$count=0;
-		while ($data = warquest_db_fetch_object($result)) {		
-		
-			$owner=0;
-			if ( isset($data2->cid) && ($data->cid == $data2->cid)) {
-				$owner=1;
-			}
-		
-			$cell[$data->x][$data->y]['owner'] = $owner;
-			$cell[$data->x][$data->y]['damage'] = $data->damage;
-			$cell[$data->x][$data->y]['name'] = $data->name;
-		}
-		
-		for ($y=0; $y<15; $y++) {
-			
-			for ($x=0; $x<5; $x++) {
-				
-				if ($cell[$x][$y]['owner']==1) {
-				
-					$count++;
-			
-					if (($y % 2)==1) {
-					
-						if ( (($x-1)>=0) && (($y-1)>=0) && ($cell[$x-1][$y-1]['owner']==0) ) {
-							$cell[$x-1][$y-1]['owner']=2;
-						} 
-						if ( (($x-1)>=0) && (($y+1)<15) && ($cell[$x-1][$y+1]['owner']==0) ) {	
-							$cell[$x-1][$y+1]['owner']=2;
-						} 	
-						if ( (($y+2)<15) && ($cell[$x][$y+2]['owner']==0) ) {	
-							$cell[$x][$y+2]['owner']=2;
-						} 
-						if ( (($y+1)<15) && ($cell[$x][$y+1]['owner']==0) ) {	
-							$cell[$x][$y+1]['owner']=2;
-						} 
-						if ( (($y-1)>=0) && ($cell[$x][$y-1]['owner']==0) ) {	
-							$cell[$x][$y-1]['owner']=2;
-						} 
-						if ( (($y-2)>=0) && ($cell[$x][$y-2]['owner']==0) ) {	
-							$cell[$x][$y-2]['owner']=2;
-						}
-						
-					} else {
-						
-						if ( (($y-1)>=0) && ($cell[$x][$y-1]['owner']==0)) {
-							$cell[$x][$y-1]['owner']=2;
-						} 
-						if ( (($y+1)<15) && ($cell[$x][$y+1]['owner']==0) ) {	
-							$cell[$x][$y+1]['owner']=2;
-						} 	
-						if ( (($y+2)<15) && ($cell[$x][$y+2]['owner']==0) ) {	
-							$cell[$x][$y+2]['owner']=2;
-						} 
-						if ( (($y-2)>=0) && ($cell[$x][$y-2]['owner']==0) ) {	
-							$cell[$x][$y-2]['owner']=2;
-						} 
-						if ( (($x+1)<5) && (($y-1)>=0) && ($cell[$x+1][$y-1]['owner']==0) ) {	
-							$cell[$x+1][$y-1]['owner']=2;
-						} 
-						if ( (($x+1)<5) && (($y+1)<15) && ($cell[$x+1][$y+1]['owner']==0) ) {	
-							$cell[$x+1][$y+1]['owner']=2;
-						}
-					}
-				}
-			}
-		}
-
-		$tmp = "";
-		for ($y=0; $y<15; $y++) {
-		
-			for ($x=0; $x<5; $x++) {
-			
-				$tmp .= $x.'-'.$y.'-'.$cell[$x][$y]['name'].'-'.$cell[$x][$y]['owner'].'-';		
-				$tmp .= (($cell[$x][$y]['damage']/$config["max_sector_damage"])*100).',';
-			}
-		}
-		
-		$width = 483;
-		$height = 300;
-	
-		$page .= '<div class="box">';
-	
-		$page .= '<center>';
-		$page .= '<img src="map.php?planet='.$player->planet.'&data='.$tmp.'" width="'.$width.'" height="'.$height.'" usemap="#map">';	
-		$page .= '<map name="map">';
-	
-		$query  = 'select a.sid, a.x, a.y, a.cid, a.mid from sector a where a.planet='.$player->planet;		
-		$result = warquest_db_query($query);			
-		while ($data=warquest_db_fetch_object($result)) {			
-		
-			$tmp = "";
-			if ($data->mid > 0) {
-				$tmp = t('MISSION_'.$data->mid);
-			}
-			if (($count==0) || ($cell[$data->x][$data->y]['owner']==2)) {
-				$page .= '<area shape="poly" coords="'.calcPologon($data->x,$data->y).'" title="'.$tmp.'" href="javascript:link(\'';
-				$page .= warquest_token('mid='.$mid.'&sid='.$sid.'&uid='.$data->sid.'&eid='.EVENT_BATTLE_CLAN_WAR).'\');" />';
-			}		
-		}
-		$page .= '</map>';	
-		$page .= '</center>';
-	
+		$page .= '<div class="box">';	
+		$page .= warquest_ui_clan_war_map($player, $player->planet, true);
 		$page .= '</div>';
 	}
 	

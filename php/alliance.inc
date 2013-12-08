@@ -685,6 +685,9 @@ function warquest_alliance_pending_form() {
 ** --------------
 */
 
+/**
+ * Commandor of clan can drop a member.
+ */
 function warquest_clan_drop_do() {
 
 	/* input */
@@ -706,12 +709,18 @@ function warquest_clan_drop_do() {
 		
 		warquest_db_player_clan_delete($other->pid, $cid);
 	
+		/* Update player netto income */		
+		warquest_netto_income($other);
+	
 		$message = t('CLAN_DROP');
 		$popup .= warquest_box_icon("info", $message);
 	
 	}
 }
 
+/**
+ * Member can leave a clan 
+ */
 function warquest_clan_leave_do() {
 
 	/* input */
@@ -731,6 +740,9 @@ function warquest_clan_leave_do() {
 	} else {
 		
 		warquest_db_player_clan_delete($player->pid, $cid);
+		
+		/* Update player netto income */		
+		warquest_netto_income($player);
 	
 		$message = t('CLAN_LEAVE');
 		$popup .= warquest_box_icon("info", $message);
@@ -738,12 +750,13 @@ function warquest_clan_leave_do() {
 	}
 }
 
+/**
+ * Member can join a clan
+ */
 function warquest_clan_join_do() {
 
 	/* input */
 	global $player;
-	global $other;
-	global $skill;
 	global $cid;
 		
 	/* output */
@@ -760,6 +773,9 @@ function warquest_clan_join_do() {
 	
 		warquest_db_player_clan_insert($player->pid, $cid);
 	
+		/* Update player netto income */		
+		warquest_netto_income($player);
+		
 		$message = t('CLAN_JOINED');
 		$popup .= warquest_box_icon("info", $message);
 	
@@ -770,9 +786,6 @@ function warquest_clan_slogan_do() {
 
 	/* input */
 	global $player;
-	global $other;
-	global $skill;
-	global $clan;
 	global $cid;
 	global $slogan;	
 		
@@ -807,7 +820,6 @@ function warquest_clan_create_do() {
 
 	/* input */
 	global $player;
-	global $other;
 	global $skill;
 	global $clan;
 		

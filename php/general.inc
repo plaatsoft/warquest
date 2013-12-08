@@ -490,7 +490,10 @@ function warquest_battle_surrender($player) {
 ** ----------------------
 */
 
-function warquest_continent_bonus($player, $planet) {
+/**
+ * Calculate continent income
+ */
+function warquest_continent_income($player, $planet) {
 
 	/* input */
 	global $config;
@@ -501,15 +504,43 @@ function warquest_continent_bonus($player, $planet) {
 	$query .= 'and a.pid='.$player->pid.' group by b.mgid';	
 	$result = warquest_db_query($query);
 			
-	$bonus = 0;
+	$income = 0;
 	while ($data=warquest_db_fetch_object($result)) {		
 
 		if ($data->progress==2400) {		
-			$bonus += $data->mgid * $config["continent_conquer_bonus"];			
+			$income += $data->mgid * $config["continent_conquer_bonus"];			
 		}
 	}
-	return $bonus;	
+	return $income;	
 }
+
+/**
+ * Calculate clan war income
+ */
+function warquest_clan_war_income($player, $planet) {
+
+	/* input */
+	global $config;
+	
+	$clan = warquest_db_player_clan($player->pid);
+	
+	$income = 0;	
+	
+	if (isset($clan->cid)) { 
+		
+		$query = 'select sid from sector where cid='.$clan->cid.' and planet='.$planet;
+		$result = warquest_db_query($query);
+		$count = warquest_db_num_rows($result);
+		
+		$income = $count * 1000 * $player->lid;
+	}
+
+	return $income;	
+}
+
+/**
+ * Calculate building income
+ */
 
 function warquest_building_income($player, $planet) {
 
@@ -527,6 +558,9 @@ function warquest_building_income($player, $planet) {
 	return $income;
 }
 
+/**
+ * Calculate unit upkeep cost
+ */
 function warquest_unit_upkeep($player, $planet) {
 
 	/* Calculate upkeep cost */
@@ -563,7 +597,7 @@ function warquest_unit_upkeep($player, $planet) {
 	return $upkeep;	
 }
 
-/** 
+/**
  * Calculate hourly income of player
  */
 function warquest_netto_income($player) {
@@ -575,11 +609,17 @@ function warquest_netto_income($player) {
 	$income += warquest_building_income($player, PLANET_ASTEROID);
 	
 	/* Calculate continent bonus */
-	$income += warquest_continent_bonus($player, PLANET_EARTH);
-	$income += warquest_continent_bonus($player, PLANET_MOON);
-	$income += warquest_continent_bonus($player, PLANET_MARS);
-	$income += warquest_continent_bonus($player, PLANET_ASTEROID);
+	$income += warquest_continent_income($player, PLANET_EARTH);
+	$income += warquest_continent_income($player, PLANET_MOON);
+	$income += warquest_continent_income($player, PLANET_MARS);
+	$income += warquest_continent_income($player, PLANET_ASTEROID);
 
+	/* Calculate clan war bonus */
+	$income += warquest_clan_war_income($player, PLANET_EARTH);
+	$income += warquest_clan_war_income($player, PLANET_MOON);
+	$income += warquest_clan_war_income($player, PLANET_MARS);
+	$income += warquest_clan_war_income($player, PLANET_ASTEROID);
+	
 	/* Calculate unit upkeep cost */
 	$income -= warquest_unit_upkeep($player, PLANET_EARTH);
 	$income -= warquest_unit_upkeep($player, PLANET_MOON);
@@ -1970,8 +2010,139 @@ function warquest_ui_radiobox($name, $value, $checked, $disabled) {
 	
 	return $tmp;	
 }
+
+/** 
+ * Get HTML clan war map
+ */
+function warquest_ui_clan_war_map($player, $planet, $mode) {
+		
+	/* input */
+	global $mid;
+	global $sid;
+	global $config;	
+	
+	$page = "";
+	
+	$data2 = warquest_db_player_clan($player->pid);
+	
+	$query  = 'select a.sid, a.x, a.y, a.cid, a.damage, ';
+	$query .= '(select b.name from clan b where b.cid=a.cid ) as name ';
+	$query .= 'from sector a where a.planet='.$player->planet;	
+	$result = warquest_db_query($query);
+		
+	$cell = array();
+		
+	/* Calculate cells with can be attack by clan */
+	$count=0;
+	while ($data = warquest_db_fetch_object($result)) {		
+		
+		$owner=0;
+		if ( isset($data2->cid) && ($data->cid == $data2->cid)) {
+			$owner=1;
+		}
+		
+		$cell[$data->x][$data->y]['owner'] = $owner;
+		$cell[$data->x][$data->y]['damage'] = $data->damage;
+		$cell[$data->x][$data->y]['name'] = $data->name;
+	}
+	
+	for ($y=0; $y<15; $y++) {
+			
+		for ($x=0; $x<5; $x++) {
+			
+			if ($cell[$x][$y]['owner']==1) {
+			
+				$count++;
+		
+				if (($y % 2)==1) {
+				
+					if ( (($x-1)>=0) && (($y-1)>=0) && ($cell[$x-1][$y-1]['owner']==0) ) {
+						$cell[$x-1][$y-1]['owner']=2;
+					} 
+					if ( (($x-1)>=0) && (($y+1)<15) && ($cell[$x-1][$y+1]['owner']==0) ) {	
+						$cell[$x-1][$y+1]['owner']=2;
+					} 	
+					if ( (($y+2)<15) && ($cell[$x][$y+2]['owner']==0) ) {	
+						$cell[$x][$y+2]['owner']=2;
+					} 
+					if ( (($y+1)<15) && ($cell[$x][$y+1]['owner']==0) ) {	
+						$cell[$x][$y+1]['owner']=2;
+					} 
+					if ( (($y-1)>=0) && ($cell[$x][$y-1]['owner']==0) ) {	
+						$cell[$x][$y-1]['owner']=2;
+					} 
+					if ( (($y-2)>=0) && ($cell[$x][$y-2]['owner']==0) ) {	
+						$cell[$x][$y-2]['owner']=2;
+					}
+					
+				} else {
+					
+					if ( (($y-1)>=0) && ($cell[$x][$y-1]['owner']==0)) {
+						$cell[$x][$y-1]['owner']=2;
+					} 
+					if ( (($y+1)<15) && ($cell[$x][$y+1]['owner']==0) ) {	
+						$cell[$x][$y+1]['owner']=2;
+					} 	
+					if ( (($y+2)<15) && ($cell[$x][$y+2]['owner']==0) ) {	
+						$cell[$x][$y+2]['owner']=2;
+					} 
+					if ( (($y-2)>=0) && ($cell[$x][$y-2]['owner']==0) ) {	
+						$cell[$x][$y-2]['owner']=2;
+					} 
+					if ( (($x+1)<5) && (($y-1)>=0) && ($cell[$x+1][$y-1]['owner']==0) ) {	
+						$cell[$x+1][$y-1]['owner']=2;
+					} 
+					if ( (($x+1)<5) && (($y+1)<15) && ($cell[$x+1][$y+1]['owner']==0) ) {	
+						$cell[$x+1][$y+1]['owner']=2;
+					}
+				}
+			}
+		}
+	}
+
+	$tmp = "";
+	for ($y=0; $y<15; $y++) {
+		
+		for ($x=0; $x<5; $x++) {
+		
+			$tmp .= $x.'-'.$y.'-'.$cell[$x][$y]['name'].'-'.$cell[$x][$y]['owner'].'-';		
+			$tmp .= (($cell[$x][$y]['damage']/$config["max_sector_damage"])*100).',';
+		}
+	}
+		
+	$width = 483;
+	$height = 300;
+	
+	$page .= '<center>';
+	$page .= '<img src="map.php?planet='.$player->planet.'&data='.$tmp.'" width="'.$width.'" height="'.$height.'" usemap="#map">';	
+	$page .= '<map name="map">';
+	
+	$query  = 'select a.sid, a.x, a.y, a.cid, a.mid from sector a where a.planet='.$player->planet;		
+	$result = warquest_db_query($query);			
+	while ($data=warquest_db_fetch_object($result)) {			
+		
+		$tmp = "";
+		if ($data->mid > 0) {
+			$tmp = t('MISSION_'.$data->mid);
+		}
+		if (($count==0) || ($cell[$data->x][$data->y]['owner']==2)) {
+			$page .= '<area shape="poly" coords="'.calcPologon($data->x,$data->y).'" title="'.$tmp.'" ';
+			if ($mode == true) {
+				$page .= 'href="javascript:link(\'';
+				$page .= warquest_token('mid='.$mid.'&sid='.$sid.'&uid='.$data->sid.'&eid='.EVENT_BATTLE_CLAN_WAR);
+				$page .= '\');"';
+			}
+			$page .= '/>';
+		}		
+	}
+	$page .= '</map>';	
+		
+	return $page;
+}
+		
+		
 /**
- * Get HTML map
+ * Get HTML mission map
  */
 function warquest_ui_map($player, $planet) {
 	

@@ -21,6 +21,7 @@ $notes = '
 <div class="subparagraph2">08-12-2013</div>
 <i>Game Server v6.1 (Release still in development)</i>
 <ul>
+<li>Added clan war hourly income for conquered sectors.</li>
 <li>Added gift shop to Help-Donate page.</li>
 <li>Added sound effects to mission and help pages.</li>
 <li>Improve Release-Notes text layout.</li>
