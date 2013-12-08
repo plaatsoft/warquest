@@ -437,7 +437,7 @@ function warquest_clan_war_income_form($other) {
 	$page .= '</td>';
 		
 	$page .= '<td>';
-	$page .= dollar_format(1000 * $player->lid);
+	$page .= dollar_format(1000 * $player->lid * ($player->planet+1));
 	$page .= '</td>';
 							
 	$page .= '<td>';
