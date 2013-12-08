@@ -389,12 +389,12 @@ function warquest_clan_war_income_form($other) {
 	
 	$title = t('PLAYER_CLAN_WAR_OVERVIEW');
 	
-	$clan = warquest_db_player_clan($player->pid);
+	$clan = warquest_db_player_clan($other->pid);
 	
 	$count = 0;		
 	if (isset($clan->cid)) { 
 	
-		$query = 'select sid from sector where cid='.$clan->cid.' and planet='.$other->planet;
+		$query = 'select sid from sector where cid='.$clan->cid.' and planet='.$player->planet;
 		$result = warquest_db_query($query);
 		$count = warquest_db_num_rows($result);
 	}
@@ -411,7 +411,7 @@ function warquest_clan_war_income_form($other) {
 						strtolower(t('GENERAL_PLANET_'.$player->planet)));
 	$page .= '<br/><br/>';
 
-	$page .= warquest_ui_clan_war_map($other, $other->planet, false);
+	$page .= warquest_ui_clan_war_map($other, $player->planet, false);
 	$page .= '<br/>';
 	$page .= '<br/>';
 
@@ -437,11 +437,11 @@ function warquest_clan_war_income_form($other) {
 	$page .= '</td>';
 		
 	$page .= '<td>';
-	$page .= dollar_format(1000 * $player->lid * ($player->planet+1));
+	$page .= dollar_format(1000 * $other->lid * ($player->planet+1));
 	$page .= '</td>';
 							
 	$page .= '<td>';
-	$page .= dollar_format(warquest_clan_war_income($player, $player->planet));	
+	$page .= dollar_format(warquest_clan_war_income($other, $player->planet));	
 	$page .= '</td>';
 				
 	$page .= '</tr>';
