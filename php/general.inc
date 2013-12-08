@@ -532,7 +532,7 @@ function warquest_clan_war_income($player, $planet) {
 		$result = warquest_db_query($query);
 		$count = warquest_db_num_rows($result);
 		
-		$income = $count * 1000 * $player->lid;
+		$income = $count * 1000 * $player->lid * ($planet+1);
 	}
 
 	return $income;	
