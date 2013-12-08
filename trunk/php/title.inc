@@ -29,6 +29,7 @@ function warquest_create_title($title) {
 	global $sid;
 	global $oid;
 	global $uid;
+	global $cid;
 	global $player;
 	global $config;
 	
@@ -99,7 +100,7 @@ function warquest_create_title($title) {
 					break;
 		}
 		
-		$tmp .= '&planet='.$planet.'&uid='.$uid.'&eid='.EVENT_SWITCH_PLANET;
+		$tmp .= '&planet='.$planet.'&uid='.$uid.'&eid='.EVENT_SWITCH_PLANET.'&cid='.$cid;
 		
 		/* opponent is added only when needed */
 		if ($oid!=$player->pid) {

@@ -76,7 +76,7 @@ function warquest_comment_save_do() {
 	
 		if ($uid==0) {
 	
-			if (isset($other)) {	
+			if (isset($other->pid)) {	
 				warquest_db_comment_insert($tid, $player->pid, $other->pid, $comment);
 					
 				$other->comment++;
@@ -160,7 +160,7 @@ function warquest_comment_form() {
 	$page .= '<tr>';
 	$page .= '<td width="500">';
 
-	if (isset($other)) {
+	if (isset($other->pid)) {
 		$page .= t('ALLIANCE_COMMENT_TEXT2', $other->name).'<br/>'; 
 	} else {
 		$page .= t('ALLIANCE_COMMENT_TEXT1').'<br/>'; 
@@ -171,7 +171,7 @@ function warquest_comment_form() {
 	$page .= warquest_show_smilies();
 	$page .= '<br/><br/>';
 	
-	if (isset($other)) {
+	if (isset($other->pid)) {
 		$page .= warquest_link('mid='.$mid.'&sid='.$sid.'&eid='.EVENT_FORUM_COMMENT_SAVE.'&fid='.$fid.'&tid='.$tid.'&oid='.$other->pid.'&uid='.$uid, t('LINK_SAVE'), 'save-0');
 	} else {
 		$page .= warquest_link('mid='.$mid.'&sid='.$sid.'&eid='.EVENT_FORUM_COMMENT_SAVE.'&fid='.$fid.'&tid='.$tid.'&oid=0&uid='.$uid, t('LINK_SAVE'), 'save-0');
@@ -189,7 +189,7 @@ function warquest_comment_form() {
 	
 	/* ---------------------------------------------------- */
 
-	if (isset($other)) {
+	if (isset($other->pid)) {
 		
 		return;
 	}
@@ -200,7 +200,7 @@ function warquest_comment_form() {
 	$result = warquest_db_query($query);	
 	$total = warquest_db_num_rows($result);
 	
-	if (isset($other)) {	
+	if (isset($other->pid)) {	
 		$query  = 'select a.id, a.pid1, a.date, a.comment, b.name, b.country from comment a, player b ';
 		$query .= 'where a.pid1=b.pid and a.pid2='.$other->pid.' and a.deleted=0 and a.tid='.$tid.' ';
 	} else {

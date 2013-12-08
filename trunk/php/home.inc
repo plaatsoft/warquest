@@ -200,8 +200,12 @@ function warquest_home_messages() {
 			
 	$page .= '<div class="subparagraph">'.t('HOME_MESSAGES_TITLE').'</div>';
 	
-	if ($count>0) {
-	
+	if ($count==0) {
+		
+		$page .= warquest_box_icon("info",t('HOME_NO_MESSAGES'));
+		
+	} else {
+		
 		$page .= '<div class="box">';
 	
 		$count=0;
@@ -264,10 +268,7 @@ function warquest_home_messages() {
 		$page .= warquest_page_control($offset, $limit, $total, 0);
 		$page .= '</div>';
 	
-	} else {
-	
-		$page .= warquest_box_icon("info",t('HOME_NO_MESSAGES'));
-	}
+	} 
 }
 
 
@@ -426,65 +427,67 @@ function warquest_lastest_forum_post() {
 	$result = warquest_db_query($query);	
 	$data = warquest_db_fetch_object($result);
 	
-	$page .= '<div class="subparagraph">'.t('HOME_LASTEST_FORUM_ITEM').'</div>';
-	$page .= '<div class="box">';
+	if (isset($data->tid)) {
+		$page .= '<div class="subparagraph">'.t('HOME_LASTEST_FORUM_ITEM').'</div>';
+		$page .= '<div class="box">';
 	
-	$page .= '<table>';
+		$page .= '<table>';
 	
-	$page .= '<tr>';
+		$page .= '<tr>';
 	
-	$page .= '<td width="75">';
-	$page .= '<b></b>';
-	$page .= '</td>';
-	
-	$page .= '<td width="215">';
-	$page .= '</td>';
+		$page .= '<td width="75">';
+		$page .= '<b></b>';
+		$page .= '</td>';
+		
+		$page .= '<td width="215">';
+		$page .= '</td>';
 
-	$page .= '<td width="210">';
-	$page .= '</td>';
+		$page .= '<td width="210">';
+		$page .= '</td>';
 		
-	$page .= '</tr>';
-					
-	$query  = 'select id from comment where deleted=0 and tid='.$data->tid;	
-	$result = warquest_db_query($query);
-	$count = warquest_db_num_rows($result);
+		$page .= '</tr>';
+						
+		$query  = 'select id from comment where deleted=0 and tid='.$data->tid;	
+		$result = warquest_db_query($query);
+		$count = warquest_db_num_rows($result);
 							
-	$page .= '<tr>';
+		$page .= '<tr>';
 			
-	$page .= '<td>';
-	$page .= warquest_link('mid='.MENU_FORUMS.'&sid='.PAGE_COMMENT.'&fid='.$data->fid.'&tid='.$data->tid,
+		$page .= '<td>';
+		$page .= warquest_link('mid='.MENU_FORUMS.'&sid='.PAGE_COMMENT.'&fid='.$data->fid.'&tid='.$data->tid,
 			warquest_image('other/forum.png','width="64" height="64"'), 'forum1');
-	$page .= '</td>';
-		
-	$page .= '<td valign="top">';
-	$page .= '<span class="subparagraph">';
-	$page .= warquest_link('mid='.MENU_FORUMS.'&sid='.PAGE_COMMENT.'&fid='.$data->fid.'&tid='.$data->tid, 
-		warquest_parse_smilies($data->description),'forum2');
-	$page .= '</span>';	
-	$page .= '<br/>';
-	$page .= '<i>';	
-	$page .= t('TOPIC_CREATED_BY', player_format($data->pid2, $data->name2, $data->country2));
-	$page .= '</i>';
-		
-	$page .= '</td>';
+		$page .= '</td>';
 				
-	$page .= '<td valign="top">';
-	$page .=  health_format($count).' '.t('GENERAL_MESSAGES').' ';
+		$page .= '<td valign="top">';
+		$page .= '<span class="subparagraph">';
+		$page .= warquest_link('mid='.MENU_FORUMS.'&sid='.PAGE_COMMENT.'&fid='.$data->fid.'&tid='.$data->tid, 
+			warquest_parse_smilies($data->description),'forum2');
+		$page .= '</span>';	
+		$page .= '<br/>';
+		$page .= '<i>';	
+		$page .= t('TOPIC_CREATED_BY', player_format($data->pid2, $data->name2, $data->country2));
+		$page .= '</i>';
 			
-	$page .= '<br/>';
+		$page .= '</td>';
+				
+		$page .= '<td valign="top">';
+		$page .=  health_format($count).' '.t('GENERAL_MESSAGES').' ';
 			
-	if (isset($data->date)) {
-		$page .= '<br/><b>'.t('GENERAL_LAST_MESSAGE').'</b><br/>';
+		$page .= '<br/>';
+			
+		if (isset($data->date)) {
+			$page .= '<br/><b>'.t('GENERAL_LAST_MESSAGE').'</b><br/>';
 	
-		$page .= warquest_ui_ago($data->date).' '.t('GENERAL_BY').' ';
-		$page .= player_format($data->pid1, $data->name1, $data->country1);
-	}
-	$page .= '</td>';
-	$page .= '</tr>';
+			$page .= warquest_ui_ago($data->date).' '.t('GENERAL_BY').' ';
+			$page .= player_format($data->pid1, $data->name1, $data->country1);
+		}
+		$page .= '</td>';
+		$page .= '</tr>';
+				
+		$page .= '</table>';
 			
-	$page .= '</table>';
-		
-	$page .= '</div>';
+		$page .= '</div>';
+	}
 }
 
 /** 
