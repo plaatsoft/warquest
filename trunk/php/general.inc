@@ -3079,7 +3079,7 @@ function warquest_planet_image($id) {
 	/* input */
 	global $config;
 			
-	$image  = '<img id="planet'.$id.'" src="'.$config["content_url"].'images/planet/planet'.$id.'.png" title="'.t('GENERAL_PLANET_'.$id).'" width="32" height="32" />';	
+	$image  = '<img id="planet'.$id.'" src="'.$config["content_url"].'images/planet/planet'.$id.'a.png" title="'.t('GENERAL_PLANET_'.$id).'" width="32" height="32" />';	
 	
 	return $image;
 }
