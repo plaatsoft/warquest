@@ -1,10 +1,27 @@
 /* WarQuest Style sheet - All copyrights reserved (c) 2008-2013 PlaatSoft */
 
-@media (max-width: 510px) {
-		
-	body {
-		-moz-transform: scale(0.8);
-	}
+@media all and (min-width: 0px) and (max-width: 359px) {
+  body {
+	 zoom: 0.59;
+	 -moz-transform: scale(0.59); 
+	 -moz-transform-origin: 0 0;
+  }
+}
+
+@media all and (min-width: 360px) and (max-width: 479px) {
+  body {
+	 zoom: 0.67;
+	 -moz-transform: scale(0.67); 
+	 -moz-transform-origin: 0 0;
+  }
+}
+
+@media all and (min-width: 480px) and (max-width: 530px) {
+  body {
+	 zoom: 0.9;
+	 -moz-transform: scale(0.9); 
+	 -moz-transform-origin: 0 0;
+  }
 }
 
 body {		
@@ -14,6 +31,7 @@ body {
 	-webkit-text-size-adjust:none;
 	width: 510px;
 	padding: 0px;
+ 
 }
 
 ul {
