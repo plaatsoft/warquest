@@ -40,5 +40,9 @@ UPDATE unit_group SET planet=3 WHERE planet=2;
 UPDATE unit_group SET planet=2 WHERE planet=1;
 UPDATE unit_group SET planet=1 WHERE planet=0;
 
+UPDATE bonus SET bonus_id=4 WHERE bonus_id=3;
+UPDATE bonus SET bonus_id=3 WHERE bonus_id=2;
+UPDATE bonus SET bonus_id=2 WHERE bonus_id=1;
+UPDATE bonus SET bonus_id=1 WHERE bonus_id=0;
 
 
