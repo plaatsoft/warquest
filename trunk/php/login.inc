@@ -127,6 +127,25 @@ function warquest_client_overview() {
 	$page .= '<td width="100">'; 
 	$page .= '</td>';
 	
+	/*$page .= '</tr>';
+	$page .= '<tr>';
+	
+	$page .= '<td width="100">'; 
+	$page .= '</td>';
+	
+	$page .= '<td width="155" align="right">';
+	$page .= '<center><button id="install-btn">Install app</button>';
+	$page .= warquest_image("other/windows.jpg");
+	$page .= '<br/>WarQuest for FireOS</a>'; 
+	$page .= '</center>';
+	$page .= '</td>';
+		
+	$page .= '<td width="155" align="right">';
+	$page .= '</td>';
+	
+	$page .= '<td width="100">'; 
+	$page .= '</td>';*/
+		
 	$page .= '</tr>';
 	$page .= '</table>';
 }

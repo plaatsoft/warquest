@@ -275,8 +275,8 @@ $lang['GENERAL_IDLE'] = 'Idle';
 $lang['GENERAL_ACTIVE'] = 'Aktiv';
 $lang['GENERAL_INACTIVE'] = 'Inaktiv';
 
-$lang['GENERAL_PLANET_0'] = 'Erde';
-$lang['GENERAL_PLANET_1'] = 'Mond';
+$lang['GENERAL_PLANET_1'] = 'Erde';
+$lang['GENERAL_PLANET_2'] = 'Mond';
 
 /*
 ** ------------------

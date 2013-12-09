@@ -22,11 +22,10 @@
 ** ------------------
 */
 
-define('PLANET_EARTH',        0);
-define('PLANET_MOON',         1);
-define('PLANET_MARS',         2);
-define('PLANET_ASTEROID',     3);
-define('PLANET_SUN',     		4);
+define('PLANET_EARTH',        	1);
+define('PLANET_MOON',         	2);
+define('PLANET_MARS',         	3);
+define('PLANET_ASTEROID',     	4);
 
 /*
 ** ------------------
@@ -35,17 +34,17 @@ define('PLANET_SUN',     		4);
 */
 
 /* Main menu */
-define('MENU_LOGIN',          1000);
-define('MENU_HOME',           1001);
-define('MENU_MISSIONS',       1002);
-define('MENU_BATTLE',         1003);
-define('MENU_UNITS',          1004);
-define('MENU_BUILDINGS',      1005);
-define('MENU_MONEY',          1006);
-define('MENU_ALLIANCE',       1007);
-define('MENU_FORUMS',         1008);
-define('MENU_HELP',           1009);
-define('MENU_ADMIN',          1010);
+define('MENU_LOGIN',          	1000);
+define('MENU_HOME',           	1001);
+define('MENU_MISSIONS',       	1002);
+define('MENU_BATTLE',         	1003);
+define('MENU_UNITS',          	1004);
+define('MENU_BUILDINGS',      	1005);
+define('MENU_MONEY',          	1006);
+define('MENU_ALLIANCE',      		1007);
+define('MENU_FORUMS',         	1008);
+define('MENU_HELP',           	1009);
+define('MENU_ADMIN',          	1010);
 
 /*
 ** ------------------
@@ -58,7 +57,6 @@ define('PAGE_LOGIN',         		1101);
 define('PAGE_REGISTER',      		1102);
 define('PAGE_RECOVER',       		1103);
 define('PAGE_FACEBOOK',       	1104);
-define('PAGE_MAINTENANCE',    	1105);
 
 /* Home */
 define('PAGE_OVERVIEW',       	1200);
@@ -120,27 +118,27 @@ define('PAGE_DONATE',         	1907);
 define('PAGE_ABOUT',          	1908);
 		
 /* Admin */
-define('PAGE_PLAYER_LIST',    	2000);
-define('PAGE_PLAYERS',        	2001);
-define('PAGE_ADMIN_MESSAGES', 	2002);
-define('PAGE_LEVEL',          	2003); 
-define('PAGE_LEVEL_ZOOM',    		2004);
-define('PAGE_PLAYER_COPY',    	2005);
-define('PAGE_ACTIONS',        	2006);
-define('PAGE_ADMIN_NEWS',     	2007);
-define('PAGE_BROWSER',         	2008);
-define('PAGE_INFO',           	2009);
+define('PAGE_PLAYER_LIST',    	2001);
+define('PAGE_PLAYERS',        	2002);
+define('PAGE_ADMIN_MESSAGES', 	2003);
+define('PAGE_LEVEL',          	2004); 
+define('PAGE_LEVEL_ZOOM',    		2005);
+define('PAGE_PLAYER_COPY',    	2006);
+define('PAGE_ACTIONS',        	2007);
+define('PAGE_ADMIN_NEWS',     	2008);
+define('PAGE_BROWSER',         	2009);
+define('PAGE_INFO',           	2010);
 
 /* Player */
-define('PAGE_PROFILE',         	2100);
-define('PAGE_ATTACK',         	2101);
-define('PAGE_DEFENCE',         	2102);
-define('PAGE_BUILDING_INCOME', 	2103);
-define('PAGE_UNIT_UPKEEP',   		2104);
+define('PAGE_PROFILE',         	2101);
+define('PAGE_ATTACK',         	2102);
+define('PAGE_DEFENCE',         	2103);
+define('PAGE_BUILDING_INCOME', 	2104);
 define('PAGE_CONTINENT_INCOME',	2105);
 define('PAGE_CLAN_WAR_INCOME',	2106);
-define('PAGE_DISCOUNT',        	2107);
-define('PAGE_MAITENANCE',      	2108);
+define('PAGE_UNIT_UPKEEP',   		2107);
+define('PAGE_DISCOUNT',        	2108);
+define('PAGE_MAINTENANCE',    	2109);
 
 /*
 ** ------------------

@@ -408,6 +408,88 @@ function warquest_help_stats_form() {
 ** ---------------------
 */
 
+/**
+ * Shop paypal button
+ */
+function warquest_paypal($gold, $price, $key) {
+
+	global $config;
+	global $player;
+
+	$tag = 'WarQuest - '.$player->name.' ['.$player->pid.']';
+	
+	$page =	'<form action="https://www.paypal.com/cgi-bin/webscr" method="post">';	  
+	$page .=	'<input type="hidden" name="cmd" value="_s-xclick">';
+	$page .=	'<input type="hidden" name="item_name" value="'.$tag.'">';
+	$page .=	'<input type="hidden" name="hosted_button_id" value="'.$config['paypal_buy_key'.$key].'">';
+	$page .=	'<input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_buynow_LG.gif" border="0" name="submit" alt="">';
+	$page .=	'<img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">';
+	$page .=	'</form>';
+	
+	return $page;
+}
+
+	
+/** 
+ * Gift shop form
+ */
+function warquest_giftshop_form() {
+
+	/* input */
+	global $mid;
+	global $sid;
+	global $id;
+	global $player;
+	global $config;
+	
+	/* output */
+	global $page;
+	
+	$page .=	'</form>';	
+		
+	$page .= '<div class="subparagraph">';	
+	$page .= t('GIFT_SHOP_TITLE');
+	$page .= '</div>';
+												
+	$gold = array(1000,2500,5500,12000,25000);
+	$price = array(1.95, 4.95, 9.95, 19.95, 39.95);
+
+	$page .= '<div class="box">';	
+
+	$page .= '<table class="shop">';
+
+	for($i=1; $i<6; $i++) {
+	
+		if ($i>1) {
+			$page .= '<tr>';
+			$page .= '<td colspan="2"><hr></td>';
+			$page .= '</tr>';			
+		}
+			
+		$page .= '<tr>';
+		$page .= '<td>';
+		$page .= warquest_image('gold/gold'.$i.'.jpg', 'width="225" height="160"');
+		$page .= '</td>';
+		$page .= '<td width="300" align="center">';
+		$page .= gold_format($gold[$i-1]);
+		$page .= '<br/>';
+		$page .= stock_format($price[$i-1]).' '.t("GENERAL_USD");
+		$page .= '<br/>'; 
+		$page .= '<br/>';
+		$page .= warquest_paypal($gold[$i-1], $price[$i-1], $i);	
+		$page .= '</td>';		
+		$page .= '</tr>';
+	}
+	
+	$page .= '</table>';
+	$page .= '</div>';
+	
+	$page .= t('GIFT_SHOP_NOTE');
+}
+
+/** 
+ * Show Donate / Gif shop form 
+ */
 function warquest_help_donate_form() {
 
 	/* input */
@@ -465,7 +547,7 @@ function warquest_help_donate_form() {
 
 /*
 ** ---------------------
-** INSIGNES
+** AWARDS
 ** ---------------------
 */
 
@@ -783,7 +865,7 @@ function warquest_help_levels_form() {
 		
 	$limit = 50;	
 	$total = $config['max_level']+1;	
-	
+	http://127.0.0.1/warquest/planet.php?planet=0&data=0-100,0-100,0-100,0-100,0-100,0-100,0-100,0-100,0-100,0-100,0-100,0-100,0-100,0-100,0-100,0-100,0-100,0-100,0-100,0-100,0-100,0-100,0-100,0-100,0-100,0-100,0-100,0-100,0-100,0-100,0-100,0-100,0-100,0-100,0-100,0-100,0-100,0-100,0-100,0-100,0-100,0-100,0-100,0-100,0-100,0-100,0-100,0-100,0-100,0-100,0-100,0-100,0-100,0-100,0-100,0-100,0-100,0-100,0-100,0-100,0-100,0-100,0-100,0-100,0-100,0-100,0-100,0-100,0-100,0-100,0-100,0-100,0-100,0-100,0-100,1-100,2-15
 	/* Get level data */
 	$query =  'select lid, experience from level where lid<='.$config['max_level'].' order by lid ';  
 	$query .= 'limit '.$offset.','.$limit;
@@ -853,12 +935,16 @@ function warquest_help_levels_form() {
 
 function warquest_help_notes_form() {
 
-	/* output */
+	/* input */
 	global $notes;
+	global $offset;
 	
 	/* output */
 	global $page;
 	global $title;
+	
+	$limit = 10;
+	$total = count($notes); 
 	
 	$title = t('HELP_NOTES_SUBTITLE1');
 	
@@ -870,7 +956,17 @@ function warquest_help_notes_form() {
 	$page .= warquest_image('other/info.png', 'width="64" heigth="64"');
 	$page .= '</div>';
 	
-	$page .= warquest_parse_smilies($notes);
+	$page .= warquest_page_control($offset, $limit, $total, 1);
+	
+	for ($i=$offset; $i<($offset+$limit); $i++) {
+	
+		if (($total-$i)>0) {
+			$page .= warquest_parse_smilies($notes[$total-$i]);
+		}
+	}
+	
+	$page .= warquest_page_control($offset, $limit, $total, 0);
+	
 	$page .= '</div>';		
 	
 	warquest_sound('notes.mp3', 1);	

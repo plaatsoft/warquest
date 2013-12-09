@@ -1,5 +1,12 @@
 /* WarQuest Style sheet - All copyrights reserved (c) 2008-2013 PlaatSoft */
 
+@media (max-width: 510px) {
+		
+	body {
+		-moz-transform: scale(0.8);
+	}
+}
+
 body {		
 	color: white;
 	font-family: Arial;

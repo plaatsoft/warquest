@@ -427,7 +427,7 @@ function warquest_clan_war_income_form($other) {
 	$page .= '</td>';
 
 	$page .= '<td width="150">';
-	$page .= '<b>'.t('PLAYER_INCOME').' ['.t('GENERAL_DOLLAR').']</b>';
+	$page .= '<b>'.t('GENERAL_TOTAL').'</b>';
 	$page .= '</td>';
 
 	$page .= '</tr>';
@@ -437,7 +437,7 @@ function warquest_clan_war_income_form($other) {
 	$page .= '</td>';
 		
 	$page .= '<td>';
-	$page .= dollar_format(1000 * $other->lid * ($player->planet+1));
+	$page .= dollar_format(1000 * $other->lid * $player->planet);
 	$page .= '</td>';
 							
 	$page .= '<td>';
@@ -1154,22 +1154,22 @@ function warquest_player_data_unlocked($other, $value) {
 	
 	switch ($player->planet) {
 		
-		case 0: 	/* earth */
+		case PLANET_EARTH:
 					$spy = t('PLAYER_SPY_1');
 					$ugid=6;
 					break;
 	
-		case 1: 	/* moon */
+		case PLANET_MOON:
 					$spy = t('PLAYER_SPY_2');
 					$ugid=12;	
 					break;
 					
-		case 2: 	/* mars */
+		case PLANET_MARS:
 					$spy = t('PLAYER_SPY_3');
 					$ugid=16;	
 					break;
 					
-		case 3: 	/* asteroid */
+		case PLANET_ASTEROID:
 					$spy = t('PLAYER_SPY_4');
 					$ugid=22;	
 					break;

@@ -660,7 +660,7 @@ function process_default_data($data, $image) {
 ** --------------------------
 */
 
-$planet = warquest_get('planet', 0);
+$planet = warquest_get('planet', 1);
 $data = warquest_get('data', '');
 
 switch($planet) {

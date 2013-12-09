@@ -200,19 +200,19 @@ function warquest_settings_account_reset_do() {
 	warquest_db_skill_update($data);
 	
 	/* Reset player data */	
-	$player->won=0;
-	$player->lost=0;
-	$player->experience=0;
-	$player->alliance=1;
-	$player->invite=0;
-	$player->news=0;
-	$player->mission=0;
-	$player->bounty=0;
-	$player->rebel=0;
-	$player->won_level=1;	
-	$player->rebel_level=1;
-	$player->bounty_level=1;
-	$player->planet = 0;
+	$player->won = 0;
+	$player->lost = 0;
+	$player->experience = 0;
+	$player->alliance = 1;
+	$player->invite = 0;
+	$player->news = 0;
+	$player->mission = 0;
+	$player->bounty = 0;
+	$player->rebel = 0;
+	$player->won_level = 1;	
+	$player->rebel_level = 1;
+	$player->bounty_level = 1;
+	$player->planet = PLANET_EARTH;
 	
 	$player->lid=$config["init_level"];
 	$player->ammo=$config["init_ammo_max"];

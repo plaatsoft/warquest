@@ -1,4 +1,8 @@
 --
+-- WarQuest v5.8 data model patch
+--
+
+--
 -- Tabelstructuur voor tabel `clan`
 --
 
