@@ -493,15 +493,20 @@ function warquest_battle_surrender($player) {
 /**
  * Calculate continent income
  */
-function warquest_continent_income($player, $planet) {
+function warquest_continent_income($player, $planet=0) {
 
 	/* input */
 	global $config;
 	
 	$query  = 'select b.mgid, sum(a.progress) as progress ';
 	$query .= 'from player_mission a left join mission b on a.mid=b.mid ';
-	$query .= 'left join mission_group c on b.mgid=c.mgid where c.planet='.$planet.' '; 
-	$query .= 'and a.pid='.$player->pid.' group by b.mgid';	
+	$query .= 'left join mission_group c on b.mgid=c.mgid where a.pid='.$player->pid.' ';
+	
+	if ($planet>0) {
+		$query .= 'and c.planet='.$planet.' ';
+	}
+	$query .= 'group by b.mgid';	
+	
 	$result = warquest_db_query($query);
 			
 	$income = 0;
@@ -517,7 +522,7 @@ function warquest_continent_income($player, $planet) {
 /**
  * Calculate clan war income
  */
-function warquest_clan_war_income($player, $planet) {
+function warquest_clan_war_income($player, $planet=0) {
 
 	/* input */
 	global $config;
@@ -528,11 +533,19 @@ function warquest_clan_war_income($player, $planet) {
 	
 	if (isset($clan->cid)) { 
 		
-		$query = 'select sid from sector where cid='.$clan->cid.' and planet='.$planet;
-		$result = warquest_db_query($query);
-		$count = warquest_db_num_rows($result);
+		$query = 'select count(sid) as amount, planet from sector where cid='.$clan->cid.' ';
 		
-		$income = $count * 1000 * $player->lid * ($planet+1);
+		if ($planet>0) {
+			$query .= 'and planet='.$planet;
+		} else {
+			$query .= 'group by planet';
+		}
+		
+		$result = warquest_db_query($query);
+		while ($data = warquest_db_fetch_object($result)) {
+			
+			$income += $data->amount * 1000 * $player->lid * $data->planet;
+		}
 	}
 
 	return $income;	
@@ -542,12 +555,16 @@ function warquest_clan_war_income($player, $planet) {
  * Calculate building income
  */
 
-function warquest_building_income($player, $planet) {
+function warquest_building_income($player, $planet=0) {
 
 	/* Calculate income */
 	$query  = 'select a.income, c.amount from building a left join building_group b on a.bgid=b.bgid, ';
-	$query .= 'player_building c where ';
-   $query .= 'a.bid=c.bid and c.pid='.$player->pid.' and a.income>0 and b.planet='.$planet;	
+	$query .= 'player_building c where a.bid=c.bid and c.pid='.$player->pid.' and a.income>0 ';
+	
+	if ($planet>0) {
+		$query .= 'and b.planet='.$planet;	
+	}
+	
 	$result = warquest_db_query($query);
 
 	$income = 0;	
@@ -561,36 +578,23 @@ function warquest_building_income($player, $planet) {
 /**
  * Calculate unit upkeep cost
  */
-function warquest_unit_upkeep($player, $planet) {
+function warquest_unit_upkeep($player, $planet=0) {
 
 	/* Calculate upkeep cost */
 	$query =  'select a.upkeep, b.amount from unit a, player_unit b where ';
-   $query .= 'a.uid=b.uid and b.pid='.$player->pid;
+   $query .= 'a.uid=b.uid and b.pid='.$player->pid.' ';	
+	$query .= 'and a.ugid in (select ugid from unit_group where type!=0 ';
 	
-	switch ($planet) {
-	
-		case PLANET_EARTH: 	
-					$query .= ' and a.ugid in (1,2,3,4,5,6)';
-					break;
-					
-		case PLANET_MOON:	
-					$query .= ' and a.ugid in (7,8,9,10,12)';
-					break;
-					
-		case PLANET_MARS:	
-					$query .= ' and a.ugid in (13,14,15,16,17)';
-					break;	
-
-		case PLANET_ASTEROID:	
-					$query .= ' and a.ugid in (19,20,21,22,23)';
-					break;			
+	if ($planet>0) {
+		$query.= 'and planet='.$planet.' ';
 	} 
-	
+	$query .= 'group by ugid)';
+		
 	$result = warquest_db_query($query);
 
-	$upkeep = 0;
-	
+	$upkeep = 0;	
 	while ($data = warquest_db_fetch_object($result)) {
+	
 		$upkeep += ($data->upkeep * $data->amount);	
 	}
 	
@@ -603,29 +607,18 @@ function warquest_unit_upkeep($player, $planet) {
 function warquest_netto_income($player) {
 		 
 	/* Calculate building income */
-	$income  = warquest_building_income($player, PLANET_EARTH);
-	$income += warquest_building_income($player, PLANET_MOON);
-	$income += warquest_building_income($player, PLANET_MARS);
-	$income += warquest_building_income($player, PLANET_ASTEROID);
-	
-	/* Calculate continent bonus */
-	$income += warquest_continent_income($player, PLANET_EARTH);
-	$income += warquest_continent_income($player, PLANET_MOON);
-	$income += warquest_continent_income($player, PLANET_MARS);
-	$income += warquest_continent_income($player, PLANET_ASTEROID);
+	$income  = warquest_building_income($player);
 
-	/* Calculate clan war bonus */
-	$income += warquest_clan_war_income($player, PLANET_EARTH);
-	$income += warquest_clan_war_income($player, PLANET_MOON);
-	$income += warquest_clan_war_income($player, PLANET_MARS);
-	$income += warquest_clan_war_income($player, PLANET_ASTEROID);
+	/* Calculate mission continent income */
+	$income += warquest_continent_income($player);
+
+	/* Calculate clan war sector income */
+	$income += warquest_clan_war_income($player);
 	
 	/* Calculate unit upkeep cost */
-	$income -= warquest_unit_upkeep($player, PLANET_EARTH);
-	$income -= warquest_unit_upkeep($player, PLANET_MOON);
-	$income -= warquest_unit_upkeep($player, PLANET_MARS);
-	$income -= warquest_unit_upkeep($player, PLANET_ASTEROID);
-	
+	$income -= warquest_unit_upkeep($player);
+
+	/* update player money step */
 	$player->money_step = $income;
 }
 
@@ -2187,7 +2180,7 @@ function warquest_ui_map($player, $planet) {
 	switch ($planet) {
 
 		case PLANET_EARTH:
-			$page .= '<img src="planet.php?planet='.$planet.'&data='.$tmp.'" width="'.$width.'" height="'.$height.'" title="'.t('GENERAL_PLANET_0').'" usemap="#map">';	
+			$page .= '<img src="planet.php?planet='.$planet.'&data='.$tmp.'" width="'.$width.'" height="'.$height.'" title="'.t('GENERAL_PLANET_1').'" usemap="#map">';	
 			if (($pid==$player->pid) && ($player->lid>1) && ($player->holiday_date <= date("Y-m-d H:i:s", time()))) {
 				$page .= '<map name="map">';		
 				$page .= '<area shape="rect" coords="200,0,250,90" title="'.t('MISSION_GROUP_1').'" href="javascript:link(\''.warquest_token('mid='.MENU_MISSIONS.'&sid=1').'\');" />';
@@ -2247,7 +2240,7 @@ function warquest_ui_input($name, $size, $maxlength, $value, $readonly=false) {
 }
 
 /**
- * Get HTML backgorund selector
+ * Get HTML background selector
  */
 function warquest_ui_background($tag, $id, $readonly) {
 				
@@ -2422,7 +2415,7 @@ function warquest_box($title, $message, $link="") {
 }
 	
 /**
- * Show HTML box  with icon
+ * Show HTML box with icon
  */	
 function warquest_box_icon($title, $message, $link="") {
 	
@@ -3250,19 +3243,19 @@ function warquest_mission_image($mission, $width=90, $height=65) {
 	$image .= '<b>'.t('GENERAL_CONQUER').' '.t('MISSION_'.$mission->mid).'</b><br/>';
 	
 	if ($mission->mid<100) {
-		$image .= t('GENERAL_PLANET').' '.t('GENERAL_PLANET_0').'<br/>';
+		$image .= t('GENERAL_PLANET').' '.t('GENERAL_PLANET_1').'<br/>';
 		$filename = 'mission0.jpg';
 	} else if ($mission->mid<200) {
-		$image .=  t('GENERAL_PLANET').' '.t('GENERAL_PLANET_1').'<br/>';
+		$image .=  t('GENERAL_PLANET').' '.t('GENERAL_PLANET_2').'<br/>';
 		$filename = 'mission1.jpg';
 	} else if ($mission->mid<300) {
-		$image .=  t('GENERAL_PLANET').' '.t('GENERAL_PLANET_2').'<br/>';
+		$image .=  t('GENERAL_PLANET').' '.t('GENERAL_PLANET_3').'<br/>';
 		$filename = 'mission2.jpg';
 	}	else if ($mission->mid<400) {
-		$image .=  t('GENERAL_PLANET').' '.t('GENERAL_PLANET_3').'<br/>';
+		$image .=  t('GENERAL_PLANET').' '.t('GENERAL_PLANET_4').'<br/>';
 		$filename = 'mission3.jpg';
 	}	else if ($mission->mid<500) {
-		$image .=  t('GENERAL_PLANET').' '.t('GENERAL_PLANET_4').'<br/>';
+		$image .=  t('GENERAL_PLANET').' '.t('GENERAL_PLANET_5').'<br/>';
 		$filename = 'mission4.jpg';
 	}
 	

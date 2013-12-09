@@ -278,11 +278,11 @@
  $lang['GENERAL_INACTIVE'] = 'Inactiv';
 
  $lang['GENERAL_PLANET'] = 'Planeta';
- $lang['GENERAL_PLANET_0'] = 'pamant';
- $lang['GENERAL_PLANET_1'] = 'luna';
- $lang['GENERAL_PLANET_2'] = 'marte';
- $lang['GENERAL_PLANET_3'] = 'asteroid';
- $lang['GENERAL_PLANET_4'] = 'soare';
+ $lang['GENERAL_PLANET_1'] = 'pamant';
+ $lang['GENERAL_PLANET_2'] = 'luna';
+ $lang['GENERAL_PLANET_3'] = 'marte';
+ $lang['GENERAL_PLANET_4'] = 'asteroid';
+ $lang['GENERAL_PLANET_5'] = 'soare';
 
  /*
  ** ------------------

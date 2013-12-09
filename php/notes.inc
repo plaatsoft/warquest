@@ -16,17 +16,17 @@
 **  All copyrights reserved (c) 2008-2013 PlaatSoft
 */
 
-$notes = '
-
+$notes[61] = '
 <div class="subparagraph2">08-12-2013</div>
-<i>Game Server v6.1 (Release still in development)</i>
+<i>Game Server v6.1 (still in development)</i>
 <ul>
 <li>Added clan war hourly income for conquered sectors.</li>
 <li>Added gift shop to Help-Donate page.</li>
+<li>Improve Release-Notes page layout.</li>
 <li>Added sound effects to mission and help pages.</li>
-<li>Improve Release-Notes text layout.</li>
 <li>Remove Ads functionality (not used for long time).</li>
-<li>Added database layer unit tests to improve quality.</li>
+<li>Added database layer unit tests to improve stability.</li>
+<li>Rename planet numbers to improve source code quality.</li>
 <li>Bug fix: Planet swith on clan list page is now working correct.</li>
 <li>Bug fix: Fixed vote exploit!</li>
 </ul>
@@ -35,9 +35,9 @@ $notes = '
 <i>General</i>
 <ul>
 <li>Please visit www.gravatar.com to upload a player image.</li>
-</ul>
-<br/>
+</ul>';
 
+$notes[60] = '
 <div class="subparagraph2">02-12-2013</div>
 <i>Game Server v6.0</i>
 <ul>
@@ -54,9 +54,9 @@ $notes = '
 <li>Added gold promotion banner to home page.</li>
 <li>Replace all magic event numbers with constants in source code.</li>
 <li>Improve security of all POST / GET actions.</li>
-</ul>
-<br/>
+</ul>';
 
+$notes[59] = '
 <div class="subparagraph2">25-11-2013</div>
 <i>Game Server v5.9</i>
 <ul>
@@ -75,9 +75,9 @@ $notes = '
 </ul>
 <li>Added building defence submenu for better overview.</li>
 <li>Removed weakest cavalry units to make a shorter list.</li>
-</ul>
-<br/>
+</ul>';
 
+$notes[58] = '
 <div class="subparagraph2">21-11-2013</div>
 <i>Game Server v5.8</i>
 <ul>
@@ -106,9 +106,9 @@ $notes = '
 <li>Upgraded QT libraries to v5.1.1</li>
 <li>The app was build with QtCreator v2.8.1</li>
 <li>Released app on www.plaatsoft.nl</li>
-</ul>
-<br/>
+</ul>';
 
+$notes[57] = '
 <div class="subparagraph2">8-11-2013</div>
 <i>Game Server v5.7</i>
 <ul>
@@ -121,9 +121,9 @@ $notes = '
 <li>Update jquery-ui to 10.3.0.</li>
 <li>update jquery-css smooth to 10.3.0.</li>
 <li>Added server php source code to google code.</li>
-</ul>
-<br/>
+</ul>';
 
+$notes[56] = '
 <div class="subparagraph2">07-02-2013</div>
 <i>Game Server v5.6</i>
 <ul>
@@ -131,18 +131,18 @@ $notes = '
 <li>Increase maximum level to 275.</li>
 <li>Updated copyright banner.</li>
 <li>Added ban user optional. To lock cheater account (Admin mode).</li>
-</ul>
-<br/>
+</ul>';
 
+$notes[55] = '
 <div class="subparagraph2">14-07-2012</div>
 <i>Game Server v5.5</i>
 <ul>
 <li>Added spanish translation. Thanks Algarobo!</li>
 <li>Added romanian translation. Thanks Prepa!</li>
 <li>Added eight extra levels</li>
-</ul>
-<br/>
+</ul>';
 
+$notes[54] = '
 <div class="subparagraph2">07-06-2012</div>
 <i>Game Server v5.4</i>
 <ul>
@@ -172,9 +172,9 @@ $notes = '
 <li>Use QT library 4.8.1 for Linux as engine.</li>
 <li>The app was build with QtCreator v2.4.1</li>
 <li>Released app on Ubuntu software center.</li>
-</ul>
-<br/>
+</ul>';
 
+$notes[53] = '
 <div class="subparagraph2">20-05-2012</div>
 <i>Game Server v5.3</i>
 <ul>
@@ -199,9 +199,9 @@ $notes = '
 <li>Bug fix: Minor level experience range updated.</li>
 <li>Bug fix: Army defense profile overview mismatch resolved.</li>
 <li>Bug fix: Exploit with back button on building / unit page fixed.</li>
-</ul>
-<br/>
+</ul>';
 
+$notes[52] = '
 <div class="subparagraph2">22-04-2012</div>
 <i>Game Server v5.2</i>
 <ul>
@@ -217,9 +217,9 @@ $notes = '
 <li>Bug fix: Improve bank interest cron job performance with factor 10.</li>
 <li>Bug fix: PDF report is now working again.</li>
 <li>Bug fix: Home-News contain now correct information for all sitations.</li>
-</ul>
-<br/>
+</ul>';
 
+$notes[51] = '
 <div class="subparagraph2">04-04-2012</div>
 <i>Game Server v5.1</i>
 <ul>
@@ -240,9 +240,9 @@ $notes = '
 <li>Bug fix: Level 249 now needs 10.000 expercience points.</li>
 <li>Bug fix: Fix some small graphical issues.</li>
 <li>Bug fix: Soldier attack force option disabled again in battle area.</li>
-</ul>
-<br/>
+</ul>';
 
+$notes[50] = '
 <div class="subparagraph2">24-03-2012</div>
 <i>Game Server v5.0</i>
 <ul>
@@ -263,9 +263,9 @@ $notes = '
 <li>Default sorting alliance invite is change to last active on top.</li>
 <li>Bug fix: Cash flow detail pages now support planet switch.</li>
 <li>Bug fix: Player profile detail page planet switch is now working correct.</li>
-</ul>
-<br/>
+</ul>';
 
+$notes[49] = '
 <div class="subparagraph2">15-03-2012</div>
 <i>Game Server v4.9</i>
 <ul>
@@ -292,9 +292,9 @@ $notes = '
 <li>Added holiday mode (Home -> Restore).</li>
 <li>Bug fix: Help-Level page. First expercience entry now correct.</li>
 <li>Bug fix: Cooldown period after cease fire and holiday restored.</li>
-</ul>
-<br/>
+</ul>';
 
+$notes[48] = '
 <div class="subparagraph2">10-03-2012</div>
 <i>Game Server v4.8</i>
 <ul>
@@ -315,9 +315,9 @@ $notes = '
 <li>Update moon building and unit images.</li>
 <li>Improve audit trail.</li>
 <li>Bug fix: Fix several bugs related to new mars features.</li>
-</ul>
-<br/>
+</ul>';
 
+$notes[47] = '
 <div class="subparagraph2">01-03-2012</div>
 <i>Game Server v4.7</i>
 <ul>
@@ -360,9 +360,9 @@ $notes = '
 <li>Use QT library 4.7.3 for Symbian as engine.</li>
 <li>The app was build with QtCreator v2.4.1.</li>
 <li>Released app on OviStore.</li>
-</ul>
-<br/>
+</ul>';
 
+$notes[46] = '
 <div class="subparagraph2">15-02-2012</div>
 <i>Game Server v4.6</i>
 <ul>
@@ -387,9 +387,9 @@ $notes = '
 <li>Added setting "Enable oldest battle player on top at battle list".</li>
 <li>Bug fix: Improve header for players in level 220.</li>
 <li>Bug fix: Opening chat does not take you back to earth anymore.</li>
-</ul>
-<br/>
+</ul>';
 
+$notes[45] = '
 <div class="subparagraph2">09-02-2012</div>
 <i>Game Server v4.5</i>
 <ul>
@@ -424,9 +424,9 @@ $notes = '
 <li>Bug fix: Remove typo from home screen.</li>
 <li>Bug fix: Remove double player profile on chat page.</li>
 <li>Bug fix: Rebellion on moon popup information is now right.</li>
-</ul>
-<br/>
+</ul>';
 
+$notes[44] = '
 <div class="subparagraph2">03-02-2012</div>
 <i>Game Server v4.4</i>
 <ul>
@@ -448,9 +448,9 @@ $notes = '
 <ul>
 <li>Improve about screen.</li>
 <li>Released app on Android Market.</li>
-</ul>
-<br/>
+</ul>';
 
+$notes[43] = '
 <div class="subparagraph2">25-01-2012</div>
 <i>Game Server v4.3</i>
 <ul>
@@ -472,9 +472,9 @@ $notes = '
 <li>Bug fix: Player with only space characters in nickname can now be selected.</li>
 <li>Bug fix: Now classified opponent profile is working again.</li>
 <li>Bug fix: Resolve some small graphical issues.</li>
-</ul>
-<br/>
+</ul>';
 
+$notes[42] = '
 <div class="subparagraph2">17-01-2012</div>
 <i>Game Server v4.2</i>
 <ul>
@@ -491,9 +491,9 @@ $notes = '
 <li>Increase battle and bounty hunting player list to max. 30 entries.</li>
 <li>Bug fix: Optimize some queries for better performance.</li>
 <li>Bug fix: Mission loot is now mission level related.</li>
-</ul>
-<br/>
+</ul>';
 
+$notes[41] = '
 <div class="subparagraph2">12-01-2012</div>
 <i>Game Server v4.1</i>
 <ul>
@@ -513,9 +513,9 @@ $notes = '
 <li>Bug fix: Reload casino cheating action.</li>
 <li>Bug fix: New client version detection improved.</li>
 <li>Bug fix: Remove some typos in unit names.</li>
-</ul>
-<br/>
+</ul>';
 
+$notes[40] = '
 <div class="subparagraph2">05-01-2012</div>
 <i>Game Server v4.0</i>
 <ul>
@@ -552,9 +552,10 @@ $notes = '
 <ul>
 <li>Improve about box.</li>
 <li>Released app on Android Market.</li>
-</ul>
-<br/>
+</ul>';
 
+
+$notes[39] = '
 <div class="subparagraph2">31-12-2011</div>
 <i>Game Server v3.9</i>
 <ul>
@@ -571,9 +572,9 @@ $notes = '
 <li>Bug fix: Fix cheating bug in casino games.</li>
 <li>Bug fix: Remove typo in home intro text.</li>
 <li>Bug fix: Prevent negative units/buildings condition value.</li>
-</ul>
-<br/>
+</ul>';
 
+$notes[38] = '
 <div class="subparagraph2">24-12-2011</div>
 <i>Game Server v3.8</i>
 <ul>
@@ -610,9 +611,9 @@ $notes = '
 <ul>
 <li>Maintenance release.</li>
 <li>Released app on Android Market.</li>
-</ul>
-<br/>
+</ul>';
 
+$notes[37] = '
 <div class="subparagraph2">16-12-2011</div>
 <i>Game Server v3.7</i>
 <ul>
@@ -647,9 +648,9 @@ $notes = '
 <ul>
 <li>Improve app text tags.</li>
 <li>Released app on Android Market.</li>
-</ul>
-<br/>
+</ul>';
 
+$notes[36] = '
 <div class="subparagraph2">09-12-2011</div>
 <i>Game Server v3.6</i>
 <ul>
@@ -681,9 +682,9 @@ $notes = '
 <ul>
 <li>Exit app is now working correct when there is no internet connection.</li>
 <li>Released app on Android Market.</li>
-</ul>
-<br/>
+</ul>';
 
+$notes[35] = '
 <div class="subparagraph2">03-12-2011</div>
 <i>Game Server v3.5</i>
 <ul>
@@ -722,9 +723,9 @@ $notes = '
 <li>Use QT library 4.7.4 as engine.</li>
 <li>The app was build with QtCreator v2.3.0.</li>
 <li>Released app on freewarefiles.com.</li>
-</ul>
-<br/>
+</ul>';
 
+$notes[34] = '
 <div class="subparagraph2">24-11-2011</div>
 <i>Game Server v3.4</i>
 <ul>
@@ -766,9 +767,9 @@ $notes = '
 <li>Use QT library 4.7.4 as engine.</li>
 <li>The app was build with QtCreator v2.3.0.</li>
 <li>Released app on freewarefiles.com.</li>
-</ul>
-<br/>
+</ul>';
 
+$notes[33] = '
 <div class="subparagraph2">19-11-2011</div>
 <ul>
 <i>Game Server v3.3</i>
@@ -805,9 +806,9 @@ $notes = '
 <ul>
 <li>Maintenance release.</li>
 <li>Released app on Android Market.</li>
-</ul>
-<br/>
+</ul>';
 
+$notes[32] = '
 <div class="subparagraph2">10-11-2011</div>
 <i>Game Server v3.2</i>
 <ul>
@@ -842,8 +843,9 @@ $notes = '
 <ul>
 <li>Refactor source code.</li>
 <li>Released app on Android Market.</li>
-</ul>
+</ul>';
 
+$notes[31] = '
 <div class="subparagraph2">06-11-2011</div>
 <i>Game Server v3.1</i>
 <ul>
@@ -876,9 +878,9 @@ $notes = '
 <li>On exit (submenu button) all cached files are deleted.</li> 
 <li>This prevents error pages to be reloaded for the cache.</li>
 <li>Released app on Android Market.</li>
-</ul>
-<br/>
+</ul>';
 
+$notes[30] = '
 <div class="subparagraph2">27-10-2011</div>
 <i>Game Server v3.0</i>
 <ul>
@@ -897,9 +899,9 @@ $notes = '
 <ul>
 <li>Improvement stability.</li>
 <li>Released app on Android Market.</li>
-</ul>
-<br/>
+</ul>';
 
+$notes[29] = '
 <div class="subparagraph2">21-10-2011</div>
 <i>Game Server v2.9</i>
 <ul>
@@ -920,9 +922,9 @@ $notes = '
 <ul>
 <li>Maintenance release.</li>
 <li>Released app on Android Market.</li>
-</ul>
-<br/>
+</ul>';
 
+$notes[28] = '
 <div class="subparagraph2">16-10-2011</div>
 <i>Game Server v2.8</i>
 <ul>
@@ -959,9 +961,9 @@ $notes = '
 <li>Use QT library 4.7.4 as engine.</li>
 <li>The app was build with QtCreator v2.3.0.</li>
 <li>Released app on freewarefiles.com.</li>
-</ul>
-<br/>
+</ul>';
 
+$notes[27] = '
 <div class="subparagraph2">03-10-2011</div>
 <i>Game Server v2.7</i>
 <ul>
@@ -984,9 +986,9 @@ $notes = '
 <li>Added automatic sign-on.</li>
 <li>Added client version information in first http request.</li>
 <li>Added background image on setting and about page.</li>
-</ul>
-<br/>
+</ul>';
 
+$notes[26] = '
 <div class="subparagraph2">25-09-2011</div>
 <i>Game Server v2.6</i>
 <ul>
@@ -1016,9 +1018,9 @@ $notes = '
 <li>Start building android WarQuest app.</li>
 <li>www.warquest.nl site is automatic loaded.</li>
 <li>Full control of game possible.</li>
-</ul>
-<br/>
+</ul>';
 
+$notes[25] = '
 <div class="subparagraph2">07-09-2011</div>
 <i>Game Server v2.5</i>
 <ul>
@@ -1047,9 +1049,9 @@ $notes = '
 <li>Use QT library 4.7.4 as engine.</li>
 <li>The app was build with QtCreator v2.3.0.</li>
 <li>Released app on freewarefiles.com.</li>
-</ul>
-<br/>
+</ul>';
 
+$notes[24] = '
 <div class="subparagraph2">02-09-2011</div>
 <i>Game Server v2.4</i>
 <ul>
@@ -1063,9 +1065,9 @@ $notes = '
 <li>Corrected total request count. Robots actions are not counted anymore.</li>
 <li>Improve some database queries. Now faster page response.</li> 
 <li>Added cleanup battle log action. (Admin mode).</li>
-</ul>
-<br/>
+</ul>';
 
+$notes[23] = '
 <div class="subparagraph2">25-08-2011</div>
 <i>Game Server v2.3</i>
 <ul>
@@ -1078,9 +1080,9 @@ $notes = '
 <li>Added "Nuclair power plant" energy building.</li>
 <li>Make source code compliant with the PHP 5.3.x standard.</li>
 <li>Added some missing country names.</li>
-</ul>
-<br/>
+</ul>';
 
+$notes[22] = '
 <div class="subparagraph2">14-07-2011</div>
 <i>Game Server v2.2</i>
 <ul>
@@ -1093,9 +1095,9 @@ $notes = '
 <li>Improve user event logging.</li>
 <li>Robot players can now fight back. Be aware!</li>
 <li>Improve menu notifications.</li>
-</ul>
-<br/>
+</ul>';
 
+$notes[21] = '
 <div class="subparagraph2">02-07-2011</div>
 <i>Game Server v2.1</i>
 <ul>
@@ -1115,9 +1117,9 @@ $notes = '
 <li>Bug fix: Mission loot was not always working fine in high levels.</li>
 <li>Bug fix: Money values on apple devices are now correctly displayed.</li>
 <li>Bug fix: Now all old WarQuest clients are detected correctly.</li>
-</ul>
-<br/>
+</ul>';
 
+$notes[20] = '
 <div class="subparagraph2">25-06-2011</div>
 <i>Game Server v2.0</i>
 <ul>
@@ -1142,9 +1144,9 @@ $notes = '
 <li>Use QT library 4.7.2 as engine.</li>
 <li>The app was build with QtCreator v2.0.1.</li>
 <li>Released app on freewarefiles.com.</li>
-</ul>
-<br/>
+</ul>';
 
+$notes[19] = '
 <div class="subparagraph2">20-06-2011</div>
 <i>Game Server v1.9</i>
 <ul>
@@ -1162,9 +1164,9 @@ $notes = '
 <li>Bug fix: Random battle lost issue resolved.</li>
 <li>Bug fix: Protect battle agains negative money bonus.</li>
 <li>Bug fix: Protect missions again negative hourly income.</li>
-</ul>
-<br/>
+</ul>';
 
+$notes[18] = '
 <div class="subparagraph2">14-06-2011</div>
 <i>Game Server v1.8</i>
 <ul>
@@ -1181,9 +1183,9 @@ $notes = '
 <li>Improve battle news content and layout.</li>
 <li>Decrease some building, unit and hourly prices.</li>
 <li>Bug fix: Language setting remains when other setting is change.</li>
-</ul>
-<br/>
+</ul>';
 
+$notes[17] = '
 <div class="subparagraph2">07-06-2011</div>
 <i>Game Server v1.7</i>
 <ul>
@@ -1203,9 +1205,9 @@ $notes = '
 <li>Added message smilies support :D :lol: :roll:.</li>
 <li>Improve page title.</li>
 <li>Player can now delete message send to all players.</li>
-</ul>
-<br/>
+</ul>';
 
+$notes[16] = '
 <div class="subparagraph2">19-05-2011</div>
 <i>Game Server v1.6</i>
 <ul>
@@ -1233,9 +1235,9 @@ $notes = '
 <li>Use QT library 4.7.2 as engine.</li>
 <li>The app was build with QtCreator v2.0.1.</li>
 <li>Released app on freewarefiles.com.</li>
-</ul>
-<br/>
+</ul>';
 
+$notes[15] = '
 <div class="subparagraph2">14-05-2011</div>
 <i>Game Server v1.5</i>
 <ul>
@@ -1249,9 +1251,9 @@ $notes = '
 <li>Added English translation (100% ready).</li>
 <li>Improve inline source code documentation.</li>
 <li>Optimise CSS for Apple Ipad.</li>
-</ul>
-<br/>
+</ul>';
 
+$notes[14] = '
 <div class="subparagraph2">04-05-2011</div>
 <i>Game Server v1.4</i>
 <ul>
@@ -1261,9 +1263,9 @@ $notes = '
 <li>Bug fix: Mission bonus money calculated is now working fine.</li>
 <li>Bug fix: Transaction with more 2.147.483.647 dollar is now working fine.</li>
 <li>Bug fix: Prevent negative hourly income on mission page.</li>
-</ul>
-<br/>
+</ul>';
 
+$notes[13] = '
 <div class="subparagraph2">27-04-2011</div>
 <i>Game Server v1.3</i>
 <ul>
@@ -1278,9 +1280,9 @@ $notes = '
 <li>Until level 17 players can only attack other player in the same level.</li>
 <li>Bug fix: Alliance player detail page did not work always. Solved.</li>
 <li>Bug fix: Notes page is now showed correct on Nokia devices.</li>
-</ul>
-<br/>
+</ul>';
 
+$notes[12] = '
 <div class="subparagraph2">20-04-2011</div>
 <i>Game Server v1.2</i>
 <ul>
@@ -1293,9 +1295,9 @@ $notes = '
 <li>Improve Help-Notes page.</li>
 <li>Bug fix: Remove some typos on the mission pages.</li>
 <li>Bug fix: Alliance calculation is optimise.</li>
-</ul>
-<br/>
+</ul>';
 
+$notes[11] = '
 <div class="subparagraph2">14-04-2011</div>
 <i>Game Server v1.1</i>
 <ul>
@@ -1320,9 +1322,9 @@ $notes = '
 <li>Use QT library 4.7.2 as engine.</li>
 <li>The app was build with QtCreator v2.0.1.</li>
 <li>Released app on freewarefiles.com.</li>
-</ul>
-<br/>
+</ul>';
 
+$notes[10] = '
 <div class="subparagraph2">08-04-2011</div>
 <i>Game Server v1.0</i>
 <ul>
@@ -1339,9 +1341,9 @@ $notes = '
 <li>iPhone Safari login with GPRS connection is now working.</li>
 <li>SuperT, thanks for all the usefull comments and bug reports.</li>
 <li>First stable release. Beta testing phase closed.</li>
-</ul>
-<br/>
+</ul>';
 
+$notes[9] = '
 <div class="subparagraph2">01-04-2011</div>
 <i>Game Server v0.90</i>
 <ul>
@@ -1362,9 +1364,9 @@ $notes = '
 <li>Bug fix: Internet Explorer css stylesheet.</li>
 <li>Bug fix: Leaderboard player attack is now restricted.</li>
 <li>Retested game with Firefox, Safari, IE, Nokia, Opera browser.</li>
-</ul>
-<br/>
+</ul>';
 
+$notes[8] = '
 <div class="subparagraph2">27-03-2011</div>
 <i>Game Server v0.80</i>
 <ul>
@@ -1390,9 +1392,9 @@ $notes = '
 <li>Use QT library 4.7.2 as engine.</li>
 <li>The app was build with QtCreator v2.0.1.</li>
 <li>Released app on freewarefiles.com.</li>
-</ul>
-<br/>
+</ul>';
 
+$notes[7] = '
 <div class="subparagraph2">20-03-2011</div>
 <i>Game Server v0.70</i>
 <ul>
@@ -1416,9 +1418,9 @@ $notes = '
 <li>Bug fix: Show correct continent name on mission page.</li>
 <li>Bug fix: Battle log is now working correct.</li>
 <li>Bug fix: Battle report defense buildings amount now right.</li>
-</ul>
-<br/>
+</ul>';
 
+$notes[6] = '
 <div class="subparagraph2">13-03-2011</div>
 <i>Game Server v0.60</i>
 <ul>
@@ -1442,9 +1444,9 @@ $notes = '
 <li>Refactor source code.</li>
 <li>Use QT library 4.7.2 as engine.</li>
 <li>The app was build with QtCreator v2.0.1.</li>
-</ul>
-<br/>
+</ul>';
 
+$notes[5] = '
 <div class="subparagraph2">06-03-2011</div>
 <i>Game Server v0.50</i>
 <ul>
@@ -1480,9 +1482,9 @@ $notes = '
 <li>First beta release for the world.</li>
 <li>Use QT library 4.7.2 as engine.</li>
 <li>The app was build with QtCreator v2.0.1.</li>
-</ul>
-<br/>
+</ul>';
 
+$notes[4] = '
 <div class="subparagraph2">27-02-2011</div>
 <i>Game Server v0.40</i>
 <ul>
@@ -1516,9 +1518,9 @@ $notes = '
 <li>Bug fix: Defense strength was not correct calculated.</li>
 <li>Bug fix: Prevent negatieve income by selling a building.</li>
 <li>Bug fix: Several issues solved during battle events.</li>
-</ul>
-<br/>
+</ul>';
 
+$notes[3] = '
 <div class="subparagraph2">20-02-2011</div>
 <i>Game Server v0.30</i>
 <ul>
@@ -1554,9 +1556,9 @@ $notes = '
 <li>Introduce box layout.</li>
 <li>Added maximum amount of building per types.</li>
 <li>Bug fix: Player timers now working fine.</li>
-</ul>
-<br/>
+</ul>';
 
+$notes[2] = '
 <div class="subparagraph2">13-02-2011</div>
 <i>Game Server v0.20</i>
 <ul>
@@ -1565,9 +1567,9 @@ $notes = '
 <li>Added release notes information to source code.</li>
 <li>Added div and span html blocks. Remove p html blocks.</li>
 <li>Improve mission feedback.</li>
-</ul>
-<br/>
+</ul>';
 
+$notes[1] = '
 <div class="subparagraph2">08-02-2011</div>
 <i>Game Server v0.10</i>
 <ul>
@@ -1582,9 +1584,7 @@ $notes = '
 <li>Added some unit and building images.</li>
 <li>Added javascript timers.</li>
 <li>Added battle log.</li>
-</ul>
-<br/>
-';
+</ul>';
 
 /*
 ** ---------------------------------------------------------------<li>

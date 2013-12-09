@@ -266,9 +266,8 @@ switch ($mid) {
 			break;
 			
 	case MENU_HELP:
-			include "readme.inc";
+			include "notes.inc";
 			include "help.inc";
-			include "giftshop.inc";
 			warquest_help();
 			break;
 				

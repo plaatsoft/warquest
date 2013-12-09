@@ -916,26 +916,23 @@ function warquest_home_ad() {
 	/* output */
 	global $page;
 	
-	if ($config["gold_ad_active"]==1) {
+	$page .= '<div class="subparagraph">'.t('HOME_ANNOUNCEMENTS').'</div>';
 			
-		$page .= '<div class="subparagraph">'.t('HOME_ANNOUNCEMENTS').'</div>';
-			
-		$page .= '<a href="javascript:link(\''.warquest_token('mid='.MENU_HELP.'&sid='.PAGE_DONATE).'\')">';			
-		$page .= warquest_image('other/ad1.png', 'width="510" height="75" id="ad" ');
-		$page .= '</a>';
+	$page .= '<a href="javascript:link(\''.warquest_token('mid='.MENU_HELP.'&sid='.PAGE_DONATE).'\')">';			
+	$page .= warquest_image('other/ad1.png', 'width="510" height="75" id="ad" ');
+	$page .= '</a>';
 		
-		$page .= '<script language="JavaScript" type="text/javascript">';
-		$page .= 'var AdCount=1; ';
-		$page .= 'var filename=""; ';
-		$page .= 'function StartAd() { ';
-		$page .= '  if (++AdCount>3) { AdCount=1; } ';
-		$page .= '  filename = "'.$config["content_url"].'images/other/ad" + AdCount + ".png"; ';
-		$page .= '  document.getElementById("ad").src = filename; ';
-		$page .= '  setTimeout("StartAd()", 3000); ';
-		$page .= '} ';
-		$page .= 'StartAd();';
-		$page .= '</script>'; 
-	}	
+	$page .= '<script language="JavaScript" type="text/javascript">';
+	$page .= 'var AdCount=1; ';
+	$page .= 'var filename=""; ';
+	$page .= 'function StartAd() { ';
+	$page .= '  if (++AdCount>3) { AdCount=1; } ';
+	$page .= '  filename = "'.$config["content_url"].'images/other/ad" + AdCount + ".png"; ';
+	$page .= '  document.getElementById("ad").src = filename; ';
+	$page .= '  setTimeout("StartAd()", 3000); ';
+	$page .= '} ';
+	$page .= 'StartAd();';
+	$page .= '</script>'; 
 }
 
 /*

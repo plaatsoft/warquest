@@ -1,3 +1,7 @@
+--
+-- WarQuest v5.9 data model patch
+--
+
 -- Add gold options to WarQuest
 
 ALTER TABLE `building` ADD `gold` INT NOT NULL AFTER `price` ;

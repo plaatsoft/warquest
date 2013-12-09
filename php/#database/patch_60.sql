@@ -1,3 +1,7 @@
+--
+-- WarQuest v6.0 data model patch
+--
+
 -- Update clan wars
 
 ALTER TABLE `clan` ADD `slogan` VARCHAR( 200 ) NOT NULL AFTER `lost`;

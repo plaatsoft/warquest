@@ -70,7 +70,7 @@ function process_data($data, $image) {
 ** --------------------------
 */
 
-$planet = warquest_get('planet', 0);
+$planet = warquest_get('planet', 1);
 $data = warquest_get('data', '');
 
 $image = ImageCreateFromPNG('images/planet/map'.$planet.'.png');

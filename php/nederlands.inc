@@ -275,11 +275,11 @@ $lang['GENERAL_ACTIVE'] = 'Actief';
 $lang['GENERAL_INACTIVE'] = 'Inactief';
 
 $lang['GENERAL_PLANET'] = 'Planet';
-$lang['GENERAL_PLANET_0'] = 'Aarde';
-$lang['GENERAL_PLANET_1'] = 'Maan';
-$lang['GENERAL_PLANET_2'] = 'Mars';
-$lang['GENERAL_PLANET_3'] = 'Asteroid';
-$lang['GENERAL_PLANET_4'] = 'Zon';
+$lang['GENERAL_PLANET_1'] = 'Aarde';
+$lang['GENERAL_PLANET_2'] = 'Maan';
+$lang['GENERAL_PLANET_3'] = 'Mars';
+$lang['GENERAL_PLANET_4'] = 'Asteroid';
+$lang['GENERAL_PLANET_5'] = 'Zon';
 
 /*
 ** ------------------

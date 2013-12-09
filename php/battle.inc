@@ -233,8 +233,8 @@ function warquest_robot_battle($player, $other) {
 		$exp = rand(1, (round($other->lid/10)+5));
 	
 		/* select random attack force */		
-		$query = 'select ugid from unit_group where type in (0,2,3,4,5) and planet='.$player->planet;
-		$query .= ' order by rand() limit 1';
+		$query  = 'select ugid from unit_group where type in (0,2,3,4,5) and planet='.$player->planet.' ';
+		$query .= 'order by rand() limit 1';
 		
 		$result = warquest_db_query($query);	
 		$data = warquest_db_fetch_object($result);
@@ -1256,15 +1256,15 @@ function warquest_battle_do() {
 		/* Update last battle timestamp */
 		$other->last_battle = date("Y-m-d H:i:s");
 	
-	} else if (($player->planet==1) && ($player->lid<100)) {
+	} else if (($player->planet==PLANET_MOON) && ($player->lid<100)) {
 	
 		/* No moon battles possible before level 125 */
 			
-	} else if (($player->planet==2) && ($player->lid<150)) {
+	} else if (($player->planet==PLANET_MARS) && ($player->lid<150)) {
 	
 		/* No mars battles possible before level 150 */
 		
-	} else if (($player->planet==3) && ($player->lid<200)) {
+	} else if (($player->planet==PLANET_ASTEROID) && ($player->lid<200)) {
 	
 		/* No asteroid battles possible before level 200 */
 		
@@ -1769,14 +1769,7 @@ function warquest_battle_bounty_form() {
 	$title = t('BATTLE_BOUNTY_TITLE');
 	$lid=10;
 	
-	if ($player->planet==PLANET_SUN) {
-	
-		$message = warquest_image('other/outerspace.jpg', ' width="490" heigth="120" '); 
-		$message .= t('BATTLE_SUN_STORY'); 
-
-		$page .= warquest_box(t('BATTLE_COMING_SOON'), $message);
-	
-	} else if (($player->planet==PLANET_MOON) && ($player->lid<100)) {
+	if (($player->planet==PLANET_MOON) && ($player->lid<100)) {
 	
 		$message = '<table>';
 		$message .= '<tr>';
@@ -1962,14 +1955,7 @@ function warquest_battle_enemy_form() {
 	
 	$title = t('BATTLE_GENERAL_TITLE');
 	
-	if ($player->planet==PLANET_SUN) {
-	
-		$message = warquest_image('other/outerspace.jpg', ' width="490" heigth="120" '); 
-		$message .= t('BATTLE_SUN_STORY'); 
-
-		$page .= warquest_box(t('BATTLE_COMING_SOON'), $message);
-	
-	} else if ($player->lid==0) {
+	if ($player->lid==0) {
 			
 		$message = '<table>';
 		$message .= '<tr>';
@@ -1998,7 +1984,7 @@ function warquest_battle_enemy_form() {
 		$page .= "countdown4.init(".$value.", 'countdown_time4', '00:00:00');"; 
 		$page .= '</script>';
 				
-	} else if (($player->planet==1) && ($player->lid<100)) {
+	} else if (($player->planet==PLANET_MOON) && ($player->lid<100)) {
 			
 		$message = '<table>';
 		$message .= '<tr>';
@@ -2013,7 +1999,7 @@ function warquest_battle_enemy_form() {
 
 		$page .= warquest_box("", $message);
 		
-	} else if (($player->planet==2) && ($player->lid<150)) {
+	} else if (($player->planet==PLANET_MARS) && ($player->lid<150)) {
 		
 		$message = '<table>';
 		$message .= '<tr>';
@@ -2028,7 +2014,7 @@ function warquest_battle_enemy_form() {
 
 		$page .= warquest_box("", $message);
 	
-	} else if (($player->planet==3) && ($player->lid<200)) {
+	} else if (($player->planet==PLANET_ASTEROID) && ($player->lid<200)) {
 			
 		$message = '<table>';
 		$message .= '<tr>';

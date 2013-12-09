@@ -279,11 +279,11 @@ $lang['GENERAL_ACTIVE'] = 'Active';
 $lang['GENERAL_INACTIVE'] = 'Inactive';
 
 $lang['GENERAL_PLANET'] = 'Planet';
-$lang['GENERAL_PLANET_0'] = 'Earth';
-$lang['GENERAL_PLANET_1'] = 'Moon';
-$lang['GENERAL_PLANET_2'] = 'Mars';
-$lang['GENERAL_PLANET_3'] = 'Asteroid';
-$lang['GENERAL_PLANET_4'] = 'Sun';
+$lang['GENERAL_PLANET_1'] = 'Earth';
+$lang['GENERAL_PLANET_2'] = 'Moon';
+$lang['GENERAL_PLANET_3'] = 'Mars';
+$lang['GENERAL_PLANET_4'] = 'Asteroid';
+$lang['GENERAL_PLANET_5'] = 'Sun';
 
 /*
 ** ------------------
@@ -2940,6 +2940,7 @@ $lang['HOME_ANNOUNCEMENTS'] = 'Announcements';
 
 $lang['GENERAL_SECTORS'] = 'Sector(s)';
 $lang['GENERAL_INCOME_SECTOR'] = 'Income per sector';
+$lang['GENERAL_TOTAL'] = 'Total';
 
 $lang['PLAYER_CLAN_WAR_INCOME'] = 'Clan War income';
 

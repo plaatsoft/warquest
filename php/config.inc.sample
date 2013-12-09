@@ -53,7 +53,6 @@ $config["gold_trade_feature2"]		= 50;
 $config["gold_trade_feature3"]		= 50;
 $config["gold_trade_feature4"]		= 250;
 $config["gold_trade_feature5"]		= 200;
-$config["gold_ad_active"]				= 1;
 
 /*
 ** ---------------------------------------------------------------- 

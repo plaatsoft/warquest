@@ -1,0 +1,15 @@
+{
+  "version": "1.0",
+  "name": "WarQuest",
+  "description": "Enter the battle zone if you dare!",
+  "launch_path": "http://www.warquest.nl",
+  "icons": {
+    "128": "http://www.warquest.nl/other/WarQuest-128.png"
+  },
+  "developer": {
+    "name": "wplaat",
+    "url": "http://www.plaatsoft.nl"
+  },
+  "default_locale": "en"
+  "fullscreen": "true"
+}
