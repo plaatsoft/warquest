@@ -956,7 +956,7 @@ function warquest_help_notes_form() {
 	$page .= warquest_image('other/info.png', 'width="64" heigth="64"');
 	$page .= '</div>';
 	
-	$page .= warquest_page_control($offset, $limit, $total, 1);
+	$page .= warquest_page_control($offset, $limit, $total, 2);
 	
 	for ($i=$offset; $i<($offset+$limit); $i++) {
 	

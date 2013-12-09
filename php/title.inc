@@ -46,7 +46,7 @@ function warquest_create_title($title) {
 	$page .= '<td width="250" align="right">';
 	$page .= t('HOME_TRAVEL_TO');
 	
-	for ($planet=1; $planet<=$config['max_planets']; $planet++) {
+	for ($planet=PLANET_EARTH; $planet<=$config['max_planets']; $planet++) {
 		
 		$tmp = 'mid='.$mid;
 		
