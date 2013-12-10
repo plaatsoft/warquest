@@ -46,3 +46,5 @@ UPDATE bonus SET bonus_id=2 WHERE bonus_id=1;
 UPDATE bonus SET bonus_id=1 WHERE bonus_id=0;
 
 
+update player set default_mission="", default_force="";
+
