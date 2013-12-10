@@ -58,13 +58,13 @@ function warquest_help_about_form() {
 	
 	$page .= '<span class="subparagraph2">'.t('HELP_HARDWARE_TITLE').'</span><br/>';
 	$page .= '- Android smart phones (HTC Desire S, etc.)<br/>';
+	$page .= '- Firefox OS smart phones<br/>';
 	$page .= '- Nokia smart phones (Nokia 5800 XpressMusic, etc.)<br/>';
 	$page .= '- Apple iPhone (All versions)<br/>';
 	$page .= '- Apple iPod touch (All versions)<br/>';
 	$page .= '- Apple iPad (All versions)<br/>';
 	$page .= '- BlackBerry smart phones (Bold, etc.)<br/>';
-	$page .= '- Notebook<br/>';
-	$page .= '- Desktop<br/><br/>';
+	$page .= '- Classic Notebook and Desktops<br/><br/>';
 			
 	$page .= '<span class="subparagraph2">'.t('HELP_DISCLAIMER_TITLE').'</span><br/>';
 	$page .= t('HELP_DISCLAIMER');
@@ -943,7 +943,7 @@ function warquest_help_notes_form() {
 	global $page;
 	global $title;
 	
-	$limit = 10;
+	$limit = 5;
 	$total = count($notes); 
 	
 	$title = t('HELP_NOTES_SUBTITLE1');
