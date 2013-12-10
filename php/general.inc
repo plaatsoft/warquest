@@ -18,6 +18,123 @@
 
 /*
 ** ------------------
+** JSON functions
+** ------------------
+*/
+
+function warquest_set_default_force($value) {
+	
+	global $player;
+	global $config;
+	
+	$tmp1 = array(0,0,0,0,0);
+	$tmp2 = json_decode($player->default_force);	
+
+	for ($tmp=1; $tmp<=$config["max_planets"]; $tmp++) {
+		$tmp1[$tmp] = $tmp2[$tmp];
+	}
+	
+	$tmp1[$player->planet] = $value;
+	
+	$player->default_force = json_encode($tmp1);
+}
+
+function warquest_get_default_force() {
+	
+	global $player;
+	
+	$value=0;
+
+	if ($tmp = json_decode($player->default_force)) {
+		$value = $tmp[$player->planet]; 
+	}
+		
+	/* Reset default value if not available */
+	if ($value==0) {
+		
+		switch ($player->planet) {
+			
+			case PLANET_EARTH: 	
+						$value = 0;
+						break;
+					  
+			case PLANET_MOON:  
+						$value = 11;
+						break;
+					 
+			case PLANET_MARS: 	
+						$value = 18;
+						break;
+						
+			case PLANET_ASTEROID: 	
+						$value = 24;
+						break;
+		}
+	}
+	
+	return $value;
+}
+
+function warquest_set_default_mission($value) {
+	
+	global $player;
+
+	global $config;
+	
+	$tmp1 = array(0,0,0,0,0);
+	$tmp2 = json_decode($player->default_mission);	
+
+	for ($tmp=1; $tmp<=$config["max_planets"]; $tmp++) {
+		$tmp1[$tmp] = $tmp2[$tmp];
+	}
+	
+	$tmp1[$player->planet] = $value;
+	
+	$player->default_mission = json_encode($tmp1); 
+}
+
+function warquest_get_default_mission($planet) {
+	
+	global $player;
+	
+	$value = 0;
+	if ($tmp = json_decode($player->default_mission)) {
+		$value = $tmp[$planet]; 
+	}
+		
+	/* Go to Training mission */
+	if ($player->lid==0) {
+		return 0;
+	}
+	
+	/* Set default value if not available */
+	if ($value==0) {
+		
+		switch ($planet) {
+			
+			case PLANET_EARTH: 	
+						$value = 1;
+						break;
+					  
+			case PLANET_MOON:  
+						$value = 10;
+						break;
+					 
+			case PLANET_MARS: 	
+						$value = 20;
+						break;
+						
+			case PLANET_ASTEROID: 	
+						$value = 30;
+						break;
+		}
+	}
+	
+	return $value;
+}
+
+/*
+** ------------------
 ** PATTERN
 ** ------------------
 */
