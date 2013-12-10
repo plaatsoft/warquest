@@ -17,9 +17,10 @@
 */
 
 $notes[61] = '
-<div class="subparagraph2">08-12-2013</div>
+<div class="subparagraph2">09-12-2013</div>
 <i>Game Server v6.1 (still in development)</i>
 <ul>
+<li>Added dynamic screen size css to support Firefox OS.</li>
 <li>Added clan war hourly income for conquered sectors.</li>
 <li>Added gift shop to Help-Donate page.</li>
 <li>Improve Release-Notes page layout.</li>

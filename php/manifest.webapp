@@ -4,9 +4,9 @@
   "description": "Enter the battle zone, if you dare!",
   "launch_path":   
   "icons": {
-		"16": "/images/other/WarQuest-16.png",
-		"48": "/images/other/WarQuest-48.png",
-		"128": "/images/other/WarQuest-128.png"
+		"16": "http://www.warquest.nl/images/other/WarQuest-16.png",
+		"48": "http://www.warquest.nl/images/other/WarQuest-48.png",
+		"128": "http://www.warquest.nl/images/other/WarQuest-128.png"
   },
   "developer": {
     "name": "PlaatSoft",
