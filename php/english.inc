@@ -390,8 +390,7 @@ $lang['LOGIN_NICKNAME_EXIST'] = 'Nickname %s already in use!';
 $lang['LOGIN_NICKNAME_NEEDED'] = 'Nickname must be entered!';
 $lang['LOGIN_NEW_PASSWORD_SEND'] = 'New password was sent to your email!';
 $lang['LOGIN_EMAIL_UNKNOWN'] = 'Unknown e-mail!';
-$lang['LOGIN_BEST_VIEWED'] = 'WarQuest is optimized for the following mobile systems: "Apple iOS/iPad, Nokia Symbian, 
-BlackBerry OS, Android OS" and internet browsers: "Internet Explorer, Mozilla Firefox, Apple Safari, Opera, Google Chrome". 
+$lang['LOGIN_BEST_VIEWED'] = 'WarQuest is optimized for the following mobile systems: "Apple iOS, BlackBerry OS, Android OS, Symbian OS, Firefox OS" and internet browsers: "Internet Explorer, Mozilla Firefox, Apple Safari, Opera, Google Chrome". 
 This game is best viewed with browser width set to 500px. ';
 
 $lang['LOGIN_NEW_CLIENT_TITLE'] = 'New WarQuest client available!';
