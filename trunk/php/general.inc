@@ -2521,7 +2521,7 @@ function warquest_ui_header( $title = "") {
 	}
  
 	$page .= '<link href="'.$config["content_url"].'images/favicon.ico" rel="shortcut icon" type="image/x-icon" />'; 
-	$page .= '<link href="'.$config["content_url"].'css/general4.css" rel="stylesheet" type="text/css" />';
+	$page .= '<link href="'.$config["content_url"].'css/general5.css" rel="stylesheet" type="text/css" />';
 
 	if (($mid==MENU_MONEY) && ($sid==PAGE_STOCK_EXCHANGE)) {	
 		$page .= '<link href="'.$config["content_url"].'css/jquery.css" rel="stylesheet" type="text/css" />';
@@ -2548,7 +2548,22 @@ function warquest_ui_header( $title = "") {
 	if (preg_match("/Symbian/", $browser)) {
 		$page .= '<link href="'.$config["content_url"].'css/nokia.css" rel="stylesheet" type="text/css" />';
 	}
-				
+	
+	/* Detect Apple devices */
+	if (preg_match("/iPad/", $browser)) {
+		$page .= '<link href="'.$config["content_url"].'css/apple.css" rel="stylesheet" type="text/css" />';
+	}
+	
+	/* Detect Apple devices */
+	if (preg_match("/iPod/", $browser)) {
+		$page .= '<link href="'.$config["content_url"].'css/apple.css" rel="stylesheet" type="text/css" />';
+	}
+	
+	/* Detect Apple devices */
+	if (preg_match("/iPhone/", $browser)) {
+		$page .= '<link href="'.$config["content_url"].'css/apple.css" rel="stylesheet" type="text/css" />';
+	}
+	
 	/* Add custom background image */
 	if (@$player->background=="") {	
 		$background = 1;
