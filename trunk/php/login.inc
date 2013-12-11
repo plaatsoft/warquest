@@ -80,11 +80,12 @@ function warquest_client_overview() {
 	global $page;
 	
 	$page .= '<br/>';
+	$page .= '<br/>';
 		
 	$page .= '<table>';
 	$page .= '<tr>';
 	
-	$page .= '<td width="100">'; 
+	$page .= '<td width="20">'; 
 	$page .= '</td>';
 	
 	$page .= '<td width="155" align="center">';
@@ -101,10 +102,20 @@ function warquest_client_overview() {
 	$page .= '</center>';
 	$page .= '</td>';
 	
-	$page .= '<td width="100">'; 
+	$page .= '<td width="155" align="right">';
+	$page .= '<center><a target="_blank" href="https://marketplace.firefox.com/app/warquest/">';
+	$page .= warquest_image("other/firefoxOS.jpg");
+	$page .= '<br/>WarQuest for Firefox</a>'; 
+	$page .= '</center>';
+	$page .= '</td>';
+	
+	$page .= '<td width="20">'; 
 	$page .= '</td>';
 	
 	$page .= '</tr>';
+	$page .= '</table>';
+	
+	$page .= '<table>';
 	$page .= '<tr>';
 	
 	$page .= '<td width="100">'; 
