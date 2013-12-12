@@ -238,7 +238,6 @@ function warquest_unit_disband_do() {
 	
 		$totalAmount -= $amount;
 		
-		/* Delete amount out database */
 		warquest_db_unit_delete($player->pid, $uid, $amount);
 			
 		/* Update income, attack and defense value */

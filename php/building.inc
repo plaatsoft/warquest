@@ -306,7 +306,7 @@ function warquest_building_sell_do() {
 		$player->money += $totalPrice; 
 		$player->gold += $totalGold; 
 
-		/* Delete amount out database */
+		/* Update amount in database */
 		warquest_db_building_delete($player->pid, $uid, $amount);
 		
 		/* Update income and defense value */
@@ -323,12 +323,6 @@ function warquest_building_sell_do() {
 			warquest_db_unit_delete($player->pid, $data->uid, $data->amount, 1);
 		}
  	
-		/* Second remove nul entries */
-		if (($amountOld-$amount)==0) {
-			$query = "delete from player_building where pid=".$player->pid." and bid=".$uid; 
-			warquest_db_query($query);
-		}
-		
 		/* Update netto incom */
 		warquest_netto_income($player);
 		

@@ -1796,13 +1796,13 @@ $lang['HELP_BOUNTY_AWARDS'] = 'De volgende premie onderscheidingen kunnen worden
 
 $lang['HELP_STATS_TITLE'] = 'Statistieken';
 $lang['HELP_STATS_NOTE'] = 'Tip: Op deze pagina worden alle realtime WarQuest statistieken getoond.';
-$lang['HELP_STATS_PLAYERS'] = 'Nieuwe spelers (laatste 31 dagen)';
-$lang['HELP_STATS_ONLINE'] = 'Spelers online (laatste 31 dagen)';
-$lang['HELP_STATS_FIGHTS'] = 'Gevechten (laatste 31 dagen)';
-$lang['HELP_STATS_MISSIONS'] = 'Missies gespeelt (laatste 31 dagen)';
-$lang['HELP_STATS_CASINO'] = 'Casino spelen gespeeld (laatste 31 dagen)';
-$lang['HELP_STATS_GOLD'] = 'Goud gebruik (laatste 31 dagen)';
-$lang['HELP_STATS_REQUESTS'] = 'Server aanvragen (laatste 13 dagen)';
+$lang['HELP_STATS_PLAYERS'] = 'Nieuwe spelers';
+$lang['HELP_STATS_ONLINE'] = 'Spelers online';
+$lang['HELP_STATS_FIGHTS'] = 'Gevechten';
+$lang['HELP_STATS_MISSIONS'] = 'Missies gespeelt';
+$lang['HELP_STATS_CASINO'] = 'Casino spelen gespeeld';
+$lang['HELP_STATS_GOLD'] = 'Goud gebruik ';
+$lang['HELP_STATS_REQUESTS'] = 'Server aanvragen';
 
 /*
 ** ------------------

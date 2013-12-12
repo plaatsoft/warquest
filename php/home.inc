@@ -31,7 +31,7 @@ $comment = warquest_post('comment', '');
 */
 
 /** 
- * Home message delete action
+ * Remove comment action
  */
 function warquest_home_comment_delete_do() {
 	

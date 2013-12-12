@@ -667,7 +667,7 @@ CREATE TABLE `player_stock` (
   `amount` bigint(11) NOT NULL,
   `cost` bigint(20) NOT NULL,
   PRIMARY KEY (`pid`,`sid`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=200 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --

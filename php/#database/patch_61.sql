@@ -48,3 +48,10 @@ UPDATE bonus SET bonus_id=1 WHERE bonus_id=0;
 
 update player set default_mission="", default_force="";
 
+-- Added new cron job
+INSERT INTO cron (cid, note, last_run) VALUES ('9', 'Remove inactive clan members', '');
+
+-- patch clan table
+ALTER TABLE `clan` CHANGE `date` `created` DATE NOT NULL ;
+ALTER TABLE `clan` ADD `last_activity` DATE NOT NULL AFTER `created`;
+update clan set last_activity=created;

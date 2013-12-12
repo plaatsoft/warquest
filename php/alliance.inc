@@ -1154,7 +1154,7 @@ function warquest_clan_list_form() {
 			$page .= '</td>';
 			
 			$page .= '<td>';
-			$page .= convert_date_mysql($data->date);
+			$page .= warquest_ui_ago($data->date);
 			$page .= '</td>';
 				
 			$page .= '<td>';

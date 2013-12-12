@@ -37,7 +37,7 @@ $search = warquest_post('search', '');
 */
 
 /**
- * Delete comment
+ * Remove comment
  */
 function warquest_comment_delete_do() {
 	

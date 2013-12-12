@@ -154,11 +154,8 @@ function warquest_settings_account_reset_do() {
 		warquest_db_player_update($tmp);
 	}
 	
-	$query = "delete from bank where pid1=".$player->pid; 
-	warquest_db_query($query);
-	
-	$query = 'delete from battle where pid1='.$player->pid.' or pid2='.$player->pid; 
-	warquest_db_query($query);
+	warquest_db_bank_delete_pid($player->pid);
+	warquest_db_battle_delete_pid($player->pid);
 
 	$query = 'delete from bounty where pid1='.$player->pid.' or pid2='.$player->pid; 
 	warquest_db_query($query);

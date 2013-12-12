@@ -1901,13 +1901,13 @@ $lang['HELP_LEVEL_FEATURES'] = 'Urmatoarea schema deblocata';
 
 $lang['HELP_STATS_TITLE'] = 'Statistica';
 $lang['HELP_STATS_NOTE'] = 'Nota: Pe aceasta pagina WarQuest Statisticile sunt live.';
-$lang['HELP_STATS_PLAYERS'] = 'Jucatori noi (ultimele 31 zile)';
-$lang['HELP_STATS_ONLINE'] = 'Players online (ultimele 31 zile)';
-$lang['HELP_STATS_FIGHTS'] = 'Player fights (ultimele 31 zile)';
-$lang['HELP_STATS_MISSIONS'] = 'Missions played (ultimele 31 zile)';
-$lang['HELP_STATS_CASINO'] = 'Casino games played (ultimele 31 zile)';
-$lang['HELP_STATS_GOLD'] = 'Gold used (ultimele 31 zile)';
-$lang['HELP_STATS_REQUESTS'] = 'Server requests (ultimele 31 zile)';
+$lang['HELP_STATS_PLAYERS'] = 'Jucatori noi';
+$lang['HELP_STATS_ONLINE'] = 'Players online';
+$lang['HELP_STATS_FIGHTS'] = 'Player fights';
+$lang['HELP_STATS_MISSIONS'] = 'Missions played';
+$lang['HELP_STATS_CASINO'] = 'Casino games played';
+$lang['HELP_STATS_GOLD'] = 'Gold used ';
+$lang['HELP_STATS_REQUESTS'] = 'Server requests';
 
 /*
 ** ------------------

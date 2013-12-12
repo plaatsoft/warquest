@@ -2462,13 +2462,13 @@ $lang['HELP_LEVEL_FEATURES'] = 'Feature unlock scheme';
 
 $lang['HELP_STATS_TITLE'] = 'Statistics';
 $lang['HELP_STATS_NOTE'] = 'Note: On this page realtime WarQuest statistics are shown.';
-$lang['HELP_STATS_PLAYERS'] = 'New players (last 31 days)';
-$lang['HELP_STATS_ONLINE'] = 'Players online (last 31 days)';
-$lang['HELP_STATS_FIGHTS'] = 'Player fights (last 31 days)';
-$lang['HELP_STATS_MISSIONS'] = 'Missions played (last 31 days)';
-$lang['HELP_STATS_CASINO'] = 'Casino games played (last 31 days)';
-$lang['HELP_STATS_GOLD'] = 'Gold used (last 31 days)';
-$lang['HELP_STATS_REQUESTS'] = 'Server requests (last 31 days)';
+$lang['HELP_STATS_PLAYERS'] = 'New players';
+$lang['HELP_STATS_ONLINE'] = 'Players online';
+$lang['HELP_STATS_FIGHTS'] = 'Player fights';
+$lang['HELP_STATS_MISSIONS'] = 'Missions played';
+$lang['HELP_STATS_CASINO'] = 'Casino games played';
+$lang['HELP_STATS_GOLD'] = 'Gold used';
+$lang['HELP_STATS_REQUESTS'] = 'Server requests ';
 
 /*
 ** ------------------

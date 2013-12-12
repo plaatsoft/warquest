@@ -29,17 +29,18 @@ define('MYSQL', 1);
 define('DEBUG', 0);
 
 /* Database settings */
-$config["dbuser"]							= "";
-$config["dbpass"]							= "";
-$config["dbname"]							= "";
+$config["dbuser"]							= "warquest";
+$config["dbpass"]							= "warquest";
+$config["dbname"]							= "warquest";
 $config["dbhost"]							= "127.0.0.1";
 $config["content_url"]					= "";
 $config["base_url"]						= "http://www.warquest.nl";
 $config['backup_period']   		   = 30;
 $config["webservices"]					= 1;
+$config["adminPid"]						= 18;
 
 /* Server version */
-$config["applVersion"]					= 'Version 6.0';
+$config["applVersion"]					= 'Version 6.1';
 
 /* Client version settings */
 $config["windows_client_version"]	= '1.4';
@@ -62,7 +63,6 @@ $config["gold_trade_feature5"]		= 200;
 
 $config["applName"]						= 'WarQuest';
 $config["from_email"]					= 'info@warquest.nl';
-$config["adminPid"]						= 18;
 
 $config["init_level"]					= 0;
 $config["init_attack_max"]				= 1;
@@ -127,6 +127,7 @@ $config["max_energy_reduction"]		= 20;
 $config["max_ammo_reduction"]			= 10;
 $config["max_battle_log_age"]       = 2;
 $config["max_bank_log_age"]         = 30;
+$config["max_clan_inactive_age"]    = 30;
 
 $config["restore_warning_level"]    = 90;
 

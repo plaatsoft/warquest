@@ -124,10 +124,13 @@ function warquest_help_about_form() {
 
 function warquest_help_graphs() {
 	
-	include "graph.php";
+	/* input */
+	global $offset;
 	
-	$first = mktime(0,0,0,date("m"),date("d")-31,date("Y"));
-	$last = mktime(0,0,0,date("m"),date("d"),date("Y"));
+	include "graph.php";
+			
+	$first = mktime(0,0,0,date("m"),date("d")-($offset+31),date("Y"));
+	$last = mktime(0,0,0,date("m"),date("d")-$offset,date("Y"));
 
 	$query  = 'select DATE_FORMAT(date,"%e-%m") as day_nr, players, requests, logins, fights, missions, gold, casino ';
 	$query .= 'from statistics where date between "'.date("Y-m-d", $first).'" ';
@@ -165,7 +168,7 @@ function warquest_help_graphs() {
 	}
 	
 	/* New Players Graph */
-	$graph1 = new PHPGraphLib(490,300, 'graph/newplayers.png');
+	$graph1 = new PHPGraphLib(490,320, 'graph/newplayers.png');
 	$graph1->addData($players);
 
 	$graph1->setBars(false);
@@ -190,7 +193,7 @@ function warquest_help_graphs() {
 	
 	/* Request Graph */
 	
-	$graph2 = new PHPGraphLib(490,300, 'graph/requests.png');
+	$graph2 = new PHPGraphLib(490,320, 'graph/requests.png');
 	$graph2->addData($requests);
 
 	$graph2->setBars(false);
@@ -215,7 +218,7 @@ function warquest_help_graphs() {
 	
 	/* Logins graph */
 	
-	$graph3 = new PHPGraphLib(490,300, 'graph/logins.png');
+	$graph3 = new PHPGraphLib(490,320, 'graph/logins.png');
 	$graph3->addData($logins);
 
 	$graph3->setBars(false);
@@ -240,7 +243,7 @@ function warquest_help_graphs() {
 	
 	/* Fights graph */
 	
-	$graph4 = new PHPGraphLib(490,300, 'graph/fights.png');
+	$graph4 = new PHPGraphLib(490,320, 'graph/fights.png');
 	$graph4->addData($fights);
 
 	$graph4->setBars(false);
@@ -265,7 +268,7 @@ function warquest_help_graphs() {
 	
 	/* Missions graph */
 	
-	$graph5 = new PHPGraphLib(490,300, 'graph/missions.png');
+	$graph5 = new PHPGraphLib(490,320, 'graph/missions.png');
 	$graph5->addData($missions);
 
 	$graph5->setBars(false);
@@ -290,7 +293,7 @@ function warquest_help_graphs() {
 			
 	/* Casino played graph */
 	
-	$graph6 = new PHPGraphLib(490,300, 'graph/casino.png');
+	$graph6 = new PHPGraphLib(490,320, 'graph/casino.png');
 	$graph6->addData($casino);
 
 	$graph6->setBars(false);
@@ -316,7 +319,7 @@ function warquest_help_graphs() {
 	
 	/* Gold graph */
 	
-	$graph7 = new PHPGraphLib(490,300, 'graph/gold.png');
+	$graph7 = new PHPGraphLib(490,320, 'graph/gold.png');
 	$graph7->addData($gold);
 
 	$graph7->setBars(false);
@@ -343,6 +346,12 @@ function warquest_help_graphs() {
 
 function warquest_help_stats_form() {
 
+	/* input */
+	global $offset;
+	
+	$limit = 31;
+	$total = warquest_db_statistics_count();
+	
 	/* output */
 	global $page;
 	global $title;
@@ -355,6 +364,8 @@ function warquest_help_stats_form() {
 	$page .= '<div class="subparagraph">'.$title.'</div>';
 	
 	$page .= '<div class="box">';
+	
+	$page .= warquest_page_control($offset, $limit, $total, 2);
 	
 	$page .= '<br/>';
 	$page .= '<center>'.t('HELP_STATS_REQUESTS').'</center>';	
@@ -390,8 +401,10 @@ function warquest_help_stats_form() {
 	$page .= '<center>'.t('HELP_STATS_GOLD').'</center>';	
 	$page .= '<img src="graph/gold.png" />';	
 	$page .= '<br/>';
-			
-	$page .= '<br/>';
+	
+	$page .= warquest_page_control($offset, $limit, $total, 0);
+	
+	//$page .= '<br/>';
 	
 	$page .= '</div >';	
 	
