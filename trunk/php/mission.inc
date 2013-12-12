@@ -457,7 +457,7 @@ function warquest_mission_do() {
 			$part++;
 		} 
 		
-		warquest_db_mission_progress_update($pid, $uid, $progress, $part, $part2);	
+		warquest_db_player_mission_update($pid, $uid, $progress, $part, $part2);	
 		warquest_mission_complet();
 		warquest_mission_planet_complet_bonus();
 		

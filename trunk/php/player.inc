@@ -1628,7 +1628,7 @@ function warquest_profile($id) {
 	
 		$page .= '<tr>';
 		$page .= '<td><b>'.t('GENERAL_STOCKS').':</b></td>';
-		$page .= '<td>'.dollar_format(warquest_db_bank_assest($id)).'</td>';
+		$page .= '<td>'.dollar_format(warquest_db_player_stock_assest($id)).'</td>';
 		$page .= '</tr>';
 		
 		$page .= '<tr>';

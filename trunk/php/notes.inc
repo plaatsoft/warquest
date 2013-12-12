@@ -17,19 +17,33 @@
 */
 
 $notes[61] = '
-<div class="subparagraph2">09-12-2013</div>
-<i>Game Server v6.1 (still in development)</i>
+<div class="subparagraph2">11-12-2013</div>
+<i>Game Server v6.1</i>
 <ul>
-<li>Added dynamic screen size css to support Firefox OS.</li>
+<li>Clan Wars improvements:</li>
+<ul>
 <li>Added clan war hourly income for conquered sectors.</li>
+<li>An inactive clan member is removed from a clan after '.$config["max_clan_inactive_age"].' days.</li>
+<li>An inactive clan is removed after '.$config["max_clan_inactive_age"].' days.</li>
+</ul>
+<li>Added dynamic screen size css to support Firefox OS.</li>
+<li>Added FireFoxOS marketplace button on login page.</li>
 <li>Added gift shop to Help-Donate page.</li>
 <li>Improve Release-Notes page layout.</li>
+<li>Improve Stats page layout.</li>
 <li>Added sound effects to mission and help pages.</li>
 <li>Remove Ads functionality (not used for long time).</li>
 <li>Added database layer unit tests to improve stability.</li>
 <li>Rename planet numbers to improve source code quality.</li>
-<li>Bug fix: Planet swith on clan list page is now working correct.</li>
+<li>Bug fix: Planet switch on clan list page is now working correct.</li>
 <li>Bug fix: Fixed vote exploit!</li>
+</ul>
+<br/>
+
+<i>FireFoxOS Client v1.0</i>
+<ul>
+<li>Create FirefoxOS webapp.</li>
+<li>Released app on marketplace.firefox.com</li>
 </ul>
 <br/>
 
@@ -46,12 +60,12 @@ $notes[60] = '
 <ul>
 <li>Added bonus to each won clan war fight.</li>
 <li>Added clan slogan.</li>
-<li>Mininal clan size is now set to 6 during fights.</li>
+<li>Mininal clan size is now set to '.$config["min_clan_size"].' during fights.</li>
 <li>Rebalance earth, moon, mars and asteroid units and buildings.</li>
 <li>Limit map access to neighbor sectors which are already conquered.</li>
 <li>Unlock clan wars at level 15.</li>
 </ul>
-<li>Update javascripts to support IE 6,7,8,9 and 10.</li>
+<li>Update javascripts to support IE 6, 7, 8, 9 and 10.</li>
 <li>Added gold promotion banner to home page.</li>
 <li>Replace all magic event numbers with constants in source code.</li>
 <li>Improve security of all POST / GET actions.</li>
@@ -70,7 +84,7 @@ $notes[59] = '
 <li>Updated help and donation page information.</li>
 <li>Updated admin page to process manual gold donations.</li>
 <li>All existing players receive 500 gold as introduction bonus.</li>
-<li>Existing trade points are converted to gold (ratio 1:500).</li>
+<li>Existing trade points are converted to gold (ratio 1:'.$config["gold_dollar_ratio"].').</li>
 <li>Trade features are now payed with gold instead of trade points.</li>
 <li>Added gold use to Help -> Stats page.</li>
 </ul>

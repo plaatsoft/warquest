@@ -420,6 +420,7 @@ class PHPGraphLib {
 			}
 		}
 	}
+	
 	function finalizeColors() {
 		if ($this->bool_gradient) {
 			$num_set=count($this->multi_gradient_colors_1);
@@ -503,6 +504,7 @@ class PHPGraphLib {
 			$this->line_color = array_reverse($this->line_color);
 		}	
 	}
+	
 	function drawGradientBar($x1, $y1, $x2, $y2, $colorArr1, $colorArr2, $data_set_num) {
 		if (!isset($this->bool_gradient_colors_found[$data_set_num]) || $this->bool_gradient_colors_found[$data_set_num] == false) {
 			$this->gradient_handicap[$data_set_num] = 0;
@@ -542,6 +544,7 @@ class PHPGraphLib {
 			}
 		}
 	}
+	
 	function generateGrid() {
 		if ($this->bool_user_data_range && $this->data_min >= 0) {
 			$adjustment = $this->data_min * $this->unit_scale;
@@ -615,6 +618,7 @@ class PHPGraphLib {
 	
 		$this->y_axis_y2 = $yValue;
 	}
+	
 	function calculateGridVert() {
 
 		$vertGridArray = array();
@@ -634,12 +638,14 @@ class PHPGraphLib {
 			}
 		}
 	}
+	
 	function imagelinedashed(&$image_handle, $x_axis_x1, $yLocation, $x_axis_x2 , $yLocation, $color) {
 		$step  = 3;
 		for ($i = $x_axis_x1; $i < $x_axis_x2 -1; $i += ($step*2)) {
 			imageline($this->image, $i, $yLocation,  $i + $step - 1, $yLocation, $color);
 		}
 	}
+	
 	function generateGrids() {
 	
 		foreach ($this->horiz_grid_lines as $line) {
@@ -656,6 +662,7 @@ class PHPGraphLib {
 			imagestring($this->image, $value['size'], $value['x'], $value['y'], $value['value'], $value['color']);
 		}
 	}
+	
 	function generateGoalLines($adjustment = 0) {
 
 		foreach ($this->goal_line_array as $goal_line_data) {
@@ -673,20 +680,25 @@ class PHPGraphLib {
 			}
 		}
 	}
+	
 	function generateDataPoints() {
 		foreach ($this->data_point_array as $pointArray) {
 			imagefilledellipse($this->image, $pointArray[0], $pointArray[1], $this->data_point_width, $this->data_point_width, $this->data_point_color);
 		}		
 	}
+	
 	function generateXAxis() {
 		imageline($this->image, $this->x_axis_x1, $this->x_axis_y1, $this->x_axis_x2, $this->x_axis_y2, $this->x_axis_color);
 	}
+	
 	function generateYAxis() {
 		imageline($this->image, $this->y_axis_x1, $this->y_axis_y1, $this->y_axis_x2, $this->y_axis_y2, $this->y_axis_color);
 	}
+	
 	function generateBackgound() {
 		imagefilledrectangle($this->image, 0, 0, $this->width, $this->height, $this->background_color);
 	}
+	
 	function generateTitle() {
 
 		$highestElement = ($this->top_margin < $this->y_axis_y2) ? $this->top_margin : $this->y_axis_y2;
@@ -706,6 +718,7 @@ class PHPGraphLib {
 		}
 		imagestring($this->image, 2, $this->title_x , $this->title_y , $this->title_text,  $this->title_color);
 	}
+	
 	function calcTopMargin() {
 		if ($this->bool_title) {
 		
@@ -716,10 +729,12 @@ class PHPGraphLib {
 			$this->top_margin = $this->height * ($this->x_axis_default_percent / 100);
 		}	
 	}
+	
 	function calcRightMargin() {
 		
 		$this->right_margin = $this->width * ($this->y_axis_default_percent / 100);
 	}
+	
 	function calcCoords() {
 
 		$this->x_axis_x1 = $this->y_axis_margin;
@@ -786,6 +801,7 @@ class PHPGraphLib {
 			return round((int)$altered, -1 * ($len - 1));
 		}
 	}
+	
 	function roundUpOneExtraDigit($num) {                     
 		$len = strlen($num);  
 		$firstDig = substr($num, 0, 1);
@@ -795,6 +811,7 @@ class PHPGraphLib {
 
 		return round((int)$altered, -1 * ($len)); 
 	}
+	
 	function displayErrors() {
 		if (count($this->error) > 0) {
 			$lineHeight = 12;
@@ -810,6 +827,7 @@ class PHPGraphLib {
 			imagerectangle($this->image, 0, 0, $this->width-1,($key * $lineHeight) + 2 * $lineHeight,  $errorOutlineColor);		
 		}
 	}
+	
 	function addData($data, $data2 = '', $data3 = '', $data4 = '', $data5 = '') {
 		if (is_array($data)){ $this->data_array[]=$data; }
 		if (is_array($data2)){ $this->data_array[]=$data2; }
@@ -844,6 +862,7 @@ class PHPGraphLib {
 			$this->calcMinMax($min, $max);
 		}
 	}
+	
 	function calcMinMax($min, $max) {
 		$this->bool_data = true;
 		
@@ -862,6 +881,7 @@ class PHPGraphLib {
 			$this->all_zero_data = true;
 		} 
 	}
+	
 	function setupXAxis($percent = '', $color = '') {
 		if ($percent === false) {
 			$this->bool_x_axis = false;
@@ -882,6 +902,7 @@ class PHPGraphLib {
 			$this->x_axis_margin = round($this->height * $percent);
 		}	
 	}
+	
 	function setupYAxis($percent = '', $color = '') {
 		if ($percent === false) {
 			$this->bool_y_axis = false;
@@ -901,6 +922,7 @@ class PHPGraphLib {
 			$this->y_axis_margin = round($this->width * $percent);
 		}
 	}
+	
 	function setRange($min, $max) {
 	
 		if ($min > $max) {
@@ -913,6 +935,7 @@ class PHPGraphLib {
 		}
 		$this->bool_user_data_range = true;
 	}
+	
 	function setTitle($title) {
 		if (!empty($title)) {
 			$this->title_text = $title;
@@ -920,6 +943,7 @@ class PHPGraphLib {
 		}
 		else{ $this->error[] = "String arg for setTitle() not specified properly."; }	
 	}
+	
 	function setTitleLocation($location) {
 		$this->bool_title_left = false;
 		$this->bool_title_right = false;
@@ -931,10 +955,12 @@ class PHPGraphLib {
 			default: $this->error[] = "String arg for setTitleLocation() not specified properly.";
 		}	
 	}
+	
 	function setBars($bool) {
 		if (is_bool($bool)) { $this->bool_bars = $bool;}
 		else { $this->error[] = "Boolean arg for setBars() not specified properly."; }
 	}
+	
 	function setGrid($bool) {
 		if (is_bool($bool)) { $this->bool_grid = $bool;}
 		else { $this->error[] = "Boolean arg for setGrid() not specified properly."; }
@@ -943,20 +969,24 @@ class PHPGraphLib {
 		if (is_bool($bool)) { $this->bool_x_axis_values = $bool; }
 		else { $this->error[] = "Boolean arg for setXValues() not specified properly."; }
 	}
+	
 	function setYValues($bool) {
 		if (is_bool($bool)) { $this->bool_y_axis_values = $bool; }
 		else { $this->error[] = "Boolean arg for setYValues() not specified properly."; }
 	}
+	
 	function setXValuesHorizontal($bool) {
 		if (is_bool($bool)) { 
 			($bool) ? $this->bool_x_axis_values_vert = false : $this->bool_x_axis_values_vert = true;
 		}
 		else{ $this->error[] = "Boolean arg for setXValuesHorizontal() not specified properly."; }
 	}
+	
 	function setXValuesVertical($bool) {
 		if (is_bool($bool)) { $this->bool_x_axis_values_vert = $bool; }
 		else { $this->error[] = "Boolean arg for setXValuesVertical() not specified properly."; }
 	}
+	
 	function setBarOutline($bool) {
 		if (is_bool($bool)) { $this->bool_bar_outline = $bool; }
 		else { $this->error[] = "Boolean arg for setBarOutline() not specified properly."; }

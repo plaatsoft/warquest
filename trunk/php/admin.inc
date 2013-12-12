@@ -375,6 +375,10 @@ function warquest_admin_action_form() {
 	$page .= '</li>';
 	
 	$page .= '<li>'; 
+	$page .= warquest_link('mid='.$mid.'&sid='.$sid.'&eid='.EVENT_ADMIN_UPDATE_CLAN, 'Remove inactive clan members (cron job)');
+	$page .= '</li>';
+		
+	$page .= '<li>'; 
 	$page .= warquest_link('mid='.$mid.'&sid='.$sid.'&eid='.EVENT_ADMIN_BACKUP_DATABASE, 'Make database backup (cron job)');
 	$page .= '</li>';
 
@@ -1116,7 +1120,7 @@ function warquest_admin_copy_do() {
 		$missions=0;
 		while ($data=warquest_db_fetch_object($result)) {
 			$missions++;
-			warquest_db_mission_progress_update($pid2, $data->mid, $data->progress, $data->part, $data->part2);
+			warquest_db_player_mission_update($pid2, $data->mid, $data->progress, $data->part, $data->part2);
 		}
 		
 		/* Copy units */
@@ -1239,11 +1243,8 @@ function warquest_admin_delete_do() {
 		warquest_db_player_update($tmp);
 	}
 	
-	$query = "delete from bank where pid1=".$other->pid; 
-	warquest_db_query($query);
-	
-	$query = 'delete from battle where pid1='.$other->pid.' or pid2='.$other->pid; 
-	warquest_db_query($query);
+	warquest_db_bank_delete_pid($other->pid);	
+	warquest_db_battle_delete_pid($other->pid);
 
 	$query = 'delete from bounty where pid1='.$other->pid.' or pid2='.$other->pid; 
 	warquest_db_query($query);
@@ -1988,6 +1989,10 @@ function warquest_admin() {
 			
 		case EVENT_ADMIN_BACKUP_DATABASE:
 			warquest_cron_backup(1);
+			break;
+			
+		case EVENT_ADMIN_UPDATE_CLAN:
+			warquest_cron_remove_inactive_clan_member(1);
 			break;
 			
 		case EVENT_SWITCH_PLANET: 

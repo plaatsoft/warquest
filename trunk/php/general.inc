@@ -1984,7 +1984,7 @@ function warquest_rebel_check($other) {
 		
 		while ($data=warquest_db_fetch_object($result)) {		
 			
-			warquest_db_mission_progress_update($other->pid, $data->mid, 0, 0, $data->part);
+			warquest_db_player_mission_update($other->pid, $data->mid, 0, 0, $data->part);
 			
 			if (strlen($tmp)>0) {
 				$tmp .= ' '.t('BATTLE_AND').' ';

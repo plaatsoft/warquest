@@ -169,7 +169,7 @@ function warquest_stock_add_do() {
 	
 	$stock = warquest_stocklist($symbol);
 		
-	if (warquest_db_check($symbol, $player->pid)>0) {
+	if (warquest_db_stock_check($symbol, $player->pid)>0) {
 	
 		$message = t('STOCK_SYMBOL_AVAILABLE', $symbol);
 		$popup .= warquest_box_icon("warning", $message);
@@ -313,10 +313,8 @@ function warquest_stock_buy_do() {
 		
 		$log = 'Buy '.number_format2($amount2).' '.$stocklist[$stock->symbol]["company"].' stocks for '.number_format2($total);		
 		warquest_user_log($player, $log);
-		
-		$cost = $costOld + $total;
-		
-		warquest_db_player_stock_add($player->pid, $uid, $amount2, $cost);
+				
+		warquest_db_player_stock_add($player->pid, $uid, $amount2, $total);
 		
 		$message = '<table>';
 		$message .= '<tr>';
@@ -443,10 +441,8 @@ function warquest_stock_sell_do() {
 		
 		$log = 'Sell '.number_format2($amount2).' '.$stocklist[$stock->symbol]["company"].' stocks for '.number_format2($total-$fee);		
 		warquest_user_log($player, $log);
-		
-		$cost = $data->cost - (($data->cost / $amountOld) * $amount2);
-		
-		warquest_db_player_stock_delete($player->pid, $uid, $amount2, $cost);
+				
+		warquest_db_player_stock_delete($player->pid, $uid, $amount2);
 		
 		$message = '<table>';
 		$message .= '<tr>';
