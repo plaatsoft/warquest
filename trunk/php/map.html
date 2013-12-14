@@ -1,3 +1,4 @@
+
 <!DOCTYPE HTML>
 <html>
   <head>
@@ -8,32 +9,37 @@
       }
     </style>
   </head>
-  <body>
-		<canvas id="myCanvas" width="483" height="300">Too bad</canvas>
+  <body> 
+		<canvas id="myCanvas" width="483" height="300" ></canvas>
 
 		<script>
 		
 		var canvas = document.getElementById('myCanvas');
 		var ctx = canvas.getContext('2d');
-	  		
-		function background() {
-			
-			var imageObj = new Image();
-			imageObj.src = 'http://www.warquest.nl/images/planet/map1.png';
-			
-			ctx.drawImage(imageObj, 0, 0);			
-		}
+	  	var imageObj = new Image();
+				
+		imageObj.onload = function() {
+        drawScreen();
+     };
 		
-		function pologon(x, y, color) {
+		imageObj.src = 'http://www.warquest.nl/images/planet/map1.png';
+		
+		function IsInPath(event) {
+			var bb, x, y
+			bb = canvas.getBoundingClientRect()
+			x = (event.clientX-bb.left) * (canvas.width/bb.width)
+			y = (event.clientY-bb.top) * (canvas.height/bb.height)
+			return ctx.isPointInPath(x,y)
+		}
+	
+		function pologon(x, y, color, event) {
 	
 			var yoffset=4;
 			var xoffset=6;
 			if ((y % 2)==0) {
 				xoffset+=44;
 			}
-			
-			/* Draw pologon */
-	
+				
 			var poly = [	
 				20+(x*88)+xoffset, 0+ (y*18)+yoffset,
 				46+(x*88)+xoffset, 0+ (y*18)+yoffset,
@@ -51,11 +57,18 @@
 			ctx.lineWidth = 1;
 			ctx.strokeStyle = '#000000';
 			ctx.stroke();
+		
+			/* Process click event */
+			if (event!=null){
+				if (IsInPath(event)) {		
+					color = 'rgba(0,255,255, 0.5)';
+					
+					ctx.font = '7pt Arial';
+					ctx.fillStyle = 'white';
+					ctx.fillText(x+' '+y , 10 , 290);
 			
-			ctx.closePath();
-						
-			
-			/* Fill Pologon */
+				} 
+			}			
 			ctx.fillStyle = color;
 			ctx.fill();
 			
@@ -64,14 +77,16 @@
 			ctx.fillStyle = 'white';
 			ctx.fillText("PLAAT", 18+(x*88)+xoffset, 18+(y*18)+yoffset);
 			ctx.fillText("10%", 24+(x*88)+xoffset, 28+(y*18)+yoffset);
+			
+			ctx.closePath();
 		}
 		
-     function drawScreen() {
-		  
+     function drawScreen(event) {
+		  	
 			ctx.clearRect(0, 0, canvas.width, canvas.height);
-		  
-			background();
 			
+			ctx.drawImage(imageObj, 0, 0);
+			  
 			for (x=0; x<5; x++) {
 				for (y=0; y<15; y++) {
 				
@@ -81,33 +96,23 @@
 						color = 'rgba(0,255,0,0.5)';
 					}
 						
-					pologon(x,y, color);				
+					pologon(x,y, color, event);				
 				}
 			}
 		}
-		
-     function getMousePos(canvas, evt) {
-        var rect = canvas.getBoundingClientRect();
-        return {
-          x: evt.clientX - rect.left,
-          y: evt.clientY - rect.top
-        };
-     }
-	  
-	   drawScreen();
-		
-     canvas.addEventListener('mousemove', function(evt) {
-			var mousePos = getMousePos(canvas, evt);
-			var message = mousePos.x + ',' + mousePos.y;	
+			  
+     canvas.addEventListener('mousemove', function(event) {
 
-			drawScreen();
-
-			ctx.font = '7pt Arial';
-			ctx.fillStyle = 'white';
-			ctx.fillText(message , 10 , 290);
+			drawScreen(event);
  
      }, false);
 	 
+	  canvas.addEventListener('click', function(event) {
+			
+			drawScreen(event);
+ 
+     }, false);
+	  
     </script>
   </body>
 </html>
