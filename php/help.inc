@@ -122,16 +122,10 @@ function warquest_help_about_form() {
 ** ---------------------
 */
 
-function warquest_help_graphs() {
-	
-	/* input */
-	global $offset;
-	
+function warquest_help_graphs($first, $last) {
+			
 	include "graph.php";
 			
-	$first = mktime(0,0,0,date("m"),date("d")-($offset+31),date("Y"));
-	$last = mktime(0,0,0,date("m"),date("d")-$offset,date("Y"));
-
 	$query  = 'select DATE_FORMAT(date,"%e-%m") as day_nr, players, requests, logins, fights, missions, gold, casino ';
 	$query .= 'from statistics where date between "'.date("Y-m-d", $first).'" ';
 	$query .= ' and "'.date("Y-m-d", $last).'" order by date asc';
@@ -357,7 +351,11 @@ function warquest_help_stats_form() {
 	global $title;
 		
 	warquest_cron_statistics(1);
-	warquest_help_graphs();
+	
+	$first = mktime(0,0,0,date("m"),date("d")-($offset+31),date("Y"));
+	$last = mktime(0,0,0,date("m"),date("d")-($offset),date("Y"));
+	
+	warquest_help_graphs($first,$last);
 	
 	$title = t('HELP_STATS_TITLE');
 	
@@ -365,44 +363,44 @@ function warquest_help_stats_form() {
 	
 	$page .= '<div class="box">';
 	
-	$page .= warquest_page_control($offset, $limit, $total, 2);
+	$page .= warquest_page_control_reverse($offset, $limit, $total, 2);
 	
 	$page .= '<br/>';
-	$page .= '<center>'.t('HELP_STATS_REQUESTS').'</center>';	
+	$page .= '<center>'.t('HELP_STATS_REQUESTS').' - Year '.date("Y",$first).'</center>';	
 	$page .= '<img src="graph/requests.png" />';	
 	$page .= '<br/>';
 				
 	$page .= '<br/>';
-	$page .= '<center>'.t('HELP_STATS_ONLINE').'</center>';	
+	$page .= '<center>'.t('HELP_STATS_ONLINE').' - Year '.date("Y",$first).'</center>';	
 	$page .= '<img src="graph/logins.png" />';	
 	$page .= '<br/>';
 		
 	$page .= '<br/>';
-	$page .= '<center>'.t('HELP_STATS_PLAYERS').'</center>';	
+	$page .= '<center>'.t('HELP_STATS_PLAYERS').' - Year '.date("Y",$first).'</center>';	
 	$page .= '<img src="graph/newplayers.png" />';	
 	$page .= '<br/>';
 	
 	$page .= '<br/>';
-	$page .= '<center>'.t('HELP_STATS_FIGHTS').'</center>';	
+	$page .= '<center>'.t('HELP_STATS_FIGHTS').' - Year '.date("Y",$first).'</center>';	
 	$page .= '<img src="graph/fights.png" />';	
 	$page .= '<br/>';
 	
 	$page .= '<br/>';
-	$page .= '<center>'.t('HELP_STATS_MISSIONS').'</center>';	
+	$page .= '<center>'.t('HELP_STATS_MISSIONS').' - Year '.date("Y",$first).'</center>';	
 	$page .= '<img src="graph/missions.png" />';	
 	$page .= '<br/>';
 	
 	$page .= '<br/>';
-	$page .= '<center>'.t('HELP_STATS_CASINO').'</center>';	
+	$page .= '<center>'.t('HELP_STATS_CASINO').' - Year '.date("Y",$first).'</center>';	
 	$page .= '<img src="graph/casino.png" />';	
 	$page .= '<br/>';
 		
 	$page .= '<br/>';
-	$page .= '<center>'.t('HELP_STATS_GOLD').'</center>';	
+	$page .= '<center>'.t('HELP_STATS_GOLD').' - Year '.date("Y",$first).'</center>';	
 	$page .= '<img src="graph/gold.png" />';	
 	$page .= '<br/>';
 	
-	$page .= warquest_page_control($offset, $limit, $total, 0);
+	$page .= warquest_page_control_reverse($offset, $limit, $total, 0);
 	
 	//$page .= '<br/>';
 	

@@ -147,8 +147,7 @@ function warquest_settings_account_reset_do() {
 	
 	while ($data=warquest_db_fetch_object($result)) {
 		
-		$tmp=warquest_db_player($data->pid1);
-		
+		$tmp = warquest_db_player($data->pid1);		
 		$tmp->alliance = warquest_db_alliance_size($data->pid1)-1;
 	
 		warquest_db_player_update($tmp);
@@ -156,24 +155,12 @@ function warquest_settings_account_reset_do() {
 	
 	warquest_db_bank_delete_pid($player->pid);
 	warquest_db_battle_delete_pid($player->pid);
-
-	$query = 'delete from bounty where pid1='.$player->pid.' or pid2='.$player->pid; 
-	warquest_db_query($query);
-		
-	$query = "delete from player_building where pid=".$player->pid; 
-	warquest_db_query($query);	
-		
-	$query = "delete from player_mission where pid=".$player->pid; 
-	warquest_db_query($query);
-	
-	$query = "delete from player_player where pid1=".$player->pid.' or pid2='.$player->pid; 
-	warquest_db_query($query);
-
-	$query = "delete from player_stock where pid=".$player->pid; 
-	warquest_db_query($query);
-
-	$query = "delete from player_unit where pid=".$player->pid; 
-	warquest_db_query($query);
+	warquest_db_player_building_delete_all($player->pid);
+	warquest_db_player_unit_delete_all($player->pid);
+	warquest_db_player_mission_delete_all($player->pid);
+	warquest_db_player_stock_delete_all($player->pid);
+	warquest_db_bounty_delete_all($player->pid);
+	warquest_db_alliance_delete_all($player->pid);
 	
 	/* Update player (pid=1) to save statitics */
 	$tmp = warquest_db_player(1);

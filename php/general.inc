@@ -1100,6 +1100,53 @@ function warquest_page_control($offset, $limit, $total, $top=0, $more="") {
 }
 
 /** 
+ * Table data page control navigation.
+ */
+function warquest_page_control_reverse($offset, $limit, $total, $top=0, $more="") {
+
+	/* input */
+	global $mid;
+	global $sid;
+	global $uid;
+			
+	$page ="";
+
+	if ($total>$limit) {
+
+		if ($top==0) {
+			$page .= '<br/>';
+		}
+		$page .= warquest_link('mid='.$mid.'&sid='.$sid.'&uid='.$uid.'&offset='.$total.$more, t('LINK_FIRST'),'first');
+		$page .= '&nbsp;';
+
+		$value = $offset + $limit;
+		if ($value>=$total) {
+			$value = $total - $limit;
+		}	
+			
+		$page .= warquest_link('mid='.$mid.'&sid='.$sid.'&uid='.$uid.'&offset='.$value.$more, t('LINK_PREVIOUS'), 'prev');
+		$page .= '&nbsp;';
+		$value = $offset - $limit;
+		if ($value<0) {
+			$value=0;
+		}
+		
+		$page .= warquest_link('mid='.$mid.'&sid='.$sid.'&uid='.$uid.'&offset='.$value.$more, t('LINK_NEXT'), 'next');
+		$page .= '&nbsp;';
+	
+		$value = $total - $limit;
+		$page .= warquest_link('mid='.$mid.'&sid='.$sid.'&uid='.$uid.'&offset=0'.$more, t('LINK_LAST'), 'last');	
+		
+		$page .= '<br/>';
+		
+		if ($top==1) {
+			$page .= '<br/>';
+		}
+	}
+	return $page;
+}
+
+/** 
  * Player ranks depending on player current level.
  */
 function warquest_rank($lid) {

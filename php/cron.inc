@@ -39,10 +39,11 @@ function warquest_cron_remove_inactive_clan_member($output=0) {
 	/* output */
 	global $popup;
 	
-	$old = mktime(date("H"), date("i"), date("s"), date("m"), date("d")-$config["max_clan_inactive_age"], date("Y"));
+	$old1 = mktime(date("H"), date("i"), date("s"), date("m"), date("d")-$config["max_clan_member_inactive"], date("Y"));
+	$old2 = mktime(date("H"), date("i"), date("s"), date("m"), date("d")-$config["max_clan_inactive"], date("Y"));
 	
-	/* Get inactive clan player(s) */
-	$query1  = 'select a.pid, b.cid from player a, player_clan b where a.pid=b.pid and request_date<"'.date("Y-m-d H:i:s", $old).'" ';	
+	/* Get inactive clan member(s) */
+	$query1  = 'select a.pid, b.cid from player a, player_clan b where a.pid=b.pid and request_date<"'.date("Y-m-d H:i:s", $old1).'" ';	
 	$result1 = warquest_db_query($query1);	
 	
 	$count1 = 0;
@@ -58,7 +59,7 @@ function warquest_cron_remove_inactive_clan_member($output=0) {
 	}
 	
 	/* Get inactive clan(s) */
-	$query2  = 'select cid from clan where last_activity<"'.date("Y-m-d H:i:s", $old).'" ';	
+	$query2  = 'select cid from clan where last_activity<"'.date("Y-m-d H:i:s", $old2).'" ';	
 	$result2 = warquest_db_query($query2);	
 	
 	$count2 = 0;
@@ -66,7 +67,7 @@ function warquest_cron_remove_inactive_clan_member($output=0) {
 		
 		$count2++;	
 
-		/* Update clan players */
+		/* Update clan member(s) */
 		$query3  = 'select cid, pid from player_clan where cid='.$data2->cid;	
 		$result3 = warquest_db_query($query3);	
 	
@@ -79,7 +80,7 @@ function warquest_cron_remove_inactive_clan_member($output=0) {
 			warquest_db_player_update($player);		
 		}		
 			
-		/* Update sectors */
+		/* Update sector(s) */
 		$query4 = 'select sid, damage, cid from sector where cid='.$data2->cid;
 		$result4 = warquest_db_query($query4);	
 	
@@ -293,7 +294,7 @@ function warquest_cron_clean_battle_log($output=0) {
 		$count = $data->total;
 	}
 		
-	$query  = 'delete from battle where date < "'.date("Y-m-d H:i:s", $old).'" ';
+	$query = 'delete from battle where date < "'.date("Y-m-d H:i:s", $old).'" ';
 	warquest_db_query($query);
 			
 	$message = $count.' battle records are deleted!';
@@ -460,7 +461,7 @@ function warquest_cron_clean_bank_log($output=0) {
 		$count = $data->total;
 	}
 	
-	$query  = 'delete from bank where date < "'.date("Y-m-d H:i:s", $old).'" ';
+	$query = 'delete from bank where date < "'.date("Y-m-d H:i:s", $old).'" ';
 	warquest_db_query($query);
 	
 	$message = $count.' bank records are deleted!';

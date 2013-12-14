@@ -127,7 +127,8 @@ $config["max_energy_reduction"]		= 20;
 $config["max_ammo_reduction"]			= 10;
 $config["max_battle_log_age"]       = 2;
 $config["max_bank_log_age"]         = 30;
-$config["max_clan_inactive_age"]    = 30;
+$config["max_clan_inactive"]  		= 60;
+$config["max_clan_member_inactive"] = 30;
 
 $config["restore_warning_level"]    = 90;
 

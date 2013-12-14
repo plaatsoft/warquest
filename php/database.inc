@@ -218,6 +218,35 @@ function warquest_db_num_rows($value) {
 ** ----------------- 
 */
 
+/**
+ * Insert Statistics
+ * @unitTest
+ */
+function warquest_db_statistics_insert($date, $request, $fights, $players, $logins, $missions, $gold, $casino) {
+
+	$current = date("Y-m-d", $date);
+
+	$query  = 'insert into statistics (date, requests, fights, players,  logins, missions, gold, casino) ';
+	$query .= 'VALUES ("'.$current.'",'.$request.','.$fights.',';
+	$query .= $players.', '.$logins.', '.$missions.', '.$gold.', '.$casino.')';
+		
+	warquest_db_query($query);	
+	
+	$query = 'select id from statistics where date="'.$current.'"';
+	$result = warquest_db_query($query);
+	$data = warquest_db_fetch_object($result);
+	
+	$value = 0;
+	if ( isset($data->id) ) {
+		$value = $data->id;
+	} 
+	return $value;
+}
+
+/**
+ * update Statistics
+ * @unitTest
+ */
 function warquest_db_statistics_update($data) {
 
 	$query  = 'update statistics set ';
@@ -233,18 +262,14 @@ function warquest_db_statistics_update($data) {
 	return warquest_db_query($query);	
 }
 
-function warquest_db_statistics_insert($date, $request, $fights, $players, $logins, $missions, $gold, $casino) {
-
-	$query  = 'insert into statistics (date, requests, fights, players,  logins, missions, gold, casino) ';
-	$query .= 'VALUES ("'.date("Y-m-d", $date).'",'.$request.','.$fights.',';
-	$query .= $players.', '.$logins.', '.$missions.', '.$gold.', '.$casino.')';
-		
-	return warquest_db_query($query);	
-}
-
+/**
+ * Get Statistics
+ * @unitTest
+ */
 function warquest_db_statistics($date) {
 
-	$query  = 'select id, requests, fights, players, logins, missions, gold, casino from statistics where date = "'.date("Y-m-d", $date).'"';
+	$query  = 'select id, requests, fights, players, logins, missions, gold, casino from statistics ';
+	$query .= 'where date = "'.date("Y-m-d", $date).'"';
 
 	$result = warquest_db_query($query);
 	$data = warquest_db_fetch_object($result);
@@ -252,6 +277,10 @@ function warquest_db_statistics($date) {
 	return $data;	
 }
 
+/**
+ * Count Statistics
+ * @unitTest
+ */
 function warquest_db_statistics_count() {
 
 	$query  = 'select count(id) as count from statistics';
@@ -268,20 +297,10 @@ function warquest_db_statistics_count() {
 ** ----------------- 
 */
 
-function warquest_db_player_poll_voted($pid, $poll_id) {
-
-	$query  = 'select answer_id from player_poll where pid='.$pid.' and poll_id='.$poll_id;
-	
-	$result = warquest_db_query($query);
-	
-	$answer_id = 0;
-	if ($data = warquest_db_fetch_object($result)) {
-		$answer_id = $data->answer_id;
-	}
-			
-	return $answer_id;
-}
-
+/**
+ * Insert Player Poll
+ * @unitTest
+ */
 function warquest_db_player_poll_vote_add($pid, $poll_id, $answer_id) {
 
 	$query  = 'insert into player_poll (pid, poll_id, answer_id ) values ('.$pid.','.$poll_id.','.$answer_id.')';		
@@ -289,6 +308,29 @@ function warquest_db_player_poll_vote_add($pid, $poll_id, $answer_id) {
 	return warquest_db_query($query);
 }
 
+/**
+ * Voted Player Poll
+ * @unitTest
+ */
+function warquest_db_player_poll_voted($pid, $poll_id) {
+
+	$query  = 'select answer_id from player_poll where pid='.$pid.' and poll_id='.$poll_id;
+	
+	$result = warquest_db_query($query);
+	$data = warquest_db_fetch_object($result);
+	
+	$answer_id = 0;
+	if ( isset($data->answer_id)) {
+		$answer_id = $data->answer_id;
+	}
+			
+	return $answer_id;
+}
+
+/**
+ * Remove Player Poll
+ * @unitTest
+ */
 function warquest_db_player_poll_vote_remove($pid, $poll_id) {
 
 	$query  = 'delete from player_poll where pid='.$pid.' and poll_id='.$poll_id;
@@ -302,6 +344,10 @@ function warquest_db_player_poll_vote_remove($pid, $poll_id) {
 ** -----------------
 */
 
+/**
+ * Insert Chat
+ * @unitTest
+ */
 function warquest_db_chat_insert($pid1, $pid2, $message) {
 
 	$query  = 'insert into chat (pid1, pid2, date, message) values (';
@@ -316,6 +362,46 @@ function warquest_db_chat_insert($pid1, $pid2, $message) {
 ** -----------------
 */
 
+/**
+ * Insert comment
+ * @unitTest
+ */
+function warquest_db_comment_insert($tid, $pid1, $pid2, $comment) {
+
+	$value = 0;
+	$now = date("Y-m-d H:i:s");
+
+	$query  = 'insert into comment (tid, pid1, pid2, date, comment, deleted) values (';
+	$query .= $tid.','.$pid1.','.$pid2.',"'.$now.'","'.warquest_db_escape($comment).'" ,0)';	
+	
+	warquest_db_query($query);
+	
+	$query = 'select id from comment where pid1='.$pid1.' and pid2='.$pid2.' and tid ='.$tid.' and date="'.$now.'"';
+	$result = warquest_db_query($query);
+	$data = warquest_db_fetch_object($result);
+	
+	if ( isset($data->id) ) {
+		$value = $data->id;
+	} 
+	
+	return $value;	
+}
+
+/**
+ * update comment
+ * @unitTest
+ */
+function warquest_db_comment_update($id, $comment) {
+
+	$query  = 'update comment set comment="'.warquest_db_escape($comment).'" where id='.$id;			
+	
+	return warquest_db_query($query);
+}
+
+/**
+ * Delete comment
+ * @unitTest
+ */
 function warquest_db_comment_delete($id) {
 	
 	$returnValue=0;
@@ -335,28 +421,65 @@ function warquest_db_comment_delete($id) {
 	
 	return $returnValue;
 }
+	
+/**
+ * Delete all comments of a player.
+ * @unitTest
+ */
+function warquest_db_comment_delete_all($pid) {
 
-function warquest_db_comment_update($id, $comment) {
-
-	$query  = 'update comment set comment="'.warquest_db_escape($comment).'" where id='.$id;			
+	$query = 'delete from comment where pid1='.$pid.' or pid2='.$pid; 
 	
 	return warquest_db_query($query);
 }
-					
-function warquest_db_comment_insert($tid, $pid1, $pid2, $comment) {
 
-	$query  = 'insert into comment (tid, pid1, pid2, date, comment, deleted) values (';
-	$query .= $tid.','.$pid1.','.$pid2.',"'.date("Y-m-d H:i:s", time()).'","'.warquest_db_escape($comment).'" ,0)';	
-	
-	return warquest_db_query($query);
-}
-				
 /*
 ** -----------------
 ** TOPIC
 ** -----------------
 */
 
+/**
+ * Insert topic
+ * @unitTest
+ */
+function warquest_db_topic_insert($pid, $fid, $description) {
+	
+	$value = 0;
+	$now = date("Y-m-d H:i:s");
+	
+	$query  = 'insert into topic (fid, pid, description, date, deleted ) ';
+	$query .= 'values ('.$fid.','.$pid.',"'.warquest_db_escape($description).'","'.$now.'", 0)';
+			
+	warquest_db_query($query);
+		
+	$query = 'select tid from topic where pid='.$pid.' and fid ='.$fid.' and date="'.$now.'"';
+	$result = warquest_db_query($query);
+	$data = warquest_db_fetch_object($result);
+	
+	if ( isset($data->tid) ) {
+		$value = $data->tid;
+	} 
+	
+	return $value;
+}
+
+/**
+ * update topic
+ * @unitTest
+ */
+function warquest_db_topic_update($tid, $description) {
+	
+	/* Create user account */
+	$query  = 'update topic set description="'.warquest_db_escape($description).'" where tid='.$tid;
+			
+	return warquest_db_query($query);
+}
+
+/**
+ * Delete topic
+ * @unitTest
+ */
 function warquest_db_topic_delete($tid) {
 	
 	$returnValue=0;
@@ -380,36 +503,22 @@ function warquest_db_topic_delete($tid) {
 	return $returnValue;
 }
 
-function warquest_db_topic_update($tid, $description) {
-	
-	/* Create user account */
-	$query  = 'update topic set description="'.warquest_db_escape($description).'" where tid='.$tid;
-			
-	return warquest_db_query($query);
-}
-
-function warquest_db_topic_insert($pid, $fid, $description) {
-	
-	/* Create user account */
-	$query  = 'insert into topic (fid, pid, description, date, deleted ) ';
-	$query .= 'values ('.$fid.','.$pid.',"'.warquest_db_escape($description).'","'.date("Y-m-d H:i:s").'", 0)';
-			
-	return warquest_db_query($query);
-}
-	
 /*
 ** -----------------
-** UNIT
+** PLAYER UNIT
 ** -----------------
 */
 
+/**
+ * Add player Unit
+ * @unitTest
+ */
 function warquest_db_unit_add($pid, $uid, $amount, $direct=0) {
 
-	/* Unit amount of player */
 	$query  = "select amount from player_unit where pid=".$pid." and uid=".$uid;	
 	$result = warquest_db_query($query);
 		
-	/* If unit exist */
+	/* If player unit exist */
 	if ($data=warquest_db_fetch_object($result)) {
 			
 		if ($direct==0) {
@@ -422,7 +531,7 @@ function warquest_db_unit_add($pid, $uid, $amount, $direct=0) {
 	} else {		
 		$totalAmount = $amount;
 		$query  = 'insert into player_unit (pid, uid, amount) values ';
-		$query .= '('.$pid.','.$uid.','.$amount.')';	    
+		$query .= '('.$pid.','.$uid.','.$totalAmount.')';	    
 	} 
 	
 	warquest_db_query($query);
@@ -430,9 +539,12 @@ function warquest_db_unit_add($pid, $uid, $amount, $direct=0) {
 	return $totalAmount;
 }
 
+/**
+ * Delete player Unit
+ * @unitTest
+ */
 function warquest_db_unit_delete($pid, $uid, $amount, $direct=0) {
 
-	/* Unit amount of player */
 	$query  = "select amount from player_unit where pid=".$pid." and uid=".$uid;	
 	$result = warquest_db_query($query);
 	
@@ -455,15 +567,30 @@ function warquest_db_unit_delete($pid, $uid, $amount, $direct=0) {
 	return $result;
 }
 
+/**
+ * Delete all player unit(s)
+ * @unitTest
+ */
+function warquest_db_player_unit_delete_all($pid) {
+
+	$query = "delete from player_unit where pid=".$pid; 
+	
+	return warquest_db_query($query);
+}
+
 /*
 ** -----------------
 ** UNIT_GROUP
 ** -----------------
 */
 
+/**
+ * Get unit group
+ * @unitTest
+ */
 function warquest_db_unit_group($ugid) {
 			
-	$query  = 'select type from unit_group where ugid='.$ugid;
+	$query  = 'select type, planet from unit_group where ugid='.$ugid;
 	$result = warquest_db_query($query);
 	$data = warquest_db_fetch_object($result);
 	
@@ -472,46 +599,14 @@ function warquest_db_unit_group($ugid) {
 		
 /*
 ** -----------------
-** BUILDING
+** PLAYER BUILDING
 ** -----------------
 */
 
-function warquest_db_discount($player, $planet) {
-
-	$discount=0;
-
-	$query  = 'select ifnull(sum(a.discount),0) as discount from building a ';
-	$query .= 'left join building_group b on a.bgid=b.bgid ';
-	$query .= 'left join player_building c on c.bid=a.bid ';
-	$query .= 'where b.planet='.$planet.' and a.discount>0 and c.pid='.$player->pid;
-
-	$result = warquest_db_query($query);
-	
-	if ($data = warquest_db_fetch_object($result)) {
-		$discount = $data->discount;
-	}
-		
-	return $discount;
-}
-
-function warquest_db_maintenance($player, $planet) {
-
-	$maintenance=0;
-
-	$query  = 'select ifnull(sum(a.maintenance),0) as maintenance from building a ';
-	$query .= 'left join building_group b on a.bgid=b.bgid ';
-	$query .= 'left join player_building c on c.bid=a.bid ';
-	$query .= 'where b.planet='.$planet.' and a.maintenance>0 and c.pid='.$player->pid;
-	
-	$result = warquest_db_query($query);
-	
-	if ($data = warquest_db_fetch_object($result)) {
-		$maintenance = $data->maintenance;
-	}
-	
-	return $maintenance;
-}
-
+/**
+ * Add player building 
+ * @unitTest
+ */
 function warquest_db_building_add($pid, $bid, $amount, $direct=0) {
 
 	/* Unit amount of player */
@@ -532,7 +627,7 @@ function warquest_db_building_add($pid, $bid, $amount, $direct=0) {
 	} else {		
 		$totalAmount = $amount;
 		$query  = 'insert into player_building (pid, bid, amount) values ';
-		$query .= '('.$pid.','.$bid.','.$amount.')';	    
+		$query .= '('.$pid.','.$bid.','.$totalAmount.')';	    
 	} 
 	
 	warquest_db_query($query);
@@ -540,6 +635,10 @@ function warquest_db_building_add($pid, $bid, $amount, $direct=0) {
 	return $totalAmount;
 }
 
+/**
+ * Delete player building 
+ * @unitTest
+ */
 function warquest_db_building_delete($pid, $bid, $amount, $direct=0) {
 
 	/* Unit amount of player */
@@ -566,12 +665,71 @@ function warquest_db_building_delete($pid, $bid, $amount, $direct=0) {
 	return $result;
 }
 
+/**
+ * Delete all player building(s)
+ * @unitTest
+ */
+function warquest_db_player_building_delete_all($pid) {
+
+	$query = "delete from player_building where pid=".$pid; 
+	
+	return warquest_db_query($query);
+}
+
+/**
+ * Add player building discount
+ * @unitTest
+ */
+function warquest_db_discount($player, $planet) {
+
+	$discount=0;
+
+	$query  = 'select ifnull(sum(a.discount),0) as discount from building a ';
+	$query .= 'left join building_group b on a.bgid=b.bgid ';
+	$query .= 'left join player_building c on c.bid=a.bid ';
+	$query .= 'where b.planet='.$planet.' and a.discount>0 and c.pid='.$player->pid;
+
+	$result = warquest_db_query($query);
+	
+	if ($data = warquest_db_fetch_object($result)) {
+		$discount = $data->discount;
+	}
+		
+	return $discount;
+}
+
+/**
+ * Add player building maintenance
+ * @unitTest
+ */
+function warquest_db_maintenance($player, $planet) {
+
+	$maintenance=0;
+
+	$query  = 'select ifnull(sum(a.maintenance),0) as maintenance from building a ';
+	$query .= 'left join building_group b on a.bgid=b.bgid ';
+	$query .= 'left join player_building c on c.bid=a.bid ';
+	$query .= 'where b.planet='.$planet.' and a.maintenance>0 and c.pid='.$player->pid;
+	
+	$result = warquest_db_query($query);
+	
+	if ($data = warquest_db_fetch_object($result)) {
+		$maintenance = $data->maintenance;
+	}
+	
+	return $maintenance;
+}
+
 /*
 ** -----------------
 ** BUILDING_GROUP
 ** -----------------
 */
 
+/**
+ * Get building group
+ * @unitTest
+ */
 function warquest_db_building_group($bgid) {
 			
 	$query  = 'select planet, sell, type from building_group where bgid='.$bgid; 
@@ -586,6 +744,10 @@ function warquest_db_building_group($bgid) {
 ** -----------------
 */
 
+/**
+ * Update player mission
+ * @unitTest
+ */
 function warquest_db_player_mission_update($pid, $mid, $progress, $part1, $part2=0) {
 		
 	$query = 'select progress from player_mission where pid='.$pid.' and mid='.$mid; 	
@@ -606,13 +768,76 @@ function warquest_db_player_mission_update($pid, $mid, $progress, $part1, $part2
 	
 	return warquest_db_query($query);
 }
+
+/**
+ * Delete all player mission(s)
+ * @unitTest
+ */
+function warquest_db_player_mission_delete_all($pid) {
+
+	$query = "delete from player_mission where pid=".$pid; 
+	
+	return warquest_db_query($query);
+}
 			
 /*
 ** -----------------
 ** PLAYER_PLAYER
 ** -----------------
 */
+
+/**
+ * Insert player player
+ * @unitTest
+ */
+function warquest_db_alliance_insert($pid1, $pid2, $approved) { 
+	
+	/* Create alliance connection $pid1 -> $pid2 */
+	$query  = 'insert into player_player (pid1, pid2, approved, invite_date) values ';
+	$query .= '('.$pid1.','.$pid2.','.$approved.',"'.date("Y-m-d H:i:s", time()).'")';
+	
+	return warquest_db_query($query);
+}
 		
+/**
+ * Update player player
+ * @unitTest
+ */
+function warquest_db_alliance_update($pid1, $pid2, $approved) { 
+	
+	/* Update alliance connection $pid1 -> $pid2	 */
+	$query  = 'update player_player set approved='.$approved.' where pid1='.$pid1.' ';
+	$query .= 'and pid2='.$pid2;
+	
+	return warquest_db_query($query);
+}
+
+/**
+ * Delete player player
+ * @unitTest
+ */
+function warquest_db_alliance_delete($pid1, $pid2) { 
+	
+	$query = "delete from player_player where pid1=".$pid1." and pid2=".$pid2;
+	
+	return warquest_db_query($query);
+}
+
+/**
+ * Delete all player -> player relations of one player
+ * @unitTest
+ */
+function warquest_db_alliance_delete_all($pid) {
+
+	$query = 'delete from player_player where pid1='.$pid.' or pid2='.$pid;
+	
+	return warquest_db_query($query);
+}
+
+/**
+ * Check ally
+ * @unitTest
+ */	
 function warquest_db_ally($pid1, $pid2) {
 		
 	$count=0;
@@ -628,6 +853,10 @@ function warquest_db_ally($pid1, $pid2) {
 	return $count;
 }
 	
+/**
+ * Check alliance size
+ * @unitTest
+ */
 function warquest_db_alliance_size($pid) {
 	
 	$count=0;
@@ -644,6 +873,10 @@ function warquest_db_alliance_size($pid) {
 	return $count;
 }
 
+/**
+ * Check invite size
+ * @unitTest
+ */
 function warquest_db_invite_size($pid) {
 	
 	$count=0;
@@ -658,32 +891,7 @@ function warquest_db_invite_size($pid) {
 	return $count;
 }
 
-function warquest_db_alliance_insert($pid1, $pid2, $approved) { 
 	
-	/* Create alliance connection $pid1 -> $pid2 */
-	$query  = 'insert into player_player (pid1, pid2, approved, invite_date) values ';
-	$query .= '('.$pid1.','.$pid2.','.$approved.',"'.date("Y-m-d H:i:s", time()).'")';
-	
-	return warquest_db_query($query);
-}
-		
-
-function warquest_db_alliance_update($pid1, $pid2, $approved) { 
-	
-	/* Update alliance connection $pid1 -> $pid2	 */
-	$query  = 'update player_player set approved='.$approved.' where pid1='.$pid1.' ';
-	$query .= 'and pid2='.$pid2;
-	
-	return warquest_db_query($query);
-}
-
-function warquest_db_alliance_delete($pid1, $pid2) { 
-	
-	$query = "delete from player_player where pid1=".$pid1." and pid2=".$pid2;	
-	
-	return warquest_db_query($query);
-}
-		
 /*
 ** -----------------
 ** MEMBER
@@ -1244,6 +1452,17 @@ function warquest_db_player_stock_assest($pid) {
 	return $total;
 }
 
+/**
+ * Delete all player stock(s)
+ * @unitTest
+ */
+function warquest_db_player_stock_delete_all($pid) {
+
+	$query = "delete from player_stock where pid=".$pid; 
+	
+	return warquest_db_query($query);
+}
+
 /*
 ** ---------------------
 ** STOCK
@@ -1404,6 +1623,18 @@ function warquest_db_bounty_possible($pid1, $pid2) {
 	return $count;
 }
 
+
+/**
+ * Delete all bounty from one player
+ * @unitTest
+ */
+function warquest_db_bounty_delete_all($pid) {
+
+	$query = 'delete from bounty where pid1='.$pid.' or pid2='.$pid;
+	
+	return warquest_db_query($query);
+}
+
 /*
 ** ---------------------
 ** CRON
@@ -1502,8 +1733,7 @@ function warquest_db_news_delete($id) {
 function warquest_db_session_add($pid) {
 		
 	/* First delete all old session */
-	$query  = 'delete from session where pid='.$pid;	
-	warquest_db_query($query);  
+	warquest_db_session_delete_pid($pid);
 		
 	/* Create new session */
 	$now = date("Y-m-d H:i:s");
@@ -1566,7 +1796,18 @@ function warquest_db_session_valid( $session_id ) {
 }
 
 /**
- * Delete Session 
+ * Delete Session with pid
+ * @unitTest
+ */
+function warquest_db_session_delete_pid($pid) {
+		
+	$query  = 'delete from session where pid='.$pid;	
+	
+	return warquest_db_query($query); 
+}
+
+/**
+ * Delete Session with session id
  * @unitTest
  */
 function warquest_db_session_delete($session_id) {
