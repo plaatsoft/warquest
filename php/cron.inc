@@ -43,7 +43,7 @@ function warquest_cron_remove_inactive_clan_member($output=0) {
 	$old2 = mktime(date("H"), date("i"), date("s"), date("m"), date("d")-$config["max_clan_inactive"], date("Y"));
 	
 	/* Get inactive clan member(s) */
-	$query1  = 'select a.pid, b.cid from player a, player_clan b where a.pid=b.pid and request_date<"'.date("Y-m-d H:i:s", $old1).'" ';	
+	$query1  = 'select a.pid, b.cid from player a, player_clan b where a.pid=b.pid and a.request_date<"'.date("Y-m-d H:i:s", $old1).'" ';	
 	$result1 = warquest_db_query($query1);	
 	
 	$count1 = 0;

@@ -55,3 +55,4 @@ INSERT INTO cron (cid, note, last_run) VALUES ('9', 'Remove inactive clan member
 ALTER TABLE `clan` CHANGE `date` `created` DATE NOT NULL ;
 ALTER TABLE `clan` ADD `last_activity` DATE NOT NULL AFTER `created`;
 update clan set last_activity=created;
+ALTER TABLE player_clan CHANGE `date` `joined` DATETIME NOT NULL ;
