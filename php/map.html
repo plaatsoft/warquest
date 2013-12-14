@@ -1,0 +1,113 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <style>
+      body {
+        margin: 0px;
+        padding: 0px;
+      }
+    </style>
+  </head>
+  <body>
+		<canvas id="myCanvas" width="483" height="300">Too bad</canvas>
+
+		<script>
+		
+		var canvas = document.getElementById('myCanvas');
+		var ctx = canvas.getContext('2d');
+	  		
+		function background() {
+			
+			var imageObj = new Image();
+			imageObj.src = 'http://www.warquest.nl/images/planet/map1.png';
+			
+			ctx.drawImage(imageObj, 0, 0);			
+		}
+		
+		function pologon(x, y, color) {
+	
+			var yoffset=4;
+			var xoffset=6;
+			if ((y % 2)==0) {
+				xoffset+=44;
+			}
+			
+			/* Draw pologon */
+	
+			var poly = [	
+				20+(x*88)+xoffset, 0+ (y*18)+yoffset,
+				46+(x*88)+xoffset, 0+ (y*18)+yoffset,
+				64+(x*88)+xoffset, 18+(y*18)+yoffset,
+				46+(x*88)+xoffset, 36+(y*18)+yoffset,
+				20+(x*88)+xoffset, 36+(y*18)+yoffset,
+				2+ (x*88)+xoffset, 18+(y*18)+yoffset ];		  
+											
+			ctx.beginPath();
+			ctx.moveTo(poly[0], poly[1]);
+			for( item=2 ; item < poly.length-1 ; item+=2 ){
+				ctx.lineTo( poly[item] , poly[item+1] )
+			}
+			
+			ctx.lineWidth = 1;
+			ctx.strokeStyle = '#000000';
+			ctx.stroke();
+			
+			ctx.closePath();
+						
+			
+			/* Fill Pologon */
+			ctx.fillStyle = color;
+			ctx.fill();
+			
+			/* Enter text to Pologon */			
+			ctx.font = '7pt Arial';
+			ctx.fillStyle = 'white';
+			ctx.fillText("PLAAT", 18+(x*88)+xoffset, 18+(y*18)+yoffset);
+			ctx.fillText("10%", 24+(x*88)+xoffset, 28+(y*18)+yoffset);
+		}
+		
+     function drawScreen() {
+		  
+			ctx.clearRect(0, 0, canvas.width, canvas.height);
+		  
+			background();
+			
+			for (x=0; x<5; x++) {
+				for (y=0; y<15; y++) {
+				
+					if ((x % 2) == 0 ) {
+						color = 'rgba(255,0,0,0.5)';
+					} else {
+						color = 'rgba(0,255,0,0.5)';
+					}
+						
+					pologon(x,y, color);				
+				}
+			}
+		}
+		
+     function getMousePos(canvas, evt) {
+        var rect = canvas.getBoundingClientRect();
+        return {
+          x: evt.clientX - rect.left,
+          y: evt.clientY - rect.top
+        };
+     }
+	  
+	   drawScreen();
+		
+     canvas.addEventListener('mousemove', function(evt) {
+			var mousePos = getMousePos(canvas, evt);
+			var message = mousePos.x + ',' + mousePos.y;	
+
+			drawScreen();
+
+			ctx.font = '7pt Arial';
+			ctx.fillStyle = 'white';
+			ctx.fillText(message , 10 , 290);
+ 
+     }, false);
+	 
+    </script>
+  </body>
+</html>
