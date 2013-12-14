@@ -1952,8 +1952,10 @@ function warquest_db_clan_delete($cid) {
  */
 function warquest_db_player_clan_insert($pid, $cid) {
 
-	$query  = 'insert into player_clan (pid, cid, date) values (';
-	$query .= $pid.','.$cid.',"'.date("Y-m-d", time()).'")';	
+	$now = date("Y-m-d H:i:s");
+
+	$query  = 'insert into player_clan (pid, cid, joined) values (';
+	$query .= $pid.','.$cid.',"'.$now.'")';	
 	
 	return warquest_db_query($query);
 }

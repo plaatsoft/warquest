@@ -910,7 +910,7 @@ function warquest_clan_form() {
 		$page .= '</div>';
 	}
 	
-	$query  = 'select a.cid, a.name, a.date, a.won, a.lost, a.pid, ';
+	$query  = 'select a.cid, a.name, a.created, a.won, a.lost, a.pid, ';
 	$query .= '(select name from player where pid=a.pid) as name2, ';
 	$query .= '(select country from player where pid=a.pid) as country2, ';
 	$query .= '(select count(*) from player_clan where cid=a.cid) as size, ';
@@ -1088,7 +1088,7 @@ function warquest_clan_list_form() {
 		$page .= '</div>';
 	} 
 	
-	$query  = 'select a.date, b.pid, b.name, b.country, b.lid, b.experience ';
+	$query  = 'select a.joined, b.pid, b.name, b.country, b.lid, b.experience ';
 	$query .= 'from player_clan a, player b where a.pid=b.pid and a.cid='.$cid.' ';
 	$query .= 'order by b.lid desc';
 
@@ -1154,7 +1154,7 @@ function warquest_clan_list_form() {
 			$page .= '</td>';
 			
 			$page .= '<td>';
-			$page .= warquest_ui_ago($data->date);
+			$page .= warquest_ui_ago($data->joined);
 			$page .= '</td>';
 				
 			$page .= '<td>';
