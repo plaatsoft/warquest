@@ -23,8 +23,8 @@ $notes[61] = '
 <li>Clan Wars improvements:</li>
 <ul>
 <li>Added clan war hourly income for conquered sectors.</li>
-<li>An inactive clan member is removed from a clan after '.$config["max_clan_inactive_age"].' days.</li>
-<li>An inactive clan is removed after '.$config["max_clan_inactive_age"].' days.</li>
+<li>An inactive clan member is removed from a clan after '.$config["max_clan_member_inactive"].' days.</li>
+<li>An inactive clan is removed after '.$config["max_clan_inactive"].' days.</li>
 </ul>
 <li>Added dynamic screen size css to support Firefox OS.</li>
 <li>Added FireFoxOS marketplace button on login page.</li>

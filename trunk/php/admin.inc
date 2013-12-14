@@ -40,10 +40,6 @@ $language = warquest_post('language', $player->language);
 */
 
 function warquest_admin_info() {
-
-	/* intput */
-	global $mid;
-	global $sid;
 	
 	/* output */
 	global $page;
@@ -153,6 +149,7 @@ function warquest_admin_optimize_tables_do() {
 	}
 	
 	$popup .= warquest_box_icon("info", $message);	
+	
 	warquest_info($message);
 }
 
@@ -183,7 +180,8 @@ function warquest_admin_update_building_staff_do() {
 	}
 	
 	$message = $update.' citizens updated!<br>'.$count.' players checked';
-	$popup .= warquest_box_icon("info", $message);	
+	$popup .= warquest_box_icon("info", $message);
+	
 	warquest_info($message);
 }
 		
@@ -230,6 +228,7 @@ function warquest_admin_player_award_update_do() {
 		
 	$message = $update.' player awards updated!<br/>'.$count.' players checked.';
 	$popup .= warquest_box_icon("info", $message);
+	
 	warquest_info($message);
 }
 
@@ -260,6 +259,7 @@ function warquest_admin_update_player_level_do() {
 	
 	$message = $update.' player levels updated!<br/>'.$count.' players checked.';
 	$popup .= warquest_box_icon("info", $message);
+	
 	warquest_info($message);
 }
 
@@ -288,6 +288,7 @@ function warquest_admin_update_all_money_do() {
 	
 	$message = 'Money parameters updated!<br>'.$count.' players checked';
 	$popup .= warquest_box_icon("info", $message);
+	
 	warquest_info($message);
 }
 
@@ -323,6 +324,7 @@ function warquest_admin_update_all_timers_do() {
 	
 	$message = 'Robot timers updated!<br>'.$count.' robots checked.';
 	$popup .= warquest_box_icon("info", $message);
+	
 	warquest_info($message);
 }
 
@@ -554,7 +556,6 @@ function warquest_admin_level_form() {
 
 	/* input */
 	global $mid;
-	global $config;
 			
 	/* output */
 	global $page;
@@ -1108,9 +1109,7 @@ function warquest_admin_copy_do() {
 		$buildings=0;
 		while ($data=warquest_db_fetch_object($result)) {
 			$buildings++;
-			$query  = 'insert into player_building (pid, bid, amount) ';
-			$query .= 'values ('.$pid2.','.$data->bid.','.$data->amount.')';	
-			warquest_db_query($query);
+			warquest_db_building_add($pid2, $data->bid, $data->amount);
 		}
 		
 		/* Copy missions */
@@ -1130,9 +1129,7 @@ function warquest_admin_copy_do() {
 		$units=0;
 		while ($data=warquest_db_fetch_object($result)) {
 			$units++;
-			$query  = 'insert into player_unit (pid, uid, amount) ' ;
-			$query .= 'values ('.$pid2.','.$data->uid.','.$data->amount.')';	
-			warquest_db_query($query);
+			warquest_db_unit_add($pid2, $data->uid, $data->amount);
 		}
 		
 		/* Reinitiase some player parameters */
@@ -1245,35 +1242,18 @@ function warquest_admin_delete_do() {
 	
 	warquest_db_bank_delete_pid($other->pid);	
 	warquest_db_battle_delete_pid($other->pid);
-
-	$query = 'delete from bounty where pid1='.$other->pid.' or pid2='.$other->pid; 
-	warquest_db_query($query);
-	
-	$query = 'delete from comment where pid1='.$other->pid.' or pid2='.$other->pid; 
-	warquest_db_query($query);
-	
+	warquest_db_comment_delete_all($other->pid);	
 	warquest_db_member_delete($other->pid);
 	warquest_db_player_delete($other->pid);
-	warquest_db_skill_delete($other->pid);
+	warquest_db_skill_delete($other->pid);	
+	warquest_db_player_building_delete_all($other->pid);
+	warquest_db_player_unit_delete_all($other->pid);			
+	warquest_db_player_mission_delete_all($other->pid);	
+	warquest_db_player_stock_delete_all($other->pid);	
+	warquest_db_bounty_delete_all($other->pid);
+	warquest_db_alliance_delete_all($other->pid);
+	warquest_db_session_delete_pid($other->pid);
 	
-	$query = "delete from player_building where pid=".$other->pid; 
-	warquest_db_query($query);	
-		
-	$query = "delete from player_mission where pid=".$other->pid; 
-	warquest_db_query($query);
-	
-	$query = "delete from player_player where pid1=".$other->pid.' or pid2='.$other->pid; 
-	warquest_db_query($query);
-
-	$query = "delete from player_stock where pid=".$other->pid; 
-	warquest_db_query($query);
-
-	$query = "delete from player_unit where pid=".$other->pid; 
-	warquest_db_query($query);
-	
-	$query = "delete from session where pid=".$other->pid; 
-	warquest_db_query($query);
-
 	$message = 'Player '.$other->name.' ['.$other->pid.'] is deleted!';
 	$popup .= warquest_box_icon("info", $message);
 	warquest_info($message);
