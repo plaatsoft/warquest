@@ -1,4 +1,3 @@
-
 <!DOCTYPE HTML>
 <html>
   <head>
@@ -9,21 +8,46 @@
       }
     </style>
   </head>
+  
   <body> 
+  
 		<canvas id="myCanvas" width="483" height="300" ></canvas>
 
 		<script>
 		
+		var url = 'http://www.warquest.nl';
+		var planet = 1;
 		var canvas = document.getElementById('myCanvas');
 		var ctx = canvas.getContext('2d');
+		var json = "";
 	  	var imageObj = new Image();
-				
+		
+		imageObj.src = url+'/images/planet/map'+planet+'.png';
+		
 		imageObj.onload = function() {
-        drawScreen();
-     };
+			loadData();
+			drawScreen();
+		};
 		
-		imageObj.src = 'http://www.warquest.nl/images/planet/map1.png';
-		
+		function loadData() {
+			if (window.XMLHttpRequest) {
+				// code for IE7+, Firefox, Chrome, Opera, Safari
+				xmlhttp=new XMLHttpRequest();
+			} else {
+				// code for IE6, IE5
+				xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+			}
+			
+			xmlhttp.onreadystatechange=function() {
+				if (xmlhttp.readyState==4 && xmlhttp.status==200) {
+					json = xmlhttp.responseText;
+					drawScreen();
+				}
+			}
+			xmlhttp.open("GET",url+"/service.php?planet="+planet+"&eid=1" ,true);
+			xmlhttp.send();
+		}
+
 		function IsInPath(event) {
 			var bb, x, y
 			bb = canvas.getBoundingClientRect()
@@ -32,7 +56,7 @@
 			return ctx.isPointInPath(x,y)
 		}
 	
-		function pologon(x, y, color, event) {
+		function pologon(x, y, color, name, damage, event) {
 	
 			var yoffset=4;
 			var xoffset=6;
@@ -58,7 +82,7 @@
 			ctx.strokeStyle = '#000000';
 			ctx.stroke();
 		
-			/* Process click event */
+			/* Process event */
 			if (event!=null){
 				if (IsInPath(event)) {		
 					color = 'rgba(0,255,255, 0.5)';
@@ -69,14 +93,18 @@
 			
 				} 
 			}			
-			ctx.fillStyle = color;
-			ctx.fill();
+			if (color!='') {
+				ctx.fillStyle = color;
+				ctx.fill();
+			}
 			
 			/* Enter text to Pologon */			
 			ctx.font = '7pt Arial';
 			ctx.fillStyle = 'white';
-			ctx.fillText("PLAAT", 18+(x*88)+xoffset, 18+(y*18)+yoffset);
-			ctx.fillText("10%", 24+(x*88)+xoffset, 28+(y*18)+yoffset);
+			ctx.fillText(name, 18+(x*88)+xoffset, 18+(y*18)+yoffset);
+			if (damage>0) {
+				ctx.fillText((damage*10)+'%', 24+(x*88)+xoffset, 28+(y*18)+yoffset);
+			}
 			
 			ctx.closePath();
 		}
@@ -86,32 +114,42 @@
 			ctx.clearRect(0, 0, canvas.width, canvas.height);
 			
 			ctx.drawImage(imageObj, 0, 0);
-			  
-			for (x=0; x<5; x++) {
-				for (y=0; y<15; y++) {
-				
-					if ((x % 2) == 0 ) {
-						color = 'rgba(255,0,0,0.5)';
-					} else {
-						color = 'rgba(0,255,0,0.5)';
-					}
-						
-					pologon(x,y, color, event);				
+			
+			for(x=0;x<5;x++) {
+				for(y=0;y<15;y++) {
+					pologon(x, y, "", "", "", event);
+				}
+			}
+							
+			var obj = eval(json);
+			
+			if (obj) {
+				for(i=0;i<obj.length;i++) {				
+					color = 'rgba(255,128,128,0.5)';
+					pologon(obj[i].x,obj[i].y, color, obj[i].name, obj[i].damage, event);
 				}
 			}
 		}
 			  
-     canvas.addEventListener('mousemove', function(event) {
+		canvas.addEventListener('mousemove', function(event) {
 
 			drawScreen(event);
  
-     }, false);
+		}, false);
 	 
-	  canvas.addEventListener('click', function(event) {
+		canvas.addEventListener('click', function(event) {
 			
 			drawScreen(event);
  
-     }, false);
+		}, false);
+		
+		
+		function refresh() {
+         loadData();
+         setTimeout(refresh, 5000);
+		}
+
+      setTimeout(refresh, 5000);
 	  
     </script>
   </body>
