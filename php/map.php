@@ -101,7 +101,7 @@ if ($canvas==0) {
 	$page .= '<canvas id="myCanvas" width="483" height="300" ></canvas>';
 	$page .= '<script language="JavaScript" src="js/map.js"></script>';
 	$page .= '<script language="JavaScript">';
-	$page .= 'initMap('.$planet.',"'.$config["base_url"].'");';
+	$page .= 'initMap('.$planet.',"'.$config["base_url"].'",'.MENU_SERVICE.');';
 	$page .= '</script>';
 	$page .= '</body>';
 	$page .= '</html>';

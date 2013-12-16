@@ -5,11 +5,13 @@ var ctx = canvas.getContext('2d');
 var json = "";
 var imageObj = new Image();
 var clans = new Array();
+var mid = 0;
 			
-function initMap(planet, url) {
+function initMap(planet, url, mid) {
 
 	this.planet = planet;
 	this.url = url;
+	this.mid = mid;
 	drawScreen();
 	refresh();
 }
@@ -54,7 +56,7 @@ function getSectorData() {
 	
 	xmlhttp.open("POST", url+"/" ,true);
 	xmlhttp.setRequestHeader("Content-type","application/x-www-form-urlencoded");
-	xmlhttp.send("mid=1011&eid=1&planet="+planet);
+	xmlhttp.send("mid="+mid+"&eid=1&planet="+planet);
 }
 
 function getClanInfo(cid) {
@@ -86,7 +88,7 @@ function getClanInfo(cid) {
 	
 	xmlhttp.open("POST", url+"/" ,true);
 	xmlhttp.setRequestHeader("Content-type","application/x-www-form-urlencoded");
-	xmlhttp.send("mid=1011&eid=2&cid="+cid);
+	xmlhttp.send("mid="+mid+"&eid=2&cid="+cid);
 }
 		
 function IsInPath(event) {
