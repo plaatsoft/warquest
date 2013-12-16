@@ -71,6 +71,9 @@ $token = warquest_post('token', '');
 $amount = warquest_post('amount', 1);
 $action = warquest_get("action", "");
 
+/* Webservice */
+$mid = warquest_post('mid', 0);
+
 if (strlen($token)>0) {
 	
 	/* Decode token */
@@ -117,6 +120,21 @@ if (@warquest_db_connect($config["dbhost"], $config["dbuser"], $config["dbpass"]
 	echo warquest_ui_footer( round(($time*1000)), warquest_db_count());
 	
 	/* the end. */
+	exit;
+}
+
+/*
+** ---------------------------------------------------------------- 
+** WebService check
+** ---------------------------------------------------------------- 
+*/
+
+if ($mid==MENU_SERVICE) {
+
+	include 'service.inc';
+	
+	warquest_service();
+	
 	exit;
 }
 

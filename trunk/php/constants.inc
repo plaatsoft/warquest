@@ -45,6 +45,7 @@ define('MENU_ALLIANCE',      		1007);
 define('MENU_FORUMS',         	1008);
 define('MENU_HELP',           	1009);
 define('MENU_ADMIN',          	1010);
+define('MENU_SERVICE',          	1011);
 
 /*
 ** ------------------

@@ -16,15 +16,6 @@
 **  All copyrights reserved (c) 2008-2013 PlaatSoft
 */
 
-/* Include php classes */
-include 'config.inc';
-include 'constants.inc';
-include 'database.inc';
-include 'general.inc';
-
-/* Make database connection */
-warquest_db_connect($config["dbhost"], $config["dbuser"], $config["dbpass"], $config["dbname"]);
-
 /*
 ** ---------
 ** Post  
@@ -90,20 +81,25 @@ function warquest_get_clan_data() {
 ** ---------
 */
 
-/* Update request counter */
-warquest_db_player_login_counter(1);
-	
 
-/* Event handler */
-switch ($eid) {
+function warquest_service() {
+
+	global $eid;
 	
-	case 1: 	
+	/* Update request counter */
+	warquest_db_player_login_counter(1);
+	
+	/* Event handler */
+	switch ($eid) {
+		
+		case 1: 	
 			echo warquest_get_sector_data();
 			break;
 			
-	case 2: 	
+		case 2: 	
 			echo warquest_get_clan_data();
 			break;
+	}
 }
 
 /*

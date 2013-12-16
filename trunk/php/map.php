@@ -17,6 +17,7 @@
 */
 
 include "constants.inc";
+include "config.inc";
 include "general.inc";
 
 function process_data($data, $image) {
@@ -71,15 +72,43 @@ function process_data($data, $image) {
 
 $planet = warquest_get('planet', 1);
 $data = warquest_get('data', '');
+$canvas = warquest_get('canvas' ,0);
 
-$image = ImageCreateFromPNG('images/planet/map'.$planet.'.png');
-AddPologonRaster($image);
-process_data($data, $image);
+if ($canvas==0) {
+
+	$image = ImageCreateFromPNG('images/planet/map'.$planet.'.png');
+	AddPologonRaster($image);
+	process_data($data, $image);
 			
-header('Content-type: image/gif');
-imagegif($image);
-imagedestroy($image);
+	header('Content-type: image/gif');
+	imagegif($image);
+	imagedestroy($image);
+	
+} else {
 
+	/* Create client side map */
+	$page  = '<html>';
+	$page .= '<head>';
+   $page .= '<style>';
+   $page .= 'body {';
+	$page .= 'background: gray;';
+	$page .= 'margin: 10px;';
+	$page .= 'padding: 10px;';
+   $page .= '}';
+	$page .= '</style>';
+	$page .= '</head>';
+	$page .= '<body>'; 
+	$page .= '<canvas id="myCanvas" width="483" height="300" ></canvas>';
+	$page .= '<script language="JavaScript" src="js/map.js"></script>';
+	$page .= '<script language="JavaScript">';
+	$page .= 'initMap('.$planet.',"'.$config["base_url"].'");';
+	$page .= '</script>';
+	$page .= '</body>';
+	$page .= '</html>';
+
+	echo $page;
+}
+	
 /* 
 ** --------------------------
 ** The End
