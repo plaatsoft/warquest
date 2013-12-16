@@ -293,6 +293,19 @@ function warquest_get($label, $default) {
 	return $value;
 }
 
+function warquest_server($label, $default) {
+	
+	$value = $default;
+	
+	if (isset($_SERVER[$label])) {
+		$value = $_SERVER[$label];
+		$value = stripslashes($value);
+		$value = htmlspecialchars($value);	
+	}
+	
+	return $value;
+}
+
 /*
 ** ---------------------------------------------------------------- 
 ** TRACING
