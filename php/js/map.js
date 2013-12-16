@@ -1,17 +1,19 @@
+var url="";
 var planet = 1;
 var canvas = document.getElementById('myCanvas');
 var ctx = canvas.getContext('2d');
 var json = "";
 var imageObj = new Image();
 var clans = new Array();
-		
-imageObj.src = 'images/planet/map'+planet+'.png';
-		
-imageObj.onload = function() {
-	getSectorData();
+			
+function initMap(planet, url) {
+
+	this.planet = planet;
+	this.url = url;
 	drawScreen();
-};
-		
+	refresh();
+}
+
 function getRandomInt (min, max) {
 	return Math.floor(Math.random() * (max - min + 1)) + min;
 }
@@ -28,7 +30,7 @@ function get_clan_color(cid) {
 	var nr2 = getRandomInt(128, 256);		
 	var nr3 = getRandomInt(128, 256);		
 			
-	clans[cid] = 'rgba('+nr1+','+nr2+','+nr3+', 0.5)';
+	clans[cid] = 'rgba('+nr1+','+nr2+','+nr3+', 0.7)';
 	return clans[cid];
 }
 
@@ -46,13 +48,11 @@ function getSectorData() {
 		if (xmlhttp.readyState==4 && xmlhttp.status==200) {
 		
 			json = xmlhttp.responseText;
-			
-			alert(json);
 			drawScreen();
 		}
 	}
 	
-	xmlhttp.open("POST", "/warquest" ,true);
+	xmlhttp.open("POST", url+"/" ,true);
 	xmlhttp.setRequestHeader("Content-type","application/x-www-form-urlencoded");
 	xmlhttp.send("mid=1011&eid=1&planet="+planet);
 }
@@ -68,7 +68,7 @@ function getClanInfo(cid) {
 			
 	xmlhttp.onreadystatechange=function() {
 		if (xmlhttp.readyState==4 && xmlhttp.status==200) {
-		
+					
 			var clan = eval('('+xmlhttp.responseText+')');
 														
 			var text = 'Name = '+clan.name+'\r\n';
@@ -79,12 +79,12 @@ function getClanInfo(cid) {
 				text += 'Last Active = '+clan.last_activity+'\r\n';
 				text += 'Clan Id = '+clan.cid+'\r\n';
 				text += 'Player Id = '+clan.pid+'\r\n';
-					
+				
 			alert(text);
 		}
 	}
 	
-	xmlhttp.open("POST", "/warquest" ,true);
+	xmlhttp.open("POST", url+"/" ,true);
 	xmlhttp.setRequestHeader("Content-type","application/x-www-form-urlencoded");
 	xmlhttp.send("mid=1011&eid=2&cid="+cid);
 }
@@ -181,7 +181,8 @@ function drawPologon(x, y, name, damage, cid, event) {
 function drawScreen(event) {
 
 	ctx.clearRect(0, 0, canvas.width, canvas.height);
-			
+
+	imageObj.src = 'images/planet/map'+planet+'.png';
 	ctx.drawImage(imageObj, 0, 0);
 			
 	for(x=0;x<5;x++) {
@@ -235,5 +236,3 @@ function refresh() {
 	getSectorData();
    setTimeout(refresh, 5000);
 }
-
-setTimeout(refresh, 5000);
