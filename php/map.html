@@ -16,12 +16,13 @@
 
 		<script>
 		
-		var url = 'http://127.0.0.1/warquest';
+		var url = 'http://www.warquest.nl';
 		var planet = 1;
 		var canvas = document.getElementById('myCanvas');
 		var ctx = canvas.getContext('2d');
 		var json = "";
 	  	var imageObj = new Image();
+		var clans = new Array();
 		
 		imageObj.src = url+'/images/planet/map'+planet+'.png';
 		
@@ -30,6 +31,26 @@
 			drawScreen();
 		};
 		
+		function getRandomInt (min, max) {
+			return Math.floor(Math.random() * (max - min + 1)) + min;
+		}
+
+		function get_clan_color(cid) {
+		
+			for (a=0; a<clans.length; a++) {
+				if (clans[cid]) {
+					return clans[cid];
+				} 
+			}
+						
+			var nr1 = getRandomInt(128, 256);		
+			var nr2 = getRandomInt(128, 256);		
+			var nr3 = getRandomInt(128, 256);		
+			
+			clans[cid] = 'rgba('+nr1+','+nr2+','+nr3+', 0.5)';
+			return clans[cid];
+		}
+
 		function getSectorData() {
 			if (window.XMLHttpRequest) {
 				// code for IE7+, Firefox, Chrome, Opera, Safari
@@ -65,11 +86,14 @@
 				
 					var clan = eval('('+xmlhttp.responseText+')');
 														
-					var text = 'Name='+clan.name+'\r\n';
-					text += 'Slogan='+clan.slogan+'\r\n';
-					text += 'Won='+clan.won+'\r\n';
-					text += 'Lost='+clan.lost+'\r\n';
-					text += 'Created='+clan.created+'\r\n';
+					var text = 'Name = '+clan.name+'\r\n';
+					text += 'Slogan = '+clan.slogan+'\r\n';
+					text += 'Won = '+clan.won+'\r\n';
+					text += 'Lost = '+clan.lost+'\r\n';
+					text += 'Created = '+clan.created+'\r\n';
+					text += 'Last Active = '+clan.last_activity+'\r\n';
+					text += 'Clan Id = '+clan.cid+'\r\n';
+					text += 'Player Id = '+clan.pid+'\r\n';
 					
 					alert(text);
 				}
@@ -118,7 +142,7 @@
 			return c;
 		}	
 	
-		function drawPologon(x, y, color, name, damage, cid, event) {
+		function drawPologon(x, y, name, damage, cid, event) {
 			
 			var yoffset=4;
 			var xoffset=6;
@@ -133,27 +157,31 @@
 			for( j=1; j<poly.length; j++ ){
 				ctx.lineTo( poly[j].x , poly[j].y )
 			}
+			ctx.lineTo( poly[0].x , poly[0].y )
 			
 			ctx.lineWidth = 1;
 			ctx.strokeStyle = '#000000';
 			ctx.stroke();
 		
-			/* Process event */
-			if (event!=null){
-				if (IsInPath(event)) {		
-					color = 'rgba(0,255,255, 0.5)';
-					
-					ctx.font = '7pt Arial';
-					ctx.fillStyle = 'white';
-					ctx.fillText(x+' '+y , 10 , 290);
-			
-				} 
-			}			
-			if (color!='') {
-				ctx.fillStyle = color;
+			if (name) {
+				ctx.fillStyle = get_clan_color(cid);
 				ctx.fill();
 			}
 			
+			/* Process event */
+			if (event!=null){
+				if (IsInPath(event)) {		
+								
+					ctx.font = '7pt Arial';
+					ctx.fillStyle = 'white';
+					ctx.fillText(x+' '+y , 10 , 290);
+					
+					
+					ctx.fillStyle = 'rgba(0,255,255, 0.5)';
+					ctx.fill();
+				} 
+			}			
+						
 			/* Enter text to Pologon */			
 			ctx.font = '7pt Arial';
 			ctx.fillStyle = 'white';
@@ -173,7 +201,7 @@
 			
 			for(x=0;x<5;x++) {
 				for(y=0;y<15;y++) {
-					drawPologon(x, y, "", "", "", 0, event);
+					drawPologon(x, y, "", "", 0, event);
 				}
 			}
 					
@@ -182,7 +210,7 @@
 			if (obj) {
 				for(i=0;i<obj.length;i++) {				
 					color = 'rgba(255,128,128,0.5)';
-					drawPologon(obj[i].x,obj[i].y, color, obj[i].name, obj[i].damage, obj[i].cid, event);
+					drawPologon(obj[i].x,obj[i].y, obj[i].name, obj[i].damage, obj[i].cid, event);
 				}
 			}
 		}
