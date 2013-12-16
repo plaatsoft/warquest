@@ -22,6 +22,7 @@ include 'constants.inc';
 include 'database.inc';
 include 'general.inc';
 
+/* Make database connection */
 warquest_db_connect($config["dbhost"], $config["dbuser"], $config["dbpass"], $config["dbname"]);
 
 /*
@@ -30,8 +31,9 @@ warquest_db_connect($config["dbhost"], $config["dbuser"], $config["dbpass"], $co
 ** ---------
 */
 
-$planet = warquest_get('planet', 1);
-$eid = warquest_get('eid', 0);
+$eid = warquest_post('eid', 0);
+$planet = warquest_post('planet', 1);
+$cid = warquest_post('cid', 0);
 
 /*
 ** ---------
@@ -39,31 +41,47 @@ $eid = warquest_get('eid', 0);
 ** ---------
 */
 
-function warquest_get_map_data() {
+/**
+ * Proces get sector data
+ */
+function warquest_get_sector_data() {
 
 	global $planet;
 	
 	$query  = 'select a.x, a.y, a.cid, a.damage, ';
 	$query .= '(select b.name from clan b where b.cid=a.cid ) as name ';
 	$query .= 'from sector a where a.planet='.$planet;	
+	
 	$result = warquest_db_query($query);
 		
 	$cell = array();
 		
-	/* Calculate cells with can be attack by clan */
-	$count=0;
 	while ($data = warquest_db_fetch_object($result)) {		
 		
 		if (isset($data->name)) {
-			$cell[$count]['x'] = $data->x;
-			$cell[$count]['y'] = $data->y;
-			$cell[$count]['damage'] = $data->damage;
-			$cell[$count]['name'] = $data->name;
-			$count++;
+		
+			$cell[] = array(
+				'x' 		=> $data->x,
+				'y' 		=> $data->y,
+				'cid' 	=> $data->cid,
+				'damage' => $data->damage,
+				'name' 	=> $data->name );
 		} 
 	}	
 	
-	echo json_encode($cell);
+	return json_encode($cell);
+}
+
+/**
+ * Proces get clan data 
+ */
+function warquest_get_clan_data() {
+
+	global $cid;
+	
+	$data = warquest_db_clan($cid);
+		
+	return json_encode($data);
 }
 
 /*
@@ -71,16 +89,24 @@ function warquest_get_map_data() {
 ** HANDLER
 ** ---------
 */
+
+/* Update request counter */
+warquest_db_player_login_counter(1);
 	
+
 /* Event handler */
 switch ($eid) {
 	
 	case 1: 	
-			warquest_get_map_data();
+			echo warquest_get_sector_data();
+			break;
+			
+	case 2: 	
+			echo warquest_get_clan_data();
 			break;
 			
 	default: 
-			echo "error";
+			echo "Unknown event id";
 			break;
 }
 
