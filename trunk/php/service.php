@@ -104,10 +104,6 @@ switch ($eid) {
 	case 2: 	
 			echo warquest_get_clan_data();
 			break;
-			
-	default: 
-			echo "Unknown event id";
-			break;
 }
 
 /*
