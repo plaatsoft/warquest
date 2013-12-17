@@ -20,6 +20,12 @@ include "constants.inc";
 include "config.inc";
 include "general.inc";
 
+/* 
+** -------
+** General
+** -------
+*/
+
 function process_data($data, $image) {
 	
 	$white = imagecolorallocatealpha($image, 0xff, 0xff, 0xff, 20);
@@ -65,16 +71,22 @@ function process_data($data, $image) {
 }
 
 /* 
-** --------------------------
-** Output image as PNG
-** --------------------------
+** ------
+** Output 
+** ------
 */
 
 $planet = warquest_get('planet', 1);
-$data = warquest_get('data', '');
-$canvas = warquest_get('canvas' ,0);
 
-if ($canvas==0) {
+if ($planet>$config["max_planets"]) {
+	$planet=1;
+}
+
+$data = warquest_get('data', '');
+
+if (isset($_GET['data'])) {
+
+	/* Create server side - PNG image map */
 
 	$image = ImageCreateFromPNG('images/planet/map'.$planet.'.png');
 	AddPologonRaster($image);
@@ -86,19 +98,20 @@ if ($canvas==0) {
 	
 } else {
 
-	/* Create client side map */
+	/* Create client side - HTML5 canvas map */
+	
 	$page  = '<html>';
 	$page .= '<head>';
    $page .= '<style>';
    $page .= 'body {';
-	$page .= 'background: gray;';
-	$page .= 'margin: 10px;';
-	$page .= 'padding: 10px;';
+	$page .= 'background: black;';
+	$page .= 'margin: 5px;';
+	$page .= 'padding: 5px;';
    $page .= '}';
 	$page .= '</style>';
 	$page .= '</head>';
 	$page .= '<body>'; 
-	$page .= '<canvas id="myCanvas" width="483" height="300" ></canvas>';
+	$page .= '<canvas id="myCanvas" width="483" height="300" >HTML5 canvas features are not supported!</canvas>';
 	$page .= '<script language="JavaScript" src="js/map.js"></script>';
 	$page .= '<script language="JavaScript">';
 	$page .= 'initMap('.$planet.',"'.$config["base_url"].'",'.MENU_SERVICE.');';
