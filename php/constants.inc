@@ -128,7 +128,8 @@ define('PAGE_PLAYER_COPY',    	2006);
 define('PAGE_ACTIONS',        	2007);
 define('PAGE_ADMIN_NEWS',     	2008);
 define('PAGE_BROWSER',         	2009);
-define('PAGE_INFO',           	2010);
+define('PAGE_MAPS',           	2010);
+define('PAGE_INFO',           	2011);
 
 /* Player */
 define('PAGE_PROFILE',         	2101);

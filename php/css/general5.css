@@ -144,6 +144,18 @@ a:hover {
 	color: yellow;
 } 
 
+.map {
+	border: solid 2px; 
+	padding: 2px; 
+	-moz-border-radius: 5px; 
+	-khtml-border-radius: 5px; 
+	-webkit-border-radius: 5px; 
+	border-radius: 5px; 
+	margin-bottom: 3px; 
+	text-align: justify;  
+	background-color:rgba(25, 25, 25, 0.7);
+}
+
 .box {
 	border: solid 2px; 
 	padding: 2px 8px; 

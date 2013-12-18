@@ -102,13 +102,6 @@ if (isset($_GET['data'])) {
 	
 	$page  = '<html>';
 	$page .= '<head>';
-   $page .= '<style>';
-   $page .= 'body {';
-	$page .= 'background: black;';
-	$page .= 'margin: 5px;';
-	$page .= 'padding: 5px;';
-   $page .= '}';
-	$page .= '</style>';
 	$page .= '</head>';
 	$page .= '<body>'; 
 	$page .= '<canvas id="myCanvas" width="483" height="300" >HTML5 canvas features are not supported!</canvas>';
