@@ -1856,6 +1856,29 @@ function warquest_admin_member_form() {
 	$page .=	'</form>';	
 }
 
+/**
+ * Admin Maps page
+ */
+function warquest_admin_maps() {
+
+	/* input */
+	global $config;
+	
+	/* output */
+	global $page;
+
+	$title='Clan War maps';
+
+	for ($i=1; $i<=$config['max_planets']; $i++) {
+		$page .= '<div class="subparagraph">'.t('GENERAL_PLANET_'.$i).'</div>';
+		$page .= '<div class="map">';
+		$page .= '<iframe src="map.php?planet='.$i.'" frameborder=0 width="500" height="315" scrolling="no" >';
+		$page .= '</iframe>';
+		$page .= '</div>';
+	}
+}
+
+
 /*
 ** ---------------------
 ** MACHINE
@@ -2019,6 +2042,10 @@ function warquest_admin() {
 			
 		case PAGE_BROWSER:
 			warquest_admin_browser_report();
+			break;	
+			
+		case PAGE_MAPS:
+			warquest_admin_maps();
 			break;	
 			
 		case PAGE_INFO:

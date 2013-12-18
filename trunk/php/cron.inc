@@ -96,14 +96,14 @@ function warquest_cron_remove_inactive_clan_member($output=0) {
 		warquest_db_clan_delete($data2->cid);		
 	}
 
-	$message  = $count1.' inactive clan member(s) removed!<br/>';
-	$message .= $count2.' inactive clan(s) removed!<br/>';
+	$message1 = $count1.' inactive clan member(s) removed!<br/>';
+	$message2 = $count2.' inactive clan(s) removed!<br/>';
 
 	if ($output==1) {
-		$popup .= warquest_box_icon("info", $message);
-	} else {
-		warquest_info($message);
-	}
+		$popup .= warquest_box_icon("info", $message1.' '.$message2);
+	} 
+	warquest_info($message1);
+	warquest_info($message2);
 }
 
 /**
@@ -134,9 +134,9 @@ function warquest_cron_backup($output=0) {
 	
 	if ($output==1) {
 		$popup .= warquest_box_icon("info", $message);
-	} else {
-		warquest_info($message);
-	}
+	} 
+	
+	warquest_info($message);
 }
 
 
@@ -179,9 +179,9 @@ function warquest_cron_negative_income($output=0) {
 
 	if ($output==1) {
 		$popup .= warquest_box_icon("info", $message);	
-	} else {
-		warquest_info($message);
-	}
+	} 
+	
+	warquest_info($message);
 }
 
 /**
@@ -269,9 +269,9 @@ function warquest_cron_delete_pending_invitations($output=0) {
 
 	if ($output==1) {
 		$popup .= warquest_box_icon("info", $message);
-	} else {
-		warquest_info($message);
-	}
+	} 
+		
+	warquest_info($message);
 }
 
 /**
@@ -300,13 +300,10 @@ function warquest_cron_clean_battle_log($output=0) {
 	$message = $count.' battle records are deleted!';
 
 	if ($output==1) {
-	
 		$popup .= warquest_box_icon("info", $message);
-		
-	} else {
+	} 
 	
-		warquest_info($message);
-	}
+	warquest_info($message);
 }
 
 /**
@@ -371,9 +368,9 @@ function warquest_cron_robot_alliancy_update($output=0) {
 	
 	if ($output==1) {
 		$popup .= warquest_box_icon("info", $message);
-	} else {
-		warquest_info($message);
-	}
+	} 
+	
+	warquest_info($message);
 }
 
 /**
@@ -436,9 +433,9 @@ function warquest_cron_player_interest($output=0) {
 	
 	if ($output==1) {
 		$popup .= warquest_box_icon("info", $message);
-	} else {
-		warquest_info($message);
-	}
+	} 
+		
+	warquest_info($message);
 }
 
 /**
@@ -468,9 +465,9 @@ function warquest_cron_clean_bank_log($output=0) {
 
 	if ($output==1) {
 		$popup .= warquest_box_icon("info", $message);
-	} else {
-		warquest_info($message);
 	}
+	
+	warquest_info($message);
 }
 
 /*

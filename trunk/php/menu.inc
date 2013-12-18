@@ -481,6 +481,7 @@ function warquest_menu_admin() {
 	$page .= warquest_ui_menu($mid, PAGE_LEVEL, 0, 'Levels', $sid);
 	$page .= warquest_ui_menu($mid, PAGE_BROWSER, 0, 'Browsers', $sid);
 	$page .= warquest_ui_menu($mid, PAGE_INFO, 0, 'Info', $sid);
+	$page .= warquest_ui_menu($mid, PAGE_MAPS, 0, 'Maps', $sid);
 	$page .= warquest_ui_menu($mid, PAGE_ACTIONS, 0, 'Actions', $sid);
 
 	$page .= '</div>';

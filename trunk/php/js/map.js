@@ -1,11 +1,12 @@
-var url="";
-var planet = 1;
 var canvas = document.getElementById('myCanvas');
 var ctx = canvas.getContext('2d');
 var json = "";
 var imageObj = new Image();
 var clans = new Array();
 var mid = 0;
+var flag = true;
+var url="";
+var planet = 1;
 			
 function initMap(planet, url, mid) {
 
@@ -130,7 +131,7 @@ function isPointInPolygon(x, y, pt){
 	return c;
 }	
 	
-function drawPologon(x, y, name, damage, cid, event) {
+function drawPologon(x, y, name, damage, cid, color) {
 	
 	var yoffset=4;
 	var xoffset=6;
@@ -150,57 +151,67 @@ function drawPologon(x, y, name, damage, cid, event) {
 	ctx.lineWidth = 1;
 	ctx.strokeStyle = '#000000';
 	ctx.stroke();
-		
+	
 	if (name) {
-		ctx.fillStyle = get_clan_color(cid);
+	
+		/* Fill backgound of pologon */	
+		ctx.fillStyle = color;
 		ctx.fill();
-	}
-			
-	/* Process event */
-	if (event!=null){
-		if (IsInPath(event)) {		
-							
-			ctx.font = '7pt Arial';
-			ctx.fillStyle = 'white';
-			ctx.fillText(x+' '+y , 10 , 290);
-									
-			ctx.fillStyle = 'rgba(0,255,255, 0.5)';
-			ctx.fill();
-		} 
-	}			
-						
-	/* Enter text to Pologon */			
-	ctx.font = '7pt Arial';
-	ctx.fillStyle = 'white';
-	ctx.fillText(name, 18+(x*88)+xoffset, 18+(y*18)+yoffset);
-	if (damage>0) {
-		ctx.fillText((damage*10)+'%', 24+(x*88)+xoffset, 28+(y*18)+yoffset);
+
+		/* Enter text to Pologon */			
+		ctx.font = '7pt Arial';
+		ctx.fillStyle = 'white';
+		ctx.fillText(name, 18+(x*88)+xoffset, 18+(y*18)+yoffset);
+		if (damage>0) {
+			ctx.fillText((damage*10)+'%', 24+(x*88)+xoffset, 28+(y*18)+yoffset);
+		}
 	}
 			
 	ctx.closePath();
 }	
 		
 function drawScreen(event) {
-
+	
+	/* Clear canvas */
 	ctx.clearRect(0, 0, canvas.width, canvas.height);
 
+	/* Draw background */
 	imageObj.src = 'images/planet/map'+planet+'.png';
 	ctx.drawImage(imageObj, 0, 0);
 			
+	/* Draw pologons */
 	for(x=0;x<5;x++) {
 		for(y=0;y<15;y++) {
-			drawPologon(x, y, "", "", 0, event);
+			drawPologon(x, y, "", "", 0, "");
 		}
 	}
 					
-	var obj = eval(json);
-	
+	/* Draw clan data */
+	var obj = eval(json);	
 	if (obj) {
 		for(i=0;i<obj.length;i++) {				
 			color = 'rgba(255,128,128,0.5)';
-			drawPologon(obj[i].x,obj[i].y, obj[i].name, obj[i].damage, obj[i].cid, event);
+			drawPologon(obj[i].x,obj[i].y, obj[i].name, obj[i].damage, obj[i].cid, get_clan_color(obj[i].cid));
 		}
 	}
+	
+	/* Draw mouse pointer */
+	if (event) {
+		var mousePos = getMousePos(canvas, event);	
+		for(x=0;x<5;x++) {
+			for(y=0;y<15;y++) {
+				if (isPointInPolygon(x, y, mousePos)) {		
+					drawPologon(x, y, " ", "", 0, "rgba(0,255,255,0.5)");
+					
+					ctx.font = '7pt Arial';
+					ctx.fillStyle = 'white';
+					ctx.fillText(x+' '+y, 10 , 290);
+			
+					break;
+				}
+			}
+		}
+	}	
 }
 	
 function getMousePos(canvas, evt) {
@@ -213,12 +224,20 @@ function getMousePos(canvas, evt) {
 		  
 canvas.addEventListener('mousemove', function(event) {
 
+	/* To improve performance only process each second move event */
+	if (flag) { 
+		flag = false;
+		return;
+	} else {
+		flag=true;
+	}
+
 	drawScreen(event);
 
 }, false);
 	 
 canvas.addEventListener('click', function(event) {
-			
+	
 	var mousePos = getMousePos(canvas, event);
 			
 	var obj = eval(json);
@@ -232,7 +251,6 @@ canvas.addEventListener('click', function(event) {
 		}
 	}		 
 }, false);
-		
 		
 function refresh() {
 	getSectorData();
