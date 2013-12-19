@@ -12,6 +12,7 @@ UPDATE unit SET attack=735, defense=600 WHERE uid=325;
 UPDATE unit SET attack=833, defense=800 WHERE uid=326;
 UPDATE unit SET attack=882, defense=825 WHERE uid=327;
 
+UPDATE unit SET attack=1024, defense=1024 WHERE uid=511;
 UPDATE unit SET attack=2048, defense=1955 WHERE uid=512;
 UPDATE unit SET attack=2112, defense=1980 WHERE uid=513;
 
@@ -88,6 +89,9 @@ UPDATE building SET defense=250 WHERE bid=703;
 UPDATE building SET defense=350 WHERE bid=706;
 UPDATE building SET defense=450 WHERE bid=709;
 UPDATE building SET defense=550 WHERE bid=716;
+
+UPDATE building SET defense=350 WHERE bid=708;
+UPDATE building SET defense=450 WHERE bid=718;
 
 UPDATE building SET defense=1000 WHERE bid=714;
 
