@@ -2818,7 +2818,7 @@ function warquest_ui_banner() {
 	
 	$page .= '<tr>';
 	
-	$page .= '<td valign="top" width="180">';
+	$page .= '<td valign="top" width="170">';
 	$page .= warquest_link_hidden('mid='.MENU_ALLIANCE.'&sid='.PAGE_BEST_PLAYER, t('STATUS_CASH')).': ';
 	$page .= '<span class="value" id="moneyvalue"></span>';
 	
@@ -2836,7 +2836,7 @@ function warquest_ui_banner() {
 	$page .= '<span class="timer">'.gold_format($player->gold).'</span>';
 	$page .= '</td>';
 	
-	$page .= '<td valign="top" width="180">';
+	$page .= '<td valign="top" width="195">';
 	$page .= warquest_link_hidden('mid='.MENU_ALLIANCE.'&sid='.PAGE_BEST_COUNTRY, t('STATUS_EXP')).': ';
 	$page .= '<span class="value experience">'.number_format($player->experience,0,",",".");
 	$page .= '</span>';
