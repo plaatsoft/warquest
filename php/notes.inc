@@ -16,6 +16,21 @@
 **  All copyrights reserved (c) 2008-2013 PlaatSoft
 */
 
+$notes[62] = '
+<div class="subparagraph2">18-12-2013</div>
+<i>Game Server v6.2</i>
+<ul>
+<li>Rebalance earth, moon, mars and asteroid units a little bit more.</li>
+<li>Added 20 extra levels.</li>
+<li>Added admin overview clan war map page.</li>
+</ul>
+<br/>
+
+<i>General</i>
+<ul>
+<li>Please visit www.gravatar.com to upload a player image.</li>
+</ul>';
+
 $notes[61] = '
 <div class="subparagraph2">11-12-2013</div>
 <i>Game Server v6.1</i>
@@ -44,12 +59,6 @@ $notes[61] = '
 <ul>
 <li>Create FirefoxOS webapp.</li>
 <li>Released app on marketplace.firefox.com</li>
-</ul>
-<br/>
-
-<i>General</i>
-<ul>
-<li>Please visit www.gravatar.com to upload a player image.</li>
 </ul>';
 
 $notes[60] = '
