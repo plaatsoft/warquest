@@ -20,9 +20,16 @@ $notes[62] = '
 <div class="subparagraph2">18-12-2013</div>
 <i>Game Server v6.2</i>
 <ul>
-<li>Rebalance earth, moon, mars and asteroid units a little bit more.</li>
+<li>Rebalance earth, moon, mars and asteroid units / buildings.</li>
 <li>Added 20 extra levels.</li>
 <li>Added admin overview clan war map page.</li>
+</ul>
+<br/>
+
+<i>FireFoxOS Client v1.1</i>
+<ul>
+<li>Bugfix: Disable full screen mode.</li>
+<li>Released app on marketplace.firefox.com</li>
 </ul>
 <br/>
 

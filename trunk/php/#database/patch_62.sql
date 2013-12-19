@@ -1,10 +1,17 @@
 -- Rebalance earth units
-UPDATE unit SET attack=607 WHERE uid=127;
-UPDATE unit SET attack=671 WHERE uid=128;
-UPDATE unit SET attack=742 WHERE uid=228;
-UPDATE unit SET attack=797 WHERE uid=229;
-UPDATE unit SET attack=833 WHERE uid=326;
-UPDATE unit SET attack=882 WHERE uid=327;
+UPDATE unit SET attack=549, defense=450 WHERE uid=126;
+UPDATE unit SET attack=607, defense=550 WHERE uid=127;
+UPDATE unit SET attack=671, defense=575 WHERE uid=128;
+
+UPDATE unit SET attack=525, defense=600 WHERE uid=227;
+UPDATE unit SET attack=742, defense=700 WHERE uid=228;
+UPDATE unit SET attack=797, defense=725 WHERE uid=229;
+
+UPDATE unit SET attack=699, defense=500 WHERE uid=324;
+UPDATE unit SET attack=735, defense=600 WHERE uid=325;
+UPDATE unit SET attack=833, defense=800 WHERE uid=326;
+UPDATE unit SET attack=882, defense=825 WHERE uid=327;
+
 UPDATE unit SET attack=2048, defense=1955 WHERE uid=512;
 UPDATE unit SET attack=2112, defense=1980 WHERE uid=513;
 
@@ -54,31 +61,47 @@ INSERT INTO level (lid, experience, unit_lost, building_lost, planet) VALUES (29
 INSERT INTO level (lid, experience, unit_lost, building_lost, planet) VALUES (299,3000000, 1, 1, 4);
 
 -- Rebalance moon units
-UPDATE unit SET attack=788 WHERE uid=710;
-UPDATE unit SET attack=904 WHERE uid=711;
+UPDATE unit SET attack=789 WHERE uid=710;
+UPDATE unit SET attack=903 WHERE uid=711;
+
 UPDATE unit SET attack=200 WHERE uid=807;
 UPDATE unit SET attack=250 WHERE uid=808;
 UPDATE unit SET attack=300 WHERE uid=809;
-UPDATE unit SET attack=386 WHERE uid=810;
+UPDATE unit SET attack=361 WHERE uid=810;
 UPDATE unit SET attack=489 WHERE uid=811;
+
 UPDATE unit SET attack=5384 WHERE uid=916;
 UPDATE unit SET attack=5488 WHERE uid=917;
+
 UPDATE unit SET attack=2736 WHERE uid=1211;
 UPDATE unit SET attack=2918 WHERE uid=1212;
 
 -- Rebalance moon buildings
-UPDATE building SET defense=350 WHERE bid=708;
-UPDATE building SET defense=450 WHERE bid=718;
+UPDATE building SET defense=250 WHERE bid=701;
+UPDATE building SET defense=300 WHERE bid=704;
+UPDATE building SET defense=450 WHERE bid=707;
+UPDATE building SET defense=550 WHERE bid=710;
+UPDATE building SET defense=650 WHERE bid=717;
 
+UPDATE building SET defense=100 WHERE bid=700;
+UPDATE building SET defense=250 WHERE bid=703;
+UPDATE building SET defense=350 WHERE bid=706;
+UPDATE building SET defense=450 WHERE bid=709;
+UPDATE building SET defense=550 WHERE bid=716;
+
+UPDATE building SET defense=1000 WHERE bid=714;
 
 -- Rebalance mars units
 UPDATE unit SET attack=888 WHERE uid=1309;
-UPDATE unit SET attack=1045 WHERE uid=1310;
+UPDATE unit SET attack=1054, defense=700 WHERE uid=1310;
+
 UPDATE unit SET attack=1928 WHERE uid=1409;
 UPDATE unit SET attack=2092 WHERE uid=1410;
-UPDATE unit SET attack=3600 WHERE uid=1507;
+
+UPDATE unit SET attack=3000, defense=3600 WHERE uid=1507;
 UPDATE unit SET attack=3858 WHERE uid=1509;
-UPDATE unit SET attack=4028 WHERE uid=1510;
+UPDATE unit SET attack=4028, defense=3650 WHERE uid=1510;
+
 UPDATE unit SET attack=2022 WHERE uid=1609;
 UPDATE unit SET attack=2210 WHERE uid=1610;
 
@@ -88,7 +111,7 @@ UPDATE building SET defense=450 WHERE bid=1701;
 -- Rebalance asteroid units
 UPDATE unit SET attack=650 WHERE uid=1907;
 UPDATE unit SET attack=790 WHERE uid=1909;
-UPDATE unit SET attack=1022 WHERE uid=1910;
+UPDATE unit SET attack=1022, defense=650 WHERE uid=1910;
 
 UPDATE unit SET attack=1200 WHERE uid=2006;
 UPDATE unit SET attack=1600 WHERE uid=2007;
@@ -96,10 +119,10 @@ UPDATE unit SET attack=1982 WHERE uid=2009;
 UPDATE unit SET attack=2188 WHERE uid=2010;
 
 UPDATE unit SET attack=3300 WHERE uid=2106;
-UPDATE unit SET attack=2800 WHERE uid=2107;
+UPDATE unit SET attack=2800, defense=3600 WHERE uid=2107;
 UPDATE unit SET attack=3400 WHERE uid=2108;
 UPDATE unit SET attack=3756 WHERE uid=2109;
-UPDATE unit SET attack=3914 WHERE uid=2110;
+UPDATE unit SET attack=3914, defense=3650 WHERE uid=2110;
 
 UPDATE unit SET attack=1000 WHERE uid=2205;
 UPDATE unit SET attack=1200 WHERE uid=2206;
