@@ -134,3 +134,10 @@ UPDATE unit SET attack=1500 WHERE uid=2207;
 UPDATE unit SET attack=1700 WHERE uid=2208;
 UPDATE unit SET attack=1974 WHERE uid=2209;
 UPDATE unit SET attack=2144 WHERE uid=2210;
+
+
+-- Increase building max to 645
+UPDATE building SET max=645 WHERE max=600;
+
+-- Increase unit max to 5382
+UPDATE unit SET max=5382 WHERE max=5000;
