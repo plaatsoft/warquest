@@ -1,6 +1,6 @@
 {
   "name": "WarQuest",
-  "version": "1.0",
+  "version": "1.1",
   "description": "WarQuest is a Free Multiplayer Online Game featuring a war zone with thousands of real players.",
   "launch_path": "/",
   "icons": {
@@ -17,6 +17,5 @@
     "name": "PlaatSoft",
     "url": "http://www.plaatsoft.nl"
   },
-  "default_locale": "en",
-  "fullscreen": "true"
+  "default_locale": "en"
 }
