@@ -22,6 +22,8 @@ $notes[62] = '
 <ul>
 <li>Rebalance earth, moon, mars and asteroid units / buildings.</li>
 <li>Added 20 extra levels.</li>
+<li>Increase maximum unit amount to 5382.</li>
+<li>Increase maximum building amount to 645.</li>
 <li>Added admin overview clan war map page.</li>
 </ul>
 <br/>
