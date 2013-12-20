@@ -576,11 +576,6 @@ $lang['PLAYER_HEALTH']  = 'SALUD';
 $lang['PLAYER_ENERGY']  = 'ENERGÍA'; 
 $lang['PLAYER_AMMO']  = 'MUNICIÓN'; 
 
-$lang['PLAYER_ATTACK_TIP']  = 'Aumente su habilidad de ataque para causar más daños y ganar los combates. Se necesita %s para aumentar su fuerza de ataque en %s. Disminuya su habilidad de ataque en %s para conseguir 1 punto de habilidad a cambio.';
-$lang['PLAYER_DEFENSE_TIP'] = 'Aumente su habilidad de defensa para resistir contra los ataques. Se necesita %s para aumentar su fuerza de defensa con %s. Disminuya su habilidad de defensa en %s para conseguir 1 punto de habilidad a cambio.';
-$lang['PLAYER_HEALTH_TIP']  = 'Aumente su habilidad de salud máx. para sobrevivir a largas luchas. Se necesita %s para aumentar el nivel max de salud en 10. Disminuya su nivel de salud en 20 para conseguir 1 punto de habilidad a cambio.';
-$lang['PLAYER_ENERGY_TIP']  = 'Aumente su habilidad de energia máx. para jugar mas misiones. Se necesita %s para aumentar el nivel max de energia en 10. Disminuya su nivel de energia en 20 para conseguir 1 punto de habilidad a cambio.';
-$lang['PLAYER_AMMO_TIP']  = 'Aumente su habilidad de munición máx. para aumentar su capacidad de lucha. Se necesitan %s para aumentar tu municion en 1. Disminuya su nivel de municion en 1 para conseguir 1 punto de habilidad a cambio.';
 
 $lang['PLAYER_SKILL_ACCEPTED1']  = '%s habilidad aumentada.';
 $lang['PLAYER_SKILL_REJECTED1']  = 'Necesita %s punto(s) de habilidad para cambiar esta habilidad.';
