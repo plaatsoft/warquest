@@ -831,15 +831,15 @@ $lang['MISSION_GROUP_37'] = 'Harry';
 $lang['MISSION_GROUP_38'] = 'Isaac';
 
 /* Neptune Missions */
-$lang['MISSION_GROUP_40'] = 'Alfred';
-$lang['MISSION_GROUP_41'] = 'Benjamin';
-$lang['MISSION_GROUP_42'] = 'Charles';
-$lang['MISSION_GROUP_43'] = 'David';
-$lang['MISSION_GROUP_44'] = 'Edward';
+$lang['MISSION_GROUP_40'] = 'Addison';
+$lang['MISSION_GROUP_41'] = 'Bella';
+$lang['MISSION_GROUP_42'] = 'Caroline';
+$lang['MISSION_GROUP_43'] = 'Daniel';
+$lang['MISSION_GROUP_44'] = 'Eva';
 $lang['MISSION_GROUP_45'] = 'Frederick';
-$lang['MISSION_GROUP_46'] = 'George';
-$lang['MISSION_GROUP_47'] = 'Harry';
-$lang['MISSION_GROUP_48'] = 'Isaac';
+$lang['MISSION_GROUP_46'] = 'Genesis';
+$lang['MISSION_GROUP_47'] = 'Hailey';
+$lang['MISSION_GROUP_48'] = 'Ian';
 
 
 /* Earth */
@@ -1296,7 +1296,7 @@ $lang['MISSION_COMPLETE_PLANET_3'] = 'Excellent! You completed all mars missions
 $lang['MISSION_COMPLETE_PLANET_4'] = 'Excellent! You completed all asteroid missions. You received 2500 gold bonus.';
 $lang['MISSION_COMPLETE_PLANET_5'] = 'Excellent! You completed all neptune missions. You received 5000 gold bonus.';
 
-$lang['MISSION_NO_MISSIONS'] = 'No missions available!';
+$lang['MISSION_NO_MISSIONS'] = 'No missions available yet!';
 
 /*
 ** ------------------
@@ -1742,7 +1742,7 @@ $lang['UNIT_NO_UPKEEP'] = 'Not enough hourly income to fund %s %s.';
 $lang['UNIT_NO_FUNDS'] = 'Not enough funds to buy %s %s for %s.';
 $lang['UNIT_MAX'] = 'No more then %s %s(s) allowed!';
 
-$lang['UNITS_NO_UNITS'] = 'No units available!';
+$lang['UNITS_NO_UNITS'] = 'No units available yet!';
 
 /*
 ** ------------------
@@ -2127,7 +2127,7 @@ $lang['BUILDING_ENERGY'] = 'Energy';
 $lang['BUILDING_INCOME'] = 'Income';
 $lang['BUILDING_REQUIRED'] = 'Required';
 
-$lang['BUILDINGS_NO_BUILDINGS'] = 'No buildings available!';
+$lang['BUILDINGS_NO_BUILDINGS'] = 'No buildings available yet!';
 
 /*
 ** ------------------
