@@ -156,10 +156,10 @@ INSERT INTO unit_group (ugid , planet , type) VALUES ( 30, 5, 0);
 
 -- Added Neptune building groups
 INSERT INTO building_group ( bgid, planet, sell, type ) VALUES ( 21, 5, 1, 1);
-INSERT INTO building_group ( bgid, planet, sell, type ) VALUES ( 22, 5, 0, 2);
+INSERT INTO building_group ( bgid, planet, sell, type ) VALUES ( 22, 5, 1, 2);
 INSERT INTO building_group ( bgid, planet, sell, type ) VALUES ( 23, 5, 0, 3);
 INSERT INTO building_group ( bgid, planet, sell, type ) VALUES ( 24, 5, 0, 4);
-INSERT INTO building_group ( bgid, planet, sell, type ) VALUES ( 25, 5, 1, 5);
+INSERT INTO building_group ( bgid, planet, sell, type ) VALUES ( 25, 5, 0, 5);
 
 -- Added Neptune mission groups
 INSERT INTO mission_group (mgid , planet ) VALUES ( 40, 5 );
