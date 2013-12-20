@@ -1151,30 +1151,14 @@ function warquest_player_data_unlocked($other, $value) {
 	if (($other->pid==$player->pid) || ($player->pid==$config["adminPid"])) {
 		return true;
 	}
-	
-	switch ($player->planet) {
 		
-		case PLANET_EARTH:
-					$spy = t('PLAYER_SPY_1');
-					$ugid=6;
-					break;
-	
-		case PLANET_MOON:
-					$spy = t('PLAYER_SPY_2');
-					$ugid=12;	
-					break;
-					
-		case PLANET_MARS:
-					$spy = t('PLAYER_SPY_3');
-					$ugid=16;	
-					break;
-					
-		case PLANET_ASTEROID:
-					$spy = t('PLAYER_SPY_4');
-					$ugid=22;	
-					break;
-	}
-			
+	$query = 'select ugid from unit_group where type=5 and planet='.$player->planet;
+	$result = warquest_db_query($query);
+	$data = warquest_db_fetch_object($result);
+	$ugid = $data->ugid;
+		
+	$spy = t('PLAYER_SPY_'.$player->planet);
+				
 	$tmp1 = warquest_defense_strength($other, $ugid);
 	$tmp1 = round( $tmp1* (($value/100)+1));
 		

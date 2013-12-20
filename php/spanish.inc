@@ -526,6 +526,8 @@ $lang['PLAYER_SPY_1'] = 'Inteligencia';
 $lang['PLAYER_SPY_2'] = 'Exploradores';
 $lang['PLAYER_SPY_3'] = 'Exploradores';
 $lang['PLAYER_SPY_4'] = 'Exploradores';
+$lang['PLAYER_SPY_5'] = 'Exploradores';
+
 $lang['PLAYER_ESPIONAGE_UNLOCK1'] = 'Desbloqueado cuando tu fuerza de %s sea %s% superior a la de tu oponente.';
 $lang['PLAYER_ESPIONAGE_UNLOCK2'] = 'Desbloqueado cuando tu fuerza de %s sea igual o superior a la de tu oponente.';
 
@@ -1172,10 +1174,10 @@ $lang['MISSION_COMPLETE_TEXT'] = 'Usted conquistó los siguientes continentes has
 
 $lang['MISSION_REBEL'] = 'Rebelion';
 
-$lang['MISSION_COMPLETE_PLANET_0'] = 'Excelente! Has completado todas las misiones de la Tierra. Has recibido 100 millones de dólares de bonificación.';
-$lang['MISSION_COMPLETE_PLANET_1'] = 'Excelente! Has completado todas las misiones a la Luna. Has recibido 500 millones de dólares de bonificación.';
-$lang['MISSION_COMPLETE_PLANET_2'] = 'Excelente! Has completado todas las misiones de Marte. Has recibido 999 mil millones de dólares de bonificación.';
-$lang['MISSION_COMPLETE_PLANET_3'] = 'Excelente! Has completado todas las misiones de asteroides. Has recibido 50 puntos de comercio como bonificación.';
+$lang['MISSION_COMPLETE_PLANET_1'] = 'Excelente! Has completado todas las misiones de la Tierra. Has recibido 100 millones de dólares de bonificación.';
+$lang['MISSION_COMPLETE_PLANET_2'] = 'Excelente! Has completado todas las misiones a la Luna. Has recibido 500 millones de dólares de bonificación.';
+$lang['MISSION_COMPLETE_PLANET_3'] = 'Excelente! Has completado todas las misiones de Marte. Has recibido 999 mil millones de dólares de bonificación.';
+$lang['MISSION_COMPLETE_PLANET_4'] = 'Excelente! Has completado todas las misiones de asteroides. Has recibido 50 puntos de comercio como bonificación.';
 
 /*
 ** ------------------
@@ -1199,8 +1201,9 @@ $lang['BATTLE_DEFENSE_BASE'] = '%s defensas de la base:';
 $lang['BATTLE_ATTACK_FORCE'] = 'Tu %s ataque %s (%s fuerza de ataque)';
 $lang['BATTLE_MORE'] = 'más';
 $lang['BATTLE_NO_PLAYER_AVAILABLE'] = 'En estos momentos ningún jugador(es) están disponibles para combatir.';
-$lang['BATTLE_UNLOCKED'] = 'Opción Batalla se desbloquea en el nivel 1.<br/>Complete la misión de entrenamiento primero.';
-$lang['BATTLE_BOUNTY_UNLOCKED'] = 'La opción Caza Recompensas se desbloquea en el nivel %s.';
+$lang['BATTLE_UNLOCKED'] = '%s opción Batalla se desbloquea en el nivel %s.';
+$lang['BATTLE_FIRST_MISSION'] = 'Complete la misión de entrenamiento primero.';
+$lang['BATTLE_BOUNTY_UNLOCKED'] = '%s la opción Caza Recompensas se desbloquea en el nivel %s.';
 $lang['BATTLE_ALLY_NO_ATTACK'] = '<b>%s</b> es un aliado. No puede atacar a sus aliados.';
 $lang['BATTLE_SURRENDER'] = 'Rendición temporal';
 
@@ -1225,11 +1228,8 @@ $lang['BATTLE_REBEL_UPDATE3'] = 'Es una pena, ninguna región está disponible par
 $lang['BATTLE_NO_BOUNTY_MONEY'] = 'No dispone de %s de dólares para establecer una recompensa por la cabeza de %s .';
 $lang['BATTLE_BOUNTY_SET'] = 'Has ofrecido %s dólares por la cabeza de %s . Cuando %s sea derrotado, perderá %s puntos de experiencia.'; 
 
-$lang['BATTLE_MOON_UNLOCKED'] = 'Las batallas en la Luna se desbloquean en el nivel 100.';
-$lang['BATTLE_MARS_UNLOCKED'] = 'Las batallas en Marte se desbloquean en el nivel 150.';
-$lang['BATTLE_ASTERIOD_UNLOCKED'] = 'Las batallas en el Asteroide se desbloquean en el nivel 200.';
-
 $lang['BATTLE_RANGE'] = 'Los jugadores desde el nivel %s hasta el %s están a tu alcance en Batalla.';
+
 /*
 ** ------------------
 ** UNIT DATA

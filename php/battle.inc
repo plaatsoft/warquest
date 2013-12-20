@@ -1267,6 +1267,10 @@ function warquest_battle_do() {
 	} else if (($player->planet==PLANET_ASTEROID) && ($player->lid<200)) {
 	
 		/* No asteroid battles possible before level 200 */
+
+	} else if (($player->planet==PLANET_NEPTUNE) && ($player->lid<250)) {
+	
+		/* No neptune battles possible before level 250 */		
 		
 	} else if (warquest_battle_check($player, $other, warquest_get_default_force())==1) {
 		
@@ -1665,7 +1669,16 @@ function warquest_battle_clan_war_form() {
 	
 	$lid=15;
 		
-	if (($player->planet==PLANET_MOON) && ($player->lid<100)) {
+	$query = 'select uid from unit a, unit_group b where a.ugid=b.ugid and b.planet='.$player->planet;
+	$result = warquest_db_query($query);	
+	$data = warquest_db_fetch_object($result);
+	$count = warquest_db_num_rows($result);
+		
+	if ($count==0) {
+		
+		$page .= warquest_box_icon('info', t('BATTLE_NO_UNITS_AVAILABLE'));
+		
+	} else if (($player->planet==PLANET_MOON) && ($player->lid<100)) {
 	
 		$message = '<table>';
 		$message .= '<tr>';
@@ -1673,7 +1686,7 @@ function warquest_battle_clan_war_form() {
 		$message .= warquest_image("other/unlock.png");
 		$message .= '</td>';
 		$message .= '<td>';
-		$message .= t('BATTLE_CLAN_WAR_MOON_UNLOCKED');
+		$message .= t('BATTLE_CLAN_WAR_UNLOCKED', t('GENERAL_PLANET_'.$player->planet), 100);
 		$message .= '</td>';
 		$message .= '</tr>';
 		$message .= '</table>';
@@ -1688,7 +1701,7 @@ function warquest_battle_clan_war_form() {
 		$message .= warquest_image("other/unlock.png");
 		$message .= '</td>';
 		$message .= '<td>';
-		$message .= t('BATTLE_CLAN_WAR_MARS_UNLOCKED');
+		$message .= t('BATTLE_CLAN_WAR_UNLOCKED', t('GENERAL_PLANET_'.$player->planet), 150);
 		$message .= '</td>';
 		$message .= '</tr>';
 		$message .= '</table>';
@@ -1703,13 +1716,28 @@ function warquest_battle_clan_war_form() {
 		$message .= warquest_image("other/unlock.png");
 		$message .= '</td>';
 		$message .= '<td>';
-		$message .= t('BATTLE_CLAN_WAR_ASTERIOD_UNLOCKED');
+		$message .= t('BATTLE_CLAN_WAR_UNLOCKED', t('GENERAL_PLANET_'.$player->planet), 200);
 		$message .= '</td>';
 		$message .= '</tr>';
 		$message .= '</table>';
 
 		$page .= warquest_box("", $message);
-	
+		
+	} else if (($player->planet==PLANET_NEPTUNE) && ($player->lid<250)) {
+			
+		$message = '<table>';
+		$message .= '<tr>';
+		$message .= '<td>';
+		$message .= warquest_image("other/unlock.png");
+		$message .= '</td>';
+		$message .= '<td>';
+		$message .= t('BATTLE_CLAN_WAR_UNLOCKED', t('GENERAL_PLANET_'.$player->planet), 250);
+		$message .= '</td>';
+		$message .= '</tr>';
+		$message .= '</table>';
+
+		$page .= warquest_box("", $message);
+			
 	} else if ($player->lid < $lid) {
 			
 		$message = '<table>';
@@ -1718,7 +1746,7 @@ function warquest_battle_clan_war_form() {
 		$message .= warquest_image("other/unlock.png");
 		$message .= '</td>';
 		$message .= '<td>';
-		$message .= t('BATTLE_CLAN_WAR_EARTH_UNLOCKED', $lid);
+		$message .= t('BATTLE_CLAN_WAR_UNLOCKED', t('GENERAL_PLANET_'.$player->planet), $lid);
 		$message .= '</td>';
 		$message .= '</tr>';
 		$message .= '</table>';
@@ -1769,7 +1797,16 @@ function warquest_battle_bounty_form() {
 	$title = t('BATTLE_BOUNTY_TITLE');
 	$lid=10;
 	
-	if (($player->planet==PLANET_MOON) && ($player->lid<100)) {
+	$query = 'select uid from unit a, unit_group b where a.ugid=b.ugid and b.planet='.$player->planet;
+	$result = warquest_db_query($query);	
+	$data = warquest_db_fetch_object($result);
+	$count = warquest_db_num_rows($result);
+			
+	if ($count==0) {
+		
+		$page .= warquest_box_icon('info', t('BATTLE_NO_UNITS_AVAILABLE'));
+		
+	} else if (($player->planet==PLANET_MOON) && ($player->lid<100)) {
 	
 		$message = '<table>';
 		$message .= '<tr>';
@@ -1777,7 +1814,7 @@ function warquest_battle_bounty_form() {
 		$message .= warquest_image("other/unlock.png");
 		$message .= '</td>';
 		$message .= '<td>';
-		$message .= t('BATTLE_MOON_UNLOCKED');
+		$message .= t('BATTLE_BOUNTY_UNLOCKED', t('GENERAL_PLANET_'.$player->planet), 100);
 		$message .= '</td>';
 		$message .= '</tr>';
 		$message .= '</table>';
@@ -1792,7 +1829,7 @@ function warquest_battle_bounty_form() {
 		$message .= warquest_image("other/unlock.png");
 		$message .= '</td>';
 		$message .= '<td>';
-		$message .= t('BATTLE_MARS_UNLOCKED');
+		$message .= t('BATTLE_BOUNTY_UNLOCKED', t('GENERAL_PLANET_'.$player->planet), 150);
 		$message .= '</td>';
 		$message .= '</tr>';
 		$message .= '</table>';
@@ -1807,7 +1844,22 @@ function warquest_battle_bounty_form() {
 		$message .= warquest_image("other/unlock.png");
 		$message .= '</td>';
 		$message .= '<td>';
-		$message .= t('BATTLE_ASTERIOD_UNLOCKED');
+		$message .= t('BATTLE_BOUNTY_UNLOCKED', t('GENERAL_PLANET_'.$player->planet), 200);
+		$message .= '</td>';
+		$message .= '</tr>';
+		$message .= '</table>';
+
+		$page .= warquest_box("", $message);
+	
+	} else if (($player->planet==PLANET_NEPTUNE) && ($player->lid<250)) {
+			
+		$message = '<table>';
+		$message .= '<tr>';
+		$message .= '<td>';
+		$message .= warquest_image("other/unlock.png");
+		$message .= '</td>';
+		$message .= '<td>';
+		$message .= t('BATTLE_BOUNTY_UNLOCKED', t('GENERAL_PLANET_'.$player->planet), 250);
 		$message .= '</td>';
 		$message .= '</tr>';
 		$message .= '</table>';
@@ -1822,7 +1874,7 @@ function warquest_battle_bounty_form() {
 		$message .= warquest_image("other/unlock.png");
 		$message .= '</td>';
 		$message .= '<td>';
-		$message .= t('BATTLE_BOUNTY_UNLOCKED', $lid);
+		$message .= t('BATTLE_BOUNTY_UNLOCKED', t('GENERAL_PLANET_1'), $lid);
 		$message .= '</td>';
 		$message .= '</tr>';
 		$message .= '</table>';
@@ -1954,8 +2006,17 @@ function warquest_battle_enemy_form() {
 	global $title;
 	
 	$title = t('BATTLE_GENERAL_TITLE');
+		
+	$query = 'select uid from unit a, unit_group b where a.ugid=b.ugid and b.planet='.$player->planet;
+	$result = warquest_db_query($query);	
+	$data = warquest_db_fetch_object($result);
+	$count = warquest_db_num_rows($result);
 	
-	if ($player->lid==0) {
+	if ($count==0) {
+		
+		$page .= warquest_box_icon('info', t('BATTLE_NO_UNITS_AVAILABLE'));
+		
+	} else if ($player->lid==0) {
 			
 		$message = '<table>';
 		$message .= '<tr>';
@@ -1963,7 +2024,9 @@ function warquest_battle_enemy_form() {
 		$message .= warquest_image("other/unlock.png");
 		$message .= '</td>';
 		$message .= '<td>';
-		$message .= t('BATTLE_UNLOCKED');
+		$message .= t('BATTLE_UNLOCKED', t('GENERAL_PLANET_1'), 1);
+		$message .= '<br/>';
+		$message .= t('BATTLE_FIRST_MISSION');
 		$message .= '</td>';
 		$message .= '</tr>';
 		$message .= '</table>';
@@ -1992,7 +2055,7 @@ function warquest_battle_enemy_form() {
 		$message .= warquest_image("other/unlock.png");
 		$message .= '</td>';
 		$message .= '<td>';
-		$message .= t('BATTLE_MOON_UNLOCKED');
+		$message .= t('BATTLE_UNLOCKED', t('GENERAL_PLANET_'.$player->planet), 100);
 		$message .= '</td>';
 		$message .= '</tr>';
 		$message .= '</table>';
@@ -2007,7 +2070,7 @@ function warquest_battle_enemy_form() {
 		$message .= warquest_image("other/unlock.png");
 		$message .= '</td>';
 		$message .= '<td>';
-		$message .= t('BATTLE_MARS_UNLOCKED');
+		$message .= t('BATTLE_UNLOCKED', t('GENERAL_PLANET_'.$player->planet), 150);
 		$message .= '</td>';
 		$message .= '</tr>';
 		$message .= '</table>';
@@ -2022,13 +2085,28 @@ function warquest_battle_enemy_form() {
 		$message .= warquest_image("other/unlock.png");
 		$message .= '</td>';
 		$message .= '<td>';
-		$message .= t('BATTLE_ASTERIOD_UNLOCKED');
+		$message .= t('BATTLE_UNLOCKED', t('GENERAL_PLANET_'.$player->planet), 200);
 		$message .= '</td>';
 		$message .= '</tr>';
 		$message .= '</table>';
 
 		$page .= warquest_box("", $message);
-	
+		
+	} else if (($player->planet==PLANET_NEPTUNE) && ($player->lid<250)) {
+			
+		$message = '<table>';
+		$message .= '<tr>';
+		$message .= '<td>';
+		$message .= warquest_image("other/unlock.png");
+		$message .= '</td>';
+		$message .= '<td>';
+		$message .= t('BATTLE_UNLOCKED', t('GENERAL_PLANET_'.$player->planet), 250);
+		$message .= '</td>';
+		$message .= '</tr>';
+		$message .= '</table>';
+
+		$page .= warquest_box("", $message);
+		
 	} else {
 				
 		/* Get player data */	
@@ -2054,7 +2132,7 @@ function warquest_battle_enemy_form() {
 		}
 		
 		$result = warquest_db_query($query);	 
-		$count=warquest_db_num_rows($result);
+		$count = warquest_db_num_rows($result);
 
 		if ($count==0) {
 		

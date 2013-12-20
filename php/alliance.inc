@@ -933,7 +933,7 @@ function warquest_clan_form() {
 		$message .= warquest_image("other/unlock.png");
 		$message .= '</td>';
 		$message .= '<td>';
-		$message .= t('BATTLE_CLAN_WAR_UNLOCKED', $lid);
+		$message .= t('BATTLE_CLAN_WAR_UNLOCKED', t('GENERAL_PLANET_1'), $lid);
 		$message .= '</td>';
 		$message .= '</tr>';
 		$message .= '</table>';

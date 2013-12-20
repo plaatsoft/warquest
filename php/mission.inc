@@ -84,6 +84,10 @@ function warquest_mission_planet_complet_bonus() {
 					case PLANET_ASTEROID:	
 								$player->gold += 2500;
 								break;
+								
+					case PLANET_NEPTUNE:	
+								$player->gold += 5000;
+								break;
 				}
 			}
 		}		

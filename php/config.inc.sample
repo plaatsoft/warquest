@@ -103,7 +103,7 @@ $config["building_sell_ratio"]		= .6;
 
 $config["min_clan_size"]				= 6;
 
-$config["max_planets"]					= 4;
+$config["max_planets"]					= 5;
 $config["max_level"]				 	   = 299;
 $config["max_attack_level_diff"]		= 3;
 $config["max_linear_attack_level"]	= 30;
