@@ -48,9 +48,9 @@ function process_data($data, $image) {
 				if ($owner==1) {
 					$color = ImageColorAllocatealpha($image, 0, 255, 0, 60);	
 				} else if ($owner==2) {
-					$color = ImageColorAllocatealpha($image, 255, 165, 0, 80);
+					$color = ImageColorAllocatealpha($image, 255, 165, 0, 60);
 				} else {				
-					$color = ImageColorAllocatealpha($image, 255, 0, 0, 80);	
+					$color = ImageColorAllocatealpha($image, 255, 0, 0, 60);	
 				}
 
 				fillPologon($image, $color, $x, $y);
