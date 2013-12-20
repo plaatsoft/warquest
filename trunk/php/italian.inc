@@ -501,6 +501,9 @@ $lang['PLAYER_CONTINENT_TEXT'] = 'Il giocatore %s ha conquistato i seguenti cont
 $lang['PLAYER_SPY_1'] = 'intel';
 $lang['PLAYER_SPY_2'] = 'esploratori';
 $lang['PLAYER_SPY_3'] = 'esploratori';
+$lang['PLAYER_SPY_4'] = 'esploratori';
+$lang['PLAYER_SPY_5'] = 'esploratori';
+
 $lang['PLAYER_ESPIONAGE_UNLOCK1'] = 'Sbloccato quando la tua potenza %s è %s% superiore a quella dell\'avversario.';
 $lang['PLAYER_ESPIONAGE_UNLOCK2'] = 'Sbloccato quando la potenza del tuo %s è uguale o superiore a quella dell\'avversario.';
 
@@ -1135,8 +1138,9 @@ $lang['BATTLE_DEFENSE_BASE'] = 'Difesa base %s:';
 $lang['BATTLE_ATTACK_FORCE'] = 'La potenza d\'attacco del tuo %s %s (potenza attacco %s)';
 $lang['BATTLE_MORE'] = 'più';
 $lang['BATTLE_NO_PLAYER_AVAILABLE'] = 'Al momento non c\'è nessun giocatore disponibile per le lotte.';
-$lang['BATTLE_UNLOCKED'] = 'La lotta viene sbloccata al livello 1.<br/>Completa la missione d\'allenamento prima.';
-$lang['BATTLE_BOUNTY_UNLOCKED'] = 'La caccia alle taglie viene sbloccata al livello %s.';
+$lang['BATTLE_UNLOCKED'] = '%s la lotta viene sbloccata al livello %s.';
+$lang['BATTLE_FIRST_MISSION'] = 'Completa la missione d\'allenamento prima.';
+$lang['BATTLE_BOUNTY_UNLOCKED'] = '%s la caccia alle taglie viene sbloccata al livello %s.';
 $lang['BATTLE_ALLY_NO_ATTACK'] = '<b>%s</b> è un alleato. Non puoi attaccare gli alleati.';
 $lang['BATTLE_SURRENDER'] = 'Arreso temporaneamente';
 
@@ -1160,10 +1164,6 @@ $lang['BATTLE_REBEL_UPDATE3'] = 'Peccato, nessuna regione disponibile per la riv
 
 $lang['BATTLE_NO_BOUNTY_MONEY'] = 'Non hai %s dollari per mettere una taglia sulla testa di %s.';
 $lang['BATTLE_BOUNTY_SET'] = 'Hai messo %s dollari sulla testa di %s. Quando %s viene sconfitto, perderà %s punti esperienza.'; 
-
-$lang['BATTLE_MOON_UNLOCKED'] = 'Le lotte sulla Luna vengono sbloccate al livello 100.';
-$lang['BATTLE_MARS_UNLOCKED'] = 'Le lotte su Marte vengono sbloccate al livello 150.';
-$lang['BATTLE_ASTERIOD_UNLOCKED'] = 'Le lotte su Asteroid vengono sbloccate al livello 200.';
 
 $lang['BATTLE_RANGE'] = 'I giocatori dal livello %s fino al %s sono adatti per lottare contro di te.';
 /*

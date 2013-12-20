@@ -528,6 +528,8 @@
  $lang['PLAYER_SPY_2'] = 'exploratori';
  $lang['PLAYER_SPY_3'] = 'exploratori';
  $lang['PLAYER_SPY_4'] = 'exploratori';
+ $lang['PLAYER_SPY_5'] = 'exploratori';
+ 
  $lang['PLAYER_ESPIONAGE_UNLOCK1'] = 'deblocat cand puterea %s este %s% mai mare decat a oponentului.';
  $lang['PLAYER_ESPIONAGE_UNLOCK2'] = 'delocat cand %s puterea ta este egaka sau mai mare decat a oponentului.';
 
@@ -1254,10 +1256,10 @@
  $lang['MISSION_CONTINTENT_READY4'] = ' continua cu partea %s de pe acest continent!';
  $lang['MISSION_COMPLETE_TEXT'] = 'ai cucerit urmatoarele continente pana acum!';
  $lang['MISSION_REBEL'] = 'Revolta';
- $lang['MISSION_COMPLETE_PLANET_0'] = 'Excellent! Ai completat toate misiunile de pe Pamant. primesti 100 milioane dolari bonus.';
- $lang['MISSION_COMPLETE_PLANET_1'] = 'Excellent! Ai completat toate misiunile de pe Luna. primesti 500 milioane dolari bonus.';
- $lang['MISSION_COMPLETE_PLANET_2'] = 'Excellent! Ai completat toate misiunile de pe Marte. Ai primit 999 billione dolari bonus.';
- $lang['MISSION_COMPLETE_PLANET_3'] = 'Excellent! Ai completat toate misiunile de pe Asteroid.Primesti 50 puncte de schimb bonus.';
+ $lang['MISSION_COMPLETE_PLANET_1'] = 'Excellent! Ai completat toate misiunile de pe Pamant. primesti 100 milioane dolari bonus.';
+ $lang['MISSION_COMPLETE_PLANET_2'] = 'Excellent! Ai completat toate misiunile de pe Luna. primesti 500 milioane dolari bonus.';
+ $lang['MISSION_COMPLETE_PLANET_3'] = 'Excellent! Ai completat toate misiunile de pe Marte. Ai primit 999 billione dolari bonus.';
+ $lang['MISSION_COMPLETE_PLANET_4'] = 'Excellent! Ai completat toate misiunile de pe Asteroid.Primesti 50 puncte de schimb bonus.';
 
  $lang['MISSION_NO_MISSIONS'] = 'Nici o misiune disponibila!';
 
@@ -1283,8 +1285,9 @@ $lang['BATTLE_DEFENSE_BASE'] = '%s Baza de aparare:';
 $lang['BATTLE_ATTACK_FORCE'] = 'Your %s attack %s (%s attack strength)';
 $lang['BATTLE_MORE'] = 'mai mult';
 $lang['BATTLE_NO_PLAYER_AVAILABLE'] = 'In acest moment nici un jucator nu este disponibil pentru lupta.';
-$lang['BATTLE_UNLOCKED'] = 'Lupta este deblocata la nivelul 1.<br/>Completeaza misiunea de antrenament pentru inceput.';
-$lang['BATTLE_BOUNTY_UNLOCKED'] = 'Vanatoarea de recompense este disponibila la nivelul %s.';
+$lang['BATTLE_UNLOCKED'] = '%s lupta este deblocata la nivelul %s.';
+$lang['BATTLE_FIRST_MISSION'] = 'Completeaza misiunea de antrenament pentru inceput.';
+$lang['BATTLE_BOUNTY_UNLOCKED'] = '%s vanatoarea de recompense este disponibila la nivelul %s.';
 $lang['BATTLE_ALLY_NO_ATTACK'] = '<b>%s</b> iti este aliat. Nu iti poti ataca aliatii.';
 $lang['BATTLE_SURRENDER'] = 'S-a predat temporar';
 
@@ -1309,19 +1312,7 @@ $lang['BATTLE_REBEL_UPDATE3'] = 'Pacat, nici o regiune disponibila pentru revolt
 $lang['BATTLE_NO_BOUNTY_MONEY'] = 'nu ai  %s dolari ca sa pui o recompensa pe capul lui  %s.';
 $lang['BATTLE_BOUNTY_SET'] = 'Ai pus %s dolari pe capul lui %s si ai primit un punct de experienta. cand %s va fi invins, va pierde  %s puncte de experienta.'; 
 
-$lang['BATTLE_MOON_UNLOCKED'] = 'Bataliile pe luna sunt disponibile de la nivelul 100.';
-$lang['BATTLE_MARS_UNLOCKED'] = 'Bataliile pe marte sunt disponibile de la nivelul 150.';
-$lang['BATTLE_ASTERIOD_UNLOCKED'] = 'Bataliile pe asteroid sunt disponibile de la nivelul 200.';
-
 $lang['BATTLE_RANGE'] = 'Jucatorii de la lvl %s pana la lvl %s sunt in raza ta de lupta.';
-
-$lang['BATTLE_COMING_SOON'] = 'In curand';
-
-$lang['BATTLE_SUN_STORY'] = 'Bataliile pe Soare au loc de peste 5 ani. 
-Oamenii au inceput sa exploreze soarele pentru suprematie. Odata cu invadarea soarelui au descoperit o rasa de extraterestrii
- care sunt mai insetati de razboi si mult mai puternici.De acum depinde doar de lorzii WarQuest  
-( jucatori de nivel 249 sau mai mare ) sa reziste invaziei in sistemul nostru solar .deci,toti warlorzii 
-formati o UNINE si adunati-va fortele pentru a incepe razboiu impotriva necunoscutilor si puternicilor extraterestrii !';
 
 /*
 ** ------------------

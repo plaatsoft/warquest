@@ -1,3 +1,7 @@
+--
+-- WarQuest v6.2 data model patch
+--
+
 -- Rebalance earth units
 UPDATE unit SET attack=549, defense=450 WHERE uid=126;
 UPDATE unit SET attack=607, defense=550 WHERE uid=127;
@@ -141,3 +145,114 @@ UPDATE building SET max=645 WHERE max=600;
 
 -- Increase unit max to 5382
 UPDATE unit SET max=5382 WHERE max=5000;
+
+-- Added Neptune unit groups
+INSERT INTO unit_group (ugid , planet , type) VALUES ( 25, 5, 2);
+INSERT INTO unit_group (ugid , planet , type) VALUES ( 26, 5, 3);
+INSERT INTO unit_group (ugid , planet , type) VALUES ( 27, 5, 4);
+INSERT INTO unit_group (ugid , planet , type) VALUES ( 28, 5, 5);
+INSERT INTO unit_group (ugid , planet , type) VALUES ( 29, 5, 6);
+INSERT INTO unit_group (ugid , planet , type) VALUES ( 30, 5, 0);
+
+-- Added Neptune building groups
+INSERT INTO building_group ( bgid, planet, sell, type ) VALUES ( 21, 5, 1, 1);
+INSERT INTO building_group ( bgid, planet, sell, type ) VALUES ( 22, 5, 0, 2);
+INSERT INTO building_group ( bgid, planet, sell, type ) VALUES ( 23, 5, 0, 3);
+INSERT INTO building_group ( bgid, planet, sell, type ) VALUES ( 24, 5, 0, 4);
+INSERT INTO building_group ( bgid, planet, sell, type ) VALUES ( 25, 5, 1, 5);
+
+-- Added Neptune mission groups
+INSERT INTO mission_group (mgid , planet ) VALUES ( 40, 5 );
+INSERT INTO mission_group (mgid , planet ) VALUES ( 41, 5 );
+INSERT INTO mission_group (mgid , planet ) VALUES ( 42, 5 );
+INSERT INTO mission_group (mgid , planet ) VALUES ( 43, 5 );
+INSERT INTO mission_group (mgid , planet ) VALUES ( 44, 5 );
+INSERT INTO mission_group (mgid , planet ) VALUES ( 45, 5 );
+INSERT INTO mission_group (mgid , planet ) VALUES ( 46, 5 );
+INSERT INTO mission_group (mgid , planet ) VALUES ( 47, 5 );
+INSERT INTO mission_group (mgid , planet ) VALUES ( 48, 5 );
+
+UPDATE mission_group SET planet=0 WHERE mgid=0;
+
+-- Update level for Neptune planet
+UPDATE level set planet=5 where lid>=250; 
+
+-- Added neptune clan war sector data
+INSERT INTO `sector` (`sid`, `x`, `y`, `planet`, `cid`, `damage`, `mid`) VALUES
+(401, 0, 0, 5, 0, 0, 400),
+(402, 0, 1, 5, 0, 0, 401),
+(403, 0, 2, 5, 0, 0, 402),
+(404, 0, 3, 5, 0, 0, 403),
+(405, 0, 4, 5, 0, 0, 404),
+(406, 0, 5, 5, 0, 0, 405),
+(407, 0, 6, 5, 0, 0, 406),
+(408, 0, 7, 5, 0, 0, 407),
+(409, 0, 8, 5, 0, 0, 410),
+(410, 0, 9, 5, 0, 0, 411),
+(411, 0, 10, 5, 0, 0, 412),
+(412, 0, 11, 5, 0, 0, 413),
+(413, 0, 12, 5, 0, 0, 414),
+(414, 0, 13, 5, 0, 0, 415),
+(415, 0, 14, 5, 0, 0, 416),
+(416, 1, 0, 5, 0, 0, 417),
+(417, 1, 1, 5, 0, 0, 420),
+(418, 1, 2, 5, 0, 0, 421),
+(419, 1, 3, 5, 0, 0, 422),
+(420, 1, 4, 5, 0, 0, 423),
+(421, 1, 5, 5, 0, 0, 424),
+(422, 1, 6, 5, 0, 0, 425),
+(423, 1, 7, 5, 0, 0, 426),
+(424, 1, 8, 5, 0, 0, 427),
+(425, 1, 9, 5, 0, 0, 430),
+(426, 1, 10, 5, 0, 0, 431),
+(427, 1, 11, 5, 0, 0, 432),
+(428, 1, 12, 5, 0, 0, 433),
+(429, 1, 13, 5, 0, 0, 434),
+(430, 1, 14, 5, 0, 0, 435),
+(431, 2, 0, 5, 0, 0, 436),
+(432, 2, 1, 5, 0, 0, 437),
+(433, 2, 2, 5, 0, 0, 440),
+(434, 2, 3, 5, 0, 0, 441),
+(435, 2, 4, 5, 0, 0, 442),
+(436, 2, 5, 5, 0, 0, 443),
+(437, 2, 7, 5, 0, 0, 444),
+(438, 2, 6, 5, 0, 0, 445),
+(439, 2, 8, 5, 0, 0, 446),
+(440, 2, 9, 5, 0, 0, 447),
+(441, 2, 10, 5, 0, 0, 450),
+(442, 2, 11, 5, 0, 0, 451),
+(443, 2, 12, 5, 0, 0, 452),
+(444, 2, 13, 5, 0, 0, 453),
+(445, 2, 14, 5, 0, 0, 454),
+(446, 3, 0, 5, 0, 0, 455),
+(447, 3, 1, 5, 0, 0, 456),
+(448, 3, 2, 5, 0, 0, 457),
+(449, 3, 3, 5, 0, 0, 460),
+(450, 3, 4, 5, 0, 0, 461),
+(451, 3, 5, 5, 0, 0, 462),
+(452, 3, 6, 5, 0, 0, 463),
+(453, 3, 7, 5, 0, 0, 464),
+(454, 3, 8, 5, 0, 0, 465),
+(455, 3, 9, 5, 0, 0, 466),
+(456, 3, 10, 5, 0, 0, 467),
+(457, 3, 11, 5, 0, 0, 470),
+(458, 3, 12, 5, 0, 0, 471),
+(459, 3, 13, 5, 0, 0, 472),
+(460, 3, 14, 5, 0, 0, 473),
+(461, 4, 0, 5, 0, 0, 474),
+(462, 4, 1, 5, 0, 0, 475),
+(463, 4, 2, 5, 0, 0, 476),
+(464, 4, 3, 5, 0, 0, 477),
+(465, 4, 4, 5, 0, 0, 480),
+(466, 4, 5, 5, 0, 0, 481),
+(467, 4, 6, 5, 0, 0, 482),
+(468, 4, 7, 5, 0, 0, 483),
+(469, 4, 8, 5, 0, 0, 484),
+(470, 4, 9, 5, 0, 0, 485),
+(471, 4, 10, 5, 0, 0, 486),
+(472, 4, 11, 5, 0, 0, 487),
+(473, 4, 12, 5, 0, 0, 487),
+(474, 4, 13, 5, 0, 0, 487),
+(475, 4, 14, 5, 0, 0, 487);
+
+

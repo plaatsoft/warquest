@@ -501,6 +501,10 @@ $lang['PLAYER_CONTINENT_TEXT'] = '%s heeft de volgende %s continent(en) verrover
 
 $lang['PLAYER_SPY_1'] = 'spionage';
 $lang['PLAYER_SPY_2'] = 'explorers';
+$lang['PLAYER_SPY_3'] = 'explorers';
+$lang['PLAYER_SPY_4'] = 'explorers';
+$lang['PLAYER_SPY_5'] = 'explorers';
+
 $lang['PLAYER_ESPIONAGE_UNLOCK1'] = 'Ontgrendeld als jouw %s sterkte %s% hoger is tegenstander.';
 $lang['PLAYER_ESPIONAGE_UNLOCK2'] = 'Ontgrendeld als jouw %s sterkte gelijk of hoger is tegenstander.';
 
@@ -1033,8 +1037,9 @@ $lang['BATTLE_DEFENSE_BASE'] = '%s verdedigings basis:';
 $lang['BATTLE_ATTACK_FORCE'] = 'Je %s aanvals %s (%s aanvalskracht):';
 $lang['BATTLE_MORE'] = 'meer';
 $lang['BATTLE_NO_PLAYER_AVAILABLE'] = 'In dit nivo zijn er geen spelers beschikbaar om tegen te vechten.';
-$lang['BATTLE_UNLOCKED'] = 'Vechten is ontgrendeld in nivo 1.<br/>Je moet eerst de training missie afronden.';
-$lang['BATTLE_BOUNTY_UNLOCKED'] = 'Premiejagen is ontgrendeld in nivo %s.';
+$lang['BATTLE_UNLOCKED'] = '%s vechten is ontgrendeld in nivo %s.';
+$lang['BATTLE_FIRST_MISSION'] = 'Je moet eerst de training missie afronden.';
+$lang['BATTLE_BOUNTY_UNLOCKED'] = '%s premiejagen is ontgrendeld in nivo %s.';
 $lang['BATTLE_SURRENDER'] = 'Tijdelijk opgegeven';
 
 $lang['BATTLE_ALLY_NO_ATTACK'] = 'Je hebt met <b>%s</b> een alliantie. Je kan spelers niet aanvallen waar je een alliantie mee hebt.';
@@ -1056,10 +1061,6 @@ $lang['BATTLE_AND'] = 'en';
 
 $lang['BATTLE_NO_BOUNTY_MONEY'] = 'Je bezit geen %s dollar om als premie op %s hoofd te zetten.';
 $lang['BATTLE_BOUNTY_SET'] = 'Je hebt %s dollar op het hoofd van %s gezet. Als %s wordt verslagen verlies hij %s vaardigheidspunten.'; 
-
-$lang['BATTLE_MOON_UNLOCKED'] = 'Maan gevechten kunnen vanaf nivo 100.';
-$lang['BATTLE_MARS_UNLOCKED'] = 'Mars gevechten kunnen vanaf nivo 150.';
-$lang['BATTLE_ASTERIOD_UNLOCKED'] = 'Asteriod gevechten kunnen vanaf nivo 200.';
 
 $lang['BATTLE_RANGE'] = 'Spelers van nivo %s to %s kunnen worden aangevallen.';
 

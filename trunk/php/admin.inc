@@ -1869,7 +1869,7 @@ function warquest_admin_maps() {
 
 	$title='Clan War maps';
 
-	for ($i=1; $i<=$config['max_planets']; $i++) {
+	for ($i=PLANET_EARTH; $i<=$config['max_planets']; $i++) {
 		$page .= '<div class="subparagraph">'.t('GENERAL_PLANET_'.$i).'</div>';
 		$page .= '<div class="map">';
 		$page .= '<iframe src="map.php?planet='.$i.'" frameborder=0 width="500" height="315" scrolling="no" >';

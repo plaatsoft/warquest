@@ -283,7 +283,7 @@ $lang['GENERAL_PLANET_1'] = 'Earth';
 $lang['GENERAL_PLANET_2'] = 'Moon';
 $lang['GENERAL_PLANET_3'] = 'Mars';
 $lang['GENERAL_PLANET_4'] = 'Asteroid';
-$lang['GENERAL_PLANET_5'] = 'Sun';
+$lang['GENERAL_PLANET_5'] = 'Neptune';
 
 /*
 ** ------------------
@@ -351,6 +351,18 @@ $lang['TIP_197'] = 'Only 3 levels away from starting your own asteroid colony.';
 $lang['TIP_198'] = 'Only 2 levels away from starting your own asteroid colony.';
 $lang['TIP_199'] = 'Only 1 level away from starting your own asteroid colony.';
 $lang['TIP_200'] = 'Start your own asteroid colony!';
+
+$lang['TIP_240'] = 'Only 10 levels away from starting your own neptune colony.';
+$lang['TIP_241'] = 'Only 9 levels away from starting your own neptune colony.';
+$lang['TIP_242'] = 'Only 8 levels away from starting your own neptune colony.';
+$lang['TIP_243'] = 'Only 7 levels away from starting your own neptune colony.';
+$lang['TIP_244'] = 'Only 6 levels away from starting your own neptune colony.';
+$lang['TIP_245'] = 'Only 5 levels away from starting your own neptune colony.';
+$lang['TIP_246'] = 'Only 4 levels away from starting your own neptune colony.';
+$lang['TIP_247'] = 'Only 3 levels away from starting your own neptune colony.';
+$lang['TIP_248'] = 'Only 2 levels away from starting your own neptune colony.';
+$lang['TIP_249'] = 'Only 1 level away from starting your own neptune colony.';
+$lang['TIP_250'] = 'Start your own neptune colony!';
 
 /*
 ** ------------------
@@ -530,6 +542,7 @@ $lang['PLAYER_SPY_1'] = 'intel';
 $lang['PLAYER_SPY_2'] = 'explorers';
 $lang['PLAYER_SPY_3'] = 'explorers';
 $lang['PLAYER_SPY_4'] = 'explorers';
+$lang['PLAYER_SPY_5'] = 'explorers';
 $lang['PLAYER_ESPIONAGE_UNLOCK1'] = 'Unlocked when your %s strength is %s% higher then opponent.';
 $lang['PLAYER_ESPIONAGE_UNLOCK2'] = 'Unlocked when your %s strength is equal or higher then opponent.';
 
@@ -816,6 +829,17 @@ $lang['MISSION_GROUP_35'] = 'Frederick';
 $lang['MISSION_GROUP_36'] = 'George';
 $lang['MISSION_GROUP_37'] = 'Harry';
 $lang['MISSION_GROUP_38'] = 'Isaac';
+
+/* Neptune Missions */
+$lang['MISSION_GROUP_40'] = 'Alfred';
+$lang['MISSION_GROUP_41'] = 'Benjamin';
+$lang['MISSION_GROUP_42'] = 'Charles';
+$lang['MISSION_GROUP_43'] = 'David';
+$lang['MISSION_GROUP_44'] = 'Edward';
+$lang['MISSION_GROUP_45'] = 'Frederick';
+$lang['MISSION_GROUP_46'] = 'George';
+$lang['MISSION_GROUP_47'] = 'Harry';
+$lang['MISSION_GROUP_48'] = 'Isaac';
 
 
 /* Earth */
@@ -1147,6 +1171,88 @@ $lang['MISSION_385'] = 'Vallis Regia';
 $lang['MISSION_386'] = 'Sinus Macrantha';
 $lang['MISSION_387'] = 'Crater Caespitosa';
 
+/* Neptune */
+$lang['MISSION_400'] = 'Crater Albococcinea';
+$lang['MISSION_401'] = 'Sinus argentea';
+$lang['MISSION_402'] = 'Vallis Atrococcinea';
+$lang['MISSION_403'] = 'Crater Colorans';
+$lang['MISSION_404'] = 'Mare Cardinalis';
+$lang['MISSION_405'] = 'Mons Brunnea';
+$lang['MISSION_406'] = 'Sinus Chlorantha';
+$lang['MISSION_407'] = 'Vallis Erythrocarpa';
+
+$lang['MISSION_410'] = 'Mons Ferruginea';
+$lang['MISSION_411'] = 'Mare Colorans';
+$lang['MISSION_412'] = 'Vallis Aurea';
+$lang['MISSION_413'] = 'Crater Atrovirens';
+$lang['MISSION_414'] = 'Sinus lutescens';
+$lang['MISSION_415'] = 'Vallis Maculata';
+$lang['MISSION_416'] = 'Crater Nigrescens';
+$lang['MISSION_417'] = 'Mare Punicea';
+
+$lang['MISSION_420'] = 'Crater Rosea';
+$lang['MISSION_421'] = 'Vallis Rubiginosa';
+$lang['MISSION_422'] = 'Crater Tinctoria';
+$lang['MISSION_423'] = 'Sinus Sulphurea';
+$lang['MISSION_424'] = 'Vallis Sempervirens';
+$lang['MISSION_425'] = 'Crater Rubicunda';
+$lang['MISSION_426'] = 'Mare Variegata';
+$lang['MISSION_427'] = 'Mare Versicolor';
+
+$lang['MISSION_430'] = 'Vallis Vinosa';
+$lang['MISSION_431'] = 'Mare Viridescens';
+$lang['MISSION_432'] = 'Crater Citrodora';
+$lang['MISSION_433'] = 'Sinus Foetidissima';
+$lang['MISSION_434'] = 'Vallis Gravaeolens';
+$lang['MISSION_435'] = 'Crater Odorata';
+$lang['MISSION_436'] = 'Mare Suaveolens';
+$lang['MISSION_437'] = 'Crater Ursina';
+
+$lang['MISSION_440'] = 'Mare Amabile';
+$lang['MISSION_441'] = 'Vallis Praecox ';
+$lang['MISSION_442'] = 'Crater Bella';
+$lang['MISSION_443'] = 'Mare Amoena';
+$lang['MISSION_444'] = 'Sinus Gracilis';
+$lang['MISSION_445'] = 'Crater Formosa';
+$lang['MISSION_446'] = 'Vallis Fragilis';
+$lang['MISSION_447'] = 'Mons Foeniculaceus';
+
+$lang['MISSION_450'] = 'Crater Blanda';
+$lang['MISSION_451'] = 'Vallis Elegantissima';
+$lang['MISSION_452'] = 'Sinus Imperialis';
+$lang['MISSION_453'] = 'Crater Splendens';
+$lang['MISSION_454'] = 'Vallis Superba';
+$lang['MISSION_455'] = 'Sinus Magnifica';
+$lang['MISSION_456'] = 'Crater Campestris';
+$lang['MISSION_457'] = 'Mare Collina';
+
+$lang['MISSION_460'] = 'Sinus Insignis';
+$lang['MISSION_461'] = 'Crater Peregrina';
+$lang['MISSION_462'] = 'Sinus Mutabilis';
+$lang['MISSION_463'] = 'Vallis Spectabilis';
+$lang['MISSION_464'] = 'Mons Thermalis';
+$lang['MISSION_465'] = 'Mare Gracilis';
+$lang['MISSION_466'] = 'Vallis Sinensis';
+$lang['MISSION_467'] = 'Crater Pratensis';
+
+$lang['MISSION_470'] = 'Vallis Mirabilis';
+$lang['MISSION_471'] = 'Crater Umbrosa ';
+$lang['MISSION_472'] = 'Mare Paradoxas';
+$lang['MISSION_473'] = 'Sinus Pulchella';
+$lang['MISSION_474'] = 'Crater Floribunda';
+$lang['MISSION_475'] = 'Vallis Microphylla';
+$lang['MISSION_476'] = 'Mare Parviflora';
+$lang['MISSION_477'] = 'Crater Venusta';
+
+$lang['MISSION_480'] = 'Crater Monstrosus';
+$lang['MISSION_481'] = 'Vallis Septentrionalis';
+$lang['MISSION_482'] = 'Mons Occidentalis';
+$lang['MISSION_483'] = 'Crater Pulcherrima';
+$lang['MISSION_484'] = 'Mare Spectabilis';
+$lang['MISSION_485'] = 'Vallis Regia';
+$lang['MISSION_486'] = 'Sinus Macrantha';
+$lang['MISSION_487'] = 'Crater Caespitosa';
+
 /*
 ** ------------------
 ** MISSION PAGE
@@ -1184,10 +1290,11 @@ $lang['MISSION_COMPLETE_TEXT'] = 'You conquered the following continents so far!
 
 $lang['MISSION_REBEL'] = 'Rebellion';
 
-$lang['MISSION_COMPLETE_PLANET_0'] = 'Excellent! You completed all Earth missions. You received 100 million dollar bonus.';
-$lang['MISSION_COMPLETE_PLANET_1'] = 'Excellent! You completed all moon missions. You received 500 million dollar bonus.';
-$lang['MISSION_COMPLETE_PLANET_2'] = 'Excellent! You completed all mars missions. You received 999 billion dollar bonus.';
-$lang['MISSION_COMPLETE_PLANET_3'] = 'Excellent! You completed all asteroid missions. You received 2500 gold bonus.';
+$lang['MISSION_COMPLETE_PLANET_1'] = 'Excellent! You completed all Earth missions. You received 100 million dollar bonus.';
+$lang['MISSION_COMPLETE_PLANET_2'] = 'Excellent! You completed all moon missions. You received 500 million dollar bonus.';
+$lang['MISSION_COMPLETE_PLANET_3'] = 'Excellent! You completed all mars missions. You received 999 billion dollar bonus.';
+$lang['MISSION_COMPLETE_PLANET_4'] = 'Excellent! You completed all asteroid missions. You received 2500 gold bonus.';
+$lang['MISSION_COMPLETE_PLANET_5'] = 'Excellent! You completed all neptune missions. You received 5000 gold bonus.';
 
 $lang['MISSION_NO_MISSIONS'] = 'No missions available!';
 
@@ -1213,8 +1320,9 @@ $lang['BATTLE_DEFENSE_BASE'] = '%s defence base:';
 $lang['BATTLE_ATTACK_FORCE'] = 'Your %s attack %s (%s attack strength):';
 $lang['BATTLE_MORE'] = 'more';
 $lang['BATTLE_NO_PLAYER_AVAILABLE'] = 'At the moment no player(s) are available for battles.';
-$lang['BATTLE_UNLOCKED'] = 'Battle is unlocked at level 1.<br/>Complete the training mission first.';
-$lang['BATTLE_BOUNTY_UNLOCKED'] = 'Bounty hunting is unlocked at level %s.';
+$lang['BATTLE_UNLOCKED'] = '%s battle is unlocked at level %s.';
+$lang['BATTLE_FIRST_MISSION'] = 'Complete the training mission first.';
+$lang['BATTLE_BOUNTY_UNLOCKED'] = '%s bounty hunting is unlocked at level %s.';
 $lang['BATTLE_ALLY_NO_ATTACK'] = '<b>%s</b> is an ally. You cannot attack allies.';
 $lang['BATTLE_SURRENDER'] = 'Temporarely surrender';
 
@@ -1240,19 +1348,7 @@ $lang['BATTLE_REBEL_UPDATE3'] = 'Too bad, no region available for rebellion!';
 $lang['BATTLE_NO_BOUNTY_MONEY'] = 'You do not have %s dollars to set a bounty on %s head.';
 $lang['BATTLE_BOUNTY_SET'] = 'You set %s dollar on %s head and gain 1 experience point. When %s gets defeated, he will lose %s expercience points.'; 
 
-$lang['BATTLE_MOON_UNLOCKED'] = 'Moon battles are unlocked at level 100.';
-$lang['BATTLE_MARS_UNLOCKED'] = 'Mars battles are unlocked at level 150.';
-$lang['BATTLE_ASTERIOD_UNLOCKED'] = 'Asteriod battles are unlocked at level 200.';
-
 $lang['BATTLE_RANGE'] = 'Players from level %s up to %s are in battle range.';
-
-$lang['BATTLE_COMING_SOON'] = 'COMING SOON';
-
-$lang['BATTLE_SUN_STORY'] = 'The battle over the sun region has been happening for over the last five years. 
-Humans began to venture beyond the sun for their supremacy. As they begin to invade they came across 
-an alien race which is even more thirsty for war and even more deadly. It is upto the WarQuest warlords 
-( players at level 249 or higher ) to resist their invasion further into our solar system. So all Warlords 
-form a UNION and with their combined forces begin a war against the unkown but deadly alien race!';
 
 /*
 ** ------------------
@@ -1291,6 +1387,14 @@ $lang['UNIT_GROUP_21']  = 'Spacecrafts';
 $lang['UNIT_GROUP_22']  = 'Explorers';
 $lang['UNIT_GROUP_23'] 	= 'Citizens';
 $lang['UNIT_GROUP_24'] 	= 'Army';
+
+/* Neptune */
+$lang['UNIT_GROUP_25']  = 'Drones';
+$lang['UNIT_GROUP_26']  = 'Warriors';
+$lang['UNIT_GROUP_27']  = 'Spacecrafts';
+$lang['UNIT_GROUP_28']  = 'Explorers';
+$lang['UNIT_GROUP_29'] 	= 'Citizens';
+$lang['UNIT_GROUP_30'] 	= 'Army';
 
 /* ---------------------------------------------------- */
 
@@ -1612,17 +1716,23 @@ $lang['UNIT_NOTE_6'] = 'Note: Buy intel units to improve  your intel force stren
 $lang['UNIT_NOTE_8'] = 'Note: Buy moon drone units to improve your drone force strength. Battle, win and steal money from your opponent\'s cash account.';
 $lang['UNIT_NOTE_7'] = 'Note: Buy moon warrior units to improve your warrior force strength. Battle, win and steal money from your opponent\'s cash account.';
 $lang['UNIT_NOTE_9'] = 'Note: Buy moon spacecraft units to improve your spacecraft force strength. Battle, win and steal money from your opponent\'s cash account.';
-$lang['UNIT_NOTE_12'] = 'Note: Buy moon explore units to improve your explorer force strength. Battle, win to start rebellions on the Moon and steal money from your opponent\'s Trasquera or SwissCore bank account.';
+$lang['UNIT_NOTE_12'] = 'Note: Buy moon explore units to improve your explorer force strength. Battle, win to start rebellions and steal money from your opponent\'s Trasquera or SwissCore bank account.';
 
 $lang['UNIT_NOTE_13'] = 'Note: Buy mars drone units to improve your drone force strength. Battle, win and steal money from your opponent\'s cash account.';
 $lang['UNIT_NOTE_14'] = 'Note: Buy mars warrior units to improve your warrior force strenght. Battle, win and steal money from your opponent\'s cash account.';
 $lang['UNIT_NOTE_15'] = 'Note: Buy mars spacecraft units to improve your spacecraft force strength. Battle, win and steal money from your opponent\'s cash account.';
-$lang['UNIT_NOTE_16'] = 'Note: Buy mars explore units to improve your explorers force strength. Battle, win to start rebellions on Mars and steal some money from your opponent\'s Trasquera or SwissCore bank account.';
+$lang['UNIT_NOTE_16'] = 'Note: Buy mars explore units to improve your explorers force strength. Battle, win to start rebellions and steal some money from your opponent\'s Trasquera or SwissCore bank account.';
 
 $lang['UNIT_NOTE_19'] = 'Note: Buy asteroid drone units to improve your drone force strength. Battle, win and steal money from your opponent\'s cash account.';
 $lang['UNIT_NOTE_20'] = 'Note: Buy asteroid warrior units to improve your warrior force strenght. Battle, win and steal money from your opponent\'s cash account.';
 $lang['UNIT_NOTE_21'] = 'Note: Buy asteroid spacecraft units to improve your spacecraft force strength. Battle, win and steal money from your opponent\'s cash account.';
-$lang['UNIT_NOTE_22'] = 'Note: Buy asteroid explore units to improve your explorers force strength. Batlle, win to start rebellions on Asteroid and steal some money from your opponent\'s Trasquera or SwissCore bank account.';
+$lang['UNIT_NOTE_22'] = 'Note: Buy asteroid explore units to improve your explorers force strength. Batlle, win to start rebellions and steal some money from your opponent\'s Trasquera or SwissCore bank account.';
+
+$lang['UNIT_NOTE_25'] = 'Note: Buy neptune drone units to improve your drone force strength. Battle, win and steal money from your opponent\'s cash account.';
+$lang['UNIT_NOTE_26'] = 'Note: Buy neptune warrior units to improve your warrior force strenght. Battle, win and steal money from your opponent\'s cash account.';
+$lang['UNIT_NOTE_27'] = 'Note: Buy neptune spacecraft units to improve your spacecraft force strength. Battle, win and steal money from your opponent\'s cash account.';
+$lang['UNIT_NOTE_28'] = 'Note: Buy neptune explore units to improve your explorers force strength. Batlle, win to start rebellions and steal some money from your opponent\'s Trasquera or SwissCore bank account.';
+
 
 $lang['UNIT_DISBAND'] = 'You disbanded %s %s for %s. Still %s deployed.';
 $lang['UNIT_DISBAND_FAILED'] = 'You do not own %s %s. Still %s deployed.';
@@ -1667,6 +1777,13 @@ $lang['BUILDING_GROUP_17'] = 'Defence';
 $lang['BUILDING_GROUP_18'] = 'Energy';
 $lang['BUILDING_GROUP_19'] = 'Discount';
 $lang['BUILDING_GROUP_20'] = 'Maintenance';
+
+/* Neptune Buildings */
+$lang['BUILDING_GROUP_21'] = 'Income';
+$lang['BUILDING_GROUP_22'] = 'Defence';
+$lang['BUILDING_GROUP_23'] = 'Energy';
+$lang['BUILDING_GROUP_24'] = 'Discount';
+$lang['BUILDING_GROUP_25'] = 'Maintenance';
 
 /* ------------------------------------------------------ */
 
@@ -1987,6 +2104,12 @@ $lang['BUILDING_NOTE18'] = 'Note: Energy buildings provide faster energy recover
 $lang['BUILDING_NOTE19'] = 'Note: Discount buildings provide price discount on your asteroid building purchase.';
 $lang['BUILDING_NOTE20'] = 'Note: Maintenance buildings provide faster asteroid unit repair wich results in less unit loss during battles.';
 
+$lang['BUILDING_NOTE21'] = 'Note: Income buildings provide higher income for your neptune base.';
+$lang['BUILDING_NOTE22'] = 'Note: Defence buildings provide higher defence against attacks on your neptune base.';
+$lang['BUILDING_NOTE23'] = 'Note: Energy buildings provide faster energy recovery for your neptune base.';
+$lang['BUILDING_NOTE24'] = 'Note: Discount buildings provide price discount on your neptune building purchase.';
+$lang['BUILDING_NOTE25'] = 'Note: Maintenance buildings provide faster neptune unit repair wich results in less unit loss during battles.';
+
 $lang['BUILDING_SELL'] = 'You sold %s %s for %s. Still %s deployed.';
 $lang['BUILDING_LOW_UPKEEP'] = 'Not enough hourly income to sell %s %s for %s.';
 $lang['BUILDING_NOT_OWNED'] = 'You do not have %s %s.';
@@ -2273,7 +2396,8 @@ The following extra bonus is given when all planet missions are completed:<br/>
 EARTH: 100 Million dollars<br/>
 MOON: 500 Million dollars<br/>
 MARS: 999 Billion dollars<br/>
-ASTEROID: 2500 gold';
+ASTEROID: 2500 gold<br/>
+NEPTUNE: 5000 gold';
 
 $lang['HELP_BATTLE_TITLE'] = 'Battle';
 $lang['HELP_BATTLE'] =	'Fight other players to gain money and experience points to reach the next 
@@ -2397,7 +2521,7 @@ EARTH<br/>
 - "Navy" Only navy earth units.<br/>
 - "Airforce" Only aircraft earth units.<br/>
 - "Intel" Only intel earth units.<br/><br/>
-MOON / MARS / ASTEROID<br/>
+MOON / MARS / ASTEROID / NEPTUNE<br/>
 - "Army" Best of drone, warrior and spacecraft units.<br/>
 - "Drones" Only drone units.<br/>
 - "Warriors" Only warrior units.<br/>
@@ -2890,11 +3014,7 @@ $lang['CLAN_SLOGAN_TOO_LONG'] = 'Clan slogan is to long. Maximum 200 characters 
 
 $lang['CLAN_LIST_TITLE'] = 'Clan List [%s]';
 
-$lang['BATTLE_CLAN_WAR_UNLOCKED'] = 'Clan war is unlocked at level %s.';
-$lang['BATTLE_CLAN_WAR_EARTH_UNLOCKED'] = 'Earth clan war is unlocked at level %s.';
-$lang['BATTLE_CLAN_WAR_MOON_UNLOCKED'] = 'Moon clan war are unlocked at level 100.';
-$lang['BATTLE_CLAN_WAR_MARS_UNLOCKED'] = 'Mars clan war are unlocked at level 150.';
-$lang['BATTLE_CLAN_WAR_ASTERIOD_UNLOCKED'] = 'Asteriod clan war are unlocked at level 200.';
+$lang['BATTLE_CLAN_WAR_UNLOCKED'] = '%s clan war is unlocked at level %s.';
 
 $lang['BATTLE_CLAN_WAR_TITLE'] = 'Clan War';
 $lang['BATTLE_CLAN_WAR'] = 'Clan-War';
@@ -2945,6 +3065,14 @@ $lang['PLAYER_CLAN_WAR_INCOME'] = 'Clan War income';
 
 $lang['PLAYER_CLAN_WAR_OVERVIEW'] = 'Clan war income overview';
 $lang['PLAYER_CLAN_WAR_TEXT'] = 'Player %s conquered the following %s sector(s):';
+
+/*
+** ------------------
+** Added v6.2
+** ------------------
+*/
+
+$lang['BATTLE_NO_UNITS_AVAILABLE'] = 'No units available to fight with!';
 
 /*
 ** ------------------

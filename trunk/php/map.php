@@ -79,7 +79,7 @@ function process_data($data, $image) {
 $planet = warquest_get('planet', 1);
 
 if ($planet>$config["max_planets"]) {
-	$planet=1;
+	$planet=PLANET_EARTH;
 }
 
 $data = warquest_get('data', '');

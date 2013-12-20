@@ -1140,8 +1140,9 @@ $lang['BATTLE_DEFENSE_BASE'] = '%s defense base:';
 $lang['BATTLE_ATTACK_FORCE'] = 'Your attack %s (%s attack strenght)';
 $lang['BATTLE_MORE'] = 'more';
 $lang['BATTLE_NO_PLAYER_AVAILABLE'] = 'On this moment no player(s) are available to fight.';
-$lang['BATTLE_UNLOCKED'] = 'Battle is unlocked at level 1.<br/>First complete the training mission.';
-$lang['BATTLE_BOUNTY_UNLOCKED'] = 'Bounty hunting is unlocked at level %s.';
+$lang['BATTLE_UNLOCKED'] = '%s battle is unlocked at level %s.';
+$lang['BATTLE_FIRST_MISSION'] = 'Complete the training mission first.';
+$lang['BATTLE_BOUNTY_UNLOCKED'] = '%s bounty hunting is unlocked at level %s.';
 $lang['BATTLE_ALLY_NO_ATTACK'] = '<b>%s</b> is an ally. You cannot attack allies.';
 $lang['BATTLE_SURRENDER'] = 'Temporary Surrender';
 
@@ -1165,10 +1166,6 @@ $lang['BATTLE_REBEL_UPDATE3'] = 'Pech gehabt, Es gibt keine Region um eine Rebel
 
 $lang['BATTLE_NO_BOUNTY_MONEY'] = 'You do not own %s dollar to set a bounty on %s head.';
 $lang['BATTLE_BOUNTY_SET'] = 'You set %s dollar on %s head. When %s is defeated he will lose %s expercience points.'; 
-
-$lang['BATTLE_MOON_UNLOCKED'] = 'Moon battles are unlocked at level 100.';
-$lang['BATTLE_MARS_UNLOCKED'] = 'Mars battles are unlocked at level 150.';
-$lang['BATTLE_ASTERIOD_UNLOCKED'] = 'Asteriod battles are unlocked at level 200.';
 
 /*
 ** ------------------

@@ -24,14 +24,17 @@
 
 function warquest_set_default_force($value) {
 	
+	/* input */
 	global $player;
 	global $config;
 	
-	$tmp1 = array(0,0,0,0,0);
+	$tmp1 = array(0,0,0,0,0,0);
 	$tmp2 = json_decode($player->default_force);	
 
-	for ($tmp=1; $tmp<=$config["max_planets"]; $tmp++) {
-		$tmp1[$tmp] = $tmp2[$tmp];
+	for ($tmp=PLANET_EARTH; $tmp<=$config["max_planets"]; $tmp++) {
+		if (isset($tmp2[$tmp])) {
+			$tmp1[$tmp] = $tmp2[$tmp];
+		}
 	}
 	
 	$tmp1[$player->planet] = $value;
@@ -41,35 +44,21 @@ function warquest_set_default_force($value) {
 
 function warquest_get_default_force() {
 	
+	/* input */
 	global $player;
 	
 	$value=0;
-
 	if ($tmp = json_decode($player->default_force)) {
 		$value = $tmp[$player->planet]; 
 	}
 		
-	/* Reset default value if not available */
+	/* get default, if no value is found */
 	if ($value==0) {
 		
-		switch ($player->planet) {
-			
-			case PLANET_EARTH: 	
-						$value = 0;
-						break;
-					  
-			case PLANET_MOON:  
-						$value = 11;
-						break;
-					 
-			case PLANET_MARS: 	
-						$value = 18;
-						break;
-						
-			case PLANET_ASTEROID: 	
-						$value = 24;
-						break;
-		}
+		$query = 'select ugid from unit_group where type=0 and planet='.$player->planet;
+		$result = warquest_db_query($query);
+		$data = warquest_db_fetch_object($result);
+		$value = $data->ugid;
 	}
 	
 	return $value;
@@ -77,15 +66,17 @@ function warquest_get_default_force() {
 
 function warquest_set_default_mission($value) {
 	
+	/* input */
 	global $player;
-
 	global $config;
 	
-	$tmp1 = array(0,0,0,0,0);
+	$tmp1 = array(0,0,0,0,0,0);
 	$tmp2 = json_decode($player->default_mission);	
 
-	for ($tmp=1; $tmp<=$config["max_planets"]; $tmp++) {
-		$tmp1[$tmp] = $tmp2[$tmp];
+	for ($tmp=PLANET_EARTH; $tmp<=$config["max_planets"]; $tmp++) {
+		if (isset($tmp2[$tmp])) {
+			$tmp1[$tmp] = $tmp2[$tmp];
+		}
 	}
 	
 	$tmp1[$player->planet] = $value;
@@ -95,41 +86,30 @@ function warquest_set_default_mission($value) {
 
 function warquest_get_default_mission($planet) {
 	
+	/* input */
 	global $player;
-	
-	$value = 0;
-	if ($tmp = json_decode($player->default_mission)) {
-		$value = $tmp[$planet]; 
-	}
-		
+
 	/* Go to Training mission */
 	if ($player->lid==0) {
 		return 0;
 	}
 	
-	/* Set default value if not available */
+	$value = 0;
+	$tmp = json_decode($player->default_mission);
+	
+	if ( isset($tmp[$planet]) ) {
+		$value = $tmp[$planet]; 
+	}
+			
+	/* Get default, if no value is found */
 	if ($value==0) {
 		
-		switch ($planet) {
-			
-			case PLANET_EARTH: 	
-						$value = 1;
-						break;
-					  
-			case PLANET_MOON:  
-						$value = 10;
-						break;
-					 
-			case PLANET_MARS: 	
-						$value = 20;
-						break;
-						
-			case PLANET_ASTEROID: 	
-						$value = 30;
-						break;
-		}
+		$query = 'select mgid from mission_group where planet='.$planet.' order by mgid';
+		$result = warquest_db_query($query);
+		$data = warquest_db_fetch_object($result);
+		$value = $data->mgid;
 	}
-	
+
 	return $value;
 }
 
@@ -1021,6 +1001,11 @@ function warquest_lootoption($level) {
 			case PLANET_ASTEROID:  
 						$min = 200;
 						$max = 250;
+						break;
+						
+			case PLANET_NEPTUNE:  
+						$min = 250;
+						$max = 300;
 						break;
 		}
 		

@@ -20,6 +20,7 @@ $notes[62] = '
 <div class="subparagraph2">18-12-2013</div>
 <i>Game Server v6.2</i>
 <ul>
+<li>Added fifth planet Neptune.</li>
 <li>Rebalance earth, moon, mars and asteroid units / buildings.</li>
 <li>Added 20 extra levels.</li>
 <li>Increase maximum unit amount to 5382.</li>

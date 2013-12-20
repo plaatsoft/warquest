@@ -26,6 +26,8 @@ define('PLANET_EARTH',        	1);
 define('PLANET_MOON',         	2);
 define('PLANET_MARS',         	3);
 define('PLANET_ASTEROID',     	4);
+define('PLANET_NEPTUNE', 	    	5);
+
 
 /*
 ** ------------------

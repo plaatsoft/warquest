@@ -391,29 +391,33 @@ function warquest_building_form() {
 	
 	$building_group = warquest_db_building_group($sid);	 
 	$discount = warquest_db_discount($player, $player->planet);
-	
-	/* Count selected buildings */
-	$query  = 'select bid from building ';
-	$query .= 'where bgid='.$sid.' and lid<='.$player->lid.' ';
+		
+	/* Get player building data */
+	$query2  = 'select b.ugid, b.bid, b.price, b.gold, b.income, b.defense, b.energy, b.discount, b.maintenance,  ';
+	$query2 .= 'b.max, IFNULL(a.amount, 0) as amount ';
+	$query2 .= 'from building b left join player_building a ';
+	$query2 .= 'on a.bid=b.bid and a.pid='.$player->pid.' where b.lid<='.$player->lid.' ';  
+	$query2 .= 'and b.bgid='.$sid.' ';	
 	if ($building_group->type==2) {
-		$query .= 'and ugid='.$ssid.' ';
+		$query2 .= 'and b.ugid='.$ssid.' ';
 	}	
-	$result = warquest_db_query($query);
-	$total = warquest_db_num_rows($result);
+	$query2 .= 'order by b.lid';	
 	
-	/* Get building data combine with player data */
-	$query  = 'select b.ugid, b.bid, b.price, b.gold, b.income, b.defense, b.energy, b.discount, b.maintenance,  ';
-	$query .= 'b.max, IFNULL(a.amount, 0) as amount ';
-	$query .= 'from building b left join player_building a ';
-	$query .= 'on a.bid=b.bid and a.pid='.$player->pid.' where b.lid<='.$player->lid.' ';  
-	$query .= 'and b.bgid='.$sid.' ';	
+	$result2 = warquest_db_query($query2);	
+	$count2 = warquest_db_num_rows($result2);
+		
+	/* Get first locked building */
+	$query5  = 'select bid, lid, income, defense, energy, discount, maintenance, ugid from building where lid>'.$player->lid.' ';
+	$query5 .= 'and bgid='.$sid.' ';
 	if ($building_group->type==2) {
-		$query .= 'and b.ugid='.$ssid.' ';
-	}	
-	$query .= 'order by b.lid';
+		$query5 .= 'and ugid='.$ssid.' ';
+	}
+	$query5 .= 'order by income asc, defense asc, energy asc, discount asc, maintenance asc limit 0,1'; 
 	
-	$result = warquest_db_query($query);	
+	$result5 = warquest_db_query($query5);	
+	$count5 = warquest_db_num_rows($result5);
 	
+	/* Show Radiobox */
 	if ($building_group->sell==1) { 
 		
 		if ($uid==0) {
@@ -432,178 +436,174 @@ function warquest_building_form() {
 		$player->default_amount=1;
 	}
 	
+	/* Show submenu */
 	if ($building_group->type==2) {
 		$page .= warquest_subsubmenu_building();
 	}
 	
-	$page .= '<div class="box">';
-	$page .= '<table>';
-	
-	$count1 = 0;		
-	$count2 = 0;
-	while ($data=warquest_db_fetch_object($result)) {
-				
-		$count1++;
-	
-		$page .= '<tr>';	
-				$page .= '<td valign="top" width="215">';		
-		$page .= '<span class="subparagraph">'.t('BUILDING_'.$data->bid).'</span><br/>'; 		 		
-		$page .= warquest_building_image($data, 0, 0, 170, 120);			
-		$page .= '</td>';
-	
-		$page .= '<td valign="top" width="180">';
-		$page .= '<b>'.t('BUILDING_GAIN').':</b><br/>';
-	
-		if ($data->income>0) {
-			$page .= t('BUILDING_INCOME').': +'.dollar_format($data->income);
-		}
-		if ($data->defense>0) {
-			$page .= t('UNIT_GROUP_'.$data->ugid).' '.t('GENERAL_DEFENSE').': +'.$data->defense;
-		}			
-		if ($data->energy>0)  {
-			$page .= t('BUILDING_ENERGY').': +'.energy_format($data->energy);
-		}
-		if ($data->discount>0) {
-			$page .= t('GENERAL_DISCOUNT').': +'.discount_format($data->discount).'%';
-		}		
-		if ($data->maintenance>0) {
-			$page .= t('GENERAL_MAINTENANCE').': +'.maintenance_format($data->maintenance).'%';	
-		}		
-	
-		$page .= '<br/><br/><b>'.t('BUILDING_REQUIRED').':</b><br/>';
-	
-		$query3  = 'select sum(a.amount * b.upkeep) as total from building_unit a, ';
-		$query3 .= 'unit b where a.uid=b.uid and bid='.$data->bid;
-		$result3 = warquest_db_query($query3);	 
-		$data3 = warquest_db_fetch_object($result3);
-		$page .= t('BUILDING_UPKEEP').': +'.money_format1($data3->total).'<br/><br/>';
-	
-		$query  = 'select b.uid, a.amount, b.upkeep, b.attack, b.defense ';
-		$query .= 'from building_unit a, unit b where b.uid=a.uid and a.bid='.$data->bid.' order by b.upkeep';  
-		$result2 = warquest_db_query($query);	
-	
-		$page .= '<table>';
-		$page .= '<tr>';	
-		
-		while ($data2=warquest_db_fetch_object($result2)) {
-		
-			$count2++; 
-		
-			$page .= '<td width="45" align="left">';
-			$page .= warquest_unit_image($data2, $count2, 1, 45, 32);	
-			$page .= '<br/><center>'.number_format2($data2->amount).'x</center>';
-			$page .= '</td>';
-		}
-	
-		$page .= '</tr>';
-		$page .= '</table>';	
-	
-		$page .= '</td>';
-	
-		$page .= '<td valign="top" width="100">';
-		$page .= warquest_link('mid='.$mid.'&sid='.$sid.'&ssid='.$ssid.'&uid='.$data->bid.'&eid='.EVENT_BUILDING_BUY, t('LINK_BUY'),"buy-".$count1);
-			
-		/* Prevent buy with discount, sell without discount */
-		if ($building_group->sell==1) {
-			$page .= '<span class="right2">';
-			$page .= warquest_link('mid='.$mid.'&sid='.$sid.'&ssid='.$ssid.'&uid='.$data->bid.'&eid='.EVENT_BUILDING_SELL, t('LINK_SELL'), "sell-".$count1);
-			$page .= '</span>';
-		}		  
-	
-		$page .= '<br/><br/><b>';
-		$page .= t('BUILDING_PRICE').':</b><br/>';
-				
-		/* Calculate price */
-		if ($data->price>0) {
-			$price = $data->price;
-			$price = warquest_rente($price ,$data->amount, $discount);		
-			$page .= money_format2($price);
-		} else {
-			$page .= gold_format($data->gold);
-		}
-		
-		$page .= '<br/><br/><b>';
-		$page .= t('BUILDING_DEPLOYED').':</b><br/>'.deploy_format($data->amount).'<br/>';
-			
-		$page .= '</td>';
-	
-		$page .= '</tr>';
-	
-		if ($count1!=$total) {
-			$page .= '<tr>';
-			$page .= '<td colspan="3"><hr></td>';
-			$page .= '</tr>';			
-		}
-	}
-	
-	/* Unlock next building */
-	$query  = 'select bid, lid, income, defense, energy, discount, maintenance, ugid from building where lid>'.$player->lid.' ';
-	$query .= 'and bgid='.$sid.' ';
-	if ($building_group->type==2) {
-		$query .= 'and ugid='.$ssid.' ';
-	}
-	$query .= 'order by income asc, defense asc, energy asc, discount asc, maintenance asc limit 0,1'; 
-	
-	$result = warquest_db_query($query);	
-		
-	if ($data = warquest_db_fetch_object($result)) {
-		
-		if ($count1>0) {
-			$page .= '<tr>';
-			$page .= '<td colspan="3"><hr></td>';
-			$page .= '</tr>';			
-		}
-		
-		$count1++;
-			
-		$page .= '<tr>';	
-		$page .= '<td width="215">'; 
-		$page .= '<span class="subparagraph">'.t('BUILDING_'.$data->bid).'</span><br/>';
-		$page .= warquest_image("other/unlock.png", ' width="90" height="67" ');	
-		$page .= warquest_image("other/unlock.png", ' width="90" height="67" ');	
-		$page .= '</td>'; 
-	
-		$page .= '<td valign="top" width="180">';
-		$page .= '<b>'.t('BUILDING_GAIN').':</b><br/>';
-	
-		if ($data->income>0) {
-			$page .= t('BUILDING_INCOME').': +'.dollar_format($data->income);
-		}
-						
-		if ($data->defense>0) {
-			$page .= t('UNIT_GROUP_'.$data->ugid).' '.t('GENERAL_DEFENSE').': +'.$data->defense;
-		}
-		
-		if ($data->energy>0)  {
-			$page .= t('BUILDING_ENERGY').': +'.energy_format($data->energy);
-		}
-					
-		if ($data->discount>0) {
-			$page .= t('GENERAL_DISCOUNT').': +'.discount_format($data->discount).'%';
-		}		
-				
-		if ($data->maintenance>0) {
-			$page .= t('GENERAL_MAINTENANCE').': +'.maintenance_format($data->maintenance).'%';	
-		}		
-		$page .= '</td>';
-	
-		$page .= '<td valign="top" width="100">';
-	
-		$page .= t('GENERAL_UNLOCK', $data->lid);
-		$page .= '</td>';
-		$page .= '</tr>';		
-	}
-
-	$page .= '</table>';
-	$page .= '</div>'; 
-		
-	if ($count1==0) {
+	if (($count2==0) && ($count5==0)) {
 	
 		$message = t('BUILDINGS_NO_BUILDINGS');
 		$page .= warquest_box_icon('info', $message);
 			
-	}
+	} else {
+		
+		$page .= '<div class="box">';
+		$page .= '<table>';
 	
+		$count3 = 0;		
+		$count4 = 0;
+		
+		/* Show player buildings */
+		while ($data2=warquest_db_fetch_object($result2)) {
+				
+			$count3++;
+	
+			$page .= '<tr>';	
+			$page .= '<td valign="top" width="215">';		
+			$page .= '<span class="subparagraph">'.t('BUILDING_'.$data2->bid).'</span><br/>'; 		 		
+			$page .= warquest_building_image($data2, 0, 0, 170, 120);			
+			$page .= '</td>';
+	
+			$page .= '<td valign="top" width="180">';
+			$page .= '<b>'.t('BUILDING_GAIN').':</b><br/>';
+	
+			if ($data2->income>0) {
+				$page .= t('BUILDING_INCOME').': +'.dollar_format($data2->income);
+			}
+			if ($data2->defense>0) {
+				$page .= t('UNIT_GROUP_'.$data2->ugid).' '.t('GENERAL_DEFENSE').': +'.$data2->defense;
+			}			
+			if ($data2->energy>0)  {
+				$page .= t('BUILDING_ENERGY').': +'.energy_format($data2->energy);
+			}
+			if ($data2->discount>0) {
+				$page .= t('GENERAL_DISCOUNT').': +'.discount_format($data2->discount).'%';
+			}		
+			if ($data2->maintenance>0) {
+				$page .= t('GENERAL_MAINTENANCE').': +'.maintenance_format($data2->maintenance).'%';	
+			}		
+		
+			$page .= '<br/><br/><b>'.t('BUILDING_REQUIRED').':</b><br/>';
+		
+			$query3  = 'select sum(a.amount * b.upkeep) as total from building_unit a, ';
+			$query3 .= 'unit b where a.uid=b.uid and bid='.$data2->bid;
+			$result3 = warquest_db_query($query3);	 
+			$data3 = warquest_db_fetch_object($result3);
+		
+			$page .= t('BUILDING_UPKEEP').': +'.money_format1($data3->total).'<br/><br/>';
+	
+			$query4  = 'select b.uid, a.amount, b.upkeep, b.attack, b.defense ';
+			$query4 .= 'from building_unit a, unit b where b.uid=a.uid and a.bid='.$data2->bid.' order by b.upkeep';  
+			$result4 = warquest_db_query($query4);	
+		
+			$page .= '<table>';
+			$page .= '<tr>';	
+		
+			while ($data4=warquest_db_fetch_object($result4)) {
+		
+				$count4++; 
+		
+				$page .= '<td width="45" align="left">';
+				$page .= warquest_unit_image($data4, $count4, 1, 45, 32);	
+				$page .= '<br/><center>'.number_format2($data4->amount).'x</center>';
+				$page .= '</td>';
+			}
+	
+			$page .= '</tr>';
+			$page .= '</table>';	
+		
+			$page .= '</td>';
+		
+			$page .= '<td valign="top" width="100">';
+			$page .= warquest_link('mid='.$mid.'&sid='.$sid.'&ssid='.$ssid.'&uid='.$data2->bid.'&eid='.EVENT_BUILDING_BUY, t('LINK_BUY'),"buy-".$count3);
+			
+			/* Prevent buy with discount, sell without discount */
+			if ($building_group->sell==1) {
+				$page .= '<span class="right2">';
+				$page .= warquest_link('mid='.$mid.'&sid='.$sid.'&ssid='.$ssid.'&uid='.$data2->bid.'&eid='.EVENT_BUILDING_SELL, t('LINK_SELL'), "sell-".$count3);
+				$page .= '</span>';
+			}		  
+	
+			$page .= '<br/><br/><b>';
+			$page .= t('BUILDING_PRICE').':</b><br/>';
+				
+			/* Calculate price */
+			if ($data2->price>0) {
+				$price = $data2->price;
+				$price = warquest_rente($price ,$data2->amount, $discount);		
+				$page .= money_format2($price);
+			} else {
+				$page .= gold_format($data2->gold);
+			}
+		
+			$page .= '<br/><br/><b>';
+			$page .= t('BUILDING_DEPLOYED').':</b><br/>'.deploy_format($data2->amount).'<br/>';
+			
+			$page .= '</td>';
+	
+			$page .= '</tr>';
+	
+			if ($count3!=$count2) {
+				$page .= '<tr>';
+				$page .= '<td colspan="3"><hr></td>';
+				$page .= '</tr>';			
+			}
+		}
+	
+		/* Show first lock building */
+		if ($data5 = warquest_db_fetch_object($result5)) {
+		
+			if ($count3>0) {
+				$page .= '<tr>';
+				$page .= '<td colspan="3"><hr></td>';
+				$page .= '</tr>';			
+			}	
+		
+			$count3++;
+			
+			$page .= '<tr>';	
+			$page .= '<td width="215">'; 
+			$page .= '<span class="subparagraph">'.t('BUILDING_'.$data5->bid).'</span><br/>';
+			$page .= warquest_image("other/unlock.png", ' width="90" height="67" ');	
+			$page .= warquest_image("other/unlock.png", ' width="90" height="67" ');	
+			$page .= '</td>'; 
+	
+			$page .= '<td valign="top" width="180">';
+			$page .= '<b>'.t('BUILDING_GAIN').':</b><br/>';
+	
+			if ($data5->income>0) {
+				$page .= t('BUILDING_INCOME').': +'.dollar_format($data5->income);
+			}
+						
+			if ($data5->defense>0) {
+				$page .= t('UNIT_GROUP_'.$data5->ugid).' '.t('GENERAL_DEFENSE').': +'.$data5->defense;
+			}
+		
+			if ($data5->energy>0)  {
+				$page .= t('BUILDING_ENERGY').': +'.energy_format($data5->energy);
+			}
+					
+			if ($data5->discount>0) {
+				$page .= t('GENERAL_DISCOUNT').': +'.discount_format($data5->discount).'%';
+			}		
+				
+			if ($data5->maintenance>0) {
+				$page .= t('GENERAL_MAINTENANCE').': +'.maintenance_format($data5->maintenance).'%';	
+			}		
+			$page .= '</td>';
+	
+			$page .= '<td valign="top" width="100">';
+	
+			$page .= t('GENERAL_UNLOCK', $data5->lid);
+			$page .= '</td>';
+			$page .= '</tr>';		
+		}
+
+		$page .= '</table>';
+		$page .= '</div>'; 
+	}
+			
 	$page .= '<div class="note">';
 	$page .= t('BUILDING_NOTE'.$sid);
 	$page .= '</div>';	
