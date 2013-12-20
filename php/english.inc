@@ -1642,7 +1642,7 @@ $lang['UNIT_1702'] = 'Male';
 
 /* ---------------------------------------------------- */
 
-/* Warriors (Asteroid) - Group 19 */
+/* Drones (Asteroid) - Group 19 */
 $lang['UNIT_1900'] = 'Swify I';
 $lang['UNIT_1901'] = 'Euhm II';
 $lang['UNIT_1902'] = 'Mirageman III';
@@ -1698,6 +1698,61 @@ $lang['UNIT_2210'] = 'Dinos XI';
 $lang['UNIT_2300'] = 'Astronaut';
 $lang['UNIT_2301'] = 'Female';
 $lang['UNIT_2302'] = 'Male';
+
+/* ---------------------------------------------------- */
+
+/* Drones (Neptune) - Group 24 */
+$lang['UNIT_2400'] = 'Swify I';
+$lang['UNIT_2401'] = 'Euhm II';
+$lang['UNIT_2402'] = 'Mirageman III';
+$lang['UNIT_2403'] = 'Vereldor IV';
+$lang['UNIT_2404'] = 'Maelsius V';
+$lang['UNIT_2405'] = 'Suldan VI';
+$lang['UNIT_2406'] = 'Jonesy VII';
+$lang['UNIT_2407'] = 'Pendejo VIII';
+$lang['UNIT_2408'] = 'Vorpal IX';
+$lang['UNIT_2409'] = 'Iyona X';
+
+/* Warriors (Asteroid) - Group 25 */
+$lang['UNIT_2500'] = 'Grandmaster I';
+$lang['UNIT_2501'] = 'Courage II';
+$lang['UNIT_2502'] = 'Hero III';
+$lang['UNIT_2503'] = 'Pious IV';
+$lang['UNIT_2504'] = 'Stalwart V';
+$lang['UNIT_2505'] = 'Bombadil VI';
+$lang['UNIT_2506'] = 'Happyelf VII';
+$lang['UNIT_2507'] = 'Rainbow VIII';
+$lang['UNIT_2508'] = 'MerryLad IX';
+$lang['UNIT_2509'] = 'Drenar X';
+
+/* Spacecrafts (Neptune) - Group 26 */
+$lang['UNIT_2600'] = 'Halvilion I';
+$lang['UNIT_2601'] = 'Menelaus II';
+$lang['UNIT_2602'] = 'Ultimatum III';
+$lang['UNIT_2603'] = 'Erudur IV';
+$lang['UNIT_2604'] = 'Banbelion V';
+$lang['UNIT_2605'] = 'Nimtharadon VI';
+$lang['UNIT_2606'] = 'Voronthil VII';
+$lang['UNIT_2607'] = 'Anion VIII';
+$lang['UNIT_2608'] = 'Partharaon IX';
+$lang['UNIT_2609'] = 'Erudil X';
+
+/* Explorers (Neptune) - Group 27 */
+$lang['UNIT_2700'] = 'Girlyman I';
+$lang['UNIT_2701'] = 'Wuss II';
+$lang['UNIT_2702'] = 'Sissy III';
+$lang['UNIT_2703'] = 'Tauren IV';
+$lang['UNIT_2704'] = 'Hykon V';
+$lang['UNIT_2705'] = 'Talenx VI';
+$lang['UNIT_2706'] = 'Dazra VII';
+$lang['UNIT_2707'] = 'Hexa VIII';
+$lang['UNIT_2708'] = 'Marest IX';
+$lang['UNIT_2709'] = 'Rawrgrable X';
+
+/* Citizens (Neptune) - Group 28 */
+$lang['UNIT_2800'] = 'Astronaut';
+$lang['UNIT_2801'] = 'Female';
+$lang['UNIT_2802'] = 'Male';
 
 /*
 ** ------------------
