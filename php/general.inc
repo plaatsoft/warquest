@@ -37,8 +37,7 @@ function warquest_set_default_force($value) {
 		}
 	}
 	
-	$tmp1[$player->planet] = $value;
-	
+	$tmp1[$player->planet] = $value;	
 	$player->default_force = json_encode($tmp1);
 }
 
@@ -48,7 +47,9 @@ function warquest_get_default_force() {
 	global $player;
 	
 	$value=0;
-	if ($tmp = json_decode($player->default_force)) {
+	$tmp = json_decode($player->default_force);
+	
+	if ( isset($tmp[$player->planet]) ) {
 		$value = $tmp[$player->planet]; 
 	}
 		
@@ -79,8 +80,7 @@ function warquest_set_default_mission($value) {
 		}
 	}
 	
-	$tmp1[$player->planet] = $value;
-	
+	$tmp1[$player->planet] = $value;	
 	$player->default_mission = json_encode($tmp1); 
 }
 
