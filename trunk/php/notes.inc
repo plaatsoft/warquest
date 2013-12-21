@@ -22,8 +22,11 @@ $notes[62] = '
 <ul>
 <li>Added planet neptune:</li>
 <ul>
-<li>Added 40 neptune units.</li>
-<li>Added 72 neptune missions.</li>
+<li>Added 36 and 4 gold units.</li>
+<li>Added 72 missions.</li>
+<li>Added mission map.</li>
+<li>Added clan wars map.</li>
+<li>Adapted game engine to support new planet.</li>
 </ul>
 <li>Rebalance earth, moon, mars and asteroid units / buildings.</li>
 <li>Added 20 extra levels.</li>
