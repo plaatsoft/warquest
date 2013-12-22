@@ -139,15 +139,19 @@ UPDATE unit SET attack=1700 WHERE uid=2208;
 UPDATE unit SET attack=1974 WHERE uid=2209;
 UPDATE unit SET attack=2144 WHERE uid=2210;
 
-
 -- Increase building max to 645
 UPDATE building SET max=645 WHERE max=600;
 
 -- Increase unit max to 5382
 UPDATE unit SET max=5382 WHERE max=5000;
 
--- Added Neptune unit groups
 
+------------------------------
+-- NEPTUNE CONFIGURATION
+------------------------------
+
+
+-- Added Neptune unit groups
 delete from unit_group where ugid>=25;
 
 INSERT INTO unit_group (ugid , planet , type) VALUES ( 25, 5, 2);
@@ -158,7 +162,6 @@ INSERT INTO unit_group (ugid , planet , type) VALUES ( 29, 5, 6);
 INSERT INTO unit_group (ugid , planet , type) VALUES ( 30, 5, 0);
 
 -- Added Neptune building groups
-
 delete from building_group where bgid>=21;
 
 INSERT INTO building_group ( bgid, planet, sell, type ) VALUES ( 21, 5, 1, 1);
@@ -168,7 +171,6 @@ INSERT INTO building_group ( bgid, planet, sell, type ) VALUES ( 24, 5, 0, 4);
 INSERT INTO building_group ( bgid, planet, sell, type ) VALUES ( 25, 5, 0, 5);
 
 -- Added Neptune mission groups
-
 delete from mission_group where mgid>=40;
 
 INSERT INTO mission_group (mgid , planet ) VALUES ( 40, 5 );
@@ -187,7 +189,9 @@ UPDATE mission_group SET planet=0 WHERE mgid=0;
 UPDATE level set planet=5 where lid>=250; 
 
 -- Added neptune clan war sector data
-INSERT INTO `sector` (`sid`, `x`, `y`, `planet`, `cid`, `damage`, `mid`) VALUES
+delete from sector where sid>=400;
+
+INSERT INTO sector (`sid`, `x`, `y`, `planet`, `cid`, `damage`, `mid`) VALUES
 (401, 0, 0, 5, 0, 0, 400),
 (402, 0, 1, 5, 0, 0, 401),
 (403, 0, 2, 5, 0, 0, 402),
@@ -265,7 +269,6 @@ INSERT INTO `sector` (`sid`, `x`, `y`, `planet`, `cid`, `damage`, `mid`) VALUES
 (475, 4, 14, 5, 0, 0, 487);
 
 /* Added neptune units */
-
 delete from unit where uid>=2400;
 
 INSERT INTO unit (uid, lid, price, gold, attack, defense, max, ugid, upkeep) VALUES
@@ -318,9 +321,7 @@ INSERT INTO unit (uid, lid, price, gold, attack, defense, max, ugid, upkeep) VAL
 (2801, 0, 0, 0, 0, 0, 0, 29, 140),
 (2802, 0, 0, 0, 0, 0, 0, 29, 160);
 
-
 /* Added neptune mission */
-
 delete from mission where mid>=400;
 
 INSERT INTO `mission` (`mid`, `min_price`, `max_price`, `experience`, `loot`, `energy`, `alliance`, `lid`, `mgid`) VALUES
@@ -397,6 +398,7 @@ INSERT INTO `mission` (`mid`, `min_price`, `max_price`, `experience`, `loot`, `e
 (486, 700000000, 750000000, 90, 0, 1350, 838, 298, 48),
 (487, 800000000, 850000000, 98, 1, 1470, 840, 299, 48);
 
+/* Added neptune mission units */
 delete from mission_unit where mid>=400;
 
 INSERT INTO mission_unit (mid, uid, amount) VALUES

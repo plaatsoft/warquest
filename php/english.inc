@@ -2086,7 +2086,6 @@ $lang['BUILDING_1706'] = 'Alien Detect unit';
 $lang['BUILDING_1707'] = 'Long range launcher';
 $lang['BUILDING_1708'] = 'Photonic weapon factory';
 $lang['BUILDING_1709'] = 'Tasers weapon factory';
-
 $lang['BUILDING_1710'] = 'Drone factory';
 $lang['BUILDING_1711'] = 'Warrior Upgrade lab';
 $lang['BUILDING_1712'] = 'Solar attack unit';
@@ -2127,6 +2126,8 @@ $lang['BUILDING_2006'] = 'Infra repair center';
 $lang['BUILDING_2007'] = 'Unit repair center';
 $lang['BUILDING_2008'] = 'Power repair center';
 $lang['BUILDING_2009'] = 'Robot repair center';
+
+/* ------------------------------------------------------ */
 
 /*
 ** ------------------

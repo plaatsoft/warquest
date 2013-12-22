@@ -20,16 +20,16 @@ $notes[62] = '
 <div class="subparagraph2">21-12-2013</div>
 <i>Game Server v6.2</i>
 <ul>
-<li>Added planet neptune:</li>
+<li>Added planet Neptune:</li>
 <ul>
-<li>Added 36 and 4 gold units.</li>
-<li>Added 72 missions.</li>
-<li>Added mission map.</li>
-<li>Added clan wars map.</li>
-<li>Adapted game engine to support new planet.</li>
+<li>with 40 unit types.</li>
+<li>with 72 missions.</li>
+<li>Added mission / clan war map.</li>
+<li>New planet is available from level 250.</li>
 </ul>
-<li>Rebalance earth, moon, mars and mercure units / buildings.</li>
+<li>Adapted game engine to support new planet.</li>
 <li>Added 20 extra levels.</li>
+<li>Rebalance earth, moon, mars and mercure units / buildings.</li>
 <li>Increase maximum unit amount to 5382.</li>
 <li>Increase maximum building amount to 645.</li>
 <li>Added admin overview clan war map page.</li>
@@ -317,12 +317,11 @@ $notes[49] = '
 <li>Travel option added to buildings and player profile page.</li>
 <li>Remove travel link on lower part of home page.</li>
 </ul>
-<li>Added mercure planet:</li>
+<li>Added planet mercure:</li>
 <ul>
-<li>Added 72 missions.</li>
-<li>Added 49 building types.</li>
-<li>Added 40 weapon unit types.</li>
-<li>Mercure features start at level 255.</li>
+<li>with 72 missions.</li>
+<li>with 49 building types.</li>
+<li>with 40 unit types.</li>
 <li>Added level 275 up to 299.</li>
 </ul>
 <li>Update Mars unit names.</li>
@@ -339,14 +338,13 @@ $notes[48] = '
 <div class="subparagraph2">10-03-2012</div>
 <i>Game Server v4.8</i>
 <ul>
-<li>Added planet Mars. Conquer the new frontier.</li>
+<li>Added planet Mars:</li>
 <ul>
-<li>Added 72 Mars missions.</li>
-<li>Added 49 Mars building types.</li>
-<li>Added 40 Mars weapon unit types.</li>
-<li>Mars features start at level 200.</li>
-<li>Added level 222 up to 275.</li>
+<li>with 72 missions.</li>
+<li>with 49 building types.</li>
+<li>with 40 unit types.</li>
 </ul>
+<li>Added level 222 up to 275.</li>
 <li>Added german translation. Thanks TestBoy.</li>
 <li>Improve dutch translation. Thanks wplaat.</li>
 <li>Added battle range information to lower part of battle page.</li>
