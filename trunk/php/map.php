@@ -88,7 +88,7 @@ if (isset($_GET['data'])) {
 
 	/* Create server side - PNG image map */
 
-	$image = ImageCreateFromPNG('images/planet/map'.$planet.'.png');
+	$image = ImageCreateFromPNG('images/planet/map'.$planet.'a.png');
 	AddPologonRaster($image);
 	process_data($data, $image);
 			

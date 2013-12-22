@@ -496,7 +496,7 @@ function warquest_defense_strength($player, $ugid) {
 					$query .= ' and a.ugid between 19 and 21';
 					break;
 
-		case 30:	/* Sun */
+		case 30:	/* Neptune */
 					$query .= ' and a.ugid between 25 and 27';
 					break;
 
@@ -546,7 +546,7 @@ function warquest_defense_strength($player, $ugid) {
 					$query .= ' and a.ugid between 19 and 21';
 					break;
 					
-		case 30:	/* Sun */
+		case 30:	/* Neptune */
 					$query .= ' and a.ugid between 25 and 27';
 					break;
 					
@@ -3416,29 +3416,15 @@ function warquest_mission_image($mission, $width=90, $height=65) {
 	/* input */
 	global $config;
 	
+	$query  = 'select b.planet from mission a, level b where a.lid=b.lid and a.mid='.$mission->mid;
+	$result = warquest_db_query($query);
+	$data   = warquest_db_fetch_object($result);	
+	
 	$image = '<div id="mtip'.$mission->mid.'" class="tooltip" align="left">';
 	$image .= '<b>'.t('GENERAL_CONQUER').' '.t('MISSION_'.$mission->mid).'</b><br/>';
-	
-	if ($mission->mid<100) {
-		$image .= t('GENERAL_PLANET').' '.t('GENERAL_PLANET_1').'<br/>';
-		$filename = 'mission0.jpg';
-	} else if ($mission->mid<200) {
-		$image .=  t('GENERAL_PLANET').' '.t('GENERAL_PLANET_2').'<br/>';
-		$filename = 'mission1.jpg';
-	} else if ($mission->mid<300) {
-		$image .=  t('GENERAL_PLANET').' '.t('GENERAL_PLANET_3').'<br/>';
-		$filename = 'mission2.jpg';
-	}	else if ($mission->mid<400) {
-		$image .=  t('GENERAL_PLANET').' '.t('GENERAL_PLANET_4').'<br/>';
-		$filename = 'mission3.jpg';
-	}	else if ($mission->mid<500) {
-		$image .=  t('GENERAL_PLANET').' '.t('GENERAL_PLANET_5').'<br/>';
-		$filename = 'mission4.jpg';
-	}
-	
+	$image .= t('GENERAL_PLANET').' '.t('GENERAL_PLANET_'.$data->planet).'<br/>';		
 	$image .= '</div>';
-		
-	$image .= '<img id="image'.$mission->mid.'" src="'.$config["content_url"].'images/mission/'.$filename.'" ';
+	$image .= '<img id="image'.$mission->mid.'" src="'.$config["content_url"].'images/mission/mission'.$data->planet.'a.jpg" ';
 	$image .= 'width="'.$width.'" height="'.$height.'" ';		 
 	$image .= 'onmouseover="tooltip_show(\'mtip'.$mission->mid.'\', \'image'.$mission->mid.'\', 5, 5);" ';
 	$image .= 'onmouseout="tooltip_hide(\'mtip'.$mission->mid.'\');"';
