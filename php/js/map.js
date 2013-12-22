@@ -176,7 +176,7 @@ function drawScreen(event) {
 	ctx.clearRect(0, 0, canvas.width, canvas.height);
 
 	/* Draw background */
-	imageObj.src = 'images/planet/map'+planet+'.png';
+	imageObj.src = 'images/planet/map'+planet+'a.png';
 	ctx.drawImage(imageObj, 0, 0);
 			
 	/* Draw pologons */
