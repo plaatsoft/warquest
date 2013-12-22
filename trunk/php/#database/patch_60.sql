@@ -38,7 +38,7 @@ UPDATE `unit` SET `defense` = '1550' WHERE `unit`.`uid` =1409;
 UPDATE `unit` SET `defense` = '1600' WHERE `unit`.`uid` =1609;
 UPDATE `unit` SET `defense` = '1800' WHERE `unit`.`uid` =1607;
 
--- Rebalance Asteroid Units
+-- Rebalance Mercure Units
 UPDATE `unit` SET `defense` = '1350' WHERE `unit`.`uid` =2009;
 UPDATE `unit` SET `defense` = '1550' WHERE `unit`.`uid` =2209;
 UPDATE `unit` SET `defense` = '1800' WHERE `unit`.`uid` =2207;
@@ -64,7 +64,7 @@ UPDATE `building` SET `defense` = '455' WHERE `building`.`bid` =718;
 UPDATE `building` SET `defense` = '550' WHERE `building`.`bid` =714;
 
 
--- Rebalance Asteroid Buildings
+-- Rebalance Mercure Buildings
 UPDATE `building` SET `defense` = '1000' WHERE `building`.`bid` =1701;
 
 -- Add bank_group

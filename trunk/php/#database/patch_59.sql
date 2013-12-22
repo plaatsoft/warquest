@@ -165,7 +165,7 @@ INSERT INTO `unit` (`uid`, `lid`, `price`, `gold`, `attack`, `defense`, `max`, `
 INSERT INTO `unit` (`uid`, `lid`, `price`, `gold`, `attack`, `defense`, `max`, `ugid`, `upkeep`) 
 	VALUES ('1610', '199', '0', '10', '1850', '1850', '5000', '16', '125000');
 
--- Add Asteroid Gold Units	
+-- Add Mercure Gold Units	
 
 INSERT INTO `unit` (`uid`, `lid`, `price`, `gold`, `attack`, `defense`, `max`, `ugid`, `upkeep`) 
 	VALUES ('1910', '236', '0', '10', '700', '600', '5000', '19', '25000');
