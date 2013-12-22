@@ -2127,7 +2127,56 @@ $lang['BUILDING_2007'] = 'Unit repair center';
 $lang['BUILDING_2008'] = 'Power repair center';
 $lang['BUILDING_2009'] = 'Robot repair center';
 
+
 /* ------------------------------------------------------ */
+
+/* Income (Neptune) - Group 21 */
+$lang['BUILDING_2100'] = 'General base';
+$lang['BUILDING_2101'] = 'Research center';
+$lang['BUILDING_2102'] = 'Oxygen factory';
+$lang['BUILDING_2103'] = 'Personel quarters';
+$lang['BUILDING_2104'] = 'Water factory';
+$lang['BUILDING_2105'] = 'Metal extration center';
+
+/* Defense (Neptune) - Group 22 */
+$lang['BUILDING_2200'] = 'Research center';
+$lang['BUILDING_2201'] = 'Weapon factory';
+$lang['BUILDING_2202'] = 'Short range missile';
+$lang['BUILDING_2203'] = 'Explorer factory';
+$lang['BUILDING_2204'] = 'Early Warning system';
+$lang['BUILDING_2205'] = 'Warrior factory';
+$lang['BUILDING_2206'] = 'Alien Detect unit';
+$lang['BUILDING_2207'] = 'Long range launcher';
+$lang['BUILDING_2208'] = 'Photonic weapon factory';
+$lang['BUILDING_2209'] = 'Tasers weapon factory';
+$lang['BUILDING_2210'] = 'Drone factory';
+$lang['BUILDING_2211'] = 'Warrior Upgrade lab';
+
+/* Energy (Neptune) - Group 23 */
+$lang['BUILDING_2300'] = 'Energy research center';
+$lang['BUILDING_2301'] = 'Gas power facility';
+$lang['BUILDING_2302'] = 'Petroleum research center';
+$lang['BUILDING_2303'] = 'Petroleum extractors';
+$lang['BUILDING_2304'] = 'Solar power facility';
+$lang['BUILDING_2305'] = 'Gas extractors';
+$lang['BUILDING_2306'] = 'Mining center';
+$lang['BUILDING_2307'] = 'Nuclear power facility';
+$lang['BUILDING_2308'] = 'Large orbit solar facility';
+$lang['BUILDING_2309'] = 'Large mars colony';
+
+/* Discount (Neptune) - Group 24 */
+$lang['BUILDING_2400'] = 'Training center';
+$lang['BUILDING_2401'] = 'Terraforming center';
+$lang['BUILDING_2402'] = 'Military personel quarters';
+$lang['BUILDING_2403'] = 'Military headquarters';
+$lang['BUILDING_2404'] = 'Supply depot';
+
+/* Maintenance (Neptune) - Group 25 */
+$lang['BUILDING_2500'] = 'Architect design center';
+$lang['BUILDING_2501'] = 'Drone repair center';
+$lang['BUILDING_2502'] = 'Missile repair center';
+$lang['BUILDING_2503'] = 'Explore repair center';
+$lang['BUILDING_2504'] = 'Vehicle repair center';
 
 /*
 ** ------------------
