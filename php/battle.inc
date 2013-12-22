@@ -1264,9 +1264,9 @@ function warquest_battle_do() {
 	
 		/* No mars battles possible before level 150 */
 		
-	} else if (($player->planet==PLANET_ASTEROID) && ($player->lid<200)) {
+	} else if (($player->planet==PLANET_MERCURE) && ($player->lid<200)) {
 	
-		/* No asteroid battles possible before level 200 */
+		/* No mercure battles possible before level 200 */
 
 	} else if (($player->planet==PLANET_NEPTUNE) && ($player->lid<250)) {
 	
@@ -1708,7 +1708,7 @@ function warquest_battle_clan_war_form() {
 
 		$page .= warquest_box("", $message);
 	
-	} else if (($player->planet==PLANET_ASTEROID) && ($player->lid<200)) {
+	} else if (($player->planet==PLANET_MERCURE) && ($player->lid<200)) {
 			
 		$message = '<table>';
 		$message .= '<tr>';
@@ -1836,7 +1836,7 @@ function warquest_battle_bounty_form() {
 
 		$page .= warquest_box("", $message);
 	
-	} else if (($player->planet==PLANET_ASTEROID) && ($player->lid<200)) {
+	} else if (($player->planet==PLANET_MERCURE) && ($player->lid<200)) {
 			
 		$message = '<table>';
 		$message .= '<tr>';
@@ -2077,7 +2077,7 @@ function warquest_battle_enemy_form() {
 
 		$page .= warquest_box("", $message);
 	
-	} else if (($player->planet==PLANET_ASTEROID) && ($player->lid<200)) {
+	} else if (($player->planet==PLANET_MERCURE) && ($player->lid<200)) {
 			
 		$message = '<table>';
 		$message .= '<tr>';

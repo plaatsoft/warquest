@@ -282,7 +282,7 @@ $lang['GENERAL_PLANET'] = 'Planet';
 $lang['GENERAL_PLANET_1'] = 'Earth';
 $lang['GENERAL_PLANET_2'] = 'Moon';
 $lang['GENERAL_PLANET_3'] = 'Mars';
-$lang['GENERAL_PLANET_4'] = 'Asteroid';
+$lang['GENERAL_PLANET_4'] = 'Mercure';
 $lang['GENERAL_PLANET_5'] = 'Neptune';
 
 /*
@@ -340,17 +340,17 @@ $lang['TIP_148'] = 'Only 2 levels away from starting your own mars colony.';
 $lang['TIP_149'] = 'Only 1 level away from starting your own mars colony.';
 $lang['TIP_150'] = 'Start your own Mars colony!';
 
-$lang['TIP_190'] = 'Only 10 levels away from starting your own asteroid colony.';
-$lang['TIP_191'] = 'Only 9 levels away from starting your own asteroid colony.';
-$lang['TIP_192'] = 'Only 8 levels away from starting your own asteroid colony.';
-$lang['TIP_193'] = 'Only 7 levels away from starting your own asteroid colony.';
-$lang['TIP_194'] = 'Only 6 levels away from starting your own asteroid colony.';
-$lang['TIP_195'] = 'Only 5 levels away from starting your own asteroid colony.';
-$lang['TIP_196'] = 'Only 4 levels away from starting your own asteroid colony.';
-$lang['TIP_197'] = 'Only 3 levels away from starting your own asteroid colony.';
-$lang['TIP_198'] = 'Only 2 levels away from starting your own asteroid colony.';
-$lang['TIP_199'] = 'Only 1 level away from starting your own asteroid colony.';
-$lang['TIP_200'] = 'Start your own asteroid colony!';
+$lang['TIP_190'] = 'Only 10 levels away from starting your own mercure colony.';
+$lang['TIP_191'] = 'Only 9 levels away from starting your own mercure colony.';
+$lang['TIP_192'] = 'Only 8 levels away from starting your own mercure colony.';
+$lang['TIP_193'] = 'Only 7 levels away from starting your own mercure colony.';
+$lang['TIP_194'] = 'Only 6 levels away from starting your own mercure colony.';
+$lang['TIP_195'] = 'Only 5 levels away from starting your own mercure colony.';
+$lang['TIP_196'] = 'Only 4 levels away from starting your own mercure colony.';
+$lang['TIP_197'] = 'Only 3 levels away from starting your own mercure colony.';
+$lang['TIP_198'] = 'Only 2 levels away from starting your own mercure colony.';
+$lang['TIP_199'] = 'Only 1 level away from starting your own mercure colony.';
+$lang['TIP_200'] = 'Start your own mercure colony!';
 
 $lang['TIP_240'] = 'Only 10 levels away from starting your own neptune colony.';
 $lang['TIP_241'] = 'Only 9 levels away from starting your own neptune colony.';
@@ -819,7 +819,7 @@ $lang['MISSION_GROUP_26'] = 'Giraffe';
 $lang['MISSION_GROUP_27'] = 'Heron';
 $lang['MISSION_GROUP_28'] = 'Iguana';
 
-/* Asteroid Missions */
+/* Mercure Missions */
 $lang['MISSION_GROUP_30'] = 'Alfred';
 $lang['MISSION_GROUP_31'] = 'Benjamin';
 $lang['MISSION_GROUP_32'] = 'Charles';
@@ -1089,7 +1089,7 @@ $lang['MISSION_285'] = 'Vallis Oddvar';
 $lang['MISSION_286'] = 'Sinus Radborne';
 $lang['MISSION_287'] = 'Crater Ebenezer';
 
-/* Asteroid */
+/* Mercure */
 $lang['MISSION_300'] = 'Crater Albococcinea';
 $lang['MISSION_301'] = 'Sinus argentea';
 $lang['MISSION_302'] = 'Vallis Atrococcinea';
@@ -1293,7 +1293,7 @@ $lang['MISSION_REBEL'] = 'Rebellion';
 $lang['MISSION_COMPLETE_PLANET_1'] = 'Excellent! You completed all Earth missions. You received 100 million dollar bonus.';
 $lang['MISSION_COMPLETE_PLANET_2'] = 'Excellent! You completed all moon missions. You received 500 million dollar bonus.';
 $lang['MISSION_COMPLETE_PLANET_3'] = 'Excellent! You completed all mars missions. You received 999 billion dollar bonus.';
-$lang['MISSION_COMPLETE_PLANET_4'] = 'Excellent! You completed all asteroid missions. You received 2500 gold bonus.';
+$lang['MISSION_COMPLETE_PLANET_4'] = 'Excellent! You completed all mercure missions. You received 2500 gold bonus.';
 $lang['MISSION_COMPLETE_PLANET_5'] = 'Excellent! You completed all neptune missions. You received 5000 gold bonus.';
 
 $lang['MISSION_NO_MISSIONS'] = 'No missions available yet!';
@@ -1380,7 +1380,7 @@ $lang['UNIT_GROUP_16']  = 'Explorers';
 $lang['UNIT_GROUP_17'] 	= 'Citizens';
 $lang['UNIT_GROUP_18'] 	= 'Army';
 
-/* Asteroid */
+/* Mercure*/
 $lang['UNIT_GROUP_19']  = 'Drones';
 $lang['UNIT_GROUP_20']  = 'Warriors';
 $lang['UNIT_GROUP_21']  = 'Spacecrafts';
@@ -1642,7 +1642,7 @@ $lang['UNIT_1702'] = 'Male';
 
 /* ---------------------------------------------------- */
 
-/* Drones (Asteroid) - Group 19 */
+/* Drones (Mercure) - Group 19 */
 $lang['UNIT_1900'] = 'Swify I';
 $lang['UNIT_1901'] = 'Euhm II';
 $lang['UNIT_1902'] = 'Mirageman III';
@@ -1655,7 +1655,7 @@ $lang['UNIT_1908'] = 'Vorpal IX';
 $lang['UNIT_1909'] = 'Iyona X';
 $lang['UNIT_1910'] = 'Castor XI';
 
-/* Warriors (Asteroid) - Group 20 */
+/* Warriors (Mercure) - Group 20 */
 $lang['UNIT_2000'] = 'Grandmaster I';
 $lang['UNIT_2001'] = 'Courage II';
 $lang['UNIT_2002'] = 'Hero III';
@@ -1668,7 +1668,7 @@ $lang['UNIT_2008'] = 'MerryLad IX';
 $lang['UNIT_2009'] = 'Drenar X';
 $lang['UNIT_2010'] = 'Demetrius XI';
 
-/* Spacecrafts (Asteroid) - Group 21 */
+/* Spacecrafts (Mercure) - Group 21 */
 $lang['UNIT_2100'] = 'Halvilion I';
 $lang['UNIT_2101'] = 'Menelaus II';
 $lang['UNIT_2102'] = 'Ultimatum III';
@@ -1681,7 +1681,7 @@ $lang['UNIT_2108'] = 'Partharaon IX';
 $lang['UNIT_2109'] = 'Erudil X';
 $lang['UNIT_2110'] = 'Dice XI';
 
-/* Explorers (Asteroid) - Group 22 */
+/* Explorers (Mercure) - Group 22 */
 $lang['UNIT_2200'] = 'Girlyman I';
 $lang['UNIT_2201'] = 'Wuss II';
 $lang['UNIT_2202'] = 'Sissy III';
@@ -1694,7 +1694,7 @@ $lang['UNIT_2208'] = 'Marest IX';
 $lang['UNIT_2209'] = 'Rawrgrable X';
 $lang['UNIT_2210'] = 'Dinos XI';
 
-/* Citizens (Asteroid) - Group 23 */
+/* Citizens (Mercure) - Group 23 */
 $lang['UNIT_2300'] = 'Astronaut';
 $lang['UNIT_2301'] = 'Female';
 $lang['UNIT_2302'] = 'Male';
@@ -1713,7 +1713,7 @@ $lang['UNIT_2407'] = 'Iason VIII';
 $lang['UNIT_2408'] = 'Kallias IX';
 $lang['UNIT_2409'] = 'Leontius X';
 
-/* Warriors (Asteroid) - Group 25 */
+/* Warriors (Mercure) - Group 25 */
 $lang['UNIT_2500'] = 'Achaikos I';
 $lang['UNIT_2501'] = 'Berenice II';
 $lang['UNIT_2502'] = 'Cassander III';
@@ -1778,10 +1778,10 @@ $lang['UNIT_NOTE_14'] = 'Note: Buy mars warrior units to improve your warrior fo
 $lang['UNIT_NOTE_15'] = 'Note: Buy mars spacecraft units to improve your spacecraft force strength. Battle, win and steal money from your opponent\'s cash account.';
 $lang['UNIT_NOTE_16'] = 'Note: Buy mars explore units to improve your explorers force strength. Battle, win to start rebellions and steal some money from your opponent\'s Trasquera or SwissCore bank account.';
 
-$lang['UNIT_NOTE_19'] = 'Note: Buy asteroid drone units to improve your drone force strength. Battle, win and steal money from your opponent\'s cash account.';
-$lang['UNIT_NOTE_20'] = 'Note: Buy asteroid warrior units to improve your warrior force strenght. Battle, win and steal money from your opponent\'s cash account.';
-$lang['UNIT_NOTE_21'] = 'Note: Buy asteroid spacecraft units to improve your spacecraft force strength. Battle, win and steal money from your opponent\'s cash account.';
-$lang['UNIT_NOTE_22'] = 'Note: Buy asteroid explore units to improve your explorers force strength. Batlle, win to start rebellions and steal some money from your opponent\'s Trasquera or SwissCore bank account.';
+$lang['UNIT_NOTE_19'] = 'Note: Buy mercure drone units to improve your drone force strength. Battle, win and steal money from your opponent\'s cash account.';
+$lang['UNIT_NOTE_20'] = 'Note: Buy mercure warrior units to improve your warrior force strenght. Battle, win and steal money from your opponent\'s cash account.';
+$lang['UNIT_NOTE_21'] = 'Note: Buy mercure spacecraft units to improve your spacecraft force strength. Battle, win and steal money from your opponent\'s cash account.';
+$lang['UNIT_NOTE_22'] = 'Note: Buy mercure explore units to improve your explorers force strength. Batlle, win to start rebellions and steal some money from your opponent\'s Trasquera or SwissCore bank account.';
 
 $lang['UNIT_NOTE_25'] = 'Note: Buy neptune drone units to improve your drone force strength. Battle, win and steal money from your opponent\'s cash account.';
 $lang['UNIT_NOTE_26'] = 'Note: Buy neptune warrior units to improve your warrior force strenght. Battle, win and steal money from your opponent\'s cash account.';
@@ -1826,7 +1826,7 @@ $lang['BUILDING_GROUP_13'] = 'Energy';
 $lang['BUILDING_GROUP_14'] = 'Discount';
 $lang['BUILDING_GROUP_15'] = 'Maintenance';
 
-/* Asteroid Buildings */
+/* Mercure Buildings */
 $lang['BUILDING_GROUP_16'] = 'Income';
 $lang['BUILDING_GROUP_17'] = 'Defence';
 $lang['BUILDING_GROUP_18'] = 'Energy';
@@ -2063,7 +2063,7 @@ $lang['BUILDING_1509'] = 'Robot repair center';
 
 /* ------------------------------------------------------ */
 
-/* Income (Asteroid) - Group 16 */
+/* Income (Mercure) - Group 16 */
 $lang['BUILDING_1600'] = 'General base';
 $lang['BUILDING_1601'] = 'Research center';
 $lang['BUILDING_1602'] = 'Oxygen factory';
@@ -2075,7 +2075,7 @@ $lang['BUILDING_1607'] = 'Converance center';
 $lang['BUILDING_1608'] = 'Greenhouse';
 $lang['BUILDING_1609'] = 'Hotel';
 
-/* Defense (Asteroid) - Group 17 */
+/* Defense (Mercure) - Group 17 */
 $lang['BUILDING_1700'] = 'Research center';
 $lang['BUILDING_1701'] = 'Weapon factory';
 $lang['BUILDING_1702'] = 'Short range missile';
@@ -2092,7 +2092,7 @@ $lang['BUILDING_1711'] = 'Warrior Upgrade lab';
 $lang['BUILDING_1712'] = 'Solar attack unit';
 $lang['BUILDING_1713'] = 'Planet Destroyer';
 
-/* Energy (Asteroid) - Group 18 */
+/* Energy (Mercure) - Group 18 */
 $lang['BUILDING_1800'] = 'Energy research center';
 $lang['BUILDING_1801'] = 'Gas power facility';
 $lang['BUILDING_1802'] = 'Petroleum research center';
@@ -2104,7 +2104,7 @@ $lang['BUILDING_1807'] = 'Nuclear power facility';
 $lang['BUILDING_1808'] = 'Large orbit solar facility';
 $lang['BUILDING_1809'] = 'Large mars colony';
 
-/* Discount (Asteroid) - Group 19 */
+/* Discount (Mercure) - Group 19 */
 $lang['BUILDING_1900'] = 'Training center';
 $lang['BUILDING_1901'] = 'Terraforming center';
 $lang['BUILDING_1902'] = 'Military personel quarters';
@@ -2116,7 +2116,7 @@ $lang['BUILDING_1907'] = 'President\'s office';
 $lang['BUILDING_1908'] = 'Village';
 $lang['BUILDING_1909'] = 'Recreation facility';
 
-/* Maintenance (Asteroid) - Group 20 */
+/* Maintenance (Mercure) - Group 20 */
 $lang['BUILDING_2000'] = 'Architect design center';
 $lang['BUILDING_2001'] = 'Drone repair center';
 $lang['BUILDING_2002'] = 'Missile repair center';
@@ -2153,11 +2153,11 @@ $lang['BUILDING_NOTE13'] = 'Note: Energy buildings provide faster energy recover
 $lang['BUILDING_NOTE14'] = 'Note: Discount buildings provide price discount on mars building purchase.';
 $lang['BUILDING_NOTE15'] = 'Note: Maintenance buildings provide faster mars unit repair wich results in less unit loss during battles.';
 
-$lang['BUILDING_NOTE16'] = 'Note: Income buildings provide higher income for your asteroid base.';
-$lang['BUILDING_NOTE17'] = 'Note: Defence buildings provide higher defence against attacks on your asteroid base.';
-$lang['BUILDING_NOTE18'] = 'Note: Energy buildings provide faster energy recovery for your asteroid base.';
-$lang['BUILDING_NOTE19'] = 'Note: Discount buildings provide price discount on your asteroid building purchase.';
-$lang['BUILDING_NOTE20'] = 'Note: Maintenance buildings provide faster asteroid unit repair wich results in less unit loss during battles.';
+$lang['BUILDING_NOTE16'] = 'Note: Income buildings provide higher income for your mercure base.';
+$lang['BUILDING_NOTE17'] = 'Note: Defence buildings provide higher defence against attacks on your mercure base.';
+$lang['BUILDING_NOTE18'] = 'Note: Energy buildings provide faster energy recovery for your mercure base.';
+$lang['BUILDING_NOTE19'] = 'Note: Discount buildings provide price discount on your mercure building purchase.';
+$lang['BUILDING_NOTE20'] = 'Note: Maintenance buildings provide faster mercure unit repair wich results in less unit loss during battles.';
 
 $lang['BUILDING_NOTE21'] = 'Note: Income buildings provide higher income for your neptune base.';
 $lang['BUILDING_NOTE22'] = 'Note: Defence buildings provide higher defence against attacks on your neptune base.';
@@ -2451,7 +2451,7 @@ The following extra bonus is given when all planet missions are completed:<br/>
 EARTH: 100 Million dollars<br/>
 MOON: 500 Million dollars<br/>
 MARS: 999 Billion dollars<br/>
-ASTEROID: 2500 gold<br/>
+MERCURE: 2500 gold<br/>
 NEPTUNE: 5000 gold';
 
 $lang['HELP_BATTLE_TITLE'] = 'Battle';
@@ -2576,7 +2576,7 @@ EARTH<br/>
 - "Navy" Only navy earth units.<br/>
 - "Airforce" Only aircraft earth units.<br/>
 - "Intel" Only intel earth units.<br/><br/>
-MOON / MARS / ASTEROID / NEPTUNE<br/>
+MOON / MARS / MERCURE / NEPTUNE<br/>
 - "Army" Best of drone, warrior and spacecraft units.<br/>
 - "Drones" Only drone units.<br/>
 - "Warriors" Only warrior units.<br/>

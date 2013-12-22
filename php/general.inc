@@ -420,7 +420,7 @@ function warquest_attack_strength($player, $ugid) {
 					$query .= ' and a.ugid between 13 and 15';
 					break;
 						
-		case 24:	/* Asteroid */
+		case 24:	/* Mercure */
 					$query .= ' and a.ugid between 19 and 21';
 					break;
 					
@@ -492,7 +492,7 @@ function warquest_defense_strength($player, $ugid) {
 					$query .= ' and a.ugid between 13 and 15';
 					break;
 					
-		case 24:	/* Asteroid */
+		case 24:	/* Mercure */
 					$query .= ' and a.ugid between 19 and 21';
 					break;
 
@@ -530,19 +530,19 @@ function warquest_defense_strength($player, $ugid) {
 	
 	switch ($ugid) {
 	
-		case 0:  /* Army */
+		case 0:  /* Earth */
 					$query .= ' and a.ugid between 1 and 4';
 					break;
 					
-		case 11: /* MoonTroops */
+		case 11: /* Moon */
 					$query .= ' and a.ugid between 7 and 9';
 					break;
 					
-		case 18: /* MarsTroops */ 
+		case 18: /* Mars */ 
 					$query .= ' and a.ugid between 13 and 15';
 					break;
 		
-		case 24:	/* Asteroid */
+		case 24:	/* Mercure */
 					$query .= ' and a.ugid between 19 and 21';
 					break;
 					
@@ -998,7 +998,7 @@ function warquest_lootoption($level) {
 						$max = 200;
 						break;
 						
-			case PLANET_ASTEROID:  
+			case PLANET_MERCURE:  
 						$min = 200;
 						$max = 250;
 						break;
@@ -3424,7 +3424,7 @@ function warquest_mission_image($mission, $width=90, $height=65) {
 	$image .= '<b>'.t('GENERAL_CONQUER').' '.t('MISSION_'.$mission->mid).'</b><br/>';
 	$image .= t('GENERAL_PLANET').' '.t('GENERAL_PLANET_'.$data->planet).'<br/>';		
 	$image .= '</div>';
-	$image .= '<img id="image'.$mission->mid.'" src="'.$config["content_url"].'images/mission/mission'.$data->planet.'a.jpg" ';
+	$image .= '<img id="image'.$mission->mid.'" src="'.$config["content_url"].'images/planet/mission'.$data->planet.'a.jpg" ';
 	$image .= 'width="'.$width.'" height="'.$height.'" ';		 
 	$image .= 'onmouseover="tooltip_show(\'mtip'.$mission->mid.'\', \'image'.$mission->mid.'\', 5, 5);" ';
 	$image .= 'onmouseout="tooltip_hide(\'mtip'.$mission->mid.'\');"';

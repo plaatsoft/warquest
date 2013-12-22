@@ -1000,7 +1000,7 @@ $lang['MISSION_285'] = 'Hügel Oddvar';
 $lang['MISSION_286'] = 'Tal Radborne';
 $lang['MISSION_287'] = 'Krater Ebenezer';
 
-/* Asteroid */
+/* MERCURE */
 $lang['MISSION_300'] = 'Crater Albococcinea';
 $lang['MISSION_301'] = 'Sinus argentea';
 $lang['MISSION_302'] = 'Vallis Atrococcinea';
@@ -1197,7 +1197,7 @@ $lang['UNIT_GROUP_16']  = 'Explorers';
 $lang['UNIT_GROUP_17'] 	= 'Zivilisten';
 $lang['UNIT_GROUP_18'] 	= 'Armee';
 
-/* Asteroid */
+/* MERCURE */
 $lang['UNIT_GROUP_19']  = 'Drones';
 $lang['UNIT_GROUP_20']  = 'Warriors';
 $lang['UNIT_GROUP_21']  = 'Spacecrafts';
@@ -1230,10 +1230,10 @@ $lang['UNIT_NOTE_14'] = 'Note: Buy Mars Warrior units to improve your warrior st
 $lang['UNIT_NOTE_15'] = 'Note: Buy Mars Spacecraft units to improve your spacecraft strength. Battle, win and steal money from your opponent\'s cash account.';
 $lang['UNIT_NOTE_16'] = 'Note: Buy Mars Explore units to improve your explorers strength. Batlle, win to start rebellions on Mars and steal some money from your opponent\'s Trasquera or SwissCore bank account.';
 
-$lang['UNIT_NOTE_19'] = 'Note: Buy asteroid drone units to improve your drone strength. Battle, win and steal money from your opponent\'s cash account.';
-$lang['UNIT_NOTE_20'] = 'Note: Buy asteroid warrior units to improve your warrior strenght. Battle, win and steal money from your opponent\'s cash account.';
-$lang['UNIT_NOTE_21'] = 'Note: Buy asteroid spacecraft units to improve your spacecraft strength. Battle, win and steal money from your opponent\'s cash account.';
-$lang['UNIT_NOTE_22'] = 'Note: Buy asteroid explore units to improve your explorers strength. Batlle, win to start rebellions on Mars and steal some money from your opponent\'s Trasquera or SwissCore bank account.';
+$lang['UNIT_NOTE_19'] = 'Note: Buy mercure drone units to improve your drone strength. Battle, win and steal money from your opponent\'s cash account.';
+$lang['UNIT_NOTE_20'] = 'Note: Buy mercure warrior units to improve your warrior strenght. Battle, win and steal money from your opponent\'s cash account.';
+$lang['UNIT_NOTE_21'] = 'Note: Buy mercure spacecraft units to improve your spacecraft strength. Battle, win and steal money from your opponent\'s cash account.';
+$lang['UNIT_NOTE_22'] = 'Note: Buy mercure explore units to improve your explorers strength. Batlle, win to start rebellions on Mars and steal some money from your opponent\'s Trasquera or SwissCore bank account.';
 
 $lang['UNIT_DISBAND'] = 'You disband %s %s for %s. Still %s deployed.';
 $lang['UNIT_DISBAND_FAILED'] = 'You do not own %s %s. Still %s deployed.';
@@ -1270,7 +1270,7 @@ $lang['BUILDING_GROUP_13'] = 'Energie';
 $lang['BUILDING_GROUP_14'] = 'Discount';
 $lang['BUILDING_GROUP_15'] = 'Maintenance';
 
-/* Asteroid Buildings */
+/* Mercure Buildings */
 $lang['BUILDING_GROUP_16'] = 'Income';
 $lang['BUILDING_GROUP_17'] = 'Defence';
 $lang['BUILDING_GROUP_18'] = 'Energy';
@@ -1303,11 +1303,11 @@ $lang['BUILDING_NOTE13'] = 'Note: Energy buildings provide faster energy recover
 $lang['BUILDING_NOTE14'] = 'Note: Discount buildings provide price discount on mars building purchase.';
 $lang['BUILDING_NOTE15'] = 'Note: Maintenance buildings provide faster mars unit repair wich results in less unit loss during battles.';
 
-$lang['BUILDING_NOTE16'] = 'Note: Income buildings provide higher income for your asteroid base.';
-$lang['BUILDING_NOTE17'] = 'Note: Defence buildings provide higher defence against attacks on your asteroid base.';
-$lang['BUILDING_NOTE18'] = 'Note: Energy buildings provide faster energy recovery for your asteroid base.';
-$lang['BUILDING_NOTE19'] = 'Note: Discount buildings provide price discount on your asteroid building purchase.';
-$lang['BUILDING_NOTE20'] = 'Note: Maintenance buildings provide faster asteroid unit repair wich results in less unit loss during battles.';
+$lang['BUILDING_NOTE16'] = 'Note: Income buildings provide higher income for your mercure base.';
+$lang['BUILDING_NOTE17'] = 'Note: Defence buildings provide higher defence against attacks on your mercure base.';
+$lang['BUILDING_NOTE18'] = 'Note: Energy buildings provide faster energy recovery for your mercure base.';
+$lang['BUILDING_NOTE19'] = 'Note: Discount buildings provide price discount on your mercure building purchase.';
+$lang['BUILDING_NOTE20'] = 'Note: Maintenance buildings provide faster mercure unit repair wich results in less unit loss during battles.';
 
 $lang['BUILDING_SELL'] = 'You sell %s %s for %s. Still %s deployed.';
 $lang['BUILDING_LOW_UPKEEP'] = 'Not enough hourly income to sell %s %s for %s.';
