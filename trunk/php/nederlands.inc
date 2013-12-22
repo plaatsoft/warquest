@@ -278,7 +278,7 @@ $lang['GENERAL_PLANET'] = 'Planet';
 $lang['GENERAL_PLANET_1'] = 'Aarde';
 $lang['GENERAL_PLANET_2'] = 'Maan';
 $lang['GENERAL_PLANET_3'] = 'Mars';
-$lang['GENERAL_PLANET_4'] = 'Asteroid';
+$lang['GENERAL_PLANET_4'] = 'Mercure';
 $lang['GENERAL_PLANET_5'] = 'Zon';
 
 /*
@@ -286,67 +286,6 @@ $lang['GENERAL_PLANET_5'] = 'Zon';
 ** TIP
 ** ------------------
 */
-
-$lang['TIP_GENERAL']  = 'TIP';
-$lang['TIP_0'] = 'Play the training mission to collect experience points and reach the next level.';
-$lang['TIP_1'] = 'Buy some units and start battle training to collect experience points.';
-$lang['TIP_2'] = 'Trade in received skill points (Home -> Skills) to improve your soldier skills.';
-$lang['TIP_3'] = 'Enter your email address to receive message and alliance notifications!';
-$lang['TIP_4'] = 'Buy some income buildings to generate hourly income.';
-$lang['TIP_5'] = 'Buy some defense buildings to improve your defense strength.';
-$lang['TIP_6'] = 'Make alliance with ohter players to improve your attack/defense strenght.';
-$lang['TIP_7'] = 'Store cash money on the National bank to keep it safe for other players.';
-$lang['TIP_8'] = 'Collect extra experience points by voting on the available polls!';
-$lang['TIP_9'] = 'Set bounty on other players to collect bounty awards.';
-$lang['TIP_10'] = 'Visit the casino to try out the Wheel of Fortune and win more cash.';
-$lang['TIP_11'] = 'Buy energy buildings for faster energy restore.';
-$lang['TIP_12'] = 'Buy exspionage units to spy other players and start rebellion on there side.';
-$lang['TIP_13'] = 'Store cash money on the Trasquera bank to receive daily interest.';
-$lang['TIP_14'] = 'Visit the forum. New game ideas are welcome!';
-$lang['TIP_15'] = 'Check out the Help section for more information.';
-$lang['TIP_16'] = 'Buy/Sell stocks to make more profit (Money -> StockExchange)';
-$lang['TIP_17'] = 'Store cash money on the SwissCore bank to receive daily interest.';
-$lang['TIP_18'] = 'Complete all continent missions to receive extra bonus skill points.';
-$lang['TIP_19'] = 'Repair units (Home -> Restore) to prevent unit loss';
-$lang['TIP_20'] = 'Visit the casino to try out the Slot Machine and win more cash.';
-$lang['TIP_21'] = 'Repair buildings (Home -> Restore) to prevent building loss';
-$lang['TIP_22'] = 'Continue with the game and become the best player of your country!';
-
-$lang['TIP_90'] = 'Only 10 levels away from starting your own moon colony.';
-$lang['TIP_91'] = 'Only 9 levels away from starting your own moon colony.';
-$lang['TIP_92'] = 'Only 8 levels away from starting your own moon colony.';
-$lang['TIP_93'] = 'Only 7 levels away from starting your own moon colony.';
-$lang['TIP_94'] = 'Only 6 levels away from starting your own moon colony.';
-$lang['TIP_95'] = 'Only 5 levels away from starting your own moon colony.';
-$lang['TIP_96'] = 'Only 4 levels away from starting your own moon colony.';
-$lang['TIP_97'] = 'Only 3 levels away from starting your own moon colony.';
-$lang['TIP_98'] = 'Only 2 levels away from starting your own moon colony.';
-$lang['TIP_99'] = 'Only 1 level away from starting your own moon colony.';
-$lang['TIP_100'] = 'Start your own moon colony!';
-
-$lang['TIP_141'] = 'Only 10 levels away from starting your own mars colony.';
-$lang['TIP_142'] = 'Only 9 levels away from starting your own mars colony.';
-$lang['TIP_143'] = 'Only 8 levels away from starting your own mars colony.';
-$lang['TIP_144'] = 'Only 7 levels away from starting your own mars colony.';
-$lang['TIP_144'] = 'Only 6 levels away from starting your own mars colony.';
-$lang['TIP_145'] = 'Only 5 levels away from starting your own mars colony.';
-$lang['TIP_146'] = 'Only 4 levels away from starting your own mars colony.';
-$lang['TIP_147'] = 'Only 3 levels away from starting your own mars colony.';
-$lang['TIP_148'] = 'Only 2 levels away from starting your own mars colony.';
-$lang['TIP_149'] = 'Only 1 level away from starting your own mars colony.';
-$lang['TIP_150'] = 'Start your own mars colony!';
-
-$lang['TIP_190'] = 'Only 10 levels away from starting your own asteroid colony.';
-$lang['TIP_191'] = 'Only 9 levels away from starting your own asteroid colony.';
-$lang['TIP_192'] = 'Only 8 levels away from starting your own asteroid colony.';
-$lang['TIP_193'] = 'Only 7 levels away from starting your own asteroid colony.';
-$lang['TIP_194'] = 'Only 6 levels away from starting your own asteroid colony.';
-$lang['TIP_195'] = 'Only 5 levels away from starting your own asteroid colony.';
-$lang['TIP_196'] = 'Only 4 levels away from starting your own asteroid colony.';
-$lang['TIP_197'] = 'Only 3 levels away from starting your own asteroid colony.';
-$lang['TIP_198'] = 'Only 2 levels away from starting your own asteroid colony.';
-$lang['TIP_199'] = 'Only 1 level away from starting your own asteroid colony.';
-$lang['TIP_200'] = 'Start your own asteroid colony!';
 
 /*
 ** ------------------

@@ -76,7 +76,7 @@ INSERT INTO `building` (`bid`, `price`, `gold`, `lid`, `income`, `defense`, `ene
 INSERT INTO `building` (`bid`, `price`, `gold`, `lid`, `income`, `defense`, `energy`, `discount`, `maintenance`, `max`, `bgid`, `ugid`) 
 		VALUES ('1214', 0, '10', '198', '0', '1150', '0', '0', '0', '600', '12', '16');
 			
--- New Asteroid gold buildings
+-- New Mercure gold buildings
 
 UPDATE  `building` SET  `lid` =  '227' WHERE  `building`.`bid` =1707;
 

@@ -28,7 +28,7 @@ $notes[62] = '
 <li>Added clan wars map.</li>
 <li>Adapted game engine to support new planet.</li>
 </ul>
-<li>Rebalance earth, moon, mars and asteroid units / buildings.</li>
+<li>Rebalance earth, moon, mars and mercure units / buildings.</li>
 <li>Added 20 extra levels.</li>
 <li>Increase maximum unit amount to 5382.</li>
 <li>Increase maximum building amount to 645.</li>
@@ -87,7 +87,7 @@ $notes[60] = '
 <li>Added bonus to each won clan war fight.</li>
 <li>Added clan slogan.</li>
 <li>Mininal clan size is now set to '.$config["min_clan_size"].' during fights.</li>
-<li>Rebalance earth, moon, mars and asteroid units and buildings.</li>
+<li>Rebalance earth, moon, mars and mercure units and buildings.</li>
 <li>Limit map access to neighbor sectors which are already conquered.</li>
 <li>Unlock clan wars at level 15.</li>
 </ul>
@@ -292,7 +292,7 @@ $notes[50] = '
 <li>Earth levels are now 0-99.</li>
 <li>Moon levels are now 100-149.</li>
 <li>Mars levels are now 150-199.</li>
-<li>Asteroid levels are now 200-249.</li>
+<li>Mercure levels are now 200-249.</li>
 </ul>
 <li>Added italian translation. Thanks ZennCore.</li>
 <li>Added 0.75 day cease fire option.</li>
@@ -317,12 +317,12 @@ $notes[49] = '
 <li>Travel option added to buildings and player profile page.</li>
 <li>Remove travel link on lower part of home page.</li>
 </ul>
-<li>Added asteroid belt. Conquer the new frontier.</li>
+<li>Added mercure planet:</li>
 <ul>
-<li>Added 72 Asteroid missions.</li>
-<li>Added 49 Asteroid building types.</li>
-<li>Added 40 Asteroid weapon unit types.</li>
-<li>Asteroid features start at level 255.</li>
+<li>Added 72 missions.</li>
+<li>Added 49 building types.</li>
+<li>Added 40 weapon unit types.</li>
+<li>Mercure features start at level 255.</li>
 <li>Added level 275 up to 299.</li>
 </ul>
 <li>Update Mars unit names.</li>

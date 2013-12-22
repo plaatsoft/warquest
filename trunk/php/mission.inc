@@ -81,7 +81,7 @@ function warquest_mission_planet_complet_bonus() {
 								$player->money += 999000000000;
 								break;
 							
-					case PLANET_ASTEROID:	
+					case PLANET_MERCURE:	
 								$player->gold += 2500;
 								break;
 								

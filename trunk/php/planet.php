@@ -666,12 +666,12 @@ $data = warquest_get('data', '');
 switch($planet) {
 
 	case PLANET_EARTH:
-			$image = ImageCreateFromGIF('images/planet/planet_big'.$planet.'.gif');
+			$image = ImageCreateFromGIF('images/planet/global'.$planet.'.gif');
 			process_earth_data($data, $image);
 			break;
 
 	default: 
-			$image = ImageCreateFromPNG('images/planet/planet_big'.$planet.'.png');
+			$image = ImageCreateFromPNG('images/planet/global'.$planet.'.png');
 			AddPologonRaster($image);
 			process_default_data($data, $image);
 			break;

@@ -338,18 +338,6 @@ $lang['TIP_148'] = 'Ancora 2 livelli prima di iniziare la tua colonia su Marte.'
 $lang['TIP_149'] = 'Ancora 1 livello prima di iniziare la tua colonia su Marte.';
 $lang['TIP_150'] = 'Costruisci la tua colonia su Marte!';
 
-$lang['TIP_190'] = 'Only 10 levels away from starting your own asteroid colony.';
-$lang['TIP_191'] = 'Only 9 levels away from starting your own asteroid colony.';
-$lang['TIP_192'] = 'Only 8 levels away from starting your own asteroid colony.';
-$lang['TIP_193'] = 'Only 7 levels away from starting your own asteroid colony.';
-$lang['TIP_194'] = 'Only 6 levels away from starting your own asteroid colony.';
-$lang['TIP_195'] = 'Only 5 levels away from starting your own asteroid colony.';
-$lang['TIP_196'] = 'Only 4 levels away from starting your own asteroid colony.';
-$lang['TIP_197'] = 'Only 3 levels away from starting your own asteroid colony.';
-$lang['TIP_198'] = 'Only 2 levels away from starting your own asteroid colony.';
-$lang['TIP_199'] = 'Only 1 level away from starting your own asteroid colony.';
-$lang['TIP_200'] = 'Start your own asteroid colony!';
-
 /*
 ** ------------------
 ** PAGINA LOGIN
@@ -740,7 +728,7 @@ $lang['MISSION_GROUP_26'] = 'Gnu';
 $lang['MISSION_GROUP_27'] = 'Heron';
 $lang['MISSION_GROUP_28'] = 'Lion';
 
-/* Missioni Asteroide */
+/* Mercure */
 $lang['MISSION_GROUP_30'] = 'Alfred';
 $lang['MISSION_GROUP_31'] = 'Benjamin';
 $lang['MISSION_GROUP_32'] = 'Charles';
@@ -998,7 +986,7 @@ $lang['MISSION_285'] = 'Vallis Oddvar';
 $lang['MISSION_286'] = 'Sinus Radborne';
 $lang['MISSION_287'] = 'Cratere Ebenezer';
 
-/* Asteroid */
+/* Mercure */
 $lang['MISSION_300'] = 'Cratere Albococcinea';
 $lang['MISSION_301'] = 'Sinus argentea';
 $lang['MISSION_302'] = 'Vallis Atrococcinea';
@@ -1196,7 +1184,7 @@ $lang['UNIT_GROUP_16']  = 'Esploratori';
 $lang['UNIT_GROUP_17'] 	= 'Cittadini';
 $lang['UNIT_GROUP_18'] 	= 'Esercito';
 
-/* Asteroide */
+/* mercure */
 $lang['UNIT_GROUP_19']  = 'Droni';
 $lang['UNIT_GROUP_20']  = 'Guerrieri';
 $lang['UNIT_GROUP_21']  = 'NaviSpaziali';
@@ -1433,7 +1421,7 @@ $lang['UNIT_1700'] = 'Astronauta';
 $lang['UNIT_1701'] = 'Fmmina';
 $lang['UNIT_1702'] = 'Maschio';
 
-/* Guerrieri (Asteroide) - Group 19 */
+/* Guerrieri (Mercure) - Group 19 */
 $lang['UNIT_1900'] = 'Swify I';
 $lang['UNIT_1901'] = 'Euhm II';
 $lang['UNIT_1902'] = 'Mirageman III';
@@ -1445,7 +1433,7 @@ $lang['UNIT_1907'] = 'Pendejo VIII';
 $lang['UNIT_1908'] = 'Vorpal IX';
 $lang['UNIT_1909'] = 'Iyona X';
 
-/* Guerrieri (Asteroide) - Group 20 */
+/* Guerrieri (Mercure) - Group 20 */
 $lang['UNIT_2000'] = 'Grandmaster I';
 $lang['UNIT_2001'] = 'Courage II';
 $lang['UNIT_2002'] = 'Hero III';
@@ -1457,7 +1445,7 @@ $lang['UNIT_2007'] = 'Rainbow VIII';
 $lang['UNIT_2008'] = 'MerryLad IX';
 $lang['UNIT_2009'] = 'Drenar X';
 
-/* Navicelle (Asteroide) - Group 21 */
+/* Navicelle (Mercure) - Group 21 */
 $lang['UNIT_2100'] = 'Halvilion I';
 $lang['UNIT_2101'] = 'Menelaus II';
 $lang['UNIT_2102'] = 'Ultimatum III';
@@ -1469,7 +1457,7 @@ $lang['UNIT_2107'] = 'Anion VIII';
 $lang['UNIT_2108'] = 'Partharaon IX';
 $lang['UNIT_2109'] = 'Erudil X';
 
-/* Esploratori (Asteroide) - Group 22 */
+/* Esploratori (Mercure) - Group 22 */
 $lang['UNIT_2200'] = 'Girlyman I';
 $lang['UNIT_2201'] = 'Wuss II';
 $lang['UNIT_2202'] = 'Sissy III';
@@ -1481,7 +1469,7 @@ $lang['UNIT_2207'] = 'Hexa VIII';
 $lang['UNIT_2208'] = 'Marest IX';
 $lang['UNIT_2209'] = 'Rawrgrable X';
 
-/* Cittadini (Asteroide) - Group 23 */
+/* Cittadini (Mercure) - Group 23 */
 $lang['UNIT_2300'] = 'Astronauta';
 $lang['UNIT_2301'] = 'Femmina';
 $lang['UNIT_2302'] = 'Maschio';
@@ -1508,10 +1496,10 @@ $lang['UNIT_NOTE_14'] = 'Nota: Compra Guerrieri Marziani per migliorare la poten
 $lang['UNIT_NOTE_15'] = 'Nota: Compra Navicelle Marziane per migliorare la potenza dele tue Navicelle. Lotta, vinci e ruba soldi dal conto del tuo avversario.';
 $lang['UNIT_NOTE_16'] = 'Nota: Compra Esploratori Marziani per migliorare la potenza dei tuoi Esploratori. Lotta, vinci per iniziare una rivolta nelle regioni marziani e ruba soldi dal conto Trasquera o SwissCore del tuo avversario.';
 
-$lang['UNIT_NOTE_19'] = 'Nota: Compra Droni Asteroidali per migliorare la potenza dei tuoi Droni. Lotta, vinci e ruba soldi dal conto del tuo avversario.';
-$lang['UNIT_NOTE_20'] = 'Nota: Compra Guerrieri Asteroidali per migliorare la potenza dei tuoi Guerrieri. Lotta, vinci e ruba soldi dal conto del tuo avversario.';
-$lang['UNIT_NOTE_21'] = 'Nota: Compra Navicelle Asteroidali per migliorare la potenza dele tue Navicelle. Lotta, vinci e ruba soldi dal conto del tuo avversario.';
-$lang['UNIT_NOTE_22'] = 'Nota: Compra Esploratori Asteroidali per migliorare la potenza dei tuoi Esploratori. Lotta, vinci per iniziare una rivolta nelle regioni marziani e ruba soldi dal conto Trasquera o SwissCore del tuo avversario.';
+$lang['UNIT_NOTE_19'] = 'Nota: Compra Droni Mercure per migliorare la potenza dei tuoi Droni. Lotta, vinci e ruba soldi dal conto del tuo avversario.';
+$lang['UNIT_NOTE_20'] = 'Nota: Compra Guerrieri Mercure per migliorare la potenza dei tuoi Guerrieri. Lotta, vinci e ruba soldi dal conto del tuo avversario.';
+$lang['UNIT_NOTE_21'] = 'Nota: Compra Navicelle Mercure per migliorare la potenza dele tue Navicelle. Lotta, vinci e ruba soldi dal conto del tuo avversario.';
+$lang['UNIT_NOTE_22'] = 'Nota: Compra Esploratori Mercure per migliorare la potenza dei tuoi Esploratori. Lotta, vinci per iniziare una rivolta nelle regioni marziani e ruba soldi dal conto Trasquera o SwissCore del tuo avversario.';
 
 $lang['UNIT_DISBAND'] = 'Hai rimosso %s %s per %s. Ancora %s posizionati.';
 $lang['UNIT_DISBAND_FAILED'] = 'Non hai %s %s. Ancora %s posizionati.';
@@ -1548,7 +1536,7 @@ $lang['BUILDING_GROUP_13'] = 'Energia';
 $lang['BUILDING_GROUP_14'] = 'Sconto';
 $lang['BUILDING_GROUP_15'] = 'Manutenzione';
 
-/* Edifici Asteroidali */
+/* Edifici Mercure */
 $lang['BUILDING_GROUP_16'] = 'Introito';
 $lang['BUILDING_GROUP_17'] = 'Difesa';
 $lang['BUILDING_GROUP_18'] = 'Energia';
@@ -1744,7 +1732,7 @@ $lang['BUILDING_1507'] = 'Centro Architetti';
 $lang['BUILDING_1508'] = 'Compagnia Elettrica';
 $lang['BUILDING_1509'] = 'Centro riparazione Robot';
 
-/* Introito (Asteroide) - Group 16 */
+/* Introito (Mercure) - Group 16 */
 $lang['BUILDING_1600'] = 'Base generale';
 $lang['BUILDING_1601'] = 'Centro esplora e ricerca';
 $lang['BUILDING_1602'] = 'Fabbrica ossigeno';
@@ -1754,9 +1742,9 @@ $lang['BUILDING_1605'] = 'Centro estrazioni minerarie';
 $lang['BUILDING_1606'] = 'Centro communicazioni';
 $lang['BUILDING_1607'] = 'Centro copertura';
 $lang['BUILDING_1608'] = 'Serra';
-$lang['BUILDING_1609'] = 'Hotel Asteroidale';
+$lang['BUILDING_1609'] = 'Hotel Mercure';
 
-/* Difesa (Asteroide) - Group 17 */
+/* Difesa (Mercure) - Group 17 */
 $lang['BUILDING_1700'] = 'Centro ricerca';
 $lang['BUILDING_1701'] = 'Fabbrica armi';
 $lang['BUILDING_1702'] = 'Missile a corto raggio';
@@ -1768,7 +1756,7 @@ $lang['BUILDING_1707'] = 'Fabbrica Esploratori';
 $lang['BUILDING_1708'] = 'Fabbrica Droni';
 $lang['BUILDING_1709'] = 'Fabbrica avanzata guerrieri';
 
-/* Energia (Asteroide) - Group 18 */
+/* Energia (Mercure) - Group 18 */
 $lang['BUILDING_1800'] = 'Centro ricerca energia';
 $lang['BUILDING_1801'] = 'Fabbrica energia gas';
 $lang['BUILDING_1802'] = 'Centro ricerca petrolio';
@@ -1778,9 +1766,9 @@ $lang['BUILDING_1805'] = 'Estrattori gas';
 $lang['BUILDING_1806'] = 'Centro minerario';
 $lang['BUILDING_1807'] = 'Centrale nucleare';
 $lang['BUILDING_1808'] = 'Fabbrica grande orbita solare';
-$lang['BUILDING_1809'] = 'Grande colonia asteroidale';
+$lang['BUILDING_1809'] = 'Grande colonia Mercure';
 
-/* Sconto (Asteroide) - Group 19 */
+/* Sconto (Mercure) - Group 19 */
 $lang['BUILDING_1900'] = 'Centro addestramento';
 $lang['BUILDING_1901'] = 'Centro terraforming';
 $lang['BUILDING_1902'] = 'Alloggi personale militare';
@@ -1792,7 +1780,7 @@ $lang['BUILDING_1907'] = 'Ufficio del Presidente';
 $lang['BUILDING_1908'] = 'Villaggio';
 $lang['BUILDING_1909'] = 'Zona ricreazione';
 
-/* Manutenzione (Asteroide) - Group 20 */
+/* Manutenzione (Mercure) - Group 20 */
 $lang['BUILDING_1200'] = 'Centro riparazione unità';
 $lang['BUILDING_1201'] = 'Centro riparazione droni';
 $lang['BUILDING_1202'] = 'Centro riparazione Missili';
@@ -1829,11 +1817,11 @@ $lang['BUILDING_NOTE13'] = 'Nota: Gli edifici energetici marziani accelerano il 
 $lang['BUILDING_NOTE14'] = 'Nota: Gli edifici sconto marziani offrono prezzi scontanti sull\'acquisto degli edifici.';
 $lang['BUILDING_NOTE15'] = 'Nota: Gli edifici da manutenzione marziani accelerano le riparazioni delle unità che equivale a meno unità perse durante le lotte.';
 
-$lang['BUILDING_NOTE16'] = 'Nota: Gli edifici da introito marziani producono introiti più alti per la tua base asteroidale.';
-$lang['BUILDING_NOTE17'] = 'Nota: Gli edifici da difesa marziani aumentano la difesa contro gli attacchi alla tua base asteroidale.';
-$lang['BUILDING_NOTE18'] = 'Nota: Gli edifici energetici marziani accelerano il recupero dell\'energia per la tua base asteroidale.';
-$lang['BUILDING_NOTE19'] = 'Nota: Gli edifici sconto asteroidali offrono prezzi scontanti sull\'acquisto degli edifici.';
-$lang['BUILDING_NOTE20'] = 'Nota: Gli edifici da manutenzione asteroidali accelerano le riparazioni delle unità che equivale a meno unità perse durante le lotte.';
+$lang['BUILDING_NOTE16'] = 'Nota: Gli edifici da introito marziani producono introiti più alti per la tua base Mercure.';
+$lang['BUILDING_NOTE17'] = 'Nota: Gli edifici da difesa marziani aumentano la difesa contro gli attacchi alla tua base Mercure.';
+$lang['BUILDING_NOTE18'] = 'Nota: Gli edifici energetici marziani accelerano il recupero dell\'energia per la tua base Mercure.';
+$lang['BUILDING_NOTE19'] = 'Nota: Gli edifici sconto Mercure offrono prezzi scontanti sull\'acquisto degli edifici.';
+$lang['BUILDING_NOTE20'] = 'Nota: Gli edifici da manutenzione Mercure accelerano le riparazioni delle unità che equivale a meno unità perse durante le lotte.';
 
 $lang['BUILDING_SELL'] = 'Hai venduto %s %s per %s. Ancora %s posizionati.';
 $lang['BUILDING_LOW_UPKEEP'] = 'Non hai abbastanza introito orario per vendere %s %s per %s.';
