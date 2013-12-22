@@ -147,6 +147,9 @@ UPDATE building SET max=645 WHERE max=600;
 UPDATE unit SET max=5382 WHERE max=5000;
 
 -- Added Neptune unit groups
+
+delete from unit_group where ugid>=25;
+
 INSERT INTO unit_group (ugid , planet , type) VALUES ( 25, 5, 2);
 INSERT INTO unit_group (ugid , planet , type) VALUES ( 26, 5, 3);
 INSERT INTO unit_group (ugid , planet , type) VALUES ( 27, 5, 4);
@@ -155,6 +158,9 @@ INSERT INTO unit_group (ugid , planet , type) VALUES ( 29, 5, 6);
 INSERT INTO unit_group (ugid , planet , type) VALUES ( 30, 5, 0);
 
 -- Added Neptune building groups
+
+delete from building_group where bgid>=21;
+
 INSERT INTO building_group ( bgid, planet, sell, type ) VALUES ( 21, 5, 1, 1);
 INSERT INTO building_group ( bgid, planet, sell, type ) VALUES ( 22, 5, 1, 2);
 INSERT INTO building_group ( bgid, planet, sell, type ) VALUES ( 23, 5, 0, 3);
@@ -162,6 +168,9 @@ INSERT INTO building_group ( bgid, planet, sell, type ) VALUES ( 24, 5, 0, 4);
 INSERT INTO building_group ( bgid, planet, sell, type ) VALUES ( 25, 5, 0, 5);
 
 -- Added Neptune mission groups
+
+delete from mission_group where mgid>=40;
+
 INSERT INTO mission_group (mgid , planet ) VALUES ( 40, 5 );
 INSERT INTO mission_group (mgid , planet ) VALUES ( 41, 5 );
 INSERT INTO mission_group (mgid , planet ) VALUES ( 42, 5 );
