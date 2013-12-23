@@ -139,13 +139,6 @@ UPDATE unit SET attack=1700 WHERE uid=2208;
 UPDATE unit SET attack=1974 WHERE uid=2209;
 UPDATE unit SET attack=2144 WHERE uid=2210;
 
--- Increase building max to 645
-UPDATE building SET max=645 WHERE max=600;
-
--- Increase unit max to 5382
-UPDATE unit SET max=5382 WHERE max=5000;
-
-
 ------------------------------
 -- NEPTUNE CONFIGURATION
 ------------------------------
@@ -740,6 +733,14 @@ INSERT INTO `building_unit` (`bid`, `uid`, `amount`) VALUES
 (2504, 2801, 450),
 (2504, 2802, 350);
 
+-- Bugfix
 UPDATE building SET `lid` = '218' WHERE `building`.`bid` =2001;
+
+-- Increase building max to 645
+UPDATE building SET max=645 WHERE max=600;
+
+-- Increase unit max to 5382
+UPDATE unit SET max=5382 WHERE max=5000;
+UPDATE unit SET max=5500 WHERE max=5382;
 
 

@@ -17,20 +17,22 @@
 */
 
 $notes[62] = '
-<div class="subparagraph2">22-12-2013</div>
+<div class="subparagraph2">23-12-2013</div>
 <i>Game Server v6.2</i>
 <ul>
 <li>Added planet Neptune:</li>
 <ul>
 <li>with new 40 unit types.</li>
-<li>with new 36 buildings types.</li>
+<li>with new 36 building types.</li>
 <li>with new 72 missions.</li>
 <li>New planet is available from level 250.</li>
 </ul>
+<li>Rename asteroid to mercure planet.</li>
+<li>Update most citizens images.</li>
 <li>Adapted game engine to support new planet.</li>
 <li>Added 20 extra levels.</li>
 <li>Rebalance earth, moon, mars and mercure units / buildings.</li>
-<li>Increase maximum unit amount to 5382.</li>
+<li>Increase maximum unit amount to 5500.</li>
 <li>Increase maximum building amount to 645.</li>
 <li>Added admin overview clan war map page.</li>
 </ul>
