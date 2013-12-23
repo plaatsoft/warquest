@@ -740,4 +740,6 @@ INSERT INTO `building_unit` (`bid`, `uid`, `amount`) VALUES
 (2504, 2801, 450),
 (2504, 2802, 350);
 
+UPDATE building SET `lid` = '218' WHERE `building`.`bid` =2001;
+
 

@@ -17,14 +17,14 @@
 */
 
 $notes[62] = '
-<div class="subparagraph2">21-12-2013</div>
+<div class="subparagraph2">22-12-2013</div>
 <i>Game Server v6.2</i>
 <ul>
 <li>Added planet Neptune:</li>
 <ul>
-<li>with 40 unit types.</li>
-<li>with 72 missions.</li>
-<li>Added mission / clan war map.</li>
+<li>with new 40 unit types.</li>
+<li>with new 36 buildings types.</li>
+<li>with new 72 missions.</li>
 <li>New planet is available from level 250.</li>
 </ul>
 <li>Adapted game engine to support new planet.</li>
