@@ -163,7 +163,7 @@ function warquest_building_buy_do() {
 		/* Update citizens units amount */
 		$query  = 'select a.uid, sum(b.amount * c.amount) as amount from unit a ';
 		$query .= 'left join building_unit b on b.uid=a.uid, player_building c ';
-		$query .= 'where (a.ugid=5 or a.ugid=10 or a.ugid=17 or a.ugid=23) and ';
+		$query .= 'where (a.ugid=5 or a.ugid=10 or a.ugid=17 or a.ugid=23 or a.ugid=29) and ';
 		$query .= 'b.bid=c.bid and c.pid='.$player->pid.' group by a.uid';
 	 
 		$result = warquest_db_query($query);	 
@@ -315,7 +315,7 @@ function warquest_building_sell_do() {
 		/* Update citizens units */
 		$query  = 'select a.uid, sum(b.amount * c.amount) as amount from unit a ';
 		$query .= 'left join building_unit b on b.uid=a.uid, player_building c ';
-		$query .= 'where (a.ugid=5 or a.ugid=10 or a.ugid=17 or a.ugid=23) and b.bid=c.bid and ';
+		$query .= 'where (a.ugid=5 or a.ugid=10 or a.ugid=17 or a.ugid=23 or a.ugid=29) and b.bid=c.bid and ';
 		$query .= 'c.pid='.$player->pid.' group by a.uid';
 	 
 		$result = warquest_db_query($query);	
