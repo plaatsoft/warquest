@@ -2092,16 +2092,16 @@ $lang['BUILDING_1712'] = 'Solar attack unit';
 $lang['BUILDING_1713'] = 'Planet Destroyer';
 
 /* Energy (Mercure) - Group 18 */
-$lang['BUILDING_1800'] = 'Energy research center';
-$lang['BUILDING_1801'] = 'Gas power facility';
-$lang['BUILDING_1802'] = 'Petroleum research center';
-$lang['BUILDING_1803'] = 'Petroleum extractors';
+$lang['BUILDING_1800'] = 'Gas power facility';
+$lang['BUILDING_1801'] = 'Energy research center';
+$lang['BUILDING_1802'] = 'Petroleum extractors';
+$lang['BUILDING_1803'] = 'Petroleum research center';
 $lang['BUILDING_1804'] = 'Solar power facility';
-$lang['BUILDING_1805'] = 'Gas extractors';
-$lang['BUILDING_1806'] = 'Mining center';
+$lang['BUILDING_1805'] = 'Mining center';
+$lang['BUILDING_1806'] = 'Gas extractors';
 $lang['BUILDING_1807'] = 'Nuclear power facility';
 $lang['BUILDING_1808'] = 'Large orbit solar facility';
-$lang['BUILDING_1809'] = 'Large mars colony';
+$lang['BUILDING_1809'] = 'Large colony';
 
 /* Discount (Mercure) - Group 19 */
 $lang['BUILDING_1900'] = 'Training center';
@@ -2109,51 +2109,40 @@ $lang['BUILDING_1901'] = 'Terraforming center';
 $lang['BUILDING_1902'] = 'Military personel quarters';
 $lang['BUILDING_1903'] = 'Military headquarters';
 $lang['BUILDING_1904'] = 'Supply depot';
-$lang['BUILDING_1905'] = 'Construction company';
-$lang['BUILDING_1906'] = 'Bootcamp';
-$lang['BUILDING_1907'] = 'President\'s office';
-$lang['BUILDING_1908'] = 'Village';
-$lang['BUILDING_1909'] = 'Recreation facility';
 
 /* Maintenance (Mercure) - Group 20 */
 $lang['BUILDING_2000'] = 'Architect design center';
 $lang['BUILDING_2001'] = 'Drone repair center';
-$lang['BUILDING_2002'] = 'Missile repair center';
-$lang['BUILDING_2003'] = 'Explore repair center';
-$lang['BUILDING_2004'] = 'Vehicle repair center';
-$lang['BUILDING_2005'] = 'Warrior repair center';
-$lang['BUILDING_2006'] = 'Infra repair center';
-$lang['BUILDING_2007'] = 'Unit repair center';
-$lang['BUILDING_2008'] = 'Power repair center';
-$lang['BUILDING_2009'] = 'Robot repair center';
-
+$lang['BUILDING_2002'] = 'Warrior repair center';
+$lang['BUILDING_2003'] = 'Spacecraft repair center';
+$lang['BUILDING_2004'] = 'Explorer repair center';
 
 /* ------------------------------------------------------ */
 
 /* Income (Neptune) - Group 21 */
-$lang['BUILDING_2100'] = 'General base';
-$lang['BUILDING_2101'] = 'Research center';
-$lang['BUILDING_2102'] = 'Oxygen factory';
-$lang['BUILDING_2103'] = 'Personel quarters';
-$lang['BUILDING_2104'] = 'Water factory';
+$lang['BUILDING_2100'] = 'Personel quarters';
+$lang['BUILDING_2101'] = 'Oxygen factory';
+$lang['BUILDING_2102'] = 'Water factory';
+$lang['BUILDING_2103'] = 'General base';
+$lang['BUILDING_2104'] = 'Research center';
 $lang['BUILDING_2105'] = 'Metal extration center';
 
 /* Defense (Neptune) - Group 22 */
-$lang['BUILDING_2200'] = 'Research center';
-$lang['BUILDING_2201'] = 'Weapon factory';
-$lang['BUILDING_2202'] = 'Short range missile';
-$lang['BUILDING_2203'] = 'Explorer factory';
-$lang['BUILDING_2204'] = 'Early Warning system';
-$lang['BUILDING_2205'] = 'Warrior factory';
-$lang['BUILDING_2206'] = 'Alien Detect unit';
-$lang['BUILDING_2207'] = 'Long range launcher';
-$lang['BUILDING_2208'] = 'Photonic weapon factory';
-$lang['BUILDING_2209'] = 'Tasers weapon factory';
-$lang['BUILDING_2210'] = 'Drone factory';
-$lang['BUILDING_2211'] = 'Warrior Upgrade lab';
+$lang['BUILDING_2200'] = 'Drone research center';
+$lang['BUILDING_2201'] = 'Drone factory';
+$lang['BUILDING_2202'] = 'Drone control center';
+$lang['BUILDING_2203'] = 'Warrior Research center';
+$lang['BUILDING_2204'] = 'Warrior factory';
+$lang['BUILDING_2205'] = 'Warrior control center';
+$lang['BUILDING_2206'] = 'Spacecraft research center';
+$lang['BUILDING_2207'] = 'Spacecraft factory';
+$lang['BUILDING_2208'] = 'Spacecraft control center';
+$lang['BUILDING_2209'] = 'Explorer research center';
+$lang['BUILDING_2210'] = 'Explorer factory';
+$lang['BUILDING_2211'] = 'Explorer control center';
 
 /* Energy (Neptune) - Group 23 */
-$lang['BUILDING_2300'] = 'Energy research center';
+$lang['BUILDING_2300'] = 'Water power plant';
 $lang['BUILDING_2301'] = 'Gas power facility';
 $lang['BUILDING_2302'] = 'Petroleum research center';
 $lang['BUILDING_2303'] = 'Petroleum extractors';
@@ -2161,22 +2150,22 @@ $lang['BUILDING_2304'] = 'Solar power facility';
 $lang['BUILDING_2305'] = 'Gas extractors';
 $lang['BUILDING_2306'] = 'Mining center';
 $lang['BUILDING_2307'] = 'Nuclear power facility';
-$lang['BUILDING_2308'] = 'Large orbit solar facility';
-$lang['BUILDING_2309'] = 'Large mars colony';
+$lang['BUILDING_2308'] = 'Orbit solar facility';
+$lang['BUILDING_2309'] = 'Ice energy converter';
 
 /* Discount (Neptune) - Group 24 */
-$lang['BUILDING_2400'] = 'Training center';
-$lang['BUILDING_2401'] = 'Terraforming center';
-$lang['BUILDING_2402'] = 'Military personel quarters';
-$lang['BUILDING_2403'] = 'Military headquarters';
-$lang['BUILDING_2404'] = 'Supply depot';
+$lang['BUILDING_2400'] = 'Military center';
+$lang['BUILDING_2401'] = 'Military headquarters';
+$lang['BUILDING_2402'] = 'Training center';
+$lang['BUILDING_2403'] = 'Research lab';
+$lang['BUILDING_2404'] = 'Resource center';
 
 /* Maintenance (Neptune) - Group 25 */
-$lang['BUILDING_2500'] = 'Architect design center';
-$lang['BUILDING_2501'] = 'Drone repair center';
-$lang['BUILDING_2502'] = 'Missile repair center';
-$lang['BUILDING_2503'] = 'Explore repair center';
-$lang['BUILDING_2504'] = 'Vehicle repair center';
+$lang['BUILDING_2500'] = 'Drone repair center';
+$lang['BUILDING_2501'] = 'Warrior repair center';
+$lang['BUILDING_2502'] = 'Spacecraft repair center';
+$lang['BUILDING_2503'] = 'Architect design center';
+$lang['BUILDING_2504'] = 'Explorer repair center';
 
 /*
 ** ------------------
