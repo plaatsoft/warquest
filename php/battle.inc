@@ -1838,7 +1838,6 @@ function warquest_battle_bounty_form() {
 		$page .= '<script language="JavaScript" type="text/javascript">';
 		$page .= "countdown4.init(".$value.", 'countdown_time4', '00:00:00');"; 
 		$page .= '</script>';
-
 	
 	} else {
 			
@@ -1864,8 +1863,10 @@ function warquest_battle_bounty_form() {
 			$query .= 'and b.lid between 100 and 149 ';
 		}  else if ($player->lid < 199) {
 			$query .= 'and b.lid between 150 and 199 ';
+		}	else if ($player->lid < 249) {
+			$query .= 'and b.lid between 200 and 249 ';
 		} else {
-			$query .= 'and b.lid > 199 ';
+			$query .= 'and b.lid > 249 ';
 		}
 		
 		$query .= 'order by rand() limit 0, 20';	
