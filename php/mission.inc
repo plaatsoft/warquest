@@ -110,17 +110,11 @@ function warquest_mission_complet() {
 	global $config;
 	global $popup;
 	
-	$pid = $player->pid;
-
- 	$query1  = 'select progress, part, part2 from player_mission where pid='.$pid.' and mid='.$uid;  
-	
-	$result1 = warquest_db_query($query1);
-	$data1 = warquest_db_fetch_object($result1);
-
+	$data1 = warquest_db_player_mission($player->pid, $uid);
 	$part = $data1->part2+1;
 	
 	$query2  = 'select sum(progress) as progress from player_mission a, ';
-	$query2 .= 'mission b where a.mid=b.mid and a.pid='.$pid.' and b.mgid='.$sid;
+	$query2 .= 'mission b where a.mid=b.mid and a.pid='.$player->pid.' and b.mgid='.$sid;
 	$result2 = warquest_db_query($query2);	
 	$data2 = warquest_db_fetch_object($result2);
 	
@@ -166,7 +160,7 @@ function warquest_mission_complet() {
 							
 		/* Clear progress state for all eight missions. */
 		$query  = 'update player_mission a, mission b set a.part='.$part.', a.part2='.$part.' where '; 
-		$query .= 'a.mid=b.mid and a.pid='.$pid.' and b.mgid='.$sid;
+		$query .= 'a.mid=b.mid and a.pid='.$player->pid.' and b.mgid='.$sid;
 		warquest_db_query($query);		
 					
 		/* Update income value */
@@ -327,10 +321,7 @@ function warquest_mission_do() {
 	global $page; 
 	global $player;
 	global $popup;
-	
-	$pid = $player->pid;
-
-		
+			
 	/* Get mission data */
 	$query  = 'select min_price, max_price, energy, experience, alliance, ';
 	$query .= 'loot, lid from mission where mid='.$uid;  
@@ -342,10 +333,9 @@ function warquest_mission_do() {
 	$part = 0;
 	$part2 = 0;
 	
-	$query  = 'select progress, part, part2 from player_mission where pid='.$pid.' and mid='.$uid;  
-	$result = warquest_db_query($query);
+	$data = warquest_db_player_mission($player->pid, $uid);
 
-	if ($data = warquest_db_fetch_object($result)) {
+	if ( isset($data->pid) ) {
 		$progress = $data->progress;
 		$part = $data->part;
 		$part2 = $data->part2;
@@ -461,7 +451,7 @@ function warquest_mission_do() {
 			$part++;
 		} 
 		
-		warquest_db_player_mission_update($pid, $uid, $progress, $part, $part2);	
+		warquest_db_player_mission_update($player->pid, $uid, $progress, $part, $part2);	
 		warquest_mission_complet();
 		warquest_mission_planet_complet_bonus();
 		
@@ -535,14 +525,12 @@ function warquest_mission_form() {
 		$page .= warquest_box_icon('info', $message, $link);
 	
 	} else {
-					
-		$pid = $player->pid;
 				
 		/* Get mission data */
 		$query  = "select a.mid, a.loot, a.min_price, a.max_price, a.energy, ";
 		$query .= "a.experience, a.alliance, ifnull(b.progress, 0) as progress, ";
 		$query .= "ifnull(b.part, 0) as part, ifnull(b.part2, 0) as part2 from mission a ";
-		$query .= "left join player_mission b on a.mid=b.mid and b.pid=".$pid." ";
+		$query .= "left join player_mission b on a.mid=b.mid and b.pid=".$player->pid." ";
 		$query .= 'where a.mgid='.$sid.' and a.lid<='.$player->lid.' ';  
 		$query .= 'order by a.lid asc';
 	

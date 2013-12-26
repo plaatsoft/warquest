@@ -355,23 +355,11 @@ function warquest_show_attack_army($data2, $ugid) {
 	$query  = 'select a.uid, a.attack, a.defense, a.upkeep, b.amount ';
 	$query .= 'from unit a, player_unit b where ';
    $query .= 'a.uid=b.uid and b.pid='.$data2->pid.' ';
-		
-	switch ($ugid) {
 	
-		case 0:  $query .='and a.ugid between 1 and 4 ';
-					break;
-					 
-		case 11: $query .= 'and a.ugid between 7 and 9 ';
-					break;
-
-		case 18: $query .= 'and a.ugid between 13 and 15 ';
-					break;
-					
-		case 24: $query .= 'and a.ugid between 19 and 21 ';
-					break;
-					
-		default: $query .= 'and a.ugid='.$ugid.' ';
-					break;
+	if ($unit_group->type==0) {
+		$query .= 'and a.ugid in (select ugid from unit_group where type in (2,3,4) and planet='.$player->planet.') ';
+	} else {
+		$query .= 'and a.ugid='.$ugid.' ';
 	}
 	
 	$query .= 'order by a.attack desc, a.defense desc';
@@ -433,22 +421,10 @@ function warquest_show_attack_army($data2, $ugid) {
 	$query .= 'from unit a, player_unit b where ';
    $query .= 'a.uid=b.uid and b.pid='.$data2->pid.' ';
 	
-	switch ($ugid) {
-	
-		case 0:  $query .='and a.ugid between 1 and 4 ';
-					break;
-					 
-		case 11: $query .= 'and a.ugid between 7 and 9 ';
-					break;
-
-		case 18: $query .= 'and a.ugid between 13 and 15 ';
-					break;
-					
-		case 24: $query .= 'and a.ugid between 19 and 21 ';
-					break;
-					
-		default: $query .= 'and a.ugid='.$ugid.' ';
-					break;
+	if ($unit_group->type==0) {
+		$query .= 'and a.ugid in (select ugid from unit_group where type in (2,3,4) and planet='.$player->planet.') ';
+	} else {
+		$query .= 'and a.ugid='.$ugid.' ';
 	}
 	
 	$query .= 'order by a.defense desc, a.attack desc';
@@ -505,23 +481,12 @@ function warquest_show_attack_army($data2, $ugid) {
 	$query .= 'from building a, player_building b where ';
    $query .= 'a.bid=b.bid and b.pid='.$data2->pid.' and a.defense>0 ';
 	
-	switch ($ugid) {
+	if ($unit_group->type==0) {
+		$query .= 'and a.ugid in (select  ugid from unit_group where type in (2,3,4) and planet='.$player->planet.') ';
+	} else {
+		$query .= 'and a.ugid='.$ugid.' ';
+	}
 	
-		case 0:  $query .= 'and a.ugid in (0, 1, 2, 3) ';
-					break;
-					
-		case 11: $query .= 'and a.ugid in (7, 8, 9) ';
-					break;
-		
-		case 18: $query .= 'and a.ugid in (13, 14, 15) ';
-					break;
-					
-		case 24: $query .= 'and a.ugid between 19 and 21 ';
-					break;
-					
-		default: $query .= 'and a.ugid='.$ugid.' ';
-					break;
-	}		
 	$query .= 'order by a.defense desc';
 	
 	$result = warquest_db_query($query);	
@@ -628,28 +593,19 @@ function warquest_battle_unit_lost($ugid) {
 	}
 	$player->damage_units = 0;
 	
+	$unit_group = warquest_db_unit_group($ugid);
+	
 	/* First determinate which units are involved in battle */
 	$query  = 'select a.uid, b.amount from unit a, player_unit b where ';
    $query .= 'a.uid=b.uid and b.pid='.$player->pid.' and a.gold=0 ';
 	
-	switch ($ugid) {
-	
-		case 0: 	$query .= ' and a.ugid between 1 and 4';
-					break;
-				  
-		case 11: $query .= ' and a.ugid between 7 and 9';
-					break;
-					
-		case 18: $query .= ' and a.ugid between 13 and 15';
-					break;
-		
-		case 24: $query .= ' and a.ugid between 19 and 21';
-					break;
-					
-		default: $query .= ' and a.ugid='.$ugid;
-					break;
-	}	
-	$query .= ' order by a.attack desc, a.defense desc';
+	if ($unit_group->type==0) {
+		$query .= 'and a.ugid in (select ugid from unit_group where type in (2,3,4) and planet='.$player->planet.') ';
+	} else {
+		$query .= 'and a.ugid='.$ugid.' ';
+	}
+
+	$query .= 'order by a.attack desc, a.defense desc';
 	$result = warquest_db_query($query);	
 	
 	$size=($player->alliance * 6);
@@ -680,24 +636,13 @@ function warquest_battle_unit_lost($ugid) {
 	$query .= 'unit a, player_unit b where ';
 	$query .= 'a.uid=b.uid and b.pid='.$player->pid.' and a.uid>='.$tmp.' and a.gold=0 ';
 	
-	switch ($ugid) {
-		case 0: 	$query .= ' and a.ugid between 1 and 4';
-					break;
-				  
-		case 11: $query .= ' and a.ugid between 7 and 9';
-					break;
-					
-		case 18: $query .= ' and a.ugid between 13 and 15';
-					break;
-					
-		case 24: $query .= ' and a.ugid between 19 and 21';
-					break;
-					
-		default: $query .= ' and a.ugid='.$ugid;
-					break;
-	}	
+	if ($unit_group->type==0) {
+		$query .= 'and a.ugid in (select ugid from unit_group where type in (2,3,4) and planet='.$player->planet.') ';
+	} else {
+		$query .= 'and a.ugid='.$ugid.' ';
+	}
 	
-	$query .= ' order by rand() limit '.rand(1,4);
+	$query .= 'order by rand() limit '.rand(1,4);
 	
 	$result = warquest_db_query($query);	
 	
