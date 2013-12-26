@@ -743,17 +743,22 @@ class TestDatabase extends PHPUnit_Framework_TestCase {
 		/* test data */
 		$pid = 1;				
 		$mid = 1;
-		$progress = 100;
-		$part1 = 1;
+		$progress = 10;
+		$part = 1;
 		$part2 = 1;
+	
 		$_SERVER["REMOTE_ADDR"] = "127.0.0.1";
 						
 		$result = warquest_db_connect($config["dbhost"], $config["dbuser"], $config["dbpass"], $config["dbname"]);
 		$this->assertEquals($result, 1);
 
-		$result = warquest_db_player_mission_update($pid, $mid, $progress, $part1, $part2);
+		$result = warquest_db_player_mission_update($pid, $mid, $progress, $part, $part2);
 		$this->assertEquals($result, 1);	
 		
+		$data = warquest_db_player_mission($pid, $mid);
+		$this->assertEquals($data->progress, $progress);	
+		$this->assertEquals($data->part, $part);	
+				
 		$result = warquest_db_player_mission_delete_all($pid);
 		$this->assertEquals($result, 1);	
 		

@@ -401,38 +401,20 @@ function warquest_attack_strength($player, $ugid) {
 
 	/* input */
 	global $config;
-		
+	
+	$unit_group = warquest_db_unit_group($ugid);
+	
 	/* Calculate attack strength of units depending of alliance size */
 	$query =  'select a.attack, b.amount from unit a, player_unit b where ';
-	$query .= 'a.uid=b.uid and b.pid='.$player->pid;
+	$query .= 'a.uid=b.uid and b.pid='.$player->pid.' ';
 
-	switch ($ugid) {
-	
-		case 0:  /* Army */
-					$query .= ' and a.ugid between 1 and 4';
-					break;
-					
-		case 11: /* Moon */
-					$query .= ' and a.ugid between 7 and 9';
-					break;
-					
-		case 18: /* Mars */ 
-					$query .= ' and a.ugid between 13 and 15';
-					break;
-						
-		case 24:	/* Mercure */
-					$query .= ' and a.ugid between 19 and 21';
-					break;
-					
-		case 30:	/* Sun */
-					$query .= ' and a.ugid between 25 and 27';
-					break;
-										
-		default: /* other */
-					$query .= ' and a.ugid='.$ugid;
-					break;
+	if ($unit_group->type==0) {
+		$query .= 'and a.ugid in (select ugid from unit_group where type in (2,3,4) and planet='.$player->planet.') ';
+	} else {
+		$query .= 'and a.ugid='.$ugid.' ';
 	}
-	$query .= ' order by a.attack desc';
+	
+	$query .= 'order by a.attack desc';
 
 	$result = warquest_db_query($query);
 
@@ -474,39 +456,19 @@ function warquest_defense_strength($player, $ugid) {
 	$defense = 0;
 	$size=($player->alliance * 6);
  
+	$unit_group = warquest_db_unit_group($ugid);
+ 
 	/* Calculate defense strength of units depending of alliance size */
 	$query =  'select a.defense, b.amount from unit a, player_unit b where ';
-	$query .= 'a.uid=b.uid and b.pid='.$player->pid;
+	$query .= 'a.uid=b.uid and b.pid='.$player->pid.' ';
 
-	switch ($ugid) {
-	
-		case 0:  /* Earth */
-					$query .= ' and a.ugid between 1 and 4';
-					break;
-					
-		case 11: /* Moon */
-					$query .= ' and a.ugid between 7 and 9';
-					break;
-					
-		case 18: /* Mars */ 
-					$query .= ' and a.ugid between 13 and 15';
-					break;
-					
-		case 24:	/* Mercure */
-					$query .= ' and a.ugid between 19 and 21';
-					break;
-
-		case 30:	/* Neptune */
-					$query .= ' and a.ugid between 25 and 27';
-					break;
-
-					
-		default: /* Other */
-					$query .= ' and a.ugid='.$ugid;
-					break;
+	if ($unit_group->type==0) {
+		$query .= 'and a.ugid in (select ugid from unit_group where type in (2,3,4) and planet='.$player->planet.') ';
+	} else {
+		$query .= 'and a.ugid='.$ugid.' ';
 	}
 	
-	$query .= ' order by a.defense desc';
+	$query .= 'order by a.defense desc';
 	$result = warquest_db_query($query);
 
 	while ($data = warquest_db_fetch_object($result)) {
@@ -526,36 +488,15 @@ function warquest_defense_strength($player, $ugid) {
 	
 	/* Calculate defense strength of building */
 	$query  = 'select a.defense, b.amount from building a, player_building b ';
-	$query .= 'where a.bid=b.bid and b.pid='.$player->pid.' and a.defense>0';
+	$query .= 'where a.bid=b.bid and b.pid='.$player->pid.' and a.defense>0 ';
 	
-	switch ($ugid) {
-	
-		case 0:  /* Earth */
-					$query .= ' and a.ugid between 1 and 4';
-					break;
-					
-		case 11: /* Moon */
-					$query .= ' and a.ugid between 7 and 9';
-					break;
-					
-		case 18: /* Mars */ 
-					$query .= ' and a.ugid between 13 and 15';
-					break;
-		
-		case 24:	/* Mercure */
-					$query .= ' and a.ugid between 19 and 21';
-					break;
-					
-		case 30:	/* Neptune */
-					$query .= ' and a.ugid between 25 and 27';
-					break;
-					
-		default: /* other */
-					$query .= ' and a.ugid='.$ugid;
-					break;
+	if ($unit_group->type==0) {
+		$query .= 'and a.ugid in (select ugid from unit_group where type in (2,3,4) and planet='.$player->planet.') ';
+	} else {
+		$query .= 'and a.ugid='.$ugid.' ';
 	}
-
-	$query .= ' order by a.defense desc';
+	
+	$query .= 'order by a.defense desc';
 	
 	$result = warquest_db_query($query);
 	
@@ -929,8 +870,8 @@ function warquest_get_min_attack_level() {
 
 	} else {	
 	
-		if ($player->lid >= 259) {
-			$level = 250;
+		if ($player->lid >= 289) {
+			$level = 280;
 		} else {
 			$level = floor($player->lid/10)*10;
 		}

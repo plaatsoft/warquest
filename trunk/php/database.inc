@@ -749,11 +749,10 @@ function warquest_db_building_group($bgid) {
  * @unitTest
  */
 function warquest_db_player_mission_update($pid, $mid, $progress, $part1, $part2=0) {
-		
-	$query = 'select progress from player_mission where pid='.$pid.' and mid='.$mid; 	
-	$result = warquest_db_query($query); 
 	
-	if (warquest_db_fetch_object($result)) {
+	$data = warquest_db_player_mission($pid, $mid);
+		
+	if (isset($data->pid)) {
 	
 		/* Update existing record. */
 		$query  = "update player_mission set progress=".$progress.", part=".$part1.", part2=".$part2." ";
@@ -778,6 +777,20 @@ function warquest_db_player_mission_delete_all($pid) {
 	$query = "delete from player_mission where pid=".$pid; 
 	
 	return warquest_db_query($query);
+}
+
+
+/**
+ * Get player mission
+ * @unitTest
+ */
+function warquest_db_player_mission($pid, $mid) {
+
+	$query = 'select pid, mid, progress, part, part2 from player_mission where pid='.$pid.' and mid='.$mid; 	
+	
+	$result = warquest_db_query($query);  
+
+	return warquest_db_fetch_object($result);	
 }
 			
 /*

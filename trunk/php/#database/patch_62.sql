@@ -742,5 +742,3 @@ UPDATE building SET max=645 WHERE max=600;
 -- Increase unit max to 5382
 UPDATE unit SET max=5382 WHERE max=5000;
 UPDATE unit SET max=5500 WHERE max=5382;
-
-

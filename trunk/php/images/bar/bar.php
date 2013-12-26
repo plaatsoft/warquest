@@ -21,7 +21,7 @@
 */
 
 $offset=0;
-for ($value=0; $value<=300; $value++) {
+for ($value=0; $value<=100; $value++) {
 
 	$filename = 'bar'.$value.'.png';
 
