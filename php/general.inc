@@ -2668,10 +2668,10 @@ function warquest_ui_header( $title = "") {
 	}
 	
 	/* Add custom background image */
-	if (@$player->background=="") {	
-		$background = 1;
-	} else {
+	if (isset($player->background)) {	
 		$background = $player->background;
+	} else {
+		$background = $config["default_background"];		
 	}
 	
 	$page .= '<style type="text/css">';
@@ -2896,7 +2896,18 @@ function warquest_ui_footer($renderTime, $queries) {
 					   break;
 		}
 	}
-		
+	
+	if ( ($config["default_background"]!=1) && (!isset($player->background)) ) {
+		switch ($config["default_background"]) {
+						
+			case 11: $page .= '<script type="text/javascript" src="js/snow.js"></script>';
+					   break;
+
+			case 12: $page .= '<script type="text/javascript" src="js/fireworks.js"></script>';
+					   break;
+		}
+	}
+	
 	$page .= '<div class="copyright">';
 	$page .= '<center>';
 	$page .= '<i>';

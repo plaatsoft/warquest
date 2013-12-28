@@ -38,6 +38,7 @@ $config["base_url"]						= "http://www.warquest.nl";
 $config['backup_period']   		   = 30;
 $config["webservices"]					= 1;
 $config["adminPid"]						= 18;
+$config["default_background"]			= 1;
 
 /* Server version */
 $config["applVersion"]					= 'Version 6.2';
