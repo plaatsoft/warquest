@@ -37,34 +37,40 @@ function process_data($data, $image) {
 
 			@list($x, $y, $name, $owner, $damage) = preg_split('/-/',$code);
 			
-			if (strlen($name)>0) {
-			
-				$yoffset=4;
-				$xoffset=6;
-				if (($y % 2)==0) {
-					$xoffset+=44;
-				}
+			$yoffset=4;
+			$xoffset=6;
+			if (($y % 2)==0) {
+				$xoffset+=44;
+			}
 								
-				if ($owner==1) {
-					$color = ImageColorAllocatealpha($image, 0, 255, 0, 60);	
-				} else if ($owner==2) {
-					$color = ImageColorAllocatealpha($image, 255, 165, 0, 60);
-				} else {				
-					$color = ImageColorAllocatealpha($image, 255, 0, 0, 60);	
-				}
+			$color = 0;	
+			if ($owner==1) {
+				/* Own area */
+				$color = ImageColorAllocatealpha($image, 255, 0, 0, 60);
+			} else if ($owner==2) {
+				/* Enemy area */
+				$color = ImageColorAllocatealpha($image, 0, 255, 0, 60);	
+			} else if ($owner==3) {		
+				/* Selectable area */
+				$color = ImageColorAllocatealpha($image, 255, 165, 0, 60);
+			}
 
+			if ($color>0) {
 				fillPologon($image, $color, $x, $y);
+			}
 			
-				if ($damage>0) {
-				
+			if (strlen($name)>0) {
+				if ($damage>0) {	
 					$yoffset-=3;
 				}
-
 				imagefttext($image, 7, 0, 20+($x*88)+$xoffset, 20+($y*18)+$yoffset, $white, 'ttf/font.ttf', $name);
+			}
 							
-				if ($damage>0) {
-					imagefttext($image, 7, 0, 27+($x*88)+$xoffset, 30+($y*18)+$yoffset+2, $white, 'ttf/font.ttf', $damage.'%');	
+			if ($damage>0) {
+				if (strlen($name)>0) {
+					$yoffset+=12;
 				}
+				imagefttext($image, 7, 0, 27+($x*88)+$xoffset, 20+($y*18)+$yoffset, $white, 'ttf/font.ttf', $damage.'%');	
 			}
 		}
 	}

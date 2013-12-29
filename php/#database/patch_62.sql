@@ -44,6 +44,8 @@ UPDATE building SET defense=275 WHERE bid=54;
 UPDATE building SET defense=325 WHERE bid=59;
 
 -- Add twenty levels
+delete from level where lid>=280;
+
 INSERT INTO level (lid, experience, unit_lost, building_lost, planet) VALUES (280,1000000, 1, 1, 4);
 INSERT INTO level (lid, experience, unit_lost, building_lost, planet) VALUES (281,1050000, 1, 1, 4);
 INSERT INTO level (lid, experience, unit_lost, building_lost, planet) VALUES (282,1100000, 1, 1, 4);

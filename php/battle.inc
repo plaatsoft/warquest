@@ -357,7 +357,7 @@ function warquest_show_attack_army($data2, $ugid) {
    $query .= 'a.uid=b.uid and b.pid='.$data2->pid.' ';
 	
 	if ($unit_group->type==0) {
-		$query .= 'and a.ugid in (select ugid from unit_group where type in (2,3,4) and planet='.$player->planet.') ';
+		$query .= 'and a.ugid in (select ugid from unit_group where type in (2,3,4) and planet='.$unit_group->planet.') ';
 	} else {
 		$query .= 'and a.ugid='.$ugid.' ';
 	}
@@ -422,7 +422,7 @@ function warquest_show_attack_army($data2, $ugid) {
    $query .= 'a.uid=b.uid and b.pid='.$data2->pid.' ';
 	
 	if ($unit_group->type==0) {
-		$query .= 'and a.ugid in (select ugid from unit_group where type in (2,3,4) and planet='.$player->planet.') ';
+		$query .= 'and a.ugid in (select ugid from unit_group where type in (2,3,4) and planet='.$unit_group->planet.') ';
 	} else {
 		$query .= 'and a.ugid='.$ugid.' ';
 	}
@@ -600,7 +600,7 @@ function warquest_battle_unit_lost($ugid) {
    $query .= 'a.uid=b.uid and b.pid='.$player->pid.' and a.gold=0 ';
 	
 	if ($unit_group->type==0) {
-		$query .= 'and a.ugid in (select ugid from unit_group where type in (2,3,4) and planet='.$player->planet.') ';
+		$query .= 'and a.ugid in (select ugid from unit_group where type in (2,3,4) and planet='.$unit_group->planet.') ';
 	} else {
 		$query .= 'and a.ugid='.$ugid.' ';
 	}
@@ -637,7 +637,7 @@ function warquest_battle_unit_lost($ugid) {
 	$query .= 'a.uid=b.uid and b.pid='.$player->pid.' and a.uid>='.$tmp.' and a.gold=0 ';
 	
 	if ($unit_group->type==0) {
-		$query .= 'and a.ugid in (select ugid from unit_group where type in (2,3,4) and planet='.$player->planet.') ';
+		$query .= 'and a.ugid in (select ugid from unit_group where type in (2,3,4) and planet='.$unit_group->planet.') ';
 	} else {
 		$query .= 'and a.ugid='.$ugid.' ';
 	}
@@ -816,14 +816,16 @@ function warquest_clan_war_battle($player_clan, $other_clan, $ugid) {
 			$page->body .= '<td style="border-top:1px solid;border-color:gray;">';
 			if ( isset($data1->pid) ) {
 				$page->body .= player_format($data1->pid, $data1->name, $data1->country);
-			}
+			} else {
+				$page->body .= '&nbsp;';
+			}	
 			$page->body .= '</td>';
 						
 			$page->body .= '<td style="border-top:1px solid;border-color:gray;">';
 			if ( isset($data1->pid) ) {
 				$page->body .= warquest_link('mid='.$mid.'&sid='.PAGE_ATTACK.'&oid='.$data1->pid.'&uid='.$unit_group->type,
 										number_format($attack,0,",","."), "attack_strenght");			
-			}else {
+			} else {
 				$page->body .= '0';
 			}
 			$page->body .= '</td>';
