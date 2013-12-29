@@ -381,6 +381,10 @@ function warquest_admin_action_form() {
 	$page .= '</li>';
 		
 	$page .= '<li>'; 
+	$page .= warquest_link('mid='.$mid.'&sid='.$sid.'&eid='.EVENT_ADMIN_INACTIVE_SECTOR, 'Clear inactive sectors (cron job)');
+	$page .= '</li>';
+	
+	$page .= '<li>'; 
 	$page .= warquest_link('mid='.$mid.'&sid='.$sid.'&eid='.EVENT_ADMIN_BACKUP_DATABASE, 'Make database backup (cron job)');
 	$page .= '</li>';
 
@@ -1996,6 +2000,10 @@ function warquest_admin() {
 			
 		case EVENT_ADMIN_UPDATE_CLAN:
 			warquest_cron_remove_inactive_clan_member(1);
+			break;
+			
+		case EVENT_ADMIN_INACTIVE_SECTOR:
+			warquest_cron_clear_inactive_sectors(1);
 			break;
 			
 		case EVENT_SWITCH_PLANET: 
