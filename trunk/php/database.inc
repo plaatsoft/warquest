@@ -2009,7 +2009,7 @@ function warquest_db_player_clan_delete($pid, $cid) {
  */
 function warquest_db_sector($sid) {
 
-	$query = 'select sid, x, y, cid, damage from sector where sid='.$sid;
+	$query = 'select sid, x, y, cid, damage, conquer_date from sector where sid='.$sid;
 	$result = warquest_db_query($query);	
 	
 	return warquest_db_fetch_object($result);	
@@ -2021,9 +2021,12 @@ function warquest_db_sector($sid) {
  */
 function warquest_db_sector_update($data) {
 
+	$now = date("Y-m-d H:i:s");
+
 	$query  = "update sector set "; 
 	$query .= 'damage='.$data->damage.', ';
-	$query .= 'cid='.$data->cid.' ';
+	$query .= 'cid='.$data->cid.', ';
+	$query .= 'conquer_date="'.$now.'" ';
 	$query .= "where sid=".$data->sid; 
 	
 	return warquest_db_query($query);  

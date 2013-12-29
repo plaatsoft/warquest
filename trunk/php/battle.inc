@@ -1042,6 +1042,7 @@ function warquest_clan_war_battle_do() {
 			$sector->damage = 0;
 			$sector->cid = $player_clan->cid;
 			
+			
 			warquest_db_sector_update($sector);
 			
 			$message .= t('BATTLE_CLAN_SECTOR_CONQUER');
@@ -1054,7 +1055,7 @@ function warquest_clan_war_battle_do() {
 			/* Sector damage increase with 1 */
 			$sector->damage++;
 			
-			warquest_db_sector_update($sector);		
+			warquest_db_sector_update($sector);
 		
 			$message .= t('BATTLE_CLAN_SECTOR_DAMAGE', 
 									alliance_format(($sector->damage/$config["max_sector_damage"])*100) );			

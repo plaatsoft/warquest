@@ -251,6 +251,7 @@ define("EVENT_ADMIN_UPDATE_INCOME",  	  3918);
 define("EVENT_ADMIN_UPDATE_CLAN",		  3919);
 define("EVENT_ADMIN_SAVE_TWEET",  	     3920);
 define("EVENT_ADMIN_BACKUP_DATABASE",    3921);
+define("EVENT_ADMIN_INACTIVE_SECTOR",    3922);
 
 /* others (internal used) */
 define("EVENT_PLAYER_PDF_REPORT", 	     4000);

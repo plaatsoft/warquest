@@ -27,3 +27,5 @@ UPDATE level SET experience=1550000 WHERE lid=298;
 UPDATE level SET experience=1575000 WHERE lid=299;
 
 ALTER TABLE sector ADD conquer_date DATETIME NOT NULL AFTER damage;
+
+INSERT INTO cron (cid, note, last_run) VALUES (10, 'Clear inactive sectors', '0000-00-00 00:00:00');
