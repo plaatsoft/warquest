@@ -41,21 +41,32 @@ function warquest_cron_clear_inactive_sectors($output=0) {
 	
 	$old = mktime(date("H"), date("i"), date("s"), date("m"), date("d")-$config["max_sector_inactive"], date("Y"));
 	
-	/* Get passive sector(s) */
-	$query  = 'select sid from sector where conquer_date<"'.date("Y-m-d H:i:s", $old).'" ';	
+	/* Get inactive sector(s) */
+	$query  = 'select sid, cid from sector where conquer_date<"'.date("Y-m-d H:i:s", $old).'" ';	
 	$result = warquest_db_query($query);	
 	
 	$count=0;
 	
 	while ($data = warquest_db_fetch_object($result)) {
 		
+		/* Update sector */
 		$count++;
-		$data2 = warquest_db_sector($data->sid);
 		
+		$data2 = warquest_db_sector($data->sid);
 		$data2->cid=0;
 		$data2->damage=0;
-			
 		warquest_db_sector_update($data2);	
+		
+		/* Update clan member(s) */
+		$query3  = 'select cid, pid from player_clan where cid='.$data->cid;	
+		$result3 = warquest_db_query($query3);	
+	
+		while ($data3 = warquest_db_fetch_object($result3)) {
+
+			$player = warquest_db_player($data3->pid);
+			warquest_netto_income($player);	
+			warquest_db_player_update($player);		
+		}		
 	}
 
 	$message = 'Clear '.$count.' inactive sectors!<br/>';
