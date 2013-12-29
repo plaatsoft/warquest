@@ -157,7 +157,7 @@ function drawPologon(x, y, name, damage, cid, color) {
 		/* Fill backgound of pologon */	
 		ctx.fillStyle = color;
 		ctx.fill();
-
+	
 		/* Enter text to Pologon */			
 		ctx.font = '7pt Arial';
 		ctx.fillStyle = 'white';
@@ -166,7 +166,7 @@ function drawPologon(x, y, name, damage, cid, color) {
 			ctx.fillText((damage*10)+'%', 24+(x*88)+xoffset, 28+(y*18)+yoffset);
 		}
 	}
-			
+				
 	ctx.closePath();
 }	
 		

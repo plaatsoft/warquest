@@ -25,3 +25,5 @@ UPDATE level SET experience=1500000 WHERE lid=296;
 UPDATE level SET experience=1525000 WHERE lid=297;
 UPDATE level SET experience=1550000 WHERE lid=298;
 UPDATE level SET experience=1575000 WHERE lid=299;
+
+ALTER TABLE sector ADD conquer_date DATETIME NOT NULL AFTER damage;

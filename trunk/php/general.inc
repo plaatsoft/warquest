@@ -409,7 +409,7 @@ function warquest_attack_strength($player, $ugid) {
 	$query .= 'a.uid=b.uid and b.pid='.$player->pid.' ';
 
 	if ($unit_group->type==0) {
-		$query .= 'and a.ugid in (select ugid from unit_group where type in (2,3,4) and planet='.$player->planet.') ';
+		$query .= 'and a.ugid in (select ugid from unit_group where type in (2,3,4) and planet='.$unit_group->planet.') ';
 	} else {
 		$query .= 'and a.ugid='.$ugid.' ';
 	}
@@ -463,7 +463,7 @@ function warquest_defense_strength($player, $ugid) {
 	$query .= 'a.uid=b.uid and b.pid='.$player->pid.' ';
 
 	if ($unit_group->type==0) {
-		$query .= 'and a.ugid in (select ugid from unit_group where type in (2,3,4) and planet='.$player->planet.') ';
+		$query .= 'and a.ugid in (select ugid from unit_group where type in (2,3,4) and planet='.$unit_group->planet.') ';
 	} else {
 		$query .= 'and a.ugid='.$ugid.' ';
 	}
@@ -491,7 +491,7 @@ function warquest_defense_strength($player, $ugid) {
 	$query .= 'where a.bid=b.bid and b.pid='.$player->pid.' and a.defense>0 ';
 	
 	if ($unit_group->type==0) {
-		$query .= 'and a.ugid in (select ugid from unit_group where type in (2,3,4) and planet='.$player->planet.') ';
+		$query .= 'and a.ugid in (select ugid from unit_group where type in (2,3,4) and planet='.$unit_group->planet.') ';
 	} else {
 		$query .= 'and a.ugid='.$ugid.' ';
 	}
@@ -2134,8 +2134,10 @@ function warquest_ui_clan_war_map($player, $planet, $mode) {
 		
 		$owner=0;
 		if ( isset($data2->cid) && ($data->cid == $data2->cid)) {
+			$owner=2;
+		} else if ($data->cid>0) {
 			$owner=1;
-		}
+		} 
 		
 		$cell[$data->x][$data->y]['owner'] = $owner;
 		$cell[$data->x][$data->y]['damage'] = $data->damage;
@@ -2146,50 +2148,50 @@ function warquest_ui_clan_war_map($player, $planet, $mode) {
 			
 		for ($x=0; $x<5; $x++) {
 			
-			if ($cell[$x][$y]['owner']==1) {
+			if ($cell[$x][$y]['owner']==2) {
 			
 				$count++;
 		
 				if (($y % 2)==1) {
 				
-					if ( (($x-1)>=0) && (($y-1)>=0) && ($cell[$x-1][$y-1]['owner']==0) ) {
-						$cell[$x-1][$y-1]['owner']=2;
+					if ( (($x-1)>=0) && (($y-1)>=0) && ($cell[$x-1][$y-1]['owner']<2) ) {
+						$cell[$x-1][$y-1]['owner']=3;
 					} 
-					if ( (($x-1)>=0) && (($y+1)<15) && ($cell[$x-1][$y+1]['owner']==0) ) {	
-						$cell[$x-1][$y+1]['owner']=2;
+					if ( (($x-1)>=0) && (($y+1)<15) && ($cell[$x-1][$y+1]['owner']<2) ) {	
+						$cell[$x-1][$y+1]['owner']=3;
 					} 	
-					if ( (($y+2)<15) && ($cell[$x][$y+2]['owner']==0) ) {	
-						$cell[$x][$y+2]['owner']=2;
+					if ( (($y+2)<15) && ($cell[$x][$y+2]['owner']<2) ) {	
+						$cell[$x][$y+2]['owner']=3;
 					} 
-					if ( (($y+1)<15) && ($cell[$x][$y+1]['owner']==0) ) {	
-						$cell[$x][$y+1]['owner']=2;
+					if ( (($y+1)<15) && ($cell[$x][$y+1]['owner']<2) ) {	
+						$cell[$x][$y+1]['owner']=3;
 					} 
-					if ( (($y-1)>=0) && ($cell[$x][$y-1]['owner']==0) ) {	
-						$cell[$x][$y-1]['owner']=2;
+					if ( (($y-1)>=0) && ($cell[$x][$y-1]['owner']<2) ) {	
+						$cell[$x][$y-1]['owner']=3;
 					} 
-					if ( (($y-2)>=0) && ($cell[$x][$y-2]['owner']==0) ) {	
-						$cell[$x][$y-2]['owner']=2;
+					if ( (($y-2)>=0) && ($cell[$x][$y-2]['owner']<2) ) {	
+						$cell[$x][$y-2]['owner']=3;
 					}
 					
 				} else {
 					
-					if ( (($y-1)>=0) && ($cell[$x][$y-1]['owner']==0)) {
-						$cell[$x][$y-1]['owner']=2;
+					if ( (($y-1)>=0) && ($cell[$x][$y-1]['owner']<2)) {
+						$cell[$x][$y-1]['owner']=3;
 					} 
-					if ( (($y+1)<15) && ($cell[$x][$y+1]['owner']==0) ) {	
-						$cell[$x][$y+1]['owner']=2;
+					if ( (($y+1)<15) && ($cell[$x][$y+1]['owner']<2) ) {	
+						$cell[$x][$y+1]['owner']=3;
 					} 	
-					if ( (($y+2)<15) && ($cell[$x][$y+2]['owner']==0) ) {	
-						$cell[$x][$y+2]['owner']=2;
+					if ( (($y+2)<15) && ($cell[$x][$y+2]['owner']<2) ) {	
+						$cell[$x][$y+2]['owner']=3;
 					} 
-					if ( (($y-2)>=0) && ($cell[$x][$y-2]['owner']==0) ) {	
-						$cell[$x][$y-2]['owner']=2;
+					if ( (($y-2)>=0) && ($cell[$x][$y-2]['owner']<2) ) {	
+						$cell[$x][$y-2]['owner']=3;
 					} 
-					if ( (($x+1)<5) && (($y-1)>=0) && ($cell[$x+1][$y-1]['owner']==0) ) {	
-						$cell[$x+1][$y-1]['owner']=2;
+					if ( (($x+1)<5) && (($y-1)>=0) && ($cell[$x+1][$y-1]['owner']<2) ) {	
+						$cell[$x+1][$y-1]['owner']=3;
 					} 
-					if ( (($x+1)<5) && (($y+1)<15) && ($cell[$x+1][$y+1]['owner']==0) ) {	
-						$cell[$x+1][$y+1]['owner']=2;
+					if ( (($x+1)<5) && (($y+1)<15) && ($cell[$x+1][$y+1]['owner']<2) ) {	
+						$cell[$x+1][$y+1]['owner']=3;
 					}
 				}
 			}
@@ -2221,7 +2223,7 @@ function warquest_ui_clan_war_map($player, $planet, $mode) {
 		if ($data->mid > 0) {
 			$tmp = t('MISSION_'.$data->mid);
 		}
-		if (($count==0) || ($cell[$data->x][$data->y]['owner']==2)) {
+		if (($count==0) || ($cell[$data->x][$data->y]['owner']==3)) {
 			$page .= '<area shape="poly" coords="'.calcPologon($data->x,$data->y).'" title="'.$tmp.'" ';
 			if ($mode == true) {
 				$page .= 'href="javascript:link(\'';
