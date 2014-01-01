@@ -1212,12 +1212,14 @@ function warquest_clan_list_form() {
 			$page .= '</td>';
 				
 			$page .= '<td>';
-			if ($data->approved==0) {			
-				$page .= warquest_link('mid='.$mid.'&sid='.PAGE_CLAN_LIST.'&cid='.$cid.'&oid='.$data->pid.'&eid='.EVENT_CLAN_ACCEPT, t('LINK_ACCEPT'));							
-				$page .= '&nbsp;&nbsp';
-			}
+			if ($clan->pid == $player->pid) {	
+			
+				if ($data->approved==0) {			
+					$page .= warquest_link('mid='.$mid.'&sid='.PAGE_CLAN_LIST.'&cid='.$cid.'&oid='.$data->pid.'&eid='.EVENT_CLAN_ACCEPT, t('LINK_ACCEPT'));							
+					$page .= '&nbsp;&nbsp';
+				}
 						
-			if ($clan->pid == $player->pid) {			
+					
 				$page .= warquest_link('mid='.$mid.'&sid='.PAGE_CLAN_LIST.'&cid='.$cid.'&oid='.$data->pid.'&eid='.EVENT_CLAN_DROP, t('LINK_DROP'));							
 			}
 			$page .= '</td>';
