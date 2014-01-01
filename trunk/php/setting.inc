@@ -684,6 +684,9 @@ function warquest_settings_form() {
 	$page .= '<td width="200">'.t('PLAYER_NEW_EMAIL').':</td>';
 	$page .= '<td>';
 	$page .= warquest_ui_input('myemail', 30, 100, $member->email, false);
+	if ($member->email_valid==1) {
+		$page .= ' '.warquest_image("other/valid.png",'title="'.t('HOME_EMAIL_VALID').'"');
+	}
 		
 	if ($member->email_valid==0) {
 		

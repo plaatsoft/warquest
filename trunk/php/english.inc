@@ -3175,6 +3175,7 @@ $lang['BATTLE_NO_UNITS_AVAILABLE'] = 'No units available to fight with!';
 */
 
 $lang['CLAN_ACCEPTED'] = 'You accepted %s to your %s clan.';
+$lang['HOME_EMAIL_VALID'] = 'Email address is verified';
 
 /*
 ** ------------------
