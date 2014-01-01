@@ -28,7 +28,7 @@ $notes[63] = '
 </ul>
 <li>Improve release notes information navigation.</li>
 <li>Updated copyright footer.</li>
-<li>Added invalid email address warning to home page.</li>
+<li>Added optional verify email address warning to home page.</li>
 <li>Improve background option selector (Home-Settings).</li>
 <li>Added option to change easy login page background style.</li>
 <li>Disable christmas / new year announcement.</li>

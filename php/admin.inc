@@ -1520,12 +1520,15 @@ function warquest_admin_player_form() {
 		
 	$page .= '</tr>';		
 	$page .= '<td>Username:</td>';
-	$page .= '<td><input name="username" type="text" size="20" maxlength="80" value="'.$member->username.'" /></td>';
+	$page .= '<td><input name="username" type="text" size="20" maxlength="80" value="'.$member->username.'" disabled="yes"/></td>';
 	$page .= '</tr>';
 	
 	$page .= '<td>Email:</td>';
-	$page .= '<td><input name="email" type="text" size="40" maxlength="120" value="'.$member->email.'" /></td>';
-	$page .= '</tr>';
+	$page .= '<td><input name="email" type="text" size="40" maxlength="120" value="'.$member->email.'" disabled="yes"/>';	
+	if ($member->email_valid==1) {
+		$page .= ' '.warquest_image("other/valid.png",'title="'.t('HOME_EMAIL_VALID').'"');
+	}
+	$page .= '</td></tr>';
 		
 	$page .= '</tr>';	
 	$page .= '<td>Created:</td>';
