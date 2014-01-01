@@ -13,7 +13,7 @@
 **  Or send an email to the following address.
 **  Email   : info@plaatsoft.nl
 **
-**  All copyrights reserved (c) 2008-2013 PlaatSoft
+**  All copyrights reserved (c) 2008-2014 PlaatSoft
 */
 
 /*
@@ -912,6 +912,7 @@ function warquest_home_ad() {
 
 	/* input */
 	global $config;
+	global $player;
 
 	/* output */
 	global $page;
@@ -926,13 +927,24 @@ function warquest_home_ad() {
 	$page .= 'var AdCount=1; ';
 	$page .= 'var filename=""; ';
 	$page .= 'function StartAd() { ';
-	$page .= '  if (++AdCount>4) { AdCount=1; } ';
+	$page .= '  if (++AdCount>3) { AdCount=1; } ';
 	$page .= '  filename = "'.$config["content_url"].'images/other/ad" + AdCount + ".png"; ';
 	$page .= '  document.getElementById("ad").src = filename; ';
 	$page .= '  setTimeout("StartAd()", 3000); ';
 	$page .= '} ';
 	$page .= 'StartAd();';
 	$page .= '</script>'; 
+	
+	$member = warquest_db_member($player->pid);
+		
+	if ($member->email_valid==0) {
+		$message = t('HOME_EMAIL_MISSING');
+		$page .= '<br/><br/>';
+		$page .= '<a href="javascript:link(\''.warquest_token('mid='.MENU_HOME.'&sid='.PAGE_SETTINGS).'\')">';	
+		$page .= warquest_box_icon("warning", $message);
+		$page .= '</a>';
+	}
+		
 }
 
 /*

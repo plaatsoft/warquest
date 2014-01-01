@@ -13,8 +13,34 @@
 **  Or send an email to the following address.
 **  Email   : info@plaatsoft.nl
 **
-**  All copyrights reserved (c) 2008-2013 PlaatSoft
+**  All copyrights reserved (c) 2008-2014 PlaatSoft
 */
+
+$notes[63] = '
+<div class="subparagraph2">01-01-2014</div>
+<i>Game Server v6.3</i>
+<ul>
+<li>Clan Wars improvements:</li>
+<ul>
+<li>Sector rebellion starts when a sector is inactive for 7 days.</li>
+<li>Increase conquered sector hourly income with factor 10.</li>
+<li>Commander must now accept clan member join request.</li>
+</ul>
+<li>Improve release notes information navigation.</li>
+<li>Updated copyright banner.</li>
+<li>Improve background option selector (Home-Settings).</li>
+<li>Added option to change easy login background style.</li>
+<li>Disable christmas / new year announcement.</li>
+<li>Decrease experience value of level 280 till 299.</li>
+<li>Bug fix: Corrected one Neptune mission level!</li>
+<li>Bug fix: Neptune army strength calculation is now correct!</li>
+</ul>
+<br/>
+
+<i>General</i>
+<ul>
+<li>Please visit www.gravatar.com to upload a player image.</li>
+</ul>';
 
 $notes[62] = '
 <div class="subparagraph2">23-12-2013</div>
@@ -25,16 +51,16 @@ $notes[62] = '
 <li>with new 40 unit types.</li>
 <li>with new 36 building types.</li>
 <li>with new 72 missions.</li>
-<li>New planet is available from level 250.</li>
+<li>features are available from level 250 till 299.</li>
+<li>adapted game engine to support new planet.</li>
 </ul>
 <li>Rename asteroid to mercure planet.</li>
 <li>Update most citizens images.</li>
-<li>Adapted game engine to support new planet.</li>
-<li>Added 20 extra levels.</li>
 <li>Rebalance earth, moon, mars and mercure units / buildings.</li>
 <li>Increase maximum unit amount to 5500.</li>
 <li>Increase maximum building amount to 645.</li>
 <li>Added admin overview clan war map page.</li>
+<li>Enable christmas / new year announcement.</li>
 </ul>
 <br/>
 
@@ -42,12 +68,6 @@ $notes[62] = '
 <ul>
 <li>Bugfix: Disable full screen mode.</li>
 <li>Released app on marketplace.firefox.com</li>
-</ul>
-<br/>
-
-<i>General</i>
-<ul>
-<li>Please visit www.gravatar.com to upload a player image.</li>
 </ul>';
 
 $notes[61] = '
@@ -56,7 +76,7 @@ $notes[61] = '
 <ul>
 <li>Clan Wars improvements:</li>
 <ul>
-<li>Added clan war hourly income for conquered sectors.</li>
+<li>Added hourly income to each conquered sectors.</li>
 <li>An inactive clan member is removed from a clan after '.$config["max_clan_member_inactive"].' days.</li>
 <li>An inactive clan is removed after '.$config["max_clan_inactive"].' days.</li>
 </ul>
@@ -155,6 +175,7 @@ $notes[57] = '
 <div class="subparagraph2">8-11-2013</div>
 <i>Game Server v5.7</i>
 <ul>
+<li>Pickup WarQuest development again :)</li>
 <li>Optimize mission planet images. Reduce filesize to improve load time.</li>
 <li>Increase maximum level to 279.</li>
 <li>Removed sun features.</li>
@@ -222,7 +243,7 @@ $notes[53] = '
 <i>Game Server v5.3</i>
 <ul>
 <li>Activated improved holiday mode.</li>
-<li>Added following option to settinng page:<br/>
+<li>Added following option to setting page:<br/>
 <ul>
 <li>Enable allies in battle and bounty hunting list.</li>
 <li>Disable battle bot news.</li>

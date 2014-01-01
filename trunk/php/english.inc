@@ -13,7 +13,7 @@
 **  Or send an email to the following address.
 **  Email   : info@plaatsoft.nl
 **
-**  All copyrights reserved (c) 2008-2013 PlaatSoft
+**  All copyrights reserved (c) 2008-2014 PlaatSoft
 */
 
 /*
@@ -177,7 +177,7 @@ $lang['AGO_MINS']  = ' mins';
 $lang['AGO_SEC']   = ' sec';
 $lang['AGO_SECS']  = ' secs';
 	
-$lang['COPYRIGHT'] = 'Copyright © 2008-2013 - All Rights Reserved - <a target="new" href="http://www.plaatsoft.nl">PlaatSoft</a>';
+$lang['COPYRIGHT'] = 'Copyright © 2008-2014 - All Rights Reserved - <a target="new" href="http://www.plaatsoft.nl">PlaatSoft</a>';
 $lang['STATUS_CASH']  = 'Cash';
 $lang['STATUS_EXP']  = 'Exp.';
 $lang['STATUS_LEVEL']  = 'Level';
@@ -437,7 +437,7 @@ $lang['HOME_NEW_ANDROID_VERSION'] = 'New app version v%s is available at the And
 $lang['HOME_NEW_WINDOWS_VERSION'] = 'New WarQuest client v%s is available!';
 $lang['HOME_CLICK_HERE'] = 'here';
 $lang['HOME_CLICK_TEXT'] = 'Click %s to start download.';
-$lang['HOME_EMAIL_MISSING'] = 'Please provide your email address to receive player messages by mail and for password recovery.';
+$lang['HOME_EMAIL_MISSING'] = 'Please confirm your email address to enable password recovery and to receive important WarQuest notifications.';
 $lang['HOME_DAILY_BONUS'] = 'You found %s dollar at an enemy location!';
 
 $lang['HOME_WELCOME'] = 'Welcome';
@@ -3086,9 +3086,9 @@ $lang['CLAN_TITLE'] = 'Clan';
 $lang['CLAN_NOTE'] = 'Create or join a clan to enter clan wars. Each player can only be part of one clan.';
 $lang['CLAN_ADD'] = 'Add Clan';
 $lang['CLAN_CREATE'] = 'New clan name';
-$lang['CLAN_LEAVE'] = 'You left then clan';
-$lang['CLAN_JOINED'] = 'You join the clan';
-$lang['CLAN_DROP'] = 'You drop a clan player';
+$lang['CLAN_LEAVE'] = 'You left then %s clan';
+$lang['CLAN_JOINED'] = 'You sent a request to join the %s clan. Commander %s has to approve your request so be patient!';
+$lang['CLAN_DROP'] = 'You dropped %s from your %s clan!';
 $lang['CLAN_NOT_PART'] = 'Player not part of then clan!';
 $lang['CLAN_ALL_PART'] = 'You already joined a clan!';
 $lang['CLAN_CREATE_NOTE'] = 'Create a new clan by entering an unique name. It takes 1 skill point to create a clan.';
@@ -3167,6 +3167,14 @@ $lang['PLAYER_CLAN_WAR_TEXT'] = 'Player %s conquered the following %s sector(s):
 */
 
 $lang['BATTLE_NO_UNITS_AVAILABLE'] = 'No units available to fight with!';
+
+/*
+** ------------------
+** Added v6.3
+** ------------------
+*/
+
+$lang['CLAN_ACCEPTED'] = 'You accepted %s to your %s clan.';
 
 /*
 ** ------------------

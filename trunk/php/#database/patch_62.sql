@@ -141,10 +141,9 @@ UPDATE unit SET attack=1700 WHERE uid=2208;
 UPDATE unit SET attack=1974 WHERE uid=2209;
 UPDATE unit SET attack=2144 WHERE uid=2210;
 
-------------------------------
+--
 -- NEPTUNE CONFIGURATION
-------------------------------
-
+--
 
 -- Added Neptune unit groups
 delete from unit_group where ugid>=25;

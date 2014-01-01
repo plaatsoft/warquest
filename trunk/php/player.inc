@@ -13,7 +13,7 @@
 **  Or send an email to the following address.
 **  Email   : info@plaatsoft.nl
 **
-**  All copyrights reserved (c) 2008-2013 PlaatSoft
+**  All copyrights reserved (c) 2008-2014 PlaatSoft
 */
 
 /*
@@ -437,7 +437,7 @@ function warquest_clan_war_income_form($other) {
 	$page .= '</td>';
 		
 	$page .= '<td>';
-	$page .= dollar_format(1000 * $other->lid * $player->planet);
+	$page .= dollar_format(10000 * $other->lid * $player->planet);
 	$page .= '</td>';
 							
 	$page .= '<td>';
@@ -1225,7 +1225,7 @@ function warquest_profile($id) {
 	$page .= '<td>'.$data->name.'</td>';	
 	$page .= '</tr>';
 	
-	$query2  = 'select a.name from clan a, player_clan b where a.cid=b.cid and b.pid='.$data->pid;
+	$query2  = 'select a.name from clan a, player_clan b where b.approved=1 and a.cid=b.cid and b.pid='.$data->pid;
 	$result2 = warquest_db_query($query2);	
 	$data2 = warquest_db_fetch_object($result2);
 	
