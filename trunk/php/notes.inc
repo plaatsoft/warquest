@@ -27,9 +27,10 @@ $notes[63] = '
 <li>Commander must now accept clan member join request.</li>
 </ul>
 <li>Improve release notes information navigation.</li>
-<li>Updated copyright banner.</li>
+<li>Updated copyright footer.</li>
+<li>Added invalid email address warning to home page.</li>
 <li>Improve background option selector (Home-Settings).</li>
-<li>Added option to change easy login background style.</li>
+<li>Added option to change easy login page background style.</li>
 <li>Disable christmas / new year announcement.</li>
 <li>Decrease experience value of level 280 till 299.</li>
 <li>Bug fix: Corrected one Neptune mission level!</li>
