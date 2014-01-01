@@ -13,7 +13,7 @@
 **  Or send an email to the following address.
 **  Email   : info@plaatsoft.nl
 **
-**  All copyrights reserved (c) 2008-2013 PlaatSoft
+**  All copyrights reserved (c) 2008-2014 PlaatSoft
 */
 
 /*
@@ -365,6 +365,9 @@ function warquest_db_chat_insert($pid1, $pid2, $message) {
 /**
  * Insert comment
  * @unitTest
+ * @Parameters
+ *  pid1 = sender
+ *  pid2 = receiver (0 = All)
  */
 function warquest_db_comment_insert($tid, $pid1, $pid2, $comment) {
 
@@ -1963,12 +1966,28 @@ function warquest_db_clan_delete($cid) {
  * Insert player_clan
  * @unitTest
  */
-function warquest_db_player_clan_insert($pid, $cid) {
+function warquest_db_player_clan_insert($pid, $cid, $approved) {
 
 	$now = date("Y-m-d H:i:s");
 
-	$query  = 'insert into player_clan (pid, cid, joined) values (';
-	$query .= $pid.','.$cid.',"'.$now.'")';	
+	$query  = 'insert into player_clan (pid, cid, joined, approved) values (';
+	$query .= $pid.','.$cid.',"'.$now.'",'.$approved.')';	
+	
+	return warquest_db_query($query);
+}
+
+/**
+ * Update player_clan
+ * @unitTest
+ */
+function warquest_db_player_clan_update($data) {
+
+	$now = date("Y-m-d H:i:s");
+
+	$query  = 'update player_clan set '; 
+	$query .= 'approved = '.$data->approved.', ';
+	$query .= 'joined = "'.$now.'" ';	
+	$query .= 'where pid='.$data->pid.' and cid='.$data->cid; 
 	
 	return warquest_db_query($query);
 }
@@ -1979,7 +1998,7 @@ function warquest_db_player_clan_insert($pid, $cid) {
  */
 function warquest_db_player_clan($pid) {
 
-	$query  = 'select pid, cid from player_clan where pid ='.$pid;
+	$query  = 'select pid, cid, joined, approved from player_clan where pid ='.$pid;
 
 	$result = warquest_db_query($query);
 	

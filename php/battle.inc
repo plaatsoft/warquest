@@ -13,7 +13,7 @@
 **  Or send an email to the following address.
 **  Email   : info@plaatsoft.nl
 **
-**  All copyrights reserved (c) 2008-2013 PlaatSoft
+**  All copyrights reserved (c) 2008-2014 PlaatSoft
 */
 
 /*
@@ -702,14 +702,14 @@ function warquest_clan_size($player_clan, $other_clan) {
 	
 	$count1 = 0; 
 	if ( isset($player_clan->cid) ) {
-		$query1 =  'select pid from player_clan where cid='.$player_clan->cid;
+		$query1 =  'select pid from player_clan where approved=1 and cid='.$player_clan->cid;
 		$result1 = warquest_db_query($query1);	 
 		$count1 = warquest_db_num_rows($result1);
 	}
 
 	$count2 = 0;
 	if ( isset($other_clan->cid) ) {
-		$query2 =  'select pid from player_clan where cid='.$other_clan->cid;
+		$query2 =  'select pid from player_clan where approved=1 and cid='.$other_clan->cid;
 		$result2 = warquest_db_query($query2);	 
 		$count2 = warquest_db_num_rows($result2);
 	}
@@ -752,13 +752,13 @@ function warquest_clan_war_battle($player_clan, $other_clan, $ugid) {
 	
 		/* Fetch all attack clan war members */
 		$query1  = 'select b.name, b.pid, b.country, b.alliance, b.lid from player_clan a, player b where ';
-		$query1 .= 'a.pid=b.pid and a.cid='.$player_clan->cid.' order by rand() desc limit 0,'.$size;
+		$query1 .= 'a.approved=1 and a.pid=b.pid and a.cid='.$player_clan->cid.' order by rand() desc limit 0,'.$size;
 		$result1 = warquest_db_query($query1);	 
 		
 		if ( isset($other_clan->cid) ) {
 			/* Fetch all defense clan war members */
 			$query2  = 'select b.name, b.pid, b.country, b.alliance, b.lid from player_clan a, player b where ';
-			$query2 .= 'a.pid=b.pid and a.cid='.$other_clan->cid.' order by rand() desc limit 0,'.$size;
+			$query2 .= 'a.approved=1 and a.pid=b.pid and a.cid='.$other_clan->cid.' order by rand() desc limit 0,'.$size;
 			$result2 = warquest_db_query($query2);	 
 		}
 			
@@ -972,7 +972,7 @@ function warquest_clan_war_battle_do() {
 	/* Get battle result */
 	$result = warquest_clan_war_battle($player_clan, $other_clan, warquest_get_default_force());
 		
-	if ( !isset($player_clan->cid) ) {
+	if ( !isset($player_clan->cid) || ($data->approved==0)) { 
 	
 		$message = t('BATTLE_NO_CLAN');
 		$popup .= warquest_box_icon("warning", $message);

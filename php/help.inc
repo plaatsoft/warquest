@@ -13,7 +13,7 @@
 **  Or send an email to the following address.
 **  Email   : info@plaatsoft.nl
 **
-**  All copyrights reserved (c) 2008-2013 PlaatSoft
+**  All copyrights reserved (c) 2008-2014 PlaatSoft
 */
 
 /*
@@ -876,7 +876,7 @@ function warquest_help_levels_form() {
 		
 	$limit = 50;	
 	$total = $config['max_level']+1;	
-	http://127.0.0.1/warquest/planet.php?planet=0&data=0-100,0-100,0-100,0-100,0-100,0-100,0-100,0-100,0-100,0-100,0-100,0-100,0-100,0-100,0-100,0-100,0-100,0-100,0-100,0-100,0-100,0-100,0-100,0-100,0-100,0-100,0-100,0-100,0-100,0-100,0-100,0-100,0-100,0-100,0-100,0-100,0-100,0-100,0-100,0-100,0-100,0-100,0-100,0-100,0-100,0-100,0-100,0-100,0-100,0-100,0-100,0-100,0-100,0-100,0-100,0-100,0-100,0-100,0-100,0-100,0-100,0-100,0-100,0-100,0-100,0-100,0-100,0-100,0-100,0-100,0-100,0-100,0-100,0-100,0-100,1-100,2-15
+
 	/* Get level data */
 	$query =  'select lid, experience from level where lid<='.$config['max_level'].' order by lid ';  
 	$query .= 'limit '.$offset.','.$limit;
@@ -956,6 +956,10 @@ function warquest_help_notes_form() {
 	
 	$limit = 5;
 	$total = count($notes); 
+		
+	if ($offset==$total) {
+		$offset=$total-$limit;
+	}
 	
 	$title = t('HELP_NOTES_SUBTITLE1');
 	
@@ -967,16 +971,16 @@ function warquest_help_notes_form() {
 	$page .= warquest_image('other/info.png', 'width="64" heigth="64"');
 	$page .= '</div>';
 	
-	$page .= warquest_page_control($offset, $limit, $total, 2);
+	$page .= warquest_page_control_reverse($offset, $limit, $total, 2);
 	
-	for ($i=$offset; $i<($offset+$limit); $i++) {
+	for ($i=($total-$offset); $i>($total-$offset-$limit); $i--) {
 	
-		if (($total-$i)>0) {
-			$page .= warquest_parse_smilies($notes[$total-$i]);
+		if ($i>0) {
+			$page .= warquest_parse_smilies($notes[$i]);
 		}
 	}
 	
-	$page .= warquest_page_control($offset, $limit, $total, 0);
+	$page .= warquest_page_control_reverse($offset, $limit, $total, 0);
 	
 	$page .= '</div>';		
 	

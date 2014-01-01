@@ -13,7 +13,7 @@
 **  Or send an email to the following address.
 **  Email   : info@plaatsoft.nl
 **
-**  All copyrights reserved (c) 2008-2013 PlaatSoft
+**  All copyrights reserved (c) 2008-2014 PlaatSoft
 */
 
 /*
@@ -582,7 +582,7 @@ function warquest_clan_war_income($player, $planet=0) {
 	
 	$income = 0;	
 	
-	if (isset($clan->cid)) { 
+	if ( (isset($clan->cid)) && ($clan->approved==1)) { 
 		
 		$query = 'select count(sid) as amount, planet from sector where cid='.$clan->cid.' ';
 		
@@ -595,7 +595,7 @@ function warquest_clan_war_income($player, $planet=0) {
 		$result = warquest_db_query($query);
 		while ($data = warquest_db_fetch_object($result)) {
 			
-			$income += $data->amount * 1000 * $player->lid * $data->planet;
+			$income += $data->amount * 10000 * $player->lid * $data->planet;
 		}
 	}
 
@@ -2367,7 +2367,7 @@ function warquest_ui_background($tag, $id, $readonly) {
 		
 	foreach ($array as $key => $value) {
 	
-		$page.='<option value="'.$key.'" style="background-image: url(images/background/background'.$key.'.jpg);" ';
+		$page.='<option value="'.$key.'" ';
 		
 		if ($id == $key) {
 			$page .= ' selected="selected"';

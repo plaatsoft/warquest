@@ -13,7 +13,7 @@
 **  Or send an email to the following address.
 **  Email   : info@plaatsoft.nl
 **
-**  All copyrights reserved (c) 2008-2013 PlaatSoft
+**  All copyrights reserved (c) 2008-2014 PlaatSoft
 */
 
 /** 
@@ -338,6 +338,71 @@ function warquest_alliance_accept_mail($pid, $name) {
 	
 		@mail($member->email, $subject, $body, $header);
 		warquest_info('Sent alliance accept email to '.$member->email);
+	}
+}
+
+
+/** 
+ * Send clan join mail 
+ */
+function warquest_clan_join_mail($pid, $name) {
+	
+	/* input */
+	global $config;
+
+	$player = warquest_db_player($pid);
+	$member = warquest_db_member($pid);
+	
+	if ($member->email_valid==1) {
+	
+		$subject = $config["applName"].' clan request';
+
+		$content  = 'Dear '.$player->name.',';
+		$content .= '<br/><br/>';
+		$content .= $name.' wants to join your clan!';
+		$content .= "<br/><br/>";
+		$content .= 'Visit <a href="'.$config["base_url"].'">'.$config["base_url"].'</a> to accept or reject this clan request.';
+	
+		$body = warquest_email_layout($subject, $content);
+	
+		$header  = 'From: '.$config["applName"]. '<'.$config['from_email'].">\r\n";
+		$header .= "MIME-Version: 1.0\r\n";
+		$header .= "Content-Type: text/html; charset=UTF-8\r\n";
+	
+		@mail($member->email, $subject, $body, $header);
+		warquest_info('Sent clan invite email to '.$member->email);
+	}
+}
+
+/** 
+ * Send clan accept mail 
+ */
+function warquest_clan_accept_mail($pid, $name) {
+	
+	/* input */
+	global $config;
+
+	$player = warquest_db_player($pid);
+	$member = warquest_db_member($pid);
+	
+	if ($member->email_valid==1) {
+	
+		$subject = $config["applName"].' clan request';
+
+		$content  = 'Dear '.$player->name.',';
+		$content .= '<br/><br/>';
+		$content .= $name.' accept your clan request!';
+		$content .= "<br/><br/>";
+		$content .= 'Visit <a href="'.$config["base_url"].'">'.$config["base_url"].'</a> to continue the game.';
+		
+		$body = warquest_email_layout($subject, $content);
+	
+		$header  = 'From: '.$config["applName"]. '<'.$config['from_email'].">\r\n";
+		$header .= "MIME-Version: 1.0\r\n";
+		$header .= "Content-Type: text/html; charset=UTF-8\r\n";
+	
+		@mail($member->email, $subject, $body, $header);
+		warquest_info('Sent clan accept email to '.$member->email);
 	}
 }
 

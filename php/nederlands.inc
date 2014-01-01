@@ -13,7 +13,7 @@
 **  Or send an email to the following address.
 **  Email   : info@plaatsoft.nl
 **
-**  All copyrights reserved (c) 2008-2013 PlaatSoft
+**  All copyrights reserved (c) 2008-2014 PlaatSoft
 */
 
 /*
@@ -175,7 +175,7 @@ $lang['AGO_MINS']  = ' min';
 $lang['AGO_SEC']   = ' sec';
 $lang['AGO_SECS']  = ' sec';
 
-$lang['COPYRIGHT'] = 'Copyright © 2008-2013 - Alle rechten voorbehouden - <a target="new" href="http://www.plaatsoft.nl">PlaatSoft</a>';
+$lang['COPYRIGHT'] = 'Copyright © 2008-2014 - Alle rechten voorbehouden - <a target="new" href="http://www.plaatsoft.nl">PlaatSoft</a>';
 
 $lang['STATUS_CASH']  = 'Geld';
 $lang['STATUS_EXP']  = 'Erv.';
@@ -361,7 +361,7 @@ $lang['HOME_NEW_WINDOWS_VERSION'] = 'Nieuwe WarQuest client v%s is beschikbaar!'
 $lang['HOME_CLICK_HERE'] = 'hier';
 $lang['HOME_CLICK_TEXT'] = 'Klik %s om de download te starten.';
 
-$lang['HOME_EMAIL_MISSING'] = 'Je email adres ontbreekt!';
+$lang['HOME_EMAIL_MISSING'] = 'Een valide email adres ontbreekt!';
 $lang['HOME_DAILY_BONUS'] = 'Je hebt %s dollar gevonden op een vijandelijke locatie!';
 
 $lang['HOME_WELCOME'] = 'Welkom';

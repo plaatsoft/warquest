@@ -13,7 +13,7 @@
 **  Or send an email to the following address.
 **  Email   : info@plaatsoft.nl
 **
-**  All copyrights reserved (c) 2008-2013 PlaatSoft
+**  All copyrights reserved (c) 2008-2014 PlaatSoft
 */
 
 require_once "../database.inc";
@@ -334,16 +334,27 @@ class TestDatabase extends PHPUnit_Framework_TestCase {
 		/* test data */
 		$pid = 1;
 		$cid = 1;
+		$approved1 = 0;
+		$approved2 = 0;
 		$_SERVER["REMOTE_ADDR"] = "127.0.0.1";
 						
 		$result = warquest_db_connect($config["dbhost"], $config["dbuser"], $config["dbpass"], $config["dbname"]);
 		$this->assertEquals($result, 1);
 		
-		$result = warquest_db_player_clan_insert($pid, $cid);
+		$result = warquest_db_player_clan_insert($pid, $cid, $approved1);
 		$this->assertEquals($result, 1);
 		
 		$player_clan = warquest_db_player_clan($pid);
 		$this->assertEquals($player_clan->cid, $cid);
+		$this->assertEquals($player_clan->approved, $approved1);
+		
+		$player_clan->approved=$approved2;		
+		$result = warquest_db_player_clan_update($player_clan);
+		$this->assertEquals($result, 1);
+		
+		$player_clan = warquest_db_player_clan($pid);
+		$this->assertEquals($player_clan->cid, $cid);
+		$this->assertEquals($player_clan->approved, $approved2);
 		
 		$result = warquest_db_player_clan_delete($pid, $cid);
 		$this->assertEquals($result, 1);

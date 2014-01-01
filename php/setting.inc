@@ -13,7 +13,7 @@
 **  Or send an email to the following address.
 **  Email   : info@plaatsoft.nl
 **
-**  All copyrights reserved (c) 2008-2013 PlaatSoft
+**  All copyrights reserved (c) 2008-2014 PlaatSoft
 */
 
 /*
@@ -535,8 +535,8 @@ function warquest_settings_form() {
 	$title = t('SETTING_TITLE');
 		
 	$member = warquest_db_member($player->pid);
-	
-	if (strlen($member->email)==0) {
+		
+	if ($member->email_valid==0) {
 		$message = t('HOME_EMAIL_MISSING');
 		$page .= warquest_box_icon("warning", $message);
 	}

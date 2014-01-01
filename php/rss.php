@@ -13,7 +13,7 @@
 **  Or send an email to the following address.
 **  Email   : info@plaatsoft.nl
 **
-**  All copyrights reserved (c) 2008-2013 PlaatSoft
+**  All copyrights reserved (c) 2008-2014 PlaatSoft
 */
 
 /*
@@ -185,7 +185,7 @@ $myfeed->SetChannel('http://www.warquest.nl',
 	'WarQuest',
 	'WarQuest player comments feed',
 	'en-us',
-	'Copyrights 2008-2013 - PlaatSoft - All Rights Reserved',
+	'Copyrights 2008-2014 - PlaatSoft - All Rights Reserved',
 	'PlaatSoft',
 	'WarQuest comments feed');
 $myfeed->SetImage($config["content_url"].'images/WarQuest.jpg');

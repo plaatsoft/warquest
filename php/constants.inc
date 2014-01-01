@@ -13,7 +13,7 @@
 **  Or send an email to the following address.
 **  Email   : info@plaatsoft.nl
 **
-**  All copyrights reserved (c) 2008-2013 PlaatSoft
+**  All copyrights reserved (c) 2008-2014 PlaatSoft
 */
 
 /*
@@ -215,7 +215,8 @@ define("EVENT_CLAN_CREATE",              3705);
 define("EVENT_CLAN_JOIN",                3706);
 define("EVENT_CLAN_LEAVE",               3707);
 define("EVENT_CLAN_DROP",                3708);
-define("EVENT_CLAN_SLOGAN",              3709);
+define("EVENT_CLAN_ACCEPT",              3709);
+define("EVENT_CLAN_SLOGAN",              3710);
 
 /* forum */
 define("EVENT_FORUM_COMMENT_SAVE", 	     3801);
