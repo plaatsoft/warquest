@@ -392,7 +392,7 @@ function warquest_clan_war_income_form($other) {
 	$clan = warquest_db_player_clan($other->pid);
 	
 	$count = 0;		
-	if (isset($clan->cid)) { 
+	if ( isset($clan->cid) && ($clan->approved==1) ) { 
 	
 		$query = 'select sid from sector where cid='.$clan->cid.' and planet='.$player->planet;
 		$result = warquest_db_query($query);
