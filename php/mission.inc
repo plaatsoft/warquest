@@ -161,10 +161,7 @@ function warquest_mission_complet() {
 		/* Clear progress state for all eight missions. */
 		$query  = 'update player_mission a, mission b set a.part='.$part.', a.part2='.$part.' where '; 
 		$query .= 'a.mid=b.mid and a.pid='.$player->pid.' and b.mgid='.$sid;
-		warquest_db_query($query);		
-					
-		/* Update income value */
-		warquest_netto_income($player);		
+		warquest_db_query($query);				
 	} 
 }
 
@@ -224,10 +221,7 @@ function warquest_mission_unit_lost() {
 	
 	$message .= '</tr>';
 	$message .= '</table>';
-	
-	/* Update income, attack and defense value */
-	warquest_netto_income($player);
-		
+			
 	return $message;
 }
 
@@ -301,7 +295,7 @@ function warquest_buy_missing_units_do() {
 		}
 	}
 	
-	/* Update income, attack and defense value */
+	/* Update income value */
 	warquest_netto_income($player);
 }
 
@@ -486,6 +480,9 @@ function warquest_mission_do() {
 			$popup .= warquest_box(t('GENERAL_CONQUER').' '.t('MISSION_'.$uid), $message, $link);
 			
 			warquest_sound('mission'.rand(1,2).'.mp3');	
+			
+			/* Update income value */
+			warquest_netto_income($player);		
 		} 
 	}
 }
