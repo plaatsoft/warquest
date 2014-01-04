@@ -331,8 +331,6 @@ De weergave van dit spel is optimaal bij 500 pixels browser venster breedte';
 $lang['LOGIN_NEW_CLIENT_TITLE'] = 'Nieuwe WarQuest client beschikbaar!';
 $lang['LOGIN_NEW_CLIENT'] = 'Op dit moment gebruik je een oude WarQuest Windows client.<br/>Bezoek www.plaatsoft.nl om de nieuwste versie te downloaden.';
 
-$lang['LOGIN_PASSWORD_RESET_NOTE'] = 'If you have forgotten your password, enter your email address and we\'ll send you a new password by email.';
-
 /*
 ** ------------------
 ** HOME - OVERVIEW
