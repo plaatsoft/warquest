@@ -309,6 +309,12 @@ a:hover {
 	color:rgb(250,234,4);
 }
 
+.goldimage {
+	border:1px;
+	border-style:solid;
+	border-color:rgb(250,234,4);
+}
+
 .negative {
 	color:rgb(215,60,60);
 }

@@ -57,7 +57,7 @@ function warquest_unit_deploy_do() {
 	global $popup;
 	
 	/* Get unit info */
-	$query = 'select price, gold, attack, defense, max, upkeep from unit where uid='.$uid;
+	$query = 'select uid, price, gold, attack, defense, max, upkeep from unit where uid='.$uid;
 	$result = warquest_db_query($query);	
  	$unit = warquest_db_fetch_object($result); 
 
@@ -79,7 +79,7 @@ function warquest_unit_deploy_do() {
 		$message = '<table>';
 		$message .= '<tr>';
 		$message .= '<td width="100">';
-		$message .= warquest_unit_image($uid, 0, 0);
+		$message .= warquest_unit_image($unit, 0, 0);
 		$message .= '</td>';
 		$message .= '<td>';
 		$message .= t('UNIT_MAX', number_format2($unit->max), t('UNIT_'.$uid));
@@ -94,7 +94,7 @@ function warquest_unit_deploy_do() {
 		$message = '<table>';
 		$message .= '<tr>';
 		$message .= '<td width="100">';
-		$message .= warquest_unit_image($uid, 0, 0);
+		$message .= warquest_unit_image($unit, 0, 0);
 		$message .= '</td>';
 		$message .= '<td>';
 		if ($totalPrice>0) {
@@ -113,7 +113,7 @@ function warquest_unit_deploy_do() {
 		$message = '<table>';
 		$message .= '<tr>';
 		$message .= '<td width="100">';
-		$message .= warquest_unit_image($uid, 0, 0);
+		$message .= warquest_unit_image($unit, 0, 0);
 		$message .= '</td>';
 		$message .= '<td>';
 		$message .= t('UNIT_NO_UPKEEP',number_format2($amount), t('UNIT_'.$uid));
@@ -144,7 +144,7 @@ function warquest_unit_deploy_do() {
 		$message .= '<tr>';
 		
 		$message .= '<td width="100">';
-		$message .= warquest_unit_image($uid, 0, 0);
+		$message .= warquest_unit_image($unit, 0, 0);
 		$message .= '</td>';
 		
 		$message .= '<td>';
@@ -198,10 +198,9 @@ function warquest_unit_disband_do() {
 	global $popup;
 	
 	/* Get unit  */
-	$query  = "select price, gold, attack, defense, upkeep from unit where uid=".$uid;
-	$result = warquest_db_query($query);
-	
- 	$unit=warquest_db_fetch_object($result);
+	$query  = "select uid, price, gold, attack, defense, upkeep from unit where uid=".$uid;
+	$result = warquest_db_query($query);	
+ 	$unit = warquest_db_fetch_object($result);
 			
 	/* Unit amount of player */
 	$query  = "select amount from player_unit where pid=".$player->pid." and uid=".$uid;
@@ -218,7 +217,7 @@ function warquest_unit_disband_do() {
 		$message = '<table>';
 		$message .= '<tr>';
 		$message .= '<td width="100">';
-		$message .= warquest_unit_image($uid, 0, 0);
+		$message .= warquest_unit_image($unit, 0, 0);
 		$message .= '</td>';
 		$message .= '<td>';
 		$message .= t('UNIT_DISBAND_FAILED', number_format2($amount), t('UNIT_'.$uid), $totalAmount);
@@ -247,7 +246,7 @@ function warquest_unit_disband_do() {
 		$message .= '<tr>';
 		
 		$message .= '<td width="100">';
-		$message .= warquest_unit_image($uid, 0, 0);
+		$message .= warquest_unit_image($unit, 0, 0);
 		$message .= '</td>';
 		
 		$message .= '<td>';
@@ -347,7 +346,7 @@ function warquest_unit_form() {
 			$page .= '<tr>';	
 	
 			$page .= '<td width="100">'; 
-			$page .= warquest_unit_image($data1->uid, 0, 0);
+			$page .= warquest_unit_image($data1, 0, 0);
 			$page .= '</td>';
 			
 			$page .= '<td width="210">';

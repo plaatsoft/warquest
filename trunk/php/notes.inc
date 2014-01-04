@@ -27,6 +27,7 @@ $notes[63] = '
 <li>Commander must now accept clan member join request.</li>
 </ul>
 <li>Added 15 new gold income, energy,  maintenance building types.</li>
+<li>Added yellow border to gold unit and building images.</li>
 <li>Improve release notes information navigation.</li>
 <li>Updated copyright footer.</li>
 <li>Added optional verify email address warning to home page.</li>

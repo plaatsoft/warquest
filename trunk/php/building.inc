@@ -64,7 +64,7 @@ function warquest_building_buy_do() {
 	/* Get building information */
 	$query  = 'select bid, price, gold, income, defense, energy, max from building where bid='.$uid;
 	$result = warquest_db_query($query);	 
- 	$building=warquest_db_fetch_object($result); 
+ 	$building = warquest_db_fetch_object($result); 
 		
 	/* Get amount of buildings */
 	$query  = "select amount from player_building where bid=".$uid." and pid=".$player->pid;
@@ -407,7 +407,7 @@ function warquest_building_form() {
 	$count2 = warquest_db_num_rows($result2);
 		
 	/* Get first locked building */
-	$query5  = 'select bid, lid, income, defense, energy, discount, maintenance, ugid from building where lid>'.$player->lid.' ';
+	$query5  = 'select bid, lid, income, gold, defense, energy, discount, maintenance, ugid from building where lid>'.$player->lid.' ';
 	$query5 .= 'and bgid='.$sid.' ';
 	if ($building_group->type==2) {
 		$query5 .= 'and ugid='.$ssid.' ';
@@ -493,7 +493,7 @@ function warquest_building_form() {
 		
 			$page .= t('BUILDING_UPKEEP').': +'.money_format1($data3->total).'<br/><br/>';
 	
-			$query4  = 'select b.uid, a.amount, b.upkeep, b.attack, b.defense ';
+			$query4  = 'select b.uid, b.gold, a.amount, b.upkeep, b.attack, b.defense ';
 			$query4 .= 'from building_unit a, unit b where b.uid=a.uid and a.bid='.$data2->bid.' order by b.upkeep';  
 			$result4 = warquest_db_query($query4);	
 		
