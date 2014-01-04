@@ -194,7 +194,7 @@ function warquest_mission_unit_lost() {
 	$player->damage_units = 0;
 	
 	/* get strongest attack unit */
-	$query  = 'select a.uid, c.defense, c.attack, a.amount, c.upkeep ';
+	$query  = 'select a.uid, c.gold, c.defense, c.attack, a.amount, c.upkeep ';
 	$query .= 'from mission_unit a LEFT JOIN unit c ' ;
 	$query .= 'ON a.uid=c.uid left join player_unit b ';
 	$query .= 'ON a.uid=b.uid and b.pid='.$player->pid.' where a.mid='.$uid;
@@ -237,7 +237,7 @@ function warquest_buy_missing_units_do() {
 	global $player;
 	global $popup;
 	
-	$query  = 'select a.uid, c.price, c.upkeep, ifnull(b.amount,0) as amount, ';
+	$query  = 'select a.uid, c.gold, c.price, c.upkeep, ifnull(b.amount,0) as amount, ';
 	$query .= 'a.amount-ifnull(b.amount,0) as total ';
 	$query .= 'from mission_unit a LEFT JOIN unit c ' ;
 	$query .= 'ON a.uid = c.uid left join player_unit b ';
@@ -256,7 +256,7 @@ function warquest_buy_missing_units_do() {
 			$message = '<table>';
 			$message .= '<tr>';
 			$message .= '<td width="100">';
-			$message .= warquest_unit_image($unit->uid, 0, 0);
+			$message .= warquest_unit_image($unit,0,0);
 			$message .= '</td>';
 			$message .= '<td>';
 			$message .= t('UNIT_NO_FUNDS', $unit->total, t('UNIT_'.$unit->uid), dollar_format($money));
@@ -272,7 +272,7 @@ function warquest_buy_missing_units_do() {
 			$message = '<table>';
 			$message .= '<tr>';
 			$message .= '<td width="100">';
-			$message .= warquest_unit_image($unit->uid, 0, 0);
+			$message .= warquest_unit_image($unit,0,0);
 			$message .= '</td>';
 			$message .= '<td>';
 			$message .= t('UNIT_NO_UPKEEP',$unit->total, t('UNIT_'.$unit->uid));
@@ -576,7 +576,7 @@ function warquest_mission_form() {
 			$page .= alliance_format($data->alliance).' '.t('GENERAL_ALLIANCE_SIZE');
 			$page .= '</td>';
 		
-			$query2  = 'select b.uid, a.amount, b.attack, b.defense, b.upkeep from mission_unit a, ';
+			$query2  = 'select b.uid, b.gold, a.amount, b.attack, b.defense, b.upkeep from mission_unit a, ';
 			$query2 .= 'unit b where b.uid=a.uid and mid='.$data->mid;  
 			$result2 = warquest_db_query($query2); 
 		

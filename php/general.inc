@@ -916,7 +916,7 @@ function warquest_lootoption($level) {
 	/* 20 procent chance to win a loot. */
 	if (rand(1,5)==1) 
 	{		
-		$query  = 'select a.uid, a.defense, a.attack, a.upkeep from unit a ';
+		$query  = 'select a.uid, a.gold, a.defense, a.attack, a.upkeep from unit a ';
 		$query .= 'left join unit_group b on a.ugid=b.ugid where ';
 		$query .= 'b.type in (1,2,3,4,5) and a.gold=0 and b.planet='.$player->planet;
 		
@@ -1617,7 +1617,7 @@ function warquest_nextlevel($player) {
 		
 		$tmp = '<table>';
 		
-		$query = 'select uid, defense, attack, upkeep from unit where lid='.$player->lid;
+		$query = 'select uid, gold, defense, attack, upkeep from unit where lid='.$player->lid;
 		$result = warquest_db_query($query);
 		
 		while ($data=warquest_db_fetch_object($result)) { 
@@ -1648,7 +1648,7 @@ function warquest_nextlevel($player) {
 			$feature = 1;
 		}
 		
-		$query = 'select ugid, bid, income, energy, defense, maintenance, discount from building where lid='.$player->lid;
+		$query = 'select ugid, bid, income, gold, energy, defense, maintenance, discount from building where lid='.$player->lid;
 		$result = warquest_db_query($query);
 		
 		while ($data=warquest_db_fetch_object($result)) { 
@@ -3447,6 +3447,13 @@ function warquest_unit_image($unit, $count, $tip=1, $width=90, $height=65, $opti
 		$image .= '</div>';
 		
 		$image .= '<img id="image'.$count.$unit->uid.'" src="'.$config["content_url"].'images/units/unit'.$unit->uid.'.jpg" ';
+		
+		if (isset($unit->gold) && ($unit->gold>0)) {
+			$image .= ' class="goldimage" ';
+			$width -=1;
+			$height -=1;
+		}
+		
 		$image .= 'width="'.$width.'" height="'.$height.'" ';		 
 		$image .= 'onmouseover="tooltip_show(\'utip'.$count.$unit->uid.'\', \'image'.$count.$unit->uid.'\', 5, 5);" ';
 		$image .= 'onmouseout="tooltip_hide(\'utip'.$count.$unit->uid.'\');" '.$options.' ';
@@ -3454,7 +3461,20 @@ function warquest_unit_image($unit, $count, $tip=1, $width=90, $height=65, $opti
 		
 	} else {
 		
-		$image  = '<img src="'.$config["content_url"].'images/units/unit'.$unit.'.jpg" ';
+		if ( isset($unit->uid) ) {
+			$uid=$unit->uid;
+		} else {
+			$uid=$unit;
+		}
+		
+		$image  = '<img src="'.$config["content_url"].'images/units/unit'.$uid.'.jpg" ';
+
+		if (isset($unit->gold) && ($unit->gold>0)) {
+			$image .= ' class="goldimage" ';
+			$width -=1;
+			$height -=1;
+		}
+		
 		$image .= 'width="'.$width.'" height="'.$height.'" '.$options.' />';
 	}
 	
@@ -3495,14 +3515,30 @@ function warquest_building_image($building, $count=0, $tip=1, $width=90, $height
 		$image .= '</div>';
 	
 		$image .= '<img id="bimage'.$count.$building->bid.'" src="'.$config["content_url"].'images/buildings/building'.$building->bid.'.jpg" ';
+		
+		if (isset($building->gold) && ($building->gold>0)) {
+			$image .= ' class="goldimage" ';
+			$width -=1;
+			$height -=1;
+		}
+		
 		$image .= 'width="'.$width.'" height="'.$height.'" ';	 
+		
 		$image .= 'onmouseover="tooltip_show(\'btip'.$count.$building->bid.'\', \'bimage'.$count.$building->bid.'\', 5, 5);" ';
 		$image .= 'onmouseout="tooltip_hide(\'btip'.$count.$building->bid.'\');" ';
 		$image .= '/>';
 		
 	} else {
 	
-		$image = '<img src="'.$config["content_url"].'images/buildings/building'.$building->bid.'.jpg" width="'.$width.'" height="'.$height.'" />';
+		$image = '<img src="'.$config["content_url"].'images/buildings/building'.$building->bid.'.jpg"  ';
+		
+		if (isset($building->gold) && ($building->gold>0)) {
+			$image .= ' class="goldimage" ';
+			$width -=1;
+			$height -=1;
+		}
+		$image .= 'width="'.$width.'" height="'.$height.'" />';
+		
 	}
 	return $image;
 }

@@ -44,7 +44,7 @@ function warquest_maintenance_info_form($other) {
 	$title = t('PLAYER_MAINTENANCE_OVERVIEW');
 	$page .= '<div class="subparagraph">'.$title.'</div>';
 
-	$query  = 'select a.bid, a.maintenance, c.amount ';
+	$query  = 'select a.bid, a.maintenance, a.gold, c.amount ';
 	$query .= 'from building a left join building_group b on a.bgid=b.bgid, player_building c ';
 	$query .= 'where a.bid=c.bid and c.pid='.$other->pid.' and a.maintenance>0 and b.planet='.$player->planet.' ';
 	$query .= 'order by a.maintenance desc';
@@ -160,7 +160,7 @@ function warquest_discount_info_form($other) {
 	$page .= '<div class="subparagraph">'.$title.'</div>';
 
 	/* Show defense strength of building */
-	$query  = 'select a.bid, a.discount, c.amount ';
+	$query  = 'select a.bid, a.gold, a.discount, c.amount ';
 	$query .= 'from building a left join building_group b on a.bgid=b.bgid, player_building c ';
 	$query .= 'where a.bid=c.bid and c.pid='.$other->pid.' and a.discount>0 and b.planet='.$player->planet.' ';
 	$query .= 'order by a.discount desc';
@@ -474,7 +474,7 @@ function warquest_unit_upkeep_form($other) {
 	$page .= '<div class="subparagraph">'.$title.'</div>';
 		
 	/* Calculate upkeep cost of all player units  */
-	$query  = 'select a.uid, a.attack, a.defense, a.upkeep, c.amount ';
+	$query  = 'select a.uid, a.gold, a.attack, a.defense, a.upkeep, c.amount ';
 	$query .= 'from unit a left join unit_group b on a.ugid=b.ugid, ';
 	$query .= 'player_unit c where a.uid=c.uid and ';
 	$query .= 'c.pid='.$other->pid.' and b.planet='.$player->planet.' and a.upkeep>0 ';	
@@ -602,7 +602,7 @@ function warquest_building_income_form($other) {
 	$page .= '<div class="subparagraph">'.$title.'</div>';
 
 	/* Show defense strength of building */
-	$query  = 'select a.bid, a.ugid, a.defense, a.income, a.energy, a.discount, c.amount ';
+	$query  = 'select a.bid, a.ugid, a.gold, a.defense, a.income, a.energy, a.discount, c.amount ';
 	$query .= 'from building a left join building_group b on a.bgid=b.bgid, player_building c ';
 	$query .= 'where a.bid=c.bid and c.pid='.$other->pid.' and a.income>0 and b.planet='.$player->planet.' ';
 	$query .= 'order by a.income desc';
@@ -727,7 +727,7 @@ function warquest_attack_info_form($other) {
 	$data2 = warquest_db_fetch_object($result2);
 	
 	/* Calculate attack strength of units depending of alliance size */
-	$query3  = 'select a.uid, a.attack, a.defense, c.amount, a.upkeep ';
+	$query3  = 'select a.uid, a.gold, a.attack, a.defense, c.amount, a.upkeep ';
 	$query3 .= 'from unit a left join unit_group b on a.ugid=b.ugid, ';
 	$query3 .= 'player_unit c where a.uid=c.uid and ';
 	$query3 .= 'c.pid='.$other->pid.' ';
@@ -913,7 +913,7 @@ function warquest_defense_info_form($other) {
 	$result2 = warquest_db_query($query2);
 	$data2 = warquest_db_fetch_object($result2);
 	
-	$query3  = 'select a.uid, a.attack, a.defense, c.amount, a.upkeep ';
+	$query3  = 'select a.uid, a.gold, a.attack, a.defense, c.amount, a.upkeep ';
 	$query3 .= 'from unit a left join unit_group b on a.ugid=b.ugid, ';
 	$query3 .= 'player_unit c where a.uid=c.uid and ';
 	$query3 .= 'c.pid='.$other->pid.' ';
@@ -1040,7 +1040,7 @@ function warquest_defense_info_form($other) {
 	$page .= '</tr>';
 	
 	/* Show defense strength of building */
-	$query4  = 'select a.bid, a.ugid, a.defense, a.income, a.energy, a.discount, b.amount ';
+	$query4  = 'select a.bid, a.ugid, a.gold, a.defense, a.income, a.energy, a.discount, b.amount ';
 	$query4 .= 'from building a, player_building b ';
 	$query4 .= 'where a.bid=b.bid and b.pid='.$other->pid.' and a.defense>0';
 	if ($uid==0) { 
@@ -1661,7 +1661,7 @@ function warquest_profile($id) {
 
 	while ($data2=warquest_db_fetch_object($result2)) {
 	
-		$query3  = "select a.uid, a.attack, a.defense, a.ugid, b.amount, a.upkeep ";
+		$query3  = "select a.uid, a.gold, a.attack, a.defense, a.ugid, b.amount, a.upkeep ";
 		$query3 .= "from unit a inner join player_unit b ";
 		$query3 .= "ON a.uid=b.uid and b.pid=".$id." where a.ugid=".$data2->ugid." order by a.lid";  
 		$result3 = warquest_db_query($query3);
@@ -1703,7 +1703,7 @@ function warquest_profile($id) {
 	
 	while ($data2=warquest_db_fetch_object($result2)) {
 		
-		$query  = 'select a.bid, a.ugid, a.income, a.defense, a.energy, a.discount, ';
+		$query  = 'select a.bid, a.ugid, a.gold, a.income, a.defense, a.energy, a.discount, ';
 		$query .= 'a.maintenance, b.pid, b.amount ';
 		$query .= 'from building a inner join player_building b ';
 		$query .= 'on a.bid=b.bid and b.pid='.$id.' ';

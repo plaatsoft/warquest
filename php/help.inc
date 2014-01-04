@@ -815,7 +815,7 @@ function warquest_help_levels_feature($lid) {
 	
 	$page="";
 
-	$query  = 'select a.uid, a.defense, a.attack, a.upkeep from unit a ';
+	$query  = 'select a.uid, a.gold, a.defense, a.attack, a.upkeep from unit a ';
 	$query .= 'left join unit_group b on a.ugid=b.ugid ';
 	$query .= 'where a.lid='.$lid.' and b.type!=6';
 	$result = warquest_db_query($query);
@@ -824,7 +824,7 @@ function warquest_help_levels_feature($lid) {
 		$page .= warquest_unit_image($data, 0, 1, 55, 40).' ';
 	}
 		
-	$query = 'select ugid, bid, income, energy, defense, maintenance, discount from building where lid='.$lid;
+	$query = 'select ugid, bid, income, gold, energy, defense, maintenance, discount from building where lid='.$lid;
 	$result = warquest_db_query($query);
 		
 	while ($data=warquest_db_fetch_object($result)) { 				

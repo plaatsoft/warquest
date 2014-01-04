@@ -352,7 +352,7 @@ function warquest_show_attack_army($data2, $ugid) {
 	$page .= '<tr>';	
 		
 	/* Calculate attack strength of units depending of alliance size */
-	$query  = 'select a.uid, a.attack, a.defense, a.upkeep, b.amount ';
+	$query  = 'select a.uid, a.gold, a.attack, a.defense, a.upkeep, b.amount ';
 	$query .= 'from unit a, player_unit b where ';
    $query .= 'a.uid=b.uid and b.pid='.$data2->pid.' ';
 	
@@ -417,7 +417,7 @@ function warquest_show_attack_army($data2, $ugid) {
 	$unit_group = warquest_db_unit_group($ugid);
 		
 	/* show defense units */
-	$query =  'select a.uid, a.attack, a.defense, a.upkeep, b.amount ';
+	$query =  'select a.uid, a.gold, a.attack, a.defense, a.upkeep, b.amount ';
 	$query .= 'from unit a, player_unit b where ';
    $query .= 'a.uid=b.uid and b.pid='.$data2->pid.' ';
 	
@@ -477,7 +477,7 @@ function warquest_show_attack_army($data2, $ugid) {
 	$page .= '</table>';	
 	
 	/* show defense base (buildings) */
-	$query  = 'select a.bid, a.ugid, a.energy, a.income, a.defense, a.discount, b.amount ';
+	$query  = 'select a.bid, a.ugid, a.gold, a.energy, a.income, a.defense, a.discount, b.amount ';
 	$query .= 'from building a, player_building b where ';
    $query .= 'a.bid=b.bid and b.pid='.$data2->pid.' and a.defense>0 ';
 	
@@ -539,7 +539,7 @@ function warquest_battle_building_lost($ugid) {
 	$player->damage_buildings = 0;
 	
 	/* get random some building */
-	$query  = 'select a.bid, a.energy, a.income, a.defense, a.discount, a.ugid, c.amount ';
+	$query  = 'select a.bid, a.energy, a.gold, a.income, a.defense, a.discount, a.ugid, c.amount ';
 	$query .= 'from building a left join building_group b on a.bgid=b.bgid, player_building c ';
 	$query .= 'where b.planet='.$player->planet.' and b.sell=1 and a.bid=c.bid and c.pid='.$player->pid.' ';	
 	$query .= 'and a.gold=0 ';
@@ -632,7 +632,7 @@ function warquest_battle_unit_lost($ugid) {
 	}
 
 	/* get random some units */
-	$query  = 'select a.uid, a.defense, a.attack, b.amount, a.upkeep from ';
+	$query  = 'select a.uid, a.gold, a.defense, a.attack, b.amount, a.upkeep from ';
 	$query .= 'unit a, player_unit b where ';
 	$query .= 'a.uid=b.uid and b.pid='.$player->pid.' and a.uid>='.$tmp.' and a.gold=0 ';
 	
