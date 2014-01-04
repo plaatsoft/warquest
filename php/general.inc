@@ -3450,8 +3450,8 @@ function warquest_unit_image($unit, $count, $tip=1, $width=90, $height=65, $opti
 		
 		if (isset($unit->gold) && ($unit->gold>0)) {
 			$image .= ' class="goldimage" ';
-			$width -=1;
-			$height -=1;
+			$width -=2;
+			$height -=2;
 		}
 		
 		$image .= 'width="'.$width.'" height="'.$height.'" ';		 
@@ -3471,8 +3471,8 @@ function warquest_unit_image($unit, $count, $tip=1, $width=90, $height=65, $opti
 
 		if (isset($unit->gold) && ($unit->gold>0)) {
 			$image .= ' class="goldimage" ';
-			$width -=1;
-			$height -=1;
+			$width -=2;
+			$height -=2;
 		}
 		
 		$image .= 'width="'.$width.'" height="'.$height.'" '.$options.' />';
@@ -3518,8 +3518,8 @@ function warquest_building_image($building, $count=0, $tip=1, $width=90, $height
 		
 		if (isset($building->gold) && ($building->gold>0)) {
 			$image .= ' class="goldimage" ';
-			$width -=1;
-			$height -=1;
+			$width -=2;
+			$height -=2;
 		}
 		
 		$image .= 'width="'.$width.'" height="'.$height.'" ';	 
@@ -3534,8 +3534,8 @@ function warquest_building_image($building, $count=0, $tip=1, $width=90, $height
 		
 		if (isset($building->gold) && ($building->gold>0)) {
 			$image .= ' class="goldimage" ';
-			$width -=1;
-			$height -=1;
+			$width -=2;
+			$height -=2;
 		}
 		$image .= 'width="'.$width.'" height="'.$height.'" />';
 		
