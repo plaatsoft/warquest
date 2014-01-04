@@ -80,7 +80,6 @@ function warquest_client_overview() {
 	global $page;
 	
 	$page .= '<br/>';
-	$page .= '<br/>';
 		
 	$page .= '<table>';
 	$page .= '<tr>';
@@ -137,25 +136,6 @@ function warquest_client_overview() {
 	
 	$page .= '<td width="100">'; 
 	$page .= '</td>';
-	
-	/*$page .= '</tr>';
-	$page .= '<tr>';
-	
-	$page .= '<td width="100">'; 
-	$page .= '</td>';
-	
-	$page .= '<td width="155" align="right">';
-	$page .= '<center><button id="install-btn">Install app</button>';
-	$page .= warquest_image("other/windows.jpg");
-	$page .= '<br/>WarQuest for FireOS</a>'; 
-	$page .= '</center>';
-	$page .= '</td>';
-		
-	$page .= '<td width="155" align="right">';
-	$page .= '</td>';
-	
-	$page .= '<td width="100">'; 
-	$page .= '</td>';*/
 		
 	$page .= '</tr>';
 	$page .= '</table>';
@@ -189,9 +169,9 @@ function warquest_login_header() {
 	$page .= '</tr>';
 	$page .= '</table>';
 	$page .= '</div>';
-	
+		
 	$page .= '<br/>';
-	
+		
 	$page .= warquest_login_menu();
 	
 	if ($sid!=5) {
@@ -748,14 +728,14 @@ function warquest_recover_form() {
 	$page .= '<strong>'.t('LOGIN_RECOVER_TITLE').'</strong>';
 	$page .= '<br/>';
 	$page .= '<div class="note">';
-	$page .= t('LOGIN_PASSWORD_RESET_NOTE');
+	$page .= t('LOGIN_RECOVER_NOTE1');
 	$page .= '</div>';
 	$page .= '</td>';
 	$page .= '</tr>';
 		
 	$page .= '<tr>';
 	$page .= '<td width="80">'.t('LOGIN_EMAIL').':</td>';
-	$page .= '<td><input name="myemail" type="text" size="35" maxlength="120" value="'.$myemail.'" id="myemail"></td>';
+	$page .= '<td><input name="myemail" type="text" size="30" maxlength="120" value="'.$myemail.'" id="myemail"></td>';
 	$page .= '</tr>';
 		
 	$page .= '<tr>';
@@ -765,10 +745,16 @@ function warquest_recover_form() {
 	$page .= '<input type="hidden" name="token" value="'.warquest_token('mid='.$mid.'&sid='.PAGE_RECOVER.'&eid='.EVENT_RECOVER.'&version='.$version).'">';
 	$page .= '<input type="submit" name="Submit" id="do" value="'.t('LINK_SEND').'">';
 	$page .= '</td>';
+		
 	$page .= '</tr>';
 	$page .= '</table>';
-		
+	
+	$page .= '<div class="note2">';
+	$page .= t('LOGIN_RECOVER_NOTE2');
+	$page .= '</div>';
+	
 	$page .= '</div>';	
+	
 	
 	/* Set focus on first input element */
 	$page .= '<script type="text/javascript" language="JavaScript">';
@@ -814,7 +800,7 @@ function warquest_register_form() {
 		
 	$page .= '<tr>';
 	$page .= '<td>'.t('LOGIN_EMAIL').':</td>';
-	$page .= '<td><input name="myemail" type="text" size="35" maxlength="120" value="'.$myemail.'" id="myemail"></td>';
+	$page .= '<td><input name="myemail" type="text" size="30" maxlength="120" value="'.$myemail.'" id="myemail"></td>';
 	$page .= '</tr>';
 		
 	$page .= '<tr>';	

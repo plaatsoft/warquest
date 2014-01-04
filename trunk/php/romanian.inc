@@ -394,8 +394,6 @@
  $lang['LOGIN_NEW_CLIENT_TITLE'] = 'un nou client WarQuest este disponibil!';
  $lang['LOGIN_NEW_CLIENT'] = 'folosesti un client WarQuest invechit. visiteaza www.plaatsoft.nl pentru a descarca noua versiune.';
 
- $lang['LOGIN_PASSWORD_RESET_NOTE'] = 'daca ai uitat parola introdu adresa de mail si iti vom trimite o noua parola pe adresa de email.';
-
  /*
  ** ------------------
  ** HOME - OVERVIEW

@@ -408,7 +408,8 @@ This game is best viewed with browser width set to 500px. ';
 $lang['LOGIN_NEW_CLIENT_TITLE'] = 'New WarQuest client available!';
 $lang['LOGIN_NEW_CLIENT'] = 'You are using an old WarQuest Windows client. Please visit www.plaatsoft.nl to get the newest version.';
 
-$lang['LOGIN_PASSWORD_RESET_NOTE'] = 'If you have forgotten your password, enter your email address and we\'ll send you a new password by email.';
+$lang['LOGIN_RECOVER_NOTE1'] = 'If you have forgotten your password, enter your email address and we\'ll send you a new password by email.';
+$lang['LOGIN_RECOVER_NOTE2'] = 'If you don\'t receive the password recover email please contact the service desk by sending an email to <a href="mailto:support@warquest.nl">support@warquest.nl</a>. We will help you as soon as possible!';
 
 /*
 ** ------------------

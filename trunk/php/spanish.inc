@@ -392,8 +392,6 @@ Este juego se ve mejor con un navegador configurado a un ancho de 500px. ';
 $lang['LOGIN_NEW_CLIENT_TITLE'] = 'Nueva versión WarQuest disponible!';
 $lang['LOGIN_NEW_CLIENT'] = 'Usted está utilizando una versión Warquest de windows antigua. Por favor, visite www.plaatsoft.nl para obtener la versión más reciente.';
 
-$lang['LOGIN_PASSWORD_RESET_NOTE'] = 'Si ha olvidado su contraseña, introduzca su dirección de correo electrónico y le enviaremos una nueva contraseña por correo electrónico.';
-
 /*
 ** ------------------
 ** HOME - OVERVIEW
