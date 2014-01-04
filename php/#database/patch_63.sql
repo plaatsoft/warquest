@@ -162,3 +162,6 @@ delete from building where bid=2505;
 INSERT INTO building (bid, price, gold, lid, income, defense, energy, discount, maintenance, max, bgid, ugid) VALUES
 (2505, 0,  500, 275, 0, 0, 0, 0, 22, 1, 25, 0);
 
+UPDATE building SET lid=285 WHERE bid=2308;
+UPDATE building SET lid=286 WHERE bid=2309;
+UPDATE building SET lid=287 WHERE bid=2310;
