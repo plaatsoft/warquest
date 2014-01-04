@@ -33,3 +33,132 @@ INSERT INTO cron (cid, note, last_run) VALUES (10, 'Clear inactive sectors', '00
 ALTER TABLE player_clan ADD approved INT NOT NULL AFTER joined;
 
 update player_clan set approved=1;
+
+-- Add more earth gold building
+
+UPDATE building SET discount=3 WHERE bid=37;
+UPDATE building SET discount=4 WHERE bid=38;
+UPDATE building SET discount=5 WHERE bid=30;
+UPDATE building SET discount=8 WHERE bid=31;
+UPDATE building SET discount=10 WHERE bid=32;
+UPDATE building SET discount=12 WHERE bid=33;
+UPDATE building SET discount=14 WHERE bid=34;
+UPDATE building SET discount=16, lid=95 WHERE bid=36;
+UPDATE building SET lid=95 WHERE bid=50;
+
+delete from building where bid=60;
+INSERT INTO building (bid, price, gold, lid, income, defense, energy, discount, maintenance, max, bgid, ugid) VALUES
+(60, 0,  500, 93, 0, 0, 11, 0, 0, 1, 3, 0);
+
+delete from building where bid=61;
+INSERT INTO building (bid, price, gold, lid, income, defense, energy, discount, maintenance, max, bgid, ugid) VALUES
+(61, 0,  500, 96, 0, 0, 0, 18, 0, 1, 4, 0);
+
+delete from building where bid=62;
+INSERT INTO building (bid, price, gold, lid, income, defense, energy, discount, maintenance, max, bgid, ugid) VALUES
+(62, 0,  500, 96, 0, 0, 0, 0, 11, 1, 5, 0);
+
+-- Add more moon gold building
+
+UPDATE building SET discount=7 WHERE bid=906;
+UPDATE building SET discount=8 WHERE bid=907;
+UPDATE building SET discount=9 WHERE bid=908;
+UPDATE building SET discount=10 WHERE bid=909;
+UPDATE building SET discount=11 WHERE bid=910;
+UPDATE building SET discount=12 WHERE bid=911;
+UPDATE building SET lid=141 WHERE bid=911;
+UPDATE building SET lid=142 WHERE bid=809;
+UPDATE building SET lid=143 WHERE bid=709;
+
+UPDATE building SET lid=146 WHERE bid=811;
+
+delete from building where bid=812;
+INSERT INTO building (bid, price, gold, lid, income, defense, energy, discount, maintenance, max, bgid, ugid) VALUES
+(812, 0,  500, 149, 0, 0, 13, 0, 0, 1, 8, 0);
+
+delete from building where bid=912;
+INSERT INTO building (bid, price, gold, lid, income, defense, energy, discount, maintenance, max, bgid, ugid) VALUES
+(912, 0,  500, 144, 0, 0, 0, 15, 0, 1, 9, 0);
+
+delete from building where bid=1010;
+INSERT INTO building (bid, price, gold, lid, income, defense, energy, discount, maintenance, max, bgid, ugid) VALUES
+(1010, 0,  500, 145, 0, 0, 0, 0, 17, 1, 10, 0);
+
+-- Add more mars gold building
+
+UPDATE building SET discount=7 WHERE bid=1406;
+UPDATE building SET discount=8 WHERE bid=1407;
+UPDATE building SET discount=9 WHERE bid=1408;
+
+delete from building where bid=1310;
+INSERT INTO building (bid, price, gold, lid, income, defense, energy, discount, maintenance, max, bgid, ugid) VALUES
+(1310, 0,  500, 199, 0, 0, 11, 0, 0, 1, 13, 0);
+
+delete from building where bid=1409;
+INSERT INTO building (bid, price, gold, lid, income, defense, energy, discount, maintenance, max, bgid, ugid) VALUES
+(1409, 0,  500, 192, 0, 0, 0, 10, 0, 1, 14, 0);
+
+UPDATE building SET lid=194 WHERE bid=1509;
+
+delete from building where bid=1510;
+INSERT INTO building (bid, price, gold, lid, income, defense, energy, discount, maintenance, max, bgid, ugid) VALUES
+(1510, 0,  500, 196, 0, 0, 0, 0, 18, 1, 15, 0);
+
+
+-- Add more mercure gold building
+
+UPDATE building SET discount=8 WHERE bid=1900;
+UPDATE building SET discount=10 WHERE bid=1901;
+UPDATE building SET discount=14 WHERE bid=1902;
+UPDATE building SET discount=16 WHERE bid=1903;
+UPDATE building SET discount=18 WHERE bid=1904;
+
+delete from building where bid=1810;
+INSERT INTO building (bid, price, gold, lid, income, defense, energy, discount, maintenance, max, bgid, ugid) VALUES
+(1810, 0,  500, 246, 0, 0, 11, 0, 0, 1, 18, 0);
+
+delete from building where bid=1905;
+INSERT INTO building (bid, price, gold, lid, income, defense, energy, discount, maintenance, max, bgid, ugid) VALUES
+(1905, 0,  500, 232, 0, 0, 0, 20, 0, 1, 19, 0);
+
+UPDATE building SET maintenance=8 WHERE bid=2000;
+UPDATE building SET maintenance=10 WHERE bid=2001;
+UPDATE building SET maintenance=14 WHERE bid=2002;
+UPDATE building SET maintenance=16 WHERE bid=2003;
+UPDATE building SET maintenance=18 WHERE bid=2004;
+
+delete from building where bid=2005;
+INSERT INTO building (bid, price, gold, lid, income, defense, energy, discount, maintenance, max, bgid, ugid) VALUES
+(2005, 0,  500, 235, 0, 0, 0, 0, 22, 1, 20, 0);
+
+-- Add more neptune gold building
+
+UPDATE building SET discount=8 WHERE bid=2400;
+UPDATE building SET discount=10 WHERE bid=2401;
+UPDATE building SET discount=14 WHERE bid=2402;
+UPDATE building SET discount=16 WHERE bid=2403;
+UPDATE building SET discount=18 WHERE bid=2404;
+
+UPDATE building SET lid=287 WHERE bid=2308;
+UPDATE building SET lid=290 WHERE bid=2309;
+
+delete from building where bid=2310;
+INSERT INTO building (bid, price, gold, lid, income, defense, energy, discount, maintenance, max, bgid, ugid) VALUES
+(2310, 0,  500, 292, 0, 0, 11, 0, 0, 1, 23, 0);
+
+UPDATE building SET lid=274 WHERE bid=2404;
+
+delete from building where bid=2405;
+INSERT INTO building (bid, price, gold, lid, income, defense, energy, discount, maintenance, max, bgid, ugid) VALUES
+(2405, 0,  500, 280, 0, 0, 0, 20, 0, 1, 24, 0);
+
+UPDATE building SET maintenance=8 WHERE bid=2500;
+UPDATE building SET maintenance=10 WHERE bid=2501;
+UPDATE building SET maintenance=14 WHERE bid=2502;
+UPDATE building SET maintenance=16 WHERE bid=2503;
+UPDATE building SET maintenance=18 WHERE bid=2504;
+
+delete from building where bid=2505;
+INSERT INTO building (bid, price, gold, lid, income, defense, energy, discount, maintenance, max, bgid, ugid) VALUES
+(2505, 0,  500, 275, 0, 0, 0, 0, 22, 1, 25, 0);
+

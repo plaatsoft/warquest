@@ -17,7 +17,7 @@
 */
 
 $notes[63] = '
-<div class="subparagraph2">01-01-2014</div>
+<div class="subparagraph2">04-01-2014</div>
 <i>Game Server v6.3</i>
 <ul>
 <li>Clan Wars improvements:</li>
@@ -26,6 +26,7 @@ $notes[63] = '
 <li>Increase conquered sector hourly income with factor 10.</li>
 <li>Commander must now accept clan member join request.</li>
 </ul>
+<li>Added 15 new gold income, energy,  maintenance building types.</li>
 <li>Improve release notes information navigation.</li>
 <li>Updated copyright footer.</li>
 <li>Added optional verify email address warning to home page.</li>
