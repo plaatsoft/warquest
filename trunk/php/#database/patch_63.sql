@@ -28,6 +28,7 @@ UPDATE level SET experience=1475000 WHERE lid=299;
 
 ALTER TABLE sector ADD conquer_date DATETIME NOT NULL AFTER damage;
 
+delete from cron where cid=10;
 INSERT INTO cron (cid, note, last_run) VALUES (10, 'Clear inactive sectors', '0000-00-00 00:00:00');
 
 ALTER TABLE player_clan ADD approved INT NOT NULL AFTER joined;
@@ -165,3 +166,50 @@ INSERT INTO building (bid, price, gold, lid, income, defense, energy, discount, 
 UPDATE building SET lid=285 WHERE bid=2308;
 UPDATE building SET lid=286 WHERE bid=2309;
 UPDATE building SET lid=287 WHERE bid=2310;
+
+-- added gold income buildings
+
+delete from building_unit where bid=1409;
+
+delete from building where bid=63;
+
+INSERT INTO building (bid, price, gold, lid, income, defense, energy, discount, maintenance, max, bgid, ugid) VALUES
+(63, 0,  10, 60, 3150000, 0, 0, 0, 0, 645, 1, 0);
+
+UPDATE building SET lid=109 WHERE bid=603;
+UPDATE building SET lid=111 WHERE bid=604;
+UPDATE building SET lid=115 WHERE bid=605;
+UPDATE building SET lid=117 WHERE bid=606;
+UPDATE building SET lid=124 WHERE bid=607;
+UPDATE building SET lid=127 WHERE bid=608;
+UPDATE building SET lid=133 WHERE bid=609;
+UPDATE building SET lid=137 WHERE bid=610;
+UPDATE building SET lid=142 WHERE bid=611;
+
+delete from building where bid=612;
+
+INSERT INTO building (bid, price, gold, lid, income, defense, energy, discount, maintenance, max, bgid, ugid) VALUES
+(612, 0,  10, 146, 4500000, 0, 0, 0, 0, 645, 6, 0);
+
+UPDATE building SET lid=163 WHERE bid=1103;
+UPDATE building SET lid=166 WHERE bid=1104;
+UPDATE building SET lid=171 WHERE bid=1105;
+UPDATE building SET lid=176 WHERE bid=1106;
+UPDATE building SET lid=181 WHERE bid=1107;
+UPDATE building SET lid=186 WHERE bid=1108;
+UPDATE building SET lid=191 WHERE bid=1109;
+
+delete from building where bid=1110;
+
+INSERT INTO building (bid, price, gold, lid, income, defense, energy, discount, maintenance, max, bgid, ugid) VALUES
+(1110, 0,  10, 196, 3500000, 0, 0, 0, 0, 645, 11, 0);
+
+delete from building where bid=1610;
+
+INSERT INTO building (bid, price, gold, lid, income, defense, energy, discount, maintenance, max, bgid, ugid) VALUES
+(1610, 0,  10, 237, 6500000, 0, 0, 0, 0, 645, 16, 0);
+
+delete from building where bid=2106;
+
+INSERT INTO building (bid, price, gold, lid, income, defense, energy, discount, maintenance, max, bgid, ugid) VALUES
+(2106, 0,  10, 276, 6000000, 0, 0, 0, 0, 645, 21, 0);

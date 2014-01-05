@@ -26,7 +26,7 @@ $notes[63] = '
 <li>Increase conquered sector hourly income with factor 10.</li>
 <li>Commander must now accept clan member join request.</li>
 </ul>
-<li>Added 15 new gold income, energy,  maintenance building types.</li>
+<li>Added 20 new gold income, energy, discount, maintenance building types.</li>
 <li>Added yellow border to gold unit and building images.</li>
 <li>Improve release notes information navigation.</li>
 <li>Updated copyright footer.</li>
