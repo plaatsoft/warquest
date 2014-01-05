@@ -213,3 +213,18 @@ delete from building where bid=2106;
 
 INSERT INTO building (bid, price, gold, lid, income, defense, energy, discount, maintenance, max, bgid, ugid) VALUES
 (2106, 0,  10, 276, 6000000, 0, 0, 0, 0, 645, 21, 0);
+
+-- correction
+UPDATE building SET discount=10 WHERE bid=1900;
+UPDATE building SET discount=12 WHERE bid=1901;
+UPDATE building SET discount=14 WHERE bid=1902;
+UPDATE building SET discount=16 WHERE bid=1903;
+UPDATE building SET discount=18 WHERE bid=1904;
+UPDATE building SET discount=20 WHERE bid=1905;
+
+UPDATE building SET discount=10 WHERE bid=2400;
+UPDATE building SET discount=12 WHERE bid=2401;
+UPDATE building SET discount=14 WHERE bid=2402;
+UPDATE building SET discount=16 WHERE bid=2403;
+UPDATE building SET discount=18 WHERE bid=2404;
+UPDATE building SET discount=20 WHERE bid=2405;
