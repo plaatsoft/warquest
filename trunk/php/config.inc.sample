@@ -41,7 +41,7 @@ $config["adminPid"]						= 18;
 $config["default_background"]			= 1;
 
 /* Server version */
-$config["applVersion"]					= 'Version 6.2';
+$config["applVersion"]					= 'Version 6.3';
 
 /* Client version settings */
 $config["windows_client_version"]	= '1.4';
@@ -65,16 +65,15 @@ $config["gold_trade_feature5"]		= 200;
 $config["applName"]						= 'WarQuest';
 $config["from_email"]					= 'info@warquest.nl';
 
+$config["next_level_sp_bonus"]		= 3;
+$config["continent_conquer_bonus"]  = 7000000;
+
 $config["init_level"]					= 0;
 $config["init_attack_max"]				= 1;
 $config["init_defense_max"]			= 1;
 $config["init_health_min"]				= 27;
-$config["next_level_sp_bonus"]		= 3;
 $config["init_max_log_entries"]		= 30;
-$config["init_skill_point_step"]		= 5;
-$config["continent_conquer_bonus"]  = 7000000;
 $config["init_rebel_treshhold"]     = 100;
-
 $config["init_bank1_deposit"]			= 2;
 $config["init_bank1_interest"]		= 0.1;
 $config["init_bank2_deposit"]			= 6;
@@ -82,7 +81,6 @@ $config["init_bank2_interest"]		= 1.5;
 $config["init_bank3_deposit"]			= 10;
 $config["init_bank3_interest"]		= 2.0;
 $config["init_stock_fee"]				= 0.5;
-
 $config["init_money"]					= 25000;
 $config["init_money_bank1"]			= 25000;
 $config["init_money_bank2"]			= 0;
@@ -98,6 +96,8 @@ $config["init_energy_timer"]			= 190;
 $config["init_ammo_max"]				= 3;
 $config["init_ammo_step"]				= 1;
 $config["init_ammo_timer"]				= 140;
+$config['init_clan_skill_step']     = 1000;
+$config["init_player_skill_step"]	= 5;
 
 $config["unit_sell_ratio"]				= .6;
 $config["building_sell_ratio"]		= .6;

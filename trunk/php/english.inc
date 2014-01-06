@@ -516,8 +516,8 @@ $lang['PLAYER_DEFENSE_TEXT'] = '%s has currently <b>%s</b> allies and can comman
 $lang['PLAYER_UNIT'] = 'Unit';
 $lang['PLAYER_AMOUNT'] = 'Amount';
 $lang['PLAYER_STRENGTH'] = 'Strength';
-$lang['PLAYER_ATTACK_SKILLS'] = 'Attack skills';
-$lang['PLAYER_DEFENSE_SKILLS'] = 'Defence skills';
+$lang['PLAYER_ATTACK_SKILLS'] = 'Player attack skills';
+$lang['PLAYER_DEFENSE_SKILLS'] = 'Player defence skills';
 $lang['PLAYER_SUB_TOTAL'] = 'Sub total';
 $lang['PLAYER_TOTAL'] = 'Total';
 $lang['PLAYER_FORCE'] = 'Attack & Defence Strength'; 
@@ -585,7 +585,7 @@ $lang['PLAYER_SKILL_SUBTITLE1']  = 'Skill points';
 $lang['PLAYER_SKILL_SUBTITLE2']  = 'Skill points [%s available]';
 $lang['PLAYER_SKILL_NOTE']  = 'Note: Use skill points to increase attack, defence, health, energy or ammo skills.';
 $lang['PLAYER_SKILLS']  = 'Skills'; 
-$lang['PLAYER_MAX'] = 'Current'; 
+$lang['PLAYER_CURRENT'] = 'Current'; 
 $lang['PLAYER_ATTACK']  = 'ATTACK';
 $lang['PLAYER_DEFENSE'] = 'DEFENCE';
 $lang['PLAYER_HEALTH']  = 'HEALTH'; 
@@ -2255,6 +2255,7 @@ $lang['MONEY_TITLE'] = 'MONEY';
 $lang['BANK_GROUP_1'] = 'National';
 $lang['BANK_GROUP_2'] = 'Trasquera';
 $lang['BANK_GROUP_3'] = 'SwissCore';
+$lang['BANK_GROUP_4'] = 'clan';
 
 $lang['BANK_TITLE'] = 'BANKS';
 $lang['BANK_NOTE'] = 'Note: There is a %s% fee for any deposit. The bank pays %s% daily interest. ';
@@ -2270,10 +2271,10 @@ $lang['BANK_TRANSACTION_TYPE_6'] = 'Bonus ';
 
 $lang['BANK_TRANSACTION_LOG'] = 'Transaction log';
 
-$lang['BANK_WITHDRAW']= 'Withdrawn %s dollars from bank';
+$lang['BANK_WITHDRAW']= 'Withdrawn %s dollar from %s bank';
 $lang['BANK_WITHDRAW_FAILED'] = '%s dollars not available on bank account!';
 
-$lang['BANK_DEPOSIT'] = 'Deposited %s dollar in the bank.';
+$lang['BANK_DEPOSIT'] = 'Deposited %s dollar in the %s bank.';
 $lang['BANK_DEPOSIT_FAILED'] = 'You do not have %s dollars.';
 
 /*
@@ -3121,13 +3122,17 @@ $lang['CLAN_NO_MEMBERS'] = 'No clan members yet';
 $lang['CLAN_CREATED'] = 'Clan [%s] created!';
 $lang['CLAN_NO_SKILL_POINT'] = 'You need 1 skill point to create a new clan.';
 
-$lang['CLAN_SLOGAN'] = 'Clan slogan:';
+$lang['CLAN_PROFILE'] = 'Clan Profile [%s]';
+
+$lang['CLAN_SLOGAN'] = 'Clan Slogan [%s]';
 $lang['CLAN_SLOGAN_NOTE'] = 'Enter or update then clan slogan!';
 $lang['CLAN_SLOGAN_SAVED'] = 'Clan slogan is saved';
 $lang['CLAN_SLOGAN_TOO_SHORT'] = 'Clan slogan is to short';
 $lang['CLAN_SLOGAN_TOO_LONG'] = 'Clan slogan is to long. Maximum 200 characters allowed.';
 
-$lang['CLAN_LIST_TITLE'] = 'Clan List [%s]';
+$lang['CLAN_MEMBER_LIST'] = 'Clan Members [%s]';
+
+$lang['CLAN_BANK'] = 'Clan Bank [%s]';
 
 $lang['BATTLE_CLAN_WAR_UNLOCKED'] = '%s clan war is unlocked at level %s.';
 
@@ -3197,6 +3202,26 @@ $lang['BATTLE_NO_UNITS_AVAILABLE'] = 'No units available to fight with!';
 
 $lang['CLAN_ACCEPTED'] = 'You accepted %s to your %s clan.';
 $lang['HOME_EMAIL_VALID'] = 'Email address is verified';
+
+$lang['CLAN_ATTACK']  = 'ATTACK';
+$lang['CLAN_DEFENSE'] = 'DEFENCE';
+
+$lang['CLAN_ATTACK_SKILLS'] = 'Clan attack skills';
+$lang['CLAN_DEFENSE_SKILLS'] = 'Clan defence skills';
+
+$lang['CLAN_SKILLS'] = 'Clan Skills [%s]';
+$lang['CLAN_ATTACK_TIP']  = 'Increase your clan attack skill to do more damage and win more clan fights. Each clan fight %s will be withdraw from the clan bank.';
+$lang['CLAN_DEFENSE_TIP'] = 'Increase your clan defence skill to improve resistance during clan attacks. Each clan fight %s will be withdraw from the clan bank.';
+
+$lang['CLAN_DEPOSIT_CONFIRM'] = 'Are you sure? Money can not be withdraw anymore!';
+
+$lang['CLAN_NO_ALLOWED'] = 'Only the commander of the %s clan is allowed to do this action!';
+$lang['CLAN_MINIMAL_SKILL'] = 'Clan skill has reached minimum value!';
+$lang['CLAN_SKILL_DECREASED'] = 'Clan skill is decreased to %s';
+$lang['CLAN_SKILL_INCREASED'] = 'Clan skill is increased to %s';
+
+$lang['CLAN_PROFILE_NOTE'] = 'Clan members can deposit money on the clan bank to improve clan skills. The clan commander can manage clan slogan, skills and members. If the clan bank does not contain enough money to fund the clan skills the feature is disabled during clan fights.';
+$lang['CLAN_SKILL_ENABLED'] = '* Clan attack and/or defence skills active!';
 
 /*
 ** ------------------

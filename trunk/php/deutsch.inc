@@ -465,8 +465,8 @@ $lang['PLAYER_DEFENSE_TEXT'] = '%s hat mometan <b>%s</b> Verbündete und kann ein
 $lang['PLAYER_UNIT'] = 'Einheit';
 $lang['PLAYER_AMOUNT'] = 'Anzahl';
 $lang['PLAYER_STRENGTH'] = 'Stärke';
-$lang['PLAYER_ATTACK_SKILLS'] = 'Angriffswert';
-$lang['PLAYER_DEFENSE_SKILLS'] = 'Verteidigungswert';
+$lang['PLAYER_ATTACK_SKILLS'] = 'Spieler Angriffswert';
+$lang['PLAYER_DEFENSE_SKILLS'] = 'Spieler Verteidigungswert';
 $lang['PLAYER_SUB_TOTAL'] = 'Sub total';
 $lang['PLAYER_TOTAL'] = 'Total';
 $lang['PLAYER_FORCE'] = 'Angriffs & Verteidigungsstärke'; 
@@ -537,7 +537,7 @@ $lang['PLAYER_SKILL_SUBTITLE1']  = 'Skill Punkte';
 $lang['PLAYER_SKILL_SUBTITLE2']  = 'Skill Punkte [%s verfügbar]';
 $lang['PLAYER_SKILL_NOTE']  = 'Tipp : Verteile Skillpunkte um deinen Angriffs-, verteidigungs-, Gesunheits- und Energiewert zusteigern oder dein Munitionsdepot zu erhöhen.';
 $lang['PLAYER_SKILLS']  = 'Skills'; 
-$lang['PLAYER_MAX'] = 'Current'; 
+$lang['PLAYER_CURRENT'] = 'Current'; 
 $lang['PLAYER_ATTACK']  = 'ANGRIFF';
 $lang['PLAYER_DEFENSE'] = 'VERTEIDIGUNG';
 $lang['PLAYER_HEALTH']  = 'GESUNDHEIT'; 
@@ -1356,12 +1356,6 @@ $lang['BANK_TRANSACTION_TYPE_5'] = 'Gestohlen:';
 $lang['BANK_TRANSACTION_TYPE_6'] = 'Bonus ';
 
 $lang['BANK_TRANSACTION_LOG'] = 'Kontoauszug';
-
-$lang['BANK_WITHDRAW']= 'Withdrawn %s dollar from bank';
-$lang['BANK_WITHDRAW_FAILED'] = 'No %s dollar on bank!';
-
-$lang['BANK_DEPOSIT'] = 'Deposited %s dollar in the bank.';
-$lang['BANK_DEPOSIT_FAILED'] = 'You do not have %s dollar.';
 
 /*
 ** ------------------

@@ -708,6 +708,8 @@ function warquest_attack_info_form($other) {
 	global $mid;
 	global $sid;
 	global $uid;
+	global $cid;
+	
 	global $config;
 	global $player;
 	
@@ -721,11 +723,7 @@ function warquest_attack_info_form($other) {
 	
 	$title = t('PLAYER_ATTACK_FORCE', t('GENERAL_PLANET_'.$player->planet), t('UNIT_GROUP_'.$data1->ugid));
 	$page .= '<div class="subparagraph">'.$title.'</div>';
-		
-	$query2  = 'select alliance from player where pid='.$other->pid;
-	$result2 = warquest_db_query($query2);
-	$data2 = warquest_db_fetch_object($result2);
-	
+			
 	/* Calculate attack strength of units depending of alliance size */
 	$query3  = 'select a.uid, a.gold, a.attack, a.defense, c.amount, a.upkeep ';
 	$query3 .= 'from unit a left join unit_group b on a.ugid=b.ugid, ';
@@ -742,14 +740,14 @@ function warquest_attack_info_form($other) {
 	$attack = 0;
 	$amount = 0;
    $count = 0;
-	$size= $data2->alliance * 6;
+	$size= $other->alliance * 6;
 
 	$page .= '<div class="box">';
 		
 	$page .= '<br/>';
 	$page .= t('PLAYER_ATTACK_TEXT', 
 						warquest_link('mid='.$mid.'&sid='.PAGE_PROFILE.'&oid='.$other->pid, player_format($other->pid, $other->name, $other->country)),
-						$data2->alliance,
+						$other->alliance,
 						$size,
 						strtolower(t('UNIT_GROUP_'.$data1->ugid)));
 	$page .= '<br/><br/>';
@@ -826,9 +824,9 @@ function warquest_attack_info_form($other) {
 	$page .= '</td>';
 	$page .= '</tr>';
 		
-	/* Get attack strength from skill points */
+	/* Get player skill attack strength */
 	$skill = warquest_db_skill($other->pid);
-	$totalStrength += $skill->attack_max * $config['init_skill_point_step'] * $other->lid;
+	$totalStrength += $skill->attack_max * $config['init_player_skill_step'] * $other->lid;
 	
 	$page .= '<tr>';	
 	
@@ -844,10 +842,39 @@ function warquest_attack_info_form($other) {
 	$page .= '</td>';
 		
 	$page .= '<td>';		
-	$page .= number_format2($skill->attack_max * $config['init_skill_point_step'] * $other->lid);	
+	$page .= number_format2($skill->attack_max * $config['init_player_skill_step'] * $other->lid);	
 	$page .= '</td>';
 	
 	$page .= '</tr>';	
+	
+	/* Get clan attack strength */	
+	if ( $cid>0 ) {
+		
+		$clan = warquest_db_clan($cid);
+		
+		$totalStrength += ($clan->attack * $config['init_clan_skill_step'] * 2);
+
+		$page .= '<tr>';	
+	
+		$page .= '<td>';		
+		$page .= '<b></b>';
+		$page .= '</td>';
+					
+		$page .= '<td>';	
+		$page .= '<br/>';
+		$page .= '<b>'.t('CLAN_ATTACK_SKILLS').'</b>';
+		$page .= '</td>';
+
+		$page .= '<td>';		
+		$page .= '</td>';
+		
+		$page .= '<td>';		
+		$page .= number_format2( $clan->attack * $config['init_clan_skill_step'] * 2);	
+		$page .= '</td>';
+	
+		$page .= '</tr>';	
+	}
+	
 	
 	/* Show horizontal bar */
 	$page .= '<tr>';
@@ -894,8 +921,10 @@ function warquest_defense_info_form($other) {
    /* input */
 	global $mid;
 	global $sid;
-	global $config;
 	global $uid;
+	global $cid;
+	
+	global $config;
 	global $player;
 	
 	/* output */
@@ -908,11 +937,7 @@ function warquest_defense_info_form($other) {
 	
 	$title = t('PLAYER_DEFENSE_FORCE',t('GENERAL_PLANET_'.$player->planet), t('UNIT_GROUP_'.$data1->ugid));
 	$page .= '<div class="subparagraph">'.$title.'</div>';
-		
-	$query2  = 'select alliance from player where pid='.$other->pid;
-	$result2 = warquest_db_query($query2);
-	$data2 = warquest_db_fetch_object($result2);
-	
+
 	$query3  = 'select a.uid, a.gold, a.attack, a.defense, c.amount, a.upkeep ';
 	$query3 .= 'from unit a left join unit_group b on a.ugid=b.ugid, ';
 	$query3 .= 'player_unit c where a.uid=c.uid and ';
@@ -928,14 +953,14 @@ function warquest_defense_info_form($other) {
 	$attack = 0;
 	$amount = 0;
    $count = 0;
-	$size= $data2->alliance * 6;
+	$size= $other->alliance * 6;
 
 	$page .= '<div class="box">';
 		
 	$page .= '<br/>';
 	$page .= t('PLAYER_DEFENSE_TEXT', 
 						warquest_link('mid='.$mid.'&sid='.PAGE_PROFILE.'&oid='.$other->pid, player_format($other->pid, $other->name, $other->country)),
-						$data2->alliance, 
+						$other->alliance, 
 						$size,
 						strtolower(t('UNIT_GROUP_'.$data1->ugid)) );
 	$page .= '<br/><br/>';
@@ -1076,9 +1101,9 @@ function warquest_defense_info_form($other) {
 		$page .= '</tr>';
 	}
 		
-	/* Show defense strength from skill points */
+	/* Show player skill defense */
 	$skill = warquest_db_skill($other->pid);
-	$totalStrength += $skill->defense_max * $config['init_skill_point_step'] * $other->lid;
+	$totalStrength += $skill->defense_max * $config['init_player_skill_step'] * $other->lid;
 	
 	$page .= '<tr>';	
 	
@@ -1094,11 +1119,39 @@ function warquest_defense_info_form($other) {
 	$page .= '</td>';
 		
 	$page .= '<td>';		
-	$page .= number_format2($skill->defense_max * $config['init_skill_point_step'] * $other->lid);
+	$page .= number_format2($skill->defense_max * $config['init_player_skill_step'] * $other->lid);
 	$page .= '</td>';
 	
 	$page .= '</tr>';	
 	
+	/* Get clan defense strength */	
+	if ( $cid>0 ) {
+		
+		$clan = warquest_db_clan($cid);
+		
+		$totalStrength += ($clan->defense * $config['init_clan_skill_step']  * 2);
+	
+		$page .= '<tr>';	
+	
+		$page .= '<td>';		
+		$page .= '<b></b>';
+		$page .= '</td>';
+				
+		$page .= '<td>';	
+		$page .= '<br/>';
+		$page .= '<b>'.t('CLAN_DEFENSE_SKILLS').'</b>';
+		$page .= '</td>';
+
+		$page .= '<td>';		
+		$page .= '</td>';
+		
+		$page .= '<td>';		
+		$page .= number_format2($clan->defense * $config['init_clan_skill_step'] * 2);	
+		$page .= '</td>';
+	
+		$page .= '</tr>';	
+	}
+		
 	/* Show horizontal bar */
 	$page .= '<tr>';
 	$page .= '<td colspan="4">';
@@ -1159,10 +1212,10 @@ function warquest_player_data_unlocked($other, $value) {
 		
 	$spy = t('PLAYER_SPY_'.$player->planet);
 				
-	$tmp1 = warquest_defense_strength($other, $ugid);
+	$tmp1 = warquest_defense_strength($other, $ugid, 0);
 	$tmp1 = round( $tmp1* (($value/100)+1));
 		
-	$tmp2 = warquest_attack_strength($player, $ugid);
+	$tmp2 = warquest_attack_strength($player, $ugid, 0);
 	
 	if ($tmp2 >= $tmp1) {
 		return true;
@@ -1494,11 +1547,11 @@ function warquest_profile($id) {
 			$page .= '<td><b>'.t('UNIT_GROUP_'.$data2->ugid).':</b></td>';
 			$page .= '<td>';
 			$page .= warquest_link('mid='.$mid.'&sid='.PAGE_ATTACK.'&oid='.$id.'&uid='.$data2->type, 
-								number_format(warquest_attack_strength($data, $data2->ugid),0,",","."), "attack".$data2->ugid);
+								number_format(warquest_attack_strength($data, $data2->ugid, 0),0,",","."), "attack".$data2->ugid);
 			$page .= '</td>';
 			$page .= '<td>';
 			$page .= warquest_link('mid='.$mid.'&sid='.PAGE_DEFENCE.'&oid='.$id.'&uid='.$data2->type, 
-								number_format(warquest_defense_strength($data, $data2->ugid),0,",","."), "defense".$data2->ugid);
+								number_format(warquest_defense_strength($data, $data2->ugid, 0),0,",","."), "defense".$data2->ugid);
 			$page .= '</td>';
 			$page .= '</tr>';					
 		}
@@ -1769,8 +1822,7 @@ function warquest_player() {
 			}
 			break;	
 	}	
-		
-	
+
 	/* page handler */
 	switch ($sid) {
 		

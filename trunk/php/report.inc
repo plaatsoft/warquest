@@ -218,8 +218,8 @@ function warquest_player_report_do($id) {
 				$this->SetFont('','B');
 				$this->Cell($width, $height, t('UNIT_GROUP_'.$data2->ugid), 1, 0,'L',true);			
 				$this->SetFont('','');
-				$this->Cell($width, $height, number_format(warquest_attack_strength($data, $data2->ugid),0,",","."), 1, 0,'L',true);
-				$this->Cell($width, $height, number_format(warquest_defense_strength($data, $data2->ugid),0,",","."), 1, 0,'L',true);
+				$this->Cell($width, $height, number_format(warquest_attack_strength($data, $data2->ugid, 0),0,",","."), 1, 0,'L',true);
+				$this->Cell($width, $height, number_format(warquest_defense_strength($data, $data2->ugid, 0),0,",","."), 1, 0,'L',true);
 				$this->Ln();
 			}
 			

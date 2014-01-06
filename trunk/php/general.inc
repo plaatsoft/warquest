@@ -397,14 +397,14 @@ function warquest_gold_use($gold) {
 /** 
  * Calculate attack strength of player
  */
-function warquest_attack_strength($player, $ugid) {
+function warquest_attack_strength($player, $ugid, $clan) {
 
 	/* input */
 	global $config;
 	
 	$unit_group = warquest_db_unit_group($ugid);
 	
-	/* Calculate attack strength of units depending of alliance size */
+	/* Add player unit attack strength (depending of alliance size) */
 	$query =  'select a.attack, b.amount from unit a, player_unit b where ';
 	$query .= 'a.uid=b.uid and b.pid='.$player->pid.' ';
 
@@ -436,10 +436,15 @@ function warquest_attack_strength($player, $ugid) {
 		}
 	}
 	
-	/* Get attack strength from skill points */
+	/* Add player skill strength */
 	$skill = warquest_db_skill($player->pid);
 	if (isset($skill->attack_max)) {
-		$attack += ($skill->attack_max * $config['init_skill_point_step'] * $player->lid);
+		$attack += ($skill->attack_max * $config['init_player_skill_step'] * $player->lid);
+	}
+	
+	/* Add clan attack skill strength (optional) */
+	if ( isset($clan->attack)) {		
+		$attack += ($clan->attack * $config['init_clan_skill_step'] * 2);
 	}
 	
 	return $attack;
@@ -448,7 +453,7 @@ function warquest_attack_strength($player, $ugid) {
 /** 
  * Calculate defense strength of player
  */ 
-function warquest_defense_strength($player, $ugid) {
+function warquest_defense_strength($player, $ugid, $clan) {
 
 	/* input */
 	global $config;
@@ -458,7 +463,7 @@ function warquest_defense_strength($player, $ugid) {
  
 	$unit_group = warquest_db_unit_group($ugid);
  
-	/* Calculate defense strength of units depending of alliance size */
+	/* Add player unit defense strength (depending on alliance size) */
 	$query =  'select a.defense, b.amount from unit a, player_unit b where ';
 	$query .= 'a.uid=b.uid and b.pid='.$player->pid.' ';
 
@@ -486,7 +491,7 @@ function warquest_defense_strength($player, $ugid) {
 		}
 	}
 	
-	/* Calculate defense strength of building */
+	/* Add player building defence strength */
 	$query  = 'select a.defense, b.amount from building a, player_building b ';
 	$query .= 'where a.bid=b.bid and b.pid='.$player->pid.' and a.defense>0 ';
 	
@@ -505,12 +510,17 @@ function warquest_defense_strength($player, $ugid) {
 		$defense += ($data->defense * $data->amount);
 	}
 	
-	/* Get defense strength from skill points */
+	/* Add player defense skill strenght */
 	$skill = warquest_db_skill($player->pid);
 	if (isset($skill->defense_max)) {
-		$defense += ($skill->defense_max * $config['init_skill_point_step'] * $player->lid);
+		$defense += ($skill->defense_max * $config['init_player_skill_step'] * $player->lid);
 	}
 	
+	/* Add clan defense skill strength (optional) */
+	if ( isset($clan->defense) ) {		
+		$defense += ($clan->defense * $config['init_clan_skill_step'] * 2);
+	}
+		
 	return $defense;
 }
 
@@ -2946,7 +2956,7 @@ function clan_format($clan) {
 	
 	if (isset($clan->cid)) {
 	
-		$value = warquest_link('mid='.MENU_ALLIANCE.'&sid='.PAGE_CLAN_LIST.'&id='.$clan->cid, $clan->name, "", $clan->slogan);
+		$value = warquest_link('mid='.MENU_ALLIANCE.'&sid='.PAGE_CLAN_PROFILE.'&id='.$clan->cid, $clan->name, "", $clan->slogan);
 	}
 	
 	return $value;

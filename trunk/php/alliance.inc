@@ -17,13 +17,15 @@
 */
 
 /*
-** ----------
-** PARAMETERS
-** ----------
+** ---------------
+** Post Parameters
+** ---------------
 */
 
 $clan = warquest_post('clan', '');
 $slogan = warquest_post('slogan', '');
+$deposit = warquest_post('deposit', '0');
+$amount = warquest_post('amount', 0);
 	
 /*
 ** ---------------------
@@ -740,7 +742,12 @@ function warquest_clan_accept_do() {
 	$clan = warquest_db_clan($cid);
 	$player_clan = warquest_db_player_clan($other->pid);
 	
-	if ($player_clan->approved==0) {
+	if ($clan->pid!=$player->pid) {
+	
+		$message = t('CLAN_NO_ALLOWED', $clan->name);
+		$popup .= warquest_box_icon("warning", $message);
+		
+	} else if ($player_clan->approved==0) {
 		
 		$player_clan->approved=1;			
 		warquest_db_player_clan_update($player_clan);
@@ -764,7 +771,7 @@ function warquest_clan_accept_do() {
 
 
 /**
- * Member can leave a clan 
+ * Member leave clan 
  */
 function warquest_clan_leave_do() {
 
@@ -796,7 +803,7 @@ function warquest_clan_leave_do() {
 }
 
 /**
- * Member can join a clan
+ * Member join clan
  */
 function warquest_clan_join_do() {
 
@@ -832,6 +839,9 @@ function warquest_clan_join_do() {
 	}
 }
 
+/**
+ * Commander set of change clan slogan
+ */
 function warquest_clan_slogan_do() {
 
 	/* input */
@@ -843,8 +853,13 @@ function warquest_clan_slogan_do() {
 	global $popup;	
 	
 	$clan = warquest_db_clan($cid);
-	 	
-	if (strlen($slogan) < 5) {
+	 
+	if ($clan->pid!=$player->pid) {
+	
+		$message = t('CLAN_NO_ALLOWED', $clan->name);
+		$popup .= warquest_box_icon("warning", $message);
+		
+	} else if (strlen($slogan) < 5) {
 			
 		$message = t('CLAN_SLOGAN_TOO_SHORT');
 		$popup .= warquest_box_icon("warning", $message);
@@ -865,7 +880,9 @@ function warquest_clan_slogan_do() {
 	}
 }
 
-
+/**
+ * Commander create clan 
+ */
 function warquest_clan_create_do() {
 
 	/* input */
@@ -911,6 +928,160 @@ function warquest_clan_create_do() {
 	
 		$message = t('CLAN_CREATED', $clan);
 		$popup .= warquest_box_icon("info", $message);			
+	}
+}
+
+/**
+ * Clan member & Commander desposit money on clan bank.
+ */
+function warquest_clan_deposit_do() {
+
+	/* input */
+	global $player;
+	global $cid;
+	global $deposit;
+	
+	/* output */
+	global $popup;	
+	
+	/* Remove dots */
+	$deposit = str_replace(".", "", $deposit);
+	
+	$clan = warquest_db_clan($cid);
+	
+	if ($deposit > $player->money) {
+			
+		$message = t('BANK_DEPOSIT_FAILED', money_format1($price));
+		$popup .= warquest_box_icon("warning", $message);
+		
+	} else {
+
+		$clan->money += $deposit;
+		warquest_db_clan_update($clan);
+		
+		$player->money -= $deposit;
+		
+		$message = t('BANK_DEPOSIT', money_format1($deposit), t('BANK_GROUP_4'));
+		$popup .= warquest_box_icon("info", $message);
+		
+		$log = 'Deposit '.number_format2($deposit).' to clan bank';		
+		warquest_user_log($player, $log);
+	}
+}
+
+/**
+ * Commander increase clan skill.
+ */
+function warquest_clan_skill_increase_do() {
+
+	/* input */
+	global $player;
+	global $config;
+	
+	global $cid;
+	global $mid;
+	global $sid;
+	global $eid;
+	global $id;
+	global $amount;
+	
+	/* output */
+	global $popup;	
+
+	$clan = warquest_db_clan($cid);
+	
+	if ($clan->pid!=$player->pid) {
+	
+		$message = t('CLAN_NO_ALLOWED', $clan->name);
+		$popup .= warquest_box_icon("warning", $message);
+		
+	} else {
+	
+		switch ($id) {
+		
+			case 1: 	$clan->attack += $amount;
+						$max = $clan->attack;
+						break;
+						
+			case 2: 	$clan->defense += $amount;
+						$max = $clan->defense;
+						break;
+		}
+		
+		warquest_db_clan_update($clan);
+		
+		$message = t('CLAN_SKILL_INCREASED', number_format(($max * $config['init_clan_skill_step'] * 2),0,",","."));
+		
+		$link = warquest_link('mid='.$mid.'&sid='.$sid.'&cid='.$cid.'&eid='.$eid.'&id='.$id, t('LINK_INCREASE'), "increase");		
+		$link .= '<br/><br/>'.t('GENERAL_AMOUNT').'<br/>';		
+		$link .= warquest_amount_selected(100);
+		$link .= '<br/><br/>';
+		
+		$popup .= warquest_box_icon("info", $message, $link);		
+	}
+}
+
+/**
+ * Commander decrease clan skill.
+ */
+function warquest_clan_skill_decrease_do() {
+
+	/* input */
+	global $player;
+	global $config;
+	
+	global $cid;
+	global $mid;
+	global $sid;
+	global $eid;
+	global $id;
+	global $amount;
+	
+	/* output */
+	global $popup;	
+
+	$clan = warquest_db_clan($cid);
+
+	if ($clan->pid!=$player->pid) {
+	
+		$message = t('CLAN_NO_ALLOWED', $clan->name);
+		$popup .= warquest_box_icon("warning", $message);
+	
+	} else if (($id==1) & ($clan->attack < $amount)) {
+	
+		$message = t('CLAN_MINIMAL_SKILL');
+		$popup .= warquest_box_icon("warning", $message);
+		
+	} else if (($id==2) & ($clan->defense < $amount)) {
+	
+		$message = t('CLAN_MINIMAL_SKILL');
+		$popup .= warquest_box_icon("warning", $message);
+		
+	} else {
+	
+		switch ($id) {
+		
+			case 1: 	$clan->attack -= $amount;
+						$max = $clan->attack;
+						break;
+						
+			case 2: 	$clan->defense -= $amount;
+						$max = $clan->defense;
+						break;
+		}
+		
+		warquest_db_clan_update($clan);
+		
+		$message = t('CLAN_SKILL_DECREASED', number_format(($max * $config['init_clan_skill_step'] * 2),0,",","."));
+		
+		$link = warquest_link('mid='.$mid.'&sid='.$sid.'&cid='.$cid.'&eid='.$eid.'&id='.$id,t('LINK_DECREASE'), "decrease");		
+		if ($max>0) {
+			$link .= '<br/><br/>'.t('GENERAL_AMOUNT').'<br/>';		
+			$link .= warquest_amount_selected($max);
+			$link .= '<br/><br/>';
+		}
+		
+		$popup .= warquest_box_icon("info", $message, $link);			
 	}
 }
 
@@ -1029,7 +1200,7 @@ function warquest_clan_form() {
 
 			$page .= '<td>';
 			$page .= warquest_image("other/clan.jpg", 'width="50" height="30"').' ';
-			$page .= warquest_link('mid='.$mid.'&sid='.PAGE_CLAN_LIST.'&cid='.$data->cid, $data->name);
+			$page .= warquest_link('mid='.$mid.'&sid='.PAGE_CLAN_PROFILE.'&cid='.$data->cid, $data->name);
 			$page .= '</td>';
 					
 			$page .= '<td>';
@@ -1072,7 +1243,7 @@ function warquest_clan_form() {
    $page .= '</div>';	
 }
 
-function warquest_clan_list_form() {
+function warquest_clan_profile_form() {
 
 	/* input */	
 	global $mid;
@@ -1081,20 +1252,22 @@ function warquest_clan_list_form() {
 	
 	global $player;
 	global $other;
+	global $config;
 		
 	/* output */
 	global $page;
 	global $title;
-	
-	$count = 1;
-	
+		
 	$clan = warquest_db_clan($cid);
+	$player_clan = warquest_db_player_clan($player->pid);
+	
 	$comment = $clan->slogan;
 	
-	$title = t('CLAN_LIST_TITLE', $clan->name);
-		
+	$title = t('CLAN_PROFILE', $clan->name);
+	
+	/* Clan Slogan */
 	$page .= '<div class="subparagraph">';
-	$page .= t('CLAN_LIST_TITLE', $clan->name);
+	$page .= t('CLAN_SLOGAN', $clan->name);
 	$page .= '</div>';
 
 	if ($clan->pid==$player->pid) {	
@@ -1106,8 +1279,6 @@ function warquest_clan_list_form() {
 		$page .= '<table>';
 		$page .= '<tr>';
 		$page .= '<td width="500">';
-
-		$page .= t('CLAN_SLOGAN').'<br/>'; 
 	
 		$page .= '<textarea style="width:100%" id="slogan" name="slogan" rows="3" ';
 		$page .= 'onKeyDown="limitText(this,199)">'.$comment.'</textarea><br/>';
@@ -1120,23 +1291,160 @@ function warquest_clan_list_form() {
 		$page .= '</tr>';
 		$page .= '</table>';
 		$page .= '</div>';
-		
-		$page .= '<div class="note">';
-		$page .= t('CLAN_SLOGAN_NOTE');
-		$page .= '</div>';	
 				
 	} else {
 	
 		$page .= '<div class="box">';
-	
-		$page .= t('CLAN_SLOGAN').'<br/>';
-	
+		
 		$page .= '<div class="slogan">';
 		$page .= warquest_parse_smilies($comment);
 		$page .= '</div>';
 		
 		$page .= '</div>';
 	} 
+	
+	/* Clan Bank */
+	$page .= '<div class="subparagraph">';
+	$page .= t('CLAN_BANK', $clan->name);
+	$page .= '</div>';
+		
+	$page .= '<div class="box">';			
+	
+	$page .= '<table>';
+	$page .= '<tr>';
+	$page .= '<td width="160" >';	
+	$page .= warquest_bank_image(4, 140, 100);
+	$page .= '</td>';
+	
+	$page .= '<td>';
+	
+	$page .= "<table>";
+	
+	$page .= "<tr>";
+	$page .= "<td>";		
+	$page .= t('LINK_BALANCE').":<br/>";
+	$page .= '<input id="text" name="balance" size="16" maxlength="16" disabled="disabled" type="text" ';
+	$page .= 'value="'.number_format($clan->money,0,",",".").'">';
+	$page .= "</td>";
+	
+	$page .= "<td>";	
+	$page .= "</td>";
+	
+	$page .= "</tr>";
+	
+	$page .= "<tr>";
+	$page .= "<td>";
+	$page .= t('LINK_DEPOSIT').":<br/>";
+	$page .= '<input id="text" name="deposit" size="16" maxlength="16" type="text" value="';
+	$page .= number_format($player->money,0,",",".");
+	$page .= '"><br/>';
+	if ( isset($player_clan->pid) && ($clan->pid==$player_clan->pid) ) {
+		$page .= warquest_link_confirm('mid='.$mid.'&sid='.$sid.'&cid='.$cid.'&eid='.EVENT_CLAN_DEPOSIT, t('LINK_DEPOSIT'), t('CLAN_DEPOSIT_CONFIRM'));
+	}
+	$page .= "</td>";
+	
+	$page .= "</table>";
+	
+	$page .= '</td>';
+	$page .= '</tr>';
+	$page .= "</table>";
+	
+	$page .= '</div>';
+	
+	/* Clan Skills */
+	
+	$strength = warquest_db_clan_strength($cid);
+	
+	$page .= '<div class="subparagraph">';
+	$page .= t('CLAN_SKILLS', $clan->name);
+	$page .= '</div>';
+		
+	$page .= '<div class="box">';			
+	
+	$page .= '<table>';
+	$page .= '<tr>';
+	
+	$page .= '<tr>';	
+		
+	$page .= '<td width="50">';
+	$page .= warquest_image('other/attack.png',' width="30" height="30" ');
+	$page .= '</td>';
+		
+	$page .= '<td width="150">';
+	$page .= '<b>'.t('CLAN_ATTACK').'</b>';
+	$page .= '</td>';
+	
+	$page .= '<td width="200">'.t('PLAYER_CURRENT').': <b>';
+	$page .= number_format(($clan->attack * $config['init_clan_skill_step'] * 2),0,",",".").'</b>';
+	$page .= '</td>';
+		
+	$page .= '<td width="100">';
+	if ($clan->pid==$player->pid) {
+		$page .= warquest_link('mid='.$mid.'&sid='.$sid.'&cid='.$cid.'&eid='.EVENT_CLAN_SKILL_INCREASE.'&id=1', t('LINK_INCREASE'), "increase1");
+	}
+	$page .= '</td>';
+		
+	$page .= '<td width="65" align="right">';
+	if ($clan->pid==$player->pid) {
+		$page .= warquest_link('mid='.$mid.'&sid='.$sid.'&cid='.$cid.'&eid='.EVENT_CLAN_SKILL_DECREASE.'&id=1',t('LINK_DECREASE'), "decrease1");
+	}
+	$page .= '</td>';
+	
+	$page .= '</tr>';
+	
+	$page .= '<tr>';
+	$page .= '<td></td>';
+	$page .= '<td colspan="4"><i>';
+	$page .= t('CLAN_ATTACK_TIP',	dollar_format($clan->attack * $config['init_clan_skill_step'] * $strength));
+	$page .= '</i><br/></td>';
+	$page .= '</tr>';
+
+	$page .= '<tr>';
+	$page .= '<td colspan="5"><hr></td>';
+	$page .= '</tr>';
+	
+	/* ------------- */
+	
+	$page .= '<tr>';
+	
+	$page .= '<td>';
+	$page .= warquest_image('other/defense.png',' width="30" height="30" ');
+	$page .= '</td>';
+	
+	$page .= '<td><b>'.t('CLAN_DEFENSE').'</b></td>';
+		
+	$page .= '<td>'.t('PLAYER_CURRENT').': <b>';
+	$page .= number_format(($clan->defense * $config['init_clan_skill_step'] * 2),0,",",".").'</b>';
+	$page .='</td>';
+	
+	$page .= '<td>';
+	if ($clan->pid==$player->pid) {
+		$page .= warquest_link('mid='.$mid.'&sid='.$sid.'&cid='.$cid.'&eid='.EVENT_CLAN_SKILL_INCREASE.'&id=2', t('LINK_INCREASE'), "increase2");
+	}
+	$page .= '</td>';
+	
+	$page .= '<td>';
+	if ($clan->pid==$player->pid) {
+		$page .= warquest_link('mid='.$mid.'&sid='.$sid.'&cid='.$cid.'&eid='.EVENT_CLAN_SKILL_DECREASE.'&id=2',t('LINK_DECREASE'), "decrease2");
+	}
+	$page .= '</td>';
+		
+	$page .= '</tr>';
+	
+	$page .= '<tr>';
+	$page .= '<td></td>';
+	$page .= '<td colspan="4"><i>';
+	$page .= t('CLAN_DEFENSE_TIP', dollar_format($clan->defense * $config['init_clan_skill_step'] * $strength ));
+	$page .= '</i><br/></td>';
+	$page .= '</tr>';
+		
+	$page .= '</table>';
+	$page .= '</div>';
+	
+	/* Clan Members */
+	$page .= '<div class="subparagraph">';
+	$page .= t('CLAN_MEMBER_LIST', $clan->name);
+	$page .= '</div>';
 	
 	$query  = 'select a.joined, a.approved, b.pid, b.name, b.country, b.lid, b.experience ';
 	$query .= 'from player_clan a, player b where a.pid=b.pid and a.cid='.$cid.' ';
@@ -1183,6 +1491,7 @@ function warquest_clan_list_form() {
 		
 		$page .= '</tr>';
 		
+		$count = 1;
 		while ($data=warquest_db_fetch_object($result)) {
 		
 			$page .= '<tr>';
@@ -1215,16 +1524,14 @@ function warquest_clan_list_form() {
 			if ($clan->pid == $player->pid) {	
 			
 				if ($data->approved==0) {			
-					$page .= warquest_link('mid='.$mid.'&sid='.PAGE_CLAN_LIST.'&cid='.$cid.'&oid='.$data->pid.'&eid='.EVENT_CLAN_ACCEPT, t('LINK_ACCEPT'));							
+					$page .= warquest_link('mid='.$mid.'&sid='.PAGE_CLAN_PROFILE.'&cid='.$cid.'&oid='.$data->pid.'&eid='.EVENT_CLAN_ACCEPT, t('LINK_ACCEPT'));							
 					$page .= '&nbsp;&nbsp';
 				}
-						
 					
-				$page .= warquest_link('mid='.$mid.'&sid='.PAGE_CLAN_LIST.'&cid='.$cid.'&oid='.$data->pid.'&eid='.EVENT_CLAN_DROP, t('LINK_DROP'));							
+				$page .= warquest_link('mid='.$mid.'&sid='.PAGE_CLAN_PROFILE.'&cid='.$cid.'&oid='.$data->pid.'&eid='.EVENT_CLAN_DROP, t('LINK_DROP'));							
 			}
 			$page .= '</td>';
-				
-				
+	
 			$page .= '</tr>';
 		}
 		
@@ -1234,7 +1541,7 @@ function warquest_clan_list_form() {
 	}
 	
 	$page .= '<div class="note">';
-	$page .= t('CLAN_NOTE');
+	$page .= t('CLAN_PROFILE_NOTE');
    $page .= '</div>';	
 }
 
@@ -1296,6 +1603,18 @@ function warquest_alliance() {
 			warquest_clan_slogan_do();
 			break;	
 			
+		case EVENT_CLAN_DEPOSIT:
+			warquest_clan_deposit_do();
+			break;
+			
+		case EVENT_CLAN_SKILL_INCREASE:
+			warquest_clan_skill_increase_do();
+			break;
+			
+		case EVENT_CLAN_SKILL_DECREASE:
+			warquest_clan_skill_decrease_do();
+			break;
+	
 		case EVENT_SWITCH_PLANET: 
 			warquest_switch_planet_do();
 			break;
@@ -1333,8 +1652,8 @@ function warquest_alliance() {
 					warquest_clan_form();
 					break; 
 					
-		case PAGE_CLAN_LIST: 
-					warquest_clan_list_form();
+		case PAGE_CLAN_PROFILE: 
+					warquest_clan_profile_form();
 					break; 
 	}				  
 	
