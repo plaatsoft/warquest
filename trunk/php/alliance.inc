@@ -1338,7 +1338,7 @@ function warquest_clan_profile_form() {
 	$page .= '<input id="text" name="deposit" size="16" maxlength="16" type="text" value="';
 	$page .= number_format($player->money,0,",",".");
 	$page .= '"><br/>';
-	if ( isset($player_clan->pid) && ($clan->pid==$player_clan->pid) ) {
+	if ( isset($player_clan->cid) && ($clan->cid==$player_clan->cid) ) {
 		$page .= warquest_link_confirm('mid='.$mid.'&sid='.$sid.'&cid='.$cid.'&eid='.EVENT_CLAN_DEPOSIT, t('LINK_DEPOSIT'), t('CLAN_DEPOSIT_CONFIRM'));
 	}
 	$page .= "</td>";
