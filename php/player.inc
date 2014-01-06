@@ -852,7 +852,7 @@ function warquest_attack_info_form($other) {
 		
 		$clan = warquest_db_clan($cid);
 		
-		$totalStrength += ($clan->attack * $config['init_clan_skill_step'] * 2);
+		$totalStrength += ($clan->attack * $config['init_clan_skill_step'] * 5);
 
 		$page .= '<tr>';	
 	
@@ -869,7 +869,7 @@ function warquest_attack_info_form($other) {
 		$page .= '</td>';
 		
 		$page .= '<td>';		
-		$page .= number_format2( $clan->attack * $config['init_clan_skill_step'] * 2);	
+		$page .= number_format2( $clan->attack * $config['init_clan_skill_step'] * 5);	
 		$page .= '</td>';
 	
 		$page .= '</tr>';	
@@ -1129,7 +1129,7 @@ function warquest_defense_info_form($other) {
 		
 		$clan = warquest_db_clan($cid);
 		
-		$totalStrength += ($clan->defense * $config['init_clan_skill_step']  * 2);
+		$totalStrength += ($clan->defense * $config['init_clan_skill_step']  * 5);
 	
 		$page .= '<tr>';	
 	
@@ -1146,7 +1146,7 @@ function warquest_defense_info_form($other) {
 		$page .= '</td>';
 		
 		$page .= '<td>';		
-		$page .= number_format2($clan->defense * $config['init_clan_skill_step'] * 2);	
+		$page .= number_format2($clan->defense * $config['init_clan_skill_step'] * 5);	
 		$page .= '</td>';
 	
 		$page .= '</tr>';	

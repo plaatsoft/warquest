@@ -22,8 +22,8 @@ $notes[63] = '
 <ul>
 <li>Clan Wars improvements:</li>
 <ul>
-<li>Added clan bank</li>
-<li>Added clan attack and defense skills</li>
+<li>Added clan bank.</li>
+<li>Added clan attack and defense skills.</li>
 <li>Sector rebellion starts when a sector is inactive for '.$config["max_sector_inactive"] .' days.</li>
 <li>Increase conquered sector hourly income with factor 10.</li>
 <li>Commander must now accept clan member join request.</li>

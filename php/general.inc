@@ -444,7 +444,7 @@ function warquest_attack_strength($player, $ugid, $clan) {
 	
 	/* Add clan attack skill strength (optional) */
 	if ( isset($clan->attack)) {		
-		$attack += ($clan->attack * $config['init_clan_skill_step'] * 2);
+		$attack += ($clan->attack * $config['init_clan_skill_step'] * 5);
 	}
 	
 	return $attack;
@@ -518,7 +518,7 @@ function warquest_defense_strength($player, $ugid, $clan) {
 	
 	/* Add clan defense skill strength (optional) */
 	if ( isset($clan->defense) ) {		
-		$defense += ($clan->defense * $config['init_clan_skill_step'] * 2);
+		$defense += ($clan->defense * $config['init_clan_skill_step'] * 5);
 	}
 		
 	return $defense;

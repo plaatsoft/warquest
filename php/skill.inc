@@ -274,7 +274,7 @@ function warquest_skills_form() {
 		$page .= '<td><b>'.t('PLAYER_DEFENSE').'</b></td>';
 		
 		$page .= '<td>'.t('PLAYER_CURRENT').': <b>';
-		$page .= number_format(($skill->defense_max * $config['iinit_player_skill_step'] * $player->lid),0,",",".").'</b>';
+		$page .= number_format(($skill->defense_max * $config['init_player_skill_step'] * $player->lid),0,",",".").'</b>';
 		$page .='</td>';
 	
 		$page .= '<td>';
