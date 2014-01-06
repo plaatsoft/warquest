@@ -228,3 +228,8 @@ UPDATE building SET discount=14 WHERE bid=2402;
 UPDATE building SET discount=16 WHERE bid=2403;
 UPDATE building SET discount=18 WHERE bid=2404;
 UPDATE building SET discount=20 WHERE bid=2405;
+
+-- Added money, attack and defense strenght to clan
+ALTER TABLE clan ADD money BIGINT( 20 ) NOT NULL AFTER lost;
+ALTER TABLE clan ADD attack INT NOT NULL AFTER money;
+ALTER TABLE clan ADD defense INT NOT NULL AFTER attack;

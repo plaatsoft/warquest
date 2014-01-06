@@ -18,7 +18,7 @@
 
 /*
 ** Some translation remarks:
-** (1) Every line has the following syntax $lang['<KEY>'] = '<DESCRIPTION>';
+** (1) Every line has the following syntax$lang['<KEY>'] = '<DESCRIPTION>';
 **     Only change the <DESCRIPTION> part. Leave the rest unchanged.
 ** (2) The <DESCRIPTION> part contain %s tags. DO NOT REMOVE THEN.
 **     The %s are realtime replace with game parameters. 
@@ -42,120 +42,120 @@
  */
 
  /* Login */
- $lang['LINK_LOGIN'] = 'Logare';
- $lang['LINK_REGISTER'] = 'inregistrare';
- $lang['LINK_RECOVER'] = 'recuperare'; 
- $lang['LINK_MANUAL'] = 'Manual'; 
- $lang['LINK_FACEBOOK'] = 'Facebook';
- $lang['LINK_RSS'] = 'RSS'; 
+$lang['LINK_LOGIN'] = 'Logare';
+$lang['LINK_REGISTER'] = 'inregistrare';
+$lang['LINK_RECOVER'] = 'recuperare'; 
+$lang['LINK_MANUAL'] = 'Manual'; 
+$lang['LINK_FACEBOOK'] = 'Facebook';
+$lang['LINK_RSS'] = 'RSS'; 
 
  /* General */
- $lang['LINK_HOME'] = 'Acasa';
- $lang['LINK_MISSIONS'] = 'Misiuni';
- $lang['LINK_BATTLE'] = 'Lupta';
- $lang['LINK_UNITS'] = 'Armata';
- $lang['LINK_BUILDINGS'] = 'Cladiri';
- $lang['LINK_BANKS'] = 'Banca';
- $lang['LINK_ALLIANCE'] = 'Alianta';
- $lang['LINK_PLAYER'] = 'Jucator';
- $lang['LINK_MONEY'] = 'Bani';
- $lang['LINK_HELP'] = 'Ajutor';
- $lang['LINK_ADMIN'] = 'Admin';
+$lang['LINK_HOME'] = 'Acasa';
+$lang['LINK_MISSIONS'] = 'Misiuni';
+$lang['LINK_BATTLE'] = 'Lupta';
+$lang['LINK_UNITS'] = 'Armata';
+$lang['LINK_BUILDINGS'] = 'Cladiri';
+$lang['LINK_BANKS'] = 'Banca';
+$lang['LINK_ALLIANCE'] = 'Alianta';
+$lang['LINK_PLAYER'] = 'Jucator';
+$lang['LINK_MONEY'] = 'Bani';
+$lang['LINK_HELP'] = 'Ajutor';
+$lang['LINK_ADMIN'] = 'Admin';
 
- $lang['LINK_FIRST'] = 'primul';
- $lang['LINK_PREVIOUS'] = 'inapoi'; 
- $lang['LINK_NEXT'] = 'urmator';
- $lang['LINK_LAST'] = 'ultimul';
+$lang['LINK_FIRST'] = 'primul';
+$lang['LINK_PREVIOUS'] = 'inapoi'; 
+$lang['LINK_NEXT'] = 'urmator';
+$lang['LINK_LAST'] = 'ultimul';
 
  /* Home */
- $lang['LINK_RESTORE'] = 'recuperare';
- $lang['LINK_REPAIR'] = 'reparatie';
- $lang['LINK_TRADE'] = 'schimb';
- $lang['LINK_ACTIVATE'] = 'activare';
+$lang['LINK_RESTORE'] = 'recuperare';
+$lang['LINK_REPAIR'] = 'reparatie';
+$lang['LINK_TRADE'] = 'schimb';
+$lang['LINK_ACTIVATE'] = 'activare';
 
  /* Player */
- $lang['LINK_OVERVIEW'] = 'principal';
- $lang['LINK_DELETE'] = 'stergere';
- $lang['LINK_SETTINGS'] = 'setari';
- $lang['LINK_NEWS'] = 'noutati';
- $lang['LINK_COMMENTS'] = 'mesaje';
- $lang['LINK_STATISTICS'] = 'statistici';
- $lang['LINK_LOGOUT'] = 'iesire';
- $lang['LINK_EDIT'] = 'editare';
- $lang['LINK_SAVE'] = 'salvare';
- $lang['LINK_REPLY'] = 'raspuns';
- $lang['LINK_PROFILE'] = 'profil';
- $lang['LINK_SKILLS'] = 'aptitudini';
- $lang['LINK_RECRUIT'] = 'invita';
- $lang['LINK_INCREASE'] = 'creste';
- $lang['LINK_DECREASE'] = 'descreste';
- $lang['LINK_RESTORE_NOW'] = 'restaureaza pentru %s dolari';
- $lang['LINK_CHANGE'] = 'schimba';
- $lang['LINK_REPORT'] = 'raporteaza';
- $lang['LINK_BOUNTY'] = 'vanat';
+$lang['LINK_OVERVIEW'] = 'principal';
+$lang['LINK_DELETE'] = 'stergere';
+$lang['LINK_SETTINGS'] = 'setari';
+$lang['LINK_NEWS'] = 'noutati';
+$lang['LINK_COMMENTS'] = 'mesaje';
+$lang['LINK_STATISTICS'] = 'statistici';
+$lang['LINK_LOGOUT'] = 'iesire';
+$lang['LINK_EDIT'] = 'editare';
+$lang['LINK_SAVE'] = 'salvare';
+$lang['LINK_REPLY'] = 'raspuns';
+$lang['LINK_PROFILE'] = 'profil';
+$lang['LINK_SKILLS'] = 'aptitudini';
+$lang['LINK_RECRUIT'] = 'invita';
+$lang['LINK_INCREASE'] = 'creste';
+$lang['LINK_DECREASE'] = 'descreste';
+$lang['LINK_RESTORE_NOW'] = 'restaureaza pentru %s dolari';
+$lang['LINK_CHANGE'] = 'schimba';
+$lang['LINK_REPORT'] = 'raporteaza';
+$lang['LINK_BOUNTY'] = 'vanat';
 
  /* Mission */
- $lang['LINK_PLAY'] = 'Joaca';
- $lang['LINK_BUY_PLAY'] = 'Cumpara si joaca';
- $lang['LINK_DO_AGAIN'] = 'Joaca din nou';
+$lang['LINK_PLAY'] = 'Joaca';
+$lang['LINK_BUY_PLAY'] = 'Cumpara si joaca';
+$lang['LINK_DO_AGAIN'] = 'Joaca din nou';
 
  /* Battle */
- $lang['LINK_ATTACK'] = 'Attack';
- $lang['LINK_BATTLES'] = 'lupte';
- $lang['LINK_SP'] = 'Puncte Aptitudini';
+$lang['LINK_ATTACK'] = 'Attack';
+$lang['LINK_BATTLES'] = 'lupte';
+$lang['LINK_SP'] = 'Puncte Aptitudini';
 
  /* Unit */
- $lang['LINK_DEPLOY'] = 'Cumpara';
- $lang['LINK_DEPLOY_AGAIN'] = 'cumpara din nou';
- $lang['LINK_DISBAND'] = 'Vinde';
- $lang['LINK_DISBAND_AGAIN']= 'vinde din nou';
+$lang['LINK_DEPLOY'] = 'Cumpara';
+$lang['LINK_DEPLOY_AGAIN'] = 'cumpara din nou';
+$lang['LINK_DISBAND'] = 'Vinde';
+$lang['LINK_DISBAND_AGAIN']= 'vinde din nou';
 
  /* Building */
- $lang['LINK_INCOME'] = 'Profit';
- $lang['LINK_DEFENSE'] = 'Aparare';
- $lang['LINK_ENERGY'] = 'Energie';
- $lang['LINK_BUY'] = 'Cumpara';
- $lang['LINK_BUY_AGAIN'] = 'Cumpara din nou';
- $lang['LINK_SELL'] = 'Vinde';
- $lang['LINK_SELL_AGAIN'] = 'Vinde din nou';
+$lang['LINK_INCOME'] = 'Profit';
+$lang['LINK_DEFENSE'] = 'Aparare';
+$lang['LINK_ENERGY'] = 'Energie';
+$lang['LINK_BUY'] = 'Cumpara';
+$lang['LINK_BUY_AGAIN'] = 'Cumpara din nou';
+$lang['LINK_SELL'] = 'Vinde';
+$lang['LINK_SELL_AGAIN'] = 'Vinde din nou';
 
  /* Bank / Exchange / Casino */
- $lang['LINK_BANK'] = 'banca';
- $lang['LINK_STOCKEXCHANGE'] = 'Stock-Exchange';
- $lang['LINK_CASINO'] = 'Casino';
+$lang['LINK_BANK'] = 'banca';
+$lang['LINK_STOCKEXCHANGE'] = 'Stock-Exchange';
+$lang['LINK_CASINO'] = 'Casino';
 
- $lang['LINK_DEPOSIT'] = 'Depune';
- $lang['LINK_WITHDRAW'] = 'Retrage';
- $lang['LINK_BALANCE'] = 'Balanta';
+$lang['LINK_DEPOSIT'] = 'Depune';
+$lang['LINK_WITHDRAW'] = 'Retrage';
+$lang['LINK_BALANCE'] = 'Balanta';
 
  /* Alliance */
- $lang['LINK_INVITE'] = 'Invita';
- $lang['LINK_PENDING'] = 'Invitati';
- $lang['LINK_APPROVED'] = 'Acceptati';
- $lang['LINK_COMMENT'] = 'Mesaje';
- $lang['LINK_BEST_PLAYER'] = 'cei mai buni jucatori';
- $lang['LINK_BEST_COUNTRY'] = 'cele mai bune tari';
- $lang['LINK_DROP'] = 'arunca';
- $lang['LINK_ACCEPT'] = 'accepta';
- $lang['LINK_REJECT'] = 'refuza';
- $lang['LINK_SEND'] = 'trimite';
- $lang['LINK_RESET'] = 'reseteaza';
+$lang['LINK_INVITE'] = 'Invita';
+$lang['LINK_PENDING'] = 'Invitati';
+$lang['LINK_APPROVED'] = 'Acceptati';
+$lang['LINK_COMMENT'] = 'Mesaje';
+$lang['LINK_BEST_PLAYER'] = 'cei mai buni jucatori';
+$lang['LINK_BEST_COUNTRY'] = 'cele mai bune tari';
+$lang['LINK_DROP'] = 'arunca';
+$lang['LINK_ACCEPT'] = 'accepta';
+$lang['LINK_REJECT'] = 'refuza';
+$lang['LINK_SEND'] = 'trimite';
+$lang['LINK_RESET'] = 'reseteaza';
 
  /* Forum */
- $lang['LINK_FORUM'] = 'Forum';
- $lang['LINK_POLLS'] = 'Polls';
- $lang['LINK_CHATROOM'] = 'Cheat';
- $lang['LINK_SEARCH'] = 'Cauta';
+$lang['LINK_FORUM'] = 'Forum';
+$lang['LINK_POLLS'] = 'Polls';
+$lang['LINK_CHATROOM'] = 'Cheat';
+$lang['LINK_SEARCH'] = 'Cauta';
 
  /* Help */
- $lang['LINK_GENERAL'] = 'instructiuni';
- $lang['LINK_NOTES'] = 'noutati';
- $lang['LINK_RANKS'] = 'loc';
- $lang['LINK_AWARDS'] = 'premii';
- $lang['LINK_LEVELS'] = 'levele';
- $lang['LINK_STATS'] = 'statistica';
- $lang['LINK_DONATE'] = 'donare';
- $lang['LINK_ABOUT'] = 'despre';
+$lang['LINK_GENERAL'] = 'instructiuni';
+$lang['LINK_NOTES'] = 'noutati';
+$lang['LINK_RANKS'] = 'loc';
+$lang['LINK_AWARDS'] = 'premii';
+$lang['LINK_LEVELS'] = 'levele';
+$lang['LINK_STATS'] = 'statistica';
+$lang['LINK_DONATE'] = 'donare';
+$lang['LINK_ABOUT'] = 'despre';
 
  /*
  ** ------------------
@@ -163,126 +163,126 @@
  ** ------------------
  */
 
- $lang['SYSTEM_HACK_DETECTED'] = 'nu folositi refresh,inapoi sau butonul inainte';
+$lang['SYSTEM_HACK_DETECTED'] = 'nu folositi refresh,inapoi sau butonul inainte';
 
- $lang['AGO_DAY'] = ' zi'; 
- $lang['AGO_DAYS'] = ' zile';
- $lang['AGO_HOUR'] = ' ora';
- $lang['AGO_HOURS'] = ' ore';
- $lang['AGO_MIN'] = ' minut';
- $lang['AGO_MINS'] = 'minute';
- $lang['AGO_SEC'] = ' secunda';
- $lang['AGO_SECS'] = ' secunde';
+$lang['AGO_DAY'] = ' zi'; 
+$lang['AGO_DAYS'] = ' zile';
+$lang['AGO_HOUR'] = ' ora';
+$lang['AGO_HOURS'] = ' ore';
+$lang['AGO_MIN'] = ' minut';
+$lang['AGO_MINS'] = 'minute';
+$lang['AGO_SEC'] = ' secunda';
+$lang['AGO_SECS'] = ' secunde';
 
- $lang['COPYRIGHT'] = 'Copyright © 2008-2014 - toate drepturile rezervate - <a target="new" href="http://www.plaatsoft.nl">PlaatSoft</a>';
+$lang['COPYRIGHT'] = 'Copyright © 2008-2014 - toate drepturile rezervate - <a target="new" href="http://www.plaatsoft.nl">PlaatSoft</a>';
 
- $lang['STATUS_CASH'] = 'bani';
- $lang['STATUS_EXP'] = 'Experienta.';
- $lang['STATUS_LEVEL'] = 'nivel';
- $lang['STATUS_HEALTH'] = 'viata';
- $lang['STATUS_ENERGY'] = 'energie';
- $lang['STATUS_AMMO'] = 'munitie';
- $lang['STATUS_ALLIANCE_SIZE'] = 'marimea aliantei';
+$lang['STATUS_CASH'] = 'bani';
+$lang['STATUS_EXP'] = 'Experienta.';
+$lang['STATUS_LEVEL'] = 'nivel';
+$lang['STATUS_HEALTH'] = 'viata';
+$lang['STATUS_ENERGY'] = 'energie';
+$lang['STATUS_AMMO'] = 'munitie';
+$lang['STATUS_ALLIANCE_SIZE'] = 'marimea aliantei';
 
- $lang['BOX_INFO'] = 'INFOrmatii';
- $lang['BOX_WARN'] = 'atentionari';
- $lang['BOX_ERROR'] = 'eroare';
+$lang['BOX_INFO'] = 'INFOrmatii';
+$lang['BOX_WARN'] = 'atentionari';
+$lang['BOX_ERROR'] = 'eroare';
 
- $lang['GENERAL_NEXT_LEVEL'] = 'minunat ai trecut nivelul\'ai primit %s puncte de aptitudini %s dollars. viata ta,energia si munitia au revenit.';
- $lang['GENERAL_BATTLE_LEVEL'] = 'minunat ai castigat %s lupte si primesti %s puncte suplimentare si %s dollars.';
- $lang['GENERAL_BOUNTY_LEVEL'] = 'minunat! ai pus % pe capul lui si primesti %s puncte de aptitudine si %s dollars.';
- $lang['GENERAL_REBEL_LEVEL'] = 'minunat!ai inceput %s rascoale si primesti %s puncte de aptitudine si %s dollars.';
- $lang['GENERAL_BATTLE_AWARD_WON'] = 'lupta castigata';
- $lang['GENERAL_BOUNTY_AWARD_WON'] = 'recompensa pusa';
- $lang['GENERAL_REBEL_AWARD_WON'] = 'rascoale incepute';
- $lang['GENERAL_UNLOCK'] = 'disponibil la nivelul %s';
- $lang['GENERAL_NEW_FEATURES'] = 'urmatoarele facilitati au fost deblocate';
- $lang['GENERAL_RECEIVED_AWARD'] = 'primesti premiul:';
+$lang['GENERAL_NEXT_LEVEL'] = 'minunat ai trecut nivelul\'ai primit %s puncte de aptitudini %s dollars. viata ta,energia si munitia au revenit.';
+$lang['GENERAL_BATTLE_LEVEL'] = 'minunat ai castigat %s lupte si primesti %s puncte suplimentare si %s dollars.';
+$lang['GENERAL_BOUNTY_LEVEL'] = 'minunat! ai pus % pe capul lui si primesti %s puncte de aptitudine si %s dollars.';
+$lang['GENERAL_REBEL_LEVEL'] = 'minunat!ai inceput %s rascoale si primesti %s puncte de aptitudine si %s dollars.';
+$lang['GENERAL_BATTLE_AWARD_WON'] = 'lupta castigata';
+$lang['GENERAL_BOUNTY_AWARD_WON'] = 'recompensa pusa';
+$lang['GENERAL_REBEL_AWARD_WON'] = 'rascoale incepute';
+$lang['GENERAL_UNLOCK'] = 'disponibil la nivelul %s';
+$lang['GENERAL_NEW_FEATURES'] = 'urmatoarele facilitati au fost deblocate';
+$lang['GENERAL_RECEIVED_AWARD'] = 'primesti premiul:';
 
- $lang['GENERAL_ATTACK'] = 'atac';
- $lang['GENERAL_DEFENSE'] = 'aparare';
- $lang['GENERAL_INCOME'] = 'profit';
- $lang['GENERAL_ENERGY'] = 'energie';
- $lang['GENERAL_EXPERIENCE'] = 'experienta';
- $lang['GENERAL_DOLLAR'] = 'dollar';
- $lang['GENERAL_ALLIANCE_SIZE'] = 'marimea aliantei';
- $lang['GENERAL_EXPERIENCE_POINTS'] = 'puncte de experienta';
- $lang['GENERAL_UPKEEP'] = 'costul pe ora';
- $lang['GENERAL_BANK'] = 'banca';
- $lang['GENERAL_DEPLOYED'] = 'cumparate';
+$lang['GENERAL_ATTACK'] = 'atac';
+$lang['GENERAL_DEFENSE'] = 'aparare';
+$lang['GENERAL_INCOME'] = 'profit';
+$lang['GENERAL_ENERGY'] = 'energie';
+$lang['GENERAL_EXPERIENCE'] = 'experienta';
+$lang['GENERAL_DOLLAR'] = 'dollar';
+$lang['GENERAL_ALLIANCE_SIZE'] = 'marimea aliantei';
+$lang['GENERAL_EXPERIENCE_POINTS'] = 'puncte de experienta';
+$lang['GENERAL_UPKEEP'] = 'costul pe ora';
+$lang['GENERAL_BANK'] = 'banca';
+$lang['GENERAL_DEPLOYED'] = 'cumparate';
 
- $lang['GENERAL_PLAYER'] = 'jucator';
- $lang['GENERAL_LEVEL'] = 'nivel';
- $lang['GENERAL_ALLIANCE'] = 'alianta';
- $lang['GENERAL_WON'] = 'catigate';
- $lang['GENERAL_LOST'] = 'pierdute';
- $lang['GENERAL_AMOUNT'] = 'Amount';
- $lang['GENERAL_DATE'] = 'data';
- $lang['GENERAL_TRANSACTION'] = 'tranzactii';
- $lang['GENERAL_BALANCE'] = 'balanta';
- $lang['GENERAL_APPROVED'] = 'aprobate';
- $lang['GENERAL_EMAIL'] = 'Email';
- $lang['GENERAL_TOP'] = 'Top';
- $lang['GENERAL_EXP'] = 'experienta';
- $lang['GENERAL_COUNTRY'] = 'tari';
- $lang['GENERAL_PLAYERS'] = 'jucatori';
- $lang['GENERAL_WONS'] = 'castigate';
- $lang['GENERAL_LOSTS'] = 'pierdute';
- $lang['GENERAL_NO'] = 'nu';
- $lang['GENERAL_YES'] = 'da';
- $lang['GENERAL_AGO'] = 'acum';
- $lang['GENERAL_MESSAGE'] = 'mesaje';
- $lang['GENERAL_ACTION'] = 'Actione';
- $lang['GENERAL_NUMBER'] = 'Nr.';
- $lang['GENERAL_DISCOUNT'] = 'reducere cladiri';
- $lang['GENERAL_REQUESTS'] = 'cerinte';
- $lang['GENERAL_EP'] = 'puncte aptitudine';
- $lang['GENERAL_AWARD'] = 'premiu';
- $lang['GENERAL_LANGUAGE'] = 'limba';
- $lang['GENERAL_RANKING'] = 'loc';
+$lang['GENERAL_PLAYER'] = 'jucator';
+$lang['GENERAL_LEVEL'] = 'nivel';
+$lang['GENERAL_ALLIANCE'] = 'alianta';
+$lang['GENERAL_WON'] = 'catigate';
+$lang['GENERAL_LOST'] = 'pierdute';
+$lang['GENERAL_AMOUNT'] = 'Amount';
+$lang['GENERAL_DATE'] = 'data';
+$lang['GENERAL_TRANSACTION'] = 'tranzactii';
+$lang['GENERAL_BALANCE'] = 'balanta';
+$lang['GENERAL_APPROVED'] = 'aprobate';
+$lang['GENERAL_EMAIL'] = 'Email';
+$lang['GENERAL_TOP'] = 'Top';
+$lang['GENERAL_EXP'] = 'experienta';
+$lang['GENERAL_COUNTRY'] = 'tari';
+$lang['GENERAL_PLAYERS'] = 'jucatori';
+$lang['GENERAL_WONS'] = 'castigate';
+$lang['GENERAL_LOSTS'] = 'pierdute';
+$lang['GENERAL_NO'] = 'nu';
+$lang['GENERAL_YES'] = 'da';
+$lang['GENERAL_AGO'] = 'acum';
+$lang['GENERAL_MESSAGE'] = 'mesaje';
+$lang['GENERAL_ACTION'] = 'Actione';
+$lang['GENERAL_NUMBER'] = 'Nr.';
+$lang['GENERAL_DISCOUNT'] = 'reducere cladiri';
+$lang['GENERAL_REQUESTS'] = 'cerinte';
+$lang['GENERAL_EP'] = 'puncte aptitudine';
+$lang['GENERAL_AWARD'] = 'premiu';
+$lang['GENERAL_LANGUAGE'] = 'limba';
+$lang['GENERAL_RANKING'] = 'loc';
 
- $lang['GENERAL_NEW_UNIT'] = 'unitate noua';
- $lang['GENERAL_NEW_BUILDING'] = 'cladire noua';
- $lang['GENERAL_NEW_MISSION'] = 'misiune noua';
- $lang['GENERAL_GAIN'] = 'castig';
+$lang['GENERAL_NEW_UNIT'] = 'unitate noua';
+$lang['GENERAL_NEW_BUILDING'] = 'cladire noua';
+$lang['GENERAL_NEW_MISSION'] = 'misiune noua';
+$lang['GENERAL_GAIN'] = 'castig';
 
- $lang['GENERAL_BOUNTY'] = 'Bounty';
- $lang['GENERAL_INTELLIGENCE'] = 'inteligenta';
- $lang['GENERAL_SPIES'] = 'spion';
- $lang['GENERAL_MAINTENANCE'] = 'intretinere cladire';
+$lang['GENERAL_BOUNTY'] = 'Bounty';
+$lang['GENERAL_INTELLIGENCE'] = 'inteligenta';
+$lang['GENERAL_SPIES'] = 'spion';
+$lang['GENERAL_MAINTENANCE'] = 'intretinere cladire';
 
- $lang['GENERAL_CNTRY'] = 'tara';
- $lang['GENERAL_TOPICS'] = 'topic'; 
- $lang['GENERAL_FORUM'] = 'Forum';
- $lang['GENERAL_MESSAGES'] = 'mesaj';
- $lang['GENERAL_LAST_MESSAGE'] = 'ultimul mesaj';
- $lang['GENERAL_FORUM_MODERATED'] = '(Moderat de %s)';
- $lang['GENERAL_NOT_MODERATED'] = '(Not Moderated)';
+$lang['GENERAL_CNTRY'] = 'tara';
+$lang['GENERAL_TOPICS'] = 'topic'; 
+$lang['GENERAL_FORUM'] = 'Forum';
+$lang['GENERAL_MESSAGES'] = 'mesaj';
+$lang['GENERAL_LAST_MESSAGE'] = 'ultimul mesaj';
+$lang['GENERAL_FORUM_MODERATED'] = '(Moderat de %s)';
+$lang['GENERAL_NOT_MODERATED'] = '(Not Moderated)';
 
- $lang['GENERAL_BY'] = 'acum';
- $lang['GENERAL_TOPIC'] = 'Topic';
- $lang['GENERAL_LOCKED'] = 'blocat';
- $lang['GENERAL_WORLDMAP'] = 'harta lumii';
- $lang['GENERAL_PLAATSOFT'] = 'PlaatSoft';
- $lang['GENERAL_CONQUER'] = 'cucerire';
+$lang['GENERAL_BY'] = 'acum';
+$lang['GENERAL_TOPIC'] = 'Topic';
+$lang['GENERAL_LOCKED'] = 'blocat';
+$lang['GENERAL_WORLDMAP'] = 'harta lumii';
+$lang['GENERAL_PLAATSOFT'] = 'PlaatSoft';
+$lang['GENERAL_CONQUER'] = 'cucerire';
 
- $lang['GENERAL_ST'] = '%sst';
- $lang['GENERAL_ND'] = '%snd';
- $lang['GENERAL_TH'] = '%sth';
+$lang['GENERAL_ST'] = '%sst';
+$lang['GENERAL_ND'] = '%snd';
+$lang['GENERAL_TH'] = '%sth';
 
- $lang['GENERAL_CONTINENT'] = 'Continent';
- $lang['GENERAL_CONQUERED'] = 'cucerit';
+$lang['GENERAL_CONTINENT'] = 'Continent';
+$lang['GENERAL_CONQUERED'] = 'cucerit';
 
- $lang['GENERAL_IDLE'] = 'repaus';
- $lang['GENERAL_ACTIVE'] = 'Activ';
- $lang['GENERAL_INACTIVE'] = 'Inactiv';
+$lang['GENERAL_IDLE'] = 'repaus';
+$lang['GENERAL_ACTIVE'] = 'Activ';
+$lang['GENERAL_INACTIVE'] = 'Inactiv';
 
- $lang['GENERAL_PLANET'] = 'Planeta';
- $lang['GENERAL_PLANET_1'] = 'pamant';
- $lang['GENERAL_PLANET_2'] = 'luna';
- $lang['GENERAL_PLANET_3'] = 'marte';
- $lang['GENERAL_PLANET_4'] = 'mercure';
- $lang['GENERAL_PLANET_5'] = 'soare';
+$lang['GENERAL_PLANET'] = 'Planeta';
+$lang['GENERAL_PLANET_1'] = 'pamant';
+$lang['GENERAL_PLANET_2'] = 'luna';
+$lang['GENERAL_PLANET_3'] = 'marte';
+$lang['GENERAL_PLANET_4'] = 'mercure';
+$lang['GENERAL_PLANET_5'] = 'soare';
 
  /*
  ** ------------------
@@ -290,66 +290,66 @@
  ** ------------------
  */
 
- $lang['TIP_GENERAL'] = 'TIP';
- $lang['TIP_0'] = 'joaca misunea de antrenament ca sa castigi experienta pentru a trece la nivelul urmator'; 
- $lang['TIP_1'] = 'cumpara cateva trupe si incepe lupta de antrenament pentru a castiga puncte de experienta';
- $lang['TIP_2'] = 'schimbarea iti aduce puncte de aptitudine (Home -> Skills)ca sa iti imbunatatesti aptitudinile de soldat';
- $lang['TIP_3'] = 'introduce adresa de mail ca sa primesti mesaje de la alianta si notificari';
- $lang['TIP_4'] = 'cumpara cateva cladiri care iti aduc bani ca sa generezi'; 
- $lang['TIP_5'] ='cumpara cladiri defensive ca sa iti imbunatatesti apararea'; 
- $lang['TIP_6'] = 'fa-ti aliante cu ceilalti jucatori ca sa iti imbunatatesti atacul si apararea';
- $lang['TIP_7'] = 'depoziteaza bani in Banca Nationala ca sa ii tii in siguranta de ceilalti jucatori'; 
- $lang['TIP_8'] = 'colecteaza puncte de experienta suplimentare votand'; 
- $lang['TIP_9'] = 'pune sume de bani pe capul celorlalti jucatori ca sa primesti recompense';
- $lang['TIP_10'] = 'viziteaza cazinoul ca sa joci la roata norocului pentru a castiga si mai multi bani';
- $lang['TIP_11'] = 'cumpara cladiri pentru energie pentru a regenera energia mai repede';
- $lang['TIP_12'] = 'cumpara soldati inteligenti ca sa spionezi ceilalti jucatori si pentru a porni rascoala pe continentul lor'; 
- $lang['TIP_13'] = 'depoziteaza bani in banca Transquera ca sa primesti profit in fiecare zi';
- $lang['TIP_14'] = 'viziteaza forumul.noi idei in joc sunt binevenite';
- $lang['TIP_15'] = 'verifica sectiunea de ajutor pentru mai multe informatii';
- $lang['TIP_16'] = 'cumpara/vinde ca sa faci mai mult profit(Money -> StockExchange)';
- $lang['TIP_17'] = 'depoziteaza bani banca SwissCore ca sa primesti profit zilnic ';
- $lang['TIP_18'] = 'completeaza toate misiunile de pe continent pentru a primi puncte de experienta suplimentare';
- $lang['TIP_19'] = 'repara armata (acasa -> regenereaza) ca sa previ pierderea unitatilor';
- $lang['TIP_20'] = 'viziteaza cazinoul pentru a juca la sloturi pentru a castiga bani'; 
- $lang['TIP_21'] = 'repara cladirile (acasa -> regenereaza) ca sa previ pierderea cladirilor';
- $lang['TIP_22'] = 'continua sa joci si devino cel mai bun jucator al tarii tale';
+$lang['TIP_GENERAL'] = 'TIP';
+$lang['TIP_0'] = 'joaca misunea de antrenament ca sa castigi experienta pentru a trece la nivelul urmator'; 
+$lang['TIP_1'] = 'cumpara cateva trupe si incepe lupta de antrenament pentru a castiga puncte de experienta';
+$lang['TIP_2'] = 'schimbarea iti aduce puncte de aptitudine (Home -> Skills)ca sa iti imbunatatesti aptitudinile de soldat';
+$lang['TIP_3'] = 'introduce adresa de mail ca sa primesti mesaje de la alianta si notificari';
+$lang['TIP_4'] = 'cumpara cateva cladiri care iti aduc bani ca sa generezi'; 
+$lang['TIP_5'] ='cumpara cladiri defensive ca sa iti imbunatatesti apararea'; 
+$lang['TIP_6'] = 'fa-ti aliante cu ceilalti jucatori ca sa iti imbunatatesti atacul si apararea';
+$lang['TIP_7'] = 'depoziteaza bani in Banca Nationala ca sa ii tii in siguranta de ceilalti jucatori'; 
+$lang['TIP_8'] = 'colecteaza puncte de experienta suplimentare votand'; 
+$lang['TIP_9'] = 'pune sume de bani pe capul celorlalti jucatori ca sa primesti recompense';
+$lang['TIP_10'] = 'viziteaza cazinoul ca sa joci la roata norocului pentru a castiga si mai multi bani';
+$lang['TIP_11'] = 'cumpara cladiri pentru energie pentru a regenera energia mai repede';
+$lang['TIP_12'] = 'cumpara soldati inteligenti ca sa spionezi ceilalti jucatori si pentru a porni rascoala pe continentul lor'; 
+$lang['TIP_13'] = 'depoziteaza bani in banca Transquera ca sa primesti profit in fiecare zi';
+$lang['TIP_14'] = 'viziteaza forumul.noi idei in joc sunt binevenite';
+$lang['TIP_15'] = 'verifica sectiunea de ajutor pentru mai multe informatii';
+$lang['TIP_16'] = 'cumpara/vinde ca sa faci mai mult profit(Money -> StockExchange)';
+$lang['TIP_17'] = 'depoziteaza bani banca SwissCore ca sa primesti profit zilnic ';
+$lang['TIP_18'] = 'completeaza toate misiunile de pe continent pentru a primi puncte de experienta suplimentare';
+$lang['TIP_19'] = 'repara armata (acasa -> regenereaza) ca sa previ pierderea unitatilor';
+$lang['TIP_20'] = 'viziteaza cazinoul pentru a juca la sloturi pentru a castiga bani'; 
+$lang['TIP_21'] = 'repara cladirile (acasa -> regenereaza) ca sa previ pierderea cladirilor';
+$lang['TIP_22'] = 'continua sa joci si devino cel mai bun jucator al tarii tale';
 
- $lang['TIP_90'] = 'doar 10 nivele ramase pana sa iti poti infiinta propria ta colonie pe luna';
- $lang['TIP_91'] = 'doar 9 nivele ramase pana sa iti poti infiinta propria ta colonie pe luna';
- $lang['TIP_92'] = 'doar 8 nivele ramase pana sa iti poti infiinta propria ta colonie pe luna';
- $lang['TIP_93'] = 'doar 7 nivele ramase pana sa iti poti infiinta propria ta colonie pe luna';
- $lang['TIP_94'] = 'doar 6 nivele ramase pana sa iti poti infiinta propria ta colonie pe luna';
- $lang['TIP_95'] = 'doar 5 nivele ramase pana sa iti poti infiinta propria ta colonie pe luna';
- $lang['TIP_96'] = 'doar 4 nivele ramase pana sa iti poti infiinta propria ta colonie pe luna';
- $lang['TIP_97'] = 'doar 3 nivele ramase pana sa iti poti infiinta propria ta colonie pe luna';
- $lang['TIP_98'] = 'doar 2 nivele ramase pana sa iti poti infiinta propria ta colonie pe luna';
- $lang['TIP_99'] = 'doar 1 nivel ramas pana sa iti poti infiinta propria ta colonie pe luna';
- $lang['TIP_100'] = 'creaza-ti propria colonie pe luna';
+$lang['TIP_90'] = 'doar 10 nivele ramase pana sa iti poti infiinta propria ta colonie pe luna';
+$lang['TIP_91'] = 'doar 9 nivele ramase pana sa iti poti infiinta propria ta colonie pe luna';
+$lang['TIP_92'] = 'doar 8 nivele ramase pana sa iti poti infiinta propria ta colonie pe luna';
+$lang['TIP_93'] = 'doar 7 nivele ramase pana sa iti poti infiinta propria ta colonie pe luna';
+$lang['TIP_94'] = 'doar 6 nivele ramase pana sa iti poti infiinta propria ta colonie pe luna';
+$lang['TIP_95'] = 'doar 5 nivele ramase pana sa iti poti infiinta propria ta colonie pe luna';
+$lang['TIP_96'] = 'doar 4 nivele ramase pana sa iti poti infiinta propria ta colonie pe luna';
+$lang['TIP_97'] = 'doar 3 nivele ramase pana sa iti poti infiinta propria ta colonie pe luna';
+$lang['TIP_98'] = 'doar 2 nivele ramase pana sa iti poti infiinta propria ta colonie pe luna';
+$lang['TIP_99'] = 'doar 1 nivel ramas pana sa iti poti infiinta propria ta colonie pe luna';
+$lang['TIP_100'] = 'creaza-ti propria colonie pe luna';
 
- $lang['TIP_140'] = 'doar 10 nivele ramase pana sa iti poti infiinta propria ta colonie pe marte';
- $lang['TIP_141'] = 'doar 9 nivele ramase pana sa iti poti infiinta propria ta colonie pe marte';
- $lang['TIP_142'] = 'doar 8 nivele ramase pana sa iti poti infiinta propria ta colonie pe marte';
- $lang['TIP_143'] = 'doar 7 nivele ramase pana sa iti poti infiinta propria ta colonie pe marte';
- $lang['TIP_144'] = 'doar 6 nivele ramase pana sa iti poti infiinta propria ta colonie pe marte';
- $lang['TIP_145'] = 'doar 5 nivele ramase pana sa iti poti infiinta propria ta colonie pe marte';
- $lang['TIP_146'] = 'doar 4 nivele ramase pana sa iti poti infiinta propria ta colonie pe marte';
- $lang['TIP_147'] = 'doar 3 nivele ramase pana sa iti poti infiinta propria ta colonie pe marte';
- $lang['TIP_148'] = 'doar 2 nivele ramase pana sa iti poti infiinta propria ta colonie pe marte';
- $lang['TIP_149'] = 'doar 1 nivel ramas pana sa iti poti infiinta propria ta colonie pe marte';
- $lang['TIP_150'] = 'creaza-ti propria colonie pe marte!';
+$lang['TIP_140'] = 'doar 10 nivele ramase pana sa iti poti infiinta propria ta colonie pe marte';
+$lang['TIP_141'] = 'doar 9 nivele ramase pana sa iti poti infiinta propria ta colonie pe marte';
+$lang['TIP_142'] = 'doar 8 nivele ramase pana sa iti poti infiinta propria ta colonie pe marte';
+$lang['TIP_143'] = 'doar 7 nivele ramase pana sa iti poti infiinta propria ta colonie pe marte';
+$lang['TIP_144'] = 'doar 6 nivele ramase pana sa iti poti infiinta propria ta colonie pe marte';
+$lang['TIP_145'] = 'doar 5 nivele ramase pana sa iti poti infiinta propria ta colonie pe marte';
+$lang['TIP_146'] = 'doar 4 nivele ramase pana sa iti poti infiinta propria ta colonie pe marte';
+$lang['TIP_147'] = 'doar 3 nivele ramase pana sa iti poti infiinta propria ta colonie pe marte';
+$lang['TIP_148'] = 'doar 2 nivele ramase pana sa iti poti infiinta propria ta colonie pe marte';
+$lang['TIP_149'] = 'doar 1 nivel ramas pana sa iti poti infiinta propria ta colonie pe marte';
+$lang['TIP_150'] = 'creaza-ti propria colonie pe marte!';
 
- $lang['TIP_190'] = 'doar 10 nivele ramase pana sa iti poti infiinta propria ta colonie pe mercure';
- $lang['TIP_191'] = 'doar 9 nivele ramase pana sa iti poti infiinta propria ta colonie pe mercure';
- $lang['TIP_192'] = 'doar 8 nivele ramase pana sa iti poti infiinta propria ta colonie pe mercure';
- $lang['TIP_193'] = 'doar 7 nivele ramase pana sa iti poti infiinta propria ta colonie pe mercure';
- $lang['TIP_194'] = 'doar 6 nivele ramase pana sa iti poti infiinta propria ta colonie pe mercure';
- $lang['TIP_195'] = 'doar 5 nivele ramase pana sa iti poti infiinta propria ta colonie pe mercure';
- $lang['TIP_196'] = 'doar 4 nivele ramase pana sa iti poti infiinta propria ta colonie pe mercure';
- $lang['TIP_197'] = 'doar 3 nivele ramase pana sa iti poti infiinta propria ta colonie pe mercure';
- $lang['TIP_198'] = 'doar 2 nivele ramase pana sa iti poti infiinta propria ta colonie pe mercure';
- $lang['TIP_199'] = 'doar 1 nivel ramas pana sa iti poti infiinta propria ta colonie pe mercure';
- $lang['TIP_200'] = 'creaza-ti propria colonie pe mercure';
+$lang['TIP_190'] = 'doar 10 nivele ramase pana sa iti poti infiinta propria ta colonie pe mercure';
+$lang['TIP_191'] = 'doar 9 nivele ramase pana sa iti poti infiinta propria ta colonie pe mercure';
+$lang['TIP_192'] = 'doar 8 nivele ramase pana sa iti poti infiinta propria ta colonie pe mercure';
+$lang['TIP_193'] = 'doar 7 nivele ramase pana sa iti poti infiinta propria ta colonie pe mercure';
+$lang['TIP_194'] = 'doar 6 nivele ramase pana sa iti poti infiinta propria ta colonie pe mercure';
+$lang['TIP_195'] = 'doar 5 nivele ramase pana sa iti poti infiinta propria ta colonie pe mercure';
+$lang['TIP_196'] = 'doar 4 nivele ramase pana sa iti poti infiinta propria ta colonie pe mercure';
+$lang['TIP_197'] = 'doar 3 nivele ramase pana sa iti poti infiinta propria ta colonie pe mercure';
+$lang['TIP_198'] = 'doar 2 nivele ramase pana sa iti poti infiinta propria ta colonie pe mercure';
+$lang['TIP_199'] = 'doar 1 nivel ramas pana sa iti poti infiinta propria ta colonie pe mercure';
+$lang['TIP_200'] = 'creaza-ti propria colonie pe mercure';
 
  /*
  ** ------------------
@@ -357,42 +357,42 @@
  ** ------------------
  */
 
- $lang['LOGIN_MEMBER_TITLE'] = 'inregistrare membru';
- $lang['LOGIN_REGISTER_TITLE'] = 'inregistrare gratuita';
- $lang['LOGIN_RECOVER_TITLE'] = 'recuperare parola';
- $lang['LOGIN_MANUAL_TITLE'] = 'instructiuni';
+$lang['LOGIN_MEMBER_TITLE'] = 'inregistrare membru';
+$lang['LOGIN_REGISTER_TITLE'] = 'inregistrare gratuita';
+$lang['LOGIN_RECOVER_TITLE'] = 'recuperare parola';
+$lang['LOGIN_MANUAL_TITLE'] = 'instructiuni';
 
- $lang['LOGIN_PLAYERS'] = 'jucatori';
- $lang['LOGIN_REQUESTS'] = 'cerinte';
- $lang['LOGIN_COUNTRIES'] = 'tari';
- $lang['LOGIN_ONLINE'] = 'jucatori on-line';
+$lang['LOGIN_PLAYERS'] = 'jucatori';
+$lang['LOGIN_REQUESTS'] = 'cerinte';
+$lang['LOGIN_COUNTRIES'] = 'tari';
+$lang['LOGIN_ONLINE'] = 'jucatori on-line';
 
- $lang['LOGIN_PASSWORD'] = 'parola';
- $lang['LOGIN_USERNAME'] = 'Username';
- $lang['LOGIN_EMAIL'] = 'Email';
- $lang['LOGIN_NICKNAME'] = 'Nickname';
+$lang['LOGIN_PASSWORD'] = 'parola';
+$lang['LOGIN_USERNAME'] = 'Username';
+$lang['LOGIN_EMAIL'] = 'Email';
+$lang['LOGIN_NICKNAME'] = 'Nickname';
 
- $lang['LOGIN_MAINTENANCE_TITLE'] = 'mentenanta server';
- $lang['LOGIN_MAINTENANCE'] = ';in acest moment are loc o mentenanta a serverului.va rugam sa reveniti in 30 minute.multumim';
+$lang['LOGIN_MAINTENANCE_TITLE'] = 'mentenanta server';
+$lang['LOGIN_MAINTENANCE'] = ';in acest moment are loc o mentenanta a serverului.va rugam sa reveniti in 30 minute.multumim';
 
- $lang['LOGIN_LOGOUT'] = 'te-ai delogat!'; 
- $lang['LOGIN_FAILED'] = 'username si/sau parola gresite';
- $lang['LOGIN_REGISTER_OK'] = 'contul a fost creat!';
- $lang['LOGIN_PASSWORD_TO_SHORT'] = 'parola trebuie sa aibe cel putin 6 caractere';
- $lang['LOGIN_USERNAME_TO_SHORT'] = 'Username-ul trebuie sa aiba cel putin 4 caractere';
- $lang['LOGIN_USERNAME_EXIST'] = 'Username %s deja exista!';
- $lang['LOGIN_EMAIL_EXIST'] = 'Email deja inregistrat!';
- $lang['LOGIN_EMAIL_INVALID'] = 'Email-ul este invalid! (invalid format)';
- $lang['LOGIN_NICKNAME_EXIST'] = 'Nickname %s deja folosit!';
- $lang['LOGIN_NICKNAME_NEEDED'] = 'Nickname trebuie introdus!';
- $lang['LOGIN_NEW_PASSWORD_SEND'] = 'noua parola a fost trimisa la adresa de mail!';
- $lang['LOGIN_EMAIL_UNKNOWN'] = 'e-mail necunoscut!';
- $lang['LOGIN_BEST_VIEWED'] = 'WarQuest este optimizat pentru urmatoarele sisteme mobile:"Apple iOS/iPad, Nokia Symbian, 
+$lang['LOGIN_LOGOUT'] = 'te-ai delogat!'; 
+$lang['LOGIN_FAILED'] = 'username si/sau parola gresite';
+$lang['LOGIN_REGISTER_OK'] = 'contul a fost creat!';
+$lang['LOGIN_PASSWORD_TO_SHORT'] = 'parola trebuie sa aibe cel putin 6 caractere';
+$lang['LOGIN_USERNAME_TO_SHORT'] = 'Username-ul trebuie sa aiba cel putin 4 caractere';
+$lang['LOGIN_USERNAME_EXIST'] = 'Username %s deja exista!';
+$lang['LOGIN_EMAIL_EXIST'] = 'Email deja inregistrat!';
+$lang['LOGIN_EMAIL_INVALID'] = 'Email-ul este invalid! (invalid format)';
+$lang['LOGIN_NICKNAME_EXIST'] = 'Nickname %s deja folosit!';
+$lang['LOGIN_NICKNAME_NEEDED'] = 'Nickname trebuie introdus!';
+$lang['LOGIN_NEW_PASSWORD_SEND'] = 'noua parola a fost trimisa la adresa de mail!';
+$lang['LOGIN_EMAIL_UNKNOWN'] = 'e-mail necunoscut!';
+$lang['LOGIN_BEST_VIEWED'] = 'WarQuest este optimizat pentru urmatoarele sisteme mobile:"Apple iOS/iPad, Nokia Symbian, 
  BlackBerry OS, Android OS"si pentru browserele de internet:"Internet Explorer, Mozilla Firefox, Apple Safari, Opera, Google Chrome".
  Acest joc este optimizat pentru browserele setate la 500px';
 
- $lang['LOGIN_NEW_CLIENT_TITLE'] = 'un nou client WarQuest este disponibil!';
- $lang['LOGIN_NEW_CLIENT'] = 'folosesti un client WarQuest invechit. visiteaza www.plaatsoft.nl pentru a descarca noua versiune.';
+$lang['LOGIN_NEW_CLIENT_TITLE'] = 'un nou client WarQuest este disponibil!';
+$lang['LOGIN_NEW_CLIENT'] = 'folosesti un client WarQuest invechit. visiteaza www.plaatsoft.nl pentru a descarca noua versiune.';
 
  /*
  ** ------------------
@@ -400,48 +400,48 @@
  ** ------------------
  */
 
- $lang['HOME_TITLE'] = 'Acasa';
+$lang['HOME_TITLE'] = 'Acasa';
 
- $lang['HOME_FLASH_NEWS_TITLE'] = 'Noutati';
+$lang['HOME_FLASH_NEWS_TITLE'] = 'Noutati';
 
- $lang['HOME_LASTEST_FORUM_ITEM'] = 'Ultimele postari pe forum';
+$lang['HOME_LASTEST_FORUM_ITEM'] = 'Ultimele postari pe forum';
 
- $lang['HOME_INTRO_PLAYERS'] = 'in acest moment %s jucatori din %s tari sunt activi';
- $lang['HOME_INTRO_FIGHTS'] = '%s lupte au avut loc ';
- $lang['HOME_INTRO_REQUESTS'] = '%s server requests were handled. ';
+$lang['HOME_INTRO_PLAYERS'] = 'in acest moment %s jucatori din %s tari sunt activi';
+$lang['HOME_INTRO_FIGHTS'] = '%s lupte au avut loc ';
+$lang['HOME_INTRO_REQUESTS'] = '%s server requests were handled. ';
 
- $lang['HOME_INTRO_TITLE'] = 'Introducere';
- $lang['HOME_INTRO_MISSIONS'] = 'incepe jocul %s ';
- $lang['HOME_INTRO_BATTLES'] = 'si lupte %s. ';
- $lang['HOME_INTRO_UNITS'] = ' cand castigi bani si experienta poti cumpara mai multe %s ';
- $lang['HOME_INTRO_BUILDINGS'] = ' si %s pentru a deveni mai puternic. ';
- $lang['HOME_INTRO_ENEMY'] = ' in orice moment alti jucatori te pot ataca asa ca ingrijeste-te de aparare.';
+$lang['HOME_INTRO_TITLE'] = 'Introducere';
+$lang['HOME_INTRO_MISSIONS'] = 'incepe jocul %s ';
+$lang['HOME_INTRO_BATTLES'] = 'si lupte %s. ';
+$lang['HOME_INTRO_UNITS'] = ' cand castigi bani si experienta poti cumpara mai multe %s ';
+$lang['HOME_INTRO_BUILDINGS'] = ' si %s pentru a deveni mai puternic. ';
+$lang['HOME_INTRO_ENEMY'] = ' in orice moment alti jucatori te pot ataca asa ca ingrijeste-te de aparare.';
 
- $lang['HOME_NEW_ANDROID_VERSION'] = 'o noua versiune a aplicatiei v%s este disponibila pe piata android .<br/>Please upgrade!';
- $lang['HOME_NEW_WINDOWS_VERSION'] = 'un nou client WarQuest este disponibil!';
- $lang['HOME_CLICK_HERE'] = 'aici';
- $lang['HOME_CLICK_TEXT'] = 'Click %s pentru a incepe downloadul.';
- $lang['HOME_EMAIL_MISSING'] = 'te rugam intro adresa de mail ca sa primesti mesaje de la ceilalti jucatori si pentru a-ti recupera parola.';
- $lang['HOME_DAILY_BONUS'] = 'ai gasit %s dollar la o locatie inamica!';
+$lang['HOME_NEW_ANDROID_VERSION'] = 'o noua versiune a aplicatiei v%s este disponibila pe piata android .<br/>Please upgrade!';
+$lang['HOME_NEW_WINDOWS_VERSION'] = 'un nou client WarQuest este disponibil!';
+$lang['HOME_CLICK_HERE'] = 'aici';
+$lang['HOME_CLICK_TEXT'] = 'Click %s pentru a incepe downloadul.';
+$lang['HOME_EMAIL_MISSING'] = 'te rugam intro adresa de mail ca sa primesti mesaje de la ceilalti jucatori si pentru a-ti recupera parola.';
+$lang['HOME_DAILY_BONUS'] = 'ai gasit %s dollar la o locatie inamica!';
 
- $lang['HOME_WELCOME'] = 'Bine ai venit';
- $lang['HOME_LAST_LOGIN'] = 'Ultima vizita a fost acum <b>%s</b>.';
- $lang['HOME_AWARDS'] = 'premii';
- $lang['HOME_BATTLE_AWARDS_TEXT'] = 'ai castiga urmatorul premiu de lupta:';
- $lang['HOME_BOUNTY_AWARDS_TEXT'] = 'ai castiga urmatorul premiu de vanatoare:';
- $lang['HOME_REBEL_AWARDS_TEXT'] = 'ai castiga urmatorul premiu de rascoala:';
- $lang['HOME_OVERVIEW_TITLE']= 'privire generala';
- $lang['HOME_MAP_TITLE'] = 'Continent cucerit';
- $lang['HOME_MAP_NOTE'] = ' fiecare continent contine 3 regiuni care pot fi cucerite prin misiuni.';
+$lang['HOME_WELCOME'] = 'Bine ai venit';
+$lang['HOME_LAST_LOGIN'] = 'Ultima vizita a fost acum <b>%s</b>.';
+$lang['HOME_AWARDS'] = 'premii';
+$lang['HOME_BATTLE_AWARDS_TEXT'] = 'ai castiga urmatorul premiu de lupta:';
+$lang['HOME_BOUNTY_AWARDS_TEXT'] = 'ai castiga urmatorul premiu de vanatoare:';
+$lang['HOME_REBEL_AWARDS_TEXT'] = 'ai castiga urmatorul premiu de rascoala:';
+$lang['HOME_OVERVIEW_TITLE']= 'privire generala';
+$lang['HOME_MAP_TITLE'] = 'Continent cucerit';
+$lang['HOME_MAP_NOTE'] = ' fiecare continent contine 3 regiuni care pot fi cucerite prin misiuni.';
 
- $lang['HOME_TRAVEL_TO'] = 'calatoreste pe';
+$lang['HOME_TRAVEL_TO'] = 'calatoreste pe';
 
- $lang['HOME_INTRO_PLACE1'] = 'esti pe locul <b>%s</b> general '; 
- $lang['HOME_INTRO_PLACE2'] = 'si locul <b>%s</b> din <b>%s</b> .'; 
- $lang['HOME_PLAYERS_ONLINE'] = 'in ultimele 24hs %s jucatori au fost on-line.';
+$lang['HOME_INTRO_PLACE1'] = 'esti pe locul <b>%s</b> general '; 
+$lang['HOME_INTRO_PLACE2'] = 'si locul <b>%s</b> din <b>%s</b> .'; 
+$lang['HOME_PLAYERS_ONLINE'] = 'in ultimele 24hs %s jucatori au fost on-line.';
 
- $lang['HOME_HOLIDAY'] = 'vacanta';
- $lang['HOME_HOLIDAY_PERIOD_ACTIVE'] = 'periaoda de vacanta activa pentru %s. Misiunile,luptele, unitatile, cladirile si banii sunt blocate in aceasta perioada!';
+$lang['HOME_HOLIDAY'] = 'vacanta';
+$lang['HOME_HOLIDAY_PERIOD_ACTIVE'] = 'periaoda de vacanta activa pentru %s. Misiunile,luptele, unitatile, cladirile si banii sunt blocate in aceasta perioada!';
 
  /*
  ** ------------------
@@ -449,87 +449,87 @@
  ** ------------------
  */
 
- $lang['PLAYER_TITLE'] = 'JUCATOR';
- $lang['PLAYER_WIN_LOST_RATE'] = 'procent Castiguri/pierderi';
- $lang['PLAYER_BUILDINGS'] = 'Cladiri';
- $lang['PLAYER_CASH_FLOW'] = 'Bani';
- $lang['PLAYER_ALLIANCE_SIZE'] = 'Marimea aliantei';
- $lang['PLAYER_EXP_POINTS'] = 'Puncte experienta';
- $lang['PLAYER_SERVER_REQUEST'] = 'Servere';
- $lang['PLAYER_MISSION_COMPLETED'] = 'Misiune completa';
- $lang['PLAYER_DEFENSE_STRENGTH'] = 'Taria apararii';
- $lang['PLAYER_ATTACK_STRENGTH'] = 'Taria atacului';
- $lang['PLAYER_FIGHTS_LOST'] = 'lupte pierdute';
- $lang['PLAYER_FIGHTS_WON'] = 'lupte castigate';
- $lang['PLAYER_BUILDING_INCOME'] = 'profit';
- $lang['PLAYER_CONTINENT_INCOME'] = 'Continent income';
- $lang['PLAYER_BOUNTY_SET'] = 'vanatoare pusa';
- $lang['PLAYER_REBELLION_RISE'] = 'rascoala inceputa';
- $lang['PLAYER_UPKEEP'] = 'costul unitatilor pe ora';
- $lang['PLAYER_NETTO_INCOME'] = 'profit net';
- $lang['PLAYER_STATISTICS'] = 'Statistici'; 
- $lang['PLAYER_DISCOUNT_MAINTENANCE'] = 'reducere & Mentenanta';
- $lang['PLAYER_NAME'] = 'Nume'; 
- $lang['PLAYER_ID'] = 'Id';
- $lang['PLAYER_RANK'] = 'Loc'; 
- $lang['PLAYER_OVERVIEW'] = 'Profil'; 
- $lang['PLAYER_DISCOUNT_RATE'] = 'Reducere cladire';
- $lang['PLAYER_MAINTENANCE_RATE'] = 'mentenanta unitatilor';
- $lang['PLAYER_LAST_LOGIN'] = 'ultima data activ (acum)';
- $lang['PLAYER_CREATED'] = 'Creat (acum)';
- $lang['PLAYER_CASINO_PLAYED'] = 'jucat la cazino';
- $lang['PLAYER_ADS_SHOWED'] = 'Ads aratate';
- $lang['PLAYER_TOTAL_HOURLY_INCOME'] = 'profit total pe ora';
+$lang['PLAYER_TITLE'] = 'JUCATOR';
+$lang['PLAYER_WIN_LOST_RATE'] = 'procent Castiguri/pierderi';
+$lang['PLAYER_BUILDINGS'] = 'Cladiri';
+$lang['PLAYER_CASH_FLOW'] = 'Bani';
+$lang['PLAYER_ALLIANCE_SIZE'] = 'Marimea aliantei';
+$lang['PLAYER_EXP_POINTS'] = 'Puncte experienta';
+$lang['PLAYER_SERVER_REQUEST'] = 'Servere';
+$lang['PLAYER_MISSION_COMPLETED'] = 'Misiune completa';
+$lang['PLAYER_DEFENSE_STRENGTH'] = 'Taria apararii';
+$lang['PLAYER_ATTACK_STRENGTH'] = 'Taria atacului';
+$lang['PLAYER_FIGHTS_LOST'] = 'lupte pierdute';
+$lang['PLAYER_FIGHTS_WON'] = 'lupte castigate';
+$lang['PLAYER_BUILDING_INCOME'] = 'profit';
+$lang['PLAYER_CONTINENT_INCOME'] = 'Continent income';
+$lang['PLAYER_BOUNTY_SET'] = 'vanatoare pusa';
+$lang['PLAYER_REBELLION_RISE'] = 'rascoala inceputa';
+$lang['PLAYER_UPKEEP'] = 'costul unitatilor pe ora';
+$lang['PLAYER_NETTO_INCOME'] = 'profit net';
+$lang['PLAYER_STATISTICS'] = 'Statistici'; 
+$lang['PLAYER_DISCOUNT_MAINTENANCE'] = 'reducere & Mentenanta';
+$lang['PLAYER_NAME'] = 'Nume'; 
+$lang['PLAYER_ID'] = 'Id';
+$lang['PLAYER_RANK'] = 'Loc'; 
+$lang['PLAYER_OVERVIEW'] = 'Profil'; 
+$lang['PLAYER_DISCOUNT_RATE'] = 'Reducere cladire';
+$lang['PLAYER_MAINTENANCE_RATE'] = 'mentenanta unitatilor';
+$lang['PLAYER_LAST_LOGIN'] = 'ultima data activ (acum)';
+$lang['PLAYER_CREATED'] = 'Creat (acum)';
+$lang['PLAYER_CASINO_PLAYED'] = 'jucat la cazino';
+$lang['PLAYER_ADS_SHOWED'] = 'Ads aratate';
+$lang['PLAYER_TOTAL_HOURLY_INCOME'] = 'profit total pe ora';
 
- $lang['PLAYER_MONEY_STATUS'] = 'Current assets';
- $lang['PLAYER_CASH_MONEY'] = 'Bani';
- $lang['PLAYER_BANK'] = 'Banca';
+$lang['PLAYER_MONEY_STATUS'] = 'Current assets';
+$lang['PLAYER_CASH_MONEY'] = 'Bani';
+$lang['PLAYER_BANK'] = 'Banca';
 
- $lang['PLAYER_PLATFORM_BROWSER'] = 'Platforma & Browser';
- $lang['PLAYER_BROWSER'] = 'Browser';
- $lang['PLAYER_BROWSER_VERSION'] = 'Versiune';
- $lang['PLAYER_PLATFORM'] = 'Platforma';
+$lang['PLAYER_PLATFORM_BROWSER'] = 'Platforma & Browser';
+$lang['PLAYER_BROWSER'] = 'Browser';
+$lang['PLAYER_BROWSER_VERSION'] = 'Versiune';
+$lang['PLAYER_PLATFORM'] = 'Platforma';
 
- $lang['PLAYER_LAST_TWEET'] = 'Last Tweet';
+$lang['PLAYER_LAST_TWEET'] = 'Last Tweet';
 
- $lang['PLAYER_ATTACK_FORCE'] = 'Overview (%s Attack %s)';
- $lang['PLAYER_DEFENSE_FORCE'] = 'Overview (%s aparare %s)';
- $lang['PLAYER_ATTACK_TEXT'] = '%s ai <b>%s</b> aliati si poti comanda maxim <b>%s</b> unitati. atacul %s are urmatoaarele unitati:';
- $lang['PLAYER_DEFENSE_TEXT'] = '%s ai <b>%s</b> aliati si poti comnda maxim <b>%s</b> unitati. apararea %s are urmatoaarele unitati:';
- $lang['PLAYER_UNIT'] = 'Unitati';
- $lang['PLAYER_AMOUNT'] = 'Amount';
- $lang['PLAYER_STRENGTH'] = 'tarie';
- $lang['PLAYER_ATTACK_SKILLS'] = 'aptitudini de atac';
- $lang['PLAYER_DEFENSE_SKILLS'] = 'aptitudini de aparare';
- $lang['PLAYER_SUB_TOTAL'] = 'Sub total';
- $lang['PLAYER_TOTAL'] = 'Total';
- $lang['PLAYER_FORCE'] = 'Atac & aparare tarie'; 
- $lang['PLAYER_DEPLOYED'] = 'Deployed';
+$lang['PLAYER_ATTACK_FORCE'] = 'Overview (%s Attack %s)';
+$lang['PLAYER_DEFENSE_FORCE'] = 'Overview (%s aparare %s)';
+$lang['PLAYER_ATTACK_TEXT'] = '%s ai <b>%s</b> aliati si poti comanda maxim <b>%s</b> unitati. atacul %s are urmatoaarele unitati:';
+$lang['PLAYER_DEFENSE_TEXT'] = '%s ai <b>%s</b> aliati si poti comnda maxim <b>%s</b> unitati. apararea %s are urmatoaarele unitati:';
+$lang['PLAYER_UNIT'] = 'Unitati';
+$lang['PLAYER_AMOUNT'] = 'Amount';
+$lang['PLAYER_STRENGTH'] = 'tarie';
+$lang['PLAYER_ATTACK_SKILLS'] = 'Jucator aptitudini de atac';
+$lang['PLAYER_DEFENSE_SKILLS'] = 'Jucator aptiudini de aparare';
+$lang['PLAYER_SUB_TOTAL'] = 'Sub total';
+$lang['PLAYER_TOTAL'] = 'Total';
+$lang['PLAYER_FORCE'] = 'Atac & aparare tarie'; 
+$lang['PLAYER_DEPLOYED'] = 'Deployed';
 
- $lang['PLAYER_BUILDING'] = 'cladire';
- $lang['PLAYER_INCOME'] = 'profit';
- $lang['PLAYER_COST'] = 'Cost';
- $lang['PLAYER_BUILDING_OVERVIEW'] = 'profitul cladirii';
- $lang['PLAYER_BUILDING_TEXT'] = 'acum, jucatorul %s are %s cladiri pentru profit:';
- $lang['PLAYER_UPKEEP_COST'] = 'costuri pe ora';
- $lang['PLAYER_UPKEEP_TEXT'] = 'acum,jucatorul %s are %s unitati';
- $lang['PLAYER_CONTINENT_OVERVIEW'] = 'Profitul acestui continent';
- $lang['PLAYER_CONTINENT_TEXT'] = 'jucatorul %s a cucerit continentul %s';
+$lang['PLAYER_BUILDING'] = 'cladire';
+$lang['PLAYER_INCOME'] = 'profit';
+$lang['PLAYER_COST'] = 'Cost';
+$lang['PLAYER_BUILDING_OVERVIEW'] = 'profitul cladirii';
+$lang['PLAYER_BUILDING_TEXT'] = 'acum, jucatorul %s are %s cladiri pentru profit:';
+$lang['PLAYER_UPKEEP_COST'] = 'costuri pe ora';
+$lang['PLAYER_UPKEEP_TEXT'] = 'acum,jucatorul %s are %s unitati';
+$lang['PLAYER_CONTINENT_OVERVIEW'] = 'Profitul acestui continent';
+$lang['PLAYER_CONTINENT_TEXT'] = 'jucatorul %s a cucerit continentul %s';
 
- $lang['PLAYER_DISCOUNT_OVERVIEW'] = 'reducere cladiri';
- $lang['PLAYER_BUILDING_TEXT'] = 'acum, jucatorul %s are %s reducere pentru cladiri:';
+$lang['PLAYER_DISCOUNT_OVERVIEW'] = 'reducere cladiri';
+$lang['PLAYER_BUILDING_TEXT'] = 'acum, jucatorul %s are %s reducere pentru cladiri:';
 
- $lang['PLAYER_MAINTENANCE_OVERVIEW'] = 'mentenanta cladirilor';
- $lang['PLAYER_MAINTENANCE_TEXT'] = 'acum, jucatorul %s are %s cladiri de mentenanta:';
+$lang['PLAYER_MAINTENANCE_OVERVIEW'] = 'mentenanta cladirilor';
+$lang['PLAYER_MAINTENANCE_TEXT'] = 'acum, jucatorul %s are %s cladiri de mentenanta:';
 
- $lang['PLAYER_SPY_1'] = 'intel';
- $lang['PLAYER_SPY_2'] = 'exploratori';
- $lang['PLAYER_SPY_3'] = 'exploratori';
- $lang['PLAYER_SPY_4'] = 'exploratori';
- $lang['PLAYER_SPY_5'] = 'exploratori';
+$lang['PLAYER_SPY_1'] = 'intel';
+$lang['PLAYER_SPY_2'] = 'exploratori';
+$lang['PLAYER_SPY_3'] = 'exploratori';
+$lang['PLAYER_SPY_4'] = 'exploratori';
+$lang['PLAYER_SPY_5'] = 'exploratori';
  
- $lang['PLAYER_ESPIONAGE_UNLOCK1'] = 'deblocat cand puterea %s este %s% mai mare decat a oponentului.';
- $lang['PLAYER_ESPIONAGE_UNLOCK2'] = 'delocat cand %s puterea ta este egaka sau mai mare decat a oponentului.';
+$lang['PLAYER_ESPIONAGE_UNLOCK1'] = 'deblocat cand puterea %s este %s% mai mare decat a oponentului.';
+$lang['PLAYER_ESPIONAGE_UNLOCK2'] = 'delocat cand %s puterea ta este egaka sau mai mare decat a oponentului.';
 
  /*
  ** ------------------
@@ -537,17 +537,17 @@
  ** ------------------
  */
 
- $lang['HOME_BATTLE_TITLE'] = 'Noutati';
- $lang['HOME_BATTLE_ATTACK_BY'] = 'Ai fost atacat de %s din %s.';
- $lang['HOME_BATTLE_YOU_WON'] = 'Ai <b>CASTIGAT</b>. ';
- $lang['HOME_BATTLE_YOU_LOST'] = 'AI <b>PIERDUT</b>. ';
- $lang['HOME_BATTLE_YOU_EXP'] = 'ai castigat %s experienta ';
- $lang['HOME_BATTLE_TOOK_DAMAGE'] = 'ai produs %s daune.';
- $lang['HOME_BATTLE_TAKING_DAMAGE'] = 'ai primit %s daune.';
- $lang['HOME_BATTLE_YOU_MONEY'] = 'Pierzand %s dolari ';
- $lang['HOME_BATTLE_NO_NEWS'] = 'Nici un raport al bataliilor disponibil in acest moment!'; 
+$lang['HOME_BATTLE_TITLE'] = 'Noutati';
+$lang['HOME_BATTLE_ATTACK_BY'] = 'Ai fost atacat de %s din %s.';
+$lang['HOME_BATTLE_YOU_WON'] = 'Ai <b>CASTIGAT</b>. ';
+$lang['HOME_BATTLE_YOU_LOST'] = 'AI <b>PIERDUT</b>. ';
+$lang['HOME_BATTLE_YOU_EXP'] = 'ai castigat %s experienta ';
+$lang['HOME_BATTLE_TOOK_DAMAGE'] = 'ai produs %s daune.';
+$lang['HOME_BATTLE_TAKING_DAMAGE'] = 'ai primit %s daune.';
+$lang['HOME_BATTLE_YOU_MONEY'] = 'Pierzand %s dolari ';
+$lang['HOME_BATTLE_NO_NEWS'] = 'Nici un raport al bataliilor disponibil in acest moment!'; 
 
- $lang['HOME_BOUNTY_NEWS'] = '%s a pus %s dolari pe capul tau. daca vei fi invins vei pierde %s experienta.';
+$lang['HOME_BOUNTY_NEWS'] = '%s a pus %s dolari pe capul tau. daca vei fi invins vei pierde %s experienta.';
 
  /*
  ** ------------------
@@ -555,9 +555,9 @@
  ** ------------------
  */
 
- $lang['HOME_MESSAGES_TITLE']= 'Mesage';
- $lang['HOME_MESSAGE_DELETED'] = 'Mesaj sters!';
- $lang['HOME_NO_MESSAGES'] = 'nu sunt mesaje de la alti jucatori in acet moment!'; 
+$lang['HOME_MESSAGES_TITLE']= 'Mesage';
+$lang['HOME_MESSAGE_DELETED'] = 'Mesaj sters!';
+$lang['HOME_NO_MESSAGES'] = 'nu sunt mesaje de la alti jucatori in acet moment!'; 
 
  /*
  ** ------------------
@@ -565,27 +565,27 @@
  ** ------------------
  */
 
- $lang['PLAYER_SKILL_SUBTITLE1'] = 'Pncte aptitudine';
- $lang['PLAYER_SKILL_SUBTITLE2'] = 'Puncte aptitudine [%s disponibile]';
- $lang['PLAYER_SKILL_NOTE'] = 'NOTA:foloeste punctele de aptitudine ca sa cresti atacul aparearea viata energia si munitia.';
- $lang['PLAYER_SKILLS'] = 'Aptitudini'; 
- $lang['PLAYER_MAX'] = 'Current'; 
- $lang['PLAYER_ATTACK'] = 'ATAC';
- $lang['PLAYER_DEFENSE'] = 'APARARE';
- $lang['PLAYER_HEALTH'] = 'VIATA'; 
- $lang['PLAYER_ENERGY'] = 'ENERGIE'; 
- $lang['PLAYER_AMMO'] = 'MUNITIE'; 
+$lang['PLAYER_SKILL_SUBTITLE1'] = 'Pncte aptitudine';
+$lang['PLAYER_SKILL_SUBTITLE2'] = 'Puncte aptitudine [%s disponibile]';
+$lang['PLAYER_SKILL_NOTE'] = 'NOTA:foloeste punctele de aptitudine ca sa cresti atacul aparearea viata energia si munitia.';
+$lang['PLAYER_SKILLS'] = 'Aptitudini'; 
+$lang['PLAYER_CURRENT'] = 'Current'; 
+$lang['PLAYER_ATTACK'] = 'ATAC';
+$lang['PLAYER_DEFENSE'] = 'APARARE';
+$lang['PLAYER_HEALTH'] = 'VIATA'; 
+$lang['PLAYER_ENERGY'] = 'ENERGIE'; 
+$lang['PLAYER_AMMO'] = 'MUNITIE'; 
 
- $lang['PLAYER_ATTACK_TIP'] = 'cresteti atacul pentru a face mai multe pagube si pentru a castiga mai multe batalii.Te costa 1 punct de aptitudine ca sa iti maresti atacul cu %s. descreste atacul cu %s ca sa optii un punct de aptitudine in schimb.';
- $lang['PLAYER_DEFENSE_TIP'] = 'cresteti apararea ca sa rezisti impotriva mai multor atacuri.Te costa 1 punct de aptitudine ca sa iti cresti apararea cu %s. Descreste apararea cu %s ca sa optii un punct de aptitudine.';
- $lang['PLAYER_HEALTH_TIP'] = 'Cresteti viata maxima ca sa supravietuiesti mai multor batalii. Te costa 1 puncte de aptitudine ca sa iti cresti viata maxima cu 10. Descreste-ti viata cu 20 pentru a primii in schimb un punct de aptitudine.';
- $lang['PLAYER_ENERGY_TIP'] = 'Cresteti energia maxima pentru a juca mai multe misiuni. Te costa 1 puncte de aptitudine ca sa iti cresti energia maxima cu 10. Descreste-ti energia cu 20 pentru a primii in schimb un punct de aptitudine.';
- $lang['PLAYER_AMMO_TIP'] = 'Cresteti munitia maxima pentru a lupta mai mult. Te costa 2 puncte de aptitudine ca sa iti cresti munitia cu 1. Descreste-ti munitia cu 1 pentru a primii in schimb un punct de aptitudine.';
+$lang['PLAYER_ATTACK_TIP'] = 'cresteti atacul pentru a face mai multe pagube si pentru a castiga mai multe batalii.Te costa 1 punct de aptitudine ca sa iti maresti atacul cu %s. descreste atacul cu %s ca sa optii un punct de aptitudine in schimb.';
+$lang['PLAYER_DEFENSE_TIP'] = 'cresteti apararea ca sa rezisti impotriva mai multor atacuri.Te costa 1 punct de aptitudine ca sa iti cresti apararea cu %s. Descreste apararea cu %s ca sa optii un punct de aptitudine.';
+$lang['PLAYER_HEALTH_TIP'] = 'Cresteti viata maxima ca sa supravietuiesti mai multor batalii. Te costa 1 puncte de aptitudine ca sa iti cresti viata maxima cu 10. Descreste-ti viata cu 20 pentru a primii in schimb un punct de aptitudine.';
+$lang['PLAYER_ENERGY_TIP'] = 'Cresteti energia maxima pentru a juca mai multe misiuni. Te costa 1 puncte de aptitudine ca sa iti cresti energia maxima cu 10. Descreste-ti energia cu 20 pentru a primii in schimb un punct de aptitudine.';
+$lang['PLAYER_AMMO_TIP'] = 'Cresteti munitia maxima pentru a lupta mai mult. Te costa 2 puncte de aptitudine ca sa iti cresti munitia cu 1. Descreste-ti munitia cu 1 pentru a primii in schimb un punct de aptitudine.';
 
- $lang['PLAYER_SKILL_ACCEPTED1'] = '%s aptitudine marita.';
- $lang['PLAYER_SKILL_REJECTED1'] = 'Iti trebuie %s puncte de aptitudine(s) ca sa iti maresti aceasta calitate.';
- $lang['PLAYER_SKILL_ACCEPTED2'] = '%s aptitudine scazuta.';
- $lang['PLAYER_SKILL_REJECTED2'] = '%s trebuie sa ai nivelul minim.';
+$lang['PLAYER_SKILL_ACCEPTED1'] = '%s aptitudine marita.';
+$lang['PLAYER_SKILL_REJECTED1'] = 'Iti trebuie %s puncte de aptitudine(s) ca sa iti maresti aceasta calitate.';
+$lang['PLAYER_SKILL_ACCEPTED2'] = '%s aptitudine scazuta.';
+$lang['PLAYER_SKILL_REJECTED2'] = '%s trebuie sa ai nivelul minim.';
 
  /*
  ** ------------------
@@ -593,35 +593,35 @@
  ** ------------------
  */
 
- $lang['HOME_TRADE_TITLE1'] = 'Puncte de schimb';
- $lang['HOME_TRADE_TITLE2'] = 'Puncte de schimb [%s disponibile]';
- $lang['HOME_TRADE_NOTE'] = 'Nota: I-ati Puncte de schimb(vezi Ajutor - Pagina de Donatii) pentru a le pitea schimba in puncte de aptitudine,bani sau pot fi folosite ca sa iti imbunatatesti timpul de regenerare a vietii energiei sau munitiei.';
+$lang['HOME_TRADE_TITLE1'] = 'Puncte de schimb';
+$lang['HOME_TRADE_TITLE2'] = 'Puncte de schimb [%s disponibile]';
+$lang['HOME_TRADE_NOTE'] = 'Nota: I-ati Puncte de schimb(vezi Ajutor - Pagina de Donatii) pentru a le pitea schimba in puncte de aptitudine,bani sau pot fi folosite ca sa iti imbunatatesti timpul de regenerare a vietii energiei sau munitiei.';
 
- $lang['HOME_TRADE_CONDITION'] = 'Current';
- $lang['HOME_TRADE_MINIMAL'] = 'Minim';
+$lang['HOME_TRADE_CONDITION'] = 'Current';
+$lang['HOME_TRADE_MINIMAL'] = 'Minim';
 
- $lang['HOME_TRADE1'] = 'Timpul pentru viata';
- $lang['HOME_TRADE1_NOTE'] = 'descreste-ti timpul pentru viata pentru ca aceasta sa se regenereze mai repede. Te costa %s ca sa iti descresti timpul cu 5 secunde.';
+$lang['HOME_TRADE1'] = 'Timpul pentru viata';
+$lang['HOME_TRADE1_NOTE'] = 'descreste-ti timpul pentru viata pentru ca aceasta sa se regenereze mai repede. Te costa %s ca sa iti descresti timpul cu 5 secunde.';
 
- $lang['HOME_TRADE2'] = 'Timpul pentru energie';
- $lang['HOME_TRADE2_NOTE'] = 'descreste-ti timpul pentru energie pentru ca aceasta sa se regenereze mai repede. Te costa %s ca sa iti descresti timpul cu 5 secunde.';
+$lang['HOME_TRADE2'] = 'Timpul pentru energie';
+$lang['HOME_TRADE2_NOTE'] = 'descreste-ti timpul pentru energie pentru ca aceasta sa se regenereze mai repede. Te costa %s ca sa iti descresti timpul cu 5 secunde.';
 
- $lang['HOME_TRADE3'] = 'Timpul pentru munitie';
- $lang['HOME_TRADE3_NOTE'] = 'descreste-ti timpul pentru munitie pentru ca aceasta sa se regenereze mai repede. Te costa %s ca sa iti descresti timpul cu 5 secunde.';
+$lang['HOME_TRADE3'] = 'Timpul pentru munitie';
+$lang['HOME_TRADE3_NOTE'] = 'descreste-ti timpul pentru munitie pentru ca aceasta sa se regenereze mai repede. Te costa %s ca sa iti descresti timpul cu 5 secunde.';
 
- $lang['HOME_TRADE4'] = 'BANI';
- $lang['HOME_TRADE4_NOTE'] = 'Obtine bani pentru a-ti putea cumpara armata,costrui cladiri,etc ..Te costa %s ca sa iti cresti banii cu %s dollar.';
+$lang['HOME_TRADE4'] = 'BANI';
+$lang['HOME_TRADE4_NOTE'] = 'Obtine bani pentru a-ti putea cumpara armata,costrui cladiri,etc ..Te costa %s ca sa iti cresti banii cu %s dollar.';
 
- $lang['HOME_TRADE5'] = 'Puncte de aptitudine';
- $lang['HOME_TRADE5_NOTE'] = 'i=ati puncte de aptitudine pentru a mari atacul ,apararea viata energia sau munitia. te costa %s pentru a primi 1 puncte de aptitudine';
+$lang['HOME_TRADE5'] = 'Puncte de aptitudine';
+$lang['HOME_TRADE5_NOTE'] = 'i=ati puncte de aptitudine pentru a mari atacul ,apararea viata energia sau munitia. te costa %s pentru a primi 1 puncte de aptitudine';
 
- $lang['HOME_TRADE_SKILL_POINTS'] = 'punct(e) de aptitudine ';
- $lang['HOME_TRADE_IN'] = 'SCHIMBA';
- $lang['HOME_MAX_REACHED'] = 'Maxim atins';
+$lang['HOME_TRADE_SKILL_POINTS'] = 'punct(e) de aptitudine ';
+$lang['HOME_TRADE_IN'] = 'SCHIMBA';
+$lang['HOME_MAX_REACHED'] = 'Maxim atins';
 
- $lang['HOME_TRADE_HEALTH_TIMER_TO_LARGE'] = 'timpul pentru viata a ajuns la minim.';
- $lang['HOME_TRADE_ENERGY_TIMER_TO_LARGE'] = 'timpul pentru energie a ajuns la minim.';
- $lang['HOME_TRADE_AMMO_TIMER_TO_LARGE'] = 'timpul pentru munitie a ajuns la minim.';
+$lang['HOME_TRADE_HEALTH_TIMER_TO_LARGE'] = 'timpul pentru viata a ajuns la minim.';
+$lang['HOME_TRADE_ENERGY_TIMER_TO_LARGE'] = 'timpul pentru energie a ajuns la minim.';
+$lang['HOME_TRADE_AMMO_TIMER_TO_LARGE'] = 'timpul pentru munitie a ajuns la minim.';
 
  /*
  ** ------------------
@@ -629,59 +629,59 @@
  ** ------------------
  */
 
- $lang['PLAYER_RESTORE_TITLE'] = 'Recuperare&Reparatie';
- $lang['PLAYER_RESTORE_SUBTITLE1'] = 'Recuperare';
- $lang['PLAYER_RESTORE_SUBTITLE2'] = 'Reparatie';
- $lang['PLAYER_RESTORE_UNLOCKED'] = 'Recuperarea & Reparatia vor fi deblocate la nivelul %s.';
- $lang['PLAYER_RESTORE_PRICE'] = 'Pretul recuperarii';
- $lang['PLAYER_RESTORE_PRICE_PER_DAY'] = 'Pretul recuperarii pe zi';
- $lang['PLAYER_REPAIR_PRICE'] = 'Pretul reparatiei';
- $lang['PLAYER_RESTORED_FAILED'] = 'nu ai %s dolari pentru a executa aceasta actiune.';
+$lang['PLAYER_RESTORE_TITLE'] = 'Recuperare&Reparatie';
+$lang['PLAYER_RESTORE_SUBTITLE1'] = 'Recuperare';
+$lang['PLAYER_RESTORE_SUBTITLE2'] = 'Reparatie';
+$lang['PLAYER_RESTORE_UNLOCKED'] = 'Recuperarea & Reparatia vor fi deblocate la nivelul %s.';
+$lang['PLAYER_RESTORE_PRICE'] = 'Pretul recuperarii';
+$lang['PLAYER_RESTORE_PRICE_PER_DAY'] = 'Pretul recuperarii pe zi';
+$lang['PLAYER_REPAIR_PRICE'] = 'Pretul reparatiei';
+$lang['PLAYER_RESTORED_FAILED'] = 'nu ai %s dolari pentru a executa aceasta actiune.';
 
- $lang['PLAYER_HEALTH_TITLE'] = 'Recuperare viata';
- $lang['PLAYER_HEALTH_NOTE'] = 'Plateste spitalul pentru a-ti recupera viata complet.Viata se poate recupera si singura cu timpul.Recuperarea poate fi folosita doar odata la 5 minuteViata se poate recupera si singura cu timpul.'; 
- $lang['PLAYER_HEALTH_CONDITION'] = 'Starea Vietii';
- $lang['PLAYER_HEALTH_RESTORED'] = 'Viata recuperata pentru %s dolari.';
- $lang['PLAYER_HEALTH_CONFIRM'] = 'Chiar vrei sa iti recuperezi viata?';
+$lang['PLAYER_HEALTH_TITLE'] = 'Recuperare viata';
+$lang['PLAYER_HEALTH_NOTE'] = 'Plateste spitalul pentru a-ti recupera viata complet.Viata se poate recupera si singura cu timpul.Recuperarea poate fi folosita doar odata la 5 minuteViata se poate recupera si singura cu timpul.'; 
+$lang['PLAYER_HEALTH_CONDITION'] = 'Starea Vietii';
+$lang['PLAYER_HEALTH_RESTORED'] = 'Viata recuperata pentru %s dolari.';
+$lang['PLAYER_HEALTH_CONFIRM'] = 'Chiar vrei sa iti recuperezi viata?';
 
- $lang['PLAYER_ENERGY_TITLE'] = 'Recuperare energie';
- $lang['PLAYER_ENERGY_NOTE'] = 'Plateste compania petroliera ca sa iti recuperezi energia.Energia poate fi regenerata doar 1 data la 24h.Energia se poate regenera cu trecerea timpului'; 
- $lang['PLAYER_ENERGY_CONDITION'] = 'Starea Energiei';
- $lang['PLAYER_ENERGY_RESTORED'] = 'Energia regenerata pentru %s dolari.';
- $lang['PLAYER_ENERGY_CONFIRM'] = 'Çhiar vrei sa iti regenerezi Energia?';
+$lang['PLAYER_ENERGY_TITLE'] = 'Recuperare energie';
+$lang['PLAYER_ENERGY_NOTE'] = 'Plateste compania petroliera ca sa iti recuperezi energia.Energia poate fi regenerata doar 1 data la 24h.Energia se poate regenera cu trecerea timpului'; 
+$lang['PLAYER_ENERGY_CONDITION'] = 'Starea Energiei';
+$lang['PLAYER_ENERGY_RESTORED'] = 'Energia regenerata pentru %s dolari.';
+$lang['PLAYER_ENERGY_CONFIRM'] = 'Çhiar vrei sa iti regenerezi Energia?';
 
- $lang['PLAYER_AMMO_TITLE'] = 'Regenerare munitie';
- $lang['PLAYER_AMMO_NOTE'] = 'Plateste fabrica de arme ca sa iti regenereze munitia complet.Recuperarea poate fi folosita doar 1 data la 24h.Munitia se poate regenera cu trecerea timpului.'; 
- $lang['PLAYER_AMMO_CONDITION'] = 'Starea Munitiei';
- $lang['PLAYER_AMMO_RESTORED'] = 'Munitia regenerata pentru %s dolari.';
- $lang['PLAYER_AMMO_CONFIRM'] = 'Chiar vrei sa iti recuperezi munitia?';
+$lang['PLAYER_AMMO_TITLE'] = 'Regenerare munitie';
+$lang['PLAYER_AMMO_NOTE'] = 'Plateste fabrica de arme ca sa iti regenereze munitia complet.Recuperarea poate fi folosita doar 1 data la 24h.Munitia se poate regenera cu trecerea timpului.'; 
+$lang['PLAYER_AMMO_CONDITION'] = 'Starea Munitiei';
+$lang['PLAYER_AMMO_RESTORED'] = 'Munitia regenerata pentru %s dolari.';
+$lang['PLAYER_AMMO_CONFIRM'] = 'Chiar vrei sa iti recuperezi munitia?';
 
- $lang['PLAYER_CEASE_FIRE_TITLE'] = 'Perioada de Relax';
- $lang['PLAYER_CEASE_FIRE_NOTE'] = 'Plateste bani ca sa activezi perioada de relax.In aceasta periaoda alti jucatori nu te pot ataca,dar nici tu nu poti ataca alti jucatori.'; 
- $lang['PLAYER_CEASE_FIRE_ACTIVATED'] = 'Perioada de relax activata pentru %s dolari.';
- $lang['PLAYER_CEASE_FIRE_CONFIRM'] = 'Chiar vrei sa activezi Perioada de Relax?';
- $lang['PLAYER_HOLIDAY_TITLE'] = 'Perioada Sarbatorilor';
- $lang['PLAYER_HOLIDAY_NOTE'] = 'Stai linistit pe timpul sarbatorilor. pe timpul acestei perioade contul tau este inghetat:Misiunile, Bataliile, Armata si Cladirile sunt blocate iar celilalti jucatori nu te pot ataca.'; 
- $lang['PLAYER_HOLIDAY_ACTIVATED'] = 'Perioada sarbatorilor activata pentru %s dolari.';
- $lang['PLAYER_HOLIDAY_CONFIRM'] = 'Chiar vrei sa activezi Perioada de Sarbabori?';
+$lang['PLAYER_CEASE_FIRE_TITLE'] = 'Perioada de Relax';
+$lang['PLAYER_CEASE_FIRE_NOTE'] = 'Plateste bani ca sa activezi perioada de relax.In aceasta periaoda alti jucatori nu te pot ataca,dar nici tu nu poti ataca alti jucatori.'; 
+$lang['PLAYER_CEASE_FIRE_ACTIVATED'] = 'Perioada de relax activata pentru %s dolari.';
+$lang['PLAYER_CEASE_FIRE_CONFIRM'] = 'Chiar vrei sa activezi Perioada de Relax?';
+$lang['PLAYER_HOLIDAY_TITLE'] = 'Perioada Sarbatorilor';
+$lang['PLAYER_HOLIDAY_NOTE'] = 'Stai linistit pe timpul sarbatorilor. pe timpul acestei perioade contul tau este inghetat:Misiunile, Bataliile, Armata si Cladirile sunt blocate iar celilalti jucatori nu te pot ataca.'; 
+$lang['PLAYER_HOLIDAY_ACTIVATED'] = 'Perioada sarbatorilor activata pentru %s dolari.';
+$lang['PLAYER_HOLIDAY_CONFIRM'] = 'Chiar vrei sa activezi Perioada de Sarbabori?';
 
- $lang['PLAYER_UNITS_TITLE'] = 'Repara armata';
- $lang['PLAYER_UNITS_NOTE'] = 'Repara armata.Daca unittile tale ajung pe 0% viata atunci unele unitati pot fi distruse iar celelalte unitati vor fi reparate automat.'; 
- $lang['PLAYER_UNITS_CONDITION'] = 'Starea Armatelor(SA)';
- $lang['PLAYER_UNITS_REPAIRED'] = 'Armatele tale au fost reparate pentru %s dolari.';
- $lang['PLAYER_UNITS_CONFIRM'] = 'Chiar vrei sa iti repari armata?';
+$lang['PLAYER_UNITS_TITLE'] = 'Repara armata';
+$lang['PLAYER_UNITS_NOTE'] = 'Repara armata.Daca unittile tale ajung pe 0% viata atunci unele unitati pot fi distruse iar celelalte unitati vor fi reparate automat.'; 
+$lang['PLAYER_UNITS_CONDITION'] = 'Starea Armatelor(SA)';
+$lang['PLAYER_UNITS_REPAIRED'] = 'Armatele tale au fost reparate pentru %s dolari.';
+$lang['PLAYER_UNITS_CONFIRM'] = 'Chiar vrei sa iti repari armata?';
 
- $lang['PLAYER_BUILDINGS_TITLE'] = 'Repara Cladirile';
- $lang['PLAYER_BUILDINGS_NOTE'] = 'Repara cladirile bazei tale. Daca cladirile tale ajung cu viata la 0% unele cladiri vor fi distruse iar celelalte cor fi reparate automat.'; 
- $lang['PLAYER_BUILDINGS_CONDITION'] = 'Starea Cladirilor (SC)';
- $lang['PLAYER_BUILDINGS_REPAIRED'] = 'Cladirile tale au fost reparate pentru %s dolari.';
- $lang['PLAYER_BUILDINGS_CONFIRM'] = 'Chiar vreisa iti repari cladirile?';
+$lang['PLAYER_BUILDINGS_TITLE'] = 'Repara Cladirile';
+$lang['PLAYER_BUILDINGS_NOTE'] = 'Repara cladirile bazei tale. Daca cladirile tale ajung cu viata la 0% unele cladiri vor fi distruse iar celelalte cor fi reparate automat.'; 
+$lang['PLAYER_BUILDINGS_CONDITION'] = 'Starea Cladirilor (SC)';
+$lang['PLAYER_BUILDINGS_REPAIRED'] = 'Cladirile tale au fost reparate pentru %s dolari.';
+$lang['PLAYER_BUILDINGS_CONFIRM'] = 'Chiar vreisa iti repari cladirile?';
 
- $lang['PLAYER_REBELLION_TITLE'] = 'Restaureaza pacea';
- $lang['PLAYER_REBELLION_NOTE'] = 'Plateste inteligenta ca sa inceteze revoltele din regiunile cucerite de tine.Daca starea revoltei ajunge la 100% unele regiuni vor fi pierdute si trebuie recucerite.'; 
- $lang['PLAYER_REBELLION_CONDITION'] = 'Starea Revoltelor(SR)';
- $lang['PLAYER_REBELLION_RESTORED'] = 'termina revolta pentru %s dolari.';
- $lang['PLAYER_REBELLION_CONFIRM'] = 'Chiar vrei sa restaurezi pacea?';
+$lang['PLAYER_REBELLION_TITLE'] = 'Restaureaza pacea';
+$lang['PLAYER_REBELLION_NOTE'] = 'Plateste inteligenta ca sa inceteze revoltele din regiunile cucerite de tine.Daca starea revoltei ajunge la 100% unele regiuni vor fi pierdute si trebuie recucerite.'; 
+$lang['PLAYER_REBELLION_CONDITION'] = 'Starea Revoltelor(SR)';
+$lang['PLAYER_REBELLION_RESTORED'] = 'termina revolta pentru %s dolari.';
+$lang['PLAYER_REBELLION_CONFIRM'] = 'Chiar vrei sa restaurezi pacea?';
 
  /*
  ** ------------------
@@ -689,75 +689,75 @@
  ** ------------------
  */
 
- $lang['SETTING_TITLE'] = 'Setari';
- $lang['SETTING_GENERAL1'] = 'Setari generale 1';
- $lang['SETTING_GENERAL2'] = 'Setari generale 2';
+$lang['SETTING_TITLE'] = 'Setari';
+$lang['SETTING_GENERAL1'] = 'Setari generale 1';
+$lang['SETTING_GENERAL2'] = 'Setari generale 2';
 
- $lang['SETTING_NICKNAME'] = 'WarQuest nume';
- $lang['SETTING_TWITTER'] = 'Twitter account';
- $lang['SETTING_LANGUAGE'] = 'Limba';
- $lang['SETTING_BACKGROUND'] = "Fundal";
- $lang['SETTING_SOUND'] = 'Sunet activat(Experimental)';
- $lang['SETTING_BOUNTY'] = 'Activat cand se pune recompensa pe capul tau.';
- $lang['SETTING_RESTORE'] = 'Activat regenerare & reparatie confirmare.';
- $lang['SETTING_CONDITION'] = 'Activat Unitati/Cladiri/Revolte starea lor in fereastra pop-up.';
- $lang['SETTING_FORUM_SORT'] = 'Activat ultimele postari pe forum pe pagina principala.';
- $lang['SETTING_SORT1'] = 'Activat noile mesaje in partea de sus a forumului.';
- $lang['SETTING_SORT2'] = 'Activat vechile lupte la inceput.';
- $lang['SETTING_NO_BOT_NEWS'] = 'Dezactivat Raportul bataliilor si notificarile cand esti atacat.';
- $lang['SETTING_ALLIES_IN_BATTLE_LIST'] = 'Activat aliatii sa fie vazuti pe campul de lupta si la recompense.';
+$lang['SETTING_NICKNAME'] = 'WarQuest nume';
+$lang['SETTING_TWITTER'] = 'Twitter account';
+$lang['SETTING_LANGUAGE'] = 'Limba';
+$lang['SETTING_BACKGROUND'] = "Fundal";
+$lang['SETTING_SOUND'] = 'Sunet activat(Experimental)';
+$lang['SETTING_BOUNTY'] = 'Activat cand se pune recompensa pe capul tau.';
+$lang['SETTING_RESTORE'] = 'Activat regenerare & reparatie confirmare.';
+$lang['SETTING_CONDITION'] = 'Activat Unitati/Cladiri/Revolte starea lor in fereastra pop-up.';
+$lang['SETTING_FORUM_SORT'] = 'Activat ultimele postari pe forum pe pagina principala.';
+$lang['SETTING_SORT1'] = 'Activat noile mesaje in partea de sus a forumului.';
+$lang['SETTING_SORT2'] = 'Activat vechile lupte la inceput.';
+$lang['SETTING_NO_BOT_NEWS'] = 'Dezactivat Raportul bataliilor si notificarile cand esti atacat.';
+$lang['SETTING_ALLIES_IN_BATTLE_LIST'] = 'Activat aliatii sa fie vazuti pe campul de lupta si la recompense.';
 
- $lang['PLAYER_LANG_ENGLISH'] = 'Engleza';
- $lang['PLAYER_LANG_DUTCH'] = 'Daneza';
- $lang['PLAYER_LANG_GERMAN'] = 'Germana';
- $lang['PLAYER_LANG_ITALIAN'] = 'Italiana';
+$lang['PLAYER_LANG_ENGLISH'] = 'Engleza';
+$lang['PLAYER_LANG_DUTCH'] = 'Daneza';
+$lang['PLAYER_LANG_GERMAN'] = 'Germana';
+$lang['PLAYER_LANG_ITALIAN'] = 'Italiana';
 
- $lang['BACKGROUND_0'] = 'Black';
- $lang['BACKGROUND_1'] = 'Army Green';
- $lang['BACKGROUND_2'] = 'Red Aurora';
- $lang['BACKGROUND_3'] = 'Gray Stones';
- $lang['BACKGROUND_4'] = 'Pink Circles';
- $lang['BACKGROUND_5'] = 'Blue Silk';
- $lang['BACKGROUND_6'] = 'Brown';
- $lang['BACKGROUND_7'] = 'Pirate';
- $lang['BACKGROUND_8'] = 'Modern';
- $lang['BACKGROUND_9'] = 'Classic';
- $lang['BACKGROUND_10'] = 'Chocolate';
- $lang['BACKGROUND_11'] = 'Christmas';
- $lang['BACKGROUND_12'] = 'Fireworks';
+$lang['BACKGROUND_0'] = 'Black';
+$lang['BACKGROUND_1'] = 'Army Green';
+$lang['BACKGROUND_2'] = 'Red Aurora';
+$lang['BACKGROUND_3'] = 'Gray Stones';
+$lang['BACKGROUND_4'] = 'Pink Circles';
+$lang['BACKGROUND_5'] = 'Blue Silk';
+$lang['BACKGROUND_6'] = 'Brown';
+$lang['BACKGROUND_7'] = 'Pirate';
+$lang['BACKGROUND_8'] = 'Modern';
+$lang['BACKGROUND_9'] = 'Classic';
+$lang['BACKGROUND_10'] = 'Chocolate';
+$lang['BACKGROUND_11'] = 'Christmas';
+$lang['BACKGROUND_12'] = 'Fireworks';
 
- $lang['PLAYER_GENERAL_CHANGED'] = 'Setarile generale schimbate!';
- $lang['NICKNAME_EXIST'] = 'Nickname-ul este deja luat!';
- $lang['NICKNAME_TO_SHORT'] = 'Nickname-ul trebuie sa iaba minim 4 caractere!';
- $lang['NICKNAME_NO_SPACE'] = 'Fara spatiu la nickname!';
+$lang['PLAYER_GENERAL_CHANGED'] = 'Setarile generale schimbate!';
+$lang['NICKNAME_EXIST'] = 'Nickname-ul este deja luat!';
+$lang['NICKNAME_TO_SHORT'] = 'Nickname-ul trebuie sa iaba minim 4 caractere!';
+$lang['NICKNAME_NO_SPACE'] = 'Fara spatiu la nickname!';
 
- $lang['PLAYER_CHANGE_EMAIL'] = 'Setari de email';
- $lang['PLAYER_NEW_EMAIL'] = 'Adresa de mail';
- $lang['PLAYER_NOTIFICATION_ALLIANCE'] = 'Notificari despre alianta pe mail';
- $lang['PLAYER_NOTIFICATION_COMMENT'] = 'Mesaje de notificare pe mail';
- $lang['PLAYER_EMAIL_CHANGED'] = 'Setarile de mail schimbate';
- $lang['PLAYER_EMAIL_EXIST'] = 'Adresa de mail deja inregistrata!';
- $lang['PLAYER_EMAIL_INVALID'] = 'Adresa de mail este invalida(format necunoscut)!';
+$lang['PLAYER_CHANGE_EMAIL'] = 'Setari de email';
+$lang['PLAYER_NEW_EMAIL'] = 'Adresa de mail';
+$lang['PLAYER_NOTIFICATION_ALLIANCE'] = 'Notificari despre alianta pe mail';
+$lang['PLAYER_NOTIFICATION_COMMENT'] = 'Mesaje de notificare pe mail';
+$lang['PLAYER_EMAIL_CHANGED'] = 'Setarile de mail schimbate';
+$lang['PLAYER_EMAIL_EXIST'] = 'Adresa de mail deja inregistrata!';
+$lang['PLAYER_EMAIL_INVALID'] = 'Adresa de mail este invalida(format necunoscut)!';
 
- $lang['PLAYER_LOGIN_SETTINGS'] = 'Setari de logare';
- $lang['PLAYER_USERNAME'] = 'Username';
- $lang['PLAYER_USERNAME_TO_SHORT'] = 'Username !';
- $lang['PLAYER_USERNAME_ALREADY_EXIST'] = 'Username-ul exista deja!';
- $lang['PLAYER_USERNAME_CHANGED'] = 'Username-ul este schimbat. nu uita sa-l schimbi si in aplicatia mobila si in clienbtul Windows,altfel logarea automata nu va mai fi posibila!';
- $lang['PLAYER_CURRENT_PASSWORD'] = 'Parola curenta'; 
- $lang['PLAYER_NEW_PASSWORD'] = 'Noua parola';
- $lang['PLAYER_PASSWORD_CHANGED'] = 'Parola este schimbata.nu uita sa o schimbi si in aplicatia mobila si in clentul windows altfel logarea automata nu va mai fi posibila!';
- $lang['PLAYER_PASSWORD_NO_MATCH'] = 'parola curenta nu se potriveste!';
- $lang['PLAYER_PASSWORD_TO_SHORT'] = 'noua parola trebuie sa aiba cel putin 6 caractere!';
- $lang['PLAYER_LOGIN_NOTE'] = 'ATENTIUNE:Loghinul automat merge doar daca ai acelasi username si parola si in aplicatia mobila si in clentul windows!'; 
+$lang['PLAYER_LOGIN_SETTINGS'] = 'Setari de logare';
+$lang['PLAYER_USERNAME'] = 'Username';
+$lang['PLAYER_USERNAME_TO_SHORT'] = 'Username !';
+$lang['PLAYER_USERNAME_ALREADY_EXIST'] = 'Username-ul exista deja!';
+$lang['PLAYER_USERNAME_CHANGED'] = 'Username-ul este schimbat. nu uita sa-l schimbi si in aplicatia mobila si in clienbtul Windows,altfel logarea automata nu va mai fi posibila!';
+$lang['PLAYER_CURRENT_PASSWORD'] = 'Parola curenta'; 
+$lang['PLAYER_NEW_PASSWORD'] = 'Noua parola';
+$lang['PLAYER_PASSWORD_CHANGED'] = 'Parola este schimbata.nu uita sa o schimbi si in aplicatia mobila si in clentul windows altfel logarea automata nu va mai fi posibila!';
+$lang['PLAYER_PASSWORD_NO_MATCH'] = 'parola curenta nu se potriveste!';
+$lang['PLAYER_PASSWORD_TO_SHORT'] = 'noua parola trebuie sa aiba cel putin 6 caractere!';
+$lang['PLAYER_LOGIN_NOTE'] = 'ATENTIUNE:Loghinul automat merge doar daca ai acelasi username si parola si in aplicatia mobila si in clentul windows!'; 
 
- $lang['SETTING_ACCOUNT_RESET_TITLE'] = 'cont resetat';
- $lang['SETTING_YES'] = 'Da';
- $lang['SETTING_SURE'] = 'cont resetat! Esti sigur?';
- $lang['SETTING_ACCOUNT_RESET'] = 'Activezi resetarea contului? ';
- $lang['SETTING_NO_REVERSE'] = '(actiunea de resetare a contului nu este reversibila!)';
- $lang['SETTING_ACCOUNT_RESET_NOTE'] = 'WARNING:Cand contul tau este resetat toatul etse resetat la 0 inclusiv unitati cladiri etc';
- $lang['SETTING_ACCOUNT_RESETTED'] = 'contul jucatorului %s este resetat!';
+$lang['SETTING_ACCOUNT_RESET_TITLE'] = 'cont resetat';
+$lang['SETTING_YES'] = 'Da';
+$lang['SETTING_SURE'] = 'cont resetat! Esti sigur?';
+$lang['SETTING_ACCOUNT_RESET'] = 'Activezi resetarea contului? ';
+$lang['SETTING_NO_REVERSE'] = '(actiunea de resetare a contului nu este reversibila!)';
+$lang['SETTING_ACCOUNT_RESET_NOTE'] = 'WARNING:Cand contul tau este resetat toatul etse resetat la 0 inclusiv unitati cladiri etc';
+$lang['SETTING_ACCOUNT_RESETTED'] = 'contul jucatorului %s este resetat!';
 
  /*
  ** ------------------
@@ -766,460 +766,460 @@
  */
 
  /* Earth Missions */
- $lang['MISSION_GROUP_0'] = 'Training';
- $lang['MISSION_GROUP_1'] = 'Europe';
- $lang['MISSION_GROUP_2'] = 'N-America';
- $lang['MISSION_GROUP_3'] = 'S-America';
- $lang['MISSION_GROUP_4'] = 'Africa';
- $lang['MISSION_GROUP_5'] = 'N-Asia';
- $lang['MISSION_GROUP_6'] = 'S-Asia';
- $lang['MISSION_GROUP_7'] = 'E-Asia';
- $lang['MISSION_GROUP_8'] = 'Oceania';
- $lang['MISSION_GROUP_9'] = 'Mideast';
+$lang['MISSION_GROUP_0'] = 'Training';
+$lang['MISSION_GROUP_1'] = 'Europe';
+$lang['MISSION_GROUP_2'] = 'N-America';
+$lang['MISSION_GROUP_3'] = 'S-America';
+$lang['MISSION_GROUP_4'] = 'Africa';
+$lang['MISSION_GROUP_5'] = 'N-Asia';
+$lang['MISSION_GROUP_6'] = 'S-Asia';
+$lang['MISSION_GROUP_7'] = 'E-Asia';
+$lang['MISSION_GROUP_8'] = 'Oceania';
+$lang['MISSION_GROUP_9'] = 'Mideast';
 
  /* Moon Missions */
- $lang['MISSION_GROUP_10'] = 'Alpha ';
- $lang['MISSION_GROUP_11'] = 'Beta';
- $lang['MISSION_GROUP_12'] = 'Charlie';
- $lang['MISSION_GROUP_13'] = 'Delta';
- $lang['MISSION_GROUP_14'] = 'Echo';
- $lang['MISSION_GROUP_15'] = 'Foxtrot';
- $lang['MISSION_GROUP_16'] = 'Golf';
- $lang['MISSION_GROUP_17'] = 'Hotel';
- $lang['MISSION_GROUP_18'] = 'India';
+$lang['MISSION_GROUP_10'] = 'Alpha ';
+$lang['MISSION_GROUP_11'] = 'Beta';
+$lang['MISSION_GROUP_12'] = 'Charlie';
+$lang['MISSION_GROUP_13'] = 'Delta';
+$lang['MISSION_GROUP_14'] = 'Echo';
+$lang['MISSION_GROUP_15'] = 'Foxtrot';
+$lang['MISSION_GROUP_16'] = 'Golf';
+$lang['MISSION_GROUP_17'] = 'Hotel';
+$lang['MISSION_GROUP_18'] = 'India';
 
  /* Mars Missions */
- $lang['MISSION_GROUP_20'] = 'Alpaca';
- $lang['MISSION_GROUP_21'] = 'Bison';
- $lang['MISSION_GROUP_22'] = 'Coyote';
- $lang['MISSION_GROUP_23'] = 'Dolphin';
- $lang['MISSION_GROUP_24'] = 'Emu';
- $lang['MISSION_GROUP_25'] = 'Fox';
- $lang['MISSION_GROUP_26'] = 'Giraffe';
- $lang['MISSION_GROUP_27'] = 'Heron';
- $lang['MISSION_GROUP_28'] = 'Iguana';
+$lang['MISSION_GROUP_20'] = 'Alpaca';
+$lang['MISSION_GROUP_21'] = 'Bison';
+$lang['MISSION_GROUP_22'] = 'Coyote';
+$lang['MISSION_GROUP_23'] = 'Dolphin';
+$lang['MISSION_GROUP_24'] = 'Emu';
+$lang['MISSION_GROUP_25'] = 'Fox';
+$lang['MISSION_GROUP_26'] = 'Giraffe';
+$lang['MISSION_GROUP_27'] = 'Heron';
+$lang['MISSION_GROUP_28'] = 'Iguana';
 
  /* mercure Missions */
- $lang['MISSION_GROUP_30'] = 'Alfred';
- $lang['MISSION_GROUP_31'] = 'Benjamin';
- $lang['MISSION_GROUP_32'] = 'Charles';
- $lang['MISSION_GROUP_33'] = 'David';
- $lang['MISSION_GROUP_34'] = 'Edward';
- $lang['MISSION_GROUP_35'] = 'Frederick';
- $lang['MISSION_GROUP_36'] = 'George';
- $lang['MISSION_GROUP_37'] = 'Harry';
- $lang['MISSION_GROUP_38'] = 'Isaac';
+$lang['MISSION_GROUP_30'] = 'Alfred';
+$lang['MISSION_GROUP_31'] = 'Benjamin';
+$lang['MISSION_GROUP_32'] = 'Charles';
+$lang['MISSION_GROUP_33'] = 'David';
+$lang['MISSION_GROUP_34'] = 'Edward';
+$lang['MISSION_GROUP_35'] = 'Frederick';
+$lang['MISSION_GROUP_36'] = 'George';
+$lang['MISSION_GROUP_37'] = 'Harry';
+$lang['MISSION_GROUP_38'] = 'Isaac';
 
  /* Earth */
- $lang['MISSION_0'] = 'Training mission';
- $lang['MISSION_1'] = 'Great Britain Region';
- $lang['MISSION_2'] = 'Benelux';
- $lang['MISSION_3'] = 'France Region ';
- $lang['MISSION_4'] = 'Central Europe';
- $lang['MISSION_5'] = 'Scandinavia';
- $lang['MISSION_6'] = 'East Europe';
- $lang['MISSION_7'] = 'Spain Region';
- $lang['MISSION_8'] = 'South Europe';
+$lang['MISSION_0'] = 'Training mission';
+$lang['MISSION_1'] = 'Great Britain Region';
+$lang['MISSION_2'] = 'Benelux';
+$lang['MISSION_3'] = 'France Region ';
+$lang['MISSION_4'] = 'Central Europe';
+$lang['MISSION_5'] = 'Scandinavia';
+$lang['MISSION_6'] = 'East Europe';
+$lang['MISSION_7'] = 'Spain Region';
+$lang['MISSION_8'] = 'South Europe';
 
- $lang['MISSION_10'] = 'Greenland';
- $lang['MISSION_11'] = 'Canada';
- $lang['MISSION_12'] = 'United States';
- $lang['MISSION_13'] = 'Mexico';
- $lang['MISSION_14'] = 'Guatemala Region';
- $lang['MISSION_15'] = 'Nicaragua Region';
- $lang['MISSION_16'] = 'Cuba Region';
- $lang['MISSION_17'] = 'Caribbean Region';
+$lang['MISSION_10'] = 'Greenland';
+$lang['MISSION_11'] = 'Canada';
+$lang['MISSION_12'] = 'United States';
+$lang['MISSION_13'] = 'Mexico';
+$lang['MISSION_14'] = 'Guatemala Region';
+$lang['MISSION_15'] = 'Nicaragua Region';
+$lang['MISSION_16'] = 'Cuba Region';
+$lang['MISSION_17'] = 'Caribbean Region';
 
- $lang['MISSION_20'] = 'Middle America';
- $lang['MISSION_21'] = 'Ecuador Region';
- $lang['MISSION_22'] = 'Bolivia Region';
- $lang['MISSION_23'] = 'Paraguay Region';
- $lang['MISSION_24'] = 'Chile Region';
- $lang['MISSION_25'] = 'Argentina Region';
- $lang['MISSION_26'] = 'Uruguay Region';
- $lang['MISSION_27'] = 'Brazil Region';
+$lang['MISSION_20'] = 'Middle America';
+$lang['MISSION_21'] = 'Ecuador Region';
+$lang['MISSION_22'] = 'Bolivia Region';
+$lang['MISSION_23'] = 'Paraguay Region';
+$lang['MISSION_24'] = 'Chile Region';
+$lang['MISSION_25'] = 'Argentina Region';
+$lang['MISSION_26'] = 'Uruguay Region';
+$lang['MISSION_27'] = 'Brazil Region';
 
- $lang['MISSION_30'] = 'Algeria Region';
- $lang['MISSION_31'] = 'Egypt Region';
- $lang['MISSION_32'] = 'West Africa Region';
- $lang['MISSION_33'] = 'Central Africa Region';
- $lang['MISSION_34'] = 'East Africa Region';
- $lang['MISSION_35'] = 'Mozambique Region';
- $lang['MISSION_36'] = 'Zimbabwe Region';
- $lang['MISSION_37'] = 'South Africa Region';
+$lang['MISSION_30'] = 'Algeria Region';
+$lang['MISSION_31'] = 'Egypt Region';
+$lang['MISSION_32'] = 'West Africa Region';
+$lang['MISSION_33'] = 'Central Africa Region';
+$lang['MISSION_34'] = 'East Africa Region';
+$lang['MISSION_35'] = 'Mozambique Region';
+$lang['MISSION_36'] = 'Zimbabwe Region';
+$lang['MISSION_37'] = 'South Africa Region';
 
- $lang['MISSION_40'] = 'Russia Region';
- $lang['MISSION_41'] = 'Mongolia Region';
- $lang['MISSION_42'] = 'Kazakhstan Region';
- $lang['MISSION_43'] = 'Uzbekistan Region';
- $lang['MISSION_44'] = 'Tajikistan Region';
- $lang['MISSION_45'] = 'Turkmenistan Region';
- $lang['MISSION_46'] = 'Georgia Region';
- $lang['MISSION_47'] = 'Armenia Region';
+$lang['MISSION_40'] = 'Russia Region';
+$lang['MISSION_41'] = 'Mongolia Region';
+$lang['MISSION_42'] = 'Kazakhstan Region';
+$lang['MISSION_43'] = 'Uzbekistan Region';
+$lang['MISSION_44'] = 'Tajikistan Region';
+$lang['MISSION_45'] = 'Turkmenistan Region';
+$lang['MISSION_46'] = 'Georgia Region';
+$lang['MISSION_47'] = 'Armenia Region';
 
- $lang['MISSION_50'] = 'Iran';
- $lang['MISSION_51'] = 'Afghanistan';
- $lang['MISSION_52'] = 'Pakistan';
- $lang['MISSION_53'] = 'India';
- $lang['MISSION_54'] = 'Nepal';
- $lang['MISSION_55'] = 'Bangladesh Region';
- $lang['MISSION_56'] = 'Thailand Region';
- $lang['MISSION_57'] = 'Laos Region';
+$lang['MISSION_50'] = 'Iran';
+$lang['MISSION_51'] = 'Afghanistan';
+$lang['MISSION_52'] = 'Pakistan';
+$lang['MISSION_53'] = 'India';
+$lang['MISSION_54'] = 'Nepal';
+$lang['MISSION_55'] = 'Bangladesh Region';
+$lang['MISSION_56'] = 'Thailand Region';
+$lang['MISSION_57'] = 'Laos Region';
 
- $lang['MISSION_60'] = 'China';
- $lang['MISSION_61'] = 'North Korea';
- $lang['MISSION_62'] = 'South Korea';
- $lang['MISSION_63'] = 'Japan';
- $lang['MISSION_64'] = 'Taiwan';
- $lang['MISSION_65'] = 'Cambodia Region';
- $lang['MISSION_66'] = 'Vietnam Region';
- $lang['MISSION_67'] = 'Malaysia';
+$lang['MISSION_60'] = 'China';
+$lang['MISSION_61'] = 'North Korea';
+$lang['MISSION_62'] = 'South Korea';
+$lang['MISSION_63'] = 'Japan';
+$lang['MISSION_64'] = 'Taiwan';
+$lang['MISSION_65'] = 'Cambodia Region';
+$lang['MISSION_66'] = 'Vietnam Region';
+$lang['MISSION_67'] = 'Malaysia';
 
- $lang['MISSION_70'] = 'West Indonesia';
- $lang['MISSION_71'] = 'East Indonesia';
- $lang['MISSION_72'] = 'Philippines Region';
- $lang['MISSION_73'] = 'Papua New Guinea';
- $lang['MISSION_74'] = 'Timor';
- $lang['MISSION_75'] = 'North Australia';
- $lang['MISSION_76'] = 'South Australia';
- $lang['MISSION_77'] = 'New Zealand';
+$lang['MISSION_70'] = 'West Indonesia';
+$lang['MISSION_71'] = 'East Indonesia';
+$lang['MISSION_72'] = 'Philippines Region';
+$lang['MISSION_73'] = 'Papua New Guinea';
+$lang['MISSION_74'] = 'Timor';
+$lang['MISSION_75'] = 'North Australia';
+$lang['MISSION_76'] = 'South Australia';
+$lang['MISSION_77'] = 'New Zealand';
 
- $lang['MISSION_80'] = 'Syria';
- $lang['MISSION_81'] = 'Iraq';
- $lang['MISSION_82'] = 'Saudi Arabia';
- $lang['MISSION_83'] = 'Kuwait';
- $lang['MISSION_84'] = 'Yemen Region';
- $lang['MISSION_85'] = 'Oman Region ';
- $lang['MISSION_86'] = 'Jordan';
- $lang['MISSION_87'] = 'Israel';
+$lang['MISSION_80'] = 'Syria';
+$lang['MISSION_81'] = 'Iraq';
+$lang['MISSION_82'] = 'Saudi Arabia';
+$lang['MISSION_83'] = 'Kuwait';
+$lang['MISSION_84'] = 'Yemen Region';
+$lang['MISSION_85'] = 'Oman Region ';
+$lang['MISSION_86'] = 'Jordan';
+$lang['MISSION_87'] = 'Israel';
 
  /* Moon */
- $lang['MISSION_100'] = 'Crater Endymion';
- $lang['MISSION_101'] = 'Crater Franklin';
- $lang['MISSION_102'] = 'Sinus Honoris';
- $lang['MISSION_103'] = 'Mons Fidei';
- $lang['MISSION_104'] = 'Crater Blanc';
- $lang['MISSION_105'] = 'Crater Fesenkov';
- $lang['MISSION_106'] = 'Montes Temporis';
- $lang['MISSION_107'] = 'Crater Darwin';
+$lang['MISSION_100'] = 'Crater Endymion';
+$lang['MISSION_101'] = 'Crater Franklin';
+$lang['MISSION_102'] = 'Sinus Honoris';
+$lang['MISSION_103'] = 'Mons Fidei';
+$lang['MISSION_104'] = 'Crater Blanc';
+$lang['MISSION_105'] = 'Crater Fesenkov';
+$lang['MISSION_106'] = 'Montes Temporis';
+$lang['MISSION_107'] = 'Crater Darwin';
 
- $lang['MISSION_110'] = 'Crater Agnes';
- $lang['MISSION_111'] = 'Mons Andre';
- $lang['MISSION_112'] = 'Vallis Ardeshir';
- $lang['MISSION_113'] = 'Crater Aristoteles';
- $lang['MISSION_114'] = 'Mare Blanc';
- $lang['MISSION_115'] = 'Mons Bradley';
- $lang['MISSION_116'] = 'Vallis Delisle';
- $lang['MISSION_117'] = 'Sinus Dieter';
+$lang['MISSION_110'] = 'Crater Agnes';
+$lang['MISSION_111'] = 'Mons Andre';
+$lang['MISSION_112'] = 'Vallis Ardeshir';
+$lang['MISSION_113'] = 'Crater Aristoteles';
+$lang['MISSION_114'] = 'Mare Blanc';
+$lang['MISSION_115'] = 'Mons Bradley';
+$lang['MISSION_116'] = 'Vallis Delisle';
+$lang['MISSION_117'] = 'Sinus Dieter';
 
- $lang['MISSION_120'] = 'Mons Dilip';
- $lang['MISSION_121'] = 'Mons Esam';
- $lang['MISSION_122'] = 'Crater Albategnius';
- $lang['MISSION_123'] = 'Mons Gruithuisen Delta';
- $lang['MISSION_124'] = 'Mare Gruithuisen Gamma';
- $lang['MISSION_125'] = 'Crater Hansteen';
- $lang['MISSION_126'] = 'Vallis Herodotus';
- $lang['MISSION_127'] = 'Mons Huygens';
+$lang['MISSION_120'] = 'Mons Dilip';
+$lang['MISSION_121'] = 'Mons Esam';
+$lang['MISSION_122'] = 'Crater Albategnius';
+$lang['MISSION_123'] = 'Mons Gruithuisen Delta';
+$lang['MISSION_124'] = 'Mare Gruithuisen Gamma';
+$lang['MISSION_125'] = 'Crater Hansteen';
+$lang['MISSION_126'] = 'Vallis Herodotus';
+$lang['MISSION_127'] = 'Mons Huygens';
 
- $lang['MISSION_130'] = 'Sinus La Hire';
- $lang['MISSION_131'] = 'Mons Maraldi';
- $lang['MISSION_132'] = 'Mons Moro';
- $lang['MISSION_133'] = 'Crater Aristarchus';
- $lang['MISSION_134'] = 'Mons Pico';
- $lang['MISSION_135'] = 'Vallis Piton';
- $lang['MISSION_136'] = 'Sinus Rumker';
- $lang['MISSION_137'] = 'Mons Usov';
+$lang['MISSION_130'] = 'Sinus La Hire';
+$lang['MISSION_131'] = 'Mons Maraldi';
+$lang['MISSION_132'] = 'Mons Moro';
+$lang['MISSION_133'] = 'Crater Aristarchus';
+$lang['MISSION_134'] = 'Mons Pico';
+$lang['MISSION_135'] = 'Vallis Piton';
+$lang['MISSION_136'] = 'Sinus Rumker';
+$lang['MISSION_137'] = 'Mons Usov';
 
- $lang['MISSION_140'] = 'Mons Vinogradov';
- $lang['MISSION_141'] = 'Mons Vitruvius';
- $lang['MISSION_142'] = 'Mons Wolff';
- $lang['MISSION_143'] = 'Montes Agricola';
- $lang['MISSION_144'] = 'Montes Alpes';
- $lang['MISSION_145'] = 'Crater Apenninus';
- $lang['MISSION_146'] = 'Montes Archimedes';
- $lang['MISSION_147'] = 'Montes Carpatus';
+$lang['MISSION_140'] = 'Mons Vinogradov';
+$lang['MISSION_141'] = 'Mons Vitruvius';
+$lang['MISSION_142'] = 'Mons Wolff';
+$lang['MISSION_143'] = 'Montes Agricola';
+$lang['MISSION_144'] = 'Montes Alpes';
+$lang['MISSION_145'] = 'Crater Apenninus';
+$lang['MISSION_146'] = 'Montes Archimedes';
+$lang['MISSION_147'] = 'Montes Carpatus';
 
- $lang['MISSION_150'] = 'Montes Caucasus';
- $lang['MISSION_151'] = 'Mare Cordillera';
- $lang['MISSION_152'] = 'Montes Haemus';
- $lang['MISSION_153'] = 'Crater Harbinger';
- $lang['MISSION_154'] = 'Sinus Pyrenaeus';
- $lang['MISSION_155'] = 'Montes Riphaeus';
- $lang['MISSION_156'] = 'Montes Rook';
- $lang['MISSION_157'] = 'Mare Secchi';
+$lang['MISSION_150'] = 'Montes Caucasus';
+$lang['MISSION_151'] = 'Mare Cordillera';
+$lang['MISSION_152'] = 'Montes Haemus';
+$lang['MISSION_153'] = 'Crater Harbinger';
+$lang['MISSION_154'] = 'Sinus Pyrenaeus';
+$lang['MISSION_155'] = 'Montes Riphaeus';
+$lang['MISSION_156'] = 'Montes Rook';
+$lang['MISSION_157'] = 'Mare Secchi';
 
- $lang['MISSION_160'] = 'Montes Spitzbergen';
- $lang['MISSION_161'] = 'Mare Taurus';
- $lang['MISSION_162'] = 'Sinus Teneriffe';
- $lang['MISSION_163'] = 'Montes Harbinger';
- $lang['MISSION_164'] = 'Vallis Rheita';
- $lang['MISSION_165'] = 'Vallis Baade';
- $lang['MISSION_166'] = 'Crater Bohr';
- $lang['MISSION_167'] = 'Vallis Palitzsch';
+$lang['MISSION_160'] = 'Montes Spitzbergen';
+$lang['MISSION_161'] = 'Mare Taurus';
+$lang['MISSION_162'] = 'Sinus Teneriffe';
+$lang['MISSION_163'] = 'Montes Harbinger';
+$lang['MISSION_164'] = 'Vallis Rheita';
+$lang['MISSION_165'] = 'Vallis Baade';
+$lang['MISSION_166'] = 'Crater Bohr';
+$lang['MISSION_167'] = 'Vallis Palitzsch';
 
- $lang['MISSION_170'] = 'Crater Fecunditatis';
- $lang['MISSION_171'] = 'Mare Australe';
- $lang['MISSION_172'] = 'Montes Orientale';
- $lang['MISSION_173'] = 'Sinus Cognitum';
- $lang['MISSION_174'] = 'Mare Crisium';
- $lang['MISSION_175'] = 'Mons Spumans';
- $lang['MISSION_176'] = 'Montes Tranquillitatis';
- $lang['MISSION_177'] = 'Mare Vaporum';
+$lang['MISSION_170'] = 'Crater Fecunditatis';
+$lang['MISSION_171'] = 'Mare Australe';
+$lang['MISSION_172'] = 'Montes Orientale';
+$lang['MISSION_173'] = 'Sinus Cognitum';
+$lang['MISSION_174'] = 'Mare Crisium';
+$lang['MISSION_175'] = 'Mons Spumans';
+$lang['MISSION_176'] = 'Montes Tranquillitatis';
+$lang['MISSION_177'] = 'Mare Vaporum';
 
- $lang['MISSION_180'] = 'Crater Aestatis';
- $lang['MISSION_181'] = 'Lacus Bonitatis';
- $lang['MISSION_182'] = 'Montes Felicitatis';
- $lang['MISSION_183'] = 'Sinus Luxuriae';
- $lang['MISSION_184'] = 'Lacus Oblivionis';
- $lang['MISSION_185'] = 'Mons Solitudinis';
- $lang['MISSION_186'] = 'Montes Temporis';
- $lang['MISSION_187'] = 'Crater Timoris';
+$lang['MISSION_180'] = 'Crater Aestatis';
+$lang['MISSION_181'] = 'Lacus Bonitatis';
+$lang['MISSION_182'] = 'Montes Felicitatis';
+$lang['MISSION_183'] = 'Sinus Luxuriae';
+$lang['MISSION_184'] = 'Lacus Oblivionis';
+$lang['MISSION_185'] = 'Mons Solitudinis';
+$lang['MISSION_186'] = 'Montes Temporis';
+$lang['MISSION_187'] = 'Crater Timoris';
 
  /* Mars */
- $lang['MISSION_200'] = 'Crater Al-Qahira';
- $lang['MISSION_201'] = 'Sinus Ares';
- $lang['MISSION_202'] = 'Vallis Auqakuh';
- $lang['MISSION_203'] = 'Crater Bahram';
- $lang['MISSION_204'] = 'Mare Harmakhis';
- $lang['MISSION_205'] = 'Mons Her Desher';
- $lang['MISSION_206'] = 'Sinus Hrad';
- $lang['MISSION_207'] = 'Vallis Huo Hsing';
+$lang['MISSION_200'] = 'Crater Al-Qahira';
+$lang['MISSION_201'] = 'Sinus Ares';
+$lang['MISSION_202'] = 'Vallis Auqakuh';
+$lang['MISSION_203'] = 'Crater Bahram';
+$lang['MISSION_204'] = 'Mare Harmakhis';
+$lang['MISSION_205'] = 'Mons Her Desher';
+$lang['MISSION_206'] = 'Sinus Hrad';
+$lang['MISSION_207'] = 'Vallis Huo Hsing';
 
- $lang['MISSION_210'] = 'Mons Kasei';
- $lang['MISSION_211'] = 'Mare Labou';
- $lang['MISSION_212'] = 'Vallis Maadim';
- $lang['MISSION_213'] = 'Crater Maja';
- $lang['MISSION_214'] = 'Sinus Mamers';
- $lang['MISSION_215'] = 'Vallis Mangala';
- $lang['MISSION_216'] = 'Crater Marte';
- $lang['MISSION_217'] = 'Mare Mawrth';
+$lang['MISSION_210'] = 'Mons Kasei';
+$lang['MISSION_211'] = 'Mare Labou';
+$lang['MISSION_212'] = 'Vallis Maadim';
+$lang['MISSION_213'] = 'Crater Maja';
+$lang['MISSION_214'] = 'Sinus Mamers';
+$lang['MISSION_215'] = 'Vallis Mangala';
+$lang['MISSION_216'] = 'Crater Marte';
+$lang['MISSION_217'] = 'Mare Mawrth';
 
- $lang['MISSION_220'] = 'Crater Nirgal';
- $lang['MISSION_221'] = 'Vallis Shalbatana';
- $lang['MISSION_222'] = 'Crater Simud';
- $lang['MISSION_223'] = 'Sinus Tiu';
- $lang['MISSION_224'] = 'Vallis Aloysius';
- $lang['MISSION_225'] = 'Crater Ambrosius';
- $lang['MISSION_226'] = 'Mare Barnabas';
- $lang['MISSION_227'] = 'Mare Constantia';
+$lang['MISSION_220'] = 'Crater Nirgal';
+$lang['MISSION_221'] = 'Vallis Shalbatana';
+$lang['MISSION_222'] = 'Crater Simud';
+$lang['MISSION_223'] = 'Sinus Tiu';
+$lang['MISSION_224'] = 'Vallis Aloysius';
+$lang['MISSION_225'] = 'Crater Ambrosius';
+$lang['MISSION_226'] = 'Mare Barnabas';
+$lang['MISSION_227'] = 'Mare Constantia';
 
- $lang['MISSION_230'] = 'Vallis Edmondus';
- $lang['MISSION_231'] = 'Mare Eustachius';
- $lang['MISSION_232'] = 'Crater Georgius';
- $lang['MISSION_233'] = 'Sinus Griselda';
- $lang['MISSION_234'] = 'Vallis Gualterius';
- $lang['MISSION_235'] = 'Crater Homfridus';
- $lang['MISSION_236'] = 'Mare Henricus';
- $lang['MISSION_237'] = 'Crater Guglielmus';
+$lang['MISSION_230'] = 'Vallis Edmondus';
+$lang['MISSION_231'] = 'Mare Eustachius';
+$lang['MISSION_232'] = 'Crater Georgius';
+$lang['MISSION_233'] = 'Sinus Griselda';
+$lang['MISSION_234'] = 'Vallis Gualterius';
+$lang['MISSION_235'] = 'Crater Homfridus';
+$lang['MISSION_236'] = 'Mare Henricus';
+$lang['MISSION_237'] = 'Crater Guglielmus';
 
- $lang['MISSION_240'] = 'Mare Janetta';
- $lang['MISSION_241'] = 'Vallis Jerominus';
- $lang['MISSION_242'] = 'Crater Josephus';
- $lang['MISSION_243'] = 'Mare Leonardus';
- $lang['MISSION_244'] = 'Sinus Mauritius';
- $lang['MISSION_245'] = 'Crater Nicholaus';
- $lang['MISSION_246'] = 'Vallis Laurentius';
- $lang['MISSION_247'] = 'Mons Octavius';
+$lang['MISSION_240'] = 'Mare Janetta';
+$lang['MISSION_241'] = 'Vallis Jerominus';
+$lang['MISSION_242'] = 'Crater Josephus';
+$lang['MISSION_243'] = 'Mare Leonardus';
+$lang['MISSION_244'] = 'Sinus Mauritius';
+$lang['MISSION_245'] = 'Crater Nicholaus';
+$lang['MISSION_246'] = 'Vallis Laurentius';
+$lang['MISSION_247'] = 'Mons Octavius';
 
- $lang['MISSION_250'] = 'Crater Misericordia';
- $lang['MISSION_251'] = 'Vallis Petronella';
- $lang['MISSION_252'] = 'Sinus Sylvanus';
- $lang['MISSION_253'] = 'Crater Reginaldus';
- $lang['MISSION_254'] = 'Vallis Adeipho';
- $lang['MISSION_255'] = 'Sinus Randulphus';
- $lang['MISSION_256'] = 'Crater Xpofer';
- $lang['MISSION_257'] = 'Mare Aegidius';
+$lang['MISSION_250'] = 'Crater Misericordia';
+$lang['MISSION_251'] = 'Vallis Petronella';
+$lang['MISSION_252'] = 'Sinus Sylvanus';
+$lang['MISSION_253'] = 'Crater Reginaldus';
+$lang['MISSION_254'] = 'Vallis Adeipho';
+$lang['MISSION_255'] = 'Sinus Randulphus';
+$lang['MISSION_256'] = 'Crater Xpofer';
+$lang['MISSION_257'] = 'Mare Aegidius';
 
- $lang['MISSION_260'] = 'Sinus Aeneas';
- $lang['MISSION_261'] = 'Crater Philipus';
- $lang['MISSION_262'] = 'Sinus Beniaminus';
- $lang['MISSION_263'] = 'Vallis Rosamundi';
- $lang['MISSION_264'] = 'Mons Peregrinus';
- $lang['MISSION_265'] = 'Mare Xtianus';
- $lang['MISSION_266'] = 'Vallis Crispianus';
- $lang['MISSION_267'] = 'Crater Clementia';
+$lang['MISSION_260'] = 'Sinus Aeneas';
+$lang['MISSION_261'] = 'Crater Philipus';
+$lang['MISSION_262'] = 'Sinus Beniaminus';
+$lang['MISSION_263'] = 'Vallis Rosamundi';
+$lang['MISSION_264'] = 'Mons Peregrinus';
+$lang['MISSION_265'] = 'Mare Xtianus';
+$lang['MISSION_266'] = 'Vallis Crispianus';
+$lang['MISSION_267'] = 'Crater Clementia';
 
- $lang['MISSION_270'] = 'Vallis Elizabeta';
- $lang['MISSION_271'] = 'Crater Xtopher';
- $lang['MISSION_272'] = 'Mare Placentia';
- $lang['MISSION_273'] = 'Sinus Gaufridus';
- $lang['MISSION_274'] = 'Crater Stephanus';
- $lang['MISSION_275'] = 'Vallis Xpianus ';
- $lang['MISSION_276'] = 'Mare Girardus';
- $lang['MISSION_277'] = 'Crater Radulphus';
+$lang['MISSION_270'] = 'Vallis Elizabeta';
+$lang['MISSION_271'] = 'Crater Xtopher';
+$lang['MISSION_272'] = 'Mare Placentia';
+$lang['MISSION_273'] = 'Sinus Gaufridus';
+$lang['MISSION_274'] = 'Crater Stephanus';
+$lang['MISSION_275'] = 'Vallis Xpianus ';
+$lang['MISSION_276'] = 'Mare Girardus';
+$lang['MISSION_277'] = 'Crater Radulphus';
 
- $lang['MISSION_280'] = 'Crater Xtopherus';
- $lang['MISSION_281'] = 'Vallis Terentius';
- $lang['MISSION_282'] = 'Mons Eamnonn';
- $lang['MISSION_283'] = 'Crater Kadisha';
- $lang['MISSION_284'] = 'Mare Kachine';
- $lang['MISSION_285'] = 'Vallis Oddvar';
- $lang['MISSION_286'] = 'Sinus Radborne';
- $lang['MISSION_287'] = 'Crater Ebenezer';
+$lang['MISSION_280'] = 'Crater Xtopherus';
+$lang['MISSION_281'] = 'Vallis Terentius';
+$lang['MISSION_282'] = 'Mons Eamnonn';
+$lang['MISSION_283'] = 'Crater Kadisha';
+$lang['MISSION_284'] = 'Mare Kachine';
+$lang['MISSION_285'] = 'Vallis Oddvar';
+$lang['MISSION_286'] = 'Sinus Radborne';
+$lang['MISSION_287'] = 'Crater Ebenezer';
 
  /* mercure */
- $lang['MISSION_300'] = 'Crater Albococcinea';
- $lang['MISSION_301'] = 'Sinus argentea';
- $lang['MISSION_302'] = 'Vallis Atrococcinea';
- $lang['MISSION_303'] = 'Crater Colorans';
- $lang['MISSION_304'] = 'Mare Cardinalis';
- $lang['MISSION_305'] = 'Mons Brunnea';
- $lang['MISSION_306'] = 'Sinus Chlorantha';
- $lang['MISSION_307'] = 'Vallis Erythrocarpa';
+$lang['MISSION_300'] = 'Crater Albococcinea';
+$lang['MISSION_301'] = 'Sinus argentea';
+$lang['MISSION_302'] = 'Vallis Atrococcinea';
+$lang['MISSION_303'] = 'Crater Colorans';
+$lang['MISSION_304'] = 'Mare Cardinalis';
+$lang['MISSION_305'] = 'Mons Brunnea';
+$lang['MISSION_306'] = 'Sinus Chlorantha';
+$lang['MISSION_307'] = 'Vallis Erythrocarpa';
 
- $lang['MISSION_310'] = 'Mons Ferruginea';
- $lang['MISSION_311'] = 'Mare Colorans';
- $lang['MISSION_312'] = 'Vallis Aurea';
- $lang['MISSION_313'] = 'Crater Atrovirens';
- $lang['MISSION_314'] = 'Sinus lutescens';
- $lang['MISSION_315'] = 'Vallis Maculata';
- $lang['MISSION_316'] = 'Crater Nigrescens';
- $lang['MISSION_317'] = 'Mare Punicea';
+$lang['MISSION_310'] = 'Mons Ferruginea';
+$lang['MISSION_311'] = 'Mare Colorans';
+$lang['MISSION_312'] = 'Vallis Aurea';
+$lang['MISSION_313'] = 'Crater Atrovirens';
+$lang['MISSION_314'] = 'Sinus lutescens';
+$lang['MISSION_315'] = 'Vallis Maculata';
+$lang['MISSION_316'] = 'Crater Nigrescens';
+$lang['MISSION_317'] = 'Mare Punicea';
 
- $lang['MISSION_320'] = 'Crater Rosea';
- $lang['MISSION_321'] = 'Vallis Rubiginosa';
- $lang['MISSION_322'] = 'Crater Tinctoria';
- $lang['MISSION_323'] = 'Sinus Sulphurea';
- $lang['MISSION_324'] = 'Vallis Sempervirens';
- $lang['MISSION_325'] = 'Crater Rubicunda';
- $lang['MISSION_326'] = 'Mare Variegata';
- $lang['MISSION_327'] = 'Mare Versicolor';
+$lang['MISSION_320'] = 'Crater Rosea';
+$lang['MISSION_321'] = 'Vallis Rubiginosa';
+$lang['MISSION_322'] = 'Crater Tinctoria';
+$lang['MISSION_323'] = 'Sinus Sulphurea';
+$lang['MISSION_324'] = 'Vallis Sempervirens';
+$lang['MISSION_325'] = 'Crater Rubicunda';
+$lang['MISSION_326'] = 'Mare Variegata';
+$lang['MISSION_327'] = 'Mare Versicolor';
 
- $lang['MISSION_330'] = 'Vallis Vinosa';
- $lang['MISSION_331'] = 'Mare Viridescens';
- $lang['MISSION_332'] = 'Crater Citrodora';
- $lang['MISSION_333'] = 'Sinus Foetidissima';
- $lang['MISSION_334'] = 'Vallis Gravaeolens';
- $lang['MISSION_335'] = 'Crater Odorata';
- $lang['MISSION_336'] = 'Mare Suaveolens';
- $lang['MISSION_337'] = 'Crater Ursina';
+$lang['MISSION_330'] = 'Vallis Vinosa';
+$lang['MISSION_331'] = 'Mare Viridescens';
+$lang['MISSION_332'] = 'Crater Citrodora';
+$lang['MISSION_333'] = 'Sinus Foetidissima';
+$lang['MISSION_334'] = 'Vallis Gravaeolens';
+$lang['MISSION_335'] = 'Crater Odorata';
+$lang['MISSION_336'] = 'Mare Suaveolens';
+$lang['MISSION_337'] = 'Crater Ursina';
 
- $lang['MISSION_340'] = 'Mare Amabile';
- $lang['MISSION_341'] = 'Vallis Praecox ';
- $lang['MISSION_342'] = 'Crater Bella';
- $lang['MISSION_343'] = 'Mare Amoena';
- $lang['MISSION_344'] = 'Sinus Gracilis';
- $lang['MISSION_345'] = 'Crater Formosa';
- $lang['MISSION_346'] = 'Vallis Fragilis';
- $lang['MISSION_347'] = 'Mons Foeniculaceus';
+$lang['MISSION_340'] = 'Mare Amabile';
+$lang['MISSION_341'] = 'Vallis Praecox ';
+$lang['MISSION_342'] = 'Crater Bella';
+$lang['MISSION_343'] = 'Mare Amoena';
+$lang['MISSION_344'] = 'Sinus Gracilis';
+$lang['MISSION_345'] = 'Crater Formosa';
+$lang['MISSION_346'] = 'Vallis Fragilis';
+$lang['MISSION_347'] = 'Mons Foeniculaceus';
 
- $lang['MISSION_350'] = 'Crater Blanda';
- $lang['MISSION_351'] = 'Vallis Elegantissima';
- $lang['MISSION_352'] = 'Sinus Imperialis';
- $lang['MISSION_353'] = 'Crater Splendens';
- $lang['MISSION_354'] = 'Vallis Superba';
- $lang['MISSION_355'] = 'Sinus Magnifica';
- $lang['MISSION_356'] = 'Crater Campestris';
- $lang['MISSION_357'] = 'Mare Collina';
+$lang['MISSION_350'] = 'Crater Blanda';
+$lang['MISSION_351'] = 'Vallis Elegantissima';
+$lang['MISSION_352'] = 'Sinus Imperialis';
+$lang['MISSION_353'] = 'Crater Splendens';
+$lang['MISSION_354'] = 'Vallis Superba';
+$lang['MISSION_355'] = 'Sinus Magnifica';
+$lang['MISSION_356'] = 'Crater Campestris';
+$lang['MISSION_357'] = 'Mare Collina';
 
- $lang['MISSION_360'] = 'Sinus Insignis';
- $lang['MISSION_361'] = 'Crater Peregrina';
- $lang['MISSION_362'] = 'Sinus Mutabilis';
- $lang['MISSION_363'] = 'Vallis Spectabilis';
- $lang['MISSION_364'] = 'Mons Thermalis';
- $lang['MISSION_365'] = 'Mare Gracilis';
- $lang['MISSION_366'] = 'Vallis Sinensis';
- $lang['MISSION_367'] = 'Crater Pratensis';
+$lang['MISSION_360'] = 'Sinus Insignis';
+$lang['MISSION_361'] = 'Crater Peregrina';
+$lang['MISSION_362'] = 'Sinus Mutabilis';
+$lang['MISSION_363'] = 'Vallis Spectabilis';
+$lang['MISSION_364'] = 'Mons Thermalis';
+$lang['MISSION_365'] = 'Mare Gracilis';
+$lang['MISSION_366'] = 'Vallis Sinensis';
+$lang['MISSION_367'] = 'Crater Pratensis';
 
- $lang['MISSION_370'] = 'Vallis Mirabilis';
- $lang['MISSION_371'] = 'Crater Umbrosa ';
- $lang['MISSION_372'] = 'Mare Paradoxas';
- $lang['MISSION_373'] = 'Sinus Pulchella';
- $lang['MISSION_374'] = 'Crater Floribunda';
- $lang['MISSION_375'] = 'Vallis Microphylla';
- $lang['MISSION_376'] = 'Mare Parviflora';
- $lang['MISSION_377'] = 'Crater Venusta';
+$lang['MISSION_370'] = 'Vallis Mirabilis';
+$lang['MISSION_371'] = 'Crater Umbrosa ';
+$lang['MISSION_372'] = 'Mare Paradoxas';
+$lang['MISSION_373'] = 'Sinus Pulchella';
+$lang['MISSION_374'] = 'Crater Floribunda';
+$lang['MISSION_375'] = 'Vallis Microphylla';
+$lang['MISSION_376'] = 'Mare Parviflora';
+$lang['MISSION_377'] = 'Crater Venusta';
 
- $lang['MISSION_380'] = 'Crater Monstrosus';
- $lang['MISSION_381'] = 'Vallis Septentrionalis';
- $lang['MISSION_382'] = 'Mons Occidentalis';
- $lang['MISSION_383'] = 'Crater Pulcherrima';
- $lang['MISSION_384'] = 'Mare Spectabilis';
- $lang['MISSION_385'] = 'Vallis Regia';
- $lang['MISSION_386'] = 'Sinus Macrantha';
- $lang['MISSION_387'] = 'Crater Caespitosa';
+$lang['MISSION_380'] = 'Crater Monstrosus';
+$lang['MISSION_381'] = 'Vallis Septentrionalis';
+$lang['MISSION_382'] = 'Mons Occidentalis';
+$lang['MISSION_383'] = 'Crater Pulcherrima';
+$lang['MISSION_384'] = 'Mare Spectabilis';
+$lang['MISSION_385'] = 'Vallis Regia';
+$lang['MISSION_386'] = 'Sinus Macrantha';
+$lang['MISSION_387'] = 'Crater Caespitosa';
 
  /* Soare */
- $lang['MISSION_400'] = 'Crater Albococcinea';
- $lang['MISSION_401'] = 'Sinus argentea';
- $lang['MISSION_402'] = 'Vallis Atrococcinea';
- $lang['MISSION_403'] = 'Crater Colorans';
- $lang['MISSION_404'] = 'Mare Cardinalis';
- $lang['MISSION_405'] = 'Mons Brunnea';
- $lang['MISSION_406'] = 'Sinus Chlorantha';
- $lang['MISSION_407'] = 'Vallis Erythrocarpa';
+$lang['MISSION_400'] = 'Crater Albococcinea';
+$lang['MISSION_401'] = 'Sinus argentea';
+$lang['MISSION_402'] = 'Vallis Atrococcinea';
+$lang['MISSION_403'] = 'Crater Colorans';
+$lang['MISSION_404'] = 'Mare Cardinalis';
+$lang['MISSION_405'] = 'Mons Brunnea';
+$lang['MISSION_406'] = 'Sinus Chlorantha';
+$lang['MISSION_407'] = 'Vallis Erythrocarpa';
 
- $lang['MISSION_410'] = 'Mons Ferruginea';
- $lang['MISSION_411'] = 'Mare Colorans';
- $lang['MISSION_412'] = 'Vallis Aurea';
- $lang['MISSION_413'] = 'Crater Atrovirens';
- $lang['MISSION_414'] = 'Sinus lutescens';
- $lang['MISSION_415'] = 'Vallis Maculata';
- $lang['MISSION_416'] = 'Crater Nigrescens';
- $lang['MISSION_417'] = 'Mare Punicea';
+$lang['MISSION_410'] = 'Mons Ferruginea';
+$lang['MISSION_411'] = 'Mare Colorans';
+$lang['MISSION_412'] = 'Vallis Aurea';
+$lang['MISSION_413'] = 'Crater Atrovirens';
+$lang['MISSION_414'] = 'Sinus lutescens';
+$lang['MISSION_415'] = 'Vallis Maculata';
+$lang['MISSION_416'] = 'Crater Nigrescens';
+$lang['MISSION_417'] = 'Mare Punicea';
 
- $lang['MISSION_420'] = 'Crater Rosea';
- $lang['MISSION_421'] = 'Vallis Rubiginosa';
- $lang['MISSION_422'] = 'Crater Tinctoria';
- $lang['MISSION_423'] = 'Sinus Sulphurea';
- $lang['MISSION_424'] = 'Vallis Sempervirens';
- $lang['MISSION_425'] = 'Crater Rubicunda';
- $lang['MISSION_426'] = 'Mare Variegata';
- $lang['MISSION_427'] = 'Mare Versicolor';
+$lang['MISSION_420'] = 'Crater Rosea';
+$lang['MISSION_421'] = 'Vallis Rubiginosa';
+$lang['MISSION_422'] = 'Crater Tinctoria';
+$lang['MISSION_423'] = 'Sinus Sulphurea';
+$lang['MISSION_424'] = 'Vallis Sempervirens';
+$lang['MISSION_425'] = 'Crater Rubicunda';
+$lang['MISSION_426'] = 'Mare Variegata';
+$lang['MISSION_427'] = 'Mare Versicolor';
 
- $lang['MISSION_430'] = 'Vallis Vinosa';
- $lang['MISSION_431'] = 'Mare Viridescens';
- $lang['MISSION_432'] = 'Crater Citrodora';
- $lang['MISSION_433'] = 'Sinus Foetidissima';
- $lang['MISSION_434'] = 'Vallis Gravaeolens';
- $lang['MISSION_435'] = 'Crater Odorata';
- $lang['MISSION_436'] = 'Mare Suaveolens';
- $lang['MISSION_437'] = 'Crater Ursina';
+$lang['MISSION_430'] = 'Vallis Vinosa';
+$lang['MISSION_431'] = 'Mare Viridescens';
+$lang['MISSION_432'] = 'Crater Citrodora';
+$lang['MISSION_433'] = 'Sinus Foetidissima';
+$lang['MISSION_434'] = 'Vallis Gravaeolens';
+$lang['MISSION_435'] = 'Crater Odorata';
+$lang['MISSION_436'] = 'Mare Suaveolens';
+$lang['MISSION_437'] = 'Crater Ursina';
 
- $lang['MISSION_440'] = 'Mare Amabile';
- $lang['MISSION_441'] = 'Vallis Praecox ';
- $lang['MISSION_442'] = 'Crater Bella';
- $lang['MISSION_443'] = 'Mare Amoena';
- $lang['MISSION_444'] = 'Sinus Gracilis';
- $lang['MISSION_445'] = 'Crater Formosa';
- $lang['MISSION_446'] = 'Vallis Fragilis';
- $lang['MISSION_447'] = 'Mons Foeniculaceus';
+$lang['MISSION_440'] = 'Mare Amabile';
+$lang['MISSION_441'] = 'Vallis Praecox ';
+$lang['MISSION_442'] = 'Crater Bella';
+$lang['MISSION_443'] = 'Mare Amoena';
+$lang['MISSION_444'] = 'Sinus Gracilis';
+$lang['MISSION_445'] = 'Crater Formosa';
+$lang['MISSION_446'] = 'Vallis Fragilis';
+$lang['MISSION_447'] = 'Mons Foeniculaceus';
 
- $lang['MISSION_450'] = 'Crater Blanda';
- $lang['MISSION_451'] = 'Vallis Elegantissima';
- $lang['MISSION_452'] = 'Sinus Imperialis';
- $lang['MISSION_453'] = 'Crater Splendens';
- $lang['MISSION_454'] = 'Vallis Superba';
- $lang['MISSION_455'] = 'Sinus Magnifica';
- $lang['MISSION_456'] = 'Crater Campestris';
- $lang['MISSION_457'] = 'Mare Collina';
+$lang['MISSION_450'] = 'Crater Blanda';
+$lang['MISSION_451'] = 'Vallis Elegantissima';
+$lang['MISSION_452'] = 'Sinus Imperialis';
+$lang['MISSION_453'] = 'Crater Splendens';
+$lang['MISSION_454'] = 'Vallis Superba';
+$lang['MISSION_455'] = 'Sinus Magnifica';
+$lang['MISSION_456'] = 'Crater Campestris';
+$lang['MISSION_457'] = 'Mare Collina';
 
- $lang['MISSION_460'] = 'Sinus Insignis';
- $lang['MISSION_461'] = 'Crater Peregrina';
- $lang['MISSION_462'] = 'Sinus Mutabilis';
- $lang['MISSION_463'] = 'Vallis Spectabilis';
- $lang['MISSION_464'] = 'Mons Thermalis';
- $lang['MISSION_465'] = 'Mare Gracilis';
- $lang['MISSION_466'] = 'Vallis Sinensis';
- $lang['MISSION_467'] = 'Crater Pratensis';
+$lang['MISSION_460'] = 'Sinus Insignis';
+$lang['MISSION_461'] = 'Crater Peregrina';
+$lang['MISSION_462'] = 'Sinus Mutabilis';
+$lang['MISSION_463'] = 'Vallis Spectabilis';
+$lang['MISSION_464'] = 'Mons Thermalis';
+$lang['MISSION_465'] = 'Mare Gracilis';
+$lang['MISSION_466'] = 'Vallis Sinensis';
+$lang['MISSION_467'] = 'Crater Pratensis';
 
- $lang['MISSION_470'] = 'Vallis Mirabilis';
- $lang['MISSION_471'] = 'Crater Umbrosa ';
- $lang['MISSION_472'] = 'Mare Paradoxas';
- $lang['MISSION_473'] = 'Sinus Pulchella';
- $lang['MISSION_474'] = 'Crater Floribunda';
- $lang['MISSION_475'] = 'Vallis Microphylla';
- $lang['MISSION_476'] = 'Mare Parviflora';
- $lang['MISSION_477'] = 'Crater Venusta';
+$lang['MISSION_470'] = 'Vallis Mirabilis';
+$lang['MISSION_471'] = 'Crater Umbrosa ';
+$lang['MISSION_472'] = 'Mare Paradoxas';
+$lang['MISSION_473'] = 'Sinus Pulchella';
+$lang['MISSION_474'] = 'Crater Floribunda';
+$lang['MISSION_475'] = 'Vallis Microphylla';
+$lang['MISSION_476'] = 'Mare Parviflora';
+$lang['MISSION_477'] = 'Crater Venusta';
 
- $lang['MISSION_480'] = 'Crater Monstrosus';
- $lang['MISSION_481'] = 'Vallis Septentrionalis';
- $lang['MISSION_482'] = 'Mons Occidentalis';
- $lang['MISSION_483'] = 'Crater Pulcherrima';
- $lang['MISSION_484'] = 'Mare Spectabilis';
- $lang['MISSION_485'] = 'Vallis Regia';
- $lang['MISSION_486'] = 'Sinus Macrantha';
- $lang['MISSION_487'] = 'Crater Caespitosa';
+$lang['MISSION_480'] = 'Crater Monstrosus';
+$lang['MISSION_481'] = 'Vallis Septentrionalis';
+$lang['MISSION_482'] = 'Mons Occidentalis';
+$lang['MISSION_483'] = 'Crater Pulcherrima';
+$lang['MISSION_484'] = 'Mare Spectabilis';
+$lang['MISSION_485'] = 'Vallis Regia';
+$lang['MISSION_486'] = 'Sinus Macrantha';
+$lang['MISSION_487'] = 'Crater Caespitosa';
 
  /*
  ** ------------------
@@ -1227,39 +1227,39 @@
  ** ------------------
  */
 
- $lang['MISSION_TITLE'] = 'MISIUNI';
+$lang['MISSION_TITLE'] = 'MISIUNI';
 
- $lang['MISSION_NOTE'] = 'Nota: joaca misiunile pentru a castiga bani si experienta necesare avansari in nivele.Cand o misiune este completata 100% vei castiga bani dublu.Daca completezi un continentul %s 100% profitul tau va creste cu %s dolari.';
+$lang['MISSION_NOTE'] = 'Nota: joaca misiunile pentru a castiga bani si experienta necesare avansari in nivele.Cand o misiune este completata 100% vei castiga bani dublu.Daca completezi un continentul %s 100% profitul tau va creste cu %s dolari.';
 
- $lang['MISSION_ALLIANCE_SIZE'] = 'marimea aliantei';
- $lang['MISSION_GAIN'] = 'Castig';
- $lang['MISSION_PART'] = 'Parte';
- $lang['MISSION_REQUIRED'] = 'Necesar';
- $lang['MISSION_UNLOCK'] = 'Deblocabil la nivelul %s';
- $lang['MISSION_CHANCE_LOOT'] = 'Chance of loot';
- $lang['MISSION_YOU_USED'] = 'Ai utilizat';
- $lang['MISSION_YOU_GAIN'] = 'Ai castigat';
- $lang['MISSION_DOLLAR_AND'] = ' dolari si ';
- $lang['MISSION_ABORTED'] = 'Misiune abandonata!';
- $lang['MISSION_NO_ENERGY'] = 'nu ai suficienta energie pentru a completa misiunea.Asteapta cateva minute pentru a ti se incarca energia.';
- $lang['MISSION_LOW_ALLIANCE'] = ' marimea aliantei tale este prea mica pentru a juca aceasta misiune.';
- $lang['MISSION_MISSING_UNITS'] = ' nu ai armata corespunzatoare pentru a inchei aceasta misiune.';
- $lang['MISSION_MISSING_UNITS_PRICE'] = 'Pretul total pentru a cumpara unitatile este de %s dolari. costul pe ora va creste cu %s dolari.';
- $lang['MISSION_UNITS_LOST'] = 'pe timpul acestei misiuni ai pierdut urmatoarele unitati: ';
- $lang['MISSION_LOOT_WON'] = 'ai castigat urmatoarele';
- $lang['MISSION_UNLOCKED'] = 'acum continua cu lupta de antrenament.';
- $lang['MISSION_CONTINTENT_READY1'] = 'Magnific! ai completat partea %s din %s din continentul %s!';
- $lang['MISSION_CONTINTENT_READY2'] = 'Ai primit %s puncte de aptitudine. ';
- $lang['MISSION_CONTINTENT_READY3'] = 'ai completat toate partile. Continua cu urmatorul continent!';
- $lang['MISSION_CONTINTENT_READY4'] = ' continua cu partea %s de pe acest continent!';
- $lang['MISSION_COMPLETE_TEXT'] = 'ai cucerit urmatoarele continente pana acum!';
- $lang['MISSION_REBEL'] = 'Revolta';
- $lang['MISSION_COMPLETE_PLANET_1'] = 'Excellent! Ai completat toate misiunile de pe Pamant. primesti 100 milioane dolari bonus.';
- $lang['MISSION_COMPLETE_PLANET_2'] = 'Excellent! Ai completat toate misiunile de pe Luna. primesti 500 milioane dolari bonus.';
- $lang['MISSION_COMPLETE_PLANET_3'] = 'Excellent! Ai completat toate misiunile de pe Marte. Ai primit 999 billione dolari bonus.';
- $lang['MISSION_COMPLETE_PLANET_4'] = 'Excellent! Ai completat toate misiunile de pe mercure. Primesti 50 puncte de schimb bonus.';
+$lang['MISSION_ALLIANCE_SIZE'] = 'marimea aliantei';
+$lang['MISSION_GAIN'] = 'Castig';
+$lang['MISSION_PART'] = 'Parte';
+$lang['MISSION_REQUIRED'] = 'Necesar';
+$lang['MISSION_UNLOCK'] = 'Deblocabil la nivelul %s';
+$lang['MISSION_CHANCE_LOOT'] = 'Chance of loot';
+$lang['MISSION_YOU_USED'] = 'Ai utilizat';
+$lang['MISSION_YOU_GAIN'] = 'Ai castigat';
+$lang['MISSION_DOLLAR_AND'] = ' dolari si ';
+$lang['MISSION_ABORTED'] = 'Misiune abandonata!';
+$lang['MISSION_NO_ENERGY'] = 'nu ai suficienta energie pentru a completa misiunea.Asteapta cateva minute pentru a ti se incarca energia.';
+$lang['MISSION_LOW_ALLIANCE'] = ' marimea aliantei tale este prea mica pentru a juca aceasta misiune.';
+$lang['MISSION_MISSING_UNITS'] = ' nu ai armata corespunzatoare pentru a inchei aceasta misiune.';
+$lang['MISSION_MISSING_UNITS_PRICE'] = 'Pretul total pentru a cumpara unitatile este de %s dolari. costul pe ora va creste cu %s dolari.';
+$lang['MISSION_UNITS_LOST'] = 'pe timpul acestei misiuni ai pierdut urmatoarele unitati: ';
+$lang['MISSION_LOOT_WON'] = 'ai castigat urmatoarele';
+$lang['MISSION_UNLOCKED'] = 'acum continua cu lupta de antrenament.';
+$lang['MISSION_CONTINTENT_READY1'] = 'Magnific! ai completat partea %s din %s din continentul %s!';
+$lang['MISSION_CONTINTENT_READY2'] = 'Ai primit %s puncte de aptitudine. ';
+$lang['MISSION_CONTINTENT_READY3'] = 'ai completat toate partile. Continua cu urmatorul continent!';
+$lang['MISSION_CONTINTENT_READY4'] = ' continua cu partea %s de pe acest continent!';
+$lang['MISSION_COMPLETE_TEXT'] = 'ai cucerit urmatoarele continente pana acum!';
+$lang['MISSION_REBEL'] = 'Revolta';
+$lang['MISSION_COMPLETE_PLANET_1'] = 'Excellent! Ai completat toate misiunile de pe Pamant. primesti 100 milioane dolari bonus.';
+$lang['MISSION_COMPLETE_PLANET_2'] = 'Excellent! Ai completat toate misiunile de pe Luna. primesti 500 milioane dolari bonus.';
+$lang['MISSION_COMPLETE_PLANET_3'] = 'Excellent! Ai completat toate misiunile de pe Marte. Ai primit 999 billione dolari bonus.';
+$lang['MISSION_COMPLETE_PLANET_4'] = 'Excellent! Ai completat toate misiunile de pe mercure. Primesti 50 puncte de schimb bonus.';
 
- $lang['MISSION_NO_MISSIONS'] = 'Nici o misiune disponibila!';
+$lang['MISSION_NO_MISSIONS'] = 'Nici o misiune disponibila!';
 
 /*
 ** ------------------
@@ -1484,10 +1484,10 @@ $lang['BANK_TRANSACTION_TYPE_6'] = 'Bonus ';
 
 $lang['BANK_TRANSACTION_LOG'] = 'Transactie istoric';
 
-$lang['BANK_WITHDRAW']= 'Ai retras %s dolari din banca';
+$lang['BANK_WITHDRAW']= 'Ai retras %s dolari din %s banca';
 $lang['BANK_WITHDRAW_FAILED'] = '%s dolari nu sunt disponibil in banca!';
 
-$lang['BANK_DEPOSIT'] = 'depus %s dolari in banca.';
+$lang['BANK_DEPOSIT'] = 'depus %s dolari in %s banca.';
 $lang['BANK_DEPOSIT_FAILED'] = 'Nu ai %s dolari.';
 
 /*

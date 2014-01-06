@@ -420,8 +420,8 @@ $lang['PLAYER_DEFENSE_TEXT'] = '%s heeft momenteel <b>%s</b> allianties en kan m
 $lang['PLAYER_UNIT'] = 'Eenheid/Gebouw';
 $lang['PLAYER_AMOUNT'] = 'Aantal';
 $lang['PLAYER_STRENGTH'] = 'Kracht';
-$lang['PLAYER_ATTACK_SKILLS'] = 'Aanvalsvaardigheden';
-$lang['PLAYER_DEFENSE_SKILLS'] = 'Verdedigingsvaardigheden';
+$lang['PLAYER_ATTACK_SKILLS'] = 'Speler Aanvalsvaardigheden';
+$lang['PLAYER_DEFENSE_SKILLS'] = 'speler Verdedigingsvaardigheden';
 $lang['PLAYER_SUB_TOTAL'] = 'Sub totaal';
 $lang['PLAYER_TOTAL'] = 'Totaal';
 $lang['PLAYER_DEPLOYED'] = 'Actief';
@@ -492,7 +492,7 @@ $lang['PLAYER_SKILL_SUBTITLE1']  = 'Vaardigheden';
 $lang['PLAYER_SKILL_SUBTITLE2']  = 'Vaardigheden [%s beschikbaar]';
 $lang['PLAYER_SKILL_NOTE']  = 'Opmerking: Gebruik vaardigheidspunten om Aanval, Verdediging, Gezondheid, Energie en/of Munitie vaardigheden te vergroten.';
 $lang['PLAYER_SKILLS']  = 'Vaardigheden'; 
-$lang['PLAYER_MAX'] = 'Huidig'; 
+$lang['PLAYER_CURRENT'] = 'Huidig'; 
 $lang['PLAYER_ATTACK']  = 'AANVAL';
 $lang['PLAYER_DEFENSE'] = 'VERDEDIGING';
 $lang['PLAYER_HEALTH']  = 'GEZONDHEID'; 
@@ -1456,10 +1456,10 @@ $lang['BANK_TRANSACTION_TYPE_6'] = 'Bonus';
 
 $lang['BANK_TRANSACTION_LOG'] = 'Transacties';
 
-$lang['BANK_WITHDRAW']= '%s dollar opgenomen van bank';
+$lang['BANK_WITHDRAW']= '%s dollar opgenomen van %s bank';
 $lang['BANK_WITHDRAW_FAILED'] = 'Geen %s dollar op de bank!';
 
-$lang['BANK_DEPOSIT'] = '%s dollar gestort op bank.';
+$lang['BANK_DEPOSIT'] = '%s dollar gestort op %s bank.';
 $lang['BANK_DEPOSIT_FAILED'] = 'Je bezit geen %s dollar.';
 
 /* 

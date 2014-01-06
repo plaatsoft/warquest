@@ -219,6 +219,11 @@ a:hover {
 	font-weight: bold;
 }
 
+.small {
+	font-size: 0.85em;
+	margin: 0px 0px 5px 0px; 
+}
+
 .note {
 	font-size: 0.85em;
 	text-align: justify; 

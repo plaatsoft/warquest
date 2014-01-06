@@ -497,8 +497,8 @@ $lang['PLAYER_DEFENSE_TEXT'] = '%s tienes actualmente <b>%s</b> aliados y puedes
 $lang['PLAYER_UNIT'] = 'Unidad';
 $lang['PLAYER_AMOUNT'] = 'Cantidad';
 $lang['PLAYER_STRENGTH'] = 'Fuerza';
-$lang['PLAYER_ATTACK_SKILLS'] = 'Habilidades de ataque';
-$lang['PLAYER_DEFENSE_SKILLS'] = 'Habilidades de defensa';
+$lang['PLAYER_ATTACK_SKILLS'] = 'Jugador habilidades de ataque';
+$lang['PLAYER_DEFENSE_SKILLS'] = 'Jugador habilidades de defensa';
 $lang['PLAYER_SUB_TOTAL'] = 'Sub. total';
 $lang['PLAYER_TOTAL'] = 'Total';
 $lang['PLAYER_FORCE'] = 'Fuerza de Ataque & Defensa'; 
@@ -567,7 +567,7 @@ $lang['PLAYER_SKILL_SUBTITLE1']  = 'Puntos de Habilidad';
 $lang['PLAYER_SKILL_SUBTITLE2']  = 'Puntos de Habilidad [%s disponibles]';
 $lang['PLAYER_SKILL_NOTE']  = 'Nota: Use los puntos de habilidades para aumentar el ataque, defensa, salud, energía o munición.';
 $lang['PLAYER_SKILLS']  = 'habilidades'; 
-$lang['PLAYER_MAX'] = 'Actual'; 
+$lang['PLAYER_CURRENT'] = 'Actual'; 
 $lang['PLAYER_ATTACK']  = 'ATAQUE';
 $lang['PLAYER_DEFENSE'] = 'DEFENSA';
 $lang['PLAYER_HEALTH']  = 'SALUD'; 
@@ -1937,10 +1937,10 @@ $lang['BANK_TRANSACTION_TYPE_6'] = 'Bonus ';
 
 $lang['BANK_TRANSACTION_LOG'] = 'Registro de transacciones';
 
-$lang['BANK_WITHDRAW']= 'Retirados %s dólares del banco';
+$lang['BANK_WITHDRAW']= 'Retirados %s dólares del %s banco';
 $lang['BANK_WITHDRAW_FAILED'] = '%s dólares no están disponibles en la cuenta bancaria!';
 
-$lang['BANK_DEPOSIT'] = 'Ingresados %s dólares en el banco.';
+$lang['BANK_DEPOSIT'] = 'Ingresados %s dólares en el %s banco.';
 $lang['BANK_DEPOSIT_FAILED'] = 'No dispone de %s dólares.';
 
 /*

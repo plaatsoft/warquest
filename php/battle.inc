@@ -346,7 +346,7 @@ function warquest_show_attack_army($data2, $ugid) {
 		strtolower(t('GENERAL_PLANET_'.$player->planet)),
 		strtolower(t('UNIT_GROUP_'.$ugid)),
 		warquest_link('mid='.$mid.'&sid='.PAGE_ATTACK.'&oid='.$data2->pid.'&uid='.$unit_group->type,
-						    number_format(warquest_attack_strength($data2, $ugid),0,",","."), "attack_strenght"));
+						    number_format(warquest_attack_strength($data2, $ugid, 0),0,",","."), "attack_strenght"));
 	$page .= '<br/>';
 	$page .= '<table>';
 	$page .= '<tr>';	
@@ -439,7 +439,7 @@ function warquest_show_attack_army($data2, $ugid) {
 		strtolower(t('GENERAL_PLANET_'.$player->planet)),
 		strtolower(t('UNIT_GROUP_'.$ugid)),
 		warquest_link('mid='.$mid.'&sid='.PAGE_DEFENCE.'&oid='.$data2->pid.'&uid='.$unit_group->type, 
-							number_format(warquest_defense_strength($data2, $ugid),0,",","."), "defense_strength"));
+							number_format(warquest_defense_strength($data2, $ugid, 0),0,",","."), "defense_strength"));
 	$page .= '<br/>';
 	$page .= '<table>';
 	$page .= '<tr>';	
@@ -682,8 +682,8 @@ function warquest_battle_check($player, $other, $force) {
 
 	$value = 0;
 
-	$attack = warquest_attack_strength($player, $force);
-	$defense = warquest_defense_strength($other, $force);
+	$attack = warquest_attack_strength($player, $force, 0);
+	$defense = warquest_defense_strength($other, $force, 0);
 	
 	if ($attack > $defense) {
 		$value = 1;
@@ -735,6 +735,7 @@ function warquest_clan_size($player_clan, $other_clan) {
 function warquest_clan_war_battle($player_clan, $other_clan, $ugid) {
 
 	/* input */
+	global $config;
 	global $mid;
 	global $sid;
 	
@@ -748,6 +749,27 @@ function warquest_clan_war_battle($player_clan, $other_clan, $ugid) {
 		
 	if (isset($player_clan->cid) && ($size>0)) {
 	
+		/* First check clan skills */
+		$player_clan_skill_enabled = false;
+		$strength = warquest_db_clan_strength($player_clan->cid);
+		$cost = $player_clan->attack * $config['init_clan_skill_step'] * $strength;
+	
+		if (($player_clan->attack>0) && ($player_clan->money >= $cost)) {
+			$player_clan_skill_enabled = true;			
+			$player_clan->money -= $cost;
+		}
+		
+		$other_clan_skill_enabled = false;
+		if ( isset($other_clan->cid) ) {
+			$strength = warquest_db_clan_strength($other_clan->cid);
+			$cost = $other_clan->defense * $config['init_clan_skill_step'] * $strength;
+			if (($other_clan->defense>0) && ($other_clan->money >= $cost)) {
+				$other_clan_skill_enabled = true;			
+				$other_clan->money -= $cost;
+			}
+		}
+		
+		/* Second fetch clan members */
 		$unit_group = warquest_db_unit_group($ugid);
 	
 		/* Fetch all attack clan war members */
@@ -755,14 +777,14 @@ function warquest_clan_war_battle($player_clan, $other_clan, $ugid) {
 		$query1 .= 'a.approved=1 and a.pid=b.pid and a.cid='.$player_clan->cid.' order by rand() desc limit 0,'.$size;
 		$result1 = warquest_db_query($query1);	 
 		
+		/* Fetch all defense clan war members */
 		if ( isset($other_clan->cid) ) {
-			/* Fetch all defense clan war members */
 			$query2  = 'select b.name, b.pid, b.country, b.alliance, b.lid from player_clan a, player b where ';
 			$query2 .= 'a.approved=1 and a.pid=b.pid and a.cid='.$other_clan->cid.' order by rand() desc limit 0,'.$size;
 			$result2 = warquest_db_query($query2);	 
 		}
 			
-		$page->body = '<br/><br/>';
+		$page->body  = '<br/><br/>';
 		$page->body .= '<table>';
 		
 		$page->body .= '<tr>';
@@ -773,6 +795,9 @@ function warquest_clan_war_battle($player_clan, $other_clan, $ugid) {
 		
 		$page->body .= '<th width="100" valign="top">';
 		$page->body .= t('PLAYER_ATTACK_STRENGTH');
+		if ($player_clan_skill_enabled) {
+			$page->body .= " *";
+		}
 		$page->body .= '</th>';
 		
 		$page->body .= '<th width="140" valign="top">';
@@ -786,6 +811,9 @@ function warquest_clan_war_battle($player_clan, $other_clan, $ugid) {
 		
 		$page->body .= '<th width="100" valign="top">';
 		$page->body .= t('PLAYER_DEFENSE_STRENGTH');
+		if ($other_clan_skill_enabled) {
+			$page->body .= " *";
+		}
 		$page->body .= '</th>';
 		
 		$page->body .= '<th width="60" valign="top">';
@@ -794,20 +822,30 @@ function warquest_clan_war_battle($player_clan, $other_clan, $ugid) {
 				
 		$page->body .= '</tr>';
 		
-		/* Compare each clan member */
+		/* third compare each clan member */
 		for ($i=0; $i<$size; $i++) {
 		
 			$attack=0;
 			$data1 = warquest_db_fetch_object($result1);
-			if ( isset($data1->pid) ) {				
-				$attack = warquest_attack_strength($data1, $ugid);
+			if ( isset($data1->pid) ) {		
+
+				if ($player_clan_skill_enabled) {
+					$attack = warquest_attack_strength($data1, $ugid, $player_clan);
+				} else {
+					$attack = warquest_attack_strength($data1, $ugid, 0);
+				}				
 			}
 		
 			$defense = 0;
 			if ( isset($other_clan->cid) ) {
 				$data2 = warquest_db_fetch_object($result2);
 				if ( isset($data2->pid)) {
-					$defense = warquest_defense_strength($data2, $ugid);
+				
+					if ($other_clan_skill_enabled) {
+						$defense = warquest_defense_strength($data2, $ugid, $other_clan);
+					} else {
+						$defense = warquest_defense_strength($data2, $ugid, 0);
+					}
 				}
 			}
 			
@@ -823,8 +861,14 @@ function warquest_clan_war_battle($player_clan, $other_clan, $ugid) {
 						
 			$page->body .= '<td style="border-top:1px solid;border-color:gray;">';
 			if ( isset($data1->pid) ) {
-				$page->body .= warquest_link('mid='.$mid.'&sid='.PAGE_ATTACK.'&oid='.$data1->pid.'&uid='.$unit_group->type,
-										number_format($attack,0,",","."), "attack_strenght");			
+			
+				if ($player_clan_skill_enabled) {
+					$page->body .= warquest_link('mid='.$mid.'&sid='.PAGE_ATTACK.'&oid='.$data1->pid.'&uid='.$unit_group->type.'&cid='.$player_clan->cid,
+						number_format($attack,0,",","."), "attack_strenght");			
+				} else {
+					$page->body .= warquest_link('mid='.$mid.'&sid='.PAGE_ATTACK.'&oid='.$data1->pid.'&uid='.$unit_group->type,
+						number_format($attack,0,",","."), "attack_strenght");		
+				}
 			} else {
 				$page->body .= '0';
 			}
@@ -840,18 +884,28 @@ function warquest_clan_war_battle($player_clan, $other_clan, $ugid) {
 			
 			$page->body .= '<td style="border-top:1px solid;border-color:gray;">';			
 			if (isset($other_clan->cid) && isset($data2->pid)) {
-				$page->body .= warquest_link('mid='.$mid.'&sid='.PAGE_DEFENCE.'&oid='.$data2->pid.'&uid='.$unit_group->type,
-						    number_format($defense,0,",","."), "defense_strenght");
+			
+				if ($other_clan_skill_enabled) {
+					$page->body .= warquest_link('mid='.$mid.'&sid='.PAGE_DEFENCE.'&oid='.$data2->pid.'&uid='.$unit_group->type.'&cid='.$other_clan->cid,
+						number_format($defense,0,",","."), "defense_strenght");
+				} else {
+					$page->body .= warquest_link('mid='.$mid.'&sid='.PAGE_DEFENCE.'&oid='.$data2->pid.'&uid='.$unit_group->type,
+						number_format($defense,0,",","."), "defense_strenght");
+				}
 			} else {
 				$page->body .= '0';
 			}
 			$page->body .= '</td>';
 			
 			$page->body .= '<td style="border-top:1px solid;border-color:gray;">';
+			
 			if ($attack > $defense) {
+			
 				$page->body .= t('GENERAL_WON');
 				$won++;
+				
 			} else {
+			
 				$page->body .= t('GENERAL_LOST');
 				$lost++;
 			}
@@ -862,21 +916,14 @@ function warquest_clan_war_battle($player_clan, $other_clan, $ugid) {
 		
 		$page->body .= '<tr>';
 		
-		$page->body .= '<td style="border-top:1px solid;border-color:gray;">&nbsp;';
+		$page->body .= '<td colspan="5" style="border-top:1px solid;border-color:gray;">';
+		$page->body .= '<div class="small">';
+		if ($other_clan_skill_enabled || $player_clan_skill_enabled) {
+			$page->body .= t('CLAN_SKILL_ENABLED');
+		}
+		$page->body .= '</div>';
 		$page->body .= '</td>';
-		
-		$page->body .= '<td style="border-top:1px solid;border-color:gray;">&nbsp;';
-		$page->body .= '</td>';
-		
-		$page->body .= '<td style="border-top:1px solid;border-color:gray;">&nbsp;';
-		$page->body .= '</td>';
-		
-		$page->body .= '<td style="border-top:1px solid;border-color:gray;">&nbsp;';
-		$page->body .= '</td>';
-		
-		$page->body .= '<td style="border-top:1px solid;border-color:gray;">&nbsp;';
-		$page->body .= '</td>';
-				
+	
 		$page->body .= '</tr>';
 		
 		$page->body .= '</table>';	

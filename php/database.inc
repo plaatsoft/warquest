@@ -1916,7 +1916,8 @@ function warquest_db_clan_insert($pid, $name) {
  */
 function warquest_db_clan($cid) {
 
-	$query  = 'select cid, name, slogan, created, last_activity, won, lost, pid from clan where cid='.$cid;	
+	$query  = 'select cid, name, slogan, created, last_activity, won, lost, money, attack, ';
+	$query .= 'defense, pid from clan where cid='.$cid;	
 	
 	$result = warquest_db_query($query);
 	
@@ -1937,6 +1938,9 @@ function warquest_db_clan_update($data) {
 	$query .= 'name = "'.warquest_db_escape($data->name).'", ';
 	$query .= 'won = '.$data->won.', ';
 	$query .= 'lost = '.$data->lost.', ';	
+	$query .= 'money = '.$data->money.', ';	
+	$query .= 'attack = '.$data->attack.', ';	
+	$query .= 'defense = '.$data->defense.', ';	
 	$query .= 'last_activity = "'.$now.'", ';	
 	$query .= 'slogan = "'.warquest_db_escape($data->slogan).'" ';		
 	$query .= "where cid=".$data->cid; 
@@ -1955,6 +1959,19 @@ function warquest_db_clan_delete($cid) {
 	return warquest_db_query($query); 
 }
 
+/**
+ * Get strength of clan
+ */
+function warquest_db_clan_strength($cid) {
+
+	$query  = 'select sum(b.lid) as strength from player_clan a, player b where a.pid=b.pid and a.approved=1 ';
+	$query .= 'and a.cid='.$cid;
+	
+	$result = warquest_db_query($query);	
+	$data = warquest_db_fetch_object($result);
+	
+	return $data->strength;
+}
 
 /*
 ** ---------------------

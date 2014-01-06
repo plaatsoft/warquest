@@ -17,11 +17,13 @@
 */
 
 $notes[63] = '
-<div class="subparagraph2">04-01-2014</div>
+<div class="subparagraph2">05-01-2014</div>
 <i>Game Server v6.3</i>
 <ul>
 <li>Clan Wars improvements:</li>
 <ul>
+<li>Added clan bank</li>
+<li>Added clan attack and defense skills</li>
 <li>Sector rebellion starts when a sector is inactive for '.$config["max_sector_inactive"] .' days.</li>
 <li>Increase conquered sector hourly income with factor 10.</li>
 <li>Commander must now accept clan member join request.</li>

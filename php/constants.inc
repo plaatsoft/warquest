@@ -99,7 +99,7 @@ define('PAGE_BEST_PLAYER',    	1704);
 define('PAGE_BEST_COUNTRY',   	1705);
 define('PAGE_BEST_COUNTRY2',  	1706);
 define('PAGE_CLAN',           	1707); 
-define('PAGE_CLAN_LIST',      	1708);
+define('PAGE_CLAN_PROFILE',     	1708);
 
 /* Forums */
 define('PAGE_FORUM',          	1801);
@@ -217,6 +217,9 @@ define("EVENT_CLAN_LEAVE",               3707);
 define("EVENT_CLAN_DROP",                3708);
 define("EVENT_CLAN_ACCEPT",              3709);
 define("EVENT_CLAN_SLOGAN",              3710);
+define("EVENT_CLAN_DEPOSIT",             3711);
+define("EVENT_CLAN_SKILL_INCREASE" ,     3712);
+define("EVENT_CLAN_SKILL_DECREASE" ,     3713);
 
 /* forum */
 define("EVENT_FORUM_COMMENT_SAVE", 	     3801);
