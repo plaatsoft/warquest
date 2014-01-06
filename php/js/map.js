@@ -82,6 +82,9 @@ function getClanInfo(cid) {
 				text += 'Last Active = '+clan.last_activity+'\r\n';
 				text += 'Clan Id = '+clan.cid+'\r\n';
 				text += 'Player Id = '+clan.pid+'\r\n';
+				text += 'Attack strength = '+clan.attack+'\r\n';
+				text += 'Defense strength = '+clan.defense+'\r\n';
+				text += 'Money = '+clan.money+'\r\n';
 				
 			alert(text);
 		}
