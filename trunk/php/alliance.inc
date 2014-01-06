@@ -1010,7 +1010,7 @@ function warquest_clan_skill_increase_do() {
 		
 		warquest_db_clan_update($clan);
 		
-		$message = t('CLAN_SKILL_INCREASED', number_format(($max * $config['init_clan_skill_step'] * 2),0,",","."));
+		$message = t('CLAN_SKILL_INCREASED', number_format(($max * $config['init_clan_skill_step'] * 5),0,",","."));
 		
 		$link = warquest_link('mid='.$mid.'&sid='.$sid.'&cid='.$cid.'&eid='.$eid.'&id='.$id, t('LINK_INCREASE'), "increase");		
 		$link .= '<br/><br/>'.t('GENERAL_AMOUNT').'<br/>';		
@@ -1072,7 +1072,7 @@ function warquest_clan_skill_decrease_do() {
 		
 		warquest_db_clan_update($clan);
 		
-		$message = t('CLAN_SKILL_DECREASED', number_format(($max * $config['init_clan_skill_step'] * 2),0,",","."));
+		$message = t('CLAN_SKILL_DECREASED', number_format(($max * $config['init_clan_skill_step'] * 5),0,",","."));
 		
 		$link = warquest_link('mid='.$mid.'&sid='.$sid.'&cid='.$cid.'&eid='.$eid.'&id='.$id,t('LINK_DECREASE'), "decrease");		
 		if ($max>0) {
@@ -1375,7 +1375,7 @@ function warquest_clan_profile_form() {
 	$page .= '</td>';
 	
 	$page .= '<td width="200">'.t('PLAYER_CURRENT').': <b>';
-	$page .= number_format(($clan->attack * $config['init_clan_skill_step'] * 2),0,",",".").'</b>';
+	$page .= number_format(($clan->attack * $config['init_clan_skill_step'] * 5),0,",",".").'</b>';
 	$page .= '</td>';
 		
 	$page .= '<td width="100">';
@@ -1414,7 +1414,7 @@ function warquest_clan_profile_form() {
 	$page .= '<td><b>'.t('CLAN_DEFENSE').'</b></td>';
 		
 	$page .= '<td>'.t('PLAYER_CURRENT').': <b>';
-	$page .= number_format(($clan->defense * $config['init_clan_skill_step'] * 2),0,",",".").'</b>';
+	$page .= number_format(($clan->defense * $config['init_clan_skill_step'] * 5),0,",",".").'</b>';
 	$page .='</td>';
 	
 	$page .= '<td>';
