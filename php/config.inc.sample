@@ -96,7 +96,8 @@ $config["init_energy_timer"]			= 190;
 $config["init_ammo_max"]				= 3;
 $config["init_ammo_step"]				= 1;
 $config["init_ammo_timer"]				= 140;
-$config['init_clan_skill_step']     = 1000;
+$config['init_clan_skill_step']     = 1;
+$config['init_clan_skill_price']    = 100;
 $config["init_player_skill_step"]	= 5;
 
 $config["unit_sell_ratio"]				= .6;
@@ -155,12 +156,12 @@ $config['user_secret']					= '';
 ** ---------------------------------------------------------------- 
 */
 
-$config['paypal_donate_key']		= '';
-$config['paypal_buy_key1']			= '';
-$config['paypal_buy_key2']			= '';
-$config['paypal_buy_key3']			= '';
-$config['paypal_buy_key4']			= '';
-$config['paypal_buy_key5']			= '';
+$config['paypal_donate_key']			= '';
+$config['paypal_buy_key1']				= '';
+$config['paypal_buy_key2']				= '';
+$config['paypal_buy_key3']				= '';
+$config['paypal_buy_key4']				= '';
+$config['paypal_buy_key5']				= '';
 /*
 ** ---------------------------------------------------------------- 
 ** THE END

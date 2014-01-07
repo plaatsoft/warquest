@@ -444,7 +444,7 @@ function warquest_attack_strength($player, $ugid, $clan) {
 	
 	/* Add clan attack skill strength (optional) */
 	if ( isset($clan->attack)) {		
-		$attack += ($clan->attack * $config['init_clan_skill_step'] * 5);
+		$attack += ($clan->attack * $config['init_clan_skill_step']);
 	}
 	
 	return $attack;
@@ -518,7 +518,7 @@ function warquest_defense_strength($player, $ugid, $clan) {
 	
 	/* Add clan defense skill strength (optional) */
 	if ( isset($clan->defense) ) {		
-		$defense += ($clan->defense * $config['init_clan_skill_step'] * 5);
+		$defense += ($clan->defense * $config['init_clan_skill_step']);
 	}
 		
 	return $defense;
@@ -1304,7 +1304,7 @@ function warquest_amount_selected($max=0) {
 	/* input */
 	global $amount;
 	
-	$values = array(1, 2, 5, 10, 20, 50, 100, 200, 500, 1000, 2000);
+	$values = array(1, 2, 5, 10, 20, 50, 100, 200, 500, 1000, 2000, 5000, 10000, 50000, 100000, 500000);
 
 	$page ='<select id="amount" name="amount">';
 	
