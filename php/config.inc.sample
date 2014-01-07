@@ -97,7 +97,7 @@ $config["init_ammo_max"]				= 3;
 $config["init_ammo_step"]				= 1;
 $config["init_ammo_timer"]				= 140;
 $config['init_clan_skill_step']     = 1;
-$config['init_clan_skill_price']    = 100;
+$config['init_clan_skill_price']    = 200;
 $config["init_player_skill_step"]	= 5;
 
 $config["unit_sell_ratio"]				= .6;
