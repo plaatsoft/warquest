@@ -1616,7 +1616,7 @@ function warquest_promotion_form() {
 	$page .= '</div>';
 	
 	$page .= '<div class="note">';
-	$page .= t('PROMOTION_INVITE_NOTE');
+	$page .= t('PROMOTION_INVITE_NOTE', gold_format(500));
 	$page .= '</div>';
 	
 		/* Facebook */
@@ -1657,11 +1657,11 @@ window.fbAsyncInit = function() {
    }(document, 'script', 'facebook-jssdk'));
 </script>";
 
-	$page .= '<div class="fb-like" data-href="http://www.facebook.com/WarQuest" data-send="true" data-width="450" data-show-faces="true"></div>';
+	$page .= '<div class="fb-like" data-href="http://www.facebook.com/WarQuest" data-send="true" colorscheme="dark" data-width="450" data-show-faces="true"></div>';
 	$page .= '</div>';
 	
 	$page .= '<div class="note">';
-	$page .= t('PROMOTION_FACEBOOK_NOTE');
+	$page .= t('PROMOTION_FACEBOOK_NOTE', gold_format(500));
 	$page .= '</div>';
 }
 

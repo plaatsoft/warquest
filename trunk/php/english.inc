@@ -3221,12 +3221,12 @@ $lang['CLAN_SKILL_ENABLED'] = '* Clan attack and/or defence skills active!';
 $lang['LINK_PROMOTION'] = 'Promotion';
 $lang['PROMOTION_TITLE'] = ' Promotion';
 $lang['PROMOTION_FACEBOOK'] = ' Facebook';
-$lang['PROMOTION_FACEBOOK_NOTE'] = 'Like WarQuest at Facebook and receive 500 gold!';
+$lang['PROMOTION_FACEBOOK_NOTE'] = 'Like WarQuest at Facebook and receive %s!';
 
 $lang['PROMOTION_INVITE'] = 'Invite friends';
 $lang['PROMOTION_INVITE_KNOWN'] = 'Invitation is already sent to %s.';
 $lang['PROMOTION_INVITE_SENT'] = 'Invitation is sent to %s.';
-$lang['PROMOTION_INVITE_NOTE'] = 'Invite friends to WarQuest and receive 500 gold for each new registration.';
+$lang['PROMOTION_INVITE_NOTE'] = 'Invite friends to WarQuest and receive %s for each new registration.';
 
 /*
 ** ------------------
