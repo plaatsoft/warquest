@@ -934,17 +934,6 @@ function warquest_home_ad() {
 	$page .= '} ';
 	$page .= 'StartAd();';
 	$page .= '</script>'; 
-	
-	$member = warquest_db_member($player->pid);
-		
-	if ($member->email_valid==0) {
-		$message = t('HOME_EMAIL_MISSING');
-		$page .= '<br/><br/>';
-		$page .= '<a href="javascript:link(\''.warquest_token('mid='.MENU_HOME.'&sid='.PAGE_SETTINGS).'\')">';	
-		$page .= warquest_box_icon("warning", $message);
-		$page .= '</a>';
-	}
-		
 }
 
 /*

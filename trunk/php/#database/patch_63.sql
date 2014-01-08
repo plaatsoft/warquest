@@ -233,3 +233,13 @@ UPDATE building SET discount=20 WHERE bid=2405;
 ALTER TABLE clan ADD money BIGINT( 20 ) NOT NULL AFTER lost;
 ALTER TABLE clan ADD attack INT NOT NULL AFTER money;
 ALTER TABLE clan ADD defense INT NOT NULL AFTER attack;
+
+-- Add ivite database table
+CREATE TABLE IF NOT EXISTS `invite` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `email` varchar(120) NOT NULL,
+  `approved` int(11) NOT NULL,
+  `date` datetime NOT NULL,
+  `pid` INT NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;

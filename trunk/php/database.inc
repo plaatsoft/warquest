@@ -2070,6 +2070,85 @@ function warquest_db_sector_update($data) {
 
 /*
 ** ---------------------
+** INVITE
+** ---------------------
+*/
+
+/**
+ * Insert Invite
+ * @unitTest
+ */
+function warquest_db_invite_insert($email, $approved, $pid) {
+
+	$now = date("Y-m-d H:i:s");
+
+	$query  = 'insert into invite (email, approved, date, pid) values (';
+	$query .= '"'.$email.'",'.$approved.',"'.$now.'",'.$pid.')';	
+	
+	warquest_db_query($query);
+	
+	$query  = 'select id from invite where email="'.$email.'"'; 
+	$result = warquest_db_query($query);	
+	$data = warquest_db_fetch_object($result);
+	
+	$value = 0;
+	if ( isset($data->id) ) {
+		$value = $data->id;
+	}
+	
+	return $value;
+}
+
+/**
+ * Update Invite
+ * @unitTest
+ */
+function warquest_db_invite_update($data) {
+
+	$now = date("Y-m-d H:i:s");
+
+	$query  = "update invite set "; 
+	$query .= 'email="'.$data->email.'", ';
+	$query .= 'approved='.$data->approved.', ';
+	$query .= 'date="'.$now.'", ';
+	$query .= 'pid='.$data->pid.' ';
+	$query .= "where id=".$data->id; 
+	
+	return warquest_db_query($query);  
+}
+
+/**
+ * Get Invite
+ * @unitTest
+ */
+function warquest_db_invite($id) {
+
+	$query = 'select id, email, approved, date, pid from invite where id='.$id;
+	$result = warquest_db_query($query);	
+	
+	return warquest_db_fetch_object($result);	
+}
+
+/**
+ * Check Invite
+ * @unitTest
+ */
+function warquest_db_invite_check($email) {
+	
+	$query = 'select id from invite where email="'.$email.'"';
+	$result = warquest_db_query($query);	
+	$data = warquest_db_fetch_object($result);
+	
+	$value = 0;
+	if ( isset($data->id) ) {
+		$value = $data->id;
+	}
+	
+	return $value;	
+}
+
+/*
+** ---------------------
 ** THE END
 ** ---------------------
 */

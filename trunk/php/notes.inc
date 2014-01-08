@@ -17,7 +17,7 @@
 */
 
 $notes[63] = '
-<div class="subparagraph2">05-01-2014</div>
+<div class="subparagraph2">07-01-2014</div>
 <i>Game Server v6.3</i>
 <ul>
 <li>Clan Wars improvements:</li>
@@ -28,15 +28,25 @@ $notes[63] = '
 <li>Increase conquered sector hourly income with factor 10.</li>
 <li>Commander must now accept clan member join request.</li>
 </ul>
-<li>Added 20 new gold income, energy, discount, maintenance building types.</li>
+<li>Update premium gold features:</li>
+<ul>
+<li>Added 5 new gold income building types.</li>
+<li>Added 5 new gold energy building types.</li>
+<li>Added 5 new gold discount building types.</li>
+<li>Added 5 new gold maintenance building types.</li>
 <li>Added yellow border to gold unit and building images.</li>
+</ul>
+<li>Added Alliance-Promotion page:</li>
+<ul>
+<li>Like WarQuest on Facebook and receive free gold</li>
+<li>Invite friends by email and receive free gold.</li>
+</ul>
 <li>Improve release notes information navigation.</li>
-<li>Updated copyright footer.</li>
-<li>Added optional verify email address warning to home page.</li>
 <li>Improve background option selector (Home-Settings).</li>
 <li>Added option to change easy login page background style.</li>
 <li>Disable christmas / new year announcement.</li>
 <li>Decrease experience value of level 280 till 299.</li>
+<li>Updated copyright footer.</li>
 <li>Bug fix: Corrected one Neptune mission level!</li>
 <li>Bug fix: Neptune army strength calculation is now correct!</li>
 </ul>

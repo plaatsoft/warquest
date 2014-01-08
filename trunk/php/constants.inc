@@ -18,6 +18,19 @@
 
 /*
 ** ------------------
+** BONUS
+** ------------------
+*/
+
+define('BONUS_EARTH',				1);
+define('BONUS_MOON',					2);
+define('BONUS_MARS',   				3);
+define('BONUS_MERCURE',				4);
+define('BONUS_NEPTUNE',				5);
+define('BONUS_FACEBOOK_LIKE',		10);
+
+/*
+** ------------------
 ** PLANETS
 ** ------------------
 */
@@ -27,7 +40,6 @@ define('PLANET_MOON',         	2);
 define('PLANET_MARS',         	3);
 define('PLANET_MERCURE',			4);
 define('PLANET_NEPTUNE', 	    	5);
-
 
 /*
 ** ------------------
@@ -100,6 +112,7 @@ define('PAGE_BEST_COUNTRY',   	1705);
 define('PAGE_BEST_COUNTRY2',  	1706);
 define('PAGE_CLAN',           	1707); 
 define('PAGE_CLAN_PROFILE',     	1708);
+define('PAGE_PROMOTION',			1709);
 
 /* Forums */
 define('PAGE_FORUM',          	1801);
@@ -220,6 +233,8 @@ define("EVENT_CLAN_SLOGAN",              3710);
 define("EVENT_CLAN_DEPOSIT",             3711);
 define("EVENT_CLAN_SKILL_INCREASE" ,     3712);
 define("EVENT_CLAN_SKILL_DECREASE" ,     3713);
+
+define("EVENT_PROMOTION_INVITE",			  3714);
 
 /* forum */
 define("EVENT_FORUM_COMMENT_SAVE", 	     3801);

@@ -119,13 +119,13 @@ if (@warquest_db_connect($config["dbhost"], $config["dbuser"], $config["dbpass"]
 	/* html footer */
 	echo warquest_ui_footer( round(($time*1000)), warquest_db_count());
 	
-	/* the end. */
+	/* End */
 	exit;
 }
 
 /*
 ** ---------------------------------------------------------------- 
-** WebService check
+** Web Service module
 ** ---------------------------------------------------------------- 
 */
 
@@ -133,8 +133,10 @@ if ($mid==MENU_SERVICE) {
 
 	include 'service.inc';
 	
+	/* Proces web service call */
 	warquest_service();
 	
+	/* End */
 	exit;
 }
 

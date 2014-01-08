@@ -18,13 +18,14 @@
 
 /*
 ** ---------
-** Post  
+** POST
 ** ---------
 */
 
 $eid = warquest_post('eid', 0);
 $planet = warquest_post('planet', 1);
 $cid = warquest_post('cid', 0);
+$pid = warquest_post('pid', 0);
 
 /*
 ** ---------
@@ -33,7 +34,7 @@ $cid = warquest_post('cid', 0);
 */
 
 /**
- * Proces get sector data
+ * Get sector data
  */
 function warquest_get_sector_data() {
 
@@ -64,7 +65,7 @@ function warquest_get_sector_data() {
 }
 
 /**
- * Proces get clan data 
+ * Get clan data
  */
 function warquest_get_clan_data() {
 
@@ -75,12 +76,33 @@ function warquest_get_clan_data() {
 	return json_encode($data);
 }
 
+/** 
+ * Proces facebook like event 
+ */
+function warquest_fb_like_event() {
+
+	global $pid;
+	
+	$player = warquest_db_player($pid);
+	
+	if ( isset($player->pid) && (warquest_db_bonus($pid, BONUS_FACEBOOK_LIKE)==0) ) {
+	
+		warquest_db_bonus_insert($pid, BONUS_FACEBOOK_LIKE);
+	
+		$player = warquest_db_player($pid);
+		$player->gold += 500;
+		warquest_db_player_update($player);
+		
+		$log = $player->name.' ['.$player->pid.'] facebook like bonus - 500 gold added';
+		warquest_info($log);
+	}
+}
+
 /*
 ** ---------
 ** HANDLER
 ** ---------
 */
-
 
 function warquest_service() {
 
@@ -98,6 +120,10 @@ function warquest_service() {
 			
 		case 2: 	
 			echo warquest_get_clan_data();
+			break;
+			
+		case 3: 	
+			warquest_fb_like_event();
 			break;
 	}
 }

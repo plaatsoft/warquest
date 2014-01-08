@@ -509,6 +509,36 @@ function warquest_register_do($amount) {
 		if ($auto_login==0) {		
 	
 			warquest_register_mail($pid, $mypassword);
+			
+			/* Promotion invite reaction detected */
+			$id = warquest_db_invite_check($myemail);
+			if ($id>0) {			
+				
+				$data = warquest_db_invite($id);
+				
+				if ($data->approved==0) {
+				
+					/* Update invite request */
+					$data->approved=1;				
+					warquest_db_invite_update($data);
+				
+					/* Add bonus to friend */
+					$other = warquest_db_player($data->pid);
+					$other->gold += 500;
+					$other->comment++;
+					warquest_db_player_update($other);
+					warquest_info($other->name.' ['.$other->pid.'] registration bonus - 500 gold added');
+					
+					/* Add bonus to new player */
+					$player = warquest_db_player($pid);
+					$player->gold += 500;
+					warquest_db_player_update($player);					
+					warquest_info($player->name.' ['.$player->pid.'] registration bonus - 500 gold added');
+		
+					$message = $player->name.' joined WarQuest. You both receive 500 gold!';		
+					warquest_db_comment_insert(0, $player->pid, $other->pid, $message);
+				}
+			}
 		}
 		
 		$page .= '<div class="box2">';
@@ -672,7 +702,7 @@ function warquest_facebook_form() {
   var js, fjs = d.getElementsByTagName(s)[0];
   if (d.getElementById(id)) return;
   js = d.createElement(s); js.id = id;
-  js.src = "//connect.facebook.net/nl_NL/all.js#xfbml=1&appId=146129318831064";
+  js.src = "//connect.facebook.net/en_EN/all.js#xfbml=1&appId=146129318831064";
   fjs.parentNode.insertBefore(js, fjs);
 }(document, \'script\', \'facebook-jssdk\'));</script>';
 
