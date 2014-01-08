@@ -38,7 +38,7 @@ $notes[63] = '
 </ul>
 <li>Added Alliance-Promotion page:</li>
 <ul>
-<li>Like WarQuest on Facebook and receive free gold</li>
+<li>Like WarQuest on Facebook and receive free gold.</li>
 <li>Invite friends by email and receive free gold.</li>
 </ul>
 <li>Improve release notes information navigation.</li>
