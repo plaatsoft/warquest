@@ -131,7 +131,7 @@ $config["max_battle_log_age"]       = 2;
 $config["max_bank_log_age"]         = 30;
 $config["max_clan_inactive"]  		= 60;
 $config["max_clan_member_inactive"] = 30;
-$config["max_sector_inactive"]      = 5;
+$config["max_sector_inactive"]      = 3;
 
 $config["restore_warning_level"]    = 90;
 
