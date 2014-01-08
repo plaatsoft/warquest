@@ -406,4 +406,34 @@ function warquest_clan_accept_mail($pid, $name) {
 	}
 }
 
+/** 
+ * Send promotion invite mail 
+ */
+function warquest_promotion_invite_mail($pid, $email) {
+	
+	/* input */
+	global $config;
+
+	$player = warquest_db_player($pid);
+	
+	$subject = $config["applName"].' invite request';
+
+	$content  = 'Dear gamer,';
+	$content .= '<br/><br/>';
+	$content .= $player->name.' has invite you to '.$config["applName"].'.';
+	$content .= '<br/><br/>';
+	$content .= 'Visit <a href="'.$config["base_url"].'">'.$config["base_url"].'</a> and join the battle zone!';
+	$content .= '<br/><br/>';
+	$content .= 'IMPORTANT: Please use during registration the following email address <b>'.$email.'</b> to receive 500 gold for free!';
+		
+	$body = warquest_email_layout($subject, $content);
+	
+	$header  = 'From: '.$config["applName"]. '<'.$config['from_email'].">\r\n";
+	$header .= "MIME-Version: 1.0\r\n";
+	$header .= "Content-Type: text/html; charset=UTF-8\r\n";
+	
+	@mail($email, $subject, $body, $header);
+	warquest_info('Sent promotion invite email to '.$email);
+}
+
 ?>

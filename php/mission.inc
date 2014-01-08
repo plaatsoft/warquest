@@ -89,6 +89,9 @@ function warquest_mission_planet_complet_bonus() {
 								$player->gold += 5000;
 								break;
 				}
+				
+				$log = 'Player receive all mission complete planet bonus!';		
+				warquest_user_log($player, $log);
 			}
 		}		
 	}

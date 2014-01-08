@@ -26,11 +26,12 @@ $clan = warquest_post('clan', '');
 $slogan = warquest_post('slogan', '');
 $deposit = warquest_post('deposit', '0');
 $amount = warquest_post('amount', 0);
-	
+$email = warquest_post('email', '');
+
 /*
-** ---------------------
-** Invite
-** ---------------------
+** --------------
+** ALLIANCE ACTIONS
+** --------------
 */
 
 function warquest_alliance_invite_do() {
@@ -66,193 +67,6 @@ function warquest_alliance_invite_do() {
 	}
 }
 
-/**
- * Invite friend form
- */
-function warquest_alliance_invite_form() {
-
-	/* input */
-	global $config;
-	global $player;
-	global $mid;
-	global $sid;
-	global $myemail;
-	global $offset;
-	
-	/* output */
-	global $page;
-	global $title;
-	global $sort;
-	
-	$title = t('ALLIANCE_INVITE_TITLE1');
-			
-	$page .= '<div class="subparagraph">';
-	$page .= t('ALLIANCE_INVITE_TITLE2', $player->alliance, $player->invite);
-	$page .= '</div>';
-
-	if ($player->lid==0) {
-		
-		$page .= '<br/>';
-	
-		$title = "";
-		$message  = '<table>';
-		
-		$message .= '<tr>';
-		
-		$message .= '<td>';
-		$message .= warquest_image("other/unlock.png");
-		$message .= '</td>';
-		
-		$message .= '<td>';
-		$message .= t('ALLIANCE_LOCKED');
-		$message .= '</td>';
-		
-		$message .= '</tr>';
-		
-		$message .= '</table>';
-
-		$page .= warquest_box($title, $message);
-	
-	} else if (($player->alliance + $player->invite) >= $player->lid*$config["max_ally_factor"]) {
-		
-		$message = t('ALLIANCE_MAXIMUM', $player->lid * $config["max_ally_factor"]);
-		$page .= warquest_box_icon("info", $message);
-	
-	} else {
-		
-		$limit = 50;	
-		
-		$query  = 'select pid from player where pid not in ';
-		$query .= '(select pid2 from player_player where pid1='.$player->pid.') and pid!='.$player->pid.' ';
-		$query .= 'and (alliance+invite)<(lid*'.$config["max_ally_factor"].') ';
-		$result = warquest_db_query($query);	 
-		$total = warquest_db_num_rows($result);
-		
-		/* Show all not recruited players */
-		$query  = 'select pid, name, country, lid, experience, alliance, request_date ';
-		$query .= 'from player where pid not in ';
-		$query .= '(select pid2 from player_player where pid1='.$player->pid.') and pid!='.$player->pid.' ';
-		$query .= 'and (alliance+invite)<(lid*'.$config["max_ally_factor"].') ';
-	
-		switch ($sort) {
-		
-			case 1:
-				$query .= 'order by country asc ';
-				break;
-				
-			case 2:
-				$query .= 'order by name asc ';
-				break;
-			
-			default:	
-			case 3:
-				$query .= 'order by request_date desc ';
-				break;
-				
-			case 4:
-				$query .= 'order by lid desc, experience desc ';
-				break;
-
-			case 5:
-				$query .= 'order by experience desc ';
-				break;
-				
-			case 6:
-				$query .= 'order by alliance desc ';
-				break;		
-		}
-		
-		$query .= 'limit '.$offset.','.$limit;
-		$result = warquest_db_query($query);	
-	
-		$page .= '<div class="box">';
-		
-		$page .= warquest_page_control($offset, $limit, $total, 1, '&sort='.$sort);
-	
-		$page .= '<table>';
-		
-		$page .= '<tr>';
-		$page .= '<th width="50">';
-		$page .= '</th>';
-		
-		$page .= '<th width="130">';
-		$page .= warquest_link('mid='.$mid.'&sid='.$sid.'&sort=2', t('GENERAL_PLAYER'));
-		$page .= '</th>';
-		
-		$page .= '<th width="70">';
-		$page .= warquest_link('mid='.$mid.'&sid='.$sid.'&sort=3', t('GENERAL_ACTIVE'));
-		$page .= '</th>';
-				
-		$page .= '<th width="50">';
-		$page .= warquest_link('mid='.$mid.'&sid='.$sid.'&sort=4', t('GENERAL_LEVEL'));
-		$page .= '</th>';
-		
-		$page .= '<th width="90">';
-		$page .= warquest_link('mid='.$mid.'&sid='.$sid.'&sort=5', t('GENERAL_EXP'));
-		$page .= '</th>';
-		
-		$page .= '<th width="60">';
-		$page .= warquest_link('mid='.$mid.'&sid='.$sid.'&sort=6', t('GENERAL_ALLIANCE'));
-		$page .= '</th>';
-		
-		$page .= '<th width="50">';
-		$page .= '</th>';
-		
-		$page .= '</tr>';
-		
-		$count=0;
-	
-		while ($data=warquest_db_fetch_object($result)) {
-		
-			$page .= '<tr>';
-			
-			$page .= '<td>';
-			$page .= warquest_flag_image($data->country);
-			$page .= '</td>';
-			
-			$page .= '<td>';
-			$page .= warquest_link('mid='.$mid.'&sid='.PAGE_PROFILE.'&oid='.$data->pid, $data->name);
-			$page .= '</td>';
-			
-			$page .= '<td>';
-			$page .= warquest_ui_ago($data->request_date);
-			$page .= '</td>';					
-			
-			$page .= '<td>';
-			$page .= $data->lid;
-			$page .= '</td>';		
-			
-			$page .= '<td>';
-			$page .= number_format($data->experience,0,",",".");
-			$page .= '</td>';			
-			
-			$page .= '<td>';
-			$page .= $data->alliance;
-			$page .= '</td>';			
-			
-			$page .= '<td>';
-			$page .= warquest_link('mid='.$mid.'&sid='.$sid.'&oid='.$data->pid.'&eid='.EVENT_ALLIANCE_INVITE.'&sort='.$sort.'&offset='.$offset, t('LINK_RECRUIT'), "recuit".$count++);
-			$page .= '</td>';
-			
-			$page .= '</tr>';
-		}
-		
-		$page .= '</table>';
-		$page .= warquest_page_control($offset, $limit, $total, 0, '&sort='.$sort);	
-		$page .= '</div>';			
-	} 
-
-	$page .= '<div class="note">';
-	$page .= t('ALLIANCE_INVITE_NOTE', $player->lid * $config["max_ally_factor"]);
-   $page .= '</div>';		
-}
-
-/*
-** ---------------------
-** Pending and Approved
-** ---------------------
-*/
-	
 function warquest_alliance_drop_do() {
 
 	/* input */	
@@ -334,6 +148,12 @@ function warquest_alliance_accept_do() {
 	$message = t('ALLIANCE_ACCEPT',$other->name); 
 	$popup .= warquest_box_icon("info", $message);
 }
+
+/*
+** --------------
+** ALLIANCE GUI
+** --------------
+*/
 
 function warquest_alliance_accepted_form() {
 
@@ -681,9 +501,191 @@ function warquest_alliance_pending_form() {
    $page .= '</div>';	
 }
 
+/**
+ * Invite friend form
+ */
+function warquest_alliance_invite_form() {
+
+	/* input */
+	global $config;
+	global $player;
+	global $mid;
+	global $sid;
+	global $myemail;
+	global $offset;
+	
+	/* output */
+	global $page;
+	global $title;
+	global $sort;
+	
+	$title = t('ALLIANCE_INVITE_TITLE1');
+			
+	$page .= '<div class="subparagraph">';
+	$page .= t('ALLIANCE_INVITE_TITLE2', $player->alliance, $player->invite);
+	$page .= '</div>';
+
+	if ($player->lid==0) {
+		
+		$page .= '<br/>';
+	
+		$title = "";
+		$message  = '<table>';
+		
+		$message .= '<tr>';
+		
+		$message .= '<td>';
+		$message .= warquest_image("other/unlock.png");
+		$message .= '</td>';
+		
+		$message .= '<td>';
+		$message .= t('ALLIANCE_LOCKED');
+		$message .= '</td>';
+		
+		$message .= '</tr>';
+		
+		$message .= '</table>';
+
+		$page .= warquest_box($title, $message);
+	
+	} else if (($player->alliance + $player->invite) >= $player->lid*$config["max_ally_factor"]) {
+		
+		$message = t('ALLIANCE_MAXIMUM', $player->lid * $config["max_ally_factor"]);
+		$page .= warquest_box_icon("info", $message);
+	
+	} else {
+		
+		$limit = 50;	
+		
+		$query  = 'select pid from player where pid not in ';
+		$query .= '(select pid2 from player_player where pid1='.$player->pid.') and pid!='.$player->pid.' ';
+		$query .= 'and (alliance+invite)<(lid*'.$config["max_ally_factor"].') ';
+		$result = warquest_db_query($query);	 
+		$total = warquest_db_num_rows($result);
+		
+		/* Show all not recruited players */
+		$query  = 'select pid, name, country, lid, experience, alliance, request_date ';
+		$query .= 'from player where pid not in ';
+		$query .= '(select pid2 from player_player where pid1='.$player->pid.') and pid!='.$player->pid.' ';
+		$query .= 'and (alliance+invite)<(lid*'.$config["max_ally_factor"].') ';
+	
+		switch ($sort) {
+		
+			case 1:
+				$query .= 'order by country asc ';
+				break;
+				
+			case 2:
+				$query .= 'order by name asc ';
+				break;
+			
+			default:	
+			case 3:
+				$query .= 'order by request_date desc ';
+				break;
+				
+			case 4:
+				$query .= 'order by lid desc, experience desc ';
+				break;
+
+			case 5:
+				$query .= 'order by experience desc ';
+				break;
+				
+			case 6:
+				$query .= 'order by alliance desc ';
+				break;		
+		}
+		
+		$query .= 'limit '.$offset.','.$limit;
+		$result = warquest_db_query($query);	
+	
+		$page .= '<div class="box">';
+		
+		$page .= warquest_page_control($offset, $limit, $total, 1, '&sort='.$sort);
+	
+		$page .= '<table>';
+		
+		$page .= '<tr>';
+		$page .= '<th width="50">';
+		$page .= '</th>';
+		
+		$page .= '<th width="130">';
+		$page .= warquest_link('mid='.$mid.'&sid='.$sid.'&sort=2', t('GENERAL_PLAYER'));
+		$page .= '</th>';
+		
+		$page .= '<th width="70">';
+		$page .= warquest_link('mid='.$mid.'&sid='.$sid.'&sort=3', t('GENERAL_ACTIVE'));
+		$page .= '</th>';
+				
+		$page .= '<th width="50">';
+		$page .= warquest_link('mid='.$mid.'&sid='.$sid.'&sort=4', t('GENERAL_LEVEL'));
+		$page .= '</th>';
+		
+		$page .= '<th width="90">';
+		$page .= warquest_link('mid='.$mid.'&sid='.$sid.'&sort=5', t('GENERAL_EXP'));
+		$page .= '</th>';
+		
+		$page .= '<th width="60">';
+		$page .= warquest_link('mid='.$mid.'&sid='.$sid.'&sort=6', t('GENERAL_ALLIANCE'));
+		$page .= '</th>';
+		
+		$page .= '<th width="50">';
+		$page .= '</th>';
+		
+		$page .= '</tr>';
+		
+		$count=0;
+	
+		while ($data=warquest_db_fetch_object($result)) {
+		
+			$page .= '<tr>';
+			
+			$page .= '<td>';
+			$page .= warquest_flag_image($data->country);
+			$page .= '</td>';
+			
+			$page .= '<td>';
+			$page .= warquest_link('mid='.$mid.'&sid='.PAGE_PROFILE.'&oid='.$data->pid, $data->name);
+			$page .= '</td>';
+			
+			$page .= '<td>';
+			$page .= warquest_ui_ago($data->request_date);
+			$page .= '</td>';					
+			
+			$page .= '<td>';
+			$page .= $data->lid;
+			$page .= '</td>';		
+			
+			$page .= '<td>';
+			$page .= number_format($data->experience,0,",",".");
+			$page .= '</td>';			
+			
+			$page .= '<td>';
+			$page .= $data->alliance;
+			$page .= '</td>';			
+			
+			$page .= '<td>';
+			$page .= warquest_link('mid='.$mid.'&sid='.$sid.'&oid='.$data->pid.'&eid='.EVENT_ALLIANCE_INVITE.'&sort='.$sort.'&offset='.$offset, t('LINK_RECRUIT'), "recuit".$count++);
+			$page .= '</td>';
+			
+			$page .= '</tr>';
+		}
+		
+		$page .= '</table>';
+		$page .= warquest_page_control($offset, $limit, $total, 0, '&sort='.$sort);	
+		$page .= '</div>';			
+	} 
+
+	$page .= '<div class="note">';
+	$page .= t('ALLIANCE_INVITE_NOTE', $player->lid * $config["max_ally_factor"]);
+   $page .= '</div>';		
+}
+
+
 /*
 ** --------------
-** ACTIONS
+** CLAN ACTIONS
 ** --------------
 */
 
@@ -1085,9 +1087,44 @@ function warquest_clan_skill_decrease_do() {
 	}
 }
 
+function warquest_promotion_invite_do() {
+
+	/* input */
+	global $player;
+	global $config;	
+	global $email;
+	
+	/* output */
+	global $popup;	
+	
+	if ( validate_email($email) ) {
+	
+		/* Invalid email address */
+		$message = t('LOGIN_EMAIL_INVALID', $email);
+		$popup .= warquest_box_icon("warning", $message);
+		
+	} else if (warquest_db_invite_check($email)>0) {
+	
+		/* Email adres is already used in the past */
+		$message = t('PROMOTION_INVITE_KNOWN', $email);
+		$popup .= warquest_box_icon("warning", $message);
+		
+	} else {
+	
+		/* Add invite request in database */
+		warquest_db_invite_insert($email, 0, $player->pid);
+		
+		/* Send invite email */
+		warquest_promotion_invite_mail($player->pid, $email);
+		
+		$message = t('PROMOTION_INVITE_SENT', $email);
+		$popup .= warquest_box_icon("info", $message);	
+	}
+}
+
 /*
 ** --------------
-** UI
+** CLAN UI
 ** --------------
 */
 
@@ -1264,44 +1301,6 @@ function warquest_clan_profile_form() {
 	$comment = $clan->slogan;
 	
 	$title = t('CLAN_PROFILE', $clan->name);
-	
-	/* Clan Slogan */
-	$page .= '<div class="subparagraph">';
-	$page .= t('CLAN_SLOGAN', $clan->name);
-	$page .= '</div>';
-
-	if ($clan->pid==$player->pid) {	
-		
-		$page .= '<div class="box">';
-		
-		$page .= "<script language=\"JavaScript\" type=\"text/javascript\">function limitText(limitField, limitNum) { if (limitField.value.length >= limitNum) { limitField.value = limitField.value.substring(0, limitNum); } } </script>";
-					
-		$page .= '<table>';
-		$page .= '<tr>';
-		$page .= '<td width="500">';
-	
-		$page .= '<textarea style="width:100%" id="slogan" name="slogan" rows="3" ';
-		$page .= 'onKeyDown="limitText(this,199)">'.$comment.'</textarea><br/>';
-		$page .= warquest_show_smilies('slogan');
-		$page .= '<br/><br/>';
-	
-		$page .= warquest_link('mid='.$mid.'&sid='.$sid.'&cid='.$cid.'&eid='.EVENT_CLAN_SLOGAN, t('LINK_SAVE'), 'save');
-		
-		$page .= '</td>';
-		$page .= '</tr>';
-		$page .= '</table>';
-		$page .= '</div>';
-				
-	} else {
-	
-		$page .= '<div class="box">';
-		
-		$page .= '<div class="slogan">';
-		$page .= warquest_parse_smilies($comment);
-		$page .= '</div>';
-		
-		$page .= '</div>';
-	} 
 	
 	/* Clan Bank */
 	$page .= '<div class="subparagraph">';
@@ -1540,9 +1539,130 @@ function warquest_clan_profile_form() {
 		$page .= '</div>';
 	}
 	
+	/* Clan Slogan */
+	$page .= '<div class="subparagraph">';
+	$page .= t('CLAN_SLOGAN', $clan->name);
+	$page .= '</div>';
+
+	if ($clan->pid==$player->pid) {	
+		
+		$page .= '<div class="box">';
+		
+		$page .= "<script language=\"JavaScript\" type=\"text/javascript\">function limitText(limitField, limitNum) { if (limitField.value.length >= limitNum) { limitField.value = limitField.value.substring(0, limitNum); } } </script>";
+					
+		$page .= '<table>';
+		$page .= '<tr>';
+		$page .= '<td width="500">';
+	
+		$page .= '<textarea style="width:100%" id="slogan" name="slogan" rows="3" ';
+		$page .= 'onKeyDown="limitText(this,199)">'.$comment.'</textarea><br/>';
+		$page .= warquest_show_smilies('slogan');
+		$page .= '<br/><br/>';
+	
+		$page .= warquest_link('mid='.$mid.'&sid='.$sid.'&cid='.$cid.'&eid='.EVENT_CLAN_SLOGAN, t('LINK_SAVE'), 'save');
+		
+		$page .= '</td>';
+		$page .= '</tr>';
+		$page .= '</table>';
+		$page .= '</div>';
+				
+	} else {
+	
+		$page .= '<div class="box">';
+		
+		$page .= '<div class="slogan">';
+		$page .= warquest_parse_smilies($comment);
+		$page .= '</div>';
+		
+		$page .= '</div>';
+	} 
+	
 	$page .= '<div class="note">';
 	$page .= t('CLAN_PROFILE_NOTE');
    $page .= '</div>';	
+}
+
+function warquest_promotion_form() {
+
+	/* input */	
+	global $mid;
+	global $sid;
+	global $cid;
+	global $email;
+	global $player;
+			
+	/* output */
+	global $page;
+	global $title;
+			
+	$title = t('PROMOTION_TITLE');
+			
+	/* Invite friends by email */
+	$page .= '<div class="subparagraph">';
+	$page .= t('PROMOTION_INVITE');
+	$page .= '</div>';
+	
+	$page .= '<div class="box">';
+	
+	$page .= t('LOGIN_EMAIL').' ';
+	$page .= '<td><input name="email" type="text" size="50" maxlength="120" value="'.$email.'" id="email"> ';
+	$page .= '<input type="hidden" name="token" value="'.warquest_token('mid='.$mid.'&sid='.$sid.'&eid='.EVENT_PROMOTION_INVITE).'">';
+	$page .= '<input type="submit" name="Submit" id="do" value="'.t('LINK_INVITE').'">';
+	$page .= '</td>';
+	$page .= '</tr>';
+	
+	$page .= '</table>';
+
+	$page .= '</div>';
+	
+	$page .= '<div class="note">';
+	$page .= t('PROMOTION_INVITE_NOTE');
+	$page .= '</div>';
+	
+		/* Facebook */
+	$page .= '<div class="subparagraph">';
+	$page .= t('PROMOTION_FACEBOOK');
+	$page .= '</div>';
+		
+	$page .= '<div class="box">';			
+		
+	$page .= '<div id="fb-root"></div>';
+		
+	$page .= "<script type='text/javascript'>
+window.fbAsyncInit = function() {
+ FB.init({appId: '146129318831064', status: true, cookie: true, xfbml: true});
+ FB.Event.subscribe('edge.create', function(href, widget) {
+ 
+	if (window.XMLHttpRequest) {
+		// code for IE7+, Firefox, Chrome, Opera, Safari
+		xmlhttp=new XMLHttpRequest();
+	} else {
+		// code for IE6, IE5
+		xmlhttp=new ActiveXObject('Microsoft.XMLHTTP');
+	}
+	
+	xmlhttp.open('POST', href+'/' ,true);
+	xmlhttp.setRequestHeader('Content-type','application/x-www-form-urlencoded');
+	xmlhttp.send('mid=".MENU_SERVICE."&pid=".$player->pid."&eid=3');
+	
+	});
+};
+
+(function(d, s, id){
+     var js, fjs = d.getElementsByTagName(s)[0];
+     if (d.getElementById(id)) {return;}
+     js = d.createElement(s); js.id = id;
+     js.src = '//connect.facebook.net/en_US/all.js';
+     fjs.parentNode.insertBefore(js, fjs);
+   }(document, 'script', 'facebook-jssdk'));
+</script>";
+
+	$page .= '<div class="fb-like" data-href="http://www.facebook.com/WarQuest" data-send="true" data-width="450" data-show-faces="true"></div>';
+	$page .= '</div>';
+	
+	$page .= '<div class="note">';
+	$page .= t('PROMOTION_FACEBOOK_NOTE');
+	$page .= '</div>';
 }
 
 /*
@@ -1615,6 +1735,10 @@ function warquest_alliance() {
 			warquest_clan_skill_decrease_do();
 			break;
 	
+		case EVENT_PROMOTION_INVITE:
+			warquest_promotion_invite_do();
+			break;
+	
 		case EVENT_SWITCH_PLANET: 
 			warquest_switch_planet_do();
 			break;
@@ -1626,11 +1750,11 @@ function warquest_alliance() {
 
 		case PAGE_PENDING: 
 					warquest_alliance_pending_form();
-				  break;
+					break;
 
 		case PAGE_INVITE: 
 					warquest_alliance_invite_form();
-				  break;
+					break;
 			  
 		case PAGE_ACCEPTED: 
 					warquest_alliance_accepted_form();
@@ -1655,6 +1779,10 @@ function warquest_alliance() {
 		case PAGE_CLAN_PROFILE: 
 					warquest_clan_profile_form();
 					break; 
+					
+		case PAGE_PROMOTION:
+					warquest_promotion_form();
+					break;
 	}				  
 	
 	warquest_player();	

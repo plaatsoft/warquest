@@ -1111,6 +1111,48 @@ class TestDatabase extends PHPUnit_Framework_TestCase {
    }
 	
 	/**
+	 * @test invite api
+	 */ 
+   public function testInviteAPI() {
+
+		echo "testinviteAPI()\r\n";
+		
+		global $config;
+		global $popup;
+
+		/* test data */
+		$email = "test@plaatsoft.nl";
+		$approved1 = 0;	
+		$approved2 = 1;
+		$pid = 1;
+		
+		$_SERVER["REMOTE_ADDR"] = "127.0.0.1";
+						
+		$result = warquest_db_connect($config["dbhost"], $config["dbuser"], $config["dbpass"], $config["dbname"]);
+		$this->assertEquals($result, 1);
+
+		$id = warquest_db_invite_insert($email, $approved1, $pid);
+		$this->assertNotEquals($id, 0);	
+		
+		$data = warquest_db_invite($id);
+		$this->assertEquals($data->approved, $approved1);	
+		
+		$data->approved = $approved2;
+		
+		$result = warquest_db_invite_update($data);
+		$this->assertEquals($result, 1);	
+		
+		$data = warquest_db_invite($id);
+		$this->assertEquals($data->approved, $approved2);	
+		
+		$count = warquest_db_invite_check($email);
+		$this->assertEquals($count, 1);	
+		
+		$result = warquest_db_close();
+		$this->assertEquals($result, 1);	
+   }
+	
+	/**
 	 * @test SQL error
 	 */ 
    public function testSQLerrror() {
@@ -1149,7 +1191,7 @@ class TestDatabase extends PHPUnit_Framework_TestCase {
 		$query = 'DROP TABLE `bank`, `bank_group`, `battle`, `battle_award`, `bonus`, `bounty`, `bounty_award`, `building`, `building_group`, `building_unit`, 	
 			`chat`, `clan`, `cron`, `level`, `member`, `mission`, `mission_group`, `mission_unit`, `news`, `player`, `player_building`, `player_clan`,
 			`player_mission`, `player_player`, `player_poll`, `player_stock`, `player_unit`, `poll`, `poll_answer`, `rebel_award`, `sector`, `session`, `skill`,
-			`statistics`, `stock`, `stock_group`, `topic`, `unit`, `unit_group`;'; 
+			`statistics`, `stock`, `stock_group`, `topic`, `unit`, `unit_group`, invite;'; 
 			
 		$result = warquest_db_connect($config["dbhost"], $config["dbuser"], $config["dbpass"], $config["dbname"]);
 		$this->assertEquals($result, 1);

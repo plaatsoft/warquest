@@ -3123,18 +3123,14 @@ $lang['CLAN_CREATED'] = 'Clan [%s] created!';
 $lang['CLAN_NO_SKILL_POINT'] = 'You need 1 skill point to create a new clan.';
 
 $lang['CLAN_PROFILE'] = 'Clan Profile [%s]';
+$lang['CLAN_MEMBER_LIST'] = 'Clan Members [%s]';
+$lang['CLAN_BANK'] = 'Clan Bank [%s]';
 
 $lang['CLAN_SLOGAN'] = 'Clan Slogan [%s]';
 $lang['CLAN_SLOGAN_NOTE'] = 'Enter or update then clan slogan!';
 $lang['CLAN_SLOGAN_SAVED'] = 'Clan slogan is saved';
 $lang['CLAN_SLOGAN_TOO_SHORT'] = 'Clan slogan is to short';
-$lang['CLAN_SLOGAN_TOO_LONG'] = 'Clan slogan is to long. Maximum 200 characters allowed.';
-
-$lang['CLAN_MEMBER_LIST'] = 'Clan Members [%s]';
-
-$lang['CLAN_BANK'] = 'Clan Bank [%s]';
-
-$lang['BATTLE_CLAN_WAR_UNLOCKED'] = '%s clan war is unlocked at level %s.';
+$lang['CLAN_SLOGAN_TOO_LONG'] = 'Clan slogan is to long. Maximum 200 characters allowed.';$lang['BATTLE_CLAN_WAR_UNLOCKED'] = '%s clan war is unlocked at level %s.';
 
 $lang['BATTLE_CLAN_WAR_TITLE'] = 'Clan War';
 $lang['BATTLE_CLAN_WAR'] = 'Clan-War';
@@ -3154,7 +3150,6 @@ $lang['BATTLE_CLAN_DEFENSE_BASE'] = '%s clan defence base:';
 $lang['HELP_CLAN_WAR_TITLE'] = 'Clan War';
 $lang['HELP_CLAN_WAR'] =	'Fight other clans to conquer all planet sectors. To take over a planet sector your clan must win 10 times. 
 Each conquered sector is rewarded with a bonus. The more sectors you own, the higher the bonus. So WarQuest clan players go for world domination!';
-
 
 /*
 ** ------------------
@@ -3200,7 +3195,7 @@ $lang['BATTLE_NO_UNITS_AVAILABLE'] = 'No units available to fight with!';
 ** ------------------
 */
 
-$lang['CLAN_ACCEPTED'] = 'You accepted %s to your %s clan.';
+$lang['CLAN_ACCEPTED'] = 'You accept %s to your %s clan.';
 $lang['HOME_EMAIL_VALID'] = 'Email address is verified';
 
 $lang['CLAN_ATTACK']  = 'ATTACK';
@@ -3222,6 +3217,16 @@ $lang['CLAN_SKILL_INCREASED'] = 'Clan skill is increased to %s';
 
 $lang['CLAN_PROFILE_NOTE'] = 'Clan members can deposit money on the clan bank to improve clan skills. The clan commander can manage clan slogan, skills and members. If the clan bank does not contain enough money to fund the clan skills the feature is disabled during clan fights.';
 $lang['CLAN_SKILL_ENABLED'] = '* Clan attack and/or defence skills active!';
+
+$lang['LINK_PROMOTION'] = 'Promotion';
+$lang['PROMOTION_TITLE'] = ' Promotion';
+$lang['PROMOTION_FACEBOOK'] = ' Facebook';
+$lang['PROMOTION_FACEBOOK_NOTE'] = 'Like WarQuest at Facebook and receive 500 gold!';
+
+$lang['PROMOTION_INVITE'] = 'Invite friends';
+$lang['PROMOTION_INVITE_KNOWN'] = 'Invitation is already sent to %s.';
+$lang['PROMOTION_INVITE_SENT'] = 'Invitation is sent to %s.';
+$lang['PROMOTION_INVITE_NOTE'] = 'Invite friends to WarQuest and receive 500 gold for each new registration.';
 
 /*
 ** ------------------

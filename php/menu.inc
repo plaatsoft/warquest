@@ -390,6 +390,7 @@ function warquest_menu_alliance() {
 	global $mid;
 	global $sid;
 	global $player;
+	global $config;
 	
 	/* Count not accepted recruit request */
 	$query  = 'select pid1 from player_player where approved=0 and pid2='.$player->pid; 
@@ -404,7 +405,8 @@ function warquest_menu_alliance() {
 	$page .= warquest_ui_menu($mid, PAGE_BEST_PLAYER, 0, t('LINK_BEST_PLAYER'), $sid);
 	$page .= warquest_ui_menu($mid, PAGE_BEST_COUNTRY, 0, t('LINK_BEST_COUNTRY'), $sid);
 	$page .= warquest_ui_menu($mid, PAGE_CLAN, 0, t('LINK_CLAN'), $sid);
-	
+	$page .= warquest_ui_menu($mid, PAGE_PROMOTION, 0, t('LINK_PROMOTION'), $sid);
+		
 	$page .= '</div>';
 	
 	return $page;
