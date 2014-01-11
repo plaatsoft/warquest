@@ -52,7 +52,9 @@ function warquest_mission_planet_complet_bonus() {
 		if ($data->part2==216) {
 			
 			/* Only if insert is successfull, add bonus to players account */
-			if (warquest_db_bonus_insert($player->pid, $player->planet)) {
+			if (	warquest_db_bonus($player->pid, $player->planet)==0 ) {
+				
+				warquest_db_bonus_insert($player->pid, $player->planet);
 			
 				$message = '<table>';
 				$message .= '<tr>';
