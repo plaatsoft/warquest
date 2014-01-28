@@ -18,6 +18,17 @@
 
 /*
 ** ------------------
+** WEB SERVICES
+** ------------------
+*/
+
+define("EVENT_GET_SECTOR", 	   1);
+define("EVENT_GET_CLAN", 	      2);
+define("EVENT_FB_LIKE", 	      3);
+define("EVENT_GET_PLAYER", 	   4);
+
+/*
+** ------------------
 ** BONUS
 ** ------------------
 */
