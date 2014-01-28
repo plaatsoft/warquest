@@ -57,7 +57,7 @@ function getSectorData() {
 	
 	xmlhttp.open("POST", url+"/" ,true);
 	xmlhttp.setRequestHeader("Content-type","application/x-www-form-urlencoded");
-	xmlhttp.send("mid="+mid+"&eid=1&planet="+planet);
+	xmlhttp.send("mid="+mid+"&eid=1&id="+planet);
 }
 
 function getClanInfo(cid) {
@@ -92,7 +92,7 @@ function getClanInfo(cid) {
 	
 	xmlhttp.open("POST", url+"/" ,true);
 	xmlhttp.setRequestHeader("Content-type","application/x-www-form-urlencoded");
-	xmlhttp.send("mid="+mid+"&eid=2&cid="+cid);
+	xmlhttp.send("mid="+mid+"&eid=2&id="+cid);
 }
 		
 function IsInPath(event) {

@@ -1383,11 +1383,33 @@ function warquest_convert_date($value) {
   return $day.'-'.$month.'-'.$year.' '.$time;
 }
 
+/** 
+ * Convert mysql datatime to XML format.
+ */
+function warquest_xml_date($value) { 
+
+	list($date, $time) = preg_split('/ /', $value);
+	list($year, $month, $day) = preg_split('/-/', $date); 
+	
+	/* Prevent XSD validation error conform ISO 8601 */
+	if ($year==0) {
+		$year="1900";
+	}
+   if ($day==0) {
+		$day="01";
+	}
+	if ($month==0) {
+		$month="01";
+	}
+	return $year.'-'.$month.'-'.$day.'T'.$time;
+}
+
 /**
  * Convert data mysql 
  */
 function convert_date_mysql($date) {
 	$part = preg_split('/-/', $date);
+	
 	return $part[2].'-'.$part[1].'-'.$part[0];
 }
 
