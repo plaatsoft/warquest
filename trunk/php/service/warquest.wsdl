@@ -1,0 +1,208 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+
+<wsdl:definitions 
+xmlns:soap='http://schemas.xmlsoap.org/wsdl/soap/' 
+xmlns:tns='http://www.warquest.nl/service/warquest.wsdl' 
+xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' 
+xmlns:xsd='http://www.w3.org/2001/XMLSchema' 
+targetNamespace='http://www.warquest.nl/service/warquest.wsdl'>
+
+<wsdl:types>
+				
+	<xsd:element name="player">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="pid" type="xsd:integer" minOccurs="0" maxOccurs="1"/>
+				<xsd:element name="name" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+				<xsd:element name="twitter" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+				<xsd:element name="country" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+				<xsd:element name="health" type="xsd:integer" minOccurs="0" maxOccurs="1"/>
+				<xsd:element name="energy" type="xsd:integer" minOccurs="0" maxOccurs="1"/>
+				<xsd:element name="ammo" type="xsd:integer" minOccurs="0" maxOccurs="1"/>
+				<xsd:element name="money" type="xsd:long" minOccurs="0" maxOccurs="1"/>
+				<xsd:element name="lid" type="xsd:integer" minOccurs="0" maxOccurs="1"/>
+				<xsd:element name="won_level" type="xsd:integer" minOccurs="0" maxOccurs="1"/>
+				<xsd:element name="experience" type="xsd:long" minOccurs="0" maxOccurs="1"/>
+				<xsd:element name="mission" type="xsd:integer" minOccurs="0" maxOccurs="1"/>
+				<xsd:element name="won" type="xsd:integer" minOccurs="0" maxOccurs="1"/>
+				<xsd:element name="lost" type="xsd:integer" minOccurs="0" maxOccurs="1"/>
+				<xsd:element name="energy_step" type="xsd:integer" minOccurs="0" maxOccurs="1"/>
+				<xsd:element name="health_step" type="xsd:integer" minOccurs="0" maxOccurs="1"/>
+			
+				<xsd:element name="language" minOccurs="0" maxOccurs="1">
+					<xsd:simpleType>
+						<xsd:restriction base="xsd:string">
+							<xsd:length value="2"/>
+						</xsd:restriction>
+					</xsd:simpleType>
+				</xsd:element>
+				
+				<xsd:element name="background" type="xsd:integer" minOccurs="0" maxOccurs="1"/>
+				<xsd:element name="money_step" type="xsd:long" minOccurs="0" maxOccurs="1"/>
+				<xsd:element name="money_date" type="xsd:dateTime" minOccurs="0" maxOccurs="1"/>
+				<xsd:element name="gold" type="xsd:long" minOccurs="0" maxOccurs="1"/>
+				<xsd:element name="energy_date" type="xsd:dateTime" minOccurs="0" maxOccurs="1"/>
+				<xsd:element name="health_date" type="xsd:dateTime" minOccurs="0" maxOccurs="1"/>
+				<xsd:element name="ammo_date" type="xsd:dateTime" minOccurs="0" maxOccurs="1"/>
+				<xsd:element name="ammo_step" type="xsd:integer" minOccurs="0" maxOccurs="1"/>		
+				<xsd:element name="news" type="xsd:integer" minOccurs="0" maxOccurs="1"/>
+				<xsd:element name="comment" type="xsd:integer" minOccurs="0" maxOccurs="1"/>
+				<xsd:element name="alliance" type="xsd:integer" minOccurs="0" maxOccurs="1"/>
+				<xsd:element name="invite" type="xsd:integer" minOccurs="0" maxOccurs="1"/>
+				<xsd:element name="bank1" type="xsd:long" minOccurs="0" maxOccurs="1"/>
+				<xsd:element name="bank2" type="xsd:long" minOccurs="0" maxOccurs="1"/>
+				<xsd:element name="bank3" type="xsd:long" minOccurs="0" maxOccurs="1"/>
+				<xsd:element name="upkeep" type="xsd:long" minOccurs="0" maxOccurs="1"/>
+				<xsd:element name="damage_units" type="xsd:integer" minOccurs="0" maxOccurs="1"/>
+				<xsd:element name="damage_buildings" type="xsd:integer" minOccurs="0" maxOccurs="1"/>
+				<xsd:element name="last_battle" type="xsd:dateTime" minOccurs="0" maxOccurs="1"/>
+				<xsd:element name="default_force" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+				<xsd:element name="default_mission" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+				<xsd:element name="default_amount" type="xsd:integer" minOccurs="0" maxOccurs="1"/>
+				<xsd:element name="bonus_date" type="xsd:dateTime" minOccurs="0" maxOccurs="1"/>
+				<xsd:element name="request" type="xsd:integer" minOccurs="0" maxOccurs="1"/>
+				<xsd:element name="request_date" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+				<xsd:element name="casino" type="xsd:integer" minOccurs="0" maxOccurs="1"/>
+				<xsd:element name="restore_health" type="xsd:dateTime" minOccurs="0" maxOccurs="1"/>
+				<xsd:element name="restore_energy" type="xsd:dateTime" minOccurs="0" maxOccurs="1"/>
+				<xsd:element name="restore_ammo" type="xsd:dateTime" minOccurs="0" maxOccurs="1"/>
+				<xsd:element name="cease_fire_date" type="xsd:dateTime" minOccurs="0" maxOccurs="1"/>
+				<xsd:element name="holiday_date" type="xsd:dateTime" minOccurs="0" maxOccurs="1"/>
+				<xsd:element name="rebel_status" type="xsd:integer" minOccurs="0" maxOccurs="1"/>
+				<xsd:element name="bounty" type="xsd:integer" minOccurs="0" maxOccurs="1"/>
+				<xsd:element name="bounty_level" type="xsd:integer" minOccurs="0" maxOccurs="1"/>
+				<xsd:element name="planet" type="xsd:integer" minOccurs="0" maxOccurs="1" />
+				<xsd:element name="pattern" type="xsd:string" minOccurs="0" maxOccurs="1" />
+				<xsd:element name="chat" type="xsd:integer" minOccurs="0" maxOccurs="1" />
+				<xsd:element name="rebel" type="xsd:integer" minOccurs="0" maxOccurs="1"/>
+				<xsd:element name="rebel_level" type="xsd:integer" minOccurs="0" maxOccurs="1"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>  
+	
+	<xsd:element name="clan">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="cid" type="xsd:integer" minOccurs="0" maxOccurs="1"/>
+				<xsd:element name="name" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+				<xsd:element name="created" type="xsd:dateTime" minOccurs="0" maxOccurs="1"/>
+				<xsd:element name="last_activity" type="xsd:dateTime" minOccurs="0" maxOccurs="1"/>
+				<xsd:element name="pid" type="xsd:integer" minOccurs="0" maxOccurs="1"/>
+				<xsd:element name="won" type="xsd:integer" minOccurs="0" maxOccurs="1"/>
+				<xsd:element name="lost" type="xsd:integer" minOccurs="0" maxOccurs="1"/>
+				<xsd:element name="money" type="xsd:long" minOccurs="0" maxOccurs="1"/>
+				<xsd:element name="attack" type="xsd:integer" minOccurs="0" maxOccurs="1"/>
+				<xsd:element name="defense" type="xsd:integer" minOccurs="0" maxOccurs="1"/>
+				<xsd:element name="slogan" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>  
+	
+	<xsd:element name="sector">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="sid" type="xsd:integer" minOccurs="0" maxOccurs="1" />
+				<xsd:element name="x" type="xsd:integer" minOccurs="0" maxOccurs="1" />
+				<xsd:element name="y" type="xsd:integer" minOccurs="0" maxOccurs="1" />
+				<xsd:element name="cid" type="xsd:integer" minOccurs="0" maxOccurs="1" />
+				<xsd:element name="damage" type="xsd:integer" minOccurs="0" maxOccurs="1" />
+				<xsd:element name="planet" type="xsd:integer" minOccurs="0" maxOccurs="1" />				
+				<xsd:element name="conquer_date" type="xsd:dataTime" minOccurs="0" maxOccurs="1" />
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>  
+	
+	 <xsd:complexType name="sectors">
+        <xsd:sequence>
+            <xsd:element minOccurs="0" maxOccurs="75" name="sector" nillable="true" type="tns:sector" />
+        </xsd:sequence>
+    </xsd:complexType>
+
+</wsdl:types>
+
+<wsdl:message name='getPlayerRequest'>
+	<wsdl:part name='id' type='xsd:int'/>
+</wsdl:message>
+
+<wsdl:message name='getPlayerResponse'>
+	<wsdl:part name='player' type='tns:player'/>
+</wsdl:message>
+
+<wsdl:message name='getClanRequest'>
+	<wsdl:part name='id' type='xsd:int'/>
+</wsdl:message>
+
+<wsdl:message name='getClanResponse'>
+	<wsdl:part name='clan' type='tns:clan'/>
+</wsdl:message>
+
+<wsdl:message name='getSectorsRequest'>
+	<wsdl:part name='id' type='xsd:int'/>
+</wsdl:message>
+
+<wsdl:message name='getSectorsResponse'>
+	<wsdl:part name='sectors' type='tns:sectors'/>
+</wsdl:message>
+
+<wsdl:portType name='WarQuestPort'>
+	
+	<wsdl:operation name='getPlayer'>
+		<wsdl:input message='tns:getPlayerRequest'/>	
+		<wsdl:output message='tns:getPlayerResponse'/>
+   </wsdl:operation>
+	
+	<wsdl:operation name='getClan'>
+		<wsdl:input message='tns:getClanRequest'/>	
+		<wsdl:output message='tns:getClanResponse'/>
+   </wsdl:operation>
+	
+	<wsdl:operation name='getSectors'>
+		<wsdl:input message='tns:getSectorsRequest'/>	
+		<wsdl:output message='tns:getSectorsResponse'/>
+   </wsdl:operation>
+	
+</wsdl:portType>
+
+<wsdl:binding name='WarQuestBinding' type='tns:WarQuestPort'>
+   <soap:binding style='document'  transport='http://schemas.xmlsoap.org/soap/http' />
+	
+   <wsdl:operation name='getPlayer'>
+     <soap:operation soapAction='getPlayer' style="rpc"/>
+		<wsdl:input>
+        <soap:body use='literal' />
+      </wsdl:input>
+		<wsdl:output>
+			<soap:body use='literal' namespace="http://www.warquest.nl/service/warquest.wsdl" />
+		</wsdl:output>
+	</wsdl:operation>
+	
+	<wsdl:operation name='getClan'>
+     <soap:operation soapAction='getClan' style="rpc"/>
+		<wsdl:input>
+        <soap:body use='literal' />
+      </wsdl:input>
+		<wsdl:output>
+			<soap:body use='literal' namespace="http://www.warquest.nl/service/warquest.wsdl" />
+		</wsdl:output>
+	</wsdl:operation>
+	
+	<wsdl:operation name='getSectors'>
+     <soap:operation soapAction='getSectors' style="rpc"/>
+		<wsdl:input>
+        <soap:body use='literal' />
+      </wsdl:input>
+		<wsdl:output>
+			<soap:body use='literal' namespace="http://www.warquest.nl/service/warquest.wsdl" />
+		</wsdl:output>
+	</wsdl:operation>
+	
+</wsdl:binding>
+
+<wsdl:service name='WarQuest'>
+	<wsdl:documentation>WSDL file for WarQuest</wsdl:documentation>
+	<wsdl:port binding='tns:WarQuestBinding' name='WarQuestPort'>
+		<soap:address location='http://www.warquest.nl/service/' />
+	</wsdl:port>
+</wsdl:service>
+
+</wsdl:definitions>
