@@ -2,27 +2,38 @@
 
 <wsdl:definitions 
 xmlns:soap='http://schemas.xmlsoap.org/wsdl/soap/' 
-xmlns:tns='http://www.warquest.nl/service/warquest.wsdl' 
+xmlns:tns='http://127.0.0.1/warquest/service/warquest.wsdl' 
 xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' 
 xmlns:xsd='http://www.w3.org/2001/XMLSchema' 
-targetNamespace='http://www.warquest.nl/service/warquest.wsdl'>
+targetNamespace='http://127.0.0.1/warquest/service/warquest.wsdl'>
 
 <wsdl:types>
 	
-	<xsd:complexType name="battleRequest">
-		<xsd:sequence>
-			<xsd:element name="login" type="xsd:string" minOccurs="1" maxOccurs="1"/>
-			<xsd:element name="password" type="xsd:string" minOccurs="1" maxOccurs="1"/>
-		</xsd:sequence>
-	</xsd:complexType>
-	
-	<xsd:complexType name="battleResponse">
-		<xsd:sequence>
-			<xsd:element name="won" type="xsd:integer" minOccurs="1" maxOccurs="1"/>
-			<xsd:element name="force" type="xsd:integer" minOccurs="1" maxOccurs="1"/>
-			<xsd:element name="result" type="xsd:string" minOccurs="1" maxOccurs="1"/>
-		</xsd:sequence>
-	</xsd:complexType>
+	<xsd:simpleType name="force">
+			<xsd:restriction base="xs:string">
+				<xsd:enumeration value="army" />
+			
+				<xsd:enumeration value="cavalry" />
+				<xsd:enumeration value="navy" />
+				<xsd:enumeration value="airforce" />
+				<xsd:enumeration value="intel" />
+				
+				<xsd:enumeration value="drones" />
+				<xsd:enumeration value="warriors" />
+				<xsd:enumeration value="spacecrafts" />
+				<xsd:enumeration value="explorers" />
+			</xsd:restriction>
+	</xsd:simpleType>
+		
+	<xsd:simpleType name="planet">
+			<xsd:restriction base="xs:string">
+				<xsd:enumeration value="earth" />
+				<xsd:enumeration value="moon" />
+				<xsd:enumeration value="mars" />
+				<xsd:enumeration value="mercure" />
+				<xsd:enumeration value="neptune" />
+			</xsd:restriction>
+	</xsd:simpleType>
 	
 	<xsd:complexType name="unit">
 		<xsd:sequence>
@@ -37,7 +48,7 @@ targetNamespace='http://www.warquest.nl/service/warquest.wsdl'>
 			<xsd:element name="amount" type="xsd:integer" minOccurs="0" maxOccurs="1"/>
 		</xsd:sequence>
 	</xsd:complexType>
-			
+	
 	<xsd:complexType name="player">
 		<xsd:sequence>
 			<xsd:element name="pid" type="xsd:integer" minOccurs="0" maxOccurs="1"/>
@@ -99,7 +110,7 @@ targetNamespace='http://www.warquest.nl/service/warquest.wsdl'>
 			<xsd:element name="rebel_status" type="xsd:integer" minOccurs="0" maxOccurs="1"/>
 			<xsd:element name="bounty" type="xsd:integer" minOccurs="0" maxOccurs="1"/>
 			<xsd:element name="bounty_level" type="xsd:integer" minOccurs="0" maxOccurs="1"/>
-			<xsd:element name="planet" type="xsd:integer" minOccurs="0" maxOccurs="1" />
+			<xsd:element name="planet" type="tns:planet" minOccurs="0" maxOccurs="1" />
 			<xsd:element name="pattern" type="xsd:string" minOccurs="0" maxOccurs="1" />
 			<xsd:element name="chat" type="xsd:integer" minOccurs="0" maxOccurs="1" />
 			<xsd:element name="rebel" type="xsd:integer" minOccurs="0" maxOccurs="1"/>
@@ -151,6 +162,22 @@ targetNamespace='http://www.warquest.nl/service/warquest.wsdl'>
 	<xsd:complexType name="sectors">
 		<xsd:sequence>
 			<xsd:element name="sector" type="tns:sector" nillable="true" minOccurs="0" maxOccurs="75" />
+		</xsd:sequence>
+	</xsd:complexType>
+		
+	<xsd:complexType name="battleRequest">
+		<xsd:sequence>
+			<xsd:element name="login" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+			<xsd:element name="password" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+			<xsd:element name="planet" type="tns:planet" minOccurs="1" maxOccurs="1"/>
+			<xsd:element name="force" type="tns:force" minOccurs="1" maxOccurs="1"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	
+	<xsd:complexType name="battleResponse">
+		<xsd:sequence>
+			<xsd:element name="won" type="xsd:integer" minOccurs="1" maxOccurs="1"/>			
+			<xsd:element name="result" type="xsd:string" minOccurs="1" maxOccurs="1"/>
 		</xsd:sequence>
 	</xsd:complexType>
 
@@ -221,7 +248,7 @@ targetNamespace='http://www.warquest.nl/service/warquest.wsdl'>
         <soap:body use='literal' />
       </wsdl:input>
 		<wsdl:output>
-			<soap:body use='literal' namespace="http://www.warquest.nl/service/warquest.wsdl" />
+			<soap:body use='literal' namespace="http://127.0.0.1/warquest/service/warquest.wsdl" />
 		</wsdl:output>
 	</wsdl:operation>
 	
@@ -231,7 +258,7 @@ targetNamespace='http://www.warquest.nl/service/warquest.wsdl'>
         <soap:body use='literal' />
       </wsdl:input>
 		<wsdl:output>
-			<soap:body use='literal' namespace="http://www.warquest.nl/service/warquest.wsdl" />
+			<soap:body use='literal' namespace="http://127.0.0.1/warquest/service/warquest.wsdl" />
 		</wsdl:output>
 	</wsdl:operation>
 	
@@ -241,7 +268,7 @@ targetNamespace='http://www.warquest.nl/service/warquest.wsdl'>
         <soap:body use='literal' />
       </wsdl:input>
 		<wsdl:output>
-			<soap:body use='literal' namespace="http://www.warquest.nl/service/warquest.wsdl" />
+			<soap:body use='literal' namespace="http://127.0.0.1/warquest/service/warquest.wsdl" />
 		</wsdl:output>
 	</wsdl:operation>
 	
@@ -251,7 +278,7 @@ targetNamespace='http://www.warquest.nl/service/warquest.wsdl'>
         <soap:body use='literal' />
       </wsdl:input>
 		<wsdl:output>
-			<soap:body use='literal' namespace="http://www.warquest.nl/service/warquest.wsdl" />
+			<soap:body use='literal' namespace="http://127.0.0.1/warquest/service/warquest.wsdl" />
 		</wsdl:output>
 	</wsdl:operation>
 	
@@ -260,7 +287,7 @@ targetNamespace='http://www.warquest.nl/service/warquest.wsdl'>
 <wsdl:service name='WarQuest'>
 	<wsdl:documentation>WSDL file for WarQuest</wsdl:documentation>
 	<wsdl:port binding='tns:WarQuestBinding' name='WarQuestPort'>
-		<soap:address location='http://www.warquest.nl/service/' />
+		<soap:address location='http://127.0.0.1/warquest/service/' />
 	</wsdl:port>
 </wsdl:service>
 
