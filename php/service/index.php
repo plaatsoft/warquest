@@ -47,7 +47,7 @@ function planetIntEnum($planet) {
 }
 
 /* Go Battle */
-function getBattle($username, $password) {
+function goBattle($username, $password) {
 
 	/* input */
 	global $player;
@@ -62,6 +62,9 @@ function getBattle($username, $password) {
 	include "../battle.inc";	
 	
 	$pid = warquest_login_do($username, $password);
+	if ($pid==0) {
+		return new SoapFault("Server", "Validation error");
+	}
 	
 	/* Load player data from database */
 	$player = warquest_db_player($pid);
