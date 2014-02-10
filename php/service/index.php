@@ -34,6 +34,18 @@ $output->faultstring="TEST";
 /* Connect to database */
 warquest_db_connect($config["dbhost"], $config["dbuser"], $config["dbpass"], $config["dbname"]);
 
+function planetIntEnum($planet) {
+
+	switch ($planet) {
+	
+		case 1: return "earth";
+		case 2: return "moon";
+		case 3: return "mars";
+		case 4: return "mercure";
+		case 5: return "neptune";
+	}
+}
+
 /* Go Battle */
 function getBattle($username, $password) {
 
@@ -91,6 +103,8 @@ function getPlayer($id) {
 		$data->restore_ammo = warquest_xml_date($data->restore_ammo);
 		$data->cease_fire_date = warquest_xml_date($data->cease_fire_date);
 		$data->holiday_date = warquest_xml_date($data->holiday_date);
+		
+		$data->planet = planetIntEnum($data->planet);
 		
 		// Get buildings
 		$buildings = new ArrayObject();	
@@ -187,8 +201,6 @@ ini_set('soap.wsdl_cache_enabled', '0');
 $server = new SoapServer('warquest.wsdl');
 $server->addFunction(array("getPlayer", "getClan", "getSectors", "goBattle"));
 $server->handle();
-
-getBattle("wplaat", "P15366London");
 
 warquest_db_close();
 
