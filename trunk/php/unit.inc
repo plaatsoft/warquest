@@ -54,7 +54,7 @@ function warquest_unit_deploy_do() {
 	/* output */
 	global $page; 
 	global $player;
-	global $popup;
+	global $output;
 	
 	/* Get unit info */
 	$query = 'select uid, price, gold, attack, defense, max, upkeep from unit where uid='.$uid;
@@ -176,7 +176,7 @@ function warquest_unit_deploy_do() {
 		$link .= warquest_amount_selected($amountDiff);
 	}
 		
-	$popup .= warquest_box($type, $message, $link);
+	$output->popup .= warquest_box($type, $message, $link);
 }
 
 /** 
@@ -195,7 +195,7 @@ function warquest_unit_disband_do() {
 	/* output */
 	global $page;
 	global $player;
-	global $popup;
+	global $output;
 	
 	/* Get unit  */
 	$query  = "select uid, price, gold, attack, defense, upkeep from unit where uid=".$uid;
@@ -277,7 +277,7 @@ function warquest_unit_disband_do() {
 		$link .= warquest_amount_selected($totalAmount);
 	}
 				
-	$popup .= warquest_box($type, $message, $link);
+	$output->popup .= warquest_box($type, $message, $link);
 }
 
 /*
@@ -302,9 +302,9 @@ function warquest_unit_form() {
 	
 	/* output */
 	global $page; 
-	global $title;
+	global $output;
 	
-	$title = t('UNIT_GROUP_'.$sid);
+	$output->title = t('UNIT_GROUP_'.$sid);
 		
 	/* Get player unit data */
 	$query1  = "select a.uid, a.price, a.gold, a.attack, a.defense, a.upkeep, a.max, a.ugid, ";

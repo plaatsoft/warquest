@@ -39,7 +39,7 @@ function warquest_alliance_invite_do() {
 	/* output */ 
 	global $player;
 	global $other;
-	global $popup;
+	global $output;
 	global $config;
 	
 	$query  = 'select pid1 from player_player where ';
@@ -63,7 +63,7 @@ function warquest_alliance_invite_do() {
 		warquest_alliance_invite_mail($other->pid, $player->name);
 		
 		$message = t('ALLIANCE_INVITATION', $other->name);
-		$popup .= warquest_box_icon("info", $message);
+		$output->popup .= warquest_box_icon("info", $message);
 	}
 }
 
@@ -74,7 +74,7 @@ function warquest_alliance_drop_do() {
 	global $other;
 	
 		/* output */
-	global $popup;
+	global $output;
 	
 	warquest_db_alliance_delete($player->pid, $other->pid);
 	warquest_db_alliance_delete($other->pid, $player->pid);
@@ -89,7 +89,7 @@ function warquest_alliance_drop_do() {
 	warquest_alliance_drop_mail($other->pid, $player->name);
 	
 	$message = t('ALLIANCE_DROP', $other->name);
-	$popup .= warquest_box_icon("info", $message);
+	$output->popup .= warquest_box_icon("info", $message);
 }
 				
 function warquest_alliance_reject_do() {
@@ -99,7 +99,7 @@ function warquest_alliance_reject_do() {
 	global $other;
 	
 	/* output */
-	global $popup;
+	global $output;
 	
 	warquest_db_alliance_delete($player->pid, $other->pid);
 	warquest_db_alliance_delete($other->pid, $player->pid);
@@ -114,7 +114,7 @@ function warquest_alliance_reject_do() {
 	warquest_alliance_reject_mail($other->pid, $player->name);
 	
 	$message = t('ALLIANCE_REJECT', $other->name);
-	$popup .= warquest_box_icon("info", $message);
+	$output->popup .= warquest_box_icon("info", $message);
 }
 	
 function warquest_alliance_accept_do() {
@@ -124,7 +124,7 @@ function warquest_alliance_accept_do() {
 	global $other;
 	
 	/* output */
-	global $popup;
+	global $output;
 	
 	$query  = 'select pid1 from player_player where pid1='.$player->pid.' and pid2='.$other->pid;
 	$result = warquest_db_query($query);	
@@ -146,7 +146,7 @@ function warquest_alliance_accept_do() {
 	warquest_alliance_accept_mail($other->pid, $player->name);
 	
 	$message = t('ALLIANCE_ACCEPT',$other->name); 
-	$popup .= warquest_box_icon("info", $message);
+	$output->popup .= warquest_box_icon("info", $message);
 }
 
 /*
@@ -166,9 +166,9 @@ function warquest_alliance_accepted_form() {
 		
 	/* output */
 	global $page;
-	global $title;
+	global $output;
 	
-	$title = t('ALLIANCE_ACCEPT_TITLE1');
+	$output->title = t('ALLIANCE_ACCEPT_TITLE1');
 
 	$count=1;
 	
@@ -330,9 +330,9 @@ function warquest_alliance_pending_form() {
 		
 	/* output */
 	global $page;
-	global $title;
+	global $output;
 	
-	$title = t('ALLIANCE_PENDING_TITLE1');
+	$output->title = t('ALLIANCE_PENDING_TITLE1');
 
 	$count = 1;
 	$flag = 0;
@@ -516,10 +516,10 @@ function warquest_alliance_invite_form() {
 	
 	/* output */
 	global $page;
-	global $title;
+	global $output;
 	global $sort;
 	
-	$title = t('ALLIANCE_INVITE_TITLE1');
+	$output->title = t('ALLIANCE_INVITE_TITLE1');
 			
 	$page .= '<div class="subparagraph">';
 	$page .= t('ALLIANCE_INVITE_TITLE2', $player->alliance, $player->invite);
@@ -529,7 +529,6 @@ function warquest_alliance_invite_form() {
 		
 		$page .= '<br/>';
 	
-		$title = "";
 		$message  = '<table>';
 		
 		$message .= '<tr>';
@@ -546,11 +545,12 @@ function warquest_alliance_invite_form() {
 		
 		$message .= '</table>';
 
-		$page .= warquest_box($title, $message);
+		$page .= warquest_box_icon('info', $message);
 	
 	} else if (($player->alliance + $player->invite) >= $player->lid*$config["max_ally_factor"]) {
 		
 		$message = t('ALLIANCE_MAXIMUM', $player->lid * $config["max_ally_factor"]);
+		
 		$page .= warquest_box_icon("info", $message);
 	
 	} else {
@@ -700,7 +700,7 @@ function warquest_clan_drop_do() {
 	global $cid;
 		
 	/* output */
-	global $popup;	
+	global $output;	
 
 	$clan = warquest_db_clan($cid);
 	$player_clan = warquest_db_player_clan($other->pid);
@@ -708,7 +708,8 @@ function warquest_clan_drop_do() {
 	if (!isset($player_clan->cid) || ($player_clan->cid!=$cid)) {
 		
 		$message = t('CLAN_NOT_PART');
-		$popup .= warquest_box_icon("warning", $message);
+		
+		$output->popup .= warquest_box_icon("warning", $message);
 		
 	} else {
 		
@@ -724,7 +725,7 @@ function warquest_clan_drop_do() {
 				
 		/* Show confirm message on screen */
 		$message = t('CLAN_DROP', player_format($other->pid, $other->name, $other->country, 1), $clan->name);
-		$popup .= warquest_box_icon("info", $message);	
+		$output->popup .= warquest_box_icon("info", $message);	
 	}
 }
 
@@ -739,7 +740,7 @@ function warquest_clan_accept_do() {
 	global $cid;
 			
 	/* output */
-	global $popup;	
+	global $output;	
 	
 	$clan = warquest_db_clan($cid);
 	$player_clan = warquest_db_player_clan($other->pid);
@@ -747,7 +748,7 @@ function warquest_clan_accept_do() {
 	if ($clan->pid!=$player->pid) {
 	
 		$message = t('CLAN_NO_ALLOWED', $clan->name);
-		$popup .= warquest_box_icon("warning", $message);
+		$output->popup .= warquest_box_icon("warning", $message);
 		
 	} else if ($player_clan->approved==0) {
 		
@@ -767,7 +768,7 @@ function warquest_clan_accept_do() {
 		
 		/* Show confirm message on screen */
 		$message = t('CLAN_ACCEPTED', player_format($other->pid, $other->name, $other->country, 1), $clan->name);
-		$popup .= warquest_box_icon("info", $message);	
+		$output->popup .= warquest_box_icon("info", $message);	
 	}
 }
 
@@ -782,7 +783,7 @@ function warquest_clan_leave_do() {
 	global $cid;
 		
 	/* output */
-	global $popup;	
+	global $output;	
 
 	$clan = warquest_db_clan($cid);
 	$player_clan = warquest_db_player_clan($player->pid);
@@ -790,7 +791,7 @@ function warquest_clan_leave_do() {
 	if (!isset($player_clan->cid) ) {
 		
 		$message = t('CLAN_NOT_PART');
-		$popup .= warquest_box_icon("warning", $message);
+		$output->popup .= warquest_box_icon("warning", $message);
 		
 	} else {
 		
@@ -800,7 +801,7 @@ function warquest_clan_leave_do() {
 		warquest_netto_income($player);
 	
 		$message = t('CLAN_LEAVE', $clan->name);
-		$popup .= warquest_box_icon("info", $message);	
+		$output->popup .= warquest_box_icon("info", $message);	
 	}
 }
 
@@ -815,7 +816,7 @@ function warquest_clan_join_do() {
 	global $cid;
 		
 	/* output */
-	global $popup;	
+	global $output;	
 
 	$clan = warquest_db_clan($cid);
 	$player_clan = warquest_db_player_clan($player->pid);
@@ -823,7 +824,7 @@ function warquest_clan_join_do() {
 	if ( isset($player_clan->cid) ) {
 		
 		$message = t('CLAN_ALL_PART');
-		$popup .= warquest_box_icon("warning", $message);
+		$output->popup .= warquest_box_icon("warning", $message);
 		
 	} else {
 	
@@ -837,7 +838,7 @@ function warquest_clan_join_do() {
 		$other->comment++;
 		
 		$message = t('CLAN_JOINED', $clan->name, player_format($other->pid, $other->name, $other->country, 1));	
-		$popup .= warquest_box_icon("info", $message);	
+		$output->popup .= warquest_box_icon("info", $message);	
 	}
 }
 
@@ -852,24 +853,24 @@ function warquest_clan_slogan_do() {
 	global $slogan;	
 		
 	/* output */
-	global $popup;	
+	global $output;	
 	
 	$clan = warquest_db_clan($cid);
 	 
 	if ($clan->pid!=$player->pid) {
 	
 		$message = t('CLAN_NO_ALLOWED', $clan->name);
-		$popup .= warquest_box_icon("warning", $message);
+		$output->popup .= warquest_box_icon("warning", $message);
 		
 	} else if (strlen($slogan) < 5) {
 			
 		$message = t('CLAN_SLOGAN_TOO_SHORT');
-		$popup .= warquest_box_icon("warning", $message);
+		$output->popup .= warquest_box_icon("warning", $message);
 
 	} else if (strlen($slogan) > 200) {
 			
 		$message = t('CLAN_SLOGAN_TOO_LONG');
-		$popup .= warquest_box_icon("warning", $message);
+		$output->popup .= warquest_box_icon("warning", $message);
 		
 	} else {
 	
@@ -878,7 +879,7 @@ function warquest_clan_slogan_do() {
 		warquest_db_clan_update($clan);
 	
 		$message = t('CLAN_SLOGAN_SAVED');
-		$popup .= warquest_box_icon("info", $message);			
+		$output->popup .= warquest_box_icon("info", $message);			
 	}
 }
 
@@ -893,7 +894,7 @@ function warquest_clan_create_do() {
 	global $clan;
 		
 	/* output */
-	global $popup;	
+	global $output;	
 	
 	$query  = 'select cid from clan where name="'.$clan.'"'; 
 	$result = warquest_db_query($query);	
@@ -902,22 +903,22 @@ function warquest_clan_create_do() {
 	if ($skill->skill_points == 0) {
 			
 		$message = t('CLAN_NO_SKILL_POINT', $clan);
-		$popup .= warquest_box_icon("warning", $message);
+		$output->popup .= warquest_box_icon("warning", $message);
 		
 	} else if (strlen($clan) < 2) {
 			
 		$message = t('CLAN_NAME_TOO_SHORT');
-		$popup .= warquest_box_icon("warning", $message);
+		$output->popup .= warquest_box_icon("warning", $message);
 
 	} else if (strlen($clan) > 5) {
 			
 		$message = t('CLAN_NAME_TOO_LONG');
-		$popup .= warquest_box_icon("warning", $message);
+		$output->popup .= warquest_box_icon("warning", $message);
 		
 	} else if ($count > 0) {
 			
 		$message = t('CLAN_NAME_EXIST', $clan);
-		$popup .= warquest_box_icon("warning", $message);
+		$output->popup .= warquest_box_icon("warning", $message);
 		
 	} else {
 	
@@ -929,7 +930,7 @@ function warquest_clan_create_do() {
 		warquest_db_skill_update($skill);
 	
 		$message = t('CLAN_CREATED', $clan);
-		$popup .= warquest_box_icon("info", $message);			
+		$output->popup .= warquest_box_icon("info", $message);			
 	}
 }
 
@@ -944,7 +945,7 @@ function warquest_clan_deposit_do() {
 	global $deposit;
 	
 	/* output */
-	global $popup;	
+	global $output;	
 	
 	/* Remove dots */
 	$deposit = str_replace(".", "", $deposit);
@@ -954,7 +955,7 @@ function warquest_clan_deposit_do() {
 	if ($deposit > $player->money) {
 			
 		$message = t('BANK_DEPOSIT_FAILED', money_format1($price));
-		$popup .= warquest_box_icon("warning", $message);
+		$output->popup .= warquest_box_icon("warning", $message);
 		
 	} else {
 
@@ -964,7 +965,7 @@ function warquest_clan_deposit_do() {
 		$player->money -= $deposit;
 		
 		$message = t('BANK_DEPOSIT', money_format1($deposit), t('BANK_GROUP_4'));
-		$popup .= warquest_box_icon("info", $message);
+		$output->popup .= warquest_box_icon("info", $message);
 		
 		$log = 'Deposit '.number_format2($deposit).' to clan bank';		
 		warquest_user_log($player, $log);
@@ -988,14 +989,14 @@ function warquest_clan_skill_increase_do() {
 	global $amount;
 	
 	/* output */
-	global $popup;	
+	global $output;	
 
 	$clan = warquest_db_clan($cid);
 	
 	if ($clan->pid!=$player->pid) {
 	
 		$message = t('CLAN_NO_ALLOWED', $clan->name);
-		$popup .= warquest_box_icon("warning", $message);
+		$output->popup .= warquest_box_icon("warning", $message);
 		
 	} else {
 	
@@ -1019,7 +1020,7 @@ function warquest_clan_skill_increase_do() {
 		$link .= warquest_amount_selected(1000000);
 		$link .= '<br/><br/>';
 		
-		$popup .= warquest_box_icon("info", $message, $link);		
+		$output->popup .= warquest_box_icon("info", $message, $link);		
 	}
 }
 
@@ -1040,24 +1041,24 @@ function warquest_clan_skill_decrease_do() {
 	global $amount;
 	
 	/* output */
-	global $popup;	
+	global $output;	
 
 	$clan = warquest_db_clan($cid);
 
 	if ($clan->pid!=$player->pid) {
 	
 		$message = t('CLAN_NO_ALLOWED', $clan->name);
-		$popup .= warquest_box_icon("warning", $message);
+		$output->popup .= warquest_box_icon("warning", $message);
 	
 	} else if (($id==1) & ($clan->attack < $amount)) {
 	
 		$message = t('CLAN_MINIMAL_SKILL');
-		$popup .= warquest_box_icon("warning", $message);
+		$output->popup .= warquest_box_icon("warning", $message);
 		
 	} else if (($id==2) & ($clan->defense < $amount)) {
 	
 		$message = t('CLAN_MINIMAL_SKILL');
-		$popup .= warquest_box_icon("warning", $message);
+		$output->popup .= warquest_box_icon("warning", $message);
 		
 	} else {
 	
@@ -1083,7 +1084,7 @@ function warquest_clan_skill_decrease_do() {
 			$link .= '<br/><br/>';
 		}
 		
-		$popup .= warquest_box_icon("info", $message, $link);			
+		$output->popup .= warquest_box_icon("info", $message, $link);			
 	}
 }
 
@@ -1095,19 +1096,19 @@ function warquest_promotion_invite_do() {
 	global $email;
 	
 	/* output */
-	global $popup;	
+	global $output;	
 	
 	if ( validate_email($email) ) {
 	
 		/* Invalid email address */
 		$message = t('LOGIN_EMAIL_INVALID', $email);
-		$popup .= warquest_box_icon("warning", $message);
+		$output->popup .= warquest_box_icon("warning", $message);
 		
 	} else if (warquest_db_invite_check($email)>0) {
 	
 		/* Email adres is already used in the past */
 		$message = t('PROMOTION_INVITE_KNOWN', $email);
-		$popup .= warquest_box_icon("warning", $message);
+		$output->popup .= warquest_box_icon("warning", $message);
 		
 	} else {
 	
@@ -1118,7 +1119,7 @@ function warquest_promotion_invite_do() {
 		warquest_promotion_invite_mail($player->pid, $email);
 		
 		$message = t('PROMOTION_INVITE_SENT', $email);
-		$popup .= warquest_box_icon("info", $message);	
+		$output->popup .= warquest_box_icon("info", $message);	
 	}
 }
 
@@ -1140,11 +1141,11 @@ function warquest_clan_form() {
 		
 	/* output */
 	global $page;
-	global $title;
+	global $output;
 	
 	$lid = 15;
 	
-	$title = t('CLAN_TITLE');
+	$output->title = t('CLAN_TITLE');
 
 	$player_clan = warquest_db_player_clan($player->pid);
 	
@@ -1293,14 +1294,14 @@ function warquest_clan_profile_form() {
 		
 	/* output */
 	global $page;
-	global $title;
+	global $output;
 		
 	$clan = warquest_db_clan($cid);
 	$player_clan = warquest_db_player_clan($player->pid);
 	
 	$comment = $clan->slogan;
 	
-	$title = t('CLAN_PROFILE', $clan->name);
+	$output->title = t('CLAN_PROFILE', $clan->name);
 	
 	/* Clan Bank */
 	$page .= '<div class="subparagraph">';
@@ -1593,9 +1594,9 @@ function warquest_promotion_form() {
 			
 	/* output */
 	global $page;
-	global $title;
+	global $output;
 			
-	$title = t('PROMOTION_TITLE');
+	$output->title = t('PROMOTION_TITLE');
 			
 	/* Invite friends by email */
 	$page .= '<div class="subparagraph">';

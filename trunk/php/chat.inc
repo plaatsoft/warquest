@@ -71,15 +71,15 @@ function warquest_chat_form() {
 	
 	/* output */
 	global $page;
-	global $title;	
+	global $output;	
 	
 	/* Clear chat flag */
 	$player->chat=0;	
 	
-	$title = t('CHAT_TITLE');
+	$output->title = t('CHAT_TITLE');
 	
 	$page .= '<div class="subparagraph">';
-	$page .= $title;
+	$page .= $output->title;
 	$page .= '</div>';
 	
 	$page .= "<script language=\"JavaScript\" type=\"text/javascript\">function limitText(limitField, limitNum) { if (limitField.value.length >= limitNum) { limitField.value = limitField.value.substring(0, limitNum); } } </script>";
@@ -130,12 +130,12 @@ function warquest_chatroom_form() {
 	
 	/* output */
 	global $page;	
-	global $title;	
+	global $output;	
 
-	$title = t('CHATROOM_TITLE');
+	$output->title = t('CHATROOM_TITLE');
 	
 	$page .= '<div class="subparagraph">';
-	$page .= $title;
+	$page .= $output->title;
 	$page .= '</div>';
 	
 	$prev = mktime(date("H"),date("i")-8,date("s"),date("m"),date("d"),date("Y"));

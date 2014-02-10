@@ -16,19 +16,61 @@
 **  All copyrights reserved (c) 2008-2014 PlaatSoft
 */
 
-include '../database.inc';
 include '../config.inc';
+include '../constants.inc';
+include '../database.inc';
 include '../general.inc';
+include "../email.inc";
+
+$player;
+$skill;
+$level;
+
+$output = new stdClass();
+$output->won=0;
+$output->faultcode=0;
+$output->faultstring="TEST";
 
 /* Connect to database */
 warquest_db_connect($config["dbhost"], $config["dbuser"], $config["dbpass"], $config["dbname"]);
+
+/* Go Battle */
+function getBattle($username, $password) {
+
+	/* input */
+	global $player;
+	global $skill;
+	global $level;
 	
+	global $output;
+	
+	include "../english.inc";
+	include "../login.inc";	
+	include "../browser.inc";
+	include "../battle.inc";	
+	
+	$pid = warquest_login_do($username, $password);
+	
+	/* Load player data from database */
+	$player = warquest_db_player($pid);
+	$skill = warquest_db_skill($player->pid);
+	$level = warquest_db_level($player->lid);
+
+	/* Update player timers (before) */
+	warquest_update_timers($player);
+		
+	/* Do fight */
+	warquest_battle_enemy_ws_do();
+	
+	echo "output.won=[".$output->won.']<br/>';
+	echo "output.faultcode=[".$output->faultcode.']</br>';
+	echo "output.faultstring=[".$output->faultstring.']<br/>';
+}
+
 /**
  * Get Player data
  */ 
-function getPlayer($id)
-{
-	global $config;
+function getPlayer($id) {
 	
 	warquest_info('webservice getPlayer ['.$id.'] start');
 	
@@ -49,12 +91,38 @@ function getPlayer($id)
 		$data->restore_ammo = warquest_xml_date($data->restore_ammo);
 		$data->cease_fire_date = warquest_xml_date($data->cease_fire_date);
 		$data->holiday_date = warquest_xml_date($data->holiday_date);
-				
+		
+		// Get buildings
+		$buildings = new ArrayObject();	
+		$query1 = 'select bid, amount from player_building where pid='.$id.' order by bid';	
+		$result1 = warquest_db_query($query1);
+	
+		while ($data1 = warquest_db_fetch_object($result1)) {		
+			
+			$building = new SoapVar($data1, SOAP_ENC_OBJECT, null, null, 'building');
+
+			$buildings->append($building);
+		}	
+		$data->buildings = $buildings;
+		
+		// Get units
+		$units = new ArrayObject();	
+		$query2 = 'select uid, amount from player_unit where pid='.$id.' order by uid';			
+		$result2 = warquest_db_query($query2);
+	
+		while ($data2 = warquest_db_fetch_object($result2)) {		
+			
+			$unit = new SoapVar($data2, SOAP_ENC_OBJECT, null, null, 'unit');
+
+			$units->append($unit);
+		}	
+		$data->units = $units;
+		
 	} else {
 	
 		$data = array();	
 	} 
-	
+		
 	warquest_info("webservice getPlayer end");
 	
 	return $data;
@@ -101,9 +169,8 @@ function getSectors($id) {
 	while ($data = warquest_db_fetch_object($result)) {		
 		
 		$data->conquer_date = warquest_xml_date($data->conquer_date);	
-		
-		$ns = 'http://127.0.0.1/service/warquest.wsdl';
-		$sector = new SoapVar($data, SOAP_ENC_OBJECT, null, $ns, 'sector');
+
+		$sector = new SoapVar($data, SOAP_ENC_OBJECT, null, null, 'sector');
 
 		$sectors->append($sector);
 	
@@ -118,9 +185,11 @@ function getSectors($id) {
 ini_set('soap.wsdl_cache_enabled', '0');
 
 $server = new SoapServer('warquest.wsdl');
-$server->addFunction(array("getPlayer", "getClan", "getSectors"));
+$server->addFunction(array("getPlayer", "getClan", "getSectors", "goBattle"));
 $server->handle();
- 
+
+getBattle("wplaat", "P15366London");
+
 warquest_db_close();
 
 /*

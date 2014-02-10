@@ -57,7 +57,7 @@ function warquest_building_buy_do() {
 	/* output */
 	global $page; 
 	global $player;
-	global $popup;
+	global $output;
 		
 	$discount = warquest_db_discount($player, $player->planet);
 		
@@ -208,7 +208,7 @@ function warquest_building_buy_do() {
 		$link .= warquest_amount_selected($amountDiff);
 	}
 
-	$popup .= warquest_box($type, $message, $link);	
+	$output->popup .= warquest_box($type, $message, $link);	
 }
 
 /** 
@@ -230,7 +230,7 @@ function warquest_building_sell_do() {
 	/* output */
 	global $page; 
 	global $player;
-	global $popup;
+	global $output;
 	
 	$discount = warquest_db_discount($player, $player->planet);
 	
@@ -359,7 +359,7 @@ function warquest_building_sell_do() {
 		$link .= warquest_amount_selected($amountOld-$amount);
 	}
 		
-	$popup .= warquest_box($type, $message, $link);
+	$output->popup .= warquest_box($type, $message, $link);
 }
 
 /*
@@ -385,9 +385,9 @@ function warquest_building_form() {
 		
 	/* output */
 	global $page; 
-	global $title;
+	global $output;
 		
-	$title = t('BUILDING_GROUP_'.$sid);
+	$output->title = t('BUILDING_GROUP_'.$sid);
 	
 	$building_group = warquest_db_building_group($sid);	 
 	$discount = warquest_db_discount($player, $player->planet);

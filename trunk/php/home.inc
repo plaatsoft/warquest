@@ -40,12 +40,12 @@ function warquest_home_comment_delete_do() {
 	
 	/* output */
 	global $comment;
-	global $popup;
+	global $output;
 	
 	if (warquest_db_comment_delete($uid) == 1) {
 		
 		$message = t('HOME_MESSAGE_DELETED');
-		$popup .= warquest_box_icon("info", $message);		
+		$output->popup .= warquest_box_icon("info", $message);		
 		
 		$comment="";
 		$uid=0;
@@ -64,7 +64,7 @@ function warquest_home_comment_save_do() {
 	global $comment;
 
 	/* output */
-	global $popup;
+	global $output;
 
 	if (strlen($comment)>0) {
 	
@@ -89,7 +89,7 @@ function warquest_home_comment_save_do() {
 		/* Clear input parameters */
 		$uid = 0;
 		
-		$popup .= warquest_box_icon("info", $message);
+		$output->popup .= warquest_box_icon("info", $message);
 	}
 }
 
@@ -106,7 +106,6 @@ function warquest_home_comment_edit_do() {
 		 
 	/* output */
 	global $page;
-	global $title;
 			
 	if ($uid!=0) {
 		$query  = 'select comment from comment where id='.$uid;
@@ -178,12 +177,12 @@ function warquest_home_messages() {
 	/* output */
 	global $page;
 	global $player;
-	global $title;
+	global $output;
 	
 	/* Clear new flag */
 	$player->comment=0;
 		
-	$title = t('HOME_MESSAGES_TITLE');
+	$output->title = t('HOME_MESSAGES_TITLE');
 	
 	$limit=30;
 	
@@ -285,12 +284,12 @@ function warquest_home_news() {
 	/* output */
 	global $page;
 	global $player;
-	global $title;
+	global $output;
 	
 	/* Max records. */
 	$limit = 25;
 	
-	$title = t('HOME_BATTLE_TITLE');
+	$output->title = t('HOME_BATTLE_TITLE');
 		
 	/* Clear new flag */
 	$player->news=0;
@@ -748,9 +747,9 @@ function warquest_home_welcome() {
 	
 	/* output */
 	global $page;
-	global $title;
+	global $output;
 	
-	$title = t('HOME_OVERVIEW_TITLE');
+	$output->title = t('HOME_OVERVIEW_TITLE');
 	
 	$query =  'select count(pid) as count, sum(request) as request, sum(won) as won from player';
 	$result = warquest_db_query($query); 

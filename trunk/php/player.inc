@@ -37,12 +37,12 @@ function warquest_maintenance_info_form($other) {
 		
 	/* output */
 	global $page;
-	global $title;
+	global $output;
 	
 	$total = 0;
 	
-	$title = t('PLAYER_MAINTENANCE_OVERVIEW');
-	$page .= '<div class="subparagraph">'.$title.'</div>';
+	$output->title = t('PLAYER_MAINTENANCE_OVERVIEW');
+	$page .= '<div class="subparagraph">'.$output->title.'</div>';
 
 	$query  = 'select a.bid, a.maintenance, a.gold, c.amount ';
 	$query .= 'from building a left join building_group b on a.bgid=b.bgid, player_building c ';
@@ -152,12 +152,12 @@ function warquest_discount_info_form($other) {
 		
 	/* output */
 	global $page;
-	global $title;
+	global $output;
 	
 	$total = 0;
 	
-	$title = t('PLAYER_DISCOUNT_OVERVIEW');
-	$page .= '<div class="subparagraph">'.$title.'</div>';
+	$output->title = t('PLAYER_DISCOUNT_OVERVIEW');
+	$page .= '<div class="subparagraph">'.$output->title.'</div>';
 
 	/* Show defense strength of building */
 	$query  = 'select a.bid, a.gold, a.discount, c.amount ';
@@ -269,10 +269,10 @@ function warquest_continent_income_form($other) {
 	
 	/* output */
 	global $page;
-	global $title;
+	global $output;
 	
-	$title = t('PLAYER_CONTINENT_OVERVIEW');
-	$page .= '<div class="subparagraph">'.$title.'</div>';
+	$output->title = t('PLAYER_CONTINENT_OVERVIEW');
+	$page .= '<div class="subparagraph">'.$output->title.'</div>';
 	
 	/* ------------------------------------------------- */
 	
@@ -385,9 +385,9 @@ function warquest_clan_war_income_form($other) {
 	
 	/* output */
 	global $page;
-	global $title;
+	global $output;
 	
-	$title = t('PLAYER_CLAN_WAR_OVERVIEW');
+	$output->title = t('PLAYER_CLAN_WAR_OVERVIEW');
 	
 	$clan = warquest_db_player_clan($other->pid);
 	
@@ -399,7 +399,7 @@ function warquest_clan_war_income_form($other) {
 		$count = warquest_db_num_rows($result);
 	}
 		
-	$page .= '<div class="subparagraph">'.$title.'</div>';
+	$page .= '<div class="subparagraph">'.$output->title.'</div>';
 	
 	/* ------------------------------------------------- */
 		
@@ -468,10 +468,10 @@ function warquest_unit_upkeep_form($other) {
 	
 	/* output */
 	global $page;
-	global $title;
+	global $output;
 		
-	$title = t('PLAYER_UPKEEP_COST');
-	$page .= '<div class="subparagraph">'.$title.'</div>';
+	$output->title = t('PLAYER_UPKEEP_COST');
+	$page .= '<div class="subparagraph">'.$output->title.'</div>';
 		
 	/* Calculate upkeep cost of all player units  */
 	$query  = 'select a.uid, a.gold, a.attack, a.defense, a.upkeep, c.amount ';
@@ -594,12 +594,12 @@ function warquest_building_income_form($other) {
 		
 	/* output */
 	global $page;
-	global $title;
+	global $output;
 	
 	$totalMoney = 0;
 	
-	$title = t('PLAYER_BUILDING_OVERVIEW');
-	$page .= '<div class="subparagraph">'.$title.'</div>';
+	$output->title = t('PLAYER_BUILDING_OVERVIEW');
+	$page .= '<div class="subparagraph">'.$output->title.'</div>';
 
 	/* Show defense strength of building */
 	$query  = 'select a.bid, a.ugid, a.gold, a.defense, a.income, a.energy, a.discount, c.amount ';
@@ -715,14 +715,14 @@ function warquest_attack_info_form($other) {
 	
 	/* output */
 	global $page;
-	global $title;
+	global $output;
 		
 	$query1  = 'select ugid from unit_group where planet='.$player->planet.' and type='.$uid;
 	$result1 = warquest_db_query($query1);	
 	$data1 = warquest_db_fetch_object($result1);
 	
-	$title = t('PLAYER_ATTACK_FORCE', t('GENERAL_PLANET_'.$player->planet), t('UNIT_GROUP_'.$data1->ugid));
-	$page .= '<div class="subparagraph">'.$title.'</div>';
+	$output->title = t('PLAYER_ATTACK_FORCE', t('GENERAL_PLANET_'.$player->planet), t('UNIT_GROUP_'.$data1->ugid));
+	$page .= '<div class="subparagraph">'.$output->title.'</div>';
 			
 	/* Calculate attack strength of units depending of alliance size */
 	$query3  = 'select a.uid, a.gold, a.attack, a.defense, c.amount, a.upkeep ';
@@ -929,14 +929,14 @@ function warquest_defense_info_form($other) {
 	
 	/* output */
 	global $page;
-	global $title;
+	global $output;
 	
 	$query1  = 'select ugid from unit_group where planet='.$player->planet.' and type='.$uid;
 	$result1 = warquest_db_query($query1);	
 	$data1 = warquest_db_fetch_object($result1);
 	
-	$title = t('PLAYER_DEFENSE_FORCE',t('GENERAL_PLANET_'.$player->planet), t('UNIT_GROUP_'.$data1->ugid));
-	$page .= '<div class="subparagraph">'.$title.'</div>';
+	$output->title = t('PLAYER_DEFENSE_FORCE',t('GENERAL_PLANET_'.$player->planet), t('UNIT_GROUP_'.$data1->ugid));
+	$page .= '<div class="subparagraph">'.$output->title.'</div>';
 
 	$query3  = 'select a.uid, a.gold, a.attack, a.defense, c.amount, a.upkeep ';
 	$query3 .= 'from unit a left join unit_group b on a.ugid=b.ugid, ';
@@ -1242,9 +1242,9 @@ function warquest_profile($id) {
 	global $config;
 				
 	/* output */ 
-	global $title;
+	global $output;
 
-	$title = t('PLAYER_OVERVIEW');
+	$output->title = t('PLAYER_OVERVIEW');
 	 
 	$data = warquest_db_player($id);
 	$member = warquest_db_member($id);

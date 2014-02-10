@@ -37,7 +37,7 @@ function warquest_cron_clear_inactive_sectors($output=0) {
 	global $config;
 	
 	/* output */
-	global $popup;
+	global $output;
 	
 	$old = mktime(date("H"), date("i"), date("s"), date("m"), date("d")-$config["max_sector_inactive"], date("Y"));
 
@@ -81,7 +81,7 @@ function warquest_cron_clear_inactive_sectors($output=0) {
 	$message = 'Clear '.$count.' inactive sectors!<br/>';
 
 	if ($output==1) {
-		$popup .= warquest_box_icon("info", $message);
+		$output->popup .= warquest_box_icon("info", $message);
 	} 
 
 	warquest_info($message);
@@ -96,7 +96,7 @@ function warquest_cron_remove_inactive_clan_member($output=0) {
 	global $config;
 	
 	/* output */
-	global $popup;
+	global $output;
 	
 	$old1 = mktime(date("H"), date("i"), date("s"), date("m"), date("d")-$config["max_clan_member_inactive"], date("Y"));
 	$old2 = mktime(date("H"), date("i"), date("s"), date("m"), date("d")-$config["max_clan_inactive"], date("Y"));
@@ -159,7 +159,7 @@ function warquest_cron_remove_inactive_clan_member($output=0) {
 	$message2 = $count2.' inactive clan(s) removed!<br/>';
 
 	if ($output==1) {
-		$popup .= warquest_box_icon("info", $message1.' '.$message2);
+		$output->popup .= warquest_box_icon("info", $message1.' '.$message2);
 	} 
 	warquest_info($message1);
 	warquest_info($message2);
@@ -174,7 +174,7 @@ function warquest_cron_backup($output=0) {
 	global $config;
 	
 	/* output */
-	global $popup;
+	global $output;
 	
 	/* Remove old database backup file */
 	$prev_date = mktime(date("H"), date("i"), date("s"), date("m"), date("d")-$config['backup_period'], date("Y"));
@@ -192,7 +192,7 @@ function warquest_cron_backup($output=0) {
 	$message = 'Create new backup file '.$filename.'<br/>';
 	
 	if ($output==1) {
-		$popup .= warquest_box_icon("info", $message);
+		$output->popup .= warquest_box_icon("info", $message);
 	} 
 	
 	warquest_info($message);
@@ -208,7 +208,7 @@ function warquest_cron_negative_income($output=0) {
 	global $config;
 	
 	/* output */
-	global $popup;
+	global $output;
 	
 	$query1 = 'select pid from player where money_step<0'; 
 	$result1 = warquest_db_query($query1);			
@@ -237,7 +237,7 @@ function warquest_cron_negative_income($output=0) {
 	$message = 'Unit sold by '.$count.' player(s) to get positive hourly income again!<br/>';
 
 	if ($output==1) {
-		$popup .= warquest_box_icon("info", $message);	
+		$output->popup .= warquest_box_icon("info", $message);	
 	} 
 	
 	warquest_info($message);
@@ -300,7 +300,7 @@ function warquest_cron_delete_pending_invitations($output=0) {
 	global $config;
 	
 	/* output */
-	global $popup;
+	global $output;
 	
 	$count = 0;
 
@@ -327,7 +327,7 @@ function warquest_cron_delete_pending_invitations($output=0) {
 	$message = $count.' pending ally request cleared! <br/>';
 
 	if ($output==1) {
-		$popup .= warquest_box_icon("info", $message);
+		$output->popup .= warquest_box_icon("info", $message);
 	} 
 		
 	warquest_info($message);
@@ -342,7 +342,7 @@ function warquest_cron_clean_battle_log($output=0) {
 	global $config;
 	
 	/* output */
-	global $popup;
+	global $output;
 	
 	$old = mktime(date("H"), date("i"), date("s"), date("m"), date("d")-$config["max_battle_log_age"], date("Y"));
 	
@@ -359,7 +359,7 @@ function warquest_cron_clean_battle_log($output=0) {
 	$message = $count.' battle records are deleted!';
 
 	if ($output==1) {
-		$popup .= warquest_box_icon("info", $message);
+		$output->popup .= warquest_box_icon("info", $message);
 	} 
 	
 	warquest_info($message);
@@ -371,7 +371,7 @@ function warquest_cron_clean_battle_log($output=0) {
 function warquest_cron_robot_alliancy_update($output=0) {
 	
 	/* output */
-	global $popup;
+	global $output;
 		
 	$query1  = 'select a.pid from player a, player_player b where a.pid=b.pid2 and b.approved=0 and a.country="eu"'; 
 	$result1 = warquest_db_query($query1);		
@@ -426,7 +426,7 @@ function warquest_cron_robot_alliancy_update($output=0) {
 	$message = $count.' alliance requested accepted!<br/>In total '.$robots.' robots checked.';
 	
 	if ($output==1) {
-		$popup .= warquest_box_icon("info", $message);
+		$output->popup .= warquest_box_icon("info", $message);
 	} 
 	
 	warquest_info($message);
@@ -441,7 +441,7 @@ function warquest_cron_player_interest($output=0) {
 	global $config;
 	
 	/* output */
-	global $popup;
+	global $output;
 	
 	$query  = 'select pid, bank1, bank2, bank3 from player where ';
 	$query .= 'holiday_date < "'.date("Y-m-d H:i:s", time()).'" and ';
@@ -491,7 +491,7 @@ function warquest_cron_player_interest($output=0) {
 	$message = number_format2($count).' players interest updated!';
 	
 	if ($output==1) {
-		$popup .= warquest_box_icon("info", $message);
+		$output->popup .= warquest_box_icon("info", $message);
 	} 
 		
 	warquest_info($message);
@@ -506,7 +506,7 @@ function warquest_cron_clean_bank_log($output=0) {
 	global $config;
 	
 	/* output */
-	global $popup;
+	global $output;
 	
 	$old = mktime(date("H"), date("i"), date("s"), date("m"), date("d")-$config["max_bank_log_age"], date("Y"));
 	
@@ -523,7 +523,7 @@ function warquest_cron_clean_bank_log($output=0) {
 	$message = $count.' bank records are deleted!';
 
 	if ($output==1) {
-		$popup .= warquest_box_icon("info", $message);
+		$output->popup .= warquest_box_icon("info", $message);
 	}
 	
 	warquest_info($message);

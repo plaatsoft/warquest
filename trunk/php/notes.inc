@@ -16,6 +16,29 @@
 **  All copyrights reserved (c) 2008-2014 PlaatSoft
 */
 
+$notes[64] = '
+<div class="subparagraph2">05-02-2014</div>
+<i>Game Server v6.4</i>
+<ul>
+<li>Added basic web service interface</li>
+<ul>
+<li>URL http://www.warquest.nl/service?wsdl</li>
+<li>Added getPlayer methode</li>
+<li>Added getClan methode</li>
+<li>Added getPlanet methode</li>
+<li>Added getPlanet methode</li>
+</ul>
+<li>Enable HTTPS functionality in Apache.</li>
+<li>Refactor HTML output handeling.</li>
+</ul>
+<br/>
+
+<i>General</i>
+<ul>
+<li>Please visit www.gravatar.com to upload a player image.</li>
+</ul>
+<br/>';
+
 $notes[63] = '
 <div class="subparagraph2">07-01-2014</div>
 <i>Game Server v6.3</i>
@@ -49,12 +72,6 @@ $notes[63] = '
 <li>Updated copyright footer.</li>
 <li>Bug fix: Corrected one Neptune mission level!</li>
 <li>Bug fix: Neptune army strength calculation is now correct!</li>
-</ul>
-<br/>
-
-<i>General</i>
-<ul>
-<li>Please visit www.gravatar.com to upload a player image.</li>
 </ul>';
 
 $notes[62] = '

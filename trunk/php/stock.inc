@@ -165,26 +165,26 @@ function warquest_stock_add_do() {
 	global $player;
 	
 	/* output */
-	global $popup;
+	global $output;
 	
 	$stock = warquest_stocklist($symbol);
 		
 	if (warquest_db_stock_check($symbol, $player->pid)>0) {
 	
 		$message = t('STOCK_SYMBOL_AVAILABLE', $symbol);
-		$popup .= warquest_box_icon("warning", $message);
+		$output->popup .= warquest_box_icon("warning", $message);
 	
 	} else if ((isset($stock[$symbol]["company"])) && ($symbol!=$stock[$symbol]["company"])) {
 			
 		warquest_db_stock_insert($symbol, $player->pid);
 		
 		$message = t('STOCK_SYMBOL_ADDED', $stock[$symbol]["company"]);
-		$popup .= warquest_box_icon("info", $message);
+		$output->popup .= warquest_box_icon("info", $message);
 		
 	} else {
 		
 		$message = t('STOCK_SYMBOL_NOT_FOUND', $symbol);
-		$popup .= warquest_box_icon("warning", $message);
+		$output->popup .= warquest_box_icon("warning", $message);
 	}
 }
 
@@ -196,14 +196,14 @@ function warquest_stock_remove_do() {
 	global $uid;
 				
 	/* output */
-	global $popup;
+	global $output;
 	
 	if ($uid>0) {
 	
 		warquest_db_stock_delete($uid);
 			
 		$message = t('STOCK_SYMBOL_REMOVED');
-		$popup .= warquest_box_icon("info", $message);
+		$output->popup .= warquest_box_icon("info", $message);
 	}
 }
 
@@ -221,7 +221,7 @@ function warquest_stock_buy_do() {
 	global $amount;
 	
 	/* output */
-	global $popup;
+	global $output;
 	global $page; 
 	global $player;
 	
@@ -262,7 +262,7 @@ function warquest_stock_buy_do() {
 	if ($price < 4) {
 		
 		$message = t('STOCK_PRICE_TO_LOW');
-		$popup .= warquest_box("warning", $message);	
+		$output->popup .= warquest_box("warning", $message);	
 		
 	} else if ($total == 0) {
 	
@@ -281,7 +281,7 @@ function warquest_stock_buy_do() {
 		$link .= '<br/><br/>Amount<br/>';
 		$link .= warquest_stock_amount_selected();
 		
-		$popup .= warquest_box("warning", $message, $link);	
+		$output->popup .= warquest_box("warning", $message, $link);	
 	
 	} else if ($player->money < $total) {
 	
@@ -305,7 +305,7 @@ function warquest_stock_buy_do() {
 		
 		$link  = warquest_link('mid='.$mid.'&sid='.$sid.'&id='.$id.'&uid='.$uid.'&eid='.$eid.'&gid='.$gid, t('LINK_BUY_AGAIN'), 'buy-0');
 	
-		$popup .= warquest_box("warning", $message, $link);		
+		$output->popup .= warquest_box("warning", $message, $link);		
 	
 	} else {		
 	
@@ -335,7 +335,7 @@ function warquest_stock_buy_do() {
 		$link .= '<br/><br/>'.t('GENERAL_AMOUNT').'<br/>';
 		$link .= warquest_stock_amount_selected();
 			
-		$popup .= warquest_box("info", $message, $link);
+		$output->popup .= warquest_box("info", $message, $link);
 	}
 }
 	
@@ -355,7 +355,7 @@ function warquest_stock_sell_do() {
 	/* output */
 	global $page; 
 	global $player;
-	global $popup;
+	global $output;
 	
 	/* Remove dots */
 	$amount2 = str_replace(".", "", $amount);
@@ -413,7 +413,7 @@ function warquest_stock_sell_do() {
 			$link = warquest_link('mid='.$mid.'&sid='.$sid.'&id='.$id.'&uid='.$uid.'&eid='.EVENT_STOCK_REMOVE, t('STOCK_REMOVE'), 'remove');
 		}
 				
-		$popup .= warquest_box("warning", $message, $link);
+		$output->popup .= warquest_box("warning", $message, $link);
 				
 	} else if ($total == 0) {
 	
@@ -432,7 +432,7 @@ function warquest_stock_sell_do() {
 		$link .= '<br/><br/>Amount<br/>';
 		$link .= warquest_stock_amount_selected($amountOld);
 		
-		$popup .= warquest_box("warning", $message, $link);	
+		$output->popup .= warquest_box("warning", $message, $link);	
 			
 	} else {
 		
@@ -471,7 +471,7 @@ function warquest_stock_sell_do() {
 			$link = warquest_link('mid='.$mid.'&sid='.$sid.'&id='.$id.'&uid='.$uid.'&eid='.EVENT_STOCK_REMOVE, t('STOCK_REMOVE'), 'remove');
 		}
 					
-		$popup .= warquest_box("info", $message, $link);
+		$output->popup .= warquest_box("info", $message, $link);
 	}
 }
 
@@ -522,9 +522,9 @@ function warquest_stock_form() {
 	
 	/* output */
 	global $page; 
-	global $title;
+	global $output;
 
-	$title = t('STOCK_GROUP_'.$id);
+	$output->title = t('STOCK_GROUP_'.$id);
 
 	$page .= '<div class="subparagraph">';	
 	$page .= t('STOCK_GROUP_'.$id).' '.t('GENERAL_STOCKS');

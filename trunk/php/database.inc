@@ -35,7 +35,7 @@
  */
 function warquest_db_connect($dbhost, $dbuser, $dbpass, $dbname) {
 
-	global $popup;
+	global $output;
 
 	if (MYSQL == 1) {
 	
@@ -51,7 +51,7 @@ function warquest_db_connect($dbhost, $dbuser, $dbpass, $dbname) {
 		
 		$message = warquest_db_error();
 		
-		$popup .= warquest_box_icon("error", $message);
+		$output->popup .= warquest_box_icon("error", $message);
 		warquest_error($message);	
 		
 		return 0;		
@@ -131,7 +131,7 @@ function warquest_db_multi_query($queries) {
 function warquest_db_query($query) {
 			
 	global $query_count;
-	global $popup;
+	global $output;
 	
 	$query_count++;
 		
@@ -151,7 +151,7 @@ function warquest_db_query($query) {
 
 		$message = warquest_db_error().' - '.$query;
 		
-		$popup .= warquest_box_icon("error", $message);
+		$output->popup .= warquest_box_icon("error", $message);
 		warquest_error($message);
 	}
 	

@@ -43,9 +43,9 @@ function warquest_admin_info() {
 	
 	/* output */
 	global $page;
-	global $title;
+	global $output;
 	
-	$title = 'Info';
+	$output->title = 'Info';
 					
 	$page .= '<div class="subparagraph">Technical Info</div>';
 	
@@ -84,7 +84,7 @@ function warquest_admin_info() {
 function warquest_admin_optimize_tables_do() {
 	
 	/* output */
-	global $popup;
+	global $output;
 	
 	$message = 'Tables optimized!<br/>';
 	
@@ -148,7 +148,7 @@ function warquest_admin_optimize_tables_do() {
 		$message .= $data->Table.' '.$data->Msg_type.' '.$data->Msg_text.'<br/>';
 	}
 	
-	$popup .= warquest_box_icon("info", $message);	
+	$output->popup .= warquest_box_icon("info", $message);	
 	
 	warquest_info($message);
 }
@@ -156,7 +156,7 @@ function warquest_admin_optimize_tables_do() {
 function warquest_admin_update_building_staff_do() {
 	
 	/* output */
-	global $popup;
+	global $output;
 	
 	$query  = 'select pid from player'; 
 	$result = warquest_db_query($query);
@@ -180,7 +180,7 @@ function warquest_admin_update_building_staff_do() {
 	}
 	
 	$message = $update.' citizens updated!<br>'.$count.' players checked';
-	$popup .= warquest_box_icon("info", $message);
+	$output->popup .= warquest_box_icon("info", $message);
 	
 	warquest_info($message);
 }
@@ -188,7 +188,7 @@ function warquest_admin_update_building_staff_do() {
 function warquest_admin_player_award_update_do() {
 			
 	/* output */
-	global $popup;
+	global $output;
 	
 	$query  = 'select pid from player'; 
 	$result = warquest_db_query($query);		
@@ -227,7 +227,7 @@ function warquest_admin_player_award_update_do() {
 	}
 		
 	$message = $update.' player awards updated!<br/>'.$count.' players checked.';
-	$popup .= warquest_box_icon("info", $message);
+	$output->popup .= warquest_box_icon("info", $message);
 	
 	warquest_info($message);
 }
@@ -235,7 +235,7 @@ function warquest_admin_player_award_update_do() {
 function warquest_admin_update_player_level_do() {
 		
 	/* output */
-	global $popup;
+	global $output;
 	
 	$query  = 'select pid from player'; 
 	$result = warquest_db_query($query);			
@@ -258,7 +258,7 @@ function warquest_admin_update_player_level_do() {
 	}
 	
 	$message = $update.' player levels updated!<br/>'.$count.' players checked.';
-	$popup .= warquest_box_icon("info", $message);
+	$output->popup .= warquest_box_icon("info", $message);
 	
 	warquest_info($message);
 }
@@ -267,7 +267,7 @@ function warquest_admin_update_player_level_do() {
 function warquest_admin_update_all_money_do() {
 	
 	/* output */
-	global $popup;
+	global $output;
 	
 	$query  = 'select pid from player'; 
 	$result = warquest_db_query($query);			
@@ -287,7 +287,7 @@ function warquest_admin_update_all_money_do() {
 	}
 	
 	$message = 'Money parameters updated!<br>'.$count.' players checked';
-	$popup .= warquest_box_icon("info", $message);
+	$output->popup .= warquest_box_icon("info", $message);
 	
 	warquest_info($message);
 }
@@ -296,7 +296,7 @@ function warquest_admin_update_all_money_do() {
 function warquest_admin_update_all_timers_do() {
 		
 	/* output */
-	global $popup;
+	global $output;
 	
 	$query  = 'select pid from player where country="eu"'; 
 	$result = warquest_db_query($query);			
@@ -323,7 +323,7 @@ function warquest_admin_update_all_timers_do() {
 	}
 	
 	$message = 'Robot timers updated!<br>'.$count.' robots checked.';
-	$popup .= warquest_box_icon("info", $message);
+	$output->popup .= warquest_box_icon("info", $message);
 	
 	warquest_info($message);
 }
@@ -336,9 +336,9 @@ function warquest_admin_action_form() {
 	
 	/* output */
 	global $page;
-	global $title;
+	global $output;
 	
-	$title = 'Actions';
+	$output->title = 'Actions';
 					
 	$page .= '<div class="subparagraph">Actions</div>';
 	
@@ -430,9 +430,9 @@ function warquest_admin_browser_report() {
 	
 	/* output */
 	global $page;
-	global $title;
+	global $output;
 	
-	$title = 'Browsers';
+	$output->title = 'Browsers';
 		
 	$query  = 'select COUNT(*) as count, browser, platform, version ';
 	$query .= 'from member group by browser, platform, version ';
@@ -563,16 +563,16 @@ function warquest_admin_level_form() {
 			
 	/* output */
 	global $page;
-	global $title;
+	global $output;
 			
-	$title = 'Levels'; 
+	$output->title = 'Levels'; 
 	
 	/* Get alliance players */
 	$query  = 'select lid, count(*) as total, count(distinct country) as country ';
 	$query .= 'from player group by lid order by lid asc'; 
 	$result = warquest_db_query($query);	
 	
-	$page .= '<div class="subparagraph">'.$title.'</div>';
+	$page .= '<div class="subparagraph">'.$output->title.'</div>';
 	
 	$page .= '<div class="box">';
 	$page .= '<table>';
@@ -629,12 +629,12 @@ function warquest_admin_message_delete_do() {
 	global $uid;
 	
 	/* output */
-	global $popup;
+	global $output;
 	
 	if (warquest_db_comment_delete($uid) == 1) {
 		
 		$message = t('HOME_NO_MESSAGES');
-		$popup .= warquest_box_icon("info", $message);		
+		$output->popup .= warquest_box_icon("info", $message);		
 	}
 }
 
@@ -648,9 +648,9 @@ function warquest_admin_messages_form() {
 	
 	/* output */
 	global $page;
-	global $title;
+	global $output;
 
-	$title = 'Messages';
+	$output->title = 'Messages';
 	
 	$limit=30;
 	
@@ -669,7 +669,7 @@ function warquest_admin_messages_form() {
 	$count = warquest_db_num_rows($result);
 	
 			
-	$page .= '<div class="subparagraph">'.$title.'</div>';
+	$page .= '<div class="subparagraph">'.$output->title.'</div>';
 			
 	if ($count==0) {
 		
@@ -738,7 +738,7 @@ function warquest_admin_post_tweet_do() {
 	global $config;
 	   
 	/* output */
-	global $popup;
+	global $output;
 	
 	$tmhOAuth = new tmhOAuth(array(
 		'consumer_key'    => $config['consumer_key'],
@@ -754,11 +754,11 @@ function warquest_admin_post_tweet_do() {
 	
 	if ($code == 200) {
 	
-		$popup .= warquest_box_icon("info", $message);	
+		$output->popup .= warquest_box_icon("info", $message);	
 		
 	} else {
 	
-		$popup .= warquest_box_icon("error", $message);
+		$output->popup .= warquest_box_icon("error", $message);
 	}
 	
 	warquest_info($message);	
@@ -773,7 +773,7 @@ function warquest_admin_news_delete_do() {
 	global $uid;
 
 	/* output */
-	global $popup;
+	global $output;
 	
 	warquest_db_news_delete($uid);
 	
@@ -781,7 +781,7 @@ function warquest_admin_news_delete_do() {
 	$uid = 0;
 		
 	$message = 'News item '.$uid.' deleted!';
-	$popup .= warquest_box_icon("info", $message);	
+	$output->popup .= warquest_box_icon("info", $message);	
 	warquest_info($message);	
 }
 
@@ -797,7 +797,7 @@ function warquest_admin_news_save_do() {
 	
 	/* output */
 	global $uid;
-	global $popup;
+	global $output;
 	
 	if (strlen($content)>0) {
 		if ($uid==0) {
@@ -805,7 +805,7 @@ function warquest_admin_news_save_do() {
 			warquest_db_news_insert($body, $content, $language);
 				
 			$message = 'News item added!';
-			$popup .= warquest_box_icon("info", $message);
+			$output->popup .= warquest_box_icon("info", $message);
 			warquest_info($message);
 		
 		} else {
@@ -819,7 +819,7 @@ function warquest_admin_news_save_do() {
 			warquest_db_news_update($news);
 				
 			$message = 'News item '.$uid.' updated!';
-			$popup .= warquest_box_icon("info", $message);
+			$output->popup .= warquest_box_icon("info", $message);
 			warquest_info($message);
 		}
 		
@@ -913,7 +913,7 @@ function warquest_admin_news() {
 		
 	/* output */
 	global $page;
-	global $title;
+	global $output;
 	
 	if ($uid!=0) {
 		$query  = 'select body, content, language from news where id='.$uid;
@@ -933,7 +933,7 @@ function warquest_admin_news() {
 		$language = "";
 	}
 
-	$title = 'News';
+	$output->title = 'News';
 		
 	$page .= "<script>
 		function limitText(limitField, limitNum) {
@@ -943,7 +943,7 @@ function warquest_admin_news() {
 		}
 		</script>\n";
 
-	$page .= '<div class="subparagraph">'.$title.'</div>';	
+	$page .= '<div class="subparagraph">'.$output->title.'</div>';	
 	
 	$page .= '<div class="box">';	
 	
@@ -1021,7 +1021,7 @@ function warquest_admin_copy_do() {
 	global $mypassword;
 	
 		/* output */
-	global $popup;
+	global $output;
 	
 	if (strlen($myusername)==0) {
 		$myusername = $myname;
@@ -1057,37 +1057,37 @@ function warquest_admin_copy_do() {
 	if ($count1==1) {
 	
 		$message = 'Username '.$myusername.' already exist!';
-		$popup .= warquest_box_icon("warning", $message);
+		$output->popup .= warquest_box_icon("warning", $message);
 	
 	} else if (strlen($myname)==0) {
 	
 		$message = 'Nickname must be entered!';
-		$popup .= warquest_box_icon("warning", $message);
+		$output->popup .= warquest_box_icon("warning", $message);
 		
 	} else if ($count2==1) {
 	
 		$message = 'Nickname '.$myname.' already exist!';
-		$popup .= warquest_box_icon("warning", $message);
+		$output->popup .= warquest_box_icon("warning", $message);
 	
 	} else if (validate_email($myemail)) {
 	
 		$message = 'Email is not valid!';
-		$popup .= warquest_box_icon("warning", $message);
+		$output->popup .= warquest_box_icon("warning", $message);
 		
 	} else if ($count3==1) {
 	
 		$message = 'Email is already register!';
-		$popup .= warquest_box_icon("warning", $message);
+		$output->popup .= warquest_box_icon("warning", $message);
 		
 	} else if (strlen($myusername)<4) {
 		
 		$message = 'User name must be at least 4 characters long!';
-		$popup .= warquest_box_icon("warning", $message);
+		$output->popup .= warquest_box_icon("warning", $message);
 		
 	} else if (strlen($mypassword)<4) {
 	
 		$message = 'Password must be atleast 4 characters long!';
-		$popup .= warquest_box_icon("warning", $message);
+		$output->popup .= warquest_box_icon("warning", $message);
 		
 	} else {
  
@@ -1153,7 +1153,9 @@ function warquest_admin_copy_do() {
 		$message .= 'Copy '.$buildings.' buildings<br/>';
 		$message .= 'Copy '.$missions.' missions<br/>';
 		$message .= 'Copy '.$units.' units<br/>';
-		$popup .= warquest_box_icon("info", $message);
+		
+		$output->popup .= warquest_box_icon("info", $message);
+		
 		warquest_info($message);
 	}
 }
@@ -1213,12 +1215,12 @@ function warquest_admin_hack() {
 	
 	/* output */
 	global $session;
-	global $popup;
+	global $output;
 	
 	$session = warquest_db_session_hack($other->pid);	
 	
 	$message = 'Hack session of '.$other->name;
-	$popup .= warquest_box_icon("info", $message);
+	$output->popup .= warquest_box_icon("info", $message);
 	warquest_info($message);
 }
 
@@ -1229,7 +1231,7 @@ function warquest_admin_delete_do() {
 	
 	/* output */
 	global $page;
-	global $popup;
+	global $output;
 	
 	/* First update alliance partners */
 	$query  = 'select pid1 from player_player where approved=1 and pid2='.$other->pid;
@@ -1259,7 +1261,7 @@ function warquest_admin_delete_do() {
 	warquest_db_session_delete_pid($other->pid);
 	
 	$message = 'Player '.$other->name.' ['.$other->pid.'] is deleted!';
-	$popup .= warquest_box_icon("info", $message);
+	$output->popup .= warquest_box_icon("info", $message);
 	warquest_info($message);
 }
 
@@ -1270,7 +1272,7 @@ function warquest_admin_edit_do() {
 	
 	/* output */
 	global $page;
-	global $popup;
+	global $output;
 
 	/* name parameter */
 	$name=$other->name;
@@ -1359,7 +1361,7 @@ function warquest_admin_edit_do() {
 	warquest_db_player_update($other);
 	
 	$message .= 'Players settings from '.$other->name.' saved!';
-	$popup .= warquest_box_icon("info", $message);
+	$output->popup .= warquest_box_icon("info", $message);
 	warquest_info($message);	
 }
 
@@ -1446,9 +1448,9 @@ function warquest_admin_player_form() {
 	
 	/* output */
 	global $page;
-	global $title;
+	global $output;
 
-	$title = 'Profile';
+	$output->title = 'Profile';
 	$member=warquest_db_member($other->pid);
 	
 	$page .= '<form method="post">';
@@ -1834,11 +1836,11 @@ function warquest_admin_member_form() {
 	
 	/* output */
 	global $page;
-	global $title;
+	global $output;
 	
-	$title = 'Members'; 
+	$output->title = 'Members'; 
 		
-	$page .= '<div class="subparagraph">'.$title.'</div>';
+	$page .= '<div class="subparagraph">'.$output->title.'</div>';
 	
 	$page .= '<form method="post">';
 	$page .=	'<div class="box">';
@@ -1873,8 +1875,9 @@ function warquest_admin_maps() {
 	
 	/* output */
 	global $page;
+	global $output;
 
-	$title='Clan War maps';
+	$output->title ='Maps';
 
 	for ($i=PLANET_EARTH; $i<=$config['max_planets']; $i++) {
 		$page .= '<div class="subparagraph">'.t('GENERAL_PLANET_'.$i).'</div>';
@@ -1904,12 +1907,12 @@ function warquest_admin() {
 	global $player;
 	
 	/* output */
-	global $popup;
+	global $output;
 	
 	if ($player->pid!=$config["adminPid"]) {
 	
 		$message = 'Access denied!'; 
-		$popup .= warquest_box_icon("warning", $message);
+		$output->popup .= warquest_box_icon("warning", $message);
 		
 		return;
 	}

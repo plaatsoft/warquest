@@ -53,9 +53,18 @@ $sort = 0;
 $offset = 0;
 
 $page = '';
-$popup = '';
-$title = '';
 $version = '';
+
+$output = new stdClass();
+
+/* Output format: html or pdf */
+$output->format="html";
+
+/* HMTL title content */
+$output->title="";
+
+/* HTML popup content */
+$output->popup="";
 
 /*
 ** ---------------------------------------------------------------- 
@@ -104,13 +113,13 @@ if (@warquest_db_connect($config["dbhost"], $config["dbuser"], $config["dbpass"]
 	
 	/* html banner */
 	echo warquest_ui_header();
-	
+
 	/* Set maintenance mode. */
 	$sid = PAGE_MAINTENANCE;
 	
 	/* Show maintenance text */
 	warquest_login();
-
+			
 	/* show page content */
 	echo $page;
 
@@ -345,13 +354,12 @@ warquest_cron();
 ** ----------------------------------------------------------------
 */
 
-/* If pdf output sent do not sent any HTML */
-if ($eid!=EVENT_PLAYER_PDF_REPORT) {
+if ( $output->format=="html" ) {
 		
 	/* html banner */
-	echo warquest_ui_header($title);
+	echo warquest_ui_header();
 		
-	warquest_debug("Page ".$title);
+	warquest_debug("Page ".$output->title);
 	
 	if ($pid!=0) {
 	
@@ -361,8 +369,10 @@ if ($eid!=EVENT_PLAYER_PDF_REPORT) {
 		/* Show main menu */
 		echo warquest_ui_mainmenu();
 		
-		/* Show popup message */
-		echo $popup;
+		/* Show popup message */	
+		if ( isset($output->popup) ) {
+			echo $output->popup;
+		}
 				
 		/* Show Page title */
 		echo warquest_ui_title();

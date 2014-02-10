@@ -43,7 +43,7 @@ function warquest_restore_do() {
 	/* output */
 	global $player;
 	global $page;
-	global $popup;
+	global $output;
 			
 	switch ($uid) {
 	
@@ -123,12 +123,12 @@ function warquest_restore_do() {
 		$log = 'Restore & Repair price '.number_format2($tmp);		
 		warquest_user_log($player, $log);
 		
-		$popup .= warquest_box_icon("info", $message);
+		$output->popup .= warquest_box_icon("info", $message);
 		
 	} else {
 	
 		$message = t('PLAYER_RESTORED_FAILED' ,money_format1($tmp));					
-		$popup .= warquest_box_icon("warning", $message);	
+		$output->popup .= warquest_box_icon("warning", $message);	
 	}
 }
 
@@ -173,17 +173,13 @@ function warquest_restore_form() {
 	
 	/* output */
 	global $page;
-	global $title;
-	global $popup;
+	global $output;
 	
-	$title = t('PLAYER_RESTORE_TITLE');
+	$output->title = t('PLAYER_RESTORE_TITLE');
 	
 	$lid=1;
 	if ($player->lid < $lid) {
-	
-		/* output */
-		global $page; 
-	
+		
 		$message = '<table>';
 		$message .= '<tr>';
 		$message .= '<td>';
@@ -195,7 +191,7 @@ function warquest_restore_form() {
 		$message .= '</tr>';
 		$message .= '</table>';
 	
-		$popup .= warquest_box("", $message);
+		$page .= warquest_box("", $message);
 					
 	} else {
 		

@@ -71,7 +71,7 @@ function warquest_poll_vote_remove_do() {
 	
 	/* output */
 	global $player;
-	global $popup;
+	global $output;
 
 	$value = warquest_db_player_poll_voted($player->pid, $poll);		
 	if ($value > 0 ) {
@@ -81,7 +81,7 @@ function warquest_poll_vote_remove_do() {
 		$player->experience-=10;
 	
 		$message = t('POLL_VOTE_REMOVE');
-		$popup .= warquest_box_icon("info", $message);		
+		$output->popup .= warquest_box_icon("info", $message);		
 	} 		
 }
 
@@ -92,7 +92,7 @@ function warquest_poll_vote_add_do() {
 	
 	/* output */
 	global $player;
-	global $popup;
+	global $output;
 
 	/* get pol id */
 	$answer = 0;
@@ -106,7 +106,7 @@ function warquest_poll_vote_add_do() {
 		
 		/* No answer found */			
 		$message = t('POLL_WARNING');
-		$popup .= warquest_box_icon("warning", $message);
+		$output->popup .= warquest_box_icon("warning", $message);
 	
 	} else if ($value == 0) {	
 	
@@ -115,7 +115,7 @@ function warquest_poll_vote_add_do() {
 		$player->experience+=10;
 	
 		$message = t('POLL_VOTE_ADD');
-		$popup .= warquest_box_icon("info", $message);
+		$output->popup .= warquest_box_icon("info", $message);
 	} 
 }
 
@@ -134,13 +134,13 @@ function warquest_poll_result_form() {
 	global $player;
 	
 	/* output */
-	global $title;
+	global $output;
 	global $page;
 	
-	$title = t('POLL_RESULT_TITLE');
+	$output->title = t('POLL_RESULT_TITLE');
 		
 	$page .= '<div class="subparagraph">';
-	$page .= $title;
+	$page .= $output->title;
 	$page .= '</div>';
 	
 	$query  = 'select question from poll where poll_id='.$poll;
@@ -193,13 +193,13 @@ function warquest_poll_form() {
 	global $config;
 
 	/* output */
-	global $title;
+	global $output;
 	global $page;
 	
-	$title = t('POLL_TITLE');
+	$output->title = t('POLL_TITLE');
 		
 	$page .= '<div class="subparagraph">';
-	$page .= $title;
+	$page .= $output->title;
 	$page .= '</div>';
 	
 	$query1  = 'select a.poll_id, count(b.pid) as total, ';

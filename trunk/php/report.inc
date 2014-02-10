@@ -24,6 +24,8 @@
 
 function warquest_player_report_do($id) {
 	
+	global $output;
+
 	class PDF extends FPDF
 	{
 		function Header() {
@@ -455,6 +457,9 @@ function warquest_player_report_do($id) {
 			}	
 		}
 	}
+	
+	/* Set PDF output format */
+	$output->format="pdf";
 	
 	$data=warquest_db_player($id);
 	

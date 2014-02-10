@@ -29,16 +29,23 @@
 */
 
 /** 
- *  Detect all mission of a planet are finished!
+ *  Detect all missions of a planet are complete!
  */
-function warquest_mission_planet_complet_bonus() {
+function warquest_mission_planet_complet() {
 
 	/* input */
 	global $player;
 
 	/* output */
-	global $popup;
+	global $output;
+	global $player;
 	
+	/*
+	 * ---------------
+	 * Business Logic
+	 * --------------- 		 
+	 */	
+	 
 	if ( warquest_db_bonus($player->pid, $player->planet)==0) {
 
 		/* Check if all missions are played on active planet */
@@ -50,25 +57,12 @@ function warquest_mission_planet_complet_bonus() {
 		$data = warquest_db_fetch_object($result);
 					
 		if ($data->part2==216) {
-			
+				 
 			/* Only if insert is successfull, add bonus to players account */
-			if (	warquest_db_bonus($player->pid, $player->planet)==0 ) {
+			if ( warquest_db_bonus($player->pid, $player->planet)==0 ) {
 				
 				warquest_db_bonus_insert($player->pid, $player->planet);
 			
-				$message = '<table>';
-				$message .= '<tr>';
-				$message .= '<td width="200">';
-				$message .= warquest_image("other/bonus.jpg", ' width="170" height="120" ');
-				$message .= '</td>';
-				$message .= '<td>';
-				$message .= t('MISSION_COMPLETE_PLANET_'.$player->planet);
-				$message .= '</td>';
-				$message .= '</tr>';
-				$message .= '</table>';
-						
-				$popup .= warquest_box("info", $message);	
-
 				switch ($player->planet) {
 				
 					case PLANET_EARTH:	
@@ -91,9 +85,29 @@ function warquest_mission_planet_complet_bonus() {
 								$player->gold += 5000;
 								break;
 				}
-				
+
+				/* Log system event */					
 				$log = 'Player receive all mission complete planet bonus!';		
 				warquest_user_log($player, $log);
+				
+				/*
+				 * ---------------
+				 * View 
+				 * --------------- 		 
+				 */					
+				 
+				$message = '<table>';
+				$message .= '<tr>';
+				$message .= '<td width="200">';
+				$message .= warquest_image("other/bonus.jpg", ' width="170" height="120" ');
+				$message .= '</td>';
+				$message .= '<td>';
+				$message .= t('MISSION_COMPLETE_PLANET_'.$player->planet);
+				$message .= '</td>';
+				$message .= '</tr>';
+				$message .= '</table>';
+						
+				$output->popup .= warquest_box("info", $message);					
 			}
 		}		
 	}
@@ -101,20 +115,26 @@ function warquest_mission_planet_complet_bonus() {
 
 			
 /** 
- *  Detect continent missions complete. 
+ *  Detect if all missions of a continent are complete. 
  */
-function warquest_mission_complet() {
+function warquest_mission_continent_complet() {
 
 	/* input */
 	global $sid;
 	global $uid;
+	global $config;
 	
 	/* output */
 	global $player;
-	global $skill;	
-	global $config;
-	global $popup;
+	global $skill;		
+	global $output;
 	
+	/*
+	 * ---------------
+	 * Business Logic
+	 * --------------- 		 
+	 */	
+		 
 	$data1 = warquest_db_player_mission($player->pid, $uid);
 	$part = $data1->part2+1;
 	
@@ -135,7 +155,18 @@ function warquest_mission_complet() {
 				
 		/* Restore energy. */
 		$player->energy=$skill->energy_max;	
-			
+
+		/* Clear progress state for all eight missions. */
+		$query  = 'update player_mission a, mission b set a.part='.$part.', a.part2='.$part.' where '; 
+		$query .= 'a.mid=b.mid and a.pid='.$player->pid.' and b.mgid='.$sid;
+		warquest_db_query($query);		
+		
+		/*
+		 * ---------------
+		 * View 
+		 * --------------- 		 
+		 */
+				 
 		$message  = t('MISSION_CONTINTENT_READY1', 
 							warquest_format_part($part-1), 
 							$config["max_mission_part"], 
@@ -154,19 +185,13 @@ function warquest_mission_complet() {
 			$message .= warquest_image("other/star.jpg");
 		}
 		
-		$message .= '<br/><br/>';
-		
+		$message .= '<br/><br/>';		
 		$message .= t('MISSION_COMPLETE_TEXT');
 		$message .= warquest_ui_map($player, $player->planet);
 		$message .= '<br/>'; 
 		
 		$link = warquest_link('mid='.MENU_HOME.'&sid='.PAGE_SKILLS, t('LINK_SP') ,'skillpoints');
-		$popup .= warquest_box("info", $message, $link);
-							
-		/* Clear progress state for all eight missions. */
-		$query  = 'update player_mission a, mission b set a.part='.$part.', a.part2='.$part.' where '; 
-		$query .= 'a.mid=b.mid and a.pid='.$player->pid.' and b.mgid='.$sid;
-		warquest_db_query($query);				
+		$output->popup .= warquest_box("info", $message, $link);
 	} 
 }
 
@@ -181,8 +206,13 @@ function warquest_mission_unit_lost() {
 	
 	/* output */
 	global $player;
-	global $message;
 	
+	/*
+	 * ---------------
+	 * Business Logic
+	 * --------------- 		 
+	 */	
+	 
 	/* Unit lost disabled for this level. */
 	if ($level->unit_lost==0) {
 	   return;
@@ -206,6 +236,12 @@ function warquest_mission_unit_lost() {
 		
 	$result = warquest_db_query($query);
 	
+	/**
+	 * ---------------
+	 * View
+	 * --------------- 		 
+	 */	
+	 
 	$message  = '<br/><span class="warning">'.t('MISSION_UNITS_LOST').':</span><br/>'; 
 	$message .= '<table>';
 	$message .= '<tr>';
@@ -240,8 +276,14 @@ function warquest_buy_missing_units_do() {
 	
 	/* output */
 	global $player;
-	global $popup;
+	global $output;
 	
+	/*
+	 * ---------------
+	 * Business Logic
+	 * --------------- 		 
+	 */
+	 
 	$query  = 'select a.uid, c.gold, c.price, c.upkeep, ifnull(b.amount,0) as amount, ';
 	$query .= 'a.amount-ifnull(b.amount,0) as total ';
 	$query .= 'from mission_unit a LEFT JOIN unit c ' ;
@@ -252,12 +294,13 @@ function warquest_buy_missing_units_do() {
 	
 	while ($unit=warquest_db_fetch_object($result)) {
 	 							
-		/* Process player statistics. */
 		$money = $unit->price * $unit->total;			
 		$upkeep = $unit->upkeep * $unit->total;
 		
 		if ($money > $player->money) {
 
+			/* No money enough, return message */
+			
 			$message = '<table>';
 			$message .= '<tr>';
 			$message .= '<td width="100">';
@@ -269,10 +312,11 @@ function warquest_buy_missing_units_do() {
 			$message .= '</tr>';
 			$message .= '</table>';
 	
-			$popup .= warquest_box("warning", $message);
-			break;
+			$output->popup .= warquest_box("warning", $message);
 		
 		} else if ($upkeep > $player->money_step) {
+		
+			/* No upkeep enough, return message */
 		
 			$message = '<table>';
 			$message .= '<tr>';
@@ -285,23 +329,24 @@ function warquest_buy_missing_units_do() {
 			$message .= '</tr>';
 			$message .= '</table>';
 	
-			$popup .= warquest_box("warning", $message);
-			break;
+			$output->popup .= warquest_box("warning", $message);
 		
 		} else {
 		
 			/* Buy missing units */
 			$player->money -= $money;
 			
+			/* Update database */
+			warquest_db_unit_add($player->pid, $unit->uid, $unit->total);
+			
+			/* Log system event */
 			$log = 'Buy missing units for mission '.number_format2($money);		
 			warquest_user_log($player, $log);
-	
-			warquest_db_unit_add($player->pid, $unit->uid, $unit->total);
+				
+			/* Update income value */
+			warquest_netto_income($player);	
 		}
 	}
-	
-	/* Update income value */
-	warquest_netto_income($player);
 }
 
 /** 
@@ -317,9 +362,14 @@ function warquest_mission_do() {
 	global $config;
 	
 	/* output */
-	global $page; 
 	global $player;
-	global $popup;
+	global $output;
+
+	/*
+	 * ---------------
+	 * Validation
+	 * --------------- 		 
+	 */
 			
 	/* Get mission data */
 	$query  = 'select min_price, max_price, energy, experience, alliance, ';
@@ -359,6 +409,7 @@ function warquest_mission_do() {
 	
 		$message .= '<table>';
 		$message .= '<tr>';
+		
 		while ($unit=warquest_db_fetch_object($result2)) {
 		
 			$message .= '<td>';
@@ -385,7 +436,7 @@ function warquest_mission_do() {
 		$link .= t('MISSION_PART').' '.warquest_format_part($part).'/'.$max.'<br/>';
 		$link .= warquest_link('mid='.$mid.'&sid='.$sid.'&uid='.$uid.'&eid='.EVENT_MISSION_BUY_PLAY, t('LINK_BUY_PLAY'), 'buyplay');
 		
-		$popup .= warquest_box(t('GENERAL_CONQUER').' '.t('MISSION_'.$uid), $message, $link);
+		$output->popup .= warquest_box(t('GENERAL_CONQUER').' '.t('MISSION_'.$uid), $message, $link);
 		
 	} else if ($player->energy < $mission->energy) {
 
@@ -402,17 +453,23 @@ function warquest_mission_do() {
 		$link .= t('MISSION_PART').' '.warquest_format_part($part).'/'.$max.'<br/>';
 		$link .= warquest_link('mid='.$mid.'&sid='.$sid.'&eid='.EVENT_MISSION_PLAY.'&uid='.$uid, t('LINK_DO_AGAIN'),'doagain');
 		
-		$popup .= warquest_box(t('GENERAL_CONQUER').' '.t('MISSION_'.$uid), $message, $link);
+		$output->popup .= warquest_box(t('GENERAL_CONQUER').' '.t('MISSION_'.$uid), $message, $link);
 		
 	} else if ($player->alliance < $mission->alliance) {
 	
 		$message = '<span class="warning">'.t('MISSION_ABORTED').'</span><br/>';
 		$message .= t('MISSION_LOW_ALLIANCE');
 		
-		$popup .= warquest_box(t('GENERAL_CONQUER').' '.t('MISSION_'.$uid), $message);
+		$output->popup .= warquest_box(t('GENERAL_CONQUER').' '.t('MISSION_'.$uid), $message);
 		
 	} else {
 		
+		/*
+		 * ---------------
+		 * Business Logic
+		 * --------------- 		 
+	    */
+	 
 		/* Update player */
 		$player->energy -= $mission->energy;
 		$player->experience += $mission->experience;
@@ -440,22 +497,36 @@ function warquest_mission_do() {
 		
 		$player->money += $money;
 		
+		/* Log system event */
 		$log = 'Mission play bonus '.number_format2($money);		
 		warquest_user_log($player, $log);
-			
-	
+				
 		/* Rebel restore action */
 		if ((warquest_format_progress($progress,$part)==100) && ($part!=$part2)) {
 		
 			$part++;
 		} 
 		
+		/* Update database */
 		warquest_db_player_mission_update($player->pid, $uid, $progress, $part, $part2);	
-		warquest_mission_complet();
-		warquest_mission_planet_complet_bonus();
+		
+		/* Check if all missions of a continent are complete */
+		warquest_mission_continent_complet();
+		
+		/* Check if all missions of a planet are complete */
+		warquest_mission_planet_complet();
+
+		/* Update income value */
+		warquest_netto_income($player);		
 		
 		$next = warquest_nextlevel($player);
 
+		/*
+		 * ---------------
+	 	 * View
+		 * --------------- 		 
+	    */
+	 
 		if (($next==1) && ($player->lid==1)) {
 			
 			/* If training mission is complet, skip mission complet message. */
@@ -482,12 +553,10 @@ function warquest_mission_do() {
 			$link .= t('MISSION_PART').' '.warquest_format_part($part).'/'.$max.'<br/>';
 			$link .= warquest_link('mid='.$mid.'&sid='.$sid.'&eid='.EVENT_MISSION_PLAY.'&uid='.$uid, t('LINK_DO_AGAIN'), "doagain");
 		
-			$popup .= warquest_box(t('GENERAL_CONQUER').' '.t('MISSION_'.$uid), $message, $link);
+			$output->popup .= warquest_box(t('GENERAL_CONQUER').' '.t('MISSION_'.$uid), $message, $link);
 			
+			/* Play sound */			
 			warquest_sound('mission'.rand(1,2).'.mp3');	
-			
-			/* Update income value */
-			warquest_netto_income($player);		
 		} 
 	}
 }
@@ -512,11 +581,11 @@ function warquest_mission_form() {
 	
 	/* output */
 	global $page; 
-	global $title;
+	global $output;
 		
 	warquest_set_default_mission($sid);	
 		
-	$title = t('MISSION_GROUP_'.$sid);
+	$output->title = t('MISSION_GROUP_'.$sid);
 	
 	if ($player->lid==1) {
 	
@@ -670,19 +739,19 @@ function warquest_mission_form() {
 	
 	if ($player->lid>0) {
 		$page .= '<div class="note">';
-		$page .= t('MISSION_NOTE', $title, money_format1($sid * $config["continent_conquer_bonus"]));
+		$page .= t('MISSION_NOTE', $output->title, money_format1($sid * $config["continent_conquer_bonus"]));
 		$page .='</div>';
 	}
 }
 
 /*
 ** -----------
-** EVENT HANDLER
+** HANDLER
 ** -----------
 */
 
 /** 
- * Mission handler
+ * Event handler
  */
 function warquest_mission() {
 

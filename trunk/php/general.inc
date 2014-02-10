@@ -1619,7 +1619,7 @@ function warquest_nextlevel($player) {
 	global $config;
 			
 	/* output */
-	global $popup;
+	global $output;
 	
 	$returnValue = 0;
 	
@@ -1746,7 +1746,7 @@ function warquest_nextlevel($player) {
 		
 		$link = warquest_link('mid='.MENU_HOME.'&sid='.PAGE_SKILLS, t('LINK_SP'));
 		
-		$popup .= warquest_box("info", $message, $link);
+		$output->popup .= warquest_box("info", $message, $link);
 		
 		$returnValue = 1;
 	}
@@ -1798,7 +1798,7 @@ function warquest_battle_award_won($player) {
 	global $config;
 	
 		/* output */
-	global $popup;
+	global $output;
 	
 	$ep = warquest_battle_award_won_do($player);
 		
@@ -1825,7 +1825,7 @@ function warquest_battle_award_won($player) {
 			
 		$link = warquest_link('mid='.MENU_HOME.'&sid='.PAGE_SKILLS, t('LINK_SP'));
 		
-		$popup .= warquest_box("info", $message, $link);
+		$output->popup .= warquest_box("info", $message, $link);
 	}
 }
 
@@ -1872,7 +1872,7 @@ function warquest_bounty_award_won($player) {
 	global $config;
 	
 	/* output */
-	global $popup;
+	global $output;
 	
 	$ep = warquest_bounty_award_won_do($player);
 		
@@ -1898,7 +1898,7 @@ function warquest_bounty_award_won($player) {
 		$message .= '<br/><br/>'; 
 			
 		$link = warquest_link('mid='.MENU_HOME.'&sid='.PAGE_SKILLS, t('LINK_SP'));
-		$popup .= warquest_box("info", $message, $link);
+		$output->popup .= warquest_box("info", $message, $link);
 	}
 }
 
@@ -1946,7 +1946,7 @@ function warquest_rebel_award_won($player) {
 	global $config;
 	
 	/* output */
-	global $popup;
+	global $output;
 	
 	$ep = warquest_rebel_award_won_do($player);
 		
@@ -1972,7 +1972,7 @@ function warquest_rebel_award_won($player) {
 		$message .= '<br/><br/>'; 
 			
 		$link = warquest_link('mid='.MENU_HOME.'&sid='.PAGE_SKILLS, t('LINK_SP'));
-		$popup .= warquest_box("info", $message, $link);
+		$output->popup .= warquest_box("info", $message, $link);
 	}
 }
 
@@ -2618,7 +2618,7 @@ function warquest_box_icon($title, $message, $link="") {
 /**
  * HTML header
  */
-function warquest_ui_header( $title = "") {
+function warquest_ui_header() {
    
 	/* input */
 	global $config;
@@ -2628,6 +2628,7 @@ function warquest_ui_header( $title = "") {
 	global $player;
 	global $session;
 	global $version;
+	global $output;
 	
 	$page  = '<html>';
 	$page .= '<head>';
@@ -2736,12 +2737,13 @@ function warquest_ui_header( $title = "") {
 		$page .= '<script language="JavaScript" src="'.$config["content_url"].'js/tictactoe.js"></script>';
 	}
 	
-	/* Add HTML Title */
-	if ($title=="") {
-		$page .= '<title>'.$config["applName"].'</title>';
-	} else {
-		$page .= '<title>'.$config["applName"].' - '.$title.'</title>';
+	/* Add HTML Title */	
+	$page .= '<title>'.$config["applName"];		
+	if ( isset($output->title) ) {
+		$page .= ' - '.$output->title;
 	}
+	$page .= '</title>';
+
 	$page .= "</head>";
 
 	$page .= "<body>";

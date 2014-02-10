@@ -560,11 +560,9 @@ function warquest_register_do($amount) {
 /** 
  * Login action
  */
-function warquest_login_do() {
+function warquest_login_do($myusername, $mypassword) {
 
 	/* input */
-   global $myusername;
-	global $mypassword;
 	global $version;
 	global $auto_login;
 	
@@ -602,7 +600,7 @@ function warquest_login_do() {
 			warquest_info($myusername.' login failed, user is banned!');	
 			
 			$pid = 0;
-		
+				
 		} else { 
 	
 			/* Start session */
@@ -633,6 +631,8 @@ function warquest_login_do() {
 			$page = "";	
 		}
 	} 
+	
+	return $pid;
 }
 
 
@@ -685,9 +685,9 @@ function warquest_facebook_form() {
 
 	/* output */
 	global $page;
-	global $title;
+	global $output;
 	
-	$title = t('LOGIN_FACEBOOK_TITLE');
+	$output->title = t('LOGIN_FACEBOOK_TITLE');
 	
 	$page .= '<style type="text/css">';
 	$page .= '.background {';
@@ -746,9 +746,9 @@ function warquest_recover_form() {
 	
 	/* output  */
 	global $page;
-	global $title;
+	global $output;
 	
-	$title = t('LOGIN_RECOVER_TITLE');
+	$output->title = t('LOGIN_RECOVER_TITLE');
 	
 	$page .= '<div class="box2">';
 	$page .= '<table cellpadding="2" cellspacing="1">';
@@ -808,9 +808,9 @@ function warquest_register_form() {
 	
 	/* output  */
 	global $page;
-	global $title;
+	global $output;
 	
-	$title = t('LOGIN_REGISTER_TITLE');
+	$output->title = t('LOGIN_REGISTER_TITLE');
 		
 	$page .= '<div class="box2">';
 		
@@ -882,9 +882,9 @@ function warquest_login_form() {
 
 	/* output */
 	global $page;
-	global $title;
+	global $output;
 	
-	$title = t('LOGIN_MEMBER_TITLE');
+	$output->title = t('LOGIN_MEMBER_TITLE');
 	
 	$page .= '<div class="box2">';
 	$page .= '<table cellpadding="3" cellspacing="1">';
@@ -941,7 +941,9 @@ function warquest_login() {
 	/* input */
 	global $sid;
 	global $eid;
-		
+   global $myusername;
+	global $mypassword;
+	
 	/* Show login header content part */
 	warquest_login_header();
 	
@@ -951,13 +953,13 @@ function warquest_login() {
 	switch ($eid) {
 	
 		case EVENT_LOGIN: 	
-					warquest_login_do();
+					warquest_login_do($myusername, $mypassword);
 					break;
 					
 		case EVENT_REGISTER:	
 					/* Default Registration with 4 skill points */
 					if (warquest_register_do(4)==1) {
-						warquest_login_do();
+						warquest_login_do($myusername, $mypassword);
 					}
 					break;
 					
@@ -972,7 +974,7 @@ function warquest_login() {
 		case EVENT_REGISTER_SPECIAL:	
 					/* Special registration with 10 skill points bonus */
 					if (warquest_register_do(10)==1) {
-						warquest_login_do();
+						warquest_login_do($myusername, $mypassword);
 					}
 					break;				
 	}

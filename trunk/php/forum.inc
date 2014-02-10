@@ -45,12 +45,12 @@ function warquest_comment_delete_do() {
 	global $uid;
 		
 	/* output */
-	global $popup;
+	global $output;
 	
 	if (warquest_db_comment_delete($uid) == 1) {
 		
 		$message = t('HOME_MESSAGE_DELETED');
-		$popup .= warquest_box_icon("info", $message);		
+		$output->popup .= warquest_box_icon("info", $message);		
 		
 		/* Reset comment id */
 		$uid=0;
@@ -70,7 +70,7 @@ function warquest_comment_save_do() {
 	global $comment;
 
 	/* output */
-	global $popup;
+	global $output;
 	
 	if (strlen($comment)>0) {
 	
@@ -102,7 +102,7 @@ function warquest_comment_save_do() {
 		/* Clear input parameters */
 		$uid = 0;
 		
-		$popup .= warquest_box_icon("info", $message);
+		$output->popup .= warquest_box_icon("info", $message);
 	}
 }
 
@@ -125,10 +125,10 @@ function warquest_comment_form() {
 	
 	/* output */
 	global $page;
-	global $title;
+	global $output;
 	global $offset;
 	
-	$title = t('ALLIANCE_COMMENT_TITLE');
+	$output->title = t('ALLIANCE_COMMENT_TITLE');
 		
 	$comment = "";
 	if ($uid!=0) {
@@ -291,13 +291,13 @@ function warquest_topic_delete_do() {
 	global $tid;
 
 	/* output */
-	global $popup;
+	global $output;
 	
 		
 	if (warquest_db_topic_delete($tid)==1) {
 						
 		$message = t('TOPIC_DELETED');
-		$popup .= warquest_box_icon("info", $message);
+		$output->popup .= warquest_box_icon("info", $message);
 		
 		/* Reset tid */
 		$tid=0;
@@ -313,7 +313,7 @@ function warquest_topic_save_do() {
 	global $topic;	
 	
 	/* output */
-	global $popup;
+	global $output;
 	
 	if (strlen($topic)>0) {
 		
@@ -321,14 +321,14 @@ function warquest_topic_save_do() {
 			warquest_db_topic_insert($player->pid, $fid, $topic);
 	
 			$message = t('TOPIC_CREATED');
-			$popup .= warquest_box_icon("info", $message);
+			$output->popup .= warquest_box_icon("info", $message);
 			
 		} else {
 		
 			warquest_db_topic_update($tid, $topic);
 			
 			$message = t('TOPIC_UPDATED');
-			$popup .= warquest_box_icon("info", $message);
+			$output->popup .= warquest_box_icon("info", $message);
 		}
 		
 		/* clear topic after insert */
@@ -353,10 +353,10 @@ function warquest_topic_form() {
 	
 	/* output */
 	global $page;
-	global $title;
+	global $output;
 	global $offset;
 	
-	$title = t('TOPIC_TITLE');
+	$output->title = t('TOPIC_TITLE');
 
 	if (($fid==0) && (strlen($search)>=0) && (strlen($search)<3)) {
 		
@@ -559,12 +559,12 @@ function warquest_forum_form() {
 	
 	/* output */
 	global $page;
-	global $title;
+	global $output;
 	
-	$title = t('FORUM_TITLE2');
+	$output->title = t('FORUM_TITLE2');
 		
 	$page .= '<div class="subparagraph">';
-	$page .= $title;
+	$page .= $output->title;
 	$page .= '</div>';
 	
 	$page .=	'<div class="box">';	
@@ -660,11 +660,7 @@ function warquest_forum_form() {
 function warquest_forum_title($title) {
 
 	/* input */
-	global $mid;
-	global $sid;
-	global $oid;
 	global $player;
-	global $config;
 	
 	$page = '<table>';
 	$page .= '<tr>';

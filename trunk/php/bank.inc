@@ -44,7 +44,7 @@ function warquest_bank_deposit_do() {
 	global $deposit;
 	
 	/* output */
-	global $popup;
+	global $output;
 	
 	/* Remove dots */
 	$deposit = str_replace(".", "", $deposit);
@@ -98,7 +98,7 @@ function warquest_bank_deposit_do() {
 			warquest_db_bank_insert($player->pid, 0, $id, $handleFee, $balance, 2);
 			
 			$message = t('BANK_DEPOSIT', money_format1($deposit), t('BANK_GROUP_'.$id));
-			$popup .= warquest_box_icon("info", $message);
+			$output->popup .= warquest_box_icon("info", $message);
 			
 			$log = 'Deposit '.number_format2($deposit).' to '.t('BANK_GROUP_'.$id);		
 			warquest_user_log($player, $log);
@@ -106,7 +106,7 @@ function warquest_bank_deposit_do() {
 		} else {
 	
 			$message = t('BANK_DEPOSIT_FAILED', money_format1($price));
-			$popup .= warquest_box_icon("warning", $message);
+			$output->popup .= warquest_box_icon("warning", $message);
 	
 		}
 	}
@@ -124,7 +124,7 @@ function warquest_bank_withdraw_do() {
 	global $withdraw;
 	
 	/* output */
-	global $popup;
+	global $output;
 	
 	/* Remove dots */
 	$withdraw = str_replace(".", "", $withdraw);
@@ -162,7 +162,7 @@ function warquest_bank_withdraw_do() {
 			warquest_db_bank_insert($player->pid, 0, $id, ($withdraw*-1), ($balance-$withdraw), 0);
 				
 			$message = t('BANK_WITHDRAW', money_format1($withdraw), t('BANK_GROUP_'.$id));
-			$popup .= warquest_box_icon("info", $message);
+			$output->popup .= warquest_box_icon("info", $message);
 			
 			$log = 'Withdraw '.number_format2($withdraw).' for '.t('BANK_GROUP_'.$id);		
 			warquest_user_log($player, $log);
@@ -170,7 +170,7 @@ function warquest_bank_withdraw_do() {
 		} else {
 	
 			$message = t('BANK_WITHDRAW_FAILED', money_format1($withdraw));
-			$popup .= warquest_box_icon("warning", $message);
+			$output->popup .= warquest_box_icon("warning", $message);
 		}
 	}
 }
@@ -254,9 +254,9 @@ function warquest_bank_form() {
 	
 	/* output */
 	global $page;
-	global $title;
+	global $output;
 	
-	$title = t('BANK_GROUP_'.$id);
+	$output->title = t('BANK_GROUP_'.$id);
 			
 	$page .= '<div class="subparagraph">';	
 	$page .= t('BANK_GROUP_'.$id).' '.t('GENERAL_BANK');
