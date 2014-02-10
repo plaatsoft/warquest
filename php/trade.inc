@@ -34,7 +34,7 @@ function warquest_trade_do() {
 	
 	/* output */
 	global $player;
-	global $popup;
+	global $output;
 	
 	$gold = $config["gold_trade_feature".$uid];	
 	$totalGold = $amount * $gold;
@@ -42,22 +42,22 @@ function warquest_trade_do() {
 	if ($totalGold > $player->gold) {
 				
 		$message = t('HOME_TRADE_NO_GOLD', gold_format($totalGold));
-		$popup .= warquest_box_icon("warning", $message);
+		$output->popup .= warquest_box_icon("warning", $message);
 		
 	} else if (($uid==1) && ($skill->health_timer>=$config['max_health_reduction'])) {
 	
 		$message = t('HOME_TRADE_HEALTH_TIMER_TO_LARGE');
-		$popup .= warquest_box_icon("warning", $message);
+		$output->popup .= warquest_box_icon("warning", $message);
 		
 	} else if (($uid==2) && ($skill->energy_timer>=$config['max_energy_reduction'])) {
 		
 		$message = t('HOME_TRADE_ENERGY_TIMER_TO_LARGE');
-		$popup .= warquest_box_icon("warning", $message);
+		$output->popup .= warquest_box_icon("warning", $message);
 		
 	} else if (($uid==3) && ($skill->ammo_timer>=$config['max_ammo_reduction'])) {
 		
 		$message = t('HOME_TRADE_AMMO_TIMER_TO_LARGE');
-		$popup .= warquest_box_icon("warning", $message);
+		$output->popup .= warquest_box_icon("warning", $message);
 		
 	} else {
 				
@@ -105,7 +105,7 @@ function warquest_trade_do() {
 			$link .= warquest_amount_selected($max);
 		}
 		
-		$popup .= warquest_box_icon("info", $message, $link);
+		$output->popup .= warquest_box_icon("info", $message, $link);
 	}
 }
 
@@ -126,9 +126,9 @@ function warquest_trade_form() {
 
 	/* output */ 
 	global $page;
-	global $title;
+	global $output;
 	
-	$title = t('HOME_TRADE_TITLE1');
+	$output->title = t('HOME_TRADE_TITLE1');
 	
 	$page .= '<div class="subparagraph">'.t('HOME_TRADE_TITLE1').'</div>';
 			

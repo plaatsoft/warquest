@@ -60,21 +60,21 @@ function warquest_casino_wheel_result_do() {
 	/* output */
 	global $eid;
 	global $player;
-	global $popup;
+	global $output;
 	
 	$message = '';
 	
 	if ($key != $player->request-1) {
 	
 		$message= t('SYSTEM_HACK_DETECTED');
-		$popup .= warquest_box_icon("warning", $message);
+		$output->popup .= warquest_box_icon("warning", $message);
 			
 	} else if ($wheel == $number) {
 		
 		/* Wheel has rolled */	
 		$money = $bet * 10;
 		$message  = t('CASINO_WIN', $wheel ,money_format1($money,0,",","."));
-		$popup .= warquest_box_icon("info", $message);	
+		$output->popup .= warquest_box_icon("info", $message);	
 		warquest_info($message);
 				
 		$player->money += $money;
@@ -87,7 +87,7 @@ function warquest_casino_wheel_result_do() {
 	} else {
 					
 		$message  = t('CASINO_LOST', $wheel, money_format1($bet,0,",","."));
-		$popup .= warquest_box_icon('warning', $message);
+		$output->popup .= warquest_box_icon('warning', $message);
 			
 		$log = 'Wheel of Fortune lose '.number_format2($bet);		
 		warquest_user_log($player, $log);	
@@ -106,7 +106,7 @@ function warquest_casino_wheel_play_do() {
 	/* output */
 	global $eid;
 	global $player;
-	global $popup;
+	global $output;
 	
 	/* New game, check parameters */
 	if ($bet==0) {			
@@ -114,28 +114,28 @@ function warquest_casino_wheel_play_do() {
 		$eid=EVENT_NONE;
 		
 		$message = t('CASINO_NO_BET');
-		$popup .= warquest_box_icon("warning", $message);		
+		$output->popup .= warquest_box_icon("warning", $message);		
 		
 	} else if ($number==0) {			
 	
 		$eid=EVENT_NONE;
 		
 		$message = t('CASINO_NO_LUCKY_NUMBER');	
-		$popup .= warquest_box_icon("warning", $message);		
+		$output->popup .= warquest_box_icon("warning", $message);		
 	
 	} else if ($bet>10000000) {	
 		
 		$eid=EVENT_NONE;
 		
 		$message = t('CASINO_BET_TO_LARGE', money_format1(10000000,0,",","."));	
-		$popup .= warquest_box_icon("warning", $message);		
+		$output->popup .= warquest_box_icon("warning", $message);		
 	
 	} else if ($bet > $player->money) {	
 		
 		$eid=EVENT_NONE;	
 		
 		$message = t('CASINO_NO_MONEY');
-		$popup .= warquest_box_icon("warning", $message);		
+		$output->popup .= warquest_box_icon("warning", $message);		
 	
 	} else {
 		
@@ -189,12 +189,12 @@ function warquest_casino_wheel() {
 	
 	/* output */
 	global $page; 
-	global $title;
+	global $output;
 	
-	$title = t('CASINO_1');
+	$output->title = t('CASINO_1');
 	
 	$page .= '<div class="subparagraph">';	
-	$page .= $title;
+	$page .= $output->title;
 	$page .= '</div>';
 	
 	if ($player->lid < $config["casino_unlock_level_1"]) {
@@ -207,7 +207,7 @@ function warquest_casino_wheel() {
 		$message .= warquest_image("other/unlock.png");
 		$message .= '</td>';
 		$message .= '<td>';
-		$message .= t('CASINO_UNLOCK', $title, $config["casino_unlock_level_1"]);
+		$message .= t('CASINO_UNLOCK', $output->title, $config["casino_unlock_level_1"]);
 		$message .= '</td>';
 		$message .= '</tr>';
 		$message .= '</table>';
@@ -301,12 +301,12 @@ function warquest_casino_slotmachine_result_do() {
 	
 	/* output */
 	global $player;
-	global $popup;
+	global $output;
 
 	if ($key != $player->request-1) {
 	
 		$message= t('SYSTEM_HACK_DETECTED');
-		$popup .= warquest_box_icon("warning", $message);	
+		$output->popup .= warquest_box_icon("warning", $message);	
 		
 	} else if (($price>0) && ($price<76)) {
 	
@@ -314,7 +314,7 @@ function warquest_casino_slotmachine_result_do() {
 		$player->money += $money;
 		
 		$message = t('CASINO_SLOTMACHINE_WIN', health_format($price), money_format1($money)); 
-		$popup .= warquest_box_icon("info", $message);	
+		$output->popup .= warquest_box_icon("info", $message);	
 		warquest_info($message);
 		
 		$log = 'Slot Machine won '.number_format2($money);		
@@ -325,7 +325,7 @@ function warquest_casino_slotmachine_result_do() {
 	} else {
 	
 		$message = t('CASINO_SLOTMACHINE_LOST', money_format1($bet));
-		$popup .= warquest_box_icon("warning", $message);	
+		$output->popup .= warquest_box_icon("warning", $message);	
 		
 		$log = 'Slot Machine lose '.number_format2($bet);		
 		warquest_user_log($player, $log);
@@ -343,7 +343,7 @@ function warquest_casino_slotmachine_play_do() {
 	/* output */
 	global $eid;
 	global $player;
-	global $popup;
+	global $output;
 		
 	/* New game, check parameters */
 	if ($bet==0) {			
@@ -351,21 +351,21 @@ function warquest_casino_slotmachine_play_do() {
 		$eid=EVENT_NONE;
 		
 		$message = t('CASINO_NO_BET');			
-		$popup .= warquest_box_icon("warning", $message);		
+		$output->popup .= warquest_box_icon("warning", $message);		
 		
 	} else if ($bet>10000000) {	
 	
 		$eid=EVENT_NONE;
 		
 		$message = t('CASINO_BET_TO_LARGE', number_format(10000000,0,",","."));	
-		$popup .= warquest_box_icon("warning", $message);		
+		$output->popup .= warquest_box_icon("warning", $message);		
 		
 	} else if ($bet > $player->money) {	
 		
 		$eid=EVENT_NONE;	
 		
 		$message = t('CASINO_NO_MONEY').'<br/>';
-		$popup .= warquest_box_icon("warning", $message);		
+		$output->popup .= warquest_box_icon("warning", $message);		
 		
 	} else {
 		
@@ -380,12 +380,12 @@ function warquest_casino_slotmachine_help() {
 
 	/* output */
 	global $page;
-	global $title;
+	global $output;
 	
-	$title = t('CASINO_2');
+	$output->title = t('CASINO_2');
 	
 	$page .= '<div class="subparagraph">';	
-	$page .= $title;
+	$page .= $output->title;
 	$page .= '</div>';
 		
 	$page .= '<div class="box">';
@@ -601,11 +601,12 @@ function warquest_casino_slotmachine() {
 		
 	/* output */
 	global $page; 
+	global $output; 
 
-	$title = t('CASINO_2');
+	$output->title = t('CASINO_2');
 	
 	$page .= '<div class="subparagraph">';	
-	$page .= $title;
+	$page .= $output->title;
 	$page .= '</div>';
 
 			
@@ -619,7 +620,7 @@ function warquest_casino_slotmachine() {
 		$message .= warquest_image("other/unlock.png");
 		$message .= '</td>';
 		$message .= '<td>';
-		$message .= t('CASINO_UNLOCK', $title, $config["casino_unlock_level_2"]);
+		$message .= t('CASINO_UNLOCK', $output->title, $config["casino_unlock_level_2"]);
 		$message .= '</td>';
 		$message .= '</tr>';
 		$message .= '</table>';
@@ -753,12 +754,12 @@ function warquest_casino_tictactoe_result_do() {
 	
 	/* output */
 	global $player;
-	global $popup;
+	global $output;
 	
 	if ($key != $player->request-1) {
 	
 		$message = t('SYSTEM_HACK_DETECTED');
-		$popup .= warquest_box_icon("warning", $message);	
+		$output->popup .= warquest_box_icon("warning", $message);	
 		
 	} else if ($result==1 ) {
 	
@@ -766,7 +767,7 @@ function warquest_casino_tictactoe_result_do() {
 		$player->money += $money;
 				
 		$message = t('CASINO_TICTACTOE_WIN', health_format(2), money_format1($money)); 
-		$popup .= warquest_box_icon("info", $message);	
+		$output->popup .= warquest_box_icon("info", $message);	
 		warquest_info($message);
 		
 		$log = 'TicTacToe won '.number_format2($money);		
@@ -780,7 +781,7 @@ function warquest_casino_tictactoe_result_do() {
 		$player->money += $money;
 				
 		$message  = t('CASINO_TICTACTOE_DRAW', health_format(1), money_format1($money)); 		
-		$popup .= warquest_box_icon("info", $message);	
+		$output->popup .= warquest_box_icon("info", $message);	
 		warquest_info($message);
 		
 		$log = 'TicTacToe draw '.number_format2($money);		
@@ -791,7 +792,7 @@ function warquest_casino_tictactoe_result_do() {
 	} else {
 	
 		$message  = t('CASINO_TICTACTOE_LOST', money_format1($bet));
-		$popup .= warquest_box_icon("warning", $message);	
+		$output->popup .= warquest_box_icon("warning", $message);	
 		
 		$log = 'TicTacToe lost '.number_format2($bet);		
 		warquest_user_log($player, $log);
@@ -811,26 +812,26 @@ function warquest_casino_tictactoe_play_do() {
 	
 	/* output */
 	global $page;
-	global $popup;
+	global $output;
 	global $eid;
 
 	if ($bet==0) {			
 
 		$eid=EVENT_NONE;	
 		$message = t('CASINO_NO_BET').'<br/>';			
-		$popup .= warquest_box_icon("warning", $message);		
+		$output->popup .= warquest_box_icon("warning", $message);		
 		
 	} else if ($bet>10000000) {	
 
 		$eid=EVENT_NONE;		
 		$message = t('CASINO_BET_TO_LARGE', money_format1(10000000,0,",",".")).'<br/>';	
-		$popup .= warquest_box_icon("warning", $message);		
+		$output->popup .= warquest_box_icon("warning", $message);		
 		
 	} else if ($bet > $player->money) {	
 	
 		$eid=EVENT_NONE;	
 		$message = t('CASINO_NO_MONEY').'<br/>';
-		$popup .= warquest_box_icon("warning", $message);		
+		$output->popup .= warquest_box_icon("warning", $message);		
 		
 	} else {
 
@@ -866,12 +867,12 @@ function warquest_casino_tictactoe() {
 	
 	/* output */
 	global $page; 
-	global $title;
+	global $output;
 	
-	$title = t('CASINO_3');
+	$output->title = t('CASINO_3');
 	
 	$page .= '<div class="subparagraph">';	
-	$page .= $title;
+	$page .= $output->title;
 	$page .= '</div>';
 	
 	if ($player->lid < $config["casino_unlock_level_3"]) {
@@ -884,7 +885,7 @@ function warquest_casino_tictactoe() {
 		$message .= warquest_image("other/unlock.png");
 		$message .= '</td>';
 		$message .= '<td>';
-		$message .= t('CASINO_UNLOCK', $title, $config["casino_unlock_level_3"]);
+		$message .= t('CASINO_UNLOCK', $output->title, $config["casino_unlock_level_3"]);
 		$message .= '</td>';
 		$message .= '</tr>';
 		$message .= '</table>';

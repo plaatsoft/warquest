@@ -34,7 +34,7 @@ function warquest_decrease_skill_do() {
 	/* output */
 	global $skill;
 	global $player;
-	global $popup;
+	global $output;
 	
 	$go=0;
 	$max=0;
@@ -96,7 +96,7 @@ function warquest_decrease_skill_do() {
 			$link .= warquest_amount_selected($max);
 		}
 		
-		$popup .= warquest_box_icon("info", $message, $link);
+		$output->popup .= warquest_box_icon("info", $message, $link);
 		
 	} else {
 	
@@ -108,7 +108,7 @@ function warquest_decrease_skill_do() {
 			$link .= warquest_amount_selected($max);
 		}
 		
-		$popup .= warquest_box_icon("warning", $message, $link);			
+		$output->popup .= warquest_box_icon("warning", $message, $link);			
 	}	
 }
 
@@ -123,7 +123,7 @@ function warquest_increase_skill_do() {
 	/* output */
 	global $skill;
 	global $player;
-	global $popup;
+	global $output;
 	
 	$max=1;
 
@@ -184,7 +184,7 @@ function warquest_increase_skill_do() {
 			$link .= warquest_amount_selected($max);
 		}
 		
-		$popup .= warquest_box_icon("info", $message, $link);
+		$output->popup .= warquest_box_icon("info", $message, $link);
 		
 	} else {
 		
@@ -197,7 +197,7 @@ function warquest_increase_skill_do() {
 			$link .= warquest_amount_selected($max);
 		}
 		
-		$popup .= warquest_box_icon("warning", $message, $link);		
+		$output->popup .= warquest_box_icon("warning", $message, $link);		
 	}	
 }
 
@@ -212,9 +212,9 @@ function warquest_skills_form() {
 
 	/* output */ 
 	global $page;
-	global $title;
+	global $output;
 	
-	$title = t('PLAYER_SKILL_SUBTITLE1');
+	$output->title = t('PLAYER_SKILL_SUBTITLE1');
 	
 	$page .= '<div class="subparagraph">'.t('PLAYER_SKILL_SUBTITLE2', $skill->skill_points).'</div>';
 			

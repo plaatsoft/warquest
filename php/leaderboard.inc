@@ -40,12 +40,12 @@ function warquest_leaderboard3_form() {
 		
 	/* output */
 	global $page;
-	global $title;
+	global $output;
 	
 	sscanf($uid, "%03d%03d", $code[0], $code[1]);
 	$code = chr($code[0]).chr($code[1]);
 	
-	$title = t('LEADERBORD_PLAYER_COUNTRY',warquest_landcode($uid));
+	$output->title = t('LEADERBORD_PLAYER_COUNTRY',warquest_landcode($uid));
 	
 	$limit = 50;
 
@@ -182,10 +182,10 @@ function warquest_leaderboard2_form() {
 			
 	/* output */
 	global $page;
-	global $title;
+	global $output;
 	global $sort;
 	
-	$title = t('LEADERBORD_BEST_COUNTRY');
+	$output->title = t('LEADERBORD_BEST_COUNTRY');
 	
 	/* Max records. */
 	$limit = 50;
@@ -306,9 +306,9 @@ function warquest_leaderboard1_form() {
 		
 	/* output */
 	global $page;
-	global $title;
+	global $output;
 	
-	$title = t('LEADERBORD_BEST_PLAYER');
+	$output->title = t('LEADERBORD_BEST_PLAYER');
 		
 	/* Max records. */
 	$limit = 50;

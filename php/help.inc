@@ -32,9 +32,9 @@ function warquest_help_about_form() {
 
 	/* output */
 	global $page;
-	global $title;
+	global $output;
 	
-	$title = t('HELP_ABOUT_SUBTITLE');
+	$output->title = t('HELP_ABOUT_SUBTITLE');
 	
 	$page .= '<div class="subparagraph">'.t('HELP_ABOUT_SUBTITLE').'</div>';
 	
@@ -348,7 +348,7 @@ function warquest_help_stats_form() {
 	
 	/* output */
 	global $page;
-	global $title;
+	global $output;
 		
 	warquest_cron_statistics(1);
 	
@@ -357,9 +357,9 @@ function warquest_help_stats_form() {
 	
 	warquest_help_graphs($first,$last);
 	
-	$title = t('HELP_STATS_TITLE');
+	$output->title = t('HELP_STATS_TITLE');
 	
-	$page .= '<div class="subparagraph">'.$title.'</div>';
+	$page .= '<div class="subparagraph">'.$output->title.'</div>';
 	
 	$page .= '<div class="box">';
 	
@@ -508,10 +508,10 @@ function warquest_help_donate_form() {
 	
 	/* output */
 	global $page;
-	global $title;
+	global $output;
 	global $player;
 	
-	$title = t('HELP_DONATE_TITLE1');
+	$output->title = t('HELP_DONATE_TITLE1');
 	
 	$page .= '<div class="subparagraph">'.t('HELP_DONATE_TITLE2').'</div>';
 	
@@ -566,9 +566,9 @@ function warquest_help_awards_form() {
 
 	/* output */
 	global $page;
-	global $title;
+	global $output;
 	
-	$title = t('HELP_AWARDS_SUBTITLE');
+	$output->title = t('HELP_AWARDS_SUBTITLE');
 	
 	$page .= '<div class="subparagraph">'.t('HELP_AWARDS_SUBTITLE').'</div>';
 	
@@ -746,9 +746,9 @@ function warquest_help_ranks_form() {
 
 	/* output */
 	global $page;
-	global $title;
+	global $output;
 	
-	$title = t('HELP_RANKS_SUBTITLE');
+	$output->title = t('HELP_RANKS_SUBTITLE');
 	
 	$page .= '<div class="subparagraph">'.t('HELP_RANKS_SUBTITLE').'</div>';
 	
@@ -866,11 +866,11 @@ function warquest_help_levels_form() {
 
 	/* output */
 	global $page;
-	global $title;
+	global $output;
 	
-	$title = t('HELP_LEVEL_SUBTITLE');
+	$output->title = t('HELP_LEVEL_SUBTITLE');
 	
-	$page .= '<div class="subparagraph">'.$title.'</div>';
+	$page .= '<div class="subparagraph">'.$output->title.'</div>';
 	$page .= '<div class="box">';
 	$page .= t('HELP_LEVEL').'<br/><br/>';
 		
@@ -952,7 +952,7 @@ function warquest_help_notes_form() {
 	
 	/* output */
 	global $page;
-	global $title;
+	global $output;
 	
 	$limit = 5;
 	$total = count($notes); 
@@ -961,7 +961,7 @@ function warquest_help_notes_form() {
 		$offset=$total-$limit;
 	}
 	
-	$title = t('HELP_NOTES_SUBTITLE1');
+	$output->title = t('HELP_NOTES_SUBTITLE1');
 	
 	$page .= '<div class="subparagraph">'.t('HELP_NOTES_SUBTITLE2').'</div>';
 		
@@ -1001,9 +1001,9 @@ function warquest_help_general_form() {
 		
 	/* output */
 	global $page;
-	global $title;
+	global $output;
 	
-	$title = t('HELP_GENERAL_SUBTITLE');
+	$output->title = t('HELP_GENERAL_SUBTITLE');
 	
 	$page .= '<div class="subparagraph">'.t('HELP_GENERAL_SUBTITLE').'</div>';
 	

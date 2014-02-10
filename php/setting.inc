@@ -44,7 +44,7 @@ function warquest_user_email_confirm_do() {
 	global $myemail;
 	
 	/* output */
-	global $popup;
+	global $output;
 		
 	$member = warquest_db_member($player->pid);
 	
@@ -55,12 +55,12 @@ function warquest_user_email_confirm_do() {
 	if (validate_email($myemail)) {
 	
 		$message = t('PLAYER_EMAIL_INVALID');
-		$popup .= warquest_box_icon("warning", $message);
+		$output->popup .= warquest_box_icon("warning", $message);
 		
 	} else if (($myemail!=$member->email) && ($count>0)) {
 		
 		$message = t('PLAYER_EMAIL_EXIST');
-		$popup .= warquest_box_icon("warning", $message);
+		$output->popup .= warquest_box_icon("warning", $message);
 			
 	} else {
 				
@@ -72,7 +72,7 @@ function warquest_user_email_confirm_do() {
 	
 		warquest_confirm_email($player->pid);
 		
-		$popup .= warquest_box_icon('info', t('USER_EMAIL_CONFIRM_SENT', $myemail));
+		$output->popup .= warquest_box_icon('info', t('USER_EMAIL_CONFIRM_SENT', $myemail));
 	}
 }
 
@@ -83,7 +83,7 @@ function warquest_settings_change_email_do() {
 	global $myemail;
 	
 	/* output */
-	global $popup;
+	global $output;
 	
 	$member = warquest_db_member($player->pid);
 	
@@ -106,12 +106,12 @@ function warquest_settings_change_email_do() {
 	if (validate_email($myemail)) {
 	
 		$message = t('PLAYER_EMAIL_INVALID');
-		$popup .= warquest_box_icon("warning", $message);
+		$output->popup .= warquest_box_icon("warning", $message);
 		
 	} else if (($myemail!=$member->email) && ($count>0)) {
 		
 		$message = t('PLAYER_EMAIL_EXIST');
-		$popup .= warquest_box_icon("warning", $message);
+		$output->popup .= warquest_box_icon("warning", $message);
 			
 	} else if ($myemail != $member->email) {
 					
@@ -123,7 +123,7 @@ function warquest_settings_change_email_do() {
 	
 		warquest_confirm_email($player->pid);
 		
-		$popup .= warquest_box_icon('info', t('USER_EMAIL_CONFIRM_SENT', $myemail));
+		$output->popup .= warquest_box_icon('info', t('USER_EMAIL_CONFIRM_SENT', $myemail));
 		
 		warquest_info("Email is manually changed!");		
 	}
@@ -139,7 +139,7 @@ function warquest_settings_account_reset_do() {
 	global $config;
 
 	/* output */
-	global $popup;
+	global $output;
 	
 	/* First update alliance partners */
 	$query  = 'select pid1 from player_player where approved=1 and pid2='.$player->pid;
@@ -212,7 +212,8 @@ function warquest_settings_account_reset_do() {
 	$player->bank3=$config["init_money_bank3"];
 		
 	$message = t('SETTING_ACCOUNT_RESETTED', $player->name);
-	$popup .= warquest_box_icon("info", $message);
+	$output->popup .= warquest_box_icon("info", $message);
+	
 	warquest_info($message.' ['.$player->pid.']');
 	
 }
@@ -228,7 +229,7 @@ function warquest_settings_change_general_do() {
 	global $mytwitter;
 	
 	/* output */
-	global $popup;
+	global $output;
 	
 	$changed=0;
 	
@@ -248,17 +249,17 @@ function warquest_settings_change_general_do() {
 	} else if (strlen($myname)<4) {
 	
 		$message = t('NICKNAME_TO_SHORT');
-		$popup .= warquest_box_icon("warning", $message);
+		$output->popup .= warquest_box_icon("warning", $message);
 
 	} else if (strrpos($myname, ' ')>0) {
 	
 		$message = t('NICKNAME_NO_SPACE');
-		$popup .= warquest_box_icon("warning", $message);
+		$output->popup .= warquest_box_icon("warning", $message);
 		
 	} else if ($count>0) {
 
 		$message = t('NICKNAME_EXIST');
-		$popup .= warquest_box_icon("warning", $message);
+		$output->popup .= warquest_box_icon("warning", $message);
 		
 	} else {
 		
@@ -413,7 +414,7 @@ function warquest_settings_change_general_do() {
 	if ($changed==1) {
 	
 		$message = t('PLAYER_GENERAL_CHANGED');
-		$popup .= warquest_box_icon("info", $message);
+		$output->popup .= warquest_box_icon("info", $message);
 		warquest_info($message);
 	}
 }
@@ -425,7 +426,7 @@ function warquest_settings_change_login_do() {
 
 	/* output */
 	global $page;
-	global $popup;
+	global $output;
 	
 	/* username parameter */
 	$username="";
@@ -467,17 +468,17 @@ function warquest_settings_change_login_do() {
 		if (strlen($username)<4) {
 		
 			$message = t('PLAYER_USERNAME_TO_SHORT');
-			$popup .= warquest_box_icon("warning", $message);
+			$output->popup .= warquest_box_icon("warning", $message);
 
 		} else if ($count1>0) {
 	
 			$message = t('PLAYER_USERNAME_ALREADY_EXIST');
-			$popup .= warquest_box_icon("warning", $message);
+			$output->popup .= warquest_box_icon("warning", $message);
 		
 		} else {
 
 			$message = t('PLAYER_USERNAME_CHANGED');
-			$popup .= warquest_box_icon("info", $message);
+			$output->popup .= warquest_box_icon("info", $message);
 	
 			warquest_db_member_username_update($player->pid, $username);
 			warquest_info("Username changed to ".$username);	
@@ -495,17 +496,17 @@ function warquest_settings_change_login_do() {
 		if ($count2!=1) {
 	
 			$message = t('PLAYER_PASSWORD_NO_MATCH');
-			$popup .= warquest_box_icon("warning", $message);
+			$output->popup .= warquest_box_icon("warning", $message);
 			
 		} else if (strlen($mynewpassword)<6)  {
 		
 			$message = t('PLAYER_PASSWORD_TO_SHORT');
-			$popup .= warquest_box_icon("warning", $message);
+			$output->popup .= warquest_box_icon("warning", $message);
 			
 		} else {
 
 			$message = t('PLAYER_PASSWORD_CHANGED');
-			$popup .= warquest_box_icon("info", $message);
+			$output->popup .= warquest_box_icon("info", $message);
 	
 			warquest_db_member_password_update($player->pid, $mynewpassword);
 			warquest_info("Password is changed!");
@@ -530,9 +531,9 @@ function warquest_settings_form() {
 	
 	/* output */
 	global $page;
-	global $title;
+	global $output;
 	
-	$title = t('SETTING_TITLE');
+	$output->title = t('SETTING_TITLE');
 		
 	$member = warquest_db_member($player->pid);
 		

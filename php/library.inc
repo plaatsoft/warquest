@@ -1425,9 +1425,9 @@ function warquest_library_form($uid, $info) {
 
 	/* output */	
 	global $page;
-	global $title;
+	global $output;
 
-	$title=t('UNIT_'.$uid);
+	$output->title = t('UNIT_'.$uid);
 		
 	$page .= '<div class="box">';
 		
