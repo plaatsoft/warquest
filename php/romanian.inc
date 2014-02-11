@@ -1319,7 +1319,7 @@ $lang['BATTLE_RANGE'] = 'Jucatorii de la lvl %s pana la lvl %s sunt in raza ta d
 */
 
 /* Earth */
-$lang['UNIT_GROUP_0']  = 'Armata';
+$lang['UNIT_GROUP_1']  = 'Armata';
 $lang['UNIT_GROUP_2']  = 'Cavalerie';
 $lang['UNIT_GROUP_3']  = 'Nave';
 $lang['UNIT_GROUP_4']  = 'Avioane';

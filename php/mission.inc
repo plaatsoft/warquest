@@ -24,7 +24,7 @@
 
 /*
 ** -----------
-** ACTIONS
+** SUPPORT
 ** -----------
 */
 
@@ -206,6 +206,7 @@ function warquest_mission_unit_lost() {
 	
 	/* output */
 	global $player;
+	global $output;
 	
 	/*
 	 * ---------------
@@ -242,29 +243,54 @@ function warquest_mission_unit_lost() {
 	 * --------------- 		 
 	 */	
 	 
-	$message  = '<br/><span class="warning">'.t('MISSION_UNITS_LOST').':</span><br/>'; 
-	$message .= '<table>';
-	$message .= '<tr>';
+	if ($output->format=="html") {
+	 
+		$message  = '<br/><span class="warning">'.t('MISSION_UNITS_LOST').':</span><br/>'; 
+		$message .= '<table>';
+		$message .= '<tr>';
 	
-	$count=1000;	
-	while ($data = warquest_db_fetch_object($result)) {
+		$count=1000;	
+		while ($data = warquest_db_fetch_object($result)) {
 		
-		$amount=rand(1,round($data->amount/10));
-		
-		/* Update database */
-		warquest_db_unit_delete($player->pid, $data->uid, $amount );
+			$amount=rand(1,round($data->amount/10));
 			
-		$message .= '<td width="90">';
-		$message .= warquest_unit_image($data, $count++);		
-		$message .= '<br/><center>'.$amount.'x</center>';
-		$message .= '<td>';
-	}
+			/* Update database */
+			warquest_db_unit_delete($player->pid, $data->uid, $amount );
+			
+			$message .= '<td width="90">';
+			$message .= warquest_unit_image($data, $count++);		
+			$message .= '<br/><center>'.$amount.'x</center>';
+			$message .= '<td>';
+		}
+		
+		$message .= '</tr>';
+		$message .= '</table>';
+		
+	} else {
 	
-	$message .= '</tr>';
-	$message .= '</table>';
+		$message = t('MISSION_UNITS_LOST').': '; 
+		
+		while ($data = warquest_db_fetch_object($result)) {
+		
+			$amount=rand(1,round($data->amount/10));
+			
+			/* Update database */
+			warquest_db_unit_delete($player->pid, $data->uid, $amount );
+			
+			$message .= $amount.' '.t('UNIT_'.$data->uid).' ';
+		}
+		$message .= '. ';
+	}
+		
 			
 	return $message;
 }
+
+/*
+** -----------
+** ACTIONS
+** -----------
+*/
 
 /** 
  * Buy mission units
@@ -358,7 +384,6 @@ function warquest_mission_do() {
 	global $mid;
 	global $sid;	
 	global $uid;
-	global $level;
 	global $config;
 	
 	/* output */
@@ -372,7 +397,7 @@ function warquest_mission_do() {
 	 */
 			
 	/* Get mission data */
-	$query  = 'select min_price, max_price, energy, experience, alliance, ';
+	$query  = 'select mid, min_price, max_price, energy, experience, alliance, ';
 	$query .= 'loot, lid from mission where mid='.$uid;  
 	$result = warquest_db_query($query); 
 	$mission = warquest_db_fetch_object($result);
@@ -399,6 +424,7 @@ function warquest_mission_do() {
 	$result2 = warquest_db_query($query);
 	
 	$count=0;
+	
 	if (warquest_db_num_rows($result2)>0) {
 		
 		$total=0;
@@ -436,6 +462,8 @@ function warquest_mission_do() {
 		$link .= t('MISSION_PART').' '.warquest_format_part($part).'/'.$max.'<br/>';
 		$link .= warquest_link('mid='.$mid.'&sid='.$sid.'&uid='.$uid.'&eid='.EVENT_MISSION_BUY_PLAY, t('LINK_BUY_PLAY'), 'buyplay');
 		
+		$output->result = t('MISSION_'.$uid).'. '.$message;
+		
 		$output->popup .= warquest_box(t('GENERAL_CONQUER').' '.t('MISSION_'.$uid), $message, $link);
 		
 	} else if ($player->energy < $mission->energy) {
@@ -451,7 +479,9 @@ function warquest_mission_do() {
 		}
 		
 		$link .= t('MISSION_PART').' '.warquest_format_part($part).'/'.$max.'<br/>';
-		$link .= warquest_link('mid='.$mid.'&sid='.$sid.'&eid='.EVENT_MISSION_PLAY.'&uid='.$uid, t('LINK_DO_AGAIN'),'doagain');
+		$link .= warquest_link('mid='.$mid.'&sid='.$sid.'&eid='.EVENT_MISSION_PLAY.'&uid='.$uid, t('LINK_DO_AGAIN'),'doagain');		
+		
+		$output->result = t('MISSION_'.$uid).'. '.$message;
 		
 		$output->popup .= warquest_box(t('GENERAL_CONQUER').' '.t('MISSION_'.$uid), $message, $link);
 		
@@ -459,6 +489,8 @@ function warquest_mission_do() {
 	
 		$message = '<span class="warning">'.t('MISSION_ABORTED').'</span><br/>';
 		$message .= t('MISSION_LOW_ALLIANCE');
+		
+		$output->result = t('MISSION_'.$uid).'. '.$message;
 		
 		$output->popup .= warquest_box(t('GENERAL_CONQUER').' '.t('MISSION_'.$uid), $message);
 		
@@ -535,8 +567,8 @@ function warquest_mission_do() {
 		} else {
 			
 			$message = t('MISSION_YOU_GAIN').': '.money_format1($money).t('MISSION_DOLLAR_AND');
-			$message .= experience_format($mission->experience).' '.t('GENERAL_EXPERIENCE_POINTS').'<br/>';
-			$message .= t('MISSION_YOU_USED').': '.energy_format($mission->energy).' '.t('GENERAL_ENERGY').'<br/>';
+			$message .= experience_format($mission->experience).' '.t('GENERAL_EXPERIENCE_POINTS').'. <br/>';
+			$message .= t('MISSION_YOU_USED').': '.energy_format($mission->energy).' '.t('GENERAL_ENERGY').'. <br/>';
 			$message .= warquest_mission_unit_lost();
 			
 			if ($mission->loot==1) {
@@ -553,7 +585,10 @@ function warquest_mission_do() {
 			$link .= t('MISSION_PART').' '.warquest_format_part($part).'/'.$max.'<br/>';
 			$link .= warquest_link('mid='.$mid.'&sid='.$sid.'&eid='.EVENT_MISSION_PLAY.'&uid='.$uid, t('LINK_DO_AGAIN'), "doagain");
 		
+			
 			$output->popup .= warquest_box(t('GENERAL_CONQUER').' '.t('MISSION_'.$uid), $message, $link);
+			
+			$output->result = t('MISSION_'.$uid).'. '.$message;
 			
 			/* Play sound */			
 			warquest_sound('mission'.rand(1,2).'.mp3');	

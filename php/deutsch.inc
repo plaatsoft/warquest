@@ -1173,7 +1173,7 @@ $lang['BATTLE_BOUNTY_SET'] = 'You set %s dollar on %s head. When %s is defeated 
 */
 
 /* Earth */
-$lang['UNIT_GROUP_0']  = 'Armee';
+$lang['UNIT_GROUP_1']  = 'Armee';
 $lang['UNIT_GROUP_2']  = 'Kavalarie';
 $lang['UNIT_GROUP_3']  = 'Marine';
 $lang['UNIT_GROUP_4']  = 'Luftwaffe';

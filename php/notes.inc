@@ -17,18 +17,19 @@
 */
 
 $notes[64] = '
-<div class="subparagraph2">05-02-2014</div>
+<div class="subparagraph2">10-02-2014</div>
 <i>Game Server v6.4</i>
 <ul>
-<li>Added basic web service interface</li>
+<li>Added very basic SOAP web service interface</li>
 <ul>
-<li>URL http://www.warquest.nl/service?wsdl</li>
+<li>URL is http://www.warquest.nl/service?wsdl</li>
 <li>Added getPlayer methode</li>
 <li>Added getClan methode</li>
 <li>Added getPlanet methode</li>
-<li>Added getPlanet methode</li>
+<li>Added doBattle methode</li>
+<li>Added doMission methode</li>
 </ul>
-<li>Enable HTTPS functionality in Apache.</li>
+<li>Enable HTTPS in Apache (based on selfsigned certificate).</li>
 <li>Refactor HTML output handeling.</li>
 </ul>
 <br/>

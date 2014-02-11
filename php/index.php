@@ -57,7 +57,7 @@ $version = '';
 
 $output = new stdClass();
 
-/* Output format: html or pdf */
+/* Output format: html, xml or pdf */
 $output->format="html";
 
 /* HMTL title content */
@@ -65,6 +65,9 @@ $output->title="";
 
 /* HTML popup content */
 $output->popup="";
+
+/* Battle result */
+$output->won = false;
 
 /*
 ** ---------------------------------------------------------------- 

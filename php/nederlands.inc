@@ -1008,7 +1008,7 @@ $lang['BATTLE_RANGE'] = 'Spelers van nivo %s to %s kunnen worden aangevallen.';
 */
 
 /* Earth */
-$lang['UNIT_GROUP_0'] = 'Leger';
+$lang['UNIT_GROUP_1'] = 'Leger';
 $lang['UNIT_GROUP_2'] = 'Cavalerie';
 $lang['UNIT_GROUP_3'] = 'Marine';
 $lang['UNIT_GROUP_4'] = 'Luchtmacht';
