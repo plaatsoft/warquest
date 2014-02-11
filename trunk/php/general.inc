@@ -922,6 +922,7 @@ function warquest_lootoption($level) {
 
 	/* input */
 	global $player;
+	global $output;
 	
 	/* 20 procent chance to win a loot. */
 	if (rand(1,5)==1) 
@@ -986,15 +987,22 @@ function warquest_lootoption($level) {
 				/* Update income, attack and defense value */
 				warquest_netto_income($player);
 		
-				$message  = '<br/>'.loot_format(t('MISSION_LOOT_WON')).'<br/>';		
-				$message .= '<table>';
-				$message .= '<tr>';
-				$message .= '<td width="90">';
-				$message .= warquest_unit_image($unit, 1001);		
-				$message .= '<br/><center>'.$amount.'x</center>';
-				$message .= '<td>';
-				$message .= '</tr>';
-				$message .= '</table>';
+				if ($output->format=="html") {
+				
+					$message  = '<br/>'.loot_format(t('MISSION_LOOT_WON')).'<br/>';		
+					$message .= '<table>';
+					$message .= '<tr>';
+					$message .= '<td width="90">';
+					$message .= warquest_unit_image($unit, 1001);		
+					$message .= '<br/><center>'.$amount.'x</center>';
+					$message .= '<td>';
+					$message .= '</tr>';
+					$message .= '</table>';
+					
+				} else {
+				
+					$message  = t('MISSION_LOOT_WON').': '.$amount.' '.t('UNIT_'.$unit->uid).'.';		
+				}
 	
 				return $message;
 			}
@@ -1420,11 +1428,12 @@ function warquest_sound( $filename, $loop=0) {
 
 	/* input */
 	global $player;
+	global $output;
 
 	/* output */
 	global $page;
 	
-	if (warquest_db_query_pattern($player, PATTERN_SOUND)==1) {
+	if (($output->format=="html") && (warquest_db_query_pattern($player, PATTERN_SOUND)==1)) {
 	
 		$page .= '<audio autoplay ';
 		if ($loop==1) {
@@ -2992,8 +3001,11 @@ function clan_format($clan) {
 function player_format($pid, $name, $country, $size=0) {
 
 	global $mid;
-		
-	if ($size==0) {
+	global $output;
+	
+	if ($output->format=="xml") {
+		return $name;
+	} else if ($size==0) {
 		return warquest_link('mid='.$mid.'&sid='.PAGE_PROFILE.'&oid='.$pid, warquest_flag_image($country,16,11).' '.$name);
 	} else {
 		return warquest_link('mid='.$mid.'&sid='.PAGE_PROFILE.'&oid='.$pid, warquest_flag_image($country).' '.$name);

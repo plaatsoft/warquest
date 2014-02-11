@@ -31,7 +31,7 @@
 /**
  * Cron clear inactive clan sectors job 
  */
-function warquest_cron_clear_inactive_sectors($output=0) {
+function warquest_cron_clear_inactive_sectors($info=0) {
 
 	/* input */
 	global $config;
@@ -80,7 +80,7 @@ function warquest_cron_clear_inactive_sectors($output=0) {
 
 	$message = 'Clear '.$count.' inactive sectors!<br/>';
 
-	if ($output==1) {
+	if ($info==1) {
 		$output->popup .= warquest_box_icon("info", $message);
 	} 
 
@@ -90,7 +90,7 @@ function warquest_cron_clear_inactive_sectors($output=0) {
 /**
  * Cron remove inactive clan player from clan job 
  */
-function warquest_cron_remove_inactive_clan_member($output=0) {
+function warquest_cron_remove_inactive_clan_member($info=0) {
 
 	/* input */
 	global $config;
@@ -158,7 +158,7 @@ function warquest_cron_remove_inactive_clan_member($output=0) {
 	$message1 = $count1.' inactive clan member(s) removed!<br/>';
 	$message2 = $count2.' inactive clan(s) removed!<br/>';
 
-	if ($output==1) {
+	if ($info==1) {
 		$output->popup .= warquest_box_icon("info", $message1.' '.$message2);
 	} 
 	warquest_info($message1);
@@ -168,7 +168,7 @@ function warquest_cron_remove_inactive_clan_member($output=0) {
 /**
  * Cron backup job 
  */
-function warquest_cron_backup($output=0) {
+function warquest_cron_backup($info=0) {
 
 	/* input */
 	global $config;
@@ -191,7 +191,7 @@ function warquest_cron_backup($output=0) {
 		
 	$message = 'Create new backup file '.$filename.'<br/>';
 	
-	if ($output==1) {
+	if ($info==1) {
 		$output->popup .= warquest_box_icon("info", $message);
 	} 
 	
@@ -202,7 +202,7 @@ function warquest_cron_backup($output=0) {
 /**
  * Cron negative income job 
  */
-function warquest_cron_negative_income($output=0) {
+function warquest_cron_negative_income($info=0) {
 
 	/* input */
 	global $config;
@@ -236,7 +236,7 @@ function warquest_cron_negative_income($output=0) {
 		
 	$message = 'Unit sold by '.$count.' player(s) to get positive hourly income again!<br/>';
 
-	if ($output==1) {
+	if ($info==1) {
 		$output->popup .= warquest_box_icon("info", $message);	
 	} 
 	
@@ -246,7 +246,7 @@ function warquest_cron_negative_income($output=0) {
 /**
  * Cron update statistics job 
  */
-function warquest_cron_statistics($output=0) {
+function warquest_cron_statistics($info=0) {
 
 	/* input */
 	global $config;	
@@ -262,7 +262,7 @@ function warquest_cron_statistics($output=0) {
 	$result2 = warquest_db_query($query2);	
 	$data2 = warquest_db_fetch_object($result2);
 	
-	if ($output==1) {
+	if ($info==1) {
 		$date = mktime(date("H"), date("i"), date("s"), date("m"), date("d"), date("Y"));
 	}
 	
@@ -286,7 +286,7 @@ function warquest_cron_statistics($output=0) {
 			
 	$message = 'Statistics of '.date("d-m-Y", $date).' updated!'; 
 	
-	if ($output!=1) {
+	if ($info!=1) {
 		warquest_info($message);
 	}	
 }
@@ -294,7 +294,7 @@ function warquest_cron_statistics($output=0) {
 /**
  * Cron delete long pending invitations job 
  */
-function warquest_cron_delete_pending_invitations($output=0) {
+function warquest_cron_delete_pending_invitations($info=0) {
 
 	/* input */
 	global $config;
@@ -326,7 +326,7 @@ function warquest_cron_delete_pending_invitations($output=0) {
 		
 	$message = $count.' pending ally request cleared! <br/>';
 
-	if ($output==1) {
+	if ($info==1) {
 		$output->popup .= warquest_box_icon("info", $message);
 	} 
 		
@@ -336,7 +336,7 @@ function warquest_cron_delete_pending_invitations($output=0) {
 /**
  * Cron clean battle job 
  */
-function warquest_cron_clean_battle_log($output=0) {
+function warquest_cron_clean_battle_log($info=0) {
 	
 	/* input */
 	global $config;
@@ -358,7 +358,7 @@ function warquest_cron_clean_battle_log($output=0) {
 			
 	$message = $count.' battle records are deleted!';
 
-	if ($output==1) {
+	if ($info==1) {
 		$output->popup .= warquest_box_icon("info", $message);
 	} 
 	
@@ -368,7 +368,7 @@ function warquest_cron_clean_battle_log($output=0) {
 /**
  * Cron robot alliancy accept job 
  */
-function warquest_cron_robot_alliancy_update($output=0) {
+function warquest_cron_robot_alliancy_update($info=0) {
 	
 	/* output */
 	global $output;
@@ -425,7 +425,7 @@ function warquest_cron_robot_alliancy_update($output=0) {
 	
 	$message = $count.' alliance requested accepted!<br/>In total '.$robots.' robots checked.';
 	
-	if ($output==1) {
+	if ($info==1) {
 		$output->popup .= warquest_box_icon("info", $message);
 	} 
 	
@@ -435,7 +435,7 @@ function warquest_cron_robot_alliancy_update($output=0) {
 /**
  * Cron update player interest job 
  */
-function warquest_cron_player_interest($output=0) {
+function warquest_cron_player_interest($info=0) {
 		
 	/* input */
 	global $config;
@@ -490,7 +490,7 @@ function warquest_cron_player_interest($output=0) {
 	
 	$message = number_format2($count).' players interest updated!';
 	
-	if ($output==1) {
+	if ($info==1) {
 		$output->popup .= warquest_box_icon("info", $message);
 	} 
 		
@@ -500,7 +500,7 @@ function warquest_cron_player_interest($output=0) {
 /**
  * Cron clean bank transaction log job 
  */
-function warquest_cron_clean_bank_log($output=0) {
+function warquest_cron_clean_bank_log($info=0) {
 
 	/* input */
 	global $config;
@@ -522,7 +522,7 @@ function warquest_cron_clean_bank_log($output=0) {
 	
 	$message = $count.' bank records are deleted!';
 
-	if ($output==1) {
+	if ($info==1) {
 		$output->popup .= warquest_box_icon("info", $message);
 	}
 	

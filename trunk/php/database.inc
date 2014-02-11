@@ -599,7 +599,24 @@ function warquest_db_unit_group($ugid) {
 	
 	return $data;
 }
-		
+
+/**
+ * Get unit group Id 
+ */
+function warquest_db_unit_group_id($name, $planet) {
+
+	$query = 'select ugid from unit_group where name="'.$name.'" and planet='.$planet;
+	$result = warquest_db_query($query);	
+	$data = warquest_db_fetch_object($result);
+	
+	$value = 0;
+	if ( isset($data->ugid) ) {
+		$value = $data->ugid;
+	}
+	
+	return $value;	
+}
+
 /*
 ** -----------------
 ** PLAYER BUILDING
@@ -2142,6 +2159,46 @@ function warquest_db_invite_check($email) {
 	$value = 0;
 	if ( isset($data->id) ) {
 		$value = $data->id;
+	}
+	
+	return $value;	
+}
+
+/*
+** ---------------------
+** PLANET
+** ---------------------
+*/
+
+/**
+ * Get Planet Id 
+ */
+function warquest_db_planet_id($name) {
+
+	$query = 'select planet_id from planet where name="'.$name.'"';
+	$result = warquest_db_query($query);	
+	$data = warquest_db_fetch_object($result);
+	
+	$value = 0;
+	if ( isset($data->planet_id) ) {
+		$value = $data->planet_id;
+	}
+	
+	return $value;	
+}
+
+/**
+ * Get Planet Name 
+ */
+function warquest_db_planet_name($id) {
+
+	$query = 'select name from planet where planet_id='.$id;
+	$result = warquest_db_query($query);	
+	$data = warquest_db_fetch_object($result);
+	
+	$value = "";
+	if ( isset($data->name) ) {
+		$value = $data->name;
 	}
 	
 	return $value;	

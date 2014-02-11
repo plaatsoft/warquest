@@ -1161,7 +1161,7 @@ $lang['BATTLE_RANGE'] = 'I giocatori dal livello %s fino al %s sono adatti per l
 */
 
 /* Terra */
-$lang['UNIT_GROUP_0']  = 'Esercito';
+$lang['UNIT_GROUP_1']  = 'Esercito';
 $lang['UNIT_GROUP_2']  = 'Cavalleria';
 $lang['UNIT_GROUP_3']  = 'Marina';
 $lang['UNIT_GROUP_4']  = 'Avviazione';

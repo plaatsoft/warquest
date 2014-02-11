@@ -338,6 +338,11 @@ function warquest_show_attack_army($data2, $ugid) {
    /* input */
 	global $mid;
 	global $player;
+	global $output;
+	
+	if ( $output->format!="html" ) {
+		return;
+	}
 	
 	$unit_group = warquest_db_unit_group($ugid);
 			
@@ -413,7 +418,12 @@ function warquest_show_attack_army($data2, $ugid) {
    /* input */
 	global $mid;
 	global $player;
-		
+	global $output;
+	
+	if ( $output->format!="html" ) {
+		return;
+	}
+	
 	$unit_group = warquest_db_unit_group($ugid);
 		
 	/* show defense units */
@@ -1176,7 +1186,7 @@ function warquest_clan_war_battle_do() {
 	}
 }
 
-function warquest_battle_do() {
+function warquest_battle_do($planet, $ugid) {
 	  
 	/* input */
 	global $mid;
@@ -1189,18 +1199,31 @@ function warquest_battle_do() {
 	global $other;
 	global $player;
 	global $output;
+	
+	if (!isset($other->pid)) {
 		
+		/* No enemy selected */
+		$message = t('BATTLE_NO_PLAYER_AVAILABLE');
+		
+		$output->result = $message;
+		
+		$output->popup .= warquest_box_icon("warning", $message);
+		
+		return;		
+	}	
+	
 	/* First increase robot strength, if possible */
-	warquest_robot_trade($other, $player->planet);
+	warquest_robot_trade($other, $planet);
 		
 	$health_winner = rand(1,10);
 	$health_losser = rand(8,20);
 	$exp = rand(1, (round($player->lid/10)+5));
 	
 	/* Check information about select force */
-	$query1 = 'select type from unit_group where ugid='.warquest_get_default_force();
+	$query1 = 'select type from unit_group where ugid='.$ugid;
 	$result1 = warquest_db_query($query1);	
 	$data1 = warquest_db_fetch_object($result1);	
+		
 	
 	/* Check if defender is ally */
 	$query = 'select approved from player_player where pid1='.$player->pid.' and pid2='.$other->pid;		
@@ -1219,16 +1242,42 @@ function warquest_battle_do() {
 		}
 	}
 	
-	if ($player->ammo<=0) {
+	$query4 = 'select uid from unit a, unit_group b where a.ugid=b.ugid and b.planet='.$planet;
+	$result4 = warquest_db_query($query4);	
+	$data4 = warquest_db_fetch_object($result4);
+	$count4 = warquest_db_num_rows($result4);
+	
+	if ($count4==0) {
+		
+		$message = t('BATTLE_NO_UNITS_AVAILABLE');
+		
+		$output->result = $message;
+		
+		$output->popup .= warquest_box_icon("warning", $message);
+		
+	} else if ($player->lid==0) {
+			
+		$message = t('BATTLE_UNLOCKED', t('GENERAL_PLANET_1'), 1).' '.t('BATTLE_FIRST_MISSION');
+		
+		$output->result = $message;
+		
+		$output->popup .= warquest_box_icon("warning", $message);
+		
+	} else if ($player->ammo<=0) {
 	
 		$message = t('BATTLE_AMMO_LOW');
-		$link = warquest_link('mid='.MENU_HOME.'&sid='.PAGE_RESTORE, t('LINK_RESTORE'), 'restore');
 		
+		$output->result = $message;
+		
+		$link = warquest_link('mid='.MENU_HOME.'&sid='.PAGE_RESTORE, t('LINK_RESTORE'), 'restore');		
 		$output->popup .= warquest_box_icon("warning", $message, $link);
 		
 	} else if ($player->health<$config["init_health_min"]) {
 	
 		$message = t('BATTLE_ATTACKER_HEALTH_LOW');
+		
+		$output->result = $message;
+		
 		$link = warquest_link('mid='.MENU_HOME.'&sid='.PAGE_RESTORE, t('LINK_RESTORE'), 'restore');
 		$output->popup .= warquest_box_icon("warning", $message, $link);
 	
@@ -1236,6 +1285,9 @@ function warquest_battle_do() {
 	
 		$message = t('BATTLE_DEFENDER_HEALTH_LOW', 
 								player_format($other->pid, $other->name, $other->country));
+								
+		$output->result = $message;
+		
 		$link = warquest_link('mid='.$mid.'&sid='.$sid.'&oid='.$other->pid.'&uid='.$uid.'&eid='.EVENT_BATTLE_NORMAL, t('LINK_ATTACK') ,'attack');
 		$output->popup .= warquest_box_icon("warning", $message, $link);
 		
@@ -1244,32 +1296,43 @@ function warquest_battle_do() {
 		
 	} else if (isset($data2->approved) && ($data2->approved==1)) {
 	
-		$message = t('BATTLE_ALLY_NO_ATTACK', 
-								player_format($other->pid, $other->name, $other->country));
+		$message = t('BATTLE_ALLY_NO_ATTACK', player_format($other->pid, $other->name, $other->country));
+		
+		$output->result = $message;
+		
 		$output->popup .= warquest_box_icon("warning", $message);
 		
 		/* Update last battle timestamp */
 		$other->last_battle = date("Y-m-d H:i:s");
 	
-	} else if (($player->planet==PLANET_MOON) && ($player->lid<100)) {
+	} else if (($planet==PLANET_MOON) && ($player->lid<100)) {
 	
-		/* No moon battles possible before level 125 */
-			
-	} else if (($player->planet==PLANET_MARS) && ($player->lid<150)) {
+		$message = t('BATTLE_UNLOCKED', t('GENERAL_PLANET_'.$planet), 100);
 	
-		/* No mars battles possible before level 150 */
+		$output->result = $message;
+	
+	} else if (($planet==PLANET_MARS) && ($player->lid<150)) {
+	
+		$message = t('BATTLE_UNLOCKED', t('GENERAL_PLANET_'.$planet), 150);
 		
-	} else if (($player->planet==PLANET_MERCURE) && ($player->lid<200)) {
+		$output->result = $message;
+		
+	} else if (($planet==PLANET_MERCURE) && ($player->lid<200)) {
 	
-		/* No mercure battles possible before level 200 */
+		$message = t('BATTLE_UNLOCKED', t('GENERAL_PLANET_'.$planet), 200);
+		
+		$output->result = $message;
 
-	} else if (($player->planet==PLANET_NEPTUNE) && ($player->lid<250)) {
+	} else if (($planet==PLANET_NEPTUNE) && ($player->lid<250)) {
 	
-		/* No neptune battles possible before level 250 */		
+		$message = t('BATTLE_UNLOCKED', t('GENERAL_PLANET_'.$planet), 250);		
 		
-	} else if (warquest_battle_check($player, $other, warquest_get_default_force())==1) {
+		$output->result = $message;
+		
+	} else if (warquest_battle_check($player, $other, $ugid)==1) {
 		
 		/* Player won */
+		$output->won = true;
 		
 		/* Update money */
 		$tmp = "";		
@@ -1351,7 +1414,7 @@ function warquest_battle_do() {
 		$player->experience += $exp;
 		$player->health -= $health_winner;
 		
-		$maintenance = warquest_db_maintenance($player, $player->planet);
+		$maintenance = warquest_db_maintenance($player, $planet);
 			
 		if ($level->unit_lost==1) {			
 			$player->damage_units += round(((100-$maintenance)/100)* ($health_winner/2) );
@@ -1367,7 +1430,7 @@ function warquest_battle_do() {
 		$other->last_battle = date("Y-m-d H:i:s");
 		$other->news++;
 		
-		$maintenance = warquest_db_maintenance($other, $other->planet);
+		$maintenance = warquest_db_maintenance($other, $planet);
 	
 		if ($level->unit_lost==1) {			
 			$other->damage_units += round(((100-$maintenance)/100)* ($health_losser/2) );
@@ -1379,9 +1442,9 @@ function warquest_battle_do() {
 							
 		/* Update battle log. */
 		if ($sid==PAGE_BOUNTY) {	
-			warquest_db_battle_insert($player->pid, $other->pid, $money, $health_losser, $data3->experience, 1, warquest_get_default_force());
+			warquest_db_battle_insert($player->pid, $other->pid, $money, $health_losser, $data3->experience, 1, $ugid);
 		} else {
-			warquest_db_battle_insert($player->pid, $other->pid, $money, $health_losser, 0, 1, warquest_get_default_force());
+			warquest_db_battle_insert($player->pid, $other->pid, $money, $health_losser, 0, 1, $ugid);
 		}
 				
 		if ($player->ammo > 0) {
@@ -1395,7 +1458,7 @@ function warquest_battle_do() {
 		warquest_battle_award_won($player);
 		
 		$message = t('BATTLE_WON', 
-					strtolower(t('GENERAL_PLANET_'.$player->planet)).' '.strtolower(t('UNIT_GROUP_'.warquest_get_default_force())),
+					strtolower(t('GENERAL_PLANET_'.$planet)).' '.strtolower(t('UNIT_GROUP_'.$ugid)),
 					player_format($other->pid, $other->name, $other->country),
 					health_format($health_winner),
 					health_format($health_losser), 
@@ -1439,7 +1502,7 @@ function warquest_battle_do() {
 				$message .= '<br/><br/>'.t('BATTLE_REBEL_UPDATE1', 
 														$other->name,
 														$tmp); 														
-				$message .= '<br/><br/>'.warquest_ui_map($other, $player->planet);
+				$message .= '<br/><br/>'.warquest_ui_map($other, $planet);
 				
 				$player->rebel++;
 				
@@ -1451,7 +1514,7 @@ function warquest_battle_do() {
 				if ($other->rebel_status==101) {
 			
 					$message .= '<br/><br/>'.t('BATTLE_REBEL_UPDATE3'); 
-					$message .= '<br/><br/>'.warquest_ui_map($other, $player->planet);
+					$message .= '<br/><br/>'.warquest_ui_map($other, $planet);
 					
 					$other->rebel_status=99;
 					
@@ -1465,10 +1528,10 @@ function warquest_battle_do() {
 			}
 		}
 			
-		$message .= '<br/>'.warquest_show_attack_army($player, warquest_get_default_force());
-		$message .= '<br/>'.warquest_show_defense_army($other, warquest_get_default_force());
-		$message .= warquest_battle_unit_lost(warquest_get_default_force());
-		$message .= warquest_battle_building_lost(warquest_get_default_force());
+		$message .= '<br/>'.warquest_show_attack_army($player, $ugid);
+		$message .= '<br/>'.warquest_show_defense_army($other, $ugid);
+		$message .= warquest_battle_unit_lost($ugid);
+		$message .= warquest_battle_building_lost($ugid);
 		
 		$message .= warquest_lootoption($player->lid);
 				
@@ -1478,6 +1541,8 @@ function warquest_battle_do() {
 			/* If player wins during bounty hunting, no repeat attack needed */
 			$link = "";
 		}
+
+		$output->result = $message;
 			
 		$output->popup .= warquest_box("info", $message, $link);
 		
@@ -1486,11 +1551,13 @@ function warquest_battle_do() {
 	} else {
 		
 		/* Player Lost */
+		$output->won = false;
+		
 		$player->ammo -= 1;
 		$player->health -= $health_losser;
 		$player->lost += 1;
 		
-		$maintenance = warquest_db_maintenance($player, $player->planet);
+		$maintenance = warquest_db_maintenance($player, $planet);
 	
 		if ($level->unit_lost==1) {
 			$player->damage_units += round(((100-$maintenance)/100)* ($health_losser/2));
@@ -1518,7 +1585,7 @@ function warquest_battle_do() {
 		}
 		
 		/* Update battle log. */
-		warquest_db_battle_insert($player->pid, $other->pid, 0, $health_winner, $exp, 0, warquest_get_default_force());
+		warquest_db_battle_insert($player->pid, $other->pid, 0, $health_winner, $exp, 0, $ugid);
 		
 		if ($player->ammo > 0) {
 			warquest_robot_battle($player, $other);
@@ -1531,18 +1598,20 @@ function warquest_battle_do() {
 		warquest_battle_award_won($player);
 			
 		$message =  t('BATTLE_LOST', 
-			strtolower(t('GENERAL_PLANET_'.$player->planet)).' '.strtolower(t('UNIT_GROUP_'.warquest_get_default_force())),
+			strtolower(t('GENERAL_PLANET_'.$planet)).' '.strtolower(t('UNIT_GROUP_'.$ugid)),
 			player_format($other->pid, $other->name, $other->country),
 			health_format($health_losser),
 		   health_format($health_winner),
 		   $other->name);
 			
 		$message .= '<br/>';		
-		$message .= '<br/>'.warquest_show_attack_army($player, warquest_get_default_force());
-		$message .= '<br/>'.warquest_show_defense_army($other, warquest_get_default_force());
-		$message .= warquest_battle_unit_lost(warquest_get_default_force());
-		$message .= warquest_battle_building_lost(warquest_get_default_force());
-						
+		$message .= '<br/>'.warquest_show_attack_army($player, $ugid);
+		$message .= '<br/>'.warquest_show_defense_army($other, $ugid);
+		$message .= warquest_battle_unit_lost($ugid);
+		$message .= warquest_battle_building_lost($ugid);
+		
+		$output->result = $message;
+				
 		$link =  warquest_link('mid='.$mid.'&sid='.$sid.'&oid='.$other->pid.'&uid='.$uid.'&eid='.EVENT_BATTLE_NORMAL,t('LINK_ATTACK'), 'attack-0');
 		$output->popup .= warquest_box("warning", $message, $link);
 		
@@ -1987,391 +2056,6 @@ function warquest_battle_bounty_form() {
 }
 
 /**
- * Enemy Battle web service
- */
-function warquest_battle_enemy_ws_do() {
-
-	/* input */
-	global $player;	
-	global $config;	
-	global $level;	
-	
-	/* output */
-	global $output;	
-	
-	$query = 'select uid from unit a, unit_group b where a.ugid=b.ugid and b.planet='.$player->planet;
-	$result = warquest_db_query($query);	
-	$data = warquest_db_fetch_object($result);
-	$count = warquest_db_num_rows($result);
-	
-	if ($count==0) {
-		
-		$output->faultcode = 1;
-		$output->faultstring = t('BATTLE_NO_UNITS_AVAILABLE');
-		
-	} else if ($player->lid==0) {
-			
-		$output->faultcode = 1;
-		$output->faultstring = t('BATTLE_UNLOCKED', t('GENERAL_PLANET_1'), 1).' ';
-		$output->faultstring .= t('BATTLE_FIRST_MISSION');
-	
-	} else if ($player->cease_fire_date > date("Y-m-d H:i:s", time())) {
-	
-		$value = strtotime($player->cease_fire_date)-time();
-	
-		$output->faultcode = 1;
-		$output->faultstring = t('BATTLE_CEASE_FIRE_PERIOD', $value);
-						
-	} else if (($player->planet==PLANET_MOON) && ($player->lid<100)) {
-		
-		$output->faultcode = 1;
-		$output->faultstring = t('BATTLE_UNLOCKED', t('GENERAL_PLANET_'.$player->planet), 100);
-
-	} else if (($player->planet==PLANET_MARS) && ($player->lid<150)) {
-		
-		$output->faultcode = 1;
-		$output->faultstring = t('BATTLE_UNLOCKED', t('GENERAL_PLANET_'.$player->planet), 150);
-		
-	} else if (($player->planet==PLANET_MERCURE) && ($player->lid<200)) {
-		
-		$output->faultcode = 1;
-		$output->faultstring = t('BATTLE_UNLOCKED', t('GENERAL_PLANET_'.$player->planet), 200);
-		
-	} else if (($player->planet==PLANET_NEPTUNE) && ($player->lid<250)) {
-			
-		$output->faultcode = 1;
-		$output->faultstring = t('BATTLE_UNLOCKED', t('GENERAL_PLANET_'.$player->planet), 250);
-	
-	} else if ($player->ammo<=0) {
-	
-		$output->faultcode = 1;
-		$output->faultstring = t('BATTLE_AMMO_LOW');
-				
-	} else if ($player->health<$config["init_health_min"]) {
-	
-		$output->faultcode = 1;
-		$output->faultstring = t('BATTLE_ATTACKER_HEALTH_LOW');
-		
-	} else {
-	
-		/* Get one enemy */	
-		$query  = 'select a.pid, a.lid, a.won, a.lost, a.name, a.experience, a.alliance, a.country, ';
-		$query .= 'a.health, a.health_date, a.health_step, ifnull(b.approved, 0) as approved, ';
-		$query .= '(select ifnull(id ,0) from bounty where pid1=a.pid and pid2='.$player->pid.') as bounty ';
-		$query .= 'from player a left join player_player b ';
-		$query .= 'on b.pid2=a.pid and b.pid1='.$player->pid.' where a.pid!='.$player->pid.' ';	
-		$query .= 'and a.lid>='.warquest_get_min_attack_level().' ';
-		$query .= 'and a.lid<='.warquest_get_max_attack_level().' ';
-		$query .= 'and a.cease_fire_date < "'.date("Y-m-d H:i:s", time()).'" ';
-		$query .= 'and a.holiday_date < "'.date("Y-m-d H:i:s", time()).'" ';
-		$query .= 'and ifnull(b.approved, 0)=0 '; 
-		$query .= 'order by a.last_battle asc limit 0, 1'; 
-
-		$result = warquest_db_query($query);	 
-		$count = warquest_db_num_rows($result);
-
-		if ($count==0) {
-		
-			/* No fighters available */
-			$output->faultcode = 1;
-			$output->faultstring = t('BATTLE_NO_PLAYER_AVAILABLE');
-				
-		} else {
-		
-			$data = warquest_db_fetch_object($result);
-						
-			/* Load other player data from database */
-			$other=warquest_db_player($data->pid);
-	
-			/* Update other player timers (before) */
-			warquest_update_timers($other);
-			
-			$health_winner = rand(1,10);
-			$health_losser = rand(8,20);
-			$exp = rand(1, (round($player->lid/10)+5));
-	
-			/* Check information about select force */
-			$query1 = 'select type from unit_group where ugid='.warquest_get_default_force();
-			$result1 = warquest_db_query($query1);	
-			$data1 = warquest_db_fetch_object($result1);		
-										
-			if ($other->health<$config["init_health_min"]) {
-						
-				$output->faultcode = 1;
-				$output->faultstring = t('BATTLE_DEFENDER_HEALTH_LOW', $other->name);
-				
-				/* Update battle timestamp */
-				$other->last_battle = date("Y-m-d H:i:s");
-	
-			} else if (warquest_battle_check($player, $other, warquest_get_default_force())==1) 
-			{
-		
-				/* Player won */
-		
-				/* Update money */
-				$tmp = "";		
-				
-				/* Espionage steals from bank account */	
-				if ($data1->type==5) {
-						
-					if ($other->bank2 > $other->bank3) {
-						$id = 2;
-					} else {
-						$id = 3;
-					}
-								
-					switch ( $id ) {
-			
-						case 2: 	$money = round((1/rand(10,15)) * $other->bank2);
-	
-							/* Prevent to big money wons */
-							if ($money > $config["max_money_win"] ) {
-								$money = $config["max_money_win"]  + rand(10000, 600000);
-							}
-			
-							if ($money>0) {
-								$other->bank2 -= $money;
-								warquest_db_bank_insert($other->pid, $player->pid, 2, ($money*-1), $other->bank2, 5);
-							}
-							break;
-
-						case 3: 	$money = round((1/rand(10,15)) * $other->bank3);
-							
-							/* Prevent to big money wons */
-							if ($money > $config["max_money_win"] ) {
-								$money = $config["max_money_win"]  + rand(10000, 600000);
-							}
-							
-							if ($money>0) {
-								$other->bank3 -= $money;
-								warquest_db_bank_insert($other->pid, $player->pid, 3, ($money*-1), $other->bank3, 5);
-							}
-							break;				
-					}
-			
-					$log = 'Battle espionage lost, lost '.number_format2($money).' ['.$player->pid.']';
-					warquest_user_log($other, $log);
-			
-					/* Espionage attack won increase rebel counter of opponent */
-					$other->rebel_status += rand(2,10);
-					$tmp = warquest_rebel_check($other);
-			
-					/* Add stolen money to cash account */
-					$player->money += $money;
-			
-					$log = 'Battle espionage won, won '.number_format2($money).' ['.$other->pid.']';		
-					warquest_user_log($player, $log);
-
-				} else {
-		
-					/* Steal from cash account */	
-					$money = round( (1/rand(10,15)) * $other->money);
-					if ($money < 0) $money = 0;
-				
-					/* Prevent to big money wons */
-					if ($money > $config["max_money_win"] ) {
-						$money = $config["max_money_win"]  + rand(10000, 600000);
-					}
-			
-					$player->money += $money;
-			
-					$log = 'Battle won, won '.number_format2($money).' ['.$other->pid.']';		
-					warquest_user_log($player, $log);
-			
-					$other->money -= $money;
-			
-					$log = 'Battle lost, lost '.number_format2($money).' ['.$player->pid.']';		
-					warquest_user_log($other, $log);
-				} 
-				
-				$player->ammo -= 1;
-				$player->won += 1;
-				$player->experience += $exp;
-				$player->health -= $health_winner;
-		
-				$maintenance = warquest_db_maintenance($player, $player->planet);
-			
-				if ($level->unit_lost==1) {			
-					$player->damage_units += round(((100-$maintenance)/100)* ($health_winner/2) );
-				}
-		
-				if ($level->building_lost==1) {			
-					$player->damage_buildings += round(((100-$maintenance)/100) * rand(1,2));
-				}
-	
-				/* update defender */
-				$other->health -= $health_losser;
-				$other->lost += 1;
-				$other->last_battle = date("Y-m-d H:i:s");
-				$other->news++;
-		
-				$maintenance = warquest_db_maintenance($other, $other->planet);
-	
-				if ($level->unit_lost==1) {			
-					$other->damage_units += round(((100-$maintenance)/100)* ($health_losser/2) );
-				}
-		
-				if ($level->building_lost==1) {	
-					$other->damage_buildings += round(((100-$maintenance)/100) * rand(1,4));
-				}
-							
-				/* Update battle log */
-				warquest_db_battle_insert($player->pid, $other->pid, $money, $health_losser, 0, 1, warquest_get_default_force());
-				
-				if ($player->ammo > 0) {
-					warquest_robot_battle($player, $other);
-				}
-	
-				/* Check if next level is reached */
-				warquest_nextlevel($player);
-
-				/* Check if battle award is won */
-				warquest_battle_award_won($player);
-		
-				$message = t('BATTLE_WON', 
-					strtolower(t('GENERAL_PLANET_'.$player->planet)).' '.strtolower(t('UNIT_GROUP_'.warquest_get_default_force())),
-					player_format($other->pid, $other->name, $other->country),
-					health_format($health_winner),
-					health_format($health_losser), 
-					$other->name,
-					money_format1($money),
-					experience_format($exp));
-		
-				if ($other->health < $config["init_health_min"]) {
-		
-					/* Add bonus */
-					$money = 5000 * $player->lid * rand(1,3);
-						$player->money += $money;
-					
-					$log = 'Battle surrender bonus '.number_format2($money);		
-					warquest_user_log($player, $log);
-						
-					$message .= '<br/><br/>'.t('BATTLE_HOSPITAL_BONUS', 
-							$other->name, 
-							money_format1($money));
-				}
-			
-				if ($data1->type==5) {
-		
-					if (strlen($tmp)>0) {	
-						$message .= '<br/><br/>'.t('BATTLE_REBEL_UPDATE1', 
-														$other->name,
-														$tmp); 														
-						$message .= '<br/><br/>'.warquest_ui_map($other, $player->planet);
-				
-						$player->rebel++;
-				
-						/* Check if battle award is won */
-						warquest_rebel_award_won($player);
-				
-					} else {
-					
-						if ($other->rebel_status==101) {
-			
-							$message .= '<br/><br/>'.t('BATTLE_REBEL_UPDATE3'); 
-							$message .= '<br/><br/>'.warquest_ui_map($other, $player->planet);
-					
-							$other->rebel_status=99;
-					
-						} else {
-				
-							$message .= '<br/><br/>'.t('BATTLE_REBEL_UPDATE2', 
-														$other->name,
-														health_format($other->rebel_status)); 
-														
-						}
-					}
-							
-					$message .= ' '.warquest_show_attack_army($player, warquest_get_default_force());
-					$message .= ' '.warquest_show_defense_army($other, warquest_get_default_force());
-					$message .= warquest_battle_unit_lost(warquest_get_default_force());
-					$message .= warquest_battle_building_lost(warquest_get_default_force());		
-					$message .= warquest_lootoption($player->lid);			
-				}
-		
-				$output->won = 1;
-				$output->faultcode = 0;
-				$output->faultstring = $message;
-					
-			} else {
-		
-				/* Player Lost */
-				$player->ammo -= 1;
-				$player->health -= $health_losser;
-				$player->lost += 1;
-			
-				$maintenance = warquest_db_maintenance($player, $player->planet);
-	
-				if ($level->unit_lost==1) {
-					$player->damage_units += round(((100-$maintenance)/100)* ($health_losser/2));
-				}
-	
-				if ($level->building_lost==1) {
-					$player->damage_buildings += round(((100-$maintenance)/100) * rand(1,4));
-				}
-					
-				/* Update defender */
-				$other->experience += $exp;
-				$other->health -= $health_winner;
-				$other->won += 1;
-				$other->last_battle = date("Y-m-d H:i:s");
-				$other->news++;
-		
-				$maintenance = warquest_db_maintenance($other, $other->planet);
-		
-				if ($level->unit_lost==1) {
-					$other->damage_units += round(((100-$maintenance)/100)* ($health_winner/2));
-				}
-		
-				if ($level->building_lost==1) {
-					$other->damage_buildings += round(((100-$maintenance)/100) * rand(1,2));
-				}
-		
-				/* Update battle log. */
-				warquest_db_battle_insert($player->pid, $other->pid, 0, $health_winner, $exp, 0, warquest_get_default_force());
-				
-				if ($player->ammo > 0) {
-					warquest_robot_battle($player, $other);
-				}
-	
-				/* Check if next level is reached */
-				warquest_nextlevel($player);
-
-				/* Check if next won level is reached */
-				warquest_battle_award_won($player);
-			
-				$message =  t('BATTLE_LOST', 
-					strtolower(t('GENERAL_PLANET_'.$player->planet)).' '.strtolower(t('UNIT_GROUP_'.warquest_get_default_force())),
-					player_format($other->pid, $other->name, $other->country),
-					health_format($health_losser),
-					health_format($health_winner),
-					$other->name);
-			
-				$message .= ' ';		
-				$message .= ' '.warquest_show_attack_army($player, warquest_get_default_force());
-				$message .= ' '.warquest_show_defense_army($other, warquest_get_default_force());
-				$message .= warquest_battle_unit_lost(warquest_get_default_force());
-				$message .= warquest_battle_building_lost(warquest_get_default_force());
-				
-				$output->won = 1;
-				$output->faultcode = 0;
-				$output->faultstring = $message;			
-			}
-	
-			/* Save other player direcly else battle view is now updated! */
-			if ($other->pid!=0) {
-
-				/* Update other player timers (after) */
-				warquest_update_timers($other);
-			
-				/* Save other player data; */
-				warquest_db_player_update($other);
-			}	
-		}
-	}	
-}
-
-/**
  * Enemy Battle form
  */
 function warquest_battle_enemy_form() {
@@ -2646,7 +2330,7 @@ function warquest_battle() {
 	switch ($eid ) {
 	
 		case EVENT_BATTLE_NORMAL:  
-					warquest_battle_do();
+					warquest_battle_do($player->planet, warquest_get_default_force());
 					break;
 							  				  
 		case EVENT_BATTLE_BOUNTY:	

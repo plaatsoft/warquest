@@ -1310,7 +1310,7 @@ $lang['BATTLE_GENERAL_TITLE'] = 'Battle';
 $lang['BATTLE_BOUNTY_TITLE'] = 'Bounty Hunting';
 
 $lang['BATTLE_LOST'] = 'Your %s attacked %s. You lost the battle, taking %s damage, while dealing %s to %s.';
-$lang['BATTLE_WON'] = 'Your %s attacked %s. You won the battle, taking %s damage while dealing %s to %s. You took %s dollars and gain %s experience points.';
+$lang['BATTLE_WON'] = 'Your %s attacked %s. You won the battle, taking %s damage while dealing %s to %s. You took %s dollars and gain %s experience points. ';
 $lang['BATTLE_DEFENDER_HEALTH_LOW'] = '%s surrenders temporarely because health is too low!';
 $lang['BATTLE_ATTACKER_HEALTH_LOW'] = 'Your health is too low to battle!. Visit the hospital for instant recovery or wait for automatic health recovery.';
 $lang['BATTLE_AMMO_LOW'] = 'You are out of ammo! Wait a few minutes for your ammo to recharge or use skill points to improve ammo skill.';
@@ -1320,7 +1320,7 @@ $lang['BATTLE_DEFENSE_FORCE'] = '%s %s defense %s (%s defense strength):';
 $lang['BATTLE_DEFENSE_BASE'] = '%s defence base:'; 
 $lang['BATTLE_ATTACK_FORCE'] = 'Your %s attack %s (%s attack strength):';
 $lang['BATTLE_MORE'] = 'more';
-$lang['BATTLE_NO_PLAYER_AVAILABLE'] = 'At the moment no player(s) are available for battles.';
+$lang['BATTLE_NO_PLAYER_AVAILABLE'] = 'At the moment no player is available to battle.';
 $lang['BATTLE_UNLOCKED'] = '%s battle is unlocked at level %s.';
 $lang['BATTLE_FIRST_MISSION'] = 'Complete the training mission first.';
 $lang['BATTLE_BOUNTY_UNLOCKED'] = '%s bounty hunting is unlocked at level %s.';
@@ -1358,7 +1358,7 @@ $lang['BATTLE_RANGE'] = 'Players from level %s up to %s are in battle range.';
 */
 
 /* Earth */
-$lang['UNIT_GROUP_0']  = 'Army';
+$lang['UNIT_GROUP_1']  = 'Army';
 $lang['UNIT_GROUP_2']  = 'Cavalry';
 $lang['UNIT_GROUP_3']  = 'Navy';
 $lang['UNIT_GROUP_4']  = 'Airforce';

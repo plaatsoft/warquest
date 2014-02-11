@@ -1230,7 +1230,7 @@ $lang['BATTLE_RANGE'] = 'Los jugadores desde el nivel %s hasta el %s están a tu 
 */
 
 /* Earth */
-$lang['UNIT_GROUP_0']  = 'Ejército';
+$lang['UNIT_GROUP_1']  = 'Ejército';
 $lang['UNIT_GROUP_2']  = 'Caballería';
 $lang['UNIT_GROUP_3']  = 'Armada';
 $lang['UNIT_GROUP_4']  = 'Fuerza aérea';
