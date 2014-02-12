@@ -213,9 +213,10 @@ function warquest_mission_unit_lost() {
 	 * Business Logic
 	 * --------------- 		 
 	 */	
-	 
-	/* Unit lost disabled for this level. */
+	 	
 	if ($level->unit_lost==0) {
+	
+		/* Unit lost disabled for this level. */
 	   return;
 	}
 
@@ -223,8 +224,9 @@ function warquest_mission_unit_lost() {
 	$maintenance = warquest_db_maintenance($player, $player->planet);	
 	$player->damage_units += round(((100-$maintenance)/100) * rand(1,10));
 		
-	/* Check if units damage is less then 100% then return */		
+
 	if ($player->damage_units<100) {
+		/* Check if units damage is less then 100% then return */	
 		return;
 	}
 	$player->damage_units = 0;
@@ -248,41 +250,41 @@ function warquest_mission_unit_lost() {
 		$message  = '<br/><span class="warning">'.t('MISSION_UNITS_LOST').':</span><br/>'; 
 		$message .= '<table>';
 		$message .= '<tr>';
-	
-		$count=1000;	
-		while ($data = warquest_db_fetch_object($result)) {
 		
-			$amount=rand(1,round($data->amount/10));
+	} else {
+	
+		$message = t('MISSION_UNITS_LOST').': ';
+	}
+	
+	$count=1000;	
+	while ($data = warquest_db_fetch_object($result)) {
+		
+		$amount=rand(1,round($data->amount/10));
 			
-			/* Update database */
-			warquest_db_unit_delete($player->pid, $data->uid, $amount );
+		/* Update database */
+		warquest_db_unit_delete($player->pid, $data->uid, $amount );
 			
+		if ($output->format=="html") {
 			$message .= '<td width="90">';
 			$message .= warquest_unit_image($data, $count++);		
 			$message .= '<br/><center>'.$amount.'x</center>';
 			$message .= '<td>';
+				
+		} else {
+			
+			$message .= $amount.' '.t('UNIT_'.$data->uid).' ';
 		}
+	}
 		
+	if ($output->format=="html") {
 		$message .= '</tr>';
 		$message .= '</table>';
 		
 	} else {
 	
-		$message = t('MISSION_UNITS_LOST').': '; 
-		
-		while ($data = warquest_db_fetch_object($result)) {
-		
-			$amount=rand(1,round($data->amount/10));
-			
-			/* Update database */
-			warquest_db_unit_delete($player->pid, $data->uid, $amount );
-			
-			$message .= $amount.' '.t('UNIT_'.$data->uid).' ';
-		}
 		$message .= '. ';
 	}
 		
-			
 	return $message;
 }
 
@@ -461,9 +463,7 @@ function warquest_mission_do() {
 		
 		$link .= t('MISSION_PART').' '.warquest_format_part($part).'/'.$max.'<br/>';
 		$link .= warquest_link('mid='.$mid.'&sid='.$sid.'&uid='.$uid.'&eid='.EVENT_MISSION_BUY_PLAY, t('LINK_BUY_PLAY'), 'buyplay');
-		
-		$output->result = t('MISSION_'.$uid).'. '.$message;
-		
+	
 		$output->popup .= warquest_box(t('GENERAL_CONQUER').' '.t('MISSION_'.$uid), $message, $link);
 		
 	} else if ($player->energy < $mission->energy) {
@@ -481,17 +481,13 @@ function warquest_mission_do() {
 		$link .= t('MISSION_PART').' '.warquest_format_part($part).'/'.$max.'<br/>';
 		$link .= warquest_link('mid='.$mid.'&sid='.$sid.'&eid='.EVENT_MISSION_PLAY.'&uid='.$uid, t('LINK_DO_AGAIN'),'doagain');		
 		
-		$output->result = t('MISSION_'.$uid).'. '.$message;
-		
 		$output->popup .= warquest_box(t('GENERAL_CONQUER').' '.t('MISSION_'.$uid), $message, $link);
 		
 	} else if ($player->alliance < $mission->alliance) {
 	
 		$message = '<span class="warning">'.t('MISSION_ABORTED').'</span><br/>';
 		$message .= t('MISSION_LOW_ALLIANCE');
-		
-		$output->result = t('MISSION_'.$uid).'. '.$message;
-		
+				
 		$output->popup .= warquest_box(t('GENERAL_CONQUER').' '.t('MISSION_'.$uid), $message);
 		
 	} else {
@@ -584,12 +580,10 @@ function warquest_mission_do() {
 		
 			$link .= t('MISSION_PART').' '.warquest_format_part($part).'/'.$max.'<br/>';
 			$link .= warquest_link('mid='.$mid.'&sid='.$sid.'&eid='.EVENT_MISSION_PLAY.'&uid='.$uid, t('LINK_DO_AGAIN'), "doagain");
-		
-			
+
+			$output->result = true;
 			$output->popup .= warquest_box(t('GENERAL_CONQUER').' '.t('MISSION_'.$uid), $message, $link);
-			
-			$output->result = t('MISSION_'.$uid).'. '.$message;
-			
+		
 			/* Play sound */			
 			warquest_sound('mission'.rand(1,2).'.mp3');	
 		} 
