@@ -34,9 +34,10 @@ $sid=0;
 $uid=0;
 
 $output = new stdClass();
-$output->format = "xml";
-$output->won = false;
-$output->result = "";
+$output->format = "xml";	/* Format (html, xml or pdf) */
+$output->result = false; 	/* Action result (true / false) */
+$output->title = "";			/* Title content */
+$output->popup = "";			/* Popup content */
 
 /*
 ** ---------
@@ -253,13 +254,13 @@ function doBattle($username, $password, $planet, $force) {
 	warquest_db_player_update($player);
 
 	/* Convert data */
-	$output->result = strip_tags($output->result);
+	$output->popup = strip_tags($output->popup);
 		
-	warquest_info($output->result);
+	warquest_info($output->popup);
 	
 	/* Remove unwanted parts in the output */
-	unset($output->popup);
 	unset($output->format);
+	unset($output->title);
 	
 	$output = new SoapVar($output, SOAP_ENC_OBJECT, null, null, 'battle');
 	
@@ -296,6 +297,18 @@ function doMission($username, $password) {
 	/* Update player timers (before) */
 	warquest_update_timers($player);
 	
+	/* Get first mission which is not complete */
+	/*$query  = "select a.mid, a.loot, a.min_price, a.max_price, a.energy, ";
+	$query .= "a.experience, a.alliance, ifnull(b.progress, 0) as progress, ";
+	$query .= "ifnull(b.part, 0) as part, ifnull(b.part2, 0) as part2 from mission a ";
+	$query .= "left join player_mission b on a.mid=b.mid and b.pid=".$player->pid." ";
+	$query .= 'where a.mgid='.$sid.' and a.lid<='.$player->lid.' ';  
+	$query .= 'order by a.lid asc';
+	
+	$result = warquest_db_query($query);	 
+	$data = warquest_db_fetch_object($result);	
+	$uid = $data->mid;*/
+	
 	$uid=1;
 	
 	/* Do fight */
@@ -312,14 +325,13 @@ function doMission($username, $password) {
 	warquest_db_player_update($player);
 
 	/* Convert data */
-	$output->result = strip_tags($output->result);
+	$output->popup = strip_tags($output->popup);
 		
-	warquest_info($output->result);
+	warquest_info($output->popup);
 	
 	/* Remove unwanted parts in the output */
-	unset($output->won);
-	unset($output->popup);
 	unset($output->format);
+	unset($output->title);
 	
 	$output = new SoapVar($output, SOAP_ENC_OBJECT, null, null, 'mission');
 	

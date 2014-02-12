@@ -7,6 +7,12 @@ xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/'
 xmlns:xsd='http://www.w3.org/2001/XMLSchema' 
 targetNamespace='http://www.warquest.nl/service/warquest.wsdl'>
 
+<wsdl:documentation>
+	Service: WarQuestService
+   Version: 0.2
+   Owner: PlaatSoft
+</wsdl:documentation>
+  
 <wsdl:types>
 	
 	<xsd:schema elementFormDefault="qualified" targetNamespace='http://www.warquest.nl/service/warquest.wsdl'>
@@ -172,14 +178,15 @@ targetNamespace='http://www.warquest.nl/service/warquest.wsdl'>
 		
 		<xsd:complexType name="battle">
 			<xsd:sequence>
-				<xsd:element name="won" type="xsd:boolean" minOccurs="1" maxOccurs="1"/>			
-				<xsd:element name="result" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+				<xsd:element name="result" type="xsd:boolean" minOccurs="1" maxOccurs="1"/>			
+				<xsd:element name="popup" type="xsd:string" minOccurs="1" maxOccurs="1"/>
 			</xsd:sequence>
 		</xsd:complexType>
 	
 		<xsd:complexType name="mission">
 			<xsd:sequence>	
-				<xsd:element name="result" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+				<xsd:element name="result" type="xsd:boolean" minOccurs="1" maxOccurs="1"/>			
+				<xsd:element name="popup" type="xsd:string" minOccurs="1" maxOccurs="1"/>
 			</xsd:sequence>
 		</xsd:complexType>
 		
@@ -233,6 +240,8 @@ targetNamespace='http://www.warquest.nl/service/warquest.wsdl'>
 
 <wsdl:portType name='WarQuestPort'>
 	
+	<wsdl:documentation>The following methodes can be used to play WarQuest</wsdl:documentation>
+	 
 	<wsdl:operation name='getPlayer'>
 		<wsdl:input message='tns:getPlayerRequest'/>	
 		<wsdl:output message='tns:getPlayerResponse'/>
@@ -261,7 +270,7 @@ targetNamespace='http://www.warquest.nl/service/warquest.wsdl'>
 </wsdl:portType>
 
 <wsdl:binding name='WarQuestBinding' type='tns:WarQuestPort'>
-   <soap:binding style='document'  transport='http://schemas.xmlsoap.org/soap/http' />
+   <soap:binding style='rpc'  transport='http://schemas.xmlsoap.org/soap/http' />
 	
    <wsdl:operation name='getPlayer'>
      <soap:operation soapAction='getPlayer' style="rpc"/>
@@ -316,10 +325,13 @@ targetNamespace='http://www.warquest.nl/service/warquest.wsdl'>
 </wsdl:binding>
 
 <wsdl:service name='WarQuest'>
+
 	<wsdl:documentation>WSDL file for WarQuest</wsdl:documentation>
+	
 	<wsdl:port binding='tns:WarQuestBinding' name='WarQuestPort'>
 		<soap:address location='http://www.warquest.nl/service/' />
 	</wsdl:port>
+	
 </wsdl:service>
 
 </wsdl:definitions>

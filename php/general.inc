@@ -2536,92 +2536,113 @@ function warquest_ui_tip() {
 /**
  * Show HTML box
  */	
-function warquest_box($title, $message, $link="") {
+function warquest_box($title, $content, $link="") {
 	
-	$page = '<div class="box">';
+	global $output;
 	
-	if (strlen($link)>0) {
-		$page .= '<div class="right">';
-		$page .= $link;
-		$page .= '</div>'; 
-	} 
-
-	if ($title=="info") {
-		$page .= '<div class="paragraph"><span class="info">'.t('BOX_INFO').'</span></div>';
-	} else if ($title=="warning") {
-		$page .= '<div class="paragraph"><span class="warning">'.t('BOX_WARN').'</span></div>';
-	} else {
-		$page .= '<div class="paragraph">'.$title.'</div>';
-	} 
-	$page .= $message;
+	if ($output->format=="html") {
+	
+		$message = '<div class="box">';
+	
+		if (strlen($link)>0) {
+			$message .= '<div class="right">';
+			$message .= $link;
+			$message .= '</div>'; 
+		} 
+	
+		if ($title=="info") {
+			$message .= '<div class="paragraph"><span class="info">'.t('BOX_INFO').'</span></div>';
+		} else if ($title=="warning") {
+			$message .= '<div class="paragraph"><span class="warning">'.t('BOX_WARN').'</span></div>';
+		} else {
+			$message .= '<div class="paragraph">'.$title.'</div>';
+		} 
+		$message .= $content;
 		
-	$page .= '</div>';	
+		$message .= '</div>';	
+		
+	} else {
 	
-	return $page;
+		$message = strtoupper($title).': '.$content;
+		
+	}
+	
+	return $message;
 }
 	
 /**
  * Show HTML box with icon
  */	
-function warquest_box_icon($title, $message, $link="") {
+function warquest_box_icon($title, $content, $link="") {
 	
-	$page = '<div class="box">';
+	global $output;
 	
-	$page .= '<table>';
-	$page .= '<tr>';
+	if ($output->format=="html") {
 	
-	if ($title=="info") {
-		$page .= '<td width="70" valign="top">'; 
-		$page .= warquest_image('other/info.png',' width="64" height="64" ');
-		$page .= '</td>';
-	
-		$page .= '<td width="400">';
-		$page .= '<div class="paragraph"><span class="info">'.t('BOX_INFO').'</span></div>';
+		$message = '<div class="box">';
 		
-	} else if ($title=="warning") {
-		$page .= '<td width="70" valign="top">'; 
-		$page .= warquest_image('other/warning.png',' width="64" height="64" ');
-		$page .= '</td>';
-		
-		$page .= '<td width="400">';
-		$page .= '<div class="paragraph"><span class="warning">'.t('BOX_WARN').'</span></div>';
+		$message .= '<table>';
+		$message .= '<tr>';
 	
-	} else if ($title=="error") {
-		$page .= '<td width="70" valign="top">'; 
-		$page .= warquest_image('other/error.png',' width="64" height="64" ');
-		$page .= '</td>';
+		if ($title=="info") {
+			$message .= '<td width="70" valign="top">'; 
+			$message .= warquest_image('other/info.png',' width="64" height="64" ');
+			$message .= '</td>';
 		
-		$page .= '<td width="400">';
-		$page .= '<div class="paragraph"><span class="error">'.t('BOX_ERROR').'</span></div>';
+			$message .= '<td width="400">';
+			$message .= '<div class="paragraph"><span class="info">'.t('BOX_INFO').'</span></div>';
 			
-	} else if ($title=="classified") {
-		$page .= '<td width="70" valign="top">'; 
-		$page .= warquest_image('other/classified.png',' width="64" height="64" ');
-		$page .= '</td>';
+		} else if ($title=="warning") {
+			$message .= '<td width="70" valign="top">'; 
+			$message .= warquest_image('other/warning.png',' width="64" height="64" ');
+			$message .= '</td>';
 		
-		$page .= '<td width="400">';
-		$page .= '<div class="paragraph"><span class="warning">CLASSIFIED</span></div>';
+			$message .= '<td width="400">';
+			$message .= '<div class="paragraph"><span class="warning">'.t('BOX_WARN').'</span></div>';
+	
+		} else if ($title=="error") {
+			$message .= '<td width="70" valign="top">'; 
+			$message .= warquest_image('other/error.png',' width="64" height="64" ');
+			$message .= '</td>';
+			
+			$message .= '<td width="400">';
+			$message .= '<div class="paragraph"><span class="error">'.t('BOX_ERROR').'</span></div>';
+				
+		} else if ($title=="classified") {
+			$message .= '<td width="70" valign="top">'; 
+			$message .= warquest_image('other/classified.png',' width="64" height="64" ');
+			$message .= '</td>';
+			
+			$message .= '<td width="400">';
+			$message .= '<div class="paragraph"><span class="warning">CLASSIFIED</span></div>';
 		
-	} else { 
+		} else { 
 	
-		$page .= '<td width="400">'; 
-		$page .= '<div class="paragraph">'.$title.'</div>';
-	} 
+			$message .= '<td width="400">'; 
+			$message .= '<div class="paragraph">'.$title.'</div>';
+		} 
 	
-	$page .= $message;
-	$page .= '</td>';
-	
-	if (strlen($link)>0) {
-		$page .= '</td>';
-		$page .= '<td width="100" align="right" valign="top">';
-		$page .= $link;
-		$page .= '</td>';
+		$message .= $content;
+		$message .= '</td>';
+		
+		if (strlen($link)>0) {
+			$message .= '</td>';
+			$message .= '<td width="100" align="right" valign="top">';
+			$message .= $link;
+			$message .= '</td>';
+		}
+		
+		$message .= '</tr>';
+		$message .= '</table>';
+		$message .= '</div>';		
+		
+	} else {
+		
+		$message = strtoupper($title).': '.$content;
+		
 	}
-	$page .= '</tr>';
-	$page .= '</table>';
-	$page .= '</div>';		
-	
-	return $page;
+		
+	return $message;
 }
 
 /**

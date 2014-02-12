@@ -56,19 +56,12 @@ $page = '';
 $version = '';
 
 $output = new stdClass();
+$output->format = "html";	/* Format (html, xml or pdf) */
+$output->result = false; 	/* Action result (true / false) */
+$output->title = "";			/* Title content */
+$output->popup = "";			/* Popup content */
 
-/* Output format: html, xml or pdf */
-$output->format="html";
-
-/* HMTL title content */
-$output->title="";
-
-/* HTML popup content */
-$output->popup="";
-
-/* Battle result */
-$output->won = false;
-
+ 
 /*
 ** ---------------------------------------------------------------- 
 ** Post variables
