@@ -78,7 +78,6 @@ $action = warquest_get("action", "");
 
 /* Webservice */
 $mid = warquest_post('mid', 0);
-$mid = warquest_get('mid', 0);
 
 if (strlen($token)>0) {
 	
@@ -93,7 +92,7 @@ if (strlen($token)>0) {
 		}
 	}
 }
-
+	
 /*
 ** ---------------------------------------------------------------- 
 ** Database

@@ -449,7 +449,7 @@ $lang['HOME_BOUNTY_AWARDS_TEXT'] = 'You\'ve earned the following bounty awards:'
 $lang['HOME_REBEL_AWARDS_TEXT'] = 'You\'ve earned the following rebellion award:';
 $lang['HOME_OVERVIEW_TITLE']= 'Overview';
 $lang['HOME_MAP_TITLE'] = 'continents conquered';
-$lang['HOME_MAP_NOTE'] = 'Each continent consist out of three regions which can be conquered through missions.';
+$lang['HOME_MAP_NOTE'] = 'Each continent consist out of regions which can be conquered by playing missions.';
 
 $lang['HOME_TRAVEL_TO'] = 'Travel to';
 

@@ -31,20 +31,28 @@ function process_earth_data($data, $image) {
 
 			list($country, $progress) = preg_split('/-/',$code);
 
+			/* Green (0% conquered) */
 			$color = ImageColorAllocate($image, 0, 255, 0);
 
 			if ($progress==0) {
+				
+				/* Red (Rebel state) */
 				$color = ImageColorAllocate($image, 255, 0, 0);
 			
 			} else if (($progress>=100) && ($progress<200)) {		
+			
+				/* Yellow (33% conquered) */
 				$color = ImageColorAllocate($image, 255, 255, 20);
 		
 			} else if (($progress>=200) && ($progress<300)) {
+			
+				/* Purple (66% conquered) */
 				$color = ImageColorAllocate($image, 255, 51, 255);
 		
 			} else if ($progress==300) {
-				$color = ImageColorAllocate($image, 255, 165, 0);
-	
+			
+				/* Orange (100% conquered) */
+				$color = ImageColorAllocate($image, 255, 165, 0);	
 			} 
 			
 	
@@ -631,21 +639,28 @@ function process_default_data($data, $image) {
 		foreach($codes as $code) {
 
 			list($x, $y, $progress) = preg_split('/-/',$code);
-				
+			
+			/* Transparent (0% conquered) */
+			$color = ImageColorAllocatealpha($image, 255, 255, 255, 127);		
+			
 			if ($progress==0) {
 			
+				/* Red (Rebel state) */
 				$color = ImageColorAllocatealpha($image, 255, 0, 0, 80);		
 				
 			} else if (($progress>=100) && ($progress<200)) {
 			
+				/* Yellow (33% conquered) */
 				$color = ImageColorAllocatealpha($image, 255, 255, 20, 80);		
 				
 			} else if (($progress>=200) && ($progress<300)) {
 			
+				/* Purple (66% conquered) */
 				$color = ImageColorAllocatealpha($image, 255, 51, 255, 80);		
 				
 			} else if ($progress>=300) {
 			
+				/* Orange (100% conquered) */
 				$color = ImageColorAllocatealpha($image, 255, 165, 0, 80);	
 			} 
 			

@@ -240,7 +240,7 @@ function warquest_login_footer() {
 		/* Update login counter */
 		warquest_db_player_login_counter(1);
 	
-		$query =  'select count(*) as count, sum(request) as request from player';
+		$query =  'select count(pid) as count, sum(request) as request from player';
 		$result = warquest_db_query($query); 
 		$data=warquest_db_fetch_object($result);
 				
@@ -249,24 +249,43 @@ function warquest_login_footer() {
 		$count=warquest_db_num_rows($result);
 			
 		$yesterday = mktime(date("H"), date("i"), date("s"), date("m"), date("d")-1, date("Y"));
-		$query4  = 'select count(*) as count from member where last_login > "'.date("Y-m-d H:i:s", $yesterday).'" ';		
+		$query4  = 'select count(pid) as count from member where last_login > "'.date("Y-m-d H:i:s", $yesterday).'" ';		
 		$result4 = warquest_db_query($query4);
 		$data4=warquest_db_fetch_object($result4);
 		
 		$page .= '<center>';	
 		
 		$page .= '<span class="energy">';
-		$page .= number_format($data->count,0,",",".");
-		$page .= '</span> '.t('LOGIN_PLAYERS').'<br/>';
+		if ( isset($data->count)) {
+			$page .= number_format($data->count,0,",",".");
+		} else {
+			$page .= number_format(0,0,",",".");
+		}		
+		$page .= '</span> ';		
+		$page .= t('LOGIN_PLAYERS').'<br/>';		
+		
 		$page .= '<span class="country">';
-		$page .= number_format($count,0,",",".");
-		$page .= '</span> '.t('LOGIN_COUNTRIES').'<br/>';	
+		$page .= number_format($count,0,",",".");		
+		$page .= '</span> ';		
+		$page .= t('LOGIN_COUNTRIES').'<br/>';			
+		
 		$page .= '<span class="money">';
-		$page .= number_format($data->request,0,",",".");
-		$page .= '</span> '.t('LOGIN_REQUESTS').'<br/>';	
+		if ( isset($data4->request) ) {		
+			$page .= number_format($data->request,0,",",".");
+		} else {
+			$page .= number_format(0,0,",",".");
+		}
+		$page .= '</span> ';		
+		$page .= t('LOGIN_REQUESTS').'<br/>';			
+		
 		$page .= '<span class="energy">';
-		$page .= number_format($data4->count,0,",",".");
-		$page .= '</span> '.t('LOGIN_ONLINE').'<br/>';	
+		if ( isset($data4->count) ) {		
+			$page .= number_format($data4->count,0,",",".");
+		} else {
+			$page .= number_format(0,0,",",".");
+		}
+		$page .= '</span> ';
+		$page .= t('LOGIN_ONLINE').'<br/>';	
 		
 		$page .= '</center>';
 	}
