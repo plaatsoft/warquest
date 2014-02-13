@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
 
 <wsdl:definitions 
-	targetNamespace='http://www.warquest.nl/service'	
+	targetNamespace='http://www.warquest.nl/service/warquest.wsdl'	
 	xmlns:tns='http://www.warquest.nl/service/warquest.wsdl' 
 	xmlns:xsd1='http://www.warquest.nl/service/warquest.xsd'
 	xmlns:xsd='http://www.w3.org/2001/XMLSchema'
