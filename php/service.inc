@@ -178,7 +178,7 @@ function warquest_get_player_event() {
 	/* Validate XML against XSD */
 	$dom = new DOMDocument();
 	$dom->loadXML($xml);
-	if (!$dom->schemaValidate('xsd\player.xsd') ){
+	if (!$dom->schemaValidate('service\warquest.xsd') ){
 		echo "XSD Validation Error";		
 	} else {
 		header("Content-type: text/xml; charset=utf-8");			

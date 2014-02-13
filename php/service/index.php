@@ -48,93 +48,96 @@ $output->popup = "";			/* Popup content */
 /**
  * Get Player data
  */ 
-function getPlayer($id) {
+function getPlayer($name) {
+		
+	warquest_info('webservice getPlayer ['.$name.'] - start');
+		
+	$query1  = 'select pid from player where name like "'.$name.'"';	
+	$result1 = warquest_db_query($query1);
+	$data1 = warquest_db_fetch_object($result1);
 	
-	warquest_info('webservice getPlayer ['.$id.'] - start');
+	$data2 = array();	
 	
-	$data = warquest_db_player($id);
+	if ( isset($data1->pid) ) {	
 
-	if ( isset($data->pid) ) {	
-
+		$data2 = warquest_db_player($data1->pid);
+	
 		/* Convert data */
-		$data->money_date = warquest_xml_date($data->money_date);
-		$data->energy_date = warquest_xml_date($data->energy_date);
-		$data->health_date = warquest_xml_date($data->health_date);
-		$data->ammo_date = warquest_xml_date($data->ammo_date);
-		
-		$data->last_battle = warquest_xml_date($data->last_battle);
-		$data->bonus_date = warquest_xml_date($data->bonus_date);
-		$data->request_date = warquest_xml_date($data->request_date);
-		$data->restore_health = warquest_xml_date($data->restore_health);
-		$data->restore_energy = warquest_xml_date($data->restore_energy);
-		$data->restore_ammo = warquest_xml_date($data->restore_ammo);
-		$data->cease_fire_date = warquest_xml_date($data->cease_fire_date);
-		$data->holiday_date = warquest_xml_date($data->holiday_date);
-		
-		$data->planet = warquest_db_planet_name($data->planet);
+		$data2->money_date = warquest_xml_date($data2->money_date);
+		$data2->energy_date = warquest_xml_date($data2->energy_date);
+		$data2->health_date = warquest_xml_date($data2->health_date);
+		$data2->ammo_date = warquest_xml_date($data2->ammo_date);
+			
+		$data2->last_battle = warquest_xml_date($data2->last_battle);
+		$data2->bonus_date = warquest_xml_date($data2->bonus_date);
+		$data2->request_date = warquest_xml_date($data2->request_date);
+		$data2->restore_health = warquest_xml_date($data2->restore_health);
+		$data2->restore_energy = warquest_xml_date($data2->restore_energy);
+		$data2->restore_ammo = warquest_xml_date($data2->restore_ammo);
+		$data2->cease_fire_date = warquest_xml_date($data2->cease_fire_date);
+		$data2->holiday_date = warquest_xml_date($data2->holiday_date);
+			
+		$data2->planet = warquest_db_planet_name($data2->planet);
 		
 		// Get buildings
 		$buildings = new ArrayObject();	
-		$query1 = 'select bid, amount from player_building where pid='.$id.' order by bid';	
-		$result1 = warquest_db_query($query1);
-	
-		while ($data1 = warquest_db_fetch_object($result1)) {		
-			
-			$building = new SoapVar($data1, SOAP_ENC_OBJECT, null, null, 'building');				
+		$query3 = 'select bid, amount from player_building where pid='.$data1->pid.' order by bid';	
+		$result3 = warquest_db_query($query3);
+		
+		while ($data3 = warquest_db_fetch_object($result3)) {		
+				
+			$building = new SoapVar($data3, SOAP_ENC_OBJECT, null, null, 'building');				
 			$buildings->append($building);
 		}	
-		$data->buildings = new SoapVar($buildings, SOAP_ENC_OBJECT, null, null, 'buildings');
+		$data2->buildings = new SoapVar($buildings, SOAP_ENC_OBJECT, null, null, 'buildings');
 		
 		// Get units
 		$units = new ArrayObject();	
-		$query2 = 'select uid, amount from player_unit where pid='.$id.' order by uid';			
-		$result2 = warquest_db_query($query2);
+		$query4 = 'select uid, amount from player_unit where pid='.$data1->pid.' order by uid';			
+		$result4 = warquest_db_query($query4);
 	
-		while ($data2 = warquest_db_fetch_object($result2)) {		
+		while ($data4 = warquest_db_fetch_object($result4)) {		
 			
-			$unit = new SoapVar($data2, SOAP_ENC_OBJECT, null, null, 'unit');
+			$unit = new SoapVar($data4, SOAP_ENC_OBJECT, null, null, 'unit');
 			$units->append($unit);
 		}	
-		$data->units = new SoapVar($units, SOAP_ENC_OBJECT, null, null, 'units');
-		
-	} else {
-	
-		/* no data found */
-		$data = array();	
+		$data2->units = new SoapVar($units, SOAP_ENC_OBJECT, null, null, 'units');			
 	} 
-	$data= new SoapVar($data, SOAP_ENC_OBJECT, null, null, 'player');
+	
+	$data2 = new SoapVar($data2, SOAP_ENC_OBJECT, null, null, 'player');
 		
 	warquest_info("getPlayer - end");
 	
-	return $data;
+	return $data2;
 }
 
 /**
  * Get Clan data
  */
-function getClan($id) {
+function getClan($name) {
 
-	warquest_info('getClan ['.$id.'] - start');
+	warquest_info('getClan ['.$name.'] - start');
+				
+	$query1  = 'select cid from clan where name like "'.$name.'"';	
+	$result1 = warquest_db_query($query1);
+	$data1 = warquest_db_fetch_object($result1);
 	
-	$data = warquest_db_clan($id);
+	$data2 = array();
 	
-	if ( isset($data->cid) ) {		
+	if ( isset($data1->cid) ) {		
 	
+		$data2 = warquest_db_clan($data1->cid);
+		
 		/* Convert data */
-		$data->created = warquest_xml_date($data->created);
-		$data->last_activity = warquest_xml_date($data->last_activity);
-	
-	} else {
-	
-		/* no data found */
-		$data = array();	
+		$data2->created = warquest_xml_date($data2->created);
+		$data2->last_activity = warquest_xml_date($data2->last_activity);	
 	}
 	
-	$data = new SoapVar($data, SOAP_ENC_OBJECT, null, null, 'clan');
+	$data2 = new SoapVar($data2, SOAP_ENC_OBJECT, null, null, 'clan');
 
 	warquest_info("getClan - end");
 	
-	return $data;
+	return $data2;
 }
 
 /**
@@ -297,19 +300,21 @@ function doMission($username, $password) {
 	/* Update player timers (before) */
 	warquest_update_timers($player);
 	
-	/* Get first mission which is not complete */
-	/*$query  = "select a.mid, a.loot, a.min_price, a.max_price, a.energy, ";
-	$query .= "a.experience, a.alliance, ifnull(b.progress, 0) as progress, ";
-	$query .= "ifnull(b.part, 0) as part, ifnull(b.part2, 0) as part2 from mission a ";
-	$query .= "left join player_mission b on a.mid=b.mid and b.pid=".$player->pid." ";
-	$query .= 'where a.mgid='.$sid.' and a.lid<='.$player->lid.' ';  
-	$query .= 'order by a.lid asc';
+	/* Get random mission which is not complete yet */
+	$query  = 'select mid from mission where mid NOT in ';
+	$query .= '(select mid from player_mission where pid='.$player->pid.' and '; 
+	$query .= '((part=0 and progress=100) or (part=1 and progress=200) or ';
+	$query .= '(part=2 and progress=300) or progress=(part*100)) ) ';
+	$query .= 'and lid<'.$player->lid.' order by rand() limit 0, 1';
 	
 	$result = warquest_db_query($query);	 
 	$data = warquest_db_fetch_object($result);	
-	$uid = $data->mid;*/
 	
-	$uid=1;
+	if ( isset($data->mid) ) {
+		$uid = $data->mid;
+	} else {	
+		$uid = 1;
+	}
 	
 	/* Do fight */
 	warquest_mission_do();

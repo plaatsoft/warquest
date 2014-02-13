@@ -1764,7 +1764,7 @@ function warquest_nextlevel($player) {
 }
 
 /** 
- * Detect player battle award is won
+ *  Detect when player wins a battle award
  */
 function warquest_battle_award_won_do($player) {
 
@@ -1799,7 +1799,7 @@ function warquest_battle_award_won_do($player) {
 
 
 /** 
- * Detect when player won a battle award
+ * Detect when player wins a battle award
  */
 function warquest_battle_award_won($player) {
 		
@@ -1839,7 +1839,7 @@ function warquest_battle_award_won($player) {
 }
 
 /** 
- * Detect player bounty award is won
+ * Detect when player wins a bounty award
  */
 function warquest_bounty_award_won_do($player) {
 
@@ -1873,7 +1873,7 @@ function warquest_bounty_award_won_do($player) {
 }
 
 /** 
- * Detect when player won a bounty award
+ * Detect when player wins a bounty award
  */
 function warquest_bounty_award_won($player) {
 		
@@ -2033,6 +2033,7 @@ function warquest_rebel_check($other) {
 			
 		} else {
 		
+			/* Dirty hack to convert ouput string, sorry :( */
 			$tmp = str_replace('Conquer ', '', $tmp); 
 			$tmp = str_replace('Overwin ', '', $tmp); 
 			$tmp = str_replace(' Region', '', $tmp); 

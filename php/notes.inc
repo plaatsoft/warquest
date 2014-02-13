@@ -17,10 +17,10 @@
 */
 
 $notes[64] = '
-<div class="subparagraph2">10-02-2014</div>
+<div class="subparagraph2">12-02-2014</div>
 <i>Game Server v6.4</i>
 <ul>
-<li>Added very basic SOAP web service interface</li>
+<li>Added basic SOAP web service interface</li>
 <ul>
 <li>URL is http://www.warquest.nl/service?wsdl</li>
 <li>Added getPlayer methode</li>
@@ -31,6 +31,7 @@ $notes[64] = '
 </ul>
 <li>Enable HTTPS in Apache (based on selfsigned certificate).</li>
 <li>Refactor HTML output handeling.</li>
+<li>Bug fix: Mission planet image was sometimes incorrect rendered.</li>
 </ul>
 <br/>
 

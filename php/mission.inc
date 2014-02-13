@@ -95,17 +95,24 @@ function warquest_mission_planet_complet() {
 				 * View 
 				 * --------------- 		 
 				 */					
-				 
-				$message = '<table>';
-				$message .= '<tr>';
-				$message .= '<td width="200">';
-				$message .= warquest_image("other/bonus.jpg", ' width="170" height="120" ');
-				$message .= '</td>';
-				$message .= '<td>';
-				$message .= t('MISSION_COMPLETE_PLANET_'.$player->planet);
-				$message .= '</td>';
-				$message .= '</tr>';
-				$message .= '</table>';
+				
+				if ($output->format=="html") {
+				
+					$message = '<table>';
+					$message .= '<tr>';
+					$message .= '<td width="200">';
+					$message .= warquest_image("other/bonus.jpg", ' width="170" height="120" ');
+					$message .= '</td>';
+					$message .= '<td>';
+					$message .= t('MISSION_COMPLETE_PLANET_'.$player->planet);
+					$message .= '</td>';
+					$message .= '</tr>';
+					$message .= '</table>';
+					
+				} else {
+				
+					$message = t('MISSION_COMPLETE_PLANET_'.$player->planet);					
+				}
 						
 				$output->popup .= warquest_box("info", $message);					
 			}
@@ -113,7 +120,6 @@ function warquest_mission_planet_complet() {
 	}
 }
 
-			
 /** 
  *  Detect if all missions of a continent are complete. 
  */
@@ -432,35 +438,50 @@ function warquest_mission_do() {
 		$total=0;
 		$upkeep=0;
 		
-		$message  = '<span class="warning">'.t('MISSION_ABORTED').'</span><br/>';
+		$message  = '<span class="warning">'.t('MISSION_ABORTED').'</span> <br/>';
 		$message .= t('MISSION_MISSING_UNITS').'<br/><br/>';
 	
-		$message .= '<table>';
-		$message .= '<tr>';
+		if ($output->format=="html") {
+		
+			$message .= '<table>';
+			$message .= '<tr>';
+		}
 		
 		while ($unit=warquest_db_fetch_object($result2)) {
 		
-			$message .= '<td>';
-			$message .= warquest_unit_image($unit, $count++);		
-			$message .= '<br/><center>'.$unit->total.'x</center>';
-			$message .= '</td>';					
+			if ($output->format=="html") {
+			
+				$message .= '<td>';
+				$message .= warquest_unit_image($unit, $count++);		
+				$message .= '<br/><center>'.$unit->total.'x</center>';
+				$message .= '</td>';					
+				
+			} else {
+			
+				$message .= $unit->total.' '.t("UNIT_".$unit->uid).' ';
+			}
 			
 			$total += $unit->price * $unit->total;
 			$upkeep += $unit->upkeep * $unit->total;
 		}		
-		$message .= '</tr>';
-		$message .= '</table>';
+		
+		if ($output->format=="html") {
+			$message .= '</tr>';
+			$message .= '</table>';
+			
+		} else {
+		
+			$message .= '. ';
+		}
 		
 		$message .= '<br/>';
 		$message .= t('MISSION_MISSING_UNITS_PRICE',money_format2($total), money_format2($upkeep));
 
-		$link = warquest_image('bar/bar'.warquest_format_progress($progress, $part).'.png').'<br/>';
-		
+		$link = warquest_image('bar/bar'.warquest_format_progress($progress, $part).'.png').'<br/>';		
 		$max = $config['max_mission_part'];
 		if ($player->lid==0) {
 			$max=1;
-		}
-		
+		}		
 		$link .= t('MISSION_PART').' '.warquest_format_part($part).'/'.$max.'<br/>';
 		$link .= warquest_link('mid='.$mid.'&sid='.$sid.'&uid='.$uid.'&eid='.EVENT_MISSION_BUY_PLAY, t('LINK_BUY_PLAY'), 'buyplay');
 	
