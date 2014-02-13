@@ -270,7 +270,7 @@ function warquest_login_footer() {
 		$page .= t('LOGIN_COUNTRIES').'<br/>';			
 		
 		$page .= '<span class="money">';
-		if ( isset($data4->request) ) {		
+		if ( isset($data->request) ) {		
 			$page .= number_format($data->request,0,",",".");
 		} else {
 			$page .= number_format(0,0,",",".");
