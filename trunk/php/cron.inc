@@ -529,6 +529,76 @@ function warquest_cron_clean_bank_log($info=0) {
 	warquest_info($message);
 }
 
+
+/**
+ * Cron update clan bank service charge job 
+ */
+function warquest_cron_clan_bank_service_charge($info=0) {
+		
+	/* input */
+	global $config;
+	
+	/* output */
+	global $output;
+	
+	$query  = 'select cid from clan where money>0';		
+	$result = warquest_db_query($query);
+		
+	$count=0;
+	
+	while ($data=warquest_db_fetch_object($result)) {
+		
+		$clan = warquest_db_clan($data->cid);
+		
+		$amount = round($clan->money * ($config["init_clan_bank_interest"] / 100));				
+		$clan->money -= $amount;
+		
+		warquest_db_clan_update($clan);
+		
+		warquest_db_clan_bank_insert($data->cid, 0, ($amount*-1), $clan->money, 7);		
+	}
+	
+	$message = number_format2($count).' clan interest updated!';
+	
+	if ($info==1) {
+		$output->popup .= warquest_box_icon("info", $message);
+	} 
+		
+	warquest_info($message);
+}
+
+/**
+ * Cron clean clan bank transaction log job 
+ */
+function warquest_cron_clean_clan_bank_log($info=0) {
+
+	/* input */
+	global $config;
+	
+	/* output */
+	global $output;
+	
+	$old = mktime(date("H"), date("i"), date("s"), date("m"), date("d")-$config["max_bank_log_age"], date("Y"));
+	
+	$count = 0;
+	$query  = 'select count(id) as total from clan_bank where date < "'.date("Y-m-d H:i:s", $old).'" ';
+	$result = warquest_db_query($query);			
+	if ($data = warquest_db_fetch_object($result)) {
+		$count = $data->total;
+	}
+	
+	$query = 'delete from clan_bank where date < "'.date("Y-m-d H:i:s", $old).'" ';
+	warquest_db_query($query);
+	
+	$message = $count.' bank records are deleted!';
+
+	if ($info==1) {
+		$output->popup .= warquest_box_icon("info", $message);
+	}
+	
+	warquest_info($message);
+}
+
 /*
 ** ---------------------
 ** HANDLER
@@ -570,17 +640,17 @@ function warquest_cron() {
 				break;
 				
 			case 4:
-				warquest_info("CRON JOB [".$data->cid."] pay bank interest  job start.");
+				warquest_info("CRON JOB [".$data->cid."] player bank interest  job start.");
 				warquest_db_cron_update($data->cid);
 				warquest_cron_player_interest(0);				
-				warquest_info("CRON JOB [".$data->cid."] pay bank interest - job end.");
+				warquest_info("CRON JOB [".$data->cid."] player bank interest - job end.");
 				break;
 				
 			case 5:
-				warquest_info("CRON JOB [".$data->cid."] clean bank log - job start.");
+				warquest_info("CRON JOB [".$data->cid."] player bank clean transaction log - job start.");
 				warquest_db_cron_update($data->cid);
 				warquest_cron_clean_bank_log(0);				
-				warquest_info("CRON JOB [".$data->cid."] clean bank log - job end.");
+				warquest_info("CRON JOB [".$data->cid."] player bank clean transaction log - job end.");
 				break;
 
 			case 6:
@@ -616,6 +686,20 @@ function warquest_cron() {
 				warquest_db_cron_update($data->cid);
 				warquest_cron_clear_inactive_sectors();
 				warquest_info('CRON JOB ['.$data->cid.'] clear inactive sectors - job end.');
+				break;
+				
+			case 11:
+				warquest_info('CRON JOB ['.$data->cid.'] clan bank service charge - job start.');
+				warquest_db_cron_update($data->cid);
+				warquest_cron_clan_bank_service_charge();
+				warquest_info('CRON JOB ['.$data->cid.'] clan bank service charge - job end.');
+				break;
+		
+			case 12:
+				warquest_info('CRON JOB ['.$data->cid.'] clan bank clean transaction log - job start.');
+				warquest_db_cron_update($data->cid);
+				warquest_cron_clean_clan_bank_log();
+				warquest_info('CRON JOB ['.$data->cid.'] clan bank clean transaction log - job end.');
 				break;
 				
 			default:

@@ -2268,6 +2268,10 @@ $lang['BANK_TRANSACTION_TYPE_3'] = 'Restore bill';
 $lang['BANK_TRANSACTION_TYPE_4'] = 'Interest';	
 $lang['BANK_TRANSACTION_TYPE_5'] = 'spies steal';
 $lang['BANK_TRANSACTION_TYPE_6'] = 'Bonus ';
+$lang['BANK_TRANSACTION_TYPE_7'] = 'Bank service charge';
+$lang['BANK_TRANSACTION_TYPE_8'] = 'Clan attack fee';
+$lang['BANK_TRANSACTION_TYPE_9'] = 'Clan defence fee';
+$lang['BANK_TRANSACTION_TYPE_10'] = 'deposited';
 
 $lang['BANK_TRANSACTION_LOG'] = 'Transaction log';
 
@@ -3227,6 +3231,15 @@ $lang['PROMOTION_INVITE'] = 'Invite friends';
 $lang['PROMOTION_INVITE_KNOWN'] = 'Invitation is already sent to %s.';
 $lang['PROMOTION_INVITE_SENT'] = 'Invitation is sent to %s.';
 $lang['PROMOTION_INVITE_NOTE'] = 'Invite friends to WarQuest and receive %s for each new registration.';
+
+/*
+** ------------------
+** Added v6.4
+** ------------------
+*/
+
+$lang['CLAN_BANK_NOTE'] = 'Note: There is a %s% fee for any deposit. The clan bank daily service charge is %s% to protect your clan money against hostile clans!';
+$lang['CLAN_BANK_TRANSACTION_LOG'] = 'Clan Bank Transactions';
 
 /*
 ** ------------------

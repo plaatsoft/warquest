@@ -17,9 +17,15 @@
 */
 
 $notes[64] = '
-<div class="subparagraph2">12-02-2014</div>
+<div class="subparagraph2">15-02-2014</div>
 <i>Game Server v6.4</i>
 <ul>
+<li>Clan Wars improvements:</li>
+<ul>
+<li>Added clan bank transaction log.</li>
+<li>Added clan bank depostit fee.</li>
+<li>Added clan bank daily service charge.</li>
+</ul>
 <li>Added basic SOAP web service interface</li>
 <ul>
 <li>URL is http://www.warquest.nl/service?wsdl</li>

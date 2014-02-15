@@ -289,7 +289,7 @@ function warquest_bank_form() {
 	$page .= "<tr>";
 	$page .= "<td>";		
 	$page .= t('LINK_BALANCE').":<br/>";
-	$page .= '<input id="text" name="balance" size="16" maxlength="16" disabled="disabled" type="text" ';
+	$page .= '<input id="text" name="balance" size="20" maxlength="16" disabled="disabled" type="text" ';
 	$page .= 'value="'.number_format($balance,0,",",".").'">';
 	$page .= "</td>";
 	
@@ -301,7 +301,7 @@ function warquest_bank_form() {
 	$page .= "<tr>";
 	$page .= "<td>";
 	$page .= t('LINK_DEPOSIT').":<br/>";
-	$page .= '<input id="text" name="deposit" size="16" maxlength="16" type="text" value="';
+	$page .= '<input id="text" name="deposit" size="20" maxlength="16" type="text" value="';
 	if ($id<4) {
 		$page .= number_format($player->money,0,",",".");
 	} else { 
@@ -313,7 +313,7 @@ function warquest_bank_form() {
 	
 	$page .= "<td>";
 	$page .= t('LINK_WITHDRAW').":<br/>";
-	$page .= '<input id="text" name="withdraw" size="16" maxlength="16" type="text" value="'.number_format($balance,0,",",".").'"><br/>';
+	$page .= '<input id="text" name="withdraw" size="20" maxlength="16" type="text" value="'.number_format($balance,0,",",".").'"><br/>';
 	$page .= warquest_link('mid='.$mid.'&sid='.$sid.'&id='.$id.'&eid='.EVENT_BANK_WITHDRAW, t('LINK_WITHDRAW'), 'withdraw-1');
 	$page .= "</td>";
 	$page .= "</tr>";

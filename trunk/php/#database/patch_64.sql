@@ -59,3 +59,25 @@ UPDATE unit_group SET name="explorers" WHERE ugid=28;
 UPDATE unit_group SET name="citizens" WHERE ugid=29;
 UPDATE unit_group SET name="army" WHERE ugid=30;
 
+-- Improve clan bank
+
+delete from cron where cid=11;
+INSERT INTO cron (cid, note, last_run) VALUES (11, 'Clan bank interest', '0000-00-00 00:00:00');
+
+delete from cron where cid=12;
+INSERT INTO cron (cid, note, last_run) VALUES (12, 'Clean clan bank transaction log', '0000-00-00 00:00:00');
+
+UPDATE cron SET note= 'Player bank interest' WHERE cid=4;
+UPDATE cron SET note= 'Clean player bank transaction log' WHERE cid=5;
+
+
+CREATE TABLE IF NOT EXISTS `clan_bank` (
+  `cbid` int(11) NOT NULL AUTO_INCREMENT,
+  `cid` int(11) NOT NULL,
+  `pid` int(11) NOT NULL,
+  `amount` bigint(11) NOT NULL,
+  `balance` bigint(11) NOT NULL,
+  `action` int(11) NOT NULL,
+  `date` datetime NOT NULL,
+  PRIMARY KEY (`cbid`)
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=1;

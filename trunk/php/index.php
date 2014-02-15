@@ -273,6 +273,8 @@ switch ($mid) {
 
 	case MENU_ALLIANCE:
 			include "alliance.inc";
+			include "clan.inc";
+			include "promotion.inc";
 			include "player.inc";
 			include 'pdf/fpdf.php';
 			include "report.inc";
