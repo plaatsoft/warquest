@@ -809,15 +809,20 @@ function warquest_clan_war_battle($player_clan, $other_clan, $ugid) {
 		if (($player_clan->attack>0) && ($player_clan->money >= $cost)) {
 			$player_clan_skill_enabled = true;			
 			$player_clan->money -= $cost;
+			
+			warquest_db_clan_bank_insert($player_clan->cid, 0, ($cost*-1), $player_clan->money, 8);
 		}
 		
 		$other_clan_skill_enabled = false;
 		if ( isset($other_clan->cid) ) {
 			$strength = warquest_db_clan_strength($other_clan->cid);
 			$cost = $other_clan->defense * $strength * $strength / $config['init_clan_skill_price'];
+			
 			if (($other_clan->defense>0) && ($other_clan->money >= $cost)) {
 				$other_clan_skill_enabled = true;			
 				$other_clan->money -= $cost;
+				
+				warquest_db_clan_bank_insert($other_clan->cid, 0, ($cost*-1), $other_clan->money, 9);
 			}
 		}
 		

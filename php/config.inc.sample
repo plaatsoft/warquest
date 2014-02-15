@@ -99,6 +99,8 @@ $config["init_ammo_timer"]				= 140;
 $config['init_clan_skill_step']     = 1;
 $config['init_clan_skill_price']    = 200;
 $config["init_player_skill_step"]	= 5;
+$config["init_clan_bank_deposit"]	= 10;
+$config["init_clan_bank_interest"]	= 5;
 
 $config["unit_sell_ratio"]				= .6;
 $config["building_sell_ratio"]		= .6;

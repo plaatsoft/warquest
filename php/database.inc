@@ -2206,6 +2206,36 @@ function warquest_db_planet_name($id) {
 
 /*
 ** ---------------------
+** CLAN_BANK
+** ---------------------
+*/
+
+/**
+ * Insert clan bank
+ */
+function warquest_db_clan_bank_insert($cid, $pid, $amount, $balance, $action) {
+	
+	$value = 0;
+	$now = date("Y-m-d H:i:s");
+	
+	$query  = 'insert into clan_bank (cid, pid, amount, balance, action, date) ';
+	$query .= 'values ('.$cid.','.$pid.','.$amount.','.$balance.','.$action.',"'.$now.'")';
+	
+	warquest_db_query($query);  
+	
+	$query  = 'select cbid from clan_bank where cid='.$cid.' and pid='.$pid.' and date="'.$now.'"';
+	$result = warquest_db_query($query);
+	$data   = warquest_db_fetch_object($result);
+	
+	if (isset($data->id)) {
+		$value = $data->id;
+	}
+	
+	return $value;
+}
+
+/*
+** ---------------------
 ** THE END
 ** ---------------------
 */

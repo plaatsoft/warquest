@@ -431,4 +431,38 @@ function warquest_leaderboard1_form() {
    $page .= '</div>';
 }
 
-?>
+
+/*
+** ---------------------
+** Handlers
+** ---------------------
+*/
+
+function warquest_leaderboard_forms() {
+
+	/* input */
+	global $sid;
+			
+	
+	/* Page handler */
+	switch ($sid) {
+
+		case PAGE_BEST_PLAYER:
+					warquest_leaderboard1_form();
+					break;
+				  
+		case PAGE_BEST_COUNTRY: 
+					warquest_leaderboard2_form();
+					break;
+				  		  				  
+		case PAGE_BEST_COUNTRY2: 
+					warquest_leaderboard3_form();
+					break; 
+	}				  
+}
+
+/*
+** ---------------------------------------------------------------- 
+** THE END
+** ----------------------------------------------------------------
+*/
