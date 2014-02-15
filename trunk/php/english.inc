@@ -3238,7 +3238,7 @@ $lang['PROMOTION_INVITE_NOTE'] = 'Invite friends to WarQuest and receive %s for 
 ** ------------------
 */
 
-$lang['CLAN_BANK_NOTE'] = 'Note: There is a %s% fee for any deposit. The clan bank daily service charge is %s% to protect your clan money against hostile clans!';
+$lang['CLAN_BANK_NOTE'] = 'Note: There is a %s% fee for any deposit. The clan bank daily service charge is %s%!';
 $lang['CLAN_BANK_TRANSACTION_LOG'] = 'Clan Bank Transactions';
 
 /*
