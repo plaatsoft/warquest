@@ -338,7 +338,7 @@ function warquest_clan_skill_increase_do() {
 	global $eid;
 	global $id;
 	global $amount;
-	
+
 	/* output */
 	global $output;	
 
@@ -457,22 +457,33 @@ function warquest_clan_bank_log($cid) {
 	global $id;
 	global $player;	
 	global $config;
+	global $offset;
 	
 	/* output */
 	global $page;
 
+	$limit=20;
+	
+	$query1  = 'select cid from clan_bank where cid='.$cid;
+	$result1 = warquest_db_query($query1);	
+	$total = warquest_db_num_rows($result1);
+	
 	/* show bank transactions. */
-	$query  = 'select a.pid, a.amount, a.action, a.balance, ';
-	$query .= 'date_format(a.date , "%d-%m-%Y %H:%i:%s") as date, ';
-	$query .= '(select name from player where pid=a.pid) as name, '; 
-	$query .= '(select country from player where pid=a.pid) as country '; 
-	$query .= 'from clan_bank a where a.cid='.$cid.' order by a.cbid desc limit 0,20';
+	$query2  = 'select a.pid, a.amount, a.action, a.balance, ';
+	$query2 .= 'date_format(a.date , "%d-%m-%Y %H:%i:%s") as date, ';
+	$query2 .= '(select name from player where pid=a.pid) as name, '; 
+	$query2 .= '(select country from player where pid=a.pid) as country '; 
+	$query2 .= 'from clan_bank a where a.cid='.$cid.' order by a.cbid desc ';
+	$query2 .= 'limit '.$offset.','.$limit;
 
-	$result = warquest_db_query($query);	
+	$result2 = warquest_db_query($query2);	
 	
 	$page .= '<div class="subparagraph">'.t('CLAN_BANK_TRANSACTION_LOG').'</div>';
-	
+		
 	$page .= '<div class="box">';
+	
+	$page .= warquest_page_control($offset, $limit, $total, 1, '&cid='.$cid);
+	
 	$page .= '<table>';
 	
 	$page .= '<tr>';
@@ -481,28 +492,31 @@ function warquest_clan_bank_log($cid) {
 	$page .= '<th width="90">'.t('GENERAL_BALANCE').'</th>';
 	$page .= '</tr>';
 	
-	while ($data=warquest_db_fetch_object($result)) {
+	while ($data2=warquest_db_fetch_object($result2)) {
 	
 		$page .= '<tr>';
-		$page .= '<td>'.warquest_ui_ago($data->date).'</td>';
+		$page .= '<td>'.warquest_ui_ago($data2->date).'</td>';
 		$page .= '<td>';
 		
-		if ($data->action == 10) {
+		if ($data2->action == 10) {
 	
-			$page .= player_format($data->pid, $data->name, $data->country).' '.t('BANK_TRANSACTION_TYPE_'.$data->action);
-			$page .= ' '.dollar_format($data->amount).'.';
+			$page .= player_format($data2->pid, $data2->name, $data2->country).' '.t('BANK_TRANSACTION_TYPE_'.$data2->action);
+			$page .= ' '.dollar_format($data2->amount).'.';
 			
 		} else {
-			$page .= t('BANK_TRANSACTION_TYPE_'.$data->action);
-			$page .= ' '.dollar_format($data->amount).'.';
+			$page .= t('BANK_TRANSACTION_TYPE_'.$data2->action);
+			$page .= ' '.dollar_format($data2->amount).'.';
 		}
 		
 		$page .= '</td>';
-		$page .= '<td>'.money_format1($data->balance).'</td>';
+		$page .= '<td>'.money_format1($data2->balance).'</td>';
 		$page .= '</tr>';
 	}
 	
 	$page .= '</table>';
+	
+	$page .= warquest_page_control($offset, $limit, $total, 0, '&cid='.$cid);
+	
 	$page .= '</div>';
 }
 
