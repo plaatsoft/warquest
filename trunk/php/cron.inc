@@ -454,21 +454,21 @@ function warquest_cron_player_interest($info=0) {
 		
 		$found=0;
 					
-		if ($data->bank1 > 0) {
+		if (($data->bank1>0) && ($data->bank1<100000000000000))  {
 			$extra = round(($data->bank1/100) * $config["init_bank1_interest"]);
 			$data->bank1 += $extra;
 			warquest_db_bank_insert($data->pid, 0, 1, $extra, $data->bank1, 4);
 			$found=1;
 		}
 		
-		if ($data->bank2 > 0) {
+		if (($data->bank2>0) && ($data->bank2<100000000000000)) {
 			$extra = round(($data->bank2/100) * $config["init_bank2_interest"]);
 			$data->bank2 += $extra;
 			warquest_db_bank_insert($data->pid, 0, 2, $extra, $data->bank2, 4);
 			$found=1;
 		}
 		
-		if ($data->bank3 > 0) {
+		if (($data->bank3>0) && ($data->bank3<100000000000000)) {
 			$extra = round(($data->bank3/100) * $config["init_bank3_interest"]);
 			$data->bank3 += $extra;
 			warquest_db_bank_insert($data->pid, 0, 3, $extra, $data->bank3, 4);

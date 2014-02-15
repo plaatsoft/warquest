@@ -37,6 +37,7 @@ $notes[64] = '
 </ul>
 <li>Enable HTTPS in Apache (based on selfsigned certificate).</li>
 <li>Refactor HTML output handeling.</li>
+<li>Bank accounts >100 trillion dollar do NOT receive interest anymore.</li>
 <li>Bug fix: Mission planet image was sometimes incorrect rendered.</li>
 </ul>
 <br/>
