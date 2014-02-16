@@ -273,7 +273,7 @@ function doBattle($username, $password, $planet, $force) {
 }
 
 /* Do Mission */
-function doMission($username, $password) {
+function doMission($username, $password, $buy) {
 
 	include '../mission.inc';	
 
@@ -310,13 +310,28 @@ function doMission($username, $password) {
 	$result = warquest_db_query($query);	 
 	$data = warquest_db_fetch_object($result);	
 	
+	$uid = 1;
 	if ( isset($data->mid) ) {
 		$uid = $data->mid;
+		
 	} else {	
-		$uid = 1;
+	
+		/* All mission 100% ready, select just random mission */
+		$query  = 'select mid from mission where lid<'.$player->lid.' order by rand() limit 0, 1';
+		
+		$result = warquest_db_query($query);	 
+		$data = warquest_db_fetch_object($result);	
+			
+		if ( isset($data->mid) ) {
+			$uid = $data->mid;
+		}
 	}
 	
-	/* Do fight */
+	/* Do Mission */
+	if ($buy==true) {
+		warquest_buy_missing_units_do();
+	}
+	
 	warquest_mission_do();
 	
 	/* Update player timers (after) */

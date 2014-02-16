@@ -1793,12 +1793,12 @@ $lang['UNIT_NOTE_28'] = 'Note: Buy neptune explore units to improve your explore
 $lang['UNIT_DISBAND'] = 'You disbanded %s %s for %s. Still %s deployed.';
 $lang['UNIT_DISBAND_FAILED'] = 'You do not own %s %s. Still %s deployed.';
 
-$lang['UNIT_DEPLOY'] = 'You deploy %s %s for %s. Now %s deployed.';
-$lang['UNIT_NO_UPKEEP'] = 'Not enough hourly income to fund %s %s.';
-$lang['UNIT_NO_FUNDS'] = 'Not enough funds to buy %s %s for %s.';
-$lang['UNIT_MAX'] = 'No more then %s %s(s) allowed!';
+$lang['UNIT_DEPLOY'] = 'You deploy %s %s for %s. Now %s deployed. ';
+$lang['UNIT_NO_UPKEEP'] = 'Not enough hourly income to fund %s %s. ';
+$lang['UNIT_NO_FUNDS'] = 'Not enough funds to buy %s %s for %s. ';
+$lang['UNIT_MAX'] = 'No more then %s %s(s) allowed! ';
 
-$lang['UNITS_NO_UNITS'] = 'No units available yet!';
+$lang['UNITS_NO_UNITS'] = 'No units available yet! ';
 
 /*
 ** ------------------
