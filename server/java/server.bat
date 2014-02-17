@@ -1,1 +1,2 @@
-java -Xmx32m -jar server.jar
+java -Xmx64m -cp server.jar nl.plaatsoft.warquest.server.Database
+pause
