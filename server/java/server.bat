@@ -1,0 +1,1 @@
+java -Xmx32m -jar server.jar
