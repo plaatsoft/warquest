@@ -61,10 +61,7 @@ public class Database {
 		
 		try {			
 			Class.forName(driver).newInstance();
-			
-			url = "jdbc:mysql://"+properties.getProperty("dbhost")+"/Test?connectTimeout=1000";			
-			conn = DriverManager.getConnection(url, userName, password);			
-			
+
 			url = "jdbc:mysql://"+properties.getProperty("dbhost")+":"+properties.getProperty("dbport")+"/"+properties.getProperty("dbname");		
 			conn = DriverManager.getConnection(url, userName, password);
 			
