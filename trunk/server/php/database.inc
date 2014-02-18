@@ -1075,7 +1075,7 @@ function warquest_db_player_insert($name, $pid) {
 	$query .= 'bank1, bank2, bank3, ';	
 	$query .= 'lid, alliance, won_level, default_amount, bounty_level, rebel_level, ';
 	$query .= 'request, request_date, last_battle, background, pattern, ';
-	$query .= 'country, gold, planet) ';
+	$query .= 'country, gold, planet, premium_date) ';
 	$query .= 'values (';	
 	$query .= $pid.', "'.warquest_db_escape($name).'", ';
 	$query .= $config["init_ammo_max"].', '.$config["init_ammo_step"].', "'.date("Y-m-d H:i:s", (time()+$config["init_ammo_timer"])).'", ';
@@ -1087,7 +1087,7 @@ function warquest_db_player_insert($name, $pid) {
 	$query .= $config["init_money_bank1"].','.$config["init_money_bank2"].','.$config["init_money_bank3"].',';
 	$query .= $config["init_level"].', 1, 1, 1, 1, 1,';
 	$query .= '1,"'.date("Y-m-d H:i:s", time()).'", "'.date("Y-m-d H:i:s", time()).'",1,"0010000000000000", ';
-	$query .= '"'.warquest_getlocation($_SERVER["REMOTE_ADDR"]).'", 0, '.PLANET_EARTH.')';  
+	$query .= '"'.warquest_getlocation($_SERVER["REMOTE_ADDR"]).'", 0, '.PLANET_EARTH.',"'.date("Y-m-d H:i:s", time()).'")';  
 		
 	$result = warquest_db_query($query);
 	
@@ -1166,7 +1166,8 @@ function warquest_db_player_update($player) {
 	$query .= 'planet='.$player->planet.', ';	
 	$query .= 'rebel='.$player->rebel.', ';	
 	$query .= 'rebel_level='.$player->rebel_level.', ';	
-	$query .= 'pattern="'.$player->pattern.'" ';	
+	$query .= 'pattern="'.$player->pattern.'", ';	
+	$query .= 'premium_date="'.$player->premium_date.'" ';
 	$query .= 'where pid='.$player->pid; 	
 		
 	return warquest_db_query($query);
@@ -1187,7 +1188,7 @@ function warquest_db_player($pid) {
 	$query .= 'default_force, default_mission, default_amount, ';
 	$query .= 'bonus_date, request, request_date, casino, ';
 	$query .= 'restore_health, restore_energy, restore_ammo, cease_fire_date, holiday_date, rebel_status, ';
-	$query .= 'bounty, bounty_level, planet, pattern, chat, rebel, rebel_level ';
+	$query .= 'bounty, bounty_level, planet, pattern, chat, rebel, rebel_level, premium_date ';
 	$query .= 'from player where pid='.$pid;  
 	
 	$result = warquest_db_query($query);  

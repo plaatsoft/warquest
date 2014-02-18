@@ -17,9 +17,18 @@
 */
 
 $notes[64] = '
-<div class="subparagraph2">15-02-2014</div>
+<div class="subparagraph2">17-02-2014</div>
 <i>Game Server v6.4</i>
 <ul>
+<li>Update premium gold features:</li>
+<ul>
+<li>Added premium membership feature to Home->Trade page</li>
+<li>Premium membership has the following benefits:</li>
+<ul>
+<li>Double experience during battles and missions.</li>
+<li>Triple money during battles and missions.</li>
+</ul>
+</ul>
 <li>Clan Wars improvements:</li>
 <ul>
 <li>Added clan bank transaction log.</li>
@@ -38,6 +47,7 @@ $notes[64] = '
 <li>Enable HTTPS in Apache (based on selfsigned certificate).</li>
 <li>Refactor HTML output handeling.</li>
 <li>Bank accounts >100 trillion dollar do NOT receive interest anymore.</li>
+<li>Added extra support text to donate page.</li>
 <li>Bug fix: Mission planet image was sometimes incorrect rendered.</li>
 </ul>
 <br/>

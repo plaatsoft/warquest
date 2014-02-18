@@ -1222,9 +1222,9 @@ function warquest_player_data_unlocked($other, $value) {
 	}
 	
 	if ($value == 0) {
-		$message = t('PLAYER_ESPIONAGE_UNLOCK2',$spy);
+		$message = t('PLAYER_ESPIONAGE_UNLOCK2',t('GENERAL_PLANET_'.$player->planet).' '.$spy);
 	} else {
-		$message = t('PLAYER_ESPIONAGE_UNLOCK1',$spy, $value);
+		$message = t('PLAYER_ESPIONAGE_UNLOCK1',t('GENERAL_PLANET_'.$player->planet).' '.$spy, $value);
 	}
 	$page .= warquest_box_icon("classified", $message);
 	
@@ -1301,6 +1301,8 @@ function warquest_profile($id) {
 	$page .= '<td>'.$data->lid.'</td>';
 	$page .= '</tr>';
 	
+	$page .= '</tr>';
+		
 	$page .= '<tr>';
 	$page .= '<td><b>'.t('PLAYER_EXP_POINTS').':</b></td>';
 	$page .= '<td>'.number_format($data->experience,0,",",".").'</td>';
@@ -1433,7 +1435,26 @@ function warquest_profile($id) {
 		$page .= '<tr>';
 		$page .= '<td><b>'.t('PLAYER_CASINO_PLAYED').':</b></td>';
 		$page .= '<td>'.number_format($data->casino,0,",",".").'</td>';
-		$page .= '<td></td>';
+				
+		$premium = strtotime($data->premium_date) - time();
+
+		$page .= '<td><b>'.t('GENERAL_PREMIUM_MEMBERSHIP').':</b></td>';	
+		$page .= '<td>';
+		
+		if ($premium>0) {
+	
+			$page .= '<script language="JavaScript" src="'.$config["content_url"].'js/countdown1.js" type="text/javascript"></script>';
+	
+			$page .= '<div class="countdown"><div id="countdown_time1"></div></div>';
+			$page .= '<script language="JavaScript" type="text/javascript">';
+			$page .= "countdown1.init(".$premium.", 'countdown_time1', '00:00:00');"; 
+			$page .= '</script>';
+			
+		} else {
+			$page .= t('GENERAL_IDLE');
+		}
+		$page .= '</td>';
+	
 		$page .= '</tr>';
 				
 		$page .= '<tr>';
@@ -1498,7 +1519,7 @@ function warquest_profile($id) {
 	
 	$page .= '<div class="subparagraph">'.t('PLAYER_PLATFORM_BROWSER').'</div>';
 	
-	if (warquest_player_data_unlocked($data, 10)) {
+	if (warquest_player_data_unlocked($data, 0)) {
 	
 		$page .= '<div class="box">';
 		$page .= '<table>';
@@ -1521,13 +1542,63 @@ function warquest_profile($id) {
 		$page .= '</table>';
 		$page .= '</div>';
 	}
+	
 		
+	/* -------------------------------------------------- */
+	/* Show current Assets */
+	
+	$page .= '<div class="subparagraph">'.t('PLAYER_MONEY_STATUS').'</div>';
+	
+	if (warquest_player_data_unlocked($data, 0)) {
+	
+		$page .= '<div class="box">';
+		$page .= '<table>';
+		
+		$page .= '<tr>';
+		$page .= '<td width="170"><b>'.t('PLAYER_CASH_MONEY').':</b></td>';
+		$page .= '<td>'.dollar_format($data->money).'</td>';
+		$page .= '</tr>';
+	
+		$page .= '<tr>';
+		$page .= '<td width="170"><b>'.t('PLAYER_GOLD').':</b></td>';
+		$page .= '<td>'.gold_format($data->gold).'</td>';
+		$page .= '</tr>';
+		
+		$page .= '<tr>';
+		$page .= '<td><b>'.t('BANK_GROUP_1').' '.t('PLAYER_BANK').':</b></td>';
+		$page .= '<td>'.dollar_format($data->bank1).'</td>';
+		$page .= '</tr>';
+
+		$page .= '<tr>';
+		$page .= '<td><b>'.t('BANK_GROUP_2').' '.t('PLAYER_BANK').':</b></td>';
+		$page .= '<td>'.dollar_format($data->bank2).'</td>';
+		$page .= '</tr>';
+	
+		$page .= '<tr>';
+		$page .= '<td><b>'.t('BANK_GROUP_3').' '.t('PLAYER_BANK').':</b></td>';
+		$page .= '<td>'.dollar_format($data->bank3).'</td>';
+		$page .= '</tr>';
+	
+		$page .= '<tr>';
+		$page .= '<td><b>'.t('GENERAL_STOCKS').':</b></td>';
+		$page .= '<td>'.dollar_format(warquest_db_player_stock_assest($id)).'</td>';
+		$page .= '</tr>';
+		
+		$page .= '<tr>';
+		$page .= '<td><b>'.t('PLAYER_TOTAL_HOURLY_INCOME').':</b></td>';
+		$page .= '<td>'.dollar_format($data->money_step).'</td>';
+		$page .= '</tr>';
+		
+		$page .= '</table>';
+		$page .= '</div>';
+	}
+	
 	/* -------------------------------------------------- */
 	/* Strenght */
 	
 	$page .= '<div class="subparagraph">'.t('PLAYER_FORCE').' ('.t('GENERAL_PLANET_'.$player->planet).')</div>';
 	 
-	if (warquest_player_data_unlocked($data, 10)) {
+	if (warquest_player_data_unlocked($data, 0)) {
 		
 		$page .= '<div class="box">';
 		$page .= '<table>';
@@ -1565,7 +1636,7 @@ function warquest_profile($id) {
 	
 	$page .= '<div class="subparagraph">'.t('PLAYER_CASH_FLOW').' ('.t('GENERAL_PLANET_'.$player->planet).')</div>';
 	
-	if (warquest_player_data_unlocked($data, 20)) {
+	if (warquest_player_data_unlocked($data, 0)) {
 	
 		$page .= '<div class="box">';
 		$page .= '<table>';
@@ -1626,57 +1697,7 @@ function warquest_profile($id) {
 		$page .= '</table>';
 		$page .= '</div>';
 	}
-		
-	
-	/* -------------------------------------------------- */
-	/* Show current Assets */
-	
-	$page .= '<div class="subparagraph">'.t('PLAYER_MONEY_STATUS').'</div>';
-	
-	if (warquest_player_data_unlocked($data, 30)) {
-	
-		$page .= '<div class="box">';
-		$page .= '<table>';
-	
-		$page .= '<tr>';
-		$page .= '<td width="170"><b>'.t('PLAYER_GOLD').':</b></td>';
-		$page .= '<td>'.gold_format($data->gold).'</td>';
-		$page .= '</tr>';
-		
-		$page .= '<tr>';
-		$page .= '<td width="170"><b>'.t('PLAYER_CASH_MONEY').':</b></td>';
-		$page .= '<td>'.dollar_format($data->money).'</td>';
-		$page .= '</tr>';
-	
-		$page .= '<tr>';
-		$page .= '<td><b>'.t('BANK_GROUP_1').' '.t('PLAYER_BANK').':</b></td>';
-		$page .= '<td>'.dollar_format($data->bank1).'</td>';
-		$page .= '</tr>';
-
-		$page .= '<tr>';
-		$page .= '<td><b>'.t('BANK_GROUP_2').' '.t('PLAYER_BANK').':</b></td>';
-		$page .= '<td>'.dollar_format($data->bank2).'</td>';
-		$page .= '</tr>';
-	
-		$page .= '<tr>';
-		$page .= '<td><b>'.t('BANK_GROUP_3').' '.t('PLAYER_BANK').':</b></td>';
-		$page .= '<td>'.dollar_format($data->bank3).'</td>';
-		$page .= '</tr>';
-	
-		$page .= '<tr>';
-		$page .= '<td><b>'.t('GENERAL_STOCKS').':</b></td>';
-		$page .= '<td>'.dollar_format(warquest_db_player_stock_assest($id)).'</td>';
-		$page .= '</tr>';
-		
-		$page .= '<tr>';
-		$page .= '<td><b>'.t('PLAYER_TOTAL_HOURLY_INCOME').':</b></td>';
-		$page .= '<td>'.dollar_format($data->money_step).'</td>';
-		$page .= '</tr>';
-		
-		$page .= '</table>';
-		$page .= '</div>';
-	}
-	
+			
 	/* -------------------------------------------------- */
 	/* Discount & Maintenance */
 	
@@ -1702,8 +1723,7 @@ function warquest_profile($id) {
 		$page .= '</table>';
 		$page .= '</div>';
 	}
-	
-	
+		
 	/* -------------------------------------------------- */	
 	/* Show units */
 	

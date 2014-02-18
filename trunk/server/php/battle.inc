@@ -1058,12 +1058,23 @@ function warquest_battle_do($planet, $ugid) {
 		return;		
 	}	
 	
+	$premium = strtotime($player->premium_date) - time();
+
+	$max = $config["max_money_win"];
+	if ($premium>0) {
+		$max *= 3;
+	}
+	
 	/* First increase robot strength, if possible */
 	warquest_robot_trade($other, $planet);
-		
-	$health_winner = rand(1,10);
+
+	$health_winner = rand(1,10);	
 	$health_losser = rand(8,20);
+	
 	$exp = rand(1, (round($player->lid/10)+5));
+	if ($premium>0) {
+		$exp *= 2;
+	}
 	
 	/* Check information about select force */
 	$query1 = 'select type from unit_group where ugid='.$ugid;
@@ -1171,10 +1182,10 @@ function warquest_battle_do($planet, $ugid) {
 			switch ( $id ) {
 			
 				case 2: 	$money = round((1/rand(10,15)) * $other->bank2);
-
+				
 							/* Prevent to big money wons */
-							if ($money > $config["max_money_win"] ) {
-								$money = $config["max_money_win"]  + rand(10000, 600000);
+							if ($money > $max ) {
+								$money = $max + rand(10000, 600000);
 							}
 			
 							if ($money>0) {
@@ -1186,8 +1197,8 @@ function warquest_battle_do($planet, $ugid) {
 				case 3: 	$money = round((1/rand(10,15)) * $other->bank3);
 							
 							/* Prevent to big money wons */
-							if ($money > $config["max_money_win"] ) {
-								$money = $config["max_money_win"]  + rand(10000, 600000);
+							if ($money > $max ) {
+								$money = $max + rand(10000, 600000);
 							}
 							
 							if ($money>0) {
@@ -1217,8 +1228,8 @@ function warquest_battle_do($planet, $ugid) {
 			if ($money < 0) $money = 0;
 			
 			/* Prevent to big money wons */
-			if ($money > $config["max_money_win"] ) {
-				$money = $config["max_money_win"]  + rand(10000, 600000);
+			if ($money > $max ) {
+				$money = $max  + rand(10000, 600000);
 			}
 			
 			$player->money += $money;

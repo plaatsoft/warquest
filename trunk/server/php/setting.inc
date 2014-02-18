@@ -28,6 +28,11 @@ $mybackground = warquest_post('mybackground', 0);
 $mytwitter = warquest_post('mytwitter', '');
 $myemail = warquest_post('myemail', '');
 
+$username = warquest_post('username', '');
+$myoldpassword = warquest_post('myoldpassword', '');
+$mynewpassword1 = warquest_post('mynewpassword1', '');
+$mynewpassword2 = warquest_post('mynewpassword2', '');	
+
 /*
 ** ---------------------
 ** ACTIONS
@@ -423,38 +428,15 @@ function warquest_settings_change_login_do() {
 
 	/* input */	
 	global $player;
+	global $username;
+	global $myoldpassword;
+	global $mynewpassword1;
+	global $mynewpassword2;
 
 	/* output */
 	global $page;
 	global $output;
-	
-	/* username parameter */
-	$username="";
-	if (isset($_POST['username']) && $_POST['username'] != "") {
-		$username = $_POST['username'];
-		$username = stripslashes($username);
-		$username = htmlspecialchars($username);
-		$username = warquest_db_escape($username);
-	}
-		
-	/*  myoldpassword parameter */
-	$myoldpassword="";
-	if (isset($_POST['myoldpassword']) && $_POST['myoldpassword'] != "") {
-		$myoldpassword = $_POST['myoldpassword'];
-		$myoldpassword  = stripslashes($myoldpassword );
-		$myoldpassword  = htmlspecialchars($myoldpassword );
-		$myoldpassword  = warquest_db_escape($myoldpassword );
-	}
-	
-	/*  mynewpassword parameter */
-	$mynewpassword="";
-	if (isset($_POST['mynewpassword']) && $_POST['mynewpassword'] != "") {
-		$mynewpassword = $_POST['mynewpassword'];
-		$mynewpassword  = stripslashes($mynewpassword );
-		$mynewpassword  = htmlspecialchars($mynewpassword );
-		$mynewpassword  = warquest_db_escape($mynewpassword );
-	}
-	
+				
 	$member = warquest_db_member($player->pid);
 		
 	$query1 = 'select pid from member where username="'.$username.'"';
@@ -491,24 +473,29 @@ function warquest_settings_change_login_do() {
 	
 	/* Change password */
 
-	if ((strlen($mynewpassword)>0) || (strlen($myoldpassword)>0)) {
+	if ( (strlen($mynewpassword1)>0) || (strlen($mynewpassword2)>0) || (strlen($myoldpassword)>0) ) {
 	
 		if ($count2!=1) {
 	
 			$message = t('PLAYER_PASSWORD_NO_MATCH');
 			$output->popup .= warquest_box_icon("warning", $message);
 			
-		} else if (strlen($mynewpassword)<6)  {
+		} else if (strlen($mynewpassword1)<6) {
 		
 			$message = t('PLAYER_PASSWORD_TO_SHORT');
 			$output->popup .= warquest_box_icon("warning", $message);
 			
+		} else if ($mynewpassword1!=$mynewpassword2) {
+		
+			$message = t('PLAYER_NEWS_PASSWORD_NOT_MATCH');
+			$output->popup .= warquest_box_icon("warning", $message);
+			
 		} else {
-
+			
 			$message = t('PLAYER_PASSWORD_CHANGED');
 			$output->popup .= warquest_box_icon("info", $message);
 	
-			warquest_db_member_password_update($player->pid, $mynewpassword);
+			warquest_db_member_password_update($player->pid, $mynewpassword1);
 			warquest_info("Password is changed!");
 		}
 	}
@@ -760,11 +747,20 @@ function warquest_settings_form() {
 		$page .= '<tr>';
 		$page .= '<td>'.t('PLAYER_NEW_PASSWORD').':</td>';
 		$page .= '<td>';
-		$page .= '<input name="mynewpassword" type="password" id="mynewpassword" size="18" ';
+		$page .= '<input name="mynewpassword1" type="password" id="mynewpassword" size="18" ';
 		$page .= 'maxlength="'.$config["max_password_length"].'" />';
 		$page .= '</td>';
 		$page .= '</tr>';
 	
+		$page .= '<tr>';
+		$page .= '<td>'.t('PLAYER_NEW_PASSWORD_AGAIN').':</td>';
+		$page .= '<td>';
+		$page .= '<input name="mynewpassword2" type="password" id="mynewpassword" size="18" ';
+		$page .= 'maxlength="'.$config["max_password_length"].'" />';
+		$page .= '</td>';
+		$page .= '</tr>';
+		
+		
 		$page .= '<tr>';
 		$page .= '<td>&nbsp;</td>';
 		$page .= '<td>';

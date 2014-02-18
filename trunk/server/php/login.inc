@@ -50,7 +50,6 @@ if (isset($_SERVER['HTTP_PASSWORD'])) {
 if (isset($_SERVER['HTTP_NAME'])) {
 	$myname = $_SERVER['HTTP_NAME'];
 	$myname = stripslashes($myname);
-	$myname = warquest_db_escape($myname);
 	$myname = substr($myname,0,15);
 }
 	

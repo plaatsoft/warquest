@@ -521,22 +521,31 @@ function warquest_mission_do() {
 	 
 		/* Update player */
 		$player->energy -= $mission->energy;
+		
+		$premium = strtotime($player->premium_date) - time();
+		if ($premium>0) {
+			$mission->experience *= 2;
+		}
+	
 		$player->experience += $mission->experience;
 		$player->mission += 1;
 		
 		$money = rand($mission->min_price,$mission->max_price);
+		if ($premium>0) {
+			$money *= 3;
+		}
 			
 		/* If progress is 100% double money */				
 		if (warquest_format_progress($progress, $part)==100) {
 		
-			$money = $money * 2;
+			$money *= 2;
 			
 		} else {
 				
 			if (warquest_format_progress($progress, $part)==90) { 
 			
 				$progress+=10;	
-				$money = $money * 2;
+				$money *= 2;
 					
 			} else {
 			

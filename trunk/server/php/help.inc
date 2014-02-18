@@ -83,20 +83,20 @@ function warquest_help_about_form() {
 	$page .= '<br/><br/>';
 	
 	$page .= '<span class="subparagraph2">'.t('HELP_CREDITS_ARCHITECT').'</span><br/>';
-	$page .= 'wplaat<br/>';
+	$page .= 'admin<br/>';
 	$page .= '<br/>';
 	
 	$page .= '<span class="subparagraph2">'.t('HELP_CREDITS_DEVELOPERS').'</span><br/>';
-	$page .= 'wplaat<br/>';
+	$page .= 'admin<br/>';
 	$page .= '<br/>';
 	
 	$page .= '<span class="subparagraph2">'.t('HELP_CREDITS_GRAPHICS').'</span><br/>';
-	$page .= 'wplaat, Google, wikipedia.org, about.com<br/>';
+	$page .= 'admin, Google, wikipedia.org, about.com<br/>';
 	$page .= '<br/>';
 		
 	$page .= '<span class="subparagraph2">'.t('HELP_CREDITS_TRANSLATORS').'</span><br/>';
-	$page .= '<b>(Dutch)</b> wplaat, SuperT<br/>';
-	$page .= '<b>(English)</b> wplaat, suave, Aston, Mongoose, ZennCore, K4BOOM<br/>';
+	$page .= '<b>(Dutch)</b> admin, SuperT<br/>';
+	$page .= '<b>(English)</b> admin, suave, Aston, Mongoose, ZennCore, K4BOOM<br/>';
 	$page .= '<b>(German)</b> TestBoy<br/>';
 	$page .= '<b>(Italian)</b> ZennCore<br/>';
 	$page .= '<b>(Romanian)</b> Prepa<br/>';
@@ -104,7 +104,7 @@ function warquest_help_about_form() {
 	$page .= '<br/>';
 	
 	$page .= '<span class="subparagraph2">'.t('HELP_CREDITS_TESTERS').'</span><br/>';
-	$page .= 'wplaat, SuperT, b.b.b., Sander, Mister Ono, Mongoose<br/>';
+	$page .= 'admin, SuperT, b.b.b., Sander, Mister Ono, Mongoose<br/>';
 	$page .= '<br/>';	
 
 	$page .= '<span class="subparagraph2">'.t('HELP_CREDITS_OTHER').'</span><br/>';
@@ -532,7 +532,7 @@ function warquest_help_donate_form() {
 	$page .= '<span class="subparagraph2">'.t('HELP_SUBTITLE_DONATE3').'</span><br/>';
 	$page .= t('HELP_DONATE3').'<br/>';
 	$page .= '<br/>';
-			
+	
 	$page .=	'</form>';
 		
 	$page .=	'<center>';
@@ -549,6 +549,11 @@ function warquest_help_donate_form() {
 	
 	$page .=	'</center>';
 
+	$page .= '<span class="subparagraph2">'.t('HELP_SUBTITLE_DONATE4').'</span><br/>';
+	$link = warquest_link('mid='.MENU_HOME.'&sid='.PAGE_COMMENT.'&eid='.EVENT_HOME_COMMENT_EDIT.'&oid='.$config["adminPid"], t('LINK_HERE'));
+	$page .= t('HELP_DONATE4', $link);
+	$page .= '<br/>';
+	
 	$page .= '</div>';	
 	
 	warquest_giftshop_form();
