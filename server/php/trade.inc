@@ -35,7 +35,7 @@ function warquest_trade_do() {
 	/* output */
 	global $player;
 	global $output;
-	
+			
 	$gold = $config["gold_trade_feature".$uid];	
 	$totalGold = $amount * $gold;
 							
@@ -63,7 +63,7 @@ function warquest_trade_do() {
 				
 		$player->gold -= $totalGold;
 		warquest_gold_use($totalGold);
-				
+			
 		switch ($uid) {
 		
 			case 1: 	$skill->health_timer += $amount;						
@@ -85,6 +85,11 @@ function warquest_trade_do() {
 			case 5:	$skill->skill_points += $amount;
 						$max = 10000;
 						break;
+						
+			case 6:	$time = mktime(date("H"), date("i"), date("s"), date("m"), date("d")+3, date("Y"));
+						$player->premium_date =  date("Y-m-d H:i:s", $time);						
+						$max = 0;
+						break;
 		}
 		warquest_db_skill_update($skill);	
 				
@@ -100,9 +105,12 @@ function warquest_trade_do() {
 				}
 			}	
 		
-			$link  = warquest_link('mid='.$mid.'&sid='.$sid.'&eid='.EVENT_HOME_TRADE.'&uid='.$uid, t('HOME_TRADE_IN'), "trade");
-			$link .= '<br/><br/>'.t('GENERAL_AMOUNT').'<br/>';		
-			$link .= warquest_amount_selected($max);
+			$link = "";
+			if ($max>0) {
+				$link .= warquest_link('mid='.$mid.'&sid='.$sid.'&eid='.EVENT_HOME_TRADE.'&uid='.$uid, t('HOME_TRADE_IN'), "trade");
+				$link .= '<br/><br/>'.t('GENERAL_AMOUNT').'<br/>';		
+				$link .= warquest_amount_selected($max);
+			}
 		}
 		
 		$output->popup .= warquest_box_icon("info", $message, $link);
@@ -137,7 +145,57 @@ function warquest_trade_form() {
 	$page .= '<br/>';	
 	
 	$page .= '<table>';
-			
+
+	/* -------------------------------------------------------------------- */
+	
+	$page .= '<tr>';
+	$page .= '<td width="170">';	
+	$page .= warquest_image("gold/premium.jpg",' width="155" height="120" ');
+	$page .= '</td>';
+	
+	$premium = strtotime($player->premium_date) - time();
+	
+	$page .= '<td width="330" valign="top" >';
+	
+	$page .= '<div class="right">';
+	
+	if ($premium<=0) {
+		$page .= warquest_link('mid='.$mid.'&sid='.$sid.'&eid='.EVENT_HOME_TRADE.'&uid=6', t('HOME_TRADE_IN'), "trade6");
+	}
+	$page .= '</div>';
+		
+	$page .= '<div class="subparagraph">';
+	$page .= '<b>'.t('HOME_TRADE6').'</b>';
+	$page .= '</div>';
+		
+	$page .= '<i>'.t('HOME_TRADE6_NOTE', gold_format($config["gold_trade_feature6"])).'</i>';
+	$page .= '<br/><br/>';	
+		
+	$page .= t('GENERAL_STATUS').': ';
+	if ($premium<=0) {
+	
+		$page .= t('PREMIUM_NOT_ACTIVE');
+		
+	} else { 
+		
+		$page .= '<script language="JavaScript" src="'.$config["content_url"].'js/countdown1.js" type="text/javascript"></script>';
+	
+		$page .= t('PREMIUM_ACTIVE');
+		
+		$page .= '<div class="countdown"><div id="countdown_time1"></div></div>';
+		$page .= '<script language="JavaScript" type="text/javascript">';
+		$page .= "countdown1.init(".$premium.", 'countdown_time1', '00:00:00');"; 
+		$page .= '</script>';
+	}
+
+	$page .= '</td>';
+	$page .= '</tr>';	
+		
+	$page .= '<tr>';
+	$page .= '<td colspan="2"><hr></td>';
+	$page .= '</tr>';
+
+
 	/* -------------------------------------------------------------------- */
 	
 	$page .= '<tr>';

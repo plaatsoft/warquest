@@ -545,7 +545,7 @@ $lang['PLAYER_SPY_3'] = 'explorers';
 $lang['PLAYER_SPY_4'] = 'explorers';
 $lang['PLAYER_SPY_5'] = 'explorers';
 $lang['PLAYER_ESPIONAGE_UNLOCK1'] = 'Unlocked when your %s strength is %s% higher then opponent.';
-$lang['PLAYER_ESPIONAGE_UNLOCK2'] = 'Unlocked when your %s strength is equal or higher then opponent.';
+$lang['PLAYER_ESPIONAGE_UNLOCK2'] = 'Unlocked when your %s strength is higher then opponent.';
 
 /*
 ** ------------------
@@ -764,13 +764,15 @@ $lang['PLAYER_LOGIN_SETTINGS'] = 'Login settings';
 $lang['PLAYER_USERNAME'] = 'Username';
 $lang['PLAYER_USERNAME_TO_SHORT'] = 'Username must be at least 4 characters long!';
 $lang['PLAYER_USERNAME_ALREADY_EXIST'] = 'Username already exist!';
-$lang['PLAYER_USERNAME_CHANGED'] = 'Username is changed. Do not forget to change it in the WarQuest Android app and Windows client, otherwise automatic login will not work anymore!';
+$lang['PLAYER_USERNAME_CHANGED'] = 'Username is changed. Do not forget to change this setting in the WarQuest app, otherwise automatic login will not work anymore!';
 $lang['PLAYER_CURRENT_PASSWORD'] = 'Current password';		
 $lang['PLAYER_NEW_PASSWORD'] = 'New password';
-$lang['PLAYER_PASSWORD_CHANGED'] = 'Password is changed. Do not forget to change it in the WarQuest Android app and Windows client, otherwise automatic login will not work anymore!';
+$lang['PLAYER_NEW_PASSWORD_AGAIN'] = 'New password (Again)';
+$lang['PLAYER_PASSWORD_CHANGED'] = 'Password is changed. Do not forget to change this setting in the WarQuest app, otherwise automatic login will not work anymore!';
 $lang['PLAYER_PASSWORD_NO_MATCH'] = 'Current password doesn\'t match!';
 $lang['PLAYER_PASSWORD_TO_SHORT'] = 'The new password must be at least 6 characters long!';
-$lang['PLAYER_LOGIN_NOTE'] = 'WARNING: Automatic login only works when the same username and password are set in the WarQuest Android app and Windows client!'; 
+$lang['PLAYER_NEWS_PASSWORD_NOT_MATCH'] = 'The new passwords do not match!';
+$lang['PLAYER_LOGIN_NOTE'] = 'WARNING: Automatic login only works when the same username and password are set in the WarQuest app!'; 
 
 $lang['SETTING_ACCOUNT_RESET_TITLE'] = 'Account reset';
 $lang['SETTING_YES'] = 'Yes';
@@ -2550,8 +2552,12 @@ others will cost you only 1 skill point. You can also trade in 2:1 skillpoints t
 
 $lang['HELP_GOLD_TITLE'] = 'Gold';
 $lang['HELP_GOLD']  = 'Gold can be purchased by donate some real dollars. See Help -> Donate. 
-Purchase gold can be used to buy premium units & buildings or can be exchanged in to skill points, cash money or can be used to improve your health, energy or ammo restore timer.
+Purchase gold can be used to buy premium membership & units & buildings, can be exchanged in to skill points, cash money or can be used to improve your health, energy or ammo restore timer.
 <br/><br/>
+Benefits of premium membership:<br/>
+- Double experience during battles and missions.</br/>
+- Triple money during battles and missions.<br/>
+<br/>
 Benefits of gold buildings:<br/>
 - Higher defence strength then normal buildings<br/>
 - No hourly cost<br/>
@@ -2733,20 +2739,19 @@ $lang['HELP_SUBTITLE_DONATE2'] = 'Reward';
 $lang['HELP_DONATE2'] = 'Each dollar donated will be rewarded with %s. 
 Gold is an in-game currency that gives access to various additional options.  With gold in your in-game wallet, you can:
 <ul>
-<li>buy premium units</li>
-<li>buy premium buildings</li>
-<li>buy extra skill points</li>
-<li>buy extra cash</li> 
-<li>upgrade your health timer</li>
-<li>upgrade your energy timer</li>
-<li>upgrade your ammo timers</li>
-</ul>
-The donation is manually processed so keep in mind that it takes a few hours before the gold is available.';
+<li>Buy premium membership</li>
+<li>Buy premium units</li>
+<li>Buy premium buildings</li>
+<li>Buy extra skill points</li>
+<li>Buy extra cash</li> 
+<li>Upgrade health, energy and/or ammo restore timer</li>
+</ul></br>
+The donation is MANUALLY processed so keep in mind that it takes a few hours before the gold is available.';
 
 $lang['HELP_SUBTITLE_DONATE3'] = 'PayPal';
 $lang['HELP_DONATE3'] = 'To make a donation online using your credit card, or PayPal account, click 
 below and enter the amount you would like to contribute. Your credit card will be processed by PayPal, 
-a trusted name in secure online transactions. Many thanks for your support.';
+a trusted name in secure online transactions.';
 
 /*
 ** ------------------
@@ -3240,6 +3245,20 @@ $lang['PROMOTION_INVITE_NOTE'] = 'Invite friends to WarQuest and receive %s for 
 
 $lang['CLAN_BANK_NOTE'] = 'Note: There is a %s% fee for any deposit. The clan bank daily service charge is %s%!';
 $lang['CLAN_BANK_TRANSACTION_LOG'] = 'Clan Bank Transactions';
+
+$lang['GENERAL_PREMIUM_MEMBERSHIP'] = 'Premium membership';
+
+$lang['HOME_TRADE6'] = 'Premium Membership';
+$lang['HOME_TRADE6_NOTE'] = 'Activate premium membership to double expercience and triple money during battles and missions. It takes %s to activate premium membership for 3 days.';
+
+$lang['GENERAL_STATUS'] = 'Status';
+$lang['PREMIUM_NOT_ACTIVE'] = 'Not activated';
+$lang['PREMIUM_ACTIVE'] = 'Activated for ';
+
+$lang['HELP_SUBTITLE_DONATE4'] = 'Support';
+$lang['HELP_DONATE4'] = ' Many thanks for your support. If you have any questions about donations, processing of payments, please contact us by clicking %s. We will response as soon as possible!';
+
+$lang['LINK_HERE'] = 'here';
 
 /*
 ** ------------------

@@ -62,12 +62,11 @@ function getPlayer($name) {
 
 		$data2 = warquest_db_player($data1->pid);
 	
-		/* Convert data */
+		/* Convert dates / enums */
 		$data2->money_date = warquest_xml_date($data2->money_date);
 		$data2->energy_date = warquest_xml_date($data2->energy_date);
 		$data2->health_date = warquest_xml_date($data2->health_date);
-		$data2->ammo_date = warquest_xml_date($data2->ammo_date);
-			
+		$data2->ammo_date = warquest_xml_date($data2->ammo_date);			
 		$data2->last_battle = warquest_xml_date($data2->last_battle);
 		$data2->bonus_date = warquest_xml_date($data2->bonus_date);
 		$data2->request_date = warquest_xml_date($data2->request_date);
@@ -76,6 +75,7 @@ function getPlayer($name) {
 		$data2->restore_ammo = warquest_xml_date($data2->restore_ammo);
 		$data2->cease_fire_date = warquest_xml_date($data2->cease_fire_date);
 		$data2->holiday_date = warquest_xml_date($data2->holiday_date);
+		$data2->premium_date = warquest_xml_date($data2->premium_date);
 			
 		$data2->planet = warquest_db_planet_name($data2->planet);
 		
