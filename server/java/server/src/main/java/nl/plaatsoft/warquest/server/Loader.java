@@ -4,19 +4,22 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.ServletException;
  
+
+
 import java.io.IOException;
  
 import java.sql.ResultSet;
 
-import org.apache.log4j.Logger;
+import nl.plaatsoft.warquest.database.Database;
 
+import org.apache.log4j.Logger;
 import org.eclipse.jetty.server.Request;
 import org.eclipse.jetty.server.Server;
 import org.eclipse.jetty.server.handler.AbstractHandler;
 
 public class Loader extends AbstractHandler {
 
-	static Logger log = Logger.getLogger(Database.class.getName());
+	static Logger log = Logger.getLogger(Loader.class.getName());
 	static int counter = 0;
 	
 	public void handle(String target, Request baseRequest, HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
@@ -37,13 +40,11 @@ public class Loader extends AbstractHandler {
 		content += "<table border=1>";
 		
 		Database db = new Database();
-		
-		db.loadDBsettings();
-		
-		if (db.connectDB()==0) {		 
+				
+		if (db.connect()==0) {		 
 		
 			try {
-				ResultSet rs = db.getClan();
+				ResultSet rs = db.clan.getClan();
 			
 				while (rs.next()) {
 					content += "<tr>";
@@ -60,7 +61,7 @@ public class Loader extends AbstractHandler {
 		}
 		
 		response.getWriter().println(content);		
-		db.closeDB();
+		db.close();
 		
 		long endTime = System.nanoTime();
 		long duration = endTime - startTime;

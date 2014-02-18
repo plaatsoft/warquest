@@ -1,8 +1,10 @@
-package nl.plaatsoft.warquest.server;
+package nl.plaatsoft.warquest.database;
 
 import java.io.IOException;
 import java.io.InputStream;
-import java.sql.*;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
 import java.util.Properties;
 
 import org.apache.log4j.Logger;
@@ -14,11 +16,15 @@ public class Database {
 	Connection conn = null;
 	Properties properties = null;
 	
-	public int loadDBsettings() {
+	public Clan clan;
+	public Member member;
 	
-		log.info("Load custom server.properties file");
+	private int loadConfiguration() {
+	
+		log.debug("loadConfiguration - enter");
 		
 		properties = new Properties();
+		int returnValue=0;
 				
 		try {
 			ClassLoader classLoader = Thread.currentThread().getContextClassLoader();
@@ -33,15 +39,21 @@ public class Database {
 			
 		} catch (IOException e) {
 			log.error("Exception Occurred" + e.getMessage());
-			return 1;
+			returnValue = 1;
 		}
-		return 0;
+		
+		log.debug("loadConfiguration - leave ["+returnValue+"]");
+		return returnValue;
 	}
 		
-	public int connectDB() {
+	public int connect() {
 		
-		log.info("Connected to the mysql database");
-	
+		int returnValue = 0;
+		
+		log.debug("connect - enter");
+			
+		loadConfiguration();
+		 
 		String url = "";
 		String driver = "com.mysql.jdbc.Driver";
 		String userName = properties.getProperty("dbusername"); 
@@ -56,18 +68,25 @@ public class Database {
 			url = "jdbc:mysql://"+properties.getProperty("dbhost")+":"+properties.getProperty("dbport")+"/"+properties.getProperty("dbname");		
 			conn = DriverManager.getConnection(url, userName, password);
 			
+			clan = new Clan(conn);
+			member = new Member(conn);			
+			
 		} catch (Exception ex) {
 			log.error(ex.getMessage());
-			return 1;
+			
+			returnValue = 1;			
 		}
 		
-		return 0;
+		log.debug("connect - leave ["+returnValue+"]");
+		return returnValue;
 	}
 					
-	public int closeDB() {
-				
-		log.info("Disconnected from mysql database");
+	public int close() {
 		
+		int returnValue = 0;
+		
+		log.debug("close - enter");
+				
 		try {		
 			
 			conn.close();
@@ -75,47 +94,10 @@ public class Database {
 		} catch (SQLException ex) {
 			
 			log.error(ex.getMessage());
-			return 1;
+			returnValue = 1;
 		}
 		
-		return 0;
-	}
-	
-	public ResultSet getClan() {
-	    
-		log.info("Execute mysql database query");
-		
-		ResultSet rs=null; 
-		 
-		String query = "select cid, name from clan";
-		log.debug(query);
-	    
-	    try {
-	      Statement st = conn.createStatement();
-	      rs = st.executeQuery(query);
-	      
-	    } catch (SQLException ex) {
-	    	
-	    	log.error(ex.getMessage());
-	    }
-	    return rs;
-	}
-	
-	 public static void main(String[] args) {
-	      
-		long startTime = System.nanoTime();
-		 
-		Database db = new Database();
-		
-		db.loadDBsettings();
-		db.connectDB();		 
-		db.getClan();
-		db.closeDB();
-		
-		long endTime = System.nanoTime();
-
-		long duration = endTime - startTime;
-
-		log.debug("Action took "+duration/1000000+"ms");
-	}
+		log.debug("close - leave ["+returnValue+"]");
+		return returnValue;
+	}	
 }

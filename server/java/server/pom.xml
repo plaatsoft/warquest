@@ -4,8 +4,9 @@
   <artifactId>server</artifactId>
   <version>0.1</version>
   <name>Server</name>
+  <packaging>jar</packaging>
   <description>WarQuest Server</description>
- 
+
   <dependencies>
   
     <dependency>
@@ -26,6 +27,38 @@
 		<version>5.1.6</version>
 	</dependency>
 
+	<dependency>
+		<groupId>junit</groupId>
+		<artifactId>junit</artifactId>
+		<version>4.8.1</version>
+	</dependency>
+
   </dependencies>
+  
+  <build>
+    <plugins>
+	  <plugin>
+	    <artifactId>maven-assembly-plugin</artifactId>
+	    <executions>
+      		<execution>
+		        <phase>package</phase>
+	        	<goals>
+          		<goal>single</goal>
+	        	</goals>
+      		</execution>
+	    </executions>
+    	<configuration>
+    		<archive>
+    	  		<manifest>
+			        <mainClass>nl.plaatsoft.warquest.server.Loader</mainClass>
+      			</manifest>
+		    </archive>
+	      	<descriptorRefs>
+        		<descriptorRef>jar-with-dependencies</descriptorRef>
+      		</descriptorRefs>
+    		</configuration>
+  		</plugin>
+  	</plugins>
+  </build>
   
 </project>
