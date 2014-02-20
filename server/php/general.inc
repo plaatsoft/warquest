@@ -2120,12 +2120,19 @@ function warquest_ui_ago($date) {
  */
 function warquest_ui_checkbox($name, $value, $checked) {
 
-	$tmp = '<input type="checkbox" name="'.$name.'" value="'.$value.'"';
+	$tmp = '<label class="switch">';
+
+	$tmp .= '<input type="checkbox" name="'.$name.'" value="'.$value.'" class="switch-input" ';
 	if ($checked==1) {
-		$tmp .= ' checked="checked"';
+		$tmp .= ' checked="checked" ';
 	} 
 	
 	$tmp .= '/>';
+	
+	$tmp .= '<span class="switch-label" data-on="On" data-off="Off"></span>';
+   $tmp .= '<span class="switch-handle"></span>';
+	
+	$tmp .=' </label>';
 	
 	return $tmp;	
 }
@@ -2488,14 +2495,23 @@ function warquest_ui_language($tag, $id, $readonly) {
  */
 function warquest_ui_menu($mid, $sid, $ssid, $label, $active_id, $notification=0) {
    
-	$menu = warquest_link('mid='.$mid.'&sid='.$sid.'&ssid='.$ssid, $label, strtolower($label));
+	$menu = '<li>';
+		
 	if (($mid==$active_id) || ($sid==$active_id)) {
-		$menu = '<b>'.$menu.'</b>';
+		$menu .= '<div class="active">';
+	} 	
+	
+	$menu .= warquest_link('mid='.$mid.'&sid='.$sid.'&ssid='.$ssid, $label, strtolower($label));
+	
+	if (($mid==$active_id) || ($sid==$active_id)) {
+		$menu .= '</div>';
 	} 
+	
 	if ( $notification > 0 ) {
 		$menu .= '<span class="notification">'.$notification.'</span>';	
 	}
-	$menu .= ' ';
+	
+	$menu .= '</li>';
 	
 	return $menu;
 }
@@ -2505,12 +2521,17 @@ function warquest_ui_menu($mid, $sid, $ssid, $label, $active_id, $notification=0
  */
 function warquest_ui_subsubmenu($mid, $sid, $ssid, $label, $active_id) {
    
-	$menu = warquest_link('mid='.$mid.'&sid='.$sid.'&ssid='.$ssid, $label, strtolower($label));
+	$menu = '<li>';
+	
 	if (($ssid==$active_id)) {
-		$menu = '<b>'.$menu.'</b>';
+		$menu .= '<div class="active">';
 	} 
-
-	$menu .= ' ';
+	
+	$menu .= warquest_link('mid='.$mid.'&sid='.$sid.'&ssid='.$ssid, $label, strtolower($label));
+	
+	if (($ssid==$active_id)) {
+		$menu .= '</div>';
+	} 
 	
 	return $menu;
 }
@@ -2661,7 +2682,8 @@ function warquest_ui_header() {
 	global $version;
 	global $output;
 	
-	$page  = '<html>';
+	$page  = '<!DOCTYPE html>';
+	$page .= '<html>';
 	$page .= '<head>';
 
 	$page .= '<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />';
@@ -2690,8 +2712,12 @@ function warquest_ui_header() {
 	}
  
 	$page .= '<link href="'.$config["content_url"].'images/favicon.ico" rel="shortcut icon" type="image/x-icon" />'; 
-	$page .= '<link href="'.$config["content_url"].'css/general6.css" rel="stylesheet" type="text/css" />';
+	$page .= '<link href="'.$config["content_url"].'css/general.css" rel="stylesheet" type="text/css" />';
 
+	if (!preg_match('/IE/',$browser)) {
+		$page .= '<link href="'.$config["content_url"].'css/style.css" rel="stylesheet" type="text/css" />';
+	}
+	
 	if (($mid==MENU_MONEY) && ($sid==PAGE_STOCK_EXCHANGE)) {	
 		$page .= '<link href="'.$config["content_url"].'css/jquery.css" rel="stylesheet" type="text/css" />';
 	}
@@ -2804,7 +2830,7 @@ function warquest_ui_banner() {
 		
 	$level = warquest_db_level($player->lid);
 		
-	$page  = '<div class="fixed">'; 
+	$page  = '<div class="header">'; 
 	$page .= '<div class="box">'; 
 	$page .= '<div class="banner">'; 
 	$page .= '<table>';
@@ -2935,7 +2961,7 @@ function warquest_ui_banner() {
 	
 	$page .= '</script>'; 
 	
-	$page .= '<div class="scroll">';
+	$page .= '<div class="content">';
 	
 	return $page;
 }

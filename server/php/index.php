@@ -89,10 +89,11 @@ if (strlen($token)>0) {
 		$items = preg_split ("/=/", $item);
 		if (is_numeric($items[1])) {
 			$$items[0] = $items[1];	
+			//echo $items[0].'='.$items[1].' ';
 		}
 	}
 }
-	
+
 /*
 ** ---------------------------------------------------------------- 
 ** Database
