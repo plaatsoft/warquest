@@ -2847,11 +2847,9 @@ function warquest_ui_banner() {
 		$tmp .= '<span class="timer">'.money_format1($player->money_step).' in </span>';
 		$tmp .= '<span class="timer" id="moneycountdown"></span> ';
 	}
-	if (strlen($tmp)>0) {
-		$page .= $tmp.' / ';
-	} else {
-		$page .= '<br/>';
-	}
+	$page .= $tmp;
+	$page .= '<br/>';
+	
 	$page .= '<span class="timer">'.gold_format($player->gold).'</span>';
 	$page .= '</td>';
 	
