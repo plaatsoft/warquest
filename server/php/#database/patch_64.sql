@@ -60,3 +60,5 @@ UPDATE unit_group SET name="army" WHERE ugid=30;
 -- Added premium account features
 
 ALTER TABLE player ADD premium_date DATETIME NOT NULL AFTER pattern;
+
+ALTER TABLE `poll_answer` CHANGE `answer_id` `answer_id` INT( 11 ) NOT NULL AUTO_INCREMENT;
