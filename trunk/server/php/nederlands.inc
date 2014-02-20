@@ -76,7 +76,7 @@ $lang['LINK_ACTIVATE'] = 'Activeer';
 /* Player */
 $lang['LINK_OVERVIEW'] = 'Overzicht';
 $lang['LINK_DELETE'] = 'Verwijder';
-$lang['LINK_SETTINGS'] = 'Instellingen';
+$lang['LINK_SETTINGS'] = 'Opties';
 $lang['LINK_NEWS'] = 'Nieuws';
 $lang['LINK_COMMENTS'] = 'Bericht';
 $lang['LINK_STATISTICS'] = 'Statistieken';
