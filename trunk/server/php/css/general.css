@@ -1,4 +1,4 @@
-/* WarQuest Style sheet - All copyrights reserved (c) 2008-2013 PlaatSoft */
+/* WarQuest Style sheet - All copyrights reserved (c) 2008-2014 PlaatSoft */
 
 @media all and (min-width: 0px) and (max-width: 359px) {
   body {
@@ -33,13 +33,13 @@ body {
 	padding: 0px; 
 }
 
-ul {
+.box ul {
 	list-style-type:circle;
 	margin: 0px;
 	padding: 0px 0px 0px 15px ;
 }
 
-li {
+.box li {
 	margin: 0px;
 	padding: 0px;
 }
@@ -88,12 +88,22 @@ a {
 	text-decoration: none; 
 	color: orange;
 }
-
+	
 a:hover {
 	padding: 0px;
 	text-decoration: underline overline; 
 	color: yellow;
 } 
+
+img {
+	padding: 1px;
+}
+
+.active {
+	font-weight: bold;
+	color: orange;
+	padding: 0 5px;
+}
 
 .action {
 	font-size: 1.3em;
@@ -267,7 +277,7 @@ a:hover {
 
 .subparagraph {
 	font-size: 1.2em;
-	padding: 10px 0px 2px 0px; 
+	padding: 5px 0px 2px 0px; 
 }
 
 .subparagraph2 {
@@ -278,16 +288,33 @@ a:hover {
 	color: orange;
 }
 
-.menu {
-	font-size: 1.0em;
-	padding: 6px 0px 6px 0px; 
-	width: 510px;
+.center {
+	width: 100%;
+	margin-left: auto;
+	margin-right: auto;  
+	text-align: center ; 
 }
 
-.submenu {
+.menu {
 	font-size: 1.0em;
 	padding: 2px 0px 2px 0px; 
-	width: 510px;
+	display: inline-block;
+}
+
+.menu ol, ul { 
+  list-style: none;
+  margin: 0px;
+  padding: 0px;
+}
+
+.menu li {
+  float: left;
+  padding: 0px 2px;
+}
+
+.active {
+	color: orange;
+	padding: 0px;
 }
 
 .info {

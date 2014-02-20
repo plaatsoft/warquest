@@ -27,6 +27,7 @@ function warquest_create_title($title) {
 	/* input */
 	global $mid;
 	global $sid;
+	global $ssid;
 	global $oid;
 	global $uid;
 	global $cid;
@@ -93,6 +94,10 @@ function warquest_create_title($title) {
 						$tmp .= '&ssid='.$data3->ugid;
 					}
 	
+					break;
+					
+				case MENU_MONEY:				
+					$tmp .= '&sid='.$sid.'&ssid='.$ssid;
 					break;
 					
 				default: 
