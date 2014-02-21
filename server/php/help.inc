@@ -892,7 +892,7 @@ function warquest_help_levels_form() {
 	
 	$page .= '<tr>';
 		
-	$page .= '<th width="50">';
+	$page .= '<th width="45">';
 	$page .= t('GENERAL_LEVEL');
 	$page .= '</th>';
 		
@@ -900,7 +900,7 @@ function warquest_help_levels_form() {
 	$page .= t('HELP_LEVEL_EXPERIENCE');
 	$page .= '</th>';
 		
-	$page .= '<th width="310">';
+	$page .= '<th width="320">';
 	$page .= t('HELP_LEVEL_FEATURES');
 	$page .= '</th>';
 	

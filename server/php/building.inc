@@ -461,7 +461,7 @@ function warquest_building_form() {
 	
 			$page .= '<tr>';	
 			$page .= '<td valign="top" width="215">';		
-			$page .= '<span class="subparagraph">'.t('BUILDING_'.$data2->bid).'</span><br/>'; 		 		
+			$page .= '<span class="subparagraph bold">'.t('BUILDING_'.$data2->bid).'</span><br/>'; 		 		
 			$page .= warquest_building_image($data2, 0, 0, 170, 120);			
 			$page .= '</td>';
 	
@@ -564,7 +564,7 @@ function warquest_building_form() {
 			
 			$page .= '<tr>';	
 			$page .= '<td width="215">'; 
-			$page .= '<span class="subparagraph">'.t('BUILDING_'.$data5->bid).'</span><br/>';
+			$page .= '<span class="subparagraph bold">'.t('BUILDING_'.$data5->bid).'</span><br/>';
 			$page .= warquest_image("other/unlock.png", ' width="90" height="67" ');	
 			$page .= warquest_image("other/unlock.png", ' width="90" height="67" ');	
 			$page .= '</td>'; 

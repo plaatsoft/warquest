@@ -81,7 +81,6 @@ i {
 img {
 	border: 0;	
 	vertical-align:middle;
-	padding: 1px;
 }
 
 a {
@@ -278,6 +277,11 @@ a:hover {
 .title2 {
 	font-size: 1.6em;
 	color:white;
+}
+
+.topic {
+	font-size: 1.2em;
+	padding: 5px 0px 2px 0px;
 }
 
 .paragraph {

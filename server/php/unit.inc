@@ -350,7 +350,7 @@ function warquest_unit_form() {
 			$page .= '</td>';
 			
 			$page .= '<td width="210">';
-			$page .= '<span class="subparagraph">'.t('UNIT_'.$data1->uid).'</span>';			
+			$page .= '<span class="subparagraph bold">'.t('UNIT_'.$data1->uid).'</span>';			
 			if (warquest_library($data1->uid,0)==1) {
 				$page .= ' ';
 				$page .= warquest_link('mid='.$mid.'&sid='.PAGE_LIBRARY.'&uid='.$data1->uid, warquest_image('other/info.png','width="16" height="16"'),'info'.$count);
@@ -394,7 +394,7 @@ function warquest_unit_form() {
 			$page .= '</td>'; 
 		
 			$page .= '<td>'; 
-			$page .= '<b>'.t('UNIT_'.$data2->uid).'</b><br/>';
+			$page .= '<span class="subparagraph bold">'.t('UNIT_'.$data2->uid).'</span><br/>';
 			if ($data2->attack > 0) {
 				$page .= strength_format($data2->attack).' '.t('GENERAL_ATTACK').' - ';
 			}
