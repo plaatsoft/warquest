@@ -494,7 +494,7 @@ function warquest_topic_form() {
 			$page .= '</td>';
 		
 			$page .= '<td valign="top">';
-			$page .= '<span class="subparagraph">';
+			$page .= '<span class="topic">';
 			$page .= warquest_link('mid='.$mid.'&sid='.PAGE_COMMENT.'&fid='.$data->fid.'&tid='.$data->tid, 
 				warquest_parse_smilies($data->description),'select'.$count4);
 			$page .= '</span>';	
