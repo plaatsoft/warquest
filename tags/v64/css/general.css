@@ -1,0 +1,489 @@
+/* WarQuest Style sheet - All copyrights reserved (c) 2008-2014 PlaatSoft */
+
+@media all and (min-width: 0px) and (max-width: 359px) {
+  body {
+	 zoom: 0.59;
+	 -moz-transform: scale(0.59); 
+	 -moz-transform-origin: 0 0;
+  }
+}
+
+@media all and (min-width: 360px) and (max-width: 479px) {
+  body {
+	 zoom: 0.67;
+	 -moz-transform: scale(0.67); 
+	 -moz-transform-origin: 0 0;
+  }
+}
+
+@media all and (min-width: 480px) and (max-width: 530px) {
+  body {
+	 zoom: 0.9;
+	 -moz-transform: scale(0.9); 
+	 -moz-transform-origin: 0 0;
+  }
+}
+
+body {		
+	color: white;
+	font-family: Arial;
+	font-size: 14px;
+	-webkit-text-size-adjust:none;
+	width: 510px;
+	padding: 0px; 
+}
+
+.box ul {
+	list-style-type:circle;
+	margin: 0px;
+	padding: 0px 0px 0px 15px ;
+}
+
+.box li {
+	margin: 0px;
+	padding: 0px;
+}
+
+th {
+	font-size: 1.0em;
+	font-weight: bold;
+	text-align: left; 
+	padding: 0px 0px 5px 0px;
+}
+
+pre {
+	font-family: Arial;
+	font-size: 1.0em;
+}
+
+table {  
+	border: solid 0px; 
+	border-spacing: 0px 0px;
+	font-size: 1.0em;
+}
+
+td {  
+	border: solid 0px; 
+}
+
+input {
+	font-size: 0.9em;
+}
+
+textarea {
+	font-size: 0.9em;
+}
+
+i {
+	font-size: 0.85em;
+}
+
+img {
+	border: 0;	
+	vertical-align:middle;
+}
+
+a {
+	padding: 0px;
+	text-decoration: none; 
+	color: orange;
+}
+	
+a:hover {
+	padding: 0px;
+	text-decoration: underline overline; 
+	color: yellow;
+} 
+
+.bar {  
+	padding: 4px 4px 0px 0px;
+	border-bottom: solid 1px; 
+}
+
+.active {
+	font-weight: bold;
+	color: orange;
+	padding: 0 5px;
+}
+
+.action {
+	font-size: 1.3em;
+}
+
+.help {
+	margin: 0px 0px 0px 3px;
+	overflow: hidden;
+	font-size: 0.8em;
+	display: -moz-inline-stack;
+	display: inline-block;
+	white-space: nowrap;
+}
+
+.countdown {
+	display:inline-block;
+	color: orange;
+}
+
+.link {	
+	text-decoration: none; 
+	color: orange;
+}
+
+.link:hover {
+	text-decoration: underline overline; 
+	color: yellow;
+} 
+
+.hide_link {
+	text-decoration: none;
+	color: white;
+} 
+
+.hide_link:hover {
+	text-decoration: underline overline; 
+	color: yellow;
+} 
+
+.map {
+	border: solid 2px; 
+	padding: 2px; 
+	-moz-border-radius: 5px; 
+	-khtml-border-radius: 5px; 
+	-webkit-border-radius: 5px; 
+	border-radius: 5px; 
+	margin-bottom: 3px; 
+	text-align: justify;  
+	background-color:rgba(25, 25, 25, 0.7);
+}
+
+.box {
+	border: solid 2px; 
+	padding: 2px 8px; 
+	-moz-border-radius: 5px; 
+	-khtml-border-radius: 5px; 
+	-webkit-border-radius: 5px; 
+	border-radius: 5px; 
+	margin-bottom: 3px; 
+	text-align: justify;  
+	background-color:rgba(25, 25, 25, 0.7);
+}
+
+.box2 {
+	border: solid 2px; 
+	padding: 2px 8px; 
+	-moz-border-radius: 5px; 
+	-khtml-border-radius: 5px; 
+	-webkit-border-radius: 5px; 
+	border-radius: 5px; 
+	margin-bottom: 3px; 
+	margin-left: 75px; 
+	text-align: justify;  
+	width: 66%; 
+	background-color:rgba(25, 25, 25, 0.7);
+}
+
+.tooltip {
+   visibility: hidden; 
+   position: absolute; 
+   top: 0;  
+   left: 0; 
+   z-index: 2; 
+	-moz-border-radius: 5px; 
+	-khtml-border-radius: 5px; 
+	-webkit-border-radius: 5px; 
+	border-radius: 5px; 
+	font-size: 0.85em;
+   padding: 3px; 
+   border: solid 1px; 
+   background-image: url(../images/other/box.png); 
+}
+
+.notification {
+	color: white;
+	float: left;
+	position: relative;	
+	border: solid 1px; 
+	padding: 0px 0px; 
+	margin: 0px 0px; 
+	-moz-border-radius: 4px; 
+	-khtml-border-radius: 4px; 
+	-webkit-border-radius: 4px; 
+	border-radius: 4px; 
+	background-color: red;
+}
+
+.banner {		
+	font-size: 1.0em;
+}
+
+.value {
+	font-size: 1.1em;
+	font-weight: bold;
+}
+
+.small {
+	font-size: 0.85em;
+	margin: 0px 0px 5px 0px; 
+}
+
+.remark {
+	font-style: italic; 	
+	font-size: 0.85em;
+}
+
+.note {
+	font-size: 0.85em;
+	text-align: justify; 
+	margin: 5px 0px; 
+	width: 100%; 
+}
+
+.copyright {
+	font-size: 0.85em;
+	text-align: justify; 
+	margin: 5px 0px; 
+	width: 100%; 
+}
+
+.note2 {
+	font-size: 0.85em;
+	text-align: justify; 
+	margin: 5px 0px; 
+	width: 100%; 
+}
+
+.note3 {
+	font-size: 0.85em;
+	text-align: justify; 
+	margin: 5px 0px; 
+	width: 100%; 
+}
+
+.header {
+	margin: 5px 0px; 
+	width: 100%; 
+}
+
+.footer {
+	margin: 5px 0px; 
+	width: 100%; 
+}
+
+.title {
+	font-size: 2.2em;
+	padding: 10px 0px 2px 0px; 
+}
+
+.title2 {
+	font-size: 1.6em;
+	color:white;
+}
+
+.topic {
+	font-size: 1.2em;
+	padding: 5px 0px 2px 0px;
+}
+
+.paragraph {
+	font-size: 1.6em;
+	padding: 5px 0px 2px 0px; 
+}
+
+.subparagraph {
+	font-size: 1.2em;
+	padding: 5px 0px 2px 0px; 
+}
+
+.subparagraph2 {
+	font-size: 1.0em;
+	padding: 10px 0px 2px 0px; 
+	text-decoration: underline; 
+	font-weight: bold;
+	color: orange;
+}
+
+.bold {
+	font-weight: bold;
+}
+
+.center {
+	width: 100%;
+	margin-left: auto;
+	margin-right: auto;  
+	text-align: center ; 
+}
+
+.menu {
+	font-size: 1.0em;
+	padding: 2px 0px 2px 0px; 
+	display: inline-block;
+}
+
+.menu ol, ul { 
+  list-style: none;
+  margin: 0px;
+  padding: 0px;
+}
+
+.menu li {
+  float: left;
+  padding: 0px 2px;
+}
+
+.active {
+	color: orange;
+	padding: 0px;
+}
+
+.info {
+	font-size: 1.0em;
+	color:rgb(0,255,0);
+}
+
+.warning {
+	font-size: 1.0em;
+	color:rgb(255,0,0);
+}
+
+.error {
+	font-size: 1.0em;
+	color:rgb(255,0,0);
+}
+
+.money {
+	color:rgb(0,215,0);
+}
+
+.gold {
+	font-weight: bold;
+	color:rgb(250,234,4);
+}
+
+.goldimage {
+	border:1px;
+	border-style:solid;
+	border-color:rgb(250,234,4);
+}
+
+.negative {
+	color:rgb(215,60,60);
+}
+
+.energy {
+	color:rgb(255,50,0);
+}
+
+.experience {
+	color:rgb(155,150,100);
+}
+
+.health {
+	color:rgb(0,250,255);
+}
+
+.discount {
+	color:rgb(0,150,240);
+}
+
+.maintenance {
+	color:rgb(0,150,240);
+}
+
+.alliance {
+	color:rgb(0,100,250);
+}
+
+.strength {
+	color: #66AAFF;
+
+}
+
+.level {
+	color:rgb(155,255,255);
+}
+
+.ammo {
+	color:rgb(155,100,255);
+}
+
+.loot {
+	color:rgb(255,185,15);
+}
+
+.country {
+	color:rgb(0,128,231);
+}
+
+.deploy {
+	color:rgb(255,84,84);
+}
+
+.timer {
+	font-size: 0.8em;
+}
+
+.stock {
+	font-size: 0.9em;
+}
+
+.right {
+	float: right;
+	clear: right;
+	padding: 10px 0px 0px 10px; 
+	display: inline-block;
+}
+
+.left2 {
+	float: left;
+	clear: left;
+	display: block;
+}
+
+.right2 {
+	float: right;
+	display: block;
+}
+
+.stop {
+	float: both;
+	clear: both;
+}
+
+.debug {
+	font-size: 0.65em;
+	text-align: justify; 
+	margin: 5px 0px; 
+	width: 100%; 
+}
+
+.vote {
+	font-size: 1.1em;
+	text-decoration: underline; 
+	color: yellow;
+}
+
+.green {
+	color: rgb(0,215,0);
+}
+
+.yellow {
+	color: yellow;
+}
+
+.red {
+	color: rgb(255,50,0);
+}
+
+.tip {
+	font-size: 0.95em;
+	color: rgb(128,215,200);
+}
+
+.slogan {
+	color: rgb(128,215,200);
+	font-size: 1.3em;
+}
+
+.shop {
+	font-size: 1.4em;
+}
