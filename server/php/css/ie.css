@@ -5,12 +5,9 @@ body {
 	width: 510px;
 }
 
-.fixed { 
+.content {
 	text-align:left;
-}
-
-.scroll {
-	text-align:left;
+	width: 510px;
 }
 
 .header {
@@ -23,6 +20,10 @@ body {
 
 .footer {
 	width: 510px;
+}
+
+.note3 {
+	width: 400px;
 }
 
 .note2 {

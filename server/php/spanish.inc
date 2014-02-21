@@ -707,12 +707,13 @@ $lang['PLAYER_LANG_ITALIAN'] = 'Italiano';
 
 $lang['BACKGROUND_0'] = 'Negro';
 $lang['BACKGROUND_1'] = 'Verde militar';
-$lang['BACKGROUND_2'] = 'Aurora roja';
-$lang['BACKGROUND_3'] = 'Seda azul';
-$lang['BACKGROUND_4'] = 'Pirata';
-$lang['BACKGROUND_5'] = 'Clásico';
-$lang['BACKGROUND_6'] = 'Navidad';
-$lang['BACKGROUND_7'] = 'Fuegos artificiales';
+$lang['BACKGROUND_2'] = 'Transparent';
+$lang['BACKGROUND_3'] = 'Aurora roja';
+$lang['BACKGROUND_4'] = 'Seda azul';
+$lang['BACKGROUND_5'] = 'Pirata';
+$lang['BACKGROUND_6'] = 'Clásico';
+$lang['BACKGROUND_7'] = 'Navidad';
+$lang['BACKGROUND_8'] = 'Fuegos artificiales';
 
 $lang['PLAYER_GENERAL_CHANGED'] = 'Configuración general cambiada!';
 $lang['PLAYER_NICKNAME_EXIST'] = 'El Apodo ya está en uso!';

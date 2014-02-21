@@ -663,13 +663,13 @@ $lang['PLAYER_HEALTH_CONDITION'] = 'Health condition';
 $lang['PLAYER_HEALTH_RESTORED'] = 'Health restored for %s dollars.';
 $lang['PLAYER_HEALTH_CONFIRM'] = 'Do you really want to restore health?';
 
-$lang['PLAYER_ENERGY_TITLE'] = 'Restore energy';
+$lang['PLAYER_ENERGY_TITLE'] = 'Restore Energy';
 $lang['PLAYER_ENERGY_NOTE'] = 'Pay the oil company to restore your army\'s energy completely. Restore can only be used once every 24 hours. Energy also restores by itself over time. ';	
 $lang['PLAYER_ENERGY_CONDITION'] = 'Energy condition';
 $lang['PLAYER_ENERGY_RESTORED'] = 'Energy restored for %s dollars.';
 $lang['PLAYER_ENERGY_CONFIRM'] = 'Do you really want to restore energy?';
 
-$lang['PLAYER_AMMO_TITLE'] = 'Restore ammo';
+$lang['PLAYER_AMMO_TITLE'] = 'Restore Ammo';
 $lang['PLAYER_AMMO_NOTE'] = 'Pay the weapon factory to restore your army\'s ammo completely. Restore can only be used once every 24 hours. Ammo also restores by itself over time.';	
 $lang['PLAYER_AMMO_CONDITION'] = 'Ammo condition';
 $lang['PLAYER_AMMO_RESTORED'] = 'Ammo restored for %s dollars.';
@@ -684,19 +684,19 @@ $lang['PLAYER_HOLIDAY_NOTE'] = 'Relax by activating a holiday period. During thi
 $lang['PLAYER_HOLIDAY_ACTIVATED'] = 'Holiday period activated for %s dollar.';
 $lang['PLAYER_HOLIDAY_CONFIRM'] = 'Do you really want to activate a holiday period?';
 
-$lang['PLAYER_UNITS_TITLE'] = 'Repair units';
+$lang['PLAYER_UNITS_TITLE'] = 'Repair Units';
 $lang['PLAYER_UNITS_NOTE'] = 'Repair units of your army. If units condition gets 0% some units will be destroyed and the remaining units are automatically repaired.';	
 $lang['PLAYER_UNITS_CONDITION'] = 'Units Condition (UC)';
 $lang['PLAYER_UNITS_REPAIRED'] = 'Your units are repaired for %s dollars.';
 $lang['PLAYER_UNITS_CONFIRM'] = 'Do you really want to repair your units?';
 
-$lang['PLAYER_BUILDINGS_TITLE'] = 'Repair buildings';
+$lang['PLAYER_BUILDINGS_TITLE'] = 'Repair Buildings';
 $lang['PLAYER_BUILDINGS_NOTE'] = 'Repair buildings of your base. If buildings condition gets 0%, some buildings will be destroyed and the remaining buildings are automatically repaired.';	
 $lang['PLAYER_BUILDINGS_CONDITION'] = 'Buildings Condition (BC)';
 $lang['PLAYER_BUILDINGS_REPAIRED'] = 'Your buildings are repaired for %s dollar.';
 $lang['PLAYER_BUILDINGS_CONFIRM'] = 'Do you really want to repair your buildings?';
 
-$lang['PLAYER_REBELLION_TITLE'] = 'Restore peace';
+$lang['PLAYER_REBELLION_TITLE'] = 'Restore Peace';
 $lang['PLAYER_REBELLION_NOTE'] = 'Pay intelligence to end upcoming rebellions in your conquered regions. If Rebellion Condition gets 100% some regions will be lost to rebels and must be reconquered.';	
 $lang['PLAYER_REBELLION_CONDITION'] = 'Rebellion Condition (RC)';
 $lang['PLAYER_REBELLION_RESTORED'] = 'End rebellion for %s dollars.';
@@ -715,7 +715,7 @@ $lang['SETTING_GENERAL2'] = 'General settings 2';
 $lang['SETTING_NICKNAME'] = 'WarQuest nickname';
 $lang['SETTING_TWITTER'] = 'Twitter account';
 $lang['SETTING_LANGUAGE'] = 'Language';
-$lang['SETTING_BACKGROUND'] = "Background";
+$lang['SETTING_BACKGROUND'] = "Thema";
 $lang['SETTING_SOUND'] = 'Enable sound (Experimental)';
 $lang['SETTING_BOUNTY'] = 'Enable bounty confirmation popup.';
 $lang['SETTING_RESTORE'] = 'Enable restore & repair confirmation popup.';
@@ -735,12 +735,13 @@ $lang['PLAYER_LANG_SPANISH'] = 'Spanish';
 
 $lang['BACKGROUND_0'] = 'Black';
 $lang['BACKGROUND_1'] = 'Army Green';
-$lang['BACKGROUND_2'] = 'Red Aurora';
-$lang['BACKGROUND_3'] = 'Blue Silk';
-$lang['BACKGROUND_4'] = 'Pirate';
-$lang['BACKGROUND_5'] = 'Classic';
-$lang['BACKGROUND_6'] = 'Christmas';
-$lang['BACKGROUND_7'] = 'Fireworks';
+$lang['BACKGROUND_2'] = 'Transparent';
+$lang['BACKGROUND_3'] = 'Red Aurora';
+$lang['BACKGROUND_4'] = 'Blue Silk';
+$lang['BACKGROUND_5'] = 'Pirate';
+$lang['BACKGROUND_6'] = 'Classic';
+$lang['BACKGROUND_7'] = 'Christmas';
+$lang['BACKGROUND_8'] = 'Fireworks';
 
 $lang['PLAYER_GENERAL_CHANGED'] = 'General settings changed!';
 $lang['NICKNAME_EXIST'] = 'Nickname already taken!';
@@ -1498,7 +1499,7 @@ $lang['UNIT_501'] = 'Surveillance Camera';
 $lang['UNIT_502'] = 'Marine Intelligence';
 $lang['UNIT_503'] = 'Mini Air Drone';
 $lang['UNIT_504'] = 'G343 Spy Robot';
-$lang['UNIT_505'] = 'Intelligence A3 Crusader';
+$lang['UNIT_505'] = 'A3 Crusader';
 $lang['UNIT_506'] = 'Spy Fishing Ship';
 $lang['UNIT_507'] = 'Hawk Eye';
 $lang['UNIT_508'] = 'UK-80 AWACS';
@@ -1922,7 +1923,7 @@ $lang['BUILDING_62'] = 'ICT Maintenance';
 
 /* Income (Moon) - Group 6 */
 $lang['BUILDING_600'] = 'General Base';
-$lang['BUILDING_601'] = 'Explore & Research Centre';
+$lang['BUILDING_601'] = 'Research Centre';
 $lang['BUILDING_602'] = 'Personel Quarters';
 $lang['BUILDING_603'] = 'Oxygen Factory';
 $lang['BUILDING_604'] = 'Water Factory';
@@ -3247,7 +3248,7 @@ $lang['HOME_TRADE6'] = 'Premium Membership';
 $lang['HOME_TRADE6_NOTE'] = 'Activate premium membership to double expercience and triple money during battles and missions. It takes %s to activate premium membership for 3 days.';
 
 $lang['GENERAL_STATUS'] = 'Status';
-$lang['PREMIUM_NOT_ACTIVE'] = 'Not activated';
+$lang['PREMIUM_NOT_ACTIVE'] = 'Idle';
 $lang['PREMIUM_ACTIVE'] = 'Activated for ';
 
 $lang['HELP_SUBTITLE_DONATE4'] = 'Support';

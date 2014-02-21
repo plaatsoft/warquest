@@ -461,10 +461,10 @@ function warquest_topic_form() {
 		$page .= '<b></b>';
 		$page .= '</td>';
 	
-		$page .= '<td width="215">';
+		$page .= '<td width="230">';
 		$page .= '</td>';
 
-		$page .= '<td width="210">';
+		$page .= '<td width="195">';
 		$page .= '</td>';
 		
 		$page .= '</tr>';
@@ -501,8 +501,7 @@ function warquest_topic_form() {
 			$page .= '<br/>';
 			$page .= '<i>';	
 			$page .= t('TOPIC_CREATED_BY', player_format($data->pid, $data->name, $data->country));
-			$page .= '</i>';
-		
+			$page .= '</i>';		
 			$page .= '</td>';
 				
 			$page .= '<td valign="top">';
@@ -524,8 +523,7 @@ function warquest_topic_form() {
 			
 			if ($count!=$count4) {
 				$page .= '<tr>';
-				$page .= '<td colspan="3">';
-				$page .= '<hr/>';
+				$page .= '<td colspan="3" class="bar">';
 				$page .= '</td>';
 				$page .= '</tr>';
 			}
@@ -579,14 +577,14 @@ function warquest_forum_form() {
 	$page .= '<table>';
 	
 	$page .= '<tr>';
-	
+		
 	$page .= '<td width="75">';
 	$page .= '</td>';
 	
-	$page .= '<td width="215" valign="top">';
+	$page .= '<td width="230" valign="top">';
 	$page .= '</td>';
 	
-	$page .= '<td width="210" valign="top">';
+	$page .= '<td width="195" valign="top">';
 	$page .= '</td>';
 	
 	$page .= '</tr>';
@@ -615,14 +613,19 @@ function warquest_forum_form() {
 		$page .= '<span class="paragraph">';
 		$page .= warquest_link('mid='.$mid.'&sid='.PAGE_TOPIC.'&fid='.$tmp, t('FORUM_'.$tmp), 'forum'.$tmp);
 		$page .= '</span>';
-		$page .= '<br/><i>'.t('FORUM_NOTE_'.$tmp).'<br/>';
+		
+		$page .= '<br/>';
+		
+		$page .= '<div class="remark">';
+		$page .= t('FORUM_NOTE_'.$tmp).'<br/>';
 			if ($tmp != $config["max_forums"]) {		
 			$page .= t('GENERAL_FORUM_MODERATED', player_format($config["adminPid"], 'admin','NL'));
 		} else {
 			$page .= t('GENERAL_NOT_MODERATED');
-		}
-			
-		$page .= '</i></td>';
+		}			
+		$page .= '</div>';
+		
+		$page .= '</td>';
 	
 		$page .= '<td valign="top">';
 		$page .= health_format($count).' '.t('GENERAL_TOPICS').' - ';
@@ -639,8 +642,7 @@ function warquest_forum_form() {
 	
 		if ($tmp != $config["max_forums"]) {
 			$page .= '<tr>';
-			$page .= '<td colspan="3">';
-			$page .= '<hr/>';
+			$page .= '<td colspan="3" class="bar">';
 			$page .= '</td>';
 			$page .= '</tr>';
 		}

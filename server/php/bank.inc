@@ -298,8 +298,8 @@ function warquest_bank_form() {
 	
 	$page .= "</tr>";
 	
-	$page .= "<tr>";
-	$page .= "<td>";
+	$page .= '<tr>';
+	$page .= '<td class="clear">';
 	$page .= t('LINK_DEPOSIT').":<br/>";
 	$page .= '<input id="text" name="deposit" size="20" maxlength="16" type="text" value="';
 	if ($ssid<4) {
@@ -311,7 +311,7 @@ function warquest_bank_form() {
 	$page .= warquest_link('mid='.$mid.'&sid='.$sid.'&ssid='.$ssid.'&eid='.EVENT_BANK_DEPOSIT, t('LINK_DEPOSIT'), 'deposit-0');
 	$page .= "</td>";
 	
-	$page .= "<td>";
+	$page .= '<td class="clear">';
 	$page .= t('LINK_WITHDRAW').":<br/>";
 	$page .= '<input id="text" name="withdraw" size="20" maxlength="16" type="text" value="'.number_format($balance,0,",",".").'"><br/>';
 	$page .= warquest_link('mid='.$mid.'&sid='.$sid.'&ssid='.$ssid.'&eid='.EVENT_BANK_WITHDRAW, t('LINK_WITHDRAW'), 'withdraw-1');

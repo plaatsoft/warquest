@@ -611,12 +611,13 @@ $lang['PLAYER_LOGIN_NOTE'] = 'BELANGRIJK: Automatische inlog werkt alleen als de
 
 $lang['BACKGROUND_0'] = 'Zwart';
 $lang['BACKGROUND_1'] = 'Legergroen';
-$lang['BACKGROUND_2'] = 'Rode aurora';
-$lang['BACKGROUND_3'] = 'Zijde blauw';
-$lang['BACKGROUND_4'] = 'Piraat';
-$lang['BACKGROUND_5'] = 'Klassiek';
-$lang['BACKGROUND_6'] = 'Kerst';
-$lang['BACKGROUND_7'] = 'Vuurwerk';
+$lang['BACKGROUND_2'] = 'Transparant';
+$lang['BACKGROUND_3'] = 'Rode aurora';
+$lang['BACKGROUND_4'] = 'Zijde blauw';
+$lang['BACKGROUND_5'] = 'Piraat';
+$lang['BACKGROUND_6'] = 'Klassiek';
+$lang['BACKGROUND_7'] = 'Kerst';
+$lang['BACKGROUND_8'] = 'Vuurwerk';
 
 /*
 ** ------------------

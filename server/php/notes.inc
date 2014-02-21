@@ -16,6 +16,22 @@
 **  All copyrights reserved (c) 2008-2014 PlaatSoft
 */
 
+$notes[65] = '
+<div class="subparagraph2">20-02-2014</div>
+<i>Game Server v6.5</i>
+<ul>
+<li>Refactor HTML to support new CCS3 themas.</li>
+<li>Added transparent CCS3 thema (Home->Settings->Thema)</li>
+<li>Added more color to default thema.</li>
+<li>Removed not used background themas.</li>
+</ul>
+<br/>
+
+<i>General</i>
+<ul>
+<li>Please visit www.gravatar.com to upload a player image.</li>
+</ul>';
+
 $notes[64] = '
 <div class="subparagraph2">17-02-2014</div>
 <i>Game Server v6.4</i>
@@ -46,17 +62,9 @@ $notes[64] = '
 </ul>
 <li>Enable HTTPS in Apache (based on selfsigned certificate).</li>
 <li>Refactor HTML output handeling.</li>
-<li>Bank accounts >100 trillion dollar do NOT receive interest anymore.</li>
 <li>Added extra support text to donate page.</li>
 <li>Bug fix: Mission planet image was sometimes incorrect rendered.</li>
-</ul>
-<br/>
-
-<i>General</i>
-<ul>
-<li>Please visit www.gravatar.com to upload a player image.</li>
-</ul>
-<br/>';
+</ul>';
 
 $notes[63] = '
 <div class="subparagraph2">07-01-2014</div>

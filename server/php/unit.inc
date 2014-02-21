@@ -78,10 +78,10 @@ function warquest_unit_deploy_do() {
 	
 		$message = '<table>';
 		$message .= '<tr>';
-		$message .= '<td width="100">';
+		$message .= '<td class="clear" width="100">';
 		$message .= warquest_unit_image($unit, 0, 0);
 		$message .= '</td>';
-		$message .= '<td>';
+		$message .= '<td class="clear">';
 		$message .= t('UNIT_MAX', number_format2($unit->max), t('UNIT_'.$uid));
 		$message .= '</td>';
 		$message .= '</tr>';
@@ -93,10 +93,10 @@ function warquest_unit_deploy_do() {
 		
 		$message = '<table>';
 		$message .= '<tr>';
-		$message .= '<td width="100">';
+		$message .= '<td class="clear" width="100">';
 		$message .= warquest_unit_image($unit, 0, 0);
 		$message .= '</td>';
-		$message .= '<td>';
+		$message .= '<td class="clear">';
 		if ($totalPrice>0) {
 			$message .= t('UNIT_NO_FUNDS', number_format2($amount), t('UNIT_'.$uid), dollar_format($totalPrice));
 		} else {
@@ -112,10 +112,10 @@ function warquest_unit_deploy_do() {
 	
 		$message = '<table>';
 		$message .= '<tr>';
-		$message .= '<td width="100">';
+		$message .= '<td class="clear" width="100">';
 		$message .= warquest_unit_image($unit, 0, 0);
 		$message .= '</td>';
-		$message .= '<td>';
+		$message .= '<td class="clear">';
 		$message .= t('UNIT_NO_UPKEEP',number_format2($amount), t('UNIT_'.$uid));
 		$message .= '</td>';
 		$message .= '</tr>';
@@ -143,11 +143,11 @@ function warquest_unit_deploy_do() {
 		$message = '<table>';
 		$message .= '<tr>';
 		
-		$message .= '<td width="100">';
+		$message .= '<td class="clear" width="100">';
 		$message .= warquest_unit_image($unit, 0, 0);
 		$message .= '</td>';
 		
-		$message .= '<td>';
+		$message .= '<td class="clear">';
 		if ($totalPrice>0) {
 			$message .= t('UNIT_DEPLOY', number_format2($amount), t('UNIT_'.$uid), dollar_format($totalPrice), deploy_format($totalAmount));
 		} else {
@@ -216,10 +216,10 @@ function warquest_unit_disband_do() {
 		
 		$message = '<table>';
 		$message .= '<tr>';
-		$message .= '<td width="100">';
+		$message .= '<td class="clear" width="100">';
 		$message .= warquest_unit_image($unit, 0, 0);
 		$message .= '</td>';
-		$message .= '<td>';
+		$message .= '<td class="clear">';
 		$message .= t('UNIT_DISBAND_FAILED', number_format2($amount), t('UNIT_'.$uid), $totalAmount);
 		$message .= '</td>';
 		$message .= '</tr>';
@@ -245,11 +245,11 @@ function warquest_unit_disband_do() {
 		$message = '<table>';
 		$message .= '<tr>';
 		
-		$message .= '<td width="100">';
+		$message .= '<td class="clear" width="100">';
 		$message .= warquest_unit_image($unit, 0, 0);
 		$message .= '</td>';
 		
-		$message .= '<td>';
+		$message .= '<td class="clear">';
 		if ($totalPrice  > 0) {
 			$message .= t('UNIT_DISBAND',	number_format2($amount), t('UNIT_'.$uid), dollar_format($totalPrice), deploy_format($totalAmount));
 		} else {
@@ -350,17 +350,17 @@ function warquest_unit_form() {
 			$page .= '</td>';
 			
 			$page .= '<td width="210">';
-			$page .= '<b>'.t('UNIT_'.$data1->uid).'</b>';			
+			$page .= '<span class="subparagraph">'.t('UNIT_'.$data1->uid).'</span>';			
 			if (warquest_library($data1->uid,0)==1) {
 				$page .= ' ';
 				$page .= warquest_link('mid='.$mid.'&sid='.PAGE_LIBRARY.'&uid='.$data1->uid, warquest_image('other/info.png','width="16" height="16"'),'info'.$count);
 			}
 			$page .= '<br/>';
 			if ($data1->attack > 0) {
-				$page .= $data1->attack.' '.t('GENERAL_ATTACK').' - ';
+				$page .= strength_format($data1->attack).' '.t('GENERAL_ATTACK').' - ';
 			}
 			if ($data1->defense > 0) {
-				$page .= $data1->defense.' '.t('GENERAL_DEFENSE');
+				$page .= strength_format($data1->defense).' '.t('GENERAL_DEFENSE');
 			}		
 			if ($data1->upkeep > 0) {
 				$page .= '<br/>'.t('GENERAL_UPKEEP').': +'.money_format1($data1->upkeep);
@@ -396,10 +396,10 @@ function warquest_unit_form() {
 			$page .= '<td>'; 
 			$page .= '<b>'.t('UNIT_'.$data2->uid).'</b><br/>';
 			if ($data2->attack > 0) {
-				$page .= $data2->attack.' '.t('GENERAL_ATTACK').' - ';
+				$page .= strength_format($data2->attack).' '.t('GENERAL_ATTACK').' - ';
 			}
 			if ($data2->defense > 0) {
-				$page .= $data2->defense.' '.t('GENERAL_DEFENSE');
+				$page .= strength_format($data2->defense).' '.t('GENERAL_DEFENSE');
 			}
 			if ($data2->upkeep > 0) {
 				$page .= '<br/>'.t('GENERAL_UPKEEP').': +'.money_format1($data2->upkeep);

@@ -34,17 +34,12 @@ function warquest_create_title($title) {
 	global $player;
 	global $config;
 	
-	$page  = '<table>';
-	$page .= '<tr>';
-	
-	$page .= '<td width="250" align="left">';
-	$page .= '<span class="paragraph">';
+	$page  = '<div class="left2 title2">';
 	$page .= warquest_planet_image($player->planet);
 	$page .= $title;
-	$page .= '</span>';	
-	$page .= '</td>';
+	$page .= '</div>';	
 	
-	$page .= '<td width="250" align="right">';
+	$page .= '<div class="right2">';
 	$page .= t('HOME_TRAVEL_TO');
 	
 	for ($planet=PLANET_EARTH; $planet<=$config['max_planets']; $planet++) {
@@ -107,17 +102,17 @@ function warquest_create_title($title) {
 		
 		$tmp .= '&planet='.$planet.'&uid='.$uid.'&eid='.EVENT_SWITCH_PLANET.'&cid='.$cid;
 		
-		/* opponent is added only when needed */
 		if ($oid!=$player->pid) {
 			$tmp .= '&oid='.$oid;
 		}
 		
 		$page .= warquest_link_hidden($tmp,  warquest_planet_image($planet), 'planet'.$planet);
 	}
-	$page .= '</td>';
-	
-	$page .= '</tr>';
-	$page .= '</table>';
+
+	$page .= '</div>';
+
+	$page .= '<div class="stop">';
+	$page .= '</div>';
 
 	return $page;
 }
@@ -133,8 +128,8 @@ function warquest_ui_title() {
 	/* input */
 	global $mid;
 	global $sid;
-		
-	$page = '<div class="travel">';
+	
+	$page = "";
 	
 	switch ($mid) {
 				
@@ -178,8 +173,6 @@ function warquest_ui_title() {
 				$page .= warquest_create_title( "ADMIN" );
 				break;	
 	}
-	
-	$page .= '</div>';
 
 	return $page;
 }

@@ -703,7 +703,7 @@ function warquest_mission_form() {
 
 			$page .= '<tr>';
 		
-			$page .= '<td valign="top" width="240">';
+			$page .= '<td valign="top" width="240" class="clear">';
 			$page .= '<b>'.t('MISSION_REQUIRED').':</b><br/>';
 			$page .= energy_format($data->energy).' '.t('GENERAL_ENERGY').'<br/>';
 			$page .= alliance_format($data->alliance).' '.t('GENERAL_ALLIANCE_SIZE');
@@ -717,7 +717,7 @@ function warquest_mission_form() {
 			while ($data2 = warquest_db_fetch_object($result2)) {
 		
 				$count++;
-				$page .= '<td align="right" width="100">';   
+				$page .= '<td align="right" width="100" class="clear">';   
 				$page .= warquest_unit_image($data2, $line);	
 				$page .= '<br/><center>'.$data2->amount.'x</center>';
 				$page .= '</td>';
@@ -725,7 +725,7 @@ function warquest_mission_form() {
 			
 			/* fill up table */
 			for ($tmp=0; $tmp<(3-$count); $tmp++) {
-				$page .= '<td align="right" width="100">&nbsp;</td>';
+				$page .= '<td align="right" width="100" class="clear">&nbsp;</td>';
 			}
 			$page .= '</tr>';
 		

@@ -57,6 +57,20 @@ UPDATE unit_group SET name="explorers" WHERE ugid=28;
 UPDATE unit_group SET name="citizens" WHERE ugid=29;
 UPDATE unit_group SET name="army" WHERE ugid=30;
 
+-- Added clan bank
+
+CREATE TABLE IF NOT EXISTS `clan_bank` (
+  `cbid` int(11) NOT NULL AUTO_INCREMENT,
+  `cid` int(11) NOT NULL,
+  `pid` int(11) NOT NULL,
+  `amount` bigint(11) NOT NULL,
+  `balance` bigint(11) NOT NULL,
+  `action` int(11) NOT NULL,
+  `date` datetime NOT NULL,
+  PRIMARY KEY (`cbid`)
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=1;
+
+
 -- Added premium account features
 
 ALTER TABLE player ADD premium_date DATETIME NOT NULL AFTER pattern;

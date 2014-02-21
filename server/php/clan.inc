@@ -609,7 +609,7 @@ function warquest_clan_form() {
 		
 		$page .= '<th width="60">';
 		$page .= t('GENERAL_WON');
-		$page .= '</td>';
+		$page .= '</th>';
 
 		$page .= '<th width="60">';
 		$page .= t('GENERAL_LOST');
@@ -710,10 +710,10 @@ function warquest_clan_profile_form() {
 	
 	$page .= '<td>';
 	
-	$page .= "<table>";
+	$page .= '<table>';
 	
-	$page .= "<tr>";
-	$page .= "<td>";		
+	$page .= '<tr>';
+	$page .= '<td width="340">';		
 	$page .= t('LINK_BALANCE').":<br/>";
 	$page .= '<input id="text" name="balance" size="20" maxlength="16" disabled="disabled" type="text" ';
 	$page .= 'value="'.number_format($clan->money,0,",",".").'">';
@@ -725,7 +725,8 @@ function warquest_clan_profile_form() {
 	$page .= "</tr>";
 	
 	$page .= "<tr>";
-	$page .= "<td>";
+	
+	$page .= '<td class="clear">';
 	$page .= t('LINK_DEPOSIT').":<br/>";
 	$page .= '<input id="text" name="deposit" size="20" maxlength="16" type="text" value="';
 	$page .= number_format($player->money,0,",",".");
@@ -791,14 +792,16 @@ function warquest_clan_profile_form() {
 	$page .= '</tr>';
 	
 	$page .= '<tr>';
-	$page .= '<td></td>';
-	$page .= '<td colspan="4"><i>';
+	$page .= '<td class="clear"></td>';
+	$page .= '<td colspan="4" class="clear">';
+	$page .= '<div class="remark">';
 	$page .= t('CLAN_ATTACK_TIP',	dollar_format($clan->attack * $strength * $strength / $config['init_clan_skill_price']));
-	$page .= '</i><br/></td>';
+	$page .= '</div>';
+	$page .= '</td>';
 	$page .= '</tr>';
 
 	$page .= '<tr>';
-	$page .= '<td colspan="5"><hr></td>';
+	$page .= '<td colspan="5" class="bar"></td>';
 	$page .= '</tr>';
 	
 	/* ------------- */
@@ -830,10 +833,12 @@ function warquest_clan_profile_form() {
 	$page .= '</tr>';
 	
 	$page .= '<tr>';
-	$page .= '<td></td>';
-	$page .= '<td colspan="4"><i>';
+	$page .= '<td class="clear"></td>';
+	$page .= '<td colspan="4" class="clear">';
+	$page .= '<div class="remark">';
 	$page .= t('CLAN_DEFENSE_TIP', dollar_format($clan->defense * $strength * $strength / $config['init_clan_skill_price']));
-	$page .= '</i><br/></td>';
+	$page .= '</div>';
+	$page .= '</td>';
 	$page .= '</tr>';
 		
 	$page .= '</table>';

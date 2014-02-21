@@ -150,7 +150,8 @@ function warquest_lucky_number_selected($default, $option="") {
 
 	$values = array(10, 20, 30, 40, 50, 60, 70, 80, 90 , 100, 150, 200);
 
-	$page ='<select id="number" name="number" '.$option.' >';
+	$page  = '<div class="dropdown dropdown-dark">';		
+	$page .= '<select id="number" name="number" '.$option.' class="dropdown-select">';
 	
 	foreach ($values as $value) {
 	
@@ -163,6 +164,7 @@ function warquest_lucky_number_selected($default, $option="") {
 		$page .= '>'.$value.'</option>';
 	}
 	$page.='</select>';
+	$page.='</div>';
 	  
    return $page;
 }
@@ -238,10 +240,9 @@ function warquest_casino_wheel() {
 	$page .= warquest_lucky_number_selected($number);
 	
 	$page .= '<br/>';	
-	$page .= '<br/>';	
 
 	$page .= t('CASINO_BET').":<br/>";
-	$page .= '<input type="text" id="bet" name="bet" size="10" maxlength="7" type="text" value="'.$bet.'" onkeydown="if (event.keyCode == 13) return false" > ';
+	$page .= '<input type="text" id="bet" name="bet" size="20" maxlength="7" type="text" value="'.$bet.'" onkeydown="if (event.keyCode == 13) return false" > ';
 	$page .= warquest_link('mid='.$mid.'&sid='.$sid.'&ssid='.$ssid.'&eid='.EVENT_CASINO_WHEEL_PLAY, t('CASINO_PLAY'), 'play');
 	$page .= "</td>";
 	$page .= "</tr>";
@@ -647,7 +648,7 @@ function warquest_casino_slotmachine() {
 	$page .= '<tr>';
 	$page .= '<td width="290">';
 	$page .= t('CASINO_BET').":<br/>";
-	$page .= '<input id="bet" name="bet" size="10" maxlength="7" type="text" value="'.$bet.'" onkeydown="if (event.keyCode == 13) return false" /> ';
+	$page .= '<input id="bet" name="bet" size="20" maxlength="7" type="text" value="'.$bet.'" onkeydown="if (event.keyCode == 13) return false" /> ';
 	if ($eid!=EVENT_CASINO_SLOT_PLAY) {
 		$page .= warquest_link('mid='.$mid.'&sid='.$sid.'&ssid='.$ssid.'&eid='.EVENT_CASINO_SLOT_PLAY, t('CASINO_PLAY'), 'play');
 	} else {
@@ -909,7 +910,7 @@ function warquest_casino_tictactoe() {
 
 	$page .= '<td width="320">';
 	$page .= t('CASINO_BET').":<br/>";
-	$page .= '<input type="text" id="bet" name="bet" size="10" maxlength="7" type="text" onkeydown="if (event.keyCode == 13) return false" value="'.$bet.'"> ';
+	$page .= '<input type="text" id="bet" name="bet" size="20" maxlength="7" type="text" onkeydown="if (event.keyCode == 13) return false" value="'.$bet.'"> ';
 		
 	$page .= warquest_link('mid='.$mid.'&sid='.$sid.'&ssid='.$ssid.'&eid='.EVENT_CASINO_TIC_PLAY, t('CASINO_PLAY'), 'play');
 		
