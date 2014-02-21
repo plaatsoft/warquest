@@ -2405,12 +2405,7 @@ function warquest_ui_background($tag, $id, $readonly) {
 						 "4" =>  t('BACKGROUND_4'),
 						 "5" =>  t('BACKGROUND_5'),
 						 "6" =>  t('BACKGROUND_6'),
-						 "7" =>  t('BACKGROUND_7'),
-						 "8" =>  t('BACKGROUND_8'),
-						 "9" =>  t('BACKGROUND_9'),
-						 "10" => t('BACKGROUND_10'),
-						 "11" => t('BACKGROUND_11'),
-						 "12" => t('BACKGROUND_12') );
+						 "7" =>  t('BACKGROUND_7'));
 						 
 	$page ='<select id="mybackground" name="mybackground">';
 		
@@ -2507,11 +2502,13 @@ function warquest_ui_menu($mid, $sid, $ssid, $label, $active_id, $notification=0
 		$menu .= '</div>';
 	} 
 	
+	$menu .= '</li>';
+	
 	if ( $notification > 0 ) {
-		$menu .= '<span class="notification">'.$notification.'</span>';	
+		$menu .= '<div class="notification">'.$notification.'</div>';	
 	}
 	
-	$menu .= '</li>';
+	
 	
 	return $menu;
 }
@@ -2611,7 +2608,7 @@ function warquest_box_icon($title, $content, $link="") {
 			$message .= warquest_image('other/info.png',' width="64" height="64" ');
 			$message .= '</td>';
 		
-			$message .= '<td width="400">';
+			$message .= '<td width="430">';
 			$message .= '<div class="paragraph"><span class="info">'.t('BOX_INFO').'</span></div>';
 			
 		} else if ($title=="warning") {
@@ -2619,7 +2616,7 @@ function warquest_box_icon($title, $content, $link="") {
 			$message .= warquest_image('other/warning.png',' width="64" height="64" ');
 			$message .= '</td>';
 		
-			$message .= '<td width="400">';
+			$message .= '<td width="430">';
 			$message .= '<div class="paragraph"><span class="warning">'.t('BOX_WARN').'</span></div>';
 	
 		} else if ($title=="error") {
@@ -2627,7 +2624,7 @@ function warquest_box_icon($title, $content, $link="") {
 			$message .= warquest_image('other/error.png',' width="64" height="64" ');
 			$message .= '</td>';
 			
-			$message .= '<td width="400">';
+			$message .= '<td width="430">';
 			$message .= '<div class="paragraph"><span class="error">'.t('BOX_ERROR').'</span></div>';
 				
 		} else if ($title=="classified") {
@@ -2635,12 +2632,12 @@ function warquest_box_icon($title, $content, $link="") {
 			$message .= warquest_image('other/classified.png',' width="64" height="64" ');
 			$message .= '</td>';
 			
-			$message .= '<td width="400">';
+			$message .= '<td width="430">';
 			$message .= '<div class="paragraph"><span class="warning">CLASSIFIED</span></div>';
 		
 		} else { 
 	
-			$message .= '<td width="400">'; 
+			$message .= '<td width="430">'; 
 			$message .= '<div class="paragraph">'.$title.'</div>';
 		} 
 	
@@ -2713,10 +2710,6 @@ function warquest_ui_header() {
  
 	$page .= '<link href="'.$config["content_url"].'images/favicon.ico" rel="shortcut icon" type="image/x-icon" />'; 
 	$page .= '<link href="'.$config["content_url"].'css/general.css" rel="stylesheet" type="text/css" />';
-
-	if (!preg_match('/IE/',$browser)) {
-		$page .= '<link href="'.$config["content_url"].'css/style.css" rel="stylesheet" type="text/css" />';
-	}
 	
 	if (($mid==MENU_MONEY) && ($sid==PAGE_STOCK_EXCHANGE)) {	
 		$page .= '<link href="'.$config["content_url"].'css/jquery.css" rel="stylesheet" type="text/css" />';
@@ -2770,10 +2763,12 @@ function warquest_ui_header() {
 	if ($background == 0 ) {
 		$page .= 'body { background: black }';			
 	} else {	
-		$page .= 'body { background: black url("'.$config["content_url"].'images/background/background'.$background.'.jpg") 0 0 repeat fixed; }';		
+		$page .= 'body { background: black url("'.$config["content_url"].'images/background/background-'.$background.'.jpg") 0 0 repeat fixed; }';				
 	}
 	$page .= '</style>';
-		
+	
+	$page .= '<link href="'.$config["content_url"].'css/style'.$background.'.css" rel="stylesheet" type="text/css" />';
+	
 	/* Add JavaScripts */
 	$page .= '<script language="JavaScript" src="'.$config["content_url"].'js/link3.js" type="text/javascript"></script>';
 	

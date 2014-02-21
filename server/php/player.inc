@@ -1407,10 +1407,10 @@ function warquest_profile($id) {
 		$page .= '<table>';
 	
 		$page .= '<tr>';
-		$page .= '<td  width="170"><b>'.t('PLAYER_FIGHTS_WON').':</b></td>';
-		$page .= '<td  width="85">'.number_format($data->won,0,",",".").'</td>';
-		$page .= '<td  width="160"><b>'.t('PLAYER_FIGHTS_LOST').':</b></td>';
-		$page .= '<td>'.number_format($data->lost,0,",",".").'</td>';
+		$page .= '<td width="170"><b>'.t('PLAYER_FIGHTS_WON').':</b></td>';
+		$page .= '<td width="85">'.number_format($data->won,0,",",".").'</td>';
+		$page .= '<td width="160"><b>'.t('PLAYER_FIGHTS_LOST').':</b></td>';
+		$page .= '<td width="100">'.number_format($data->lost,0,",",".").'</td>';
 		$page .= '</tr>';
 		
 		$page .= '<tr>';
@@ -1526,7 +1526,7 @@ function warquest_profile($id) {
 		
 		$page .= '<tr>';
 		$page .= '<td width="170"><b>'.t('PLAYER_BROWSER').':</b></td>';
-		$page .= '<td>'.$member->browser.'</td>';
+		$page .= '<td width="330">'.$member->browser.'</td>';
 		$page .= '</tr>';
 
 		$page .= '<tr>';
@@ -1556,11 +1556,11 @@ function warquest_profile($id) {
 		
 		$page .= '<tr>';
 		$page .= '<td width="170"><b>'.t('PLAYER_CASH_MONEY').':</b></td>';
-		$page .= '<td>'.dollar_format($data->money).'</td>';
+		$page .= '<td width="330">'.dollar_format($data->money).'</td>';
 		$page .= '</tr>';
 	
 		$page .= '<tr>';
-		$page .= '<td width="170"><b>'.t('PLAYER_GOLD').':</b></td>';
+		$page .= '<td><b>'.t('PLAYER_GOLD').':</b></td>';
 		$page .= '<td>'.gold_format($data->gold).'</td>';
 		$page .= '</tr>';
 		
@@ -1606,7 +1606,7 @@ function warquest_profile($id) {
 		$page .= '<tr>';
 		$page .= '<td width="170"><b></b></td>';
 		$page .= '<td width="150"><b>'.t('PLAYER_ATTACK_STRENGTH').'</b></td>';
-		$page .= '<td width="150"><b>'.t('PLAYER_DEFENSE_STRENGTH').'</b></td>';
+		$page .= '<td width="180"><b>'.t('PLAYER_DEFENSE_STRENGTH').'</b></td>';
 		$page .= '</tr>';
 	
 		$query2  = 'select ugid, type from unit_group where planet='.$player->planet.' and type!=1 and type!=6 order by type';
@@ -1646,7 +1646,7 @@ function warquest_profile($id) {
 		$page .= '<tr>';
 		$page .= '<td width="170"><b>'.t('PLAYER_BUILDING_INCOME').':</b></td>';
 		
-		$page .= '<td>';
+		$page .= '<td  width="330">';
 		$link = warquest_link('mid='.$mid.'&sid='.PAGE_BUILDING_INCOME.'&oid='.$id, number_format($building_income, 0,",","."), "income");	
 		$page .= $link;
 		$page .= '</td>';
@@ -1711,7 +1711,7 @@ function warquest_profile($id) {
 		$page .= '<tr>';
 		$page .= '<td width="170"><b>'.t('PLAYER_DISCOUNT_RATE').':</b></td>';
 		$link = warquest_link('mid='.$mid.'&sid='.PAGE_DISCOUNT.'&oid='.$id, warquest_db_discount($data, $player->planet), "discount");	
-		$page .= '<td>'.$link.'%</td>';
+		$page .= '<td width="330">'.$link.'%</td>';
 		$page .= '</tr>';
 		
 		$page .= '<tr>';

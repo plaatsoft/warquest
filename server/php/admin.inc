@@ -450,7 +450,7 @@ function warquest_admin_browser_report() {
 	$page .= '<th width="150">Browser</th>';
 	$page .= '<th width="150">Version</th>';
 	$page .= '<th width="100">Count</th>';	
-	$page .= '<th width="50">Platform</th>';
+	$page .= '<th width="100">Platform</th>';
 	$page .= '</tr>';	
 	
 	$total = 0;
@@ -510,7 +510,7 @@ function warquest_admin_browser_report() {
 	$page .= '<tr>';	
 	$page .= '<th width="150">Platform</th>';	
 	$page .= '<th width="150">Logo</th>';	
-	$page .= '<th width="50">Count</th>';	
+	$page .= '<th width="200">Count</th>';	
 	$page .= '</tr>';	
 		
 	$total = 0;
@@ -576,13 +576,15 @@ function warquest_admin_level_form() {
 	
 	$page .= '<div class="box">';
 	$page .= '<table>';
-	
+	$page .= '<thead>';	
 	$page .= '<tr>';	
 	$page .= '<th width="100">Level</th>';
 	$page .= '<th width="125">Players</th>';
 	$page .= '<th width="125">Countries</th>';
+	$page .= '<th width="200"></th>';
 	$page .= '</tr>';
-	
+	$page .= '</thead>';	
+	$page .= '<tbody>';	
 	$total = 0;
 	while ($data=warquest_db_fetch_object($result)) {
 	
@@ -590,12 +592,17 @@ function warquest_admin_level_form() {
 		$page .= '<td>';
 		$page .= warquest_link('mid='.$mid.'&uid='.$data->lid.'&sid='.PAGE_LEVEL_ZOOM, $data->lid);
 		$page .= '</td>';
+		
 		$page .= '<td>';
 		$page .= number_format($data->total,0,",",".");
 		$total += $data->total;
 		$page .= '</td>';
+		
 		$page .= '<td>';
 		$page .= number_format($data->country,0,",",".");
+		$page .= '</td>';
+		
+		$page .= '<td>';
 		$page .= '</td>';
 		$page .= '</tr>';
 	}
@@ -608,7 +615,8 @@ function warquest_admin_level_form() {
 	$page .= number_format($total,0,",",".");
 	$page .= '</td>';
 	$page .= '</tr>';
-		
+	
+	$page .= '</tbody>';
 	$page .= '</table>';
 	$page .= '</div>';	
 	
@@ -704,7 +712,7 @@ function warquest_admin_messages_form() {
 			
 			$page .= '</td>';
 		
-			$page .= '<td align="right" valign="top">';
+			$page .= '<td width="60" align="right" valign="top">';
 			$page .= warquest_link_confirm('mid='.$mid.'&sid='.$sid.'&eid='.EVENT_ADMIN_DELETE_MSG.'&uid='.$data->id, 'Delete', 'Delete message. Are your sure?');
 			$page .= '</td>';
 		
@@ -1460,7 +1468,7 @@ function warquest_admin_player_form() {
 	$page .= '<table>';		
 	$page .= '<tr>';
 	$page .= '<td width="120">Nickname:</td>';
-	$page .= '<td><input name="name" type="text" size="20" maxlength="15" value="'.$other->name.'" /></td>';
+	$page .= '<td width="380"><input name="name" type="text" size="20" maxlength="15" value="'.$other->name.'" /></td>';
 	$page .= '</tr>';
 			
 	$page .= '<tr>';
@@ -1517,7 +1525,7 @@ function warquest_admin_player_form() {
 		
 	$page .= '<tr>';
 	$page .= '<td width="120">ID:</td>';
-	$page .= '<td><input name="id" type="text" size="10" maxlength="10" value="'.$other->pid.'" disabled="yes" /></td>';
+	$page .= '<td width="380"><input name="id" type="text" size="10" maxlength="10" value="'.$other->pid.'" disabled="yes" /></td>';
 	$page .= '</tr>';
 		
 	$page .= '</tr>';		
@@ -1764,13 +1772,15 @@ function warquest_admin_member_do() {
 	
 	$page .= '<table>';
 	
+	$page .= '<thead>';	
+	
 	$page .= '<tr>';	
 	
 	$page .= '<th width="60">';
 	$page .= warquest_link('mid='.$mid.'&sid='.$sid.'&sort=1', "Country");
 	$page .= '</th>';
 	
-	$page .= '<th width="105">';
+	$page .= '<th width="110">';
 	$page .= warquest_link('mid='.$mid.'&sid='.$sid.'&sort=2', "Name");
 	$page .= '</th>';
 
@@ -1786,15 +1796,24 @@ function warquest_admin_member_do() {
 	$page .= warquest_link('mid='.$mid.'&sid='.$sid.'&sort=5', "Created");
 	$page .= '</th>';
 	
-	$page .= '<th width="80">';
+	$page .= '<th width="90">';
 	$page .= warquest_link('mid='.$mid.'&sid='.$sid.'&sort=0', "Last Active");
 	$page .= '</th>';
 
 	$page .= '</tr>';
 	
+	$page .= '</thead>';
+	
+	$page .= '<tbody>';
+	
+	$count=0;
 	while ($data=warquest_db_fetch_object($result)) {
 	
-		$page .= '<tr>';
+		if (++$count%2==0) {
+			$page .= '<tr class="even">';
+		} else {
+			$page .= '<tr>';
+		}
 		$page .= '<td>';
 		$page .= warquest_link('mid='.$mid.'&oid='.$data->pid.'&sid='.PAGE_PLAYERS,warquest_flag_image($data->country));
 		$page .= '</td>';
@@ -1816,6 +1835,7 @@ function warquest_admin_member_do() {
 		$page .= '</tr>';
 	}
 
+	$page .= '</tbody>';
 	$page .= '</table>';
 	
 	$page .= warquest_page_control($offset, $limit, $total, 0, '&sort='.$sort);

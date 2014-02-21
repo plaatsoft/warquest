@@ -712,20 +712,6 @@ $lang['PLAYER_LANG_DUTCH'] = 'Daneza';
 $lang['PLAYER_LANG_GERMAN'] = 'Germana';
 $lang['PLAYER_LANG_ITALIAN'] = 'Italiana';
 
-$lang['BACKGROUND_0'] = 'Black';
-$lang['BACKGROUND_1'] = 'Army Green';
-$lang['BACKGROUND_2'] = 'Red Aurora';
-$lang['BACKGROUND_3'] = 'Gray Stones';
-$lang['BACKGROUND_4'] = 'Pink Circles';
-$lang['BACKGROUND_5'] = 'Blue Silk';
-$lang['BACKGROUND_6'] = 'Brown';
-$lang['BACKGROUND_7'] = 'Pirate';
-$lang['BACKGROUND_8'] = 'Modern';
-$lang['BACKGROUND_9'] = 'Classic';
-$lang['BACKGROUND_10'] = 'Chocolate';
-$lang['BACKGROUND_11'] = 'Christmas';
-$lang['BACKGROUND_12'] = 'Fireworks';
-
 $lang['PLAYER_GENERAL_CHANGED'] = 'Setarile generale schimbate!';
 $lang['NICKNAME_EXIST'] = 'Nickname-ul este deja luat!';
 $lang['NICKNAME_TO_SHORT'] = 'Nickname-ul trebuie sa iaba minim 4 caractere!';

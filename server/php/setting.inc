@@ -543,7 +543,7 @@ function warquest_settings_form() {
 	
 	$page .= '<tr>';
 	$page .= '<td width="200">'.t('SETTING_NICKNAME').':</td>';
-	$page .= '<td>';
+	$page .= '<td width="300">';
 	$page .= warquest_ui_input('myname', 20, 15, $player->name, false);
 	$page .= '</td>';
 	$page .= '</tr>';
@@ -600,8 +600,8 @@ function warquest_settings_form() {
 	
 	$page .= '<tr>';
 	
-	$page .= '<td>'.warquest_ui_checkbox("sound", "sound", warquest_db_query_pattern($player, PATTERN_SOUND)).'</td>';
-	$page .= '<td>'.t('SETTING_SOUND').'</td>';
+	$page .= '<td width="75">'.warquest_ui_checkbox("sound", "sound", warquest_db_query_pattern($player, PATTERN_SOUND)).'</td>';
+	$page .= '<td width="425">'.t('SETTING_SOUND').'</td>';
 	$page .= '</tr>';
 				
 	$page .= '<tr>';
@@ -670,7 +670,7 @@ function warquest_settings_form() {
 
 	$page .= '<tr>';
 	$page .= '<td width="200">'.t('PLAYER_NEW_EMAIL').':</td>';
-	$page .= '<td>';
+	$page .= '<td width="300">';
 	$page .= warquest_ui_input('myemail', 30, 100, $member->email, false);
 	if ($member->email_valid==1) {
 		$page .= ' '.warquest_image("other/valid.png",'title="'.t('HOME_EMAIL_VALID').'"');
@@ -729,7 +729,7 @@ function warquest_settings_form() {
 						
 		$page .= '<tr>';	
 		$page .= '<td width="200">'.t('PLAYER_USERNAME').':</td>';
-		$page .= '<td>';
+		$page .= '<td width="300">';
 	
 		$page .= '<input name="username" type="text" id="username" size="18" ';
 		$page .= 'maxlength="'.$config["max_username_length"].'" value="'.$member->username.'"/>';

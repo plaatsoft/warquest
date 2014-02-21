@@ -488,8 +488,8 @@ function warquest_clan_bank_log($cid) {
 	
 	$page .= '<tr>';
 	$page .= '<th width="100">'.t('GENERAL_AGO').'</th>';
-	$page .= '<th width="280">'.t('GENERAL_TRANSACTION').'</th>';
-	$page .= '<th width="90">'.t('GENERAL_BALANCE').'</th>';
+	$page .= '<th width="290">'.t('GENERAL_TRANSACTION').'</th>';
+	$page .= '<th width="110">'.t('GENERAL_BALANCE').'</th>';
 	$page .= '</tr>';
 	
 	while ($data2=warquest_db_fetch_object($result2)) {

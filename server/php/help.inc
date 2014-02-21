@@ -595,7 +595,7 @@ function warquest_help_awards_form() {
 	$page .= t('GENERAL_AWARD');
 	$page .= '</th>';
 		
-	$page .= '<th>';
+	$page .= '<th width="100">';
 	$page .= t('GENERAL_EP');
 	$page .= '</th>';
 		
@@ -608,7 +608,7 @@ function warquest_help_awards_form() {
 	while ($data = warquest_db_fetch_object($result)) {
 	
 		$page .= '<tr>';
-		$page .= '<td width="200">';
+		$page .= '<td>';
 		
 		$page .= number_format($data->won,0,",",".").' '.t('GENERAL_BATTLE_AWARD_WON');
 
@@ -648,7 +648,7 @@ function warquest_help_awards_form() {
 	$page .= t('GENERAL_AWARD');
 	$page .= '</th>';
 		
-	$page .= '<th>';
+	$page .= '<th width="100">';
 	$page .= t('GENERAL_EP');
 	$page .= '</th>';
 		
@@ -662,7 +662,7 @@ function warquest_help_awards_form() {
 	while ($data = warquest_db_fetch_object($result)) {
 	
 		$page .= '<tr>';
-		$page .= '<td width="200">';
+		$page .= '<td>';
 		
 		$page .= number_format($data->amount,0,",",".").' '.t('GENERAL_BOUNTY_AWARD_WON');
 
@@ -702,7 +702,7 @@ function warquest_help_awards_form() {
 	$page .= t('GENERAL_AWARD');
 	$page .= '</th>';
 		
-	$page .= '<th>';
+	$page .= '<th width="100">';
 	$page .= t('GENERAL_EP');
 	$page .= '</th>';
 		
@@ -716,7 +716,7 @@ function warquest_help_awards_form() {
 	while ($data = warquest_db_fetch_object($result)) {
 	
 		$page .= '<tr>';
-		$page .= '<td width="200">';
+		$page .= '<td>';
 		
 		$page .= number_format($data->amount,0,",",".").' '.t('GENERAL_REBEL_AWARD_WON');
 
@@ -784,7 +784,7 @@ function warquest_help_ranks_form() {
 			$page .= '<b>'.$rank.'</b>';
 			$page .= '</td>';
 			
-			$page .= '<td>';
+			$page .= '<td width="150">';
 			$page .= warquest_rank_image($tmp);
 			$page .= '</td>';
 			

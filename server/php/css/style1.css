@@ -1,5 +1,33 @@
 /* WarQuest new style - All copyrights reserved (c) 2008-2014 PlaatSoft */
 
+/* General */
+
+body {		
+	color:  #ccc;
+}
+
+/* Paragraph */
+
+.paragraph {
+	font-size: 1.6em;
+	padding: 5px 0px 2px 0px; 
+	color: white;
+}
+
+.subparagraph {
+	font-size: 1.2em;
+	padding: 5px 0px 2px 0px; 
+	color: white;
+}
+
+.subparagraph2 {
+	font-size: 1.0em;
+	padding: 10px 0px 2px 0px; 
+	text-decoration: underline; 
+	font-weight: bold;
+	color: white;
+}
+
 /* Checkbox */
 
 .switch {
@@ -184,12 +212,10 @@
 
 .notification {
 	position:relative;
-	top: -42px;
-
 	font-size: 0.8em;
 	border: solid 1px; 
-	padding: 1px 1px; 
-	margin: 2px 2px; 
+	padding: 0px 0px; 
+	margin: 0px 0px; 
 	-moz-border-radius: 2px; 
 	-khtml-border-radius: 2px; 
 	-webkit-border-radius: 2px; 
@@ -212,22 +238,113 @@
 	text-align: justify;  
 }
 
-.paragraph {
-	font-size: 1.6em;
-	padding: 5px 0px 2px 0px; 
-	color: #bbb;;
-}
+/* Table */
 
-.subparagraph {
-	font-size: 1.2em;
-	padding: 5px 0px 2px 0px; 
-	color: #bbb;
-}
-
-.subparagraph2 {
-	font-size: 1.0em;
-	padding: 10px 0px 2px 0px; 
-	text-decoration: underline; 
+table a:link {
+	color: orange;
 	font-weight: bold;
-	color: #bbb;
+	text-decoration:none;
+}
+
+table a:visited {
+	color: white;
+	font-weight:bold;
+	text-decoration:none;
+}
+
+table a:active,
+table a:hover {
+	color: white;
+	text-decoration:underline;
+}
+
+table {
+	font-family:Arial, Helvetica, sans-serif;
+	font-size:12px;
+
+	margin:0px;
+	border:#ccc 0px solid;
+}
+
+table th {
+	font-size: 1.2em;
+	font-weight:bold;	
+	padding: 2px 0px 2px 0px;
+	border-top:0px solid #fafafa;
+	border-bottom:0px solid #e0e0e0;
+	background-image: -webkit-linear-gradient(top, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0));
+	background-image: -moz-linear-gradient(top, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0));
+	background-image: -o-linear-gradient(top, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0));
+	background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0));
+}
+
+table th:first-child {
+	text-align: left;
+	padding-left:0px;
+}
+
+table tr:first-child th:first-child {
+	-moz-border-radius-topleft:3px;
+	-webkit-border-top-left-radius:3px;
+	border-top-left-radius:3px;
+}
+
+table tr:first-child th:last-child {
+	-moz-border-radius-topright:3px;
+	-webkit-border-top-right-radius:3px;
+	border-top-right-radius:3px;
+}
+
+table tr {
+	text-align: left;
+	padding-left:0px;
+}
+
+table td:first-child {
+	text-align: left;
+	padding-left:0px;
+	border-left: 0px;
+}
+
+table td {
+	padding:0px;
+	border-top: 0px solid #ffffff;
+	border-bottom:0px solid #e0e0e0;
+	border-left: 0px solid #e0e0e0;
+
+	background-image: -webkit-linear-gradient(top, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0));
+	background-image: -moz-linear-gradient(top, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0));
+	background-image: -o-linear-gradient(top, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0));
+	background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0));
+}
+
+table tr.even td {
+
+	background-image: -webkit-linear-gradient(top, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0));
+	background-image: -moz-linear-gradient(top, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0));
+	background-image: -o-linear-gradient(top, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0));
+	background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0));
+}
+
+table tr:last-child td {
+	border-bottom:0;
+}
+
+table tr:last-child td:first-child {
+	-moz-border-radius-bottomleft:3px;
+	-webkit-border-bottom-left-radius:3px;
+	border-bottom-left-radius:3px;
+}
+
+table tr:last-child td:last-child {
+	-moz-border-radius-bottomright:3px;
+	-webkit-border-bottom-right-radius:3px;
+	border-bottom-right-radius:3px;
+}
+
+table tr:hover td {
+	background-image: -webkit-linear-gradient(top, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.2));
+	background-image: -moz-linear-gradient(top, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.2));
+	background-image: -o-linear-gradient(top, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.2));
+	background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.2));
 }
