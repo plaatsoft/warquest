@@ -797,7 +797,7 @@ function warquest_recover_form() {
 	$page .= '</tr>';
 	$page .= '</table>';
 	
-	$page .= '<div class="note2">';
+	$page .= '<div class="note3">';
 	$page .= t('LOGIN_RECOVER_NOTE2');
 	$page .= '</div>';
 	

@@ -1314,7 +1314,8 @@ function warquest_amount_selected($max=0) {
 	
 	$values = array(1, 2, 5, 10, 20, 50, 100, 200, 500, 1000, 2000, 5000, 10000, 50000, 100000, 500000);
 
-	$page ='<select id="amount" name="amount">';
+	$page  = '<div class="dropdown dropdown-dark">';	
+	$page .='<select id="amount" name="amount" class="dropdown-select">';
 	
 	foreach ($values as $value) {
 	
@@ -1332,6 +1333,7 @@ function warquest_amount_selected($max=0) {
 	}
 	
 	$page.='</select>';
+	$page.='</div>';
 	  
    return $page;
 }
@@ -2405,9 +2407,11 @@ function warquest_ui_background($tag, $id, $readonly) {
 						 "4" =>  t('BACKGROUND_4'),
 						 "5" =>  t('BACKGROUND_5'),
 						 "6" =>  t('BACKGROUND_6'),
-						 "7" =>  t('BACKGROUND_7'));
-						 
-	$page ='<select id="mybackground" name="mybackground">';
+						 "7" =>  t('BACKGROUND_7'),
+						 "8" =>  t('BACKGROUND_8'));
+	
+	$page  = '<div class="dropdown dropdown-dark">';
+	$page .='<select id="mybackground" name="mybackground" class="dropdown-select">';
 		
 	foreach ($array as $key => $value) {
 	
@@ -2420,6 +2424,7 @@ function warquest_ui_background($tag, $id, $readonly) {
 		$page .= '>'.$value.'</option>';
 	}
 	$page.='</select>';
+	$page.='</div>';
 	
 	return $page;
 }
@@ -2431,12 +2436,13 @@ function warquest_ui_country($tag, $id, $readonly) {
 	
 	/* input */
 	global $landcode;
-	
-	$page ='<select id="'.$tag.'" name="'.$tag.'" ';
+		
+	$page  = '<div class="dropdown dropdown-dark">';	
+	$page .='<select id="'.$tag.'" name="'.$tag.'" class="dropdown-select" ';
 	if ($readonly) {
 		$page .= 'disabled="true" ';
 	}
-	$page .= '>'; 
+	$page .= ' >'; 
 	
 	$id = strtolower($id);
 	
@@ -2451,6 +2457,7 @@ function warquest_ui_country($tag, $id, $readonly) {
 	}
 		
 	$page.='</select>';
+	$page.='</div>';
 	  
    return $page;
 }
@@ -2468,7 +2475,8 @@ function warquest_ui_language($tag, $id, $readonly) {
 						 "es" => t('PLAYER_LANG_SPANISH') 
 						 );
 
-	$page ='<select id="'.$tag.'" name="'.$tag.'">';
+	$page  = '<div class="dropdown dropdown-dark">';
+	$page .='<select id="'.$tag.'" name="'.$tag.'" class="dropdown-select">';
 	
 	foreach ($array as $key => $value) {
 	
@@ -2480,7 +2488,9 @@ function warquest_ui_language($tag, $id, $readonly) {
 		
 		$page .= '>'.$value.'</option>';
 	}
+	
 	$page.='</select>';
+	$page.='</div>';
 	  
    return $page;
 }
@@ -2679,7 +2689,9 @@ function warquest_ui_header() {
 	global $version;
 	global $output;
 	
-	$page  = '<!DOCTYPE html>';
+	$page = '';	
+	
+	//$page  .= '<!DOCTYPE html>';
 	$page .= '<html>';
 	$page .= '<head>';
 
@@ -2826,13 +2838,14 @@ function warquest_ui_banner() {
 	$level = warquest_db_level($player->lid);
 		
 	$page  = '<div class="header">'; 
+
 	$page .= '<div class="box">'; 
 	$page .= '<div class="banner">'; 
 	$page .= '<table>';
 	
 	$page .= '<tr>';
 	
-	$page .= '<td valign="top" width="170">';
+	$page .= '<td valign="top" width="185">';
 	$page .= warquest_link_hidden('mid='.MENU_ALLIANCE.'&sid='.PAGE_BEST_PLAYER, t('STATUS_CASH')).': ';
 	$page .= '<span class="value" id="moneyvalue"></span>';
 	
@@ -2843,12 +2856,19 @@ function warquest_ui_banner() {
 		$tmp .= '<span class="timer" id="moneycountdown"></span> ';
 	}
 	$page .= $tmp;
-	$page .= '<br/>';
 	
-	$page .= '<span class="timer">'.gold_format($player->gold).'</span>';
+	if (strlen($tmp)>0) {
+		$page .= ' ';
+	}
+	
+	if ($player->gold>0) {
+		$page .= '<span class="timer"><span class="gold">'.number_format($player->gold,0,",",".").'</span></span>';
+	}
+	$page .= '<br/>';
+	$page .= '<br/>';
 	$page .= '</td>';
 	
-	$page .= '<td valign="top" width="195">';
+	$page .= '<td valign="top" width="175">';
 	$page .= warquest_link_hidden('mid='.MENU_ALLIANCE.'&sid='.PAGE_BEST_COUNTRY, t('STATUS_EXP')).': ';
 	$page .= '<span class="value experience">'.number_format($player->experience,0,",",".");
 	$page .= '</span>';
@@ -2872,7 +2892,7 @@ function warquest_ui_banner() {
 	}
 	$page .= '</td>';
 	
-	$page .= '<td valign="top">';
+	$page .= '<td valign="top" width="140">';
 	$page .= warquest_link_hidden('mid='.MENU_FORUMS.'&sid='.PAGE_FORUM, t('STATUS_LEVEL')).': ';
 	$page .= '<span class="value level">'.$player->lid.'</span>';
 	if ($player->lid>0) {
@@ -2883,7 +2903,7 @@ function warquest_ui_banner() {
 	$page .= '</tr>';	
 	$page .= '<tr>';
 	
-	$page .= '<td valign="top" >';
+	$page .= '<td valign="top" class="clear" >';
 	if ($player->comment>0) {
 		$page .= warquest_link('mid='.MENU_HOME.'&sid='.PAGE_MESSAGES, warquest_image("other/email.gif").' ','mail');
 	}
@@ -2898,14 +2918,14 @@ function warquest_ui_banner() {
 	$page .= '<span class="timer" id="healthcountdown"></span>';
 	$page .= '</td>';
 		
-	$page .= '<td valign="top" >';
+	$page .= '<td valign="top" class="clear">';
 	$page .= warquest_link_hidden('mid='.MENU_HOME.'&sid='.PAGE_PROFILE, t('STATUS_ENERGY')).': ';
 	$page .= '<span class="value energy" id="energyvalue"></span> / '.number_format($skill->energy_max,0,",",".");
 	$page .= '<br/>';
 	$page .= '<span class="timer" id="energycountdown"></span>';
 	$page .= '</td>';
 	
-	$page .= '<td valign="top">';
+	$page .= '<td valign="top" class="clear">';
 	$page .= warquest_link_hidden('mid='.MENU_HOME.'&sid='.PAGE_SKILLS, t('STATUS_AMMO')).': ';
 	$page .= '<span class="value ammo" id="ammovalue"></span> / '.$skill->ammo_max;
 	$page .= '<br/>';
@@ -2975,10 +2995,10 @@ function warquest_ui_footer($renderTime, $queries) {
 	if (isset($player->background)) {
 		switch ($player->background) {
 						
-			case 11: $page .= '<script type="text/javascript" src="js/snow.js"></script>';
+			case 7: $page .= '<script type="text/javascript" src="js/snow.js"></script>';
 					   break;
 
-			case 12: $page .= '<script type="text/javascript" src="js/fireworks.js"></script>';
+			case 8: $page .= '<script type="text/javascript" src="js/fireworks.js"></script>';
 					   break;
 		}
 	}
@@ -2986,10 +3006,10 @@ function warquest_ui_footer($renderTime, $queries) {
 	if ( ($config["default_background"]!=1) && (!isset($player->background)) ) {
 		switch ($config["default_background"]) {
 						
-			case 11: $page .= '<script type="text/javascript" src="js/snow.js"></script>';
+			case 7: $page .= '<script type="text/javascript" src="js/snow.js"></script>';
 					   break;
 
-			case 12: $page .= '<script type="text/javascript" src="js/fireworks.js"></script>';
+			case 8: $page .= '<script type="text/javascript" src="js/fireworks.js"></script>';
 					   break;
 		}
 	}
@@ -3150,6 +3170,14 @@ function country_format($value) {
 function deploy_format($value) {
    
 	return '<span class="deploy">'.number_format($value,0,",",".").'</span>';
+}
+
+/**
+ * Get strength html format
+ */
+function strength_format($value) {
+   
+	return '<span class="strength">'.number_format($value,0,",",".").'</span>';
 }
 
 /**

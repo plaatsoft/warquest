@@ -674,12 +674,13 @@ $lang['PLAYER_LOGIN_NOTE'] = 'ATTENZIONE: Il login automatico funziona soltanto 
 
 $lang['BACKGROUND_0'] = 'Nero';
 $lang['BACKGROUND_1'] = 'Verde Militare';
-$lang['BACKGROUND_2'] = 'Rosso Aurora';
-$lang['BACKGROUND_3'] = 'Seta Blu';
-$lang['BACKGROUND_4'] = 'Pirata';
-$lang['BACKGROUND_5'] = 'Classico';
-$lang['BACKGROUND_6'] = 'Natalizio';
-$lang['BACKGROUND_7'] = 'Fuochi d\'artificio';
+$lang['BACKGROUND_2'] = 'Transparent';
+$lang['BACKGROUND_3'] = 'Rosso Aurora';
+$lang['BACKGROUND_4'] = 'Seta Blu';
+$lang['BACKGROUND_5'] = 'Pirata';
+$lang['BACKGROUND_6'] = 'Classico';
+$lang['BACKGROUND_7'] = 'Natalizio';
+$lang['BACKGROUND_8'] = 'Fuochi d\'artificio';
 
 /*
 ** ------------------

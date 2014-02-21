@@ -670,12 +670,13 @@ $lang['PLAYER_LANG_ITALIAN'] = 'Italian';
 
 $lang['BACKGROUND_0'] = 'schwarz';
 $lang['BACKGROUND_1'] = 'Armee Grün';
-$lang['BACKGROUND_2'] = 'Rote Aura';
-$lang['BACKGROUND_3'] = 'Blaue Seide';
-$lang['BACKGROUND_4'] = 'Pirat';
-$lang['BACKGROUND_5'] = 'Klassich';
-$lang['BACKGROUND_6'] = 'Weihnachten';
-$lang['BACKGROUND_7'] = 'Feuerwerk';
+$lang['BACKGROUND_2'] = 'Tranparent';
+$lang['BACKGROUND_3'] = 'Rote Aura';
+$lang['BACKGROUND_4'] = 'Blaue Seide';
+$lang['BACKGROUND_5'] = 'Pirat';
+$lang['BACKGROUND_6'] = 'Klassich';
+$lang['BACKGROUND_7'] = 'Weihnachten';
+$lang['BACKGROUND_8'] = 'Feuerwerk';
 
 $lang['PLAYER_GENERAL_CHANGED'] = 'Grundeinstellungen geändert!';
 $lang['NICKNAME_EXIST'] = 'Nickname ist schon gewählt!';

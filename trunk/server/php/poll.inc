@@ -229,12 +229,13 @@ function warquest_poll_form() {
 			
 		$page .= '<tr>';
 			
-		$page .= '<td width="75" valign="top">';
-				
-		$page .= warquest_image('other/forum.png','width="64" height="64"');
-			
+		$page .= '<td width="75" valign="top">';		
+		$page .= '</br>';
+		$page .= warquest_image('other/forum.png','width="64" height="64"');			
 		$page .= '</td>';			
+		
 		$page .= '<td width="375">';
+		$page .= '</br>';
 		$page .= '<span class="vote">'.$data1->question.'</span>';			
 		$page .= '<br/>';				
 		while ($data2 = warquest_db_fetch_object($result2)) {
@@ -255,19 +256,29 @@ function warquest_poll_form() {
 			
 			$page .= '<br/>';			
 		}				
+		
+		if (($data1->disabled==1) || ($answer!=0)) {
+		
+			$page .= '</br>';
+			$page .= t('POLL_SUMMARY', health_format($data1->total));
+			
+			if ($data1->disabled==1) {
+				$page .= ' '.t('POLL_ClOSED'); 
+			}
+			$page .= '</br></br>';
+		}
 		$page .= '</td>';
 						
-		$page .= '<td width="50" valign="top" align="right" >';						
-			
+		$page .= '<td width="50" valign="top" align="right" >';								
+		$page .= '</br>';
 		if ($data1->disabled==0) {
 			if ($answer==0) {
 				$page .= warquest_link('mid='.$mid.'&sid='.$sid.'&eid='.EVENT_FORUM_POLL_VOTE.'&poll='.$data1->poll_id, t('POLL_VOTE'), 'vote-'.$count);	
 			} else {
 				$page .= warquest_link('mid='.$mid.'&sid='.$sid.'&eid='.EVENT_FORUM_POLL_UNVOTE.'&poll='.$data1->poll_id, t('POLL_CANCEL'), 'cancel-'.$count);			
 			}
-			$page .= "<br/><br/>";
-		}
-		
+			$page .= '<br/><br/>';
+		}		
 		if ($player->pid==$config['adminPid']) {
 			$page .= warquest_link('mid='.$mid.'&sid='.PAGE_POLL_RESULT.'&poll='.$data1->poll_id, t('POLL_RESULTS'), 'results'.$count);	
 		}
@@ -275,25 +286,9 @@ function warquest_poll_form() {
 				
 		$page .= '</tr>';
 		
-		if (($data1->disabled==1) || ($answer!=0)) {
-			$page .= '<tr>';		
-			$page .= '<td>';
-			$page .= '</td>';
-			$page .= '<td colspan="2">';
-			$page .= t('POLL_SUMMARY', health_format($data1->total));
-			
-			if ($data1->disabled==1) {
-				$page .= ' '.t('POLL_ClOSED'); 
-			}
-			
-			$page .= '</td>';
-			$page .= '</tr>';
-		}
-			
 		if ($count < $total) {
 			$page .= '<tr>';
-			$page .= '<td colspan="3">';
-			$page .= '<hr/>';
+			$page .= '<td colspan="3" class="bar">';
 			$page .= '</td>';
 			$page .= '</tr>';
 		}		

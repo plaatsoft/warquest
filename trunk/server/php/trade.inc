@@ -141,9 +141,7 @@ function warquest_trade_form() {
 	$page .= '<div class="subparagraph">'.t('HOME_TRADE_TITLE1').'</div>';
 			
 	$page .= '<div class="box">';
-	
-	$page .= '<br/>';	
-	
+		
 	$page .= '<table>';
 
 	/* -------------------------------------------------------------------- */
@@ -160,16 +158,21 @@ function warquest_trade_form() {
 	$page .= '<div class="right">';
 	
 	if ($premium<=0) {
+		
 		$page .= warquest_link('mid='.$mid.'&sid='.$sid.'&eid='.EVENT_HOME_TRADE.'&uid=6', t('HOME_TRADE_IN'), "trade6");
+		
 	}
 	$page .= '</div>';
 		
 	$page .= '<div class="subparagraph">';
 	$page .= '<b>'.t('HOME_TRADE6').'</b>';
 	$page .= '</div>';
-		
-	$page .= '<i>'.t('HOME_TRADE6_NOTE', gold_format($config["gold_trade_feature6"])).'</i>';
-	$page .= '<br/><br/>';	
+	
+	$page .= '<div class="remark">';
+	$page .= t('HOME_TRADE6_NOTE', gold_format($config["gold_trade_feature6"]));
+	$page .= '</div>';
+	
+	$page .= '<br/>';	
 		
 	$page .= t('GENERAL_STATUS').': ';
 	if ($premium<=0) {
@@ -192,7 +195,7 @@ function warquest_trade_form() {
 	$page .= '</tr>';	
 		
 	$page .= '<tr>';
-	$page .= '<td colspan="2"><hr></td>';
+	$page .= '<td colspan="2" class="bar"></td>';
 	$page .= '</tr>';
 
 
@@ -212,9 +215,12 @@ function warquest_trade_form() {
 	$page .= '<div class="subparagraph">';
 	$page .= '<b>'.t('HOME_TRADE1').'</b>';
 	$page .= '</div>';
-		
-	$page .= '<i>'.t('HOME_TRADE1_NOTE', gold_format($config["gold_trade_feature1"])).'</i>';
-	$page .= '<br/><br/>';	
+	
+	$page .= '<div class="remark">';
+	$page .= t('HOME_TRADE1_NOTE', gold_format($config["gold_trade_feature1"]));
+	$page .= '</div>';
+	
+	$page .= '<br/>';	
 			
 	$tmp = $config["init_health_timer"] - ($skill->health_timer * 5);	
 	$page .= t('HOME_TRADE_CONDITION').': '.level_format($tmp);
@@ -230,7 +236,7 @@ function warquest_trade_form() {
 	$page .= '</tr>';	
 		
 	$page .= '<tr>';
-	$page .= '<td colspan="2"><hr></td>';
+	$page .= '<td colspan="2" class="bar"></td>';
 	$page .= '</tr>';
 
 	/* -------------------------------------------------------------------- */
@@ -250,8 +256,10 @@ function warquest_trade_form() {
 	$page .= '<b>'.t('HOME_TRADE2').'</b>';
 	$page .= '</div>';
 		
-	$page .= '<i>'.t('HOME_TRADE2_NOTE', gold_format($config["gold_trade_feature2"])).'</i>';
-	$page .= '<br/><br/>';	
+	$page .= '<div class="remark">';
+	$page .= t('HOME_TRADE2_NOTE', gold_format($config["gold_trade_feature2"]));
+	$page .= '</div>';
+	$page .= '<br/>';	
 	
 	$tmp = $config["init_energy_timer"] - ($skill->energy_timer * 5); 		
 	$page .= t('HOME_TRADE_CONDITION').': '.level_format($tmp);
@@ -267,7 +275,7 @@ function warquest_trade_form() {
 	$page .= '</tr>';	
 		
 	$page .= '<tr>';
-	$page .= '<td colspan="2"><hr></td>';
+	$page .= '<td colspan="2" class="bar"></td>';
 	$page .= '</tr>';
 
 	/* -------------------------------------------------------------------- */
@@ -287,8 +295,10 @@ function warquest_trade_form() {
 	$page .= '<b>'.t('HOME_TRADE3').'</b>';
 	$page .= '</div>';
 		
-	$page .= '<i>'.t('HOME_TRADE3_NOTE', gold_format($config["gold_trade_feature3"])).'</i>';
-	$page .= '<br/><br/>';	
+	$page .= '<div class="remark">';
+	$page .= t('HOME_TRADE3_NOTE', gold_format($config["gold_trade_feature3"]));
+	$page .= '</div>';
+	$page .= '<br/>';	
 	
 	$tmp = $config["init_ammo_timer"] - ($skill->ammo_timer * 5);		
 	$page .= t('HOME_TRADE_CONDITION').': '.level_format($tmp);	
@@ -304,7 +314,7 @@ function warquest_trade_form() {
 	$page .= '</tr>';
 
 	$page .= '<tr>';
-	$page .= '<td colspan="2"><hr></td>';
+	$page .= '<td colspan="2" class="bar"></td>';
 	$page .= '</tr>';		
 	
 	/* -------------------------------------------------------------------- */
@@ -323,16 +333,19 @@ function warquest_trade_form() {
 	$page .= '<div class="subparagraph">';
 	$page .= '<b>'.t('HOME_TRADE4').'</b>';
 	$page .= '</div>';
+	
+	$page .= '<div class="remark">';	
+	$page .= t('HOME_TRADE4_NOTE', gold_format($config["gold_trade_feature4"]), money_format1(10000000000));
+	$page .= '</div>';
+	$page .= '<br/>';	
 		
-	$page .= '<i>'.t('HOME_TRADE4_NOTE', gold_format($config["gold_trade_feature4"]), money_format1(10000000000)).'</i>';
-	$page .= '<br/><br/>';		
 	$page .= t('HOME_TRADE_CONDITION').': '.dollar_format($player->money);
 			
 	$page .= '</td>';
 	$page .= '</tr>';	
 		
 	$page .= '<tr>';
-	$page .= '<td colspan="2"><hr></td>';
+	$page .= '<td colspan="2" class="bar"></td>';
 	$page .= '</tr>';
 	
 		/* -------------------------------------------------------------------- */
@@ -351,9 +364,11 @@ function warquest_trade_form() {
 	$page .= '<div class="subparagraph">';
 	$page .= '<b>'.t('HOME_TRADE5').'</b>';
 	$page .= '</div>';
-		
-	$page .= '<i>'.t('HOME_TRADE5_NOTE', gold_format($config["gold_trade_feature5"])).'</i>';
-	$page .= '<br/><br/>';	
+	
+	$page .= '<div class="remark">';	
+	$page .= t('HOME_TRADE5_NOTE', gold_format($config["gold_trade_feature5"]));
+	$page .= '</div>';
+	$page .= '<br/>';	
 	$page .= t('HOME_TRADE_CONDITION').': '.level_format($skill->skill_points).' '.t('HOME_TRADE_SKILL_POINTS');
 		
 	$page .= '</td>';

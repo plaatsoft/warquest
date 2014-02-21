@@ -94,10 +94,10 @@ function warquest_building_buy_do() {
 
 		$message = '<table>';
 		$message .= '<tr>';
-		$message .= '<td width="100">';
+		$message .= '<td class="clear" width="100">';
 		$message .= warquest_building_image($building,0,0);
 		$message .= '</td>';
-		$message .= '<td>';
+		$message .= '<td class="clear">';
 		$message .= t('BUILDING_MAX', deploy_format($building->max), t('BUILDING_'.$uid));
 		$message .= '</td>';
 		$message .= '</tr>';
@@ -109,10 +109,10 @@ function warquest_building_buy_do() {
 	
 		$message = '<table>';
 		$message .= '<tr>';
-		$message .= '<td width="100">';
+		$message .= '<td class="clear" width="100">';
 		$message .= warquest_building_image($building,0,0);
 		$message .= '</td>';
-		$message .= '<td>';
+		$message .= '<td class="clear">';
 		if ($totalPrice>0) {
 			$message .= t('BUILDING_NO_FUNDS', $amount, t('BUILDING_'.$uid), dollar_format($totalPrice));
 		} else {
@@ -129,10 +129,10 @@ function warquest_building_buy_do() {
 	
 		$message = '<table>';
 		$message .= '<tr>';
-		$message .= '<td width="100">';
+		$message .= '<td class="clear" width="100">';
 		$message .= warquest_building_image($building,0,0);
 		$message .= '</td>';
-		$message .= '<td>';
+		$message .= '<td class="clear">';
 		if ($totalPrice>0) {
 			$message .= t('BUILDING_LOW_UPKEEP2' ,$amount, t('BUILDING_'.$uid), dollar_format($totalPrice));
 		} else {
@@ -177,10 +177,10 @@ function warquest_building_buy_do() {
 		/* Show message on screen */
 		$message = '<table>';
 		$message .= '<tr>';
-		$message .= '<td width="100">';
+		$message .= '<td class="clear" width="100">';
 		$message .= warquest_building_image($building,0,0);
 		$message .= '</td>';
-		$message .= '<td>';
+		$message .= '<td class="clear">';
 		if ($totalPrice > 0 ) {
 			$message .= t('BUILDING_BUY', $amount, t('BUILDING_'.$uid), dollar_format($totalPrice), deploy_format($amountOld + $amount));
 		} else {
@@ -268,10 +268,10 @@ function warquest_building_sell_do() {
 	
 		$message = '<table>';
 		$message .= '<tr>';
-		$message .= '<td width="100">';
+		$message .= '<td class="clear" width="100">';
 		$message .= warquest_building_image($building,0,0);
 		$message .= '</td>';
-		$message .= '<td>';
+		$message .= '<td class="clear">';
 		$message .= t('BUILDING_NOT_OWNED', $amount , t('BUILDING_'.$uid));
 		$message .= '</td>';
 		$message .= '</tr>';
@@ -283,10 +283,10 @@ function warquest_building_sell_do() {
 	
 		$message = '<table>';
 		$message .= '<tr>';
-		$message .= '<td width="100">';
+		$message .= '<td class="clear" width="100">';
 		$message .= warquest_building_image($building,0,0);
 		$message .= '</td>';
-		$message .= '<td>';
+		$message .= '<td class="clear">';
 		if ($totalPrice>0) {
 			$message .= t('BUILDING_LOW_UPKEEP' ,$amount, t('BUILDING_'.$uid), dollar_format($totalPrice));
 		} else {
@@ -329,10 +329,10 @@ function warquest_building_sell_do() {
 		/* show message on screen */
 		$message = '<table>';
 		$message .= '<tr>';
-		$message .= '<td width="100">';
+		$message .= '<td class="clear" width="100">';
 		$message .= warquest_building_image($building, 0,0);
 		$message .= '</td>';
-		$message .= '<td>';
+		$message .= '<td class="clear">';
 		if ($totalPrice>0) {
 			$message .= t('BUILDING_SELL', $amount, t('BUILDING_'.$uid), dollar_format($totalPrice), deploy_format($amountOld-$amount));
 		} else {
@@ -472,7 +472,7 @@ function warquest_building_form() {
 				$page .= t('BUILDING_INCOME').': +'.dollar_format($data2->income);
 			}
 			if ($data2->defense>0) {
-				$page .= t('UNIT_GROUP_'.$data2->ugid).' '.t('GENERAL_DEFENSE').': +'.$data2->defense;
+				$page .= t('UNIT_GROUP_'.$data2->ugid).' '.t('GENERAL_DEFENSE').': +'.strength_format($data2->defense);
 			}			
 			if ($data2->energy>0)  {
 				$page .= t('BUILDING_ENERGY').': +'.energy_format($data2->energy);
@@ -546,7 +546,7 @@ function warquest_building_form() {
 	
 			if ($count3!=$count2) {
 				$page .= '<tr>';
-				$page .= '<td colspan="3"><hr></td>';
+				$page .= '<td colspan="3" class="bar"></td>';
 				$page .= '</tr>';			
 			}
 		}
@@ -556,7 +556,7 @@ function warquest_building_form() {
 		
 			if ($count3>0) {
 				$page .= '<tr>';
-				$page .= '<td colspan="3"><hr></td>';
+				$page .= '<td colspan="3" class="bar"></td>';
 				$page .= '</tr>';			
 			}	
 		

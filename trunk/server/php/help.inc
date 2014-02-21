@@ -473,7 +473,7 @@ function warquest_giftshop_form() {
 	
 		if ($i>1) {
 			$page .= '<tr>';
-			$page .= '<td colspan="2"><hr></td>';
+			$page .= '<td colspan="2" class="bar"></td>';
 			$page .= '</tr>';			
 		}
 			
@@ -792,8 +792,7 @@ function warquest_help_ranks_form() {
 			
 			if ($count < 23) {
 				$page .= '<tr>';
-				$page .= '<td colspan="3">';
-				$page .= '<hr>';
+				$page .= '<td colspan="3" class="bar">';
 				$page .= '</td>';
 				$page .= '</tr>';	
 			}

@@ -220,8 +220,6 @@ function warquest_skills_form() {
 			
 	$page .= '<div class="box">';
 	
-	$page .= '<br/>';	
-	
 	$page .= '<table>';
 
 	if ($player->lid>0) {
@@ -239,7 +237,7 @@ function warquest_skills_form() {
 		$page .= '</td>';
 	
 		$page .= '<td width="200">'.t('PLAYER_CURRENT').': <b>';
-		$page .= number_format(($skill->attack_max * $config['init_player_skill_step'] * $player->lid),0,",",".").'</b>';
+		$page .= strength_format(($skill->attack_max * $config['init_player_skill_step'] * $player->lid),0,",",".").'</b>';
 		$page .= '</td>';
 	
 		$page .= '<td width="100">';
@@ -253,14 +251,18 @@ function warquest_skills_form() {
 		$page .= '</tr>';
 	
 		$page .= '<tr>';
-		$page .= '<td></td>';
-		$page .= '<td colspan="4"><i>'.t('PLAYER_ATTACK_TIP',
+		$page .= '<td class="clear"></td>';
+		$page .= '<td colspan="4" class="clear">';
+		$page .= '<div class="remark">';
+		$page .= t('PLAYER_ATTACK_TIP',
 							number_format2($config['init_player_skill_step'] * $player->lid), 
-							number_format2($config['init_player_skill_step'] * 2 * $player->lid)).'</i><br/></td>';
+							number_format2($config['init_player_skill_step'] * 2 * $player->lid));
+		$page .= '</div>';
+		$page .= '</td>';
 		$page .= '</tr>';
 
 		$page .= '<tr>';
-		$page .= '<td colspan="5"><hr></td>';
+		$page .= '<td colspan="5" class="bar"></td>';
 		$page .= '</tr>';
 	
 		/* -------------------------------------------------------------------- */
@@ -274,7 +276,7 @@ function warquest_skills_form() {
 		$page .= '<td><b>'.t('PLAYER_DEFENSE').'</b></td>';
 		
 		$page .= '<td>'.t('PLAYER_CURRENT').': <b>';
-		$page .= number_format(($skill->defense_max * $config['init_player_skill_step'] * $player->lid),0,",",".").'</b>';
+		$page .= strength_format(($skill->defense_max * $config['init_player_skill_step'] * $player->lid),0,",",".").'</b>';
 		$page .='</td>';
 	
 		$page .= '<td>';
@@ -288,14 +290,18 @@ function warquest_skills_form() {
 		$page .= '</tr>';
 	
 		$page .= '<tr>';
-		$page .= '<td></td>';
-		$page .= '<td colspan="4"><i>'.t('PLAYER_DEFENSE_TIP',
+		$page .= '<td class="clear"> </td>';
+		$page .= '<td colspan="4" class="clear">';
+		$page .= '<div class="remark">';
+		$page .= t('PLAYER_DEFENSE_TIP',
 							number_format2($config['init_player_skill_step'] * $player->lid),
-							number_format2($config['init_player_skill_step'] * 2 * $player->lid)).'</i><br/></td>';
+							number_format2($config['init_player_skill_step'] * 2 * $player->lid));
+		$page .= '</div>';
+		$page .= '</td>';
 		$page .= '</tr>';
 	
 		$page .= '<tr>';
-		$page .= '<td colspan="5"><hr></td>';
+		$page .= '<td colspan="5" class="bar"></td>';
 		$page .= '</tr>';
 	}
 	
@@ -311,7 +317,9 @@ function warquest_skills_form() {
 	
 		$page .= '<td width="150"><b>'.t('PLAYER_HEALTH').'</b></td>';
 	
-		$page .= '<td width="200">'.t('PLAYER_CURRENT').': <b>'.number_format($skill->health_max,0,",",".").'</b></td>';
+		$page .= '<td width="200">'.t('PLAYER_CURRENT').': <b>';
+		$page .= health_format($skill->health_max,0,",",".");
+		$page .= '</b></td>';
 	
 		$page .= '<td width="100">';
 		$page .= warquest_link('mid='.$mid.'&sid='.$sid.'&eid='.EVENT_HOME_SKILL_INCREASE.'&uid=3',t('LINK_INCREASE'), "health1");
@@ -324,12 +332,16 @@ function warquest_skills_form() {
 		$page .= '</tr>';
 	
 		$page .= '<tr>';
-		$page .= '<td></td>';
-		$page .= '<td colspan="4"><i>'.t('PLAYER_HEALTH_TIP').'</i><br/></td>';
+		$page .= '<td class="clear"></td>';
+		$page .= '<td colspan="4" class="clear">';
+		$page .= '<div class="remark">';
+		$page .= t('PLAYER_HEALTH_TIP');
+		$page .= '</div>';
+		$page .= '</td>';
 		$page .= '</tr>';
 	
 		$page .= '<tr>';
-		$page .= '<td colspan="5"><hr></td>';
+		$page .= '<td colspan="5" class="bar"></td>';
 		$page .= '</tr>';
 	}
 	
@@ -345,7 +357,9 @@ function warquest_skills_form() {
 	
 		$page .= '<td><b>'.t('PLAYER_ENERGY').'</b></td>';
 	
-		$page .= '<td>'.t('PLAYER_CURRENT').': <b>'.number_format($skill->energy_max,0,",",".").'</b></td>';
+		$page .= '<td>'.t('PLAYER_CURRENT').': <b>';
+		$page .= energy_format($skill->energy_max,0,",",".");
+		$page .= '</b></td>';
 	
 		$page .= '<td>';
 		$page .= warquest_link('mid='.$mid.'&sid='.$sid.'&eid='.EVENT_HOME_SKILL_INCREASE.'&uid=4',t('LINK_INCREASE') ,"energy1");
@@ -358,12 +372,16 @@ function warquest_skills_form() {
 		$page .= '</tr>';
 	
 		$page .= '<tr>';
-		$page .= '<td></td>';
-		$page .= '<td colspan="4"><i>'.t('PLAYER_ENERGY_TIP').'</i><br/></td>';
+		$page .= '<td class="clear"></td>';
+		$page .= '<td colspan="4" class="clear">';
+		$page .= '<div class="remark">';
+		$page .= t('PLAYER_ENERGY_TIP');
+		$page .= '</div>';
+		$page .= '</td>';
 		$page .= '</tr>';
 		
 		$page .= '<tr>';
-		$page .= '<td colspan="5"><hr></td>';
+		$page .= '<td colspan="5" class="bar"></td>';
 		$page .= '</tr>';
 	}
 		
@@ -377,7 +395,9 @@ function warquest_skills_form() {
 	
 	$page .= '<td><b>'.t('PLAYER_AMMO').'</b></td>';
 	
-	$page .= '<td>'.t('PLAYER_CURRENT').': <b>'.number_format($skill->ammo_max,0,",",".").'</b></td>';
+	$page .= '<td>'.t('PLAYER_CURRENT').': <b>';
+	$page .= ammo_format($skill->ammo_max,0,",",".");
+	$page .= '</b></td>';
 	
 	$page .= '<td>';
 	$page .= warquest_link('mid='.$mid.'&sid='.$sid.'&eid='.EVENT_HOME_SKILL_INCREASE.'&uid=5',t('LINK_INCREASE') ,"ammo1");
@@ -390,8 +410,12 @@ function warquest_skills_form() {
 	$page .= '</tr>';
 	
 	$page .= '<tr>';
-	$page .= '<td></td>';
-	$page .= '<td colspan="4"><i>'.t('PLAYER_AMMO_TIP').'</i><br/><br/></td>';
+	$page .= '<td class="clear"></td>';
+	$page .= '<td colspan="4" class="clear">';
+	$page .= '<div class="remark">';
+	$page .= t('PLAYER_AMMO_TIP');
+	$page .= '</div>';
+	$page .= '</td>';
 	$page .= '</tr>';
 	
 	/* -------------------------------------------------------------------- */

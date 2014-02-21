@@ -239,8 +239,11 @@ function warquest_restore_form() {
 			
 		$page .= '<div class="subparagraph"><b>'.t('PLAYER_HEALTH_TITLE').'</b></div>';
 	
-		$page .= '<i>'.t('PLAYER_HEALTH_NOTE').'</i>';
-		$page .= '<br/><br/>';	
+		$page .= '<div class="remark">';
+		$page .= t('PLAYER_HEALTH_NOTE');		
+		$page .= '</div>';
+		$page .= '<br/>';	
+		
 		$page .= t('PLAYER_HEALTH_CONDITION').': '.level_format(round(($player->health / $skill->health_max)*100)).'%';
 		$page .= '<br/>';
 		$page .= t('PLAYER_RESTORE_PRICE').': ';
@@ -250,7 +253,7 @@ function warquest_restore_form() {
 		$page .= '</tr>';	
 
 		$page .= '<tr>';
-		$page .= '<td colspan="2"><hr></td>';
+		$page .= '<td colspan="2" class="bar"></td>';
 		$page .= '</tr>';	
 			
 		/* -------------------------------------------------------------------- */
@@ -274,10 +277,11 @@ function warquest_restore_form() {
 		
 		$page .= '<div class="subparagraph"><b>'.t('PLAYER_UNITS_TITLE').'</b></div>';
 		
+		$page .= '<div class="remark">';
+		$page .= t('PLAYER_UNITS_NOTE');		
+		$page .= '</div>';
+		$page .= '<br/>';	
 	
-		$page .= '<i>'.t('PLAYER_UNITS_NOTE').'</i>';
-		$page .= '<br/><br/>';	
-
 		$tmp1 = 100-$player->damage_units;
 		if ($tmp1<0) {
 			$tmp1=0;
@@ -291,7 +295,7 @@ function warquest_restore_form() {
 		$page .= '</tr>';	
 
 		$page .= '<tr>';
-		$page .= '<td colspan="2"><hr></td>';
+		$page .= '<td colspan="2" class="bar"></td>';
 		$page .= '</tr>';
 	
 		/* -------------------------------------------------------------------- */
@@ -316,8 +320,10 @@ function warquest_restore_form() {
 		$page .= '<div class="subparagraph"><b>'.t('PLAYER_BUILDINGS_TITLE').'</b>';
 		$page .= '</div>';
 		
-		$page .= '<i>'.t('PLAYER_BUILDINGS_NOTE').'</i>';
-		$page .= '<br/><br/>';	
+		$page .= '<div class="remark">';
+		$page .= t('PLAYER_BUILDINGS_NOTE');		
+		$page .= '</div>';
+		$page .= '<br/>';	
 		
 		$tmp1 = 100-$player->damage_buildings;
 		if ($tmp1<0) {
@@ -333,7 +339,7 @@ function warquest_restore_form() {
 		$page .= '</tr>';	
 		
 		$page .= '<tr>';
-		$page .= '<td colspan="2"><hr></td>';
+		$page .= '<td colspan="2" class="bar"></td>';
 		$page .= '</tr>';
 		
 				/* -------------------------------------------------------------------- */
@@ -359,8 +365,11 @@ function warquest_restore_form() {
 		$page .= '<div class="subparagraph"><b>'.t('PLAYER_REBELLION_TITLE').'</b>';
 		$page .= '</div>';
 	
-		$page .= '<i>'.t('PLAYER_REBELLION_NOTE').'</i>';
-		$page .= '<br/><br/>';	
+		$page .= '<div class="remark">';
+		$page .= t('PLAYER_REBELLION_NOTE');		
+		$page .= '</div>';
+		$page .= '<br/>';
+			
 		$page .= t('PLAYER_REBELLION_CONDITION').': '.indication_format($player->rebel_status,0);
 		$page .= '<br/>';
 		$page .= t('PLAYER_RESTORE_PRICE').': ';
@@ -370,7 +379,7 @@ function warquest_restore_form() {
 		$page .= '</tr>';
 	
 		$page .= '<tr>';
-		$page .= '<td colspan="2"><hr></td>';
+		$page .= '<td colspan="2" class="bar"></td>';
 		$page .= '</tr>';
 		
 		/* -------------------------------------------------------------------- */
@@ -410,8 +419,11 @@ function warquest_restore_form() {
 		
 		$page .= '<div class="subparagraph"><b>'.t('PLAYER_ENERGY_TITLE').'</b></div>';
 	
-		$page .= '<i>'.t('PLAYER_ENERGY_NOTE').'</i>';
-		$page .= '<br/><br/>';	
+		$page .= '<div class="remark">';
+		$page .= t('PLAYER_ENERGY_NOTE');		
+		$page .= '</div>';
+		$page .= '<br/>';
+		
 		$page .= t('PLAYER_ENERGY_CONDITION').': '.level_format(round(($player->energy / $skill->energy_max)*100)).'%';
 		$page .= '<br/>';
 		$page .= t('PLAYER_RESTORE_PRICE').': ';
@@ -421,7 +433,7 @@ function warquest_restore_form() {
 		$page .= '</tr>';
 
 		$page .= '<tr>';
-		$page .= '<td colspan="2"><hr></td>';
+		$page .= '<td colspan="2" class="bar"></td>';
 		$page .= '</tr>';
 	
 		/* -------------------------------------------------------------------- */
@@ -461,9 +473,13 @@ function warquest_restore_form() {
 	
 		$page .= '<div class="subparagraph"><b>'.t('PLAYER_AMMO_TITLE').'</b></div>';
 	
-		$page .= '<i>'.t('PLAYER_AMMO_NOTE').'</i>';
-		$page .= '<br/><br/>';	
-		$page .= t('PLAYER_AMMO_CONDITION').': '.level_format(round(($player->ammo / $skill->ammo_max)*100)).'%';
+		$page .= '<div class="remark">';
+		$page .= t('PLAYER_AMMO_NOTE');		
+		$page .= '</div>';
+		$page .= '<br/>';
+		
+		$page .= t('PLAYER_AMMO_CONDITION').': ';
+		$page .= level_format(round(($player->ammo / $skill->ammo_max)*100)).'%';
 		$page .= '<br/>';
 		$page .= t('PLAYER_RESTORE_PRICE').': ';
 		$page .= dollar_format($tmp);		
@@ -472,7 +488,7 @@ function warquest_restore_form() {
 		$page .= '</tr>';
 	
 		$page .= '<tr>';
-		$page .= '<td colspan="2"><hr></td>';
+		$page .= '<td colspan="2" class="bar"></td>';
 		$page .= '</tr>';
 					
 		/* -------------------------------------------------------------------- */
@@ -529,8 +545,11 @@ function warquest_restore_form() {
 	
 		$page .= '<div class="subparagraph"><b>'.t('PLAYER_CEASE_FIRE_TITLE').'</b></div>';
 	
-		$page .= '<i>'.t('PLAYER_CEASE_FIRE_NOTE').'</i>';
-		$page .= '<br/><br/>';	
+		$page .= '<div class="remark">';
+		$page .= t('PLAYER_CEASE_FIRE_NOTE');		
+		$page .= '</div>';
+		$page .= '<br/>';
+			
 		$page .= t('PLAYER_RESTORE_PRICE_PER_DAY').': ';
 		$page .= dollar_format($tmp);		
 	
@@ -538,7 +557,7 @@ function warquest_restore_form() {
 		$page .= '</tr>';
 		
 		$page .= '<tr>';
-		$page .= '<td colspan="2"><hr></td>';
+		$page .= '<td colspan="2" class="bar"></td>';
 		$page .= '</tr>';
 	
 		/* -------------------------------------------------------------------- */
@@ -598,8 +617,11 @@ function warquest_restore_form() {
 	
 		$page .= '<div class="subparagraph"><b>'.t('PLAYER_HOLIDAY_TITLE').'</b></div>';
 	
-		$page .= '<i>'.t('PLAYER_HOLIDAY_NOTE').'</i>';
-		$page .= '<br/><br/>';	
+		$page .= '<div class="remark">';
+		$page .= t('PLAYER_HOLIDAY_NOTE');		
+		$page .= '</div>';
+		$page .= '<br/>';
+		
 		$page .= t('PLAYER_RESTORE_PRICE_PER_DAY').': ';
 		$page .= dollar_format($tmp);		
 	
