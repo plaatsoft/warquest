@@ -227,21 +227,19 @@ function warquest_casino_wheel() {
 	$page .= warquest_casino_image($ssid, 140, 100);
 	$page .= '</td>';
 	
-	$page .= "<td>";
+	$page .= '<td width="340">';
 	
-	$page .= "<table>";	
+	$page .= '<table>';	
 
-	$page .= "<tr>";
-	$page .= "<td>";
+	$page .= '<tr>';
+	$page .= '<td width="320">';
 	$page .= t('CASINO_NUMBER').":<br/>";
 	
 	$page .= warquest_lucky_number_selected($number);
 	
-	$page .= "</td>";
-	$page .= "</tr>";
+	$page .= '<br/>';	
+	$page .= '<br/>';	
 
-	$page .= "<tr>";
-	$page .= "<td>";
 	$page .= t('CASINO_BET').":<br/>";
 	$page .= '<input type="text" id="bet" name="bet" size="10" maxlength="7" type="text" value="'.$bet.'" onkeydown="if (event.keyCode == 13) return false" > ';
 	$page .= warquest_link('mid='.$mid.'&sid='.$sid.'&ssid='.$ssid.'&eid='.EVENT_CASINO_WHEEL_PLAY, t('CASINO_PLAY'), 'play');
@@ -642,12 +640,12 @@ function warquest_casino_slotmachine() {
 	$page .= warquest_casino_image($ssid, 140, 100);
 	$page .= '</td>';
 	
-	$page .= "<td>";
+	$page .= '<td width="340">';
 	
-	$page .= "<table>";
+	$page .= '<table>';
 			
-	$page .= "<tr>";
-	$page .= "<td>";
+	$page .= '<tr>';
+	$page .= '<td width="290">';
 	$page .= t('CASINO_BET').":<br/>";
 	$page .= '<input id="bet" name="bet" size="10" maxlength="7" type="text" value="'.$bet.'" onkeydown="if (event.keyCode == 13) return false" /> ';
 	if ($eid!=EVENT_CASINO_SLOT_PLAY) {
@@ -656,11 +654,9 @@ function warquest_casino_slotmachine() {
 		$page .= '<a href="javascript:Go()">'.t('CASINO_PLAY').'</a>';
 	}
 	$page .= "</td>";
-	$page .= "</tr>";
-	
-	$page .= "<tr>";
-	$page .= '<td>';	
-	$page .= '<br/>';	
+
+	$page .= '<td align="right">';	
+	$page .= '<br/>';
 	$page .= warquest_link('mid='.$mid.'&sid='.$sid.'&ssid=4', t('LINK_HELP'), 'help4');
 	$page .= '</td>';
 	$page .= "</tr>";
@@ -905,13 +901,13 @@ function warquest_casino_tictactoe() {
 	$page .= warquest_casino_image($ssid, 140, 100);
 	$page .= '</td>';
 	
-	$page .= "<td>";
+	$page .= '<td width="340">';	
 	
 	$page .= "<table>";
 	
 	$page .= "<tr>";
 
-	$page .= "<td>";
+	$page .= '<td width="320">';
 	$page .= t('CASINO_BET').":<br/>";
 	$page .= '<input type="text" id="bet" name="bet" size="10" maxlength="7" type="text" onkeydown="if (event.keyCode == 13) return false" value="'.$bet.'"> ';
 		

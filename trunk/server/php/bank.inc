@@ -212,8 +212,8 @@ function warquest_bank_log() {
 	
 	$page .= '<tr>';
 	$page .= '<th width="100">'.t('GENERAL_AGO').'</th>';
-	$page .= '<th width="280">'.t('GENERAL_TRANSACTION').'</th>';
-	$page .= '<th width="90">'.t('GENERAL_BALANCE').'</th>';
+	$page .= '<th width="300">'.t('GENERAL_TRANSACTION').'</th>';
+	$page .= '<th width="100">'.t('GENERAL_BALANCE').'</th>';
 	$page .= '</tr>';
 	
 	while ($data=warquest_db_fetch_object($result)) {
@@ -287,13 +287,13 @@ function warquest_bank_form() {
 	$page .= "<table>";
 	
 	$page .= "<tr>";
-	$page .= "<td>";		
+	$page .= '<td width="170">';		
 	$page .= t('LINK_BALANCE').":<br/>";
 	$page .= '<input id="text" name="balance" size="20" maxlength="16" disabled="disabled" type="text" ';
 	$page .= 'value="'.number_format($balance,0,",",".").'">';
 	$page .= "</td>";
 	
-	$page .= "<td>";	
+	$page .= '<td width="170">';	
 	$page .= "</td>";
 	
 	$page .= "</tr>";

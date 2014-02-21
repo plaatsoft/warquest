@@ -672,21 +672,14 @@ $lang['PLAYER_PASSWORD_NO_MATCH'] = 'Password attuale non corrisponde!';
 $lang['PLAYER_PASSWORD_TO_SHORT'] = 'La nuova password dev\'essere lunga almeno 6 caratteri!';
 $lang['PLAYER_LOGIN_NOTE'] = 'ATTENZIONE: Il login automatico funziona soltanto quando il nome utente e password sono uguali nell\'app WarQuest di Android,iOS, Symbian e nel client Windows!'; 
 
-
-
 $lang['BACKGROUND_0'] = 'Nero';
 $lang['BACKGROUND_1'] = 'Verde Militare';
 $lang['BACKGROUND_2'] = 'Rosso Aurora';
-$lang['BACKGROUND_3'] = 'Pietre Grigie';
-$lang['BACKGROUND_4'] = 'Cerchi rosa';
-$lang['BACKGROUND_5'] = 'Seta Blu';
-$lang['BACKGROUND_6'] = 'Marrone';
-$lang['BACKGROUND_7'] = 'Pirata';
-$lang['BACKGROUND_8'] = 'Moderno';
-$lang['BACKGROUND_9'] = 'Classico';
-$lang['BACKGROUND_10'] = 'Cioccolato';
-$lang['BACKGROUND_11'] = 'Natalizio';
-$lang['BACKGROUND_12'] = 'Fuochi d\'artificio';
+$lang['BACKGROUND_3'] = 'Seta Blu';
+$lang['BACKGROUND_4'] = 'Pirata';
+$lang['BACKGROUND_5'] = 'Classico';
+$lang['BACKGROUND_6'] = 'Natalizio';
+$lang['BACKGROUND_7'] = 'Fuochi d\'artificio';
 
 /*
 ** ------------------

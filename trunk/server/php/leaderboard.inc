@@ -97,27 +97,35 @@ function warquest_leaderboard3_form() {
 	$page .= '<table>';
 	
 	$page .= '<tr>';
-	$page .= '<td width="35">';
-	$page .= '<b>'.t('GENERAL_TOP').'</b>';
-	$page .= '</td>';
-	$page .= '<td width="160"><b>';
+	
+	$page .= '<th width="35">';
+	$page .= t('GENERAL_TOP');
+	$page .= '</th>';
+	
+	$page .= '<th width="160">';
 	$page .= warquest_link('mid='.$mid.'&sid='.$sid.'&uid='.$uid.'&sort=1', t('GENERAL_PLAYER'));
-	$page .= '</b></td>';
-	$page .= '<td width="50"><b>';
+	$page .= '</th>';
+	
+	$page .= '<th width="50">';
 	$page .= warquest_link('mid='.$mid.'&sid='.$sid.'&uid='.$uid.'&sort=2', t('GENERAL_LEVEL'));
-	$page .= '</b></td>';
-	$page .= '<td width="90"><b>';
+	$page .= '</th>';
+	
+	$page .= '<th width="90">';
 	$page .= warquest_link('mid='.$mid.'&sid='.$sid.'&uid='.$uid.'&sort=3', t('GENERAL_EXP'));		
-	$page .= '</b></td>';
-	$page .= '<td width="50"><b>';
+	$page .= '</th>';
+	
+	$page .= '<th width="50">';
 	$page .= warquest_link('mid='.$mid.'&sid='.$sid.'&uid='.$uid.'&sort=4', t('GENERAL_WON'));	
-	$page .= '</b></td>';
-	$page .= '<td width="50"><b>';
+	$page .= '</th>';
+	
+	$page .= '<th width="50">';
 	$page .= warquest_link('mid='.$mid.'&sid='.$sid.'&uid='.$uid.'&sort=5', t('GENERAL_LOST'));
-	$page .= '</b></td>';
-	$page .= '<td width="60"><b>';
+	$page .= '</th>';
+	
+	$page .= '<th width="60">';
 	$page .= warquest_link('mid='.$mid.'&sid='.$sid.'&uid='.$uid.'&sort=6', t('GENERAL_RANKING'));
-	$page .= '</b></td>';
+	$page .= '</th>';
+	
 	$page .= '</tr>';
 	
 	$count=$offset + 1;
@@ -229,25 +237,29 @@ function warquest_leaderboard2_form() {
 	$page .= '<table>';
 	
 	$page .= '<tr>';	
-	$page .= '<td width="35"><b>'.t('GENERAL_TOP').'</b></td>';
 	
-	$page .= '<td width="40"><b></b></td>';
+	$page .= '<th width="35">';
+	$page .= t('GENERAL_TOP');
+	$page .= '</th>';
 	
-	$page .= '<td width="240"><b>';
+	$page .= '<th width="40">';
+	$page .= '</th>';
+	
+	$page .= '<th width="240">';
 	$page .= warquest_link('mid='.$mid.'&sid='.$sid.'&sort=1', t('GENERAL_COUNTRY'));
-	$page .= '</b></td>';
+	$page .= '</th>';
 	
-	$page .= '<td width="70"><b>';
+	$page .= '<th width="70">';
 	$page .= warquest_link('mid='.$mid.'&sid='.$sid.'&sort=2', t('GENERAL_PLAYERS'));
-	$page .= '</b></td>';
+	$page .= '</th>';
 	
-	$page .= '<td width="80"><b>';
+	$page .= '<th width="80">';
 	$page .= warquest_link('mid='.$mid.'&sid='.$sid.'&sort=3', t('GENERAL_WONS'));
-	$page .= '</b></td>';
+	$page .= '</th>';
 	
-	$page .= '<td width="70"><b>';
+	$page .= '<th width="70">';
 	$page .= warquest_link('mid='.$mid.'&sid='.$sid.'&sort=4', t('GENERAL_LOSTS'));
-	$page .= '</b></td>';
+	$page .= '</th>';
 	$page .= '</tr>';
 	
 	$count=$offset + 1;
@@ -361,27 +373,27 @@ function warquest_leaderboard1_form() {
 	$page .= '<table>';
 	
 	$page .= '<tr>';
-	$page .= '<td width="35">';
+	$page .= '<th width="35">';
 	$page .= '<b>'.t('GENERAL_TOP').'</b>';
-	$page .= '</td>';
-	$page .= '<td width="160"><b>';
+	$page .= '</th>';
+	$page .= '<th width="160">';
 	$page .= warquest_link('mid='.$mid.'&sid='.$sid.'&sort=1', t('GENERAL_PLAYER'));
-	$page .= '</b></td>';
-	$page .= '<td width="50"><b>';
+	$page .= '</th>';
+	$page .= '<th width="50">';
 	$page .= warquest_link('mid='.$mid.'&sid='.$sid.'&sort=2', t('GENERAL_LEVEL'));
-	$page .= '</b></td>';
-	$page .= '<td width="90"><b>';
+	$page .= '</th>';
+	$page .= '<th width="90">';
 	$page .= warquest_link('mid='.$mid.'&sid='.$sid.'&sort=3', t('GENERAL_EXP'));			
-	$page .= '</b></td>';
-	$page .= '<td width="50"><b>';
+	$page .= '</th>';
+	$page .= '<th width="50">';
 	$page .= warquest_link('mid='.$mid.'&sid='.$sid.'&sort=4', t('GENERAL_WON'));	
-	$page .= '</b></td>';
-	$page .= '<td width="50"><b>';
+	$page .= '</th>';
+	$page .= '<th width="50">';
 	$page .= warquest_link('mid='.$mid.'&sid='.$sid.'&sort=5', t('GENERAL_LOST'));
-	$page .= '</b></td>';
-	$page .= '<td width="60"><b>';
+	$page .= '</th>';
+	$page .= '<th width="60">';
 	$page .= warquest_link('mid='.$mid.'&sid='.$sid.'&sort=6', t('GENERAL_RANKING'));
-	$page .= '</b></td>';
+	$page .= '</th>';
 	$page .= '</tr>';
 	
 	$count=$offset+1;
