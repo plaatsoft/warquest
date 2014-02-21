@@ -2868,7 +2868,7 @@ function warquest_ui_banner() {
 	$page .= '<br/>';
 	$page .= '</td>';
 	
-	$page .= '<td valign="top" width="175">';
+	$page .= '<td valign="top" width="185">';
 	$page .= warquest_link_hidden('mid='.MENU_ALLIANCE.'&sid='.PAGE_BEST_COUNTRY, t('STATUS_EXP')).': ';
 	$page .= '<span class="value experience">'.number_format($player->experience,0,",",".");
 	$page .= '</span>';
@@ -2892,7 +2892,7 @@ function warquest_ui_banner() {
 	}
 	$page .= '</td>';
 	
-	$page .= '<td valign="top" width="140">';
+	$page .= '<td valign="top" width="130">';
 	$page .= warquest_link_hidden('mid='.MENU_FORUMS.'&sid='.PAGE_FORUM, t('STATUS_LEVEL')).': ';
 	$page .= '<span class="value level">'.$player->lid.'</span>';
 	if ($player->lid>0) {
