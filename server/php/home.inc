@@ -458,7 +458,7 @@ function warquest_lastest_forum_post() {
 		$page .= '</td>';
 				
 		$page .= '<td valign="top">';
-		$page .= '<span class="subparagraph">';
+		$page .= '<span class="topic">';
 		$page .= warquest_link('mid='.MENU_FORUMS.'&sid='.PAGE_COMMENT.'&fid='.$data->fid.'&tid='.$data->tid, 
 			warquest_parse_smilies($data->description),'forum2');
 		$page .= '</span>';	

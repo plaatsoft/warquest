@@ -347,14 +347,6 @@ function warquest_menu_money() {
 	$page .= warquest_ui_menu($mid, PAGE_STOCK_EXCHANGE, 1, t('LINK_STOCKEXCHANGE'), $sid);
 	$page .= warquest_ui_menu($mid, PAGE_CASINO, 1, t('LINK_CASINO'), $sid);
 	
-	$page .= '</ul>';
-	$page .= '</div>';
-	
-	$page .= ' ';
-	
-	$page .= '<div class="menu">';
-	$page .= '<ul>';
-	
 	switch ( $sid ) { 
 	
 		case PAGE_BANK: 

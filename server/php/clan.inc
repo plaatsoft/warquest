@@ -801,7 +801,7 @@ function warquest_clan_profile_form() {
 	$page .= '</tr>';
 
 	$page .= '<tr>';
-	$page .= '<td colspan="5" class="bar"></td>';
+	$page .= '<td colspan="5" class="bar">&nbsp;</td>';
 	$page .= '</tr>';
 	
 	/* ------------- */

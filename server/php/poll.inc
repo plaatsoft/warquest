@@ -288,8 +288,7 @@ function warquest_poll_form() {
 		
 		if ($count < $total) {
 			$page .= '<tr>';
-			$page .= '<td colspan="3" class="bar">';
-			$page .= '</td>';
+			$page .= '<td colspan="3" class="bar">&nbsp;</td>';
 			$page .= '</tr>';
 		}		
 	}	

@@ -17,7 +17,7 @@
 */
 
 $notes[65] = '
-<div class="subparagraph2">20-02-2014</div>
+<div class="subparagraph2">22-02-2014</div>
 <i>Game Server v6.5</i>
 <ul>
 <li>Refactor HTML to support new CCS3 themas.</li>

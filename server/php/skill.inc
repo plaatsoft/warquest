@@ -262,7 +262,7 @@ function warquest_skills_form() {
 		$page .= '</tr>';
 
 		$page .= '<tr>';
-		$page .= '<td colspan="5" class="bar"></td>';
+		$page .= '<td colspan="5" class="bar">&nbsp;</td>';
 		$page .= '</tr>';
 	
 		/* -------------------------------------------------------------------- */
@@ -301,7 +301,7 @@ function warquest_skills_form() {
 		$page .= '</tr>';
 	
 		$page .= '<tr>';
-		$page .= '<td colspan="5" class="bar"></td>';
+		$page .= '<td colspan="5" class="bar">&nbsp;</td>';
 		$page .= '</tr>';
 	}
 	
@@ -341,7 +341,7 @@ function warquest_skills_form() {
 		$page .= '</tr>';
 	
 		$page .= '<tr>';
-		$page .= '<td colspan="5" class="bar"></td>';
+		$page .= '<td colspan="5" class="bar">&nbsp;</td>';
 		$page .= '</tr>';
 	}
 	
@@ -381,7 +381,7 @@ function warquest_skills_form() {
 		$page .= '</tr>';
 		
 		$page .= '<tr>';
-		$page .= '<td colspan="5" class="bar"></td>';
+		$page .= '<td colspan="5" class="bar">&nbsp;</td>';
 		$page .= '</tr>';
 	}
 		

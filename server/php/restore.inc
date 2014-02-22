@@ -253,7 +253,7 @@ function warquest_restore_form() {
 		$page .= '</tr>';	
 
 		$page .= '<tr>';
-		$page .= '<td colspan="2" class="bar"></td>';
+		$page .= '<td colspan="2" class="bar">&nbsp;</td>';
 		$page .= '</tr>';	
 			
 		/* -------------------------------------------------------------------- */
@@ -295,7 +295,7 @@ function warquest_restore_form() {
 		$page .= '</tr>';	
 
 		$page .= '<tr>';
-		$page .= '<td colspan="2" class="bar"></td>';
+		$page .= '<td colspan="2" class="bar">&nbsp;</td>';
 		$page .= '</tr>';
 	
 		/* -------------------------------------------------------------------- */
@@ -339,7 +339,7 @@ function warquest_restore_form() {
 		$page .= '</tr>';	
 		
 		$page .= '<tr>';
-		$page .= '<td colspan="2" class="bar"></td>';
+		$page .= '<td colspan="2" class="bar">&nbsp;</td>';
 		$page .= '</tr>';
 		
 				/* -------------------------------------------------------------------- */
@@ -379,7 +379,7 @@ function warquest_restore_form() {
 		$page .= '</tr>';
 	
 		$page .= '<tr>';
-		$page .= '<td colspan="2" class="bar"></td>';
+		$page .= '<td colspan="2" class="bar">&nbsp;</td>';
 		$page .= '</tr>';
 		
 		/* -------------------------------------------------------------------- */
@@ -433,7 +433,7 @@ function warquest_restore_form() {
 		$page .= '</tr>';
 
 		$page .= '<tr>';
-		$page .= '<td colspan="2" class="bar"></td>';
+		$page .= '<td colspan="2" class="bar">&nbsp;</td>';
 		$page .= '</tr>';
 	
 		/* -------------------------------------------------------------------- */
@@ -488,7 +488,7 @@ function warquest_restore_form() {
 		$page .= '</tr>';
 	
 		$page .= '<tr>';
-		$page .= '<td colspan="2" class="bar"></td>';
+		$page .= '<td colspan="2" class="bar">&nbsp;</td>';
 		$page .= '</tr>';
 					
 		/* -------------------------------------------------------------------- */
@@ -557,7 +557,7 @@ function warquest_restore_form() {
 		$page .= '</tr>';
 		
 		$page .= '<tr>';
-		$page .= '<td colspan="2" class="bar"></td>';
+		$page .= '<td colspan="2" class="bar">&nbsp;</td>';
 		$page .= '</tr>';
 	
 		/* -------------------------------------------------------------------- */
