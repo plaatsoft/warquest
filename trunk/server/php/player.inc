@@ -85,12 +85,12 @@ function warquest_maintenance_info_form($other) {
 		$page .= warquest_building_image($data, 0, 1);
 		$page .= '</td>';
 		
-		$page .= '<td class="bold">';
+		$page .= '<td class="subparagraph">';
 		$page .= t('BUILDING_'.$data->bid);
 		$page .= '</td>';
 				
 		$page .= '<td>';
-		$page .= $data->amount;
+		$page .= deploy_format($data->amount);
 		$page .= '</td>';
 				
 		$page .= '<td>';
@@ -115,7 +115,7 @@ function warquest_maintenance_info_form($other) {
 	$page .= '<td>';
 	$page .= '</td>';
 				
-	$page .= '<td class="bold>';
+	$page .= '<td class="subparagraph">';
 	$page .= t('PLAYER_TOTAL');
 	$page .= '</td>';
 
@@ -198,13 +198,13 @@ function warquest_discount_info_form($other) {
 		$page .= '<td>';
 		$page .= warquest_building_image($data, 0, 1);
 		$page .= '</td>';
-		
-		$page .= '<td class="bold">';
+				
+		$page .= '<td class="subparagraph">';
 		$page .= t('BUILDING_'.$data->bid);
 		$page .= '</td>';
 				
 		$page .= '<td>';
-		$page .= $data->amount;
+		$page .= deploy_format($data->amount);
 		$page .= '</td>';
 				
 		$page .= '<td>';
@@ -229,14 +229,14 @@ function warquest_discount_info_form($other) {
 	$page .= '<td>';
 	$page .= '</td>';
 				
-	$page .= '<td class="bold">';
+	$page .= '<td class="subparagraph">';
 	$page .= t('PLAYER_TOTAL');
 	$page .= '</td>';
 
 	$page .= '<td>';
 	$page .= '</td>';
 		
-	$page .= '<td class="bold">';
+	$page .= '<td class="subparagraph">';
 	$page .= money_format1($total).'%';
 	$page .= '</td>';
 	
@@ -346,7 +346,7 @@ function warquest_continent_income_form($other) {
 			
 	$page .= '<tr>';
 
-	$page .= '<td class="bold">';
+	$page .= '<td class="subparagraph">';
 	$page .= t('PLAYER_TOTAL');
 	$page .= '</td>';
 
@@ -520,13 +520,15 @@ function warquest_unit_upkeep_form($other) {
 		$page .= warquest_unit_image($data, $count);
 		$page .= '</td>';
 		
-		$page .= '<td class="bold">';
+		$page .= '<td>';
+		$page .= '<div class="subparagraph">';
 		$page .= t('UNIT_'.$data->uid).'<br/>' ;
+		$page .= '</div>';
 		$page .= t('GENERAL_UPKEEP').': '.dollar_format($data->upkeep);
 		$page .= '</td>';
 				
 		$page .= '<td>';
-		$page .= number_format2($data->amount);
+		$page .= deploy_format($data->amount);
 		$page .= '</td>';
 		
 		$cost = $data->amount * $data->upkeep;
@@ -552,12 +554,12 @@ function warquest_unit_upkeep_form($other) {
 	$page .= '<td>';
 	$page .= '</td>';
 				
-	$page .= '<td class="bold">';
+	$page .= '<td class="subparagraph">';
 	$page .= t('PLAYER_TOTAL');
 	$page .= '</td>';
 
 	$page .= '<td>';
-	$page .= number_format($totalAmount,0,",",".");
+	$page .= deploy_format($totalAmount,0,",",".");
 	$page .= '</td>';
 		
 	$page .= '<td>';
@@ -637,13 +639,15 @@ function warquest_building_income_form($other) {
 		$page .= warquest_building_image($data, 0, 1);
 		$page .= '</td>';
 		
-		$page .= '<td class="bold">';
+		$page .= '<td>';
+		$page .= '<div class="subparagraph">';
 		$page .= t('BUILDING_'.$data->bid).'<br/>';
+		$page .= '</div>';
 		$page .= dollar_format($data->income);
 		$page .= '</td>';
 				
 		$page .= '<td>';
-		$page .= $data->amount;
+		$page .= deploy_format($data->amount);
 		$page .= '</td>';
 		
 		$value = $data->amount * $data->income;
@@ -669,7 +673,7 @@ function warquest_building_income_form($other) {
 	$page .= '<td>';
 	$page .= '</td>';
 				
-	$page .= '<td class="bold">';
+	$page .= '<td class="subparagraph">';
 	$page .= t('PLAYER_TOTAL');
 	$page .= '</td>';
 
@@ -786,9 +790,11 @@ function warquest_attack_info_form($other) {
 		$page .= warquest_unit_image($data3, $count);
 		$page .= '</td>';
 
-		$page .= '<td class="bold">';
+		$page .= '<td>';
+		$page .= '<div class="subparagraph">';
 		$page .= t('UNIT_'.$data3->uid).'<br/>' ;
-		$page .= $data3->attack.' '.t('GENERAL_ATTACK');
+		$page .= '</div>';
+		$page .= strength_format($data3->attack).' '.t('GENERAL_ATTACK');
 		$page .= '</td>';
 				
 		$page .= '<td>';
@@ -799,7 +805,7 @@ function warquest_attack_info_form($other) {
 		$totalStrength += $strength;
 		
 		$page .= '<td>';
-		$page .= number_format($strength,0,",",".");
+		$page .= strength_format($strength);
 		$page .= '</td>';
 		
 		$page .= '</tr>';
@@ -809,13 +815,6 @@ function warquest_attack_info_form($other) {
 		}
 	}
 	
-	/* Show horizontal bar */
-	$page .= '<tr>';
-	$page .= '<td colspan="4">';
-	$page .= '<br/>';
-	$page .= '</td>';
-	$page .= '</tr>';
-		
 	/* Get player skill attack strength */
 	$skill = warquest_db_skill($other->pid);
 	$totalStrength += $skill->attack_max * $config['init_player_skill_step'] * $other->lid;
@@ -825,7 +824,7 @@ function warquest_attack_info_form($other) {
 	$page .= '<td>';		
 	$page .= '</td>';
 				
-	$page .= '<td class="bold">';	
+	$page .= '<td class="subparagraph">';	
 	$page .= t('PLAYER_ATTACK_SKILLS').'<br/>';
 	$page .= '</td>';
 
@@ -833,7 +832,7 @@ function warquest_attack_info_form($other) {
 	$page .= '</td>';
 		
 	$page .= '<td>';		
-	$page .= number_format2($skill->attack_max * $config['init_player_skill_step'] * $other->lid);	
+	$page .= strength_format($skill->attack_max * $config['init_player_skill_step'] * $other->lid);	
 	$page .= '</td>';
 	
 	$page .= '</tr>';	
@@ -850,7 +849,7 @@ function warquest_attack_info_form($other) {
 		$page .= '<td>';		
 		$page .= '</td>';
 					
-		$page .= '<td class="bold">';	
+		$page .= '<td class="subparagraph">';	
 		$page .= '<br/>';
 		$page .= t('CLAN_ATTACK_SKILLS');
 		$page .= '</td>';
@@ -859,7 +858,7 @@ function warquest_attack_info_form($other) {
 		$page .= '</td>';
 		
 		$page .= '<td>';		
-		$page .= number_format2( $clan->attack * $config['init_clan_skill_step']);	
+		$page .= strength_format( $clan->attack * $config['init_clan_skill_step']);	
 		$page .= '</td>';
 	
 		$page .= '</tr>';	
@@ -879,7 +878,7 @@ function warquest_attack_info_form($other) {
 	$page .= '<td>';	
 	$page .= '</td>';
 				
-	$page .= '<td class="bold">';	
+	$page .= '<td class="subparagraph">';	
 	$page .= t('PLAYER_TOTAL');
 	$page .= '</td>';
 
@@ -888,7 +887,7 @@ function warquest_attack_info_form($other) {
 	$page .= '</td>';
 		
 	$page .= '<td>';		
-	$page .= number_format($totalStrength,0,",",".");
+	$page .= strength_format($totalStrength,0,",",".");
 	$page .= '</td>';
 	
 	$page .= '</tr>';	
@@ -996,9 +995,11 @@ function warquest_defense_info_form($other) {
 		$page .= warquest_unit_image($data3, $count);
 		$page .= '</td>';
 		
-		$page .= '<td class="bold">';		
+		$page .= '<td>';		
+		$page .= '<div class="subparagraph">';
 		$page .= t('UNIT_'.$data3->uid).'<br/>' ;
-		$page .= $data3->defense.' '.t('GENERAL_DEFENSE');
+		$page .= '</div>';
+		$page .= strength_format($data3->defense).' '.t('GENERAL_DEFENSE');
 		$page .= '</td>';
 				
 		$page .= '<td>';	
@@ -1009,7 +1010,7 @@ function warquest_defense_info_form($other) {
 		$totalStrength += $strength;
 		
 		$page .= '<td>';					
-		$page .= number_format($strength,0,",",".");
+		$page .= strength_format($strength,0,",",".");
 		$page .= '</td>';
 		
 		$page .= '</tr>';
@@ -1032,7 +1033,7 @@ function warquest_defense_info_form($other) {
 	$page .= '<td>';		
 	$page .= '</td>';
 				
-	$page .= '<td class="bold">';		
+	$page .= '<td class="subparagraph">';		
 	$page .= t('PLAYER_SUB_TOTAL');
 	$page .= '</td>';
 
@@ -1041,7 +1042,7 @@ function warquest_defense_info_form($other) {
 	$page .= '</td>';
 		
 	$page .= '<td>';		
-	$page .= number_format($totalStrength,0,",",".");
+	$page .= strength_format($totalStrength,0,",",".");
 	$page .= '</td>';
 	
 	$page .= '</tr>';	
@@ -1064,9 +1065,11 @@ function warquest_defense_info_form($other) {
 		$page .= warquest_building_image($data4, 0, 1);
 		$page .= '</td>';
 		
-		$page .= '<td class="bold">';		
+		$page .= '<td>';	
+		$page .= '<div class="subparagraph">';	
 		$page .= t('BUILDING_'.$data4->bid).'<br/>' ;
-		$page .= $data4->defense.' defense';
+		$page .= '</div>';	
+		$page .= strength_format($data4->defense).' defense';
 		$page .= '</td>';
 				
 		$page .= '<td>';		
@@ -1077,7 +1080,7 @@ function warquest_defense_info_form($other) {
 		$totalStrength += $strength;
 		
 		$page .= '<td>';				
-		$page .= number_format($strength,0,",",".");
+		$page .= strength_format($strength,0,",",".");
 		$page .= '</td>';
 		
 		$page .= '</tr>';
@@ -1092,7 +1095,7 @@ function warquest_defense_info_form($other) {
 	$page .= '<td>';		
 	$page .= '</td>';
 				
-	$page .= '<td class="bold">';		
+	$page .= '<td class="subparagraph">';		
 	$page .= t('PLAYER_DEFENSE_SKILLS').'<br/>';	
 	$page .= '</td>';
 
@@ -1100,7 +1103,7 @@ function warquest_defense_info_form($other) {
 	$page .= '</td>';
 		
 	$page .= '<td>';		
-	$page .= number_format2($skill->defense_max * $config['init_player_skill_step'] * $other->lid);
+	$page .= strength_format($skill->defense_max * $config['init_player_skill_step'] * $other->lid);
 	$page .= '</td>';
 	
 	$page .= '</tr>';	
@@ -1117,7 +1120,7 @@ function warquest_defense_info_form($other) {
 		$page .= '<td>';		
 		$page .= '</td>';
 				
-		$page .= '<td class="bold">';	
+		$page .= '<td class="subparagraph">';	
 		$page .= '<br/>';
 		$page .= t('CLAN_DEFENSE_SKILLS');
 		$page .= '</td>';
@@ -1126,7 +1129,7 @@ function warquest_defense_info_form($other) {
 		$page .= '</td>';
 		
 		$page .= '<td>';		
-		$page .= number_format2($clan->defense * $config['init_clan_skill_step']);	
+		$page .= strength_format($clan->defense * $config['init_clan_skill_step']);	
 		$page .= '</td>';
 	
 		$page .= '</tr>';	
@@ -1145,7 +1148,7 @@ function warquest_defense_info_form($other) {
 	$page .= '<td>';		
 	$page .= '</td>';
 				
-	$page .= '<td class="bold">';		
+	$page .= '<td class="subparagraph">';		
 	$page .= t('PLAYER_TOTAL');
 	$page .= '</td>';
 
@@ -1153,7 +1156,7 @@ function warquest_defense_info_form($other) {
 	$page .= '</td>';
 		
 	$page .= '<td>';		
-	$page .= number_format($totalStrength,0,",",".");
+	$page .= strength_format($totalStrength,0,",",".");
 	$page .= '</td>';
 	
 	$page .= '</tr>';	
