@@ -523,8 +523,7 @@ function warquest_topic_form() {
 			
 			if ($count!=$count4) {
 				$page .= '<tr>';
-				$page .= '<td colspan="3" class="bar">';
-				$page .= '</td>';
+				$page .= '<td colspan="3" class="bar">&nbsp;</td>';
 				$page .= '</tr>';
 			}
 		}
@@ -642,8 +641,7 @@ function warquest_forum_form() {
 	
 		if ($tmp != $config["max_forums"]) {
 			$page .= '<tr>';
-			$page .= '<td colspan="3" class="bar">';
-			$page .= '</td>';
+			$page .= '<td colspan="3" class="bar">&nbsp;</td>';
 			$page .= '</tr>';
 		}
 	}

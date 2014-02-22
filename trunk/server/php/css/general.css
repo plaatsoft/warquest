@@ -24,6 +24,8 @@
   }
 }
 
+/* -- Main -- */
+
 body {		
 	color: white;
 	font-family: Arial;
@@ -33,28 +35,12 @@ body {
 	padding: 0px; 
 }
 
-.box ul {
-	list-style-type:circle;
-	margin: 0px;
-	padding: 0px 0px 0px 15px ;
-}
-
-.box li {
-	margin: 0px;
-	padding: 0px;
-}
-
-th {
-	font-size: 1.0em;
-	font-weight: bold;
-	text-align: left; 
-	padding: 0px 0px 5px 0px;
-}
-
 pre {
 	font-family: Arial;
 	font-size: 1.0em;
 }
+
+/* -- Table -- */
 
 table {  
 	border: solid 0px; 
@@ -62,12 +48,32 @@ table {
 	font-size: 1.0em;
 }
 
-td {  
+table th {
+	font-size: 1.0em;
+	font-weight: bold;
+	text-align: left; 
+	padding: 0px 0px 5px 0px;
+}
+
+table td {  
 	border: solid 0px; 
 }
 
+table .bar {  
+	font-size: 0em;
+	padding: 4px 4px 0px 0px;
+	border-color: white;
+	border-bottom: solid 1px;
+}
+
+/* -- input -- */
+
 input {
 	font-size: 0.9em;
+}
+
+input[type="image"] {
+	border: none;
 }
 
 textarea {
@@ -83,6 +89,8 @@ img {
 	vertical-align:middle;
 }
 
+/* -- link -- */
+
 a {
 	padding: 0px;
 	text-decoration: none; 
@@ -95,9 +103,17 @@ a:hover {
 	color: yellow;
 } 
 
-.bar {  
-	padding: 4px 4px 0px 0px;
-	border-bottom: solid 1px; 
+/* -- box -- */
+
+.box ul {
+	list-style-type:circle;
+	margin: 0px;
+	padding: 0px 0px 0px 15px ;
+}
+
+.box li {
+	margin: 0px;
+	padding: 0px;
 }
 
 .active {
@@ -212,6 +228,29 @@ a:hover {
 	background-color: red;
 }
 
+.right {
+	float: right;
+	clear: right;
+	padding: 10px 0px 0px 10px; 
+	display: inline-block;
+}
+
+.left2 {
+	float: left;
+	clear: left;
+	display: block;
+}
+
+.right2 {
+	float: right;
+	display: block;
+}
+
+.stop {
+	float: both;
+	clear: both;
+}
+
 .banner {		
 	font-size: 1.0em;
 }
@@ -313,6 +352,8 @@ a:hover {
 	text-align: center ; 
 }
 
+/* -- Menu -- */
+
 .menu {
 	font-size: 1.0em;
 	padding: 2px 0px 2px 0px; 
@@ -330,6 +371,7 @@ a:hover {
   padding: 0px 2px;
 }
 
+/* -- Popups -- */
 .active {
 	color: orange;
 	padding: 0px;
@@ -349,6 +391,8 @@ a:hover {
 	font-size: 1.0em;
 	color:rgb(255,0,0);
 }
+
+/* -- Elements -- */
 
 .money {
 	color:rgb(0,215,0);
@@ -395,7 +439,6 @@ a:hover {
 
 .strength {
 	color: #66AAFF;
-
 }
 
 .level {
@@ -424,29 +467,6 @@ a:hover {
 
 .stock {
 	font-size: 0.9em;
-}
-
-.right {
-	float: right;
-	clear: right;
-	padding: 10px 0px 0px 10px; 
-	display: inline-block;
-}
-
-.left2 {
-	float: left;
-	clear: left;
-	display: block;
-}
-
-.right2 {
-	float: right;
-	display: block;
-}
-
-.stop {
-	float: both;
-	clear: both;
 }
 
 .debug {

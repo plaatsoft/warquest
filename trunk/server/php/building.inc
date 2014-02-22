@@ -546,7 +546,7 @@ function warquest_building_form() {
 	
 			if ($count3!=$count2) {
 				$page .= '<tr>';
-				$page .= '<td colspan="3" class="bar"></td>';
+				$page .= '<td colspan="3" class="bar">&nbsp;</td>';
 				$page .= '</tr>';			
 			}
 		}
@@ -556,7 +556,7 @@ function warquest_building_form() {
 		
 			if ($count3>0) {
 				$page .= '<tr>';
-				$page .= '<td colspan="3" class="bar"></td>';
+				$page .= '<td colspan="3" class="bar">&nbsp;</td>';
 				$page .= '</tr>';			
 			}	
 		

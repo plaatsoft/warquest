@@ -195,7 +195,7 @@ function warquest_trade_form() {
 	$page .= '</tr>';	
 		
 	$page .= '<tr>';
-	$page .= '<td colspan="2" class="bar"></td>';
+	$page .= '<td colspan="2" class="bar">&nbsp;</td>';
 	$page .= '</tr>';
 
 
@@ -236,7 +236,7 @@ function warquest_trade_form() {
 	$page .= '</tr>';	
 		
 	$page .= '<tr>';
-	$page .= '<td colspan="2" class="bar"></td>';
+	$page .= '<td colspan="2" class="bar">&nbsp;</td>';
 	$page .= '</tr>';
 
 	/* -------------------------------------------------------------------- */
@@ -275,7 +275,7 @@ function warquest_trade_form() {
 	$page .= '</tr>';	
 		
 	$page .= '<tr>';
-	$page .= '<td colspan="2" class="bar"></td>';
+	$page .= '<td colspan="2" class="bar">&nbsp;</td>';
 	$page .= '</tr>';
 
 	/* -------------------------------------------------------------------- */
@@ -314,7 +314,7 @@ function warquest_trade_form() {
 	$page .= '</tr>';
 
 	$page .= '<tr>';
-	$page .= '<td colspan="2" class="bar"></td>';
+	$page .= '<td colspan="2" class="bar">&nbsp;</td>';
 	$page .= '</tr>';		
 	
 	/* -------------------------------------------------------------------- */
@@ -345,7 +345,7 @@ function warquest_trade_form() {
 	$page .= '</tr>';	
 		
 	$page .= '<tr>';
-	$page .= '<td colspan="2" class="bar"></td>';
+	$page .= '<td colspan="2" class="bar">&nbsp;</td>';
 	$page .= '</tr>';
 	
 		/* -------------------------------------------------------------------- */

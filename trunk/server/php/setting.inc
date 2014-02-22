@@ -549,6 +549,13 @@ function warquest_settings_form() {
 	$page .= '</tr>';
 	
 	$page .= '<tr>';
+	$page .= '<td class="clear">'.t('SETTING_TWITTER').':</td>';
+	$page .= '<td class="clear">';
+	$page .= warquest_ui_input('mytwitter', 30, 20, $player->twitter, false);
+	$page .= '</td>';
+	$page .= '</tr>';
+	
+	$page .= '<tr>';
 	$page .= '<td class="clear">'.t('GENERAL_COUNTRY').':</td>';
 	$page .= '<td class="clear">';
 	$page .= warquest_ui_country("mycountry", $player->country, !($player->country=="EU"));
@@ -569,13 +576,6 @@ function warquest_settings_form() {
 	$page .= '</td>';
 	$page .= '</tr>';
 		
-	$page .= '<tr>';
-	$page .= '<td class="clear">'.t('SETTING_TWITTER').':</td>';
-	$page .= '<td class="clear">';
-	$page .= warquest_ui_input('mytwitter', 30, 20, $player->twitter, false);
-	$page .= '</td>';
-	$page .= '</tr>';
-	
 	$page .= '<tr>';
 	$page .= '<td class="clear"></td>';
 	$page .= '<td class="clear right">';

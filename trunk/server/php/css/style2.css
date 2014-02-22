@@ -2,13 +2,13 @@
 
 /* Transparent style */
 
-/* General */
+/* -- General -- */
 
 body {		
 	color:  #ccc;
 }
 
-/* Box */
+/* -- Box -- */
 
 .box {
 	border: solid 2px; 
@@ -171,7 +171,7 @@ body {
   box-shadow: -1px 1px 5px rgba(0, 0, 0, 0.2);
 }
 
-/* Menu */
+/* -- Menu -- */
 
 .menu {
 	font-size: 1.0em;
@@ -240,13 +240,7 @@ body {
 	background-color: red;
 }
 
-/* Table */
-
-table a:active,
-table a:hover {
-	color: white;
-	text-decoration:underline;
-}
+/* -- Table -- */
 
 table {
 	margin:0px;
@@ -254,32 +248,11 @@ table {
 }
 
 table th {
-	font-size: 1.1em;
-	font-weight:bold;	
-	padding: 2px 0px 2px 0px;
-	border-top:0px solid #fafafa;
-	border-bottom:0px solid #e0e0e0;
-	background-image: -webkit-linear-gradient(top, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0));
-	background-image: -moz-linear-gradient(top, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0));
-	background-image: -o-linear-gradient(top, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0));
-	background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0));
-}
-
-table th:first-child {
+	font-size: 1.0em;
+	font-weight: bold;	
 	text-align: left;
-	padding-left:0px;
-}
-
-table tr:first-child th:first-child {
-	-moz-border-radius-topleft:3px;
-	-webkit-border-top-left-radius:3px;
-	border-top-left-radius:3px;
-}
-
-table tr:first-child th:last-child {
-	-moz-border-radius-topright:3px;
-	-webkit-border-top-right-radius:3px;
-	border-top-right-radius:3px;
+	padding: 2px 0px 2px 0px;
+	background-image: none;
 }
 
 table tr {
@@ -287,50 +260,22 @@ table tr {
 	padding-left:0px;
 }
 
-table td:first-child {
-	text-align: left;
-	padding-left:0px;
-	border-left: 0px;
-}
-
 table td {
 	padding:0px;
-	border-top: 0px solid #ffffff;
-	border-bottom:0px solid #e0e0e0;
-	border-left: 0px solid #e0e0e0;
-
 	background-image: -webkit-linear-gradient(top, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0));
 	background-image: -moz-linear-gradient(top, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0));
 	background-image: -o-linear-gradient(top, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0));
 	background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0));
 }
 
-table td.clear {
+table .clear {
 	background-image: none;
 }
-	
-table tr.even td {
 
-	background-image: -webkit-linear-gradient(top, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0));
-	background-image: -moz-linear-gradient(top, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0));
-	background-image: -o-linear-gradient(top, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0));
-	background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0));
-}
-
-table tr:last-child td {
-	border-bottom:0;
-}
-
-table tr:last-child td:first-child {
-	-moz-border-radius-bottomleft:3px;
-	-webkit-border-bottom-left-radius:3px;
-	border-bottom-left-radius:3px;
-}
-
-table tr:last-child td:last-child {
-	-moz-border-radius-bottomright:3px;
-	-webkit-border-bottom-right-radius:3px;
-	border-bottom-right-radius:3px;
+table .bar {  
+	font-size: 0.3em;
+	border-bottom: solid 0px; 
+	background-image: none;
 }
 
 /* -- input -- */
@@ -347,10 +292,6 @@ input {
 
 input:focus { 
 	border:solid 1px #EEA34A; 
-}
-
-input[type="image"] {
-	border: none;
 }
 
 /* -- select -- */
@@ -490,11 +431,4 @@ input[type="image"] {
 
 textarea:focus { 
 	border:solid 1px #EEA34A; 
-}
-
-/* -- Others -- */
-
-.bar {  
-	padding: 4px 4px 0px 0px;
-	border-bottom: solid 0px; 
 }
