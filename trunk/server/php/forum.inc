@@ -233,7 +233,7 @@ function warquest_comment_form() {
 	
 	$page .= '<div class="paragraph">'.t('ALLIANCE_PLAYER_NEWS').'</div>';
 	
-	$page .= '<div class="box">';
+	$page .= '<div class="box rows">';
 	
 	$page .= warquest_page_control($offset, $limit, $total, 1, '&tid='.$tid.'&fid='.$fid);
 	
@@ -447,7 +447,7 @@ function warquest_topic_form() {
 	
 	} else {
 			
-		$page .= '<div class="box">';
+		$page .= '<div class="box rows">';
 		
 		if (strlen($search)==0) {
 			$page .= warquest_page_control($offset, $limit, $total, 1, '&fid='.$fid);
@@ -571,7 +571,7 @@ function warquest_forum_form() {
 	$page .= warquest_link('mid='.$mid.'&sid='.PAGE_TOPIC,t('LINK_SEARCH'),'search-0');
 	$page .=	'</div>';
 		
-	$page .= '<div class="box">';
+	$page .= '<div class="box rows">';
 	
 	$page .= '<table>';
 	

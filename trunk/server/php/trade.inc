@@ -140,7 +140,7 @@ function warquest_trade_form() {
 	
 	$page .= '<div class="subparagraph">'.t('HOME_TRADE_TITLE1').'</div>';
 			
-	$page .= '<div class="box">';
+	$page .= '<div class="box rows">';
 		
 	$page .= '<table>';
 
@@ -164,9 +164,7 @@ function warquest_trade_form() {
 	}
 	$page .= '</div>';
 		
-	$page .= '<div class="subparagraph">';
-	$page .= '<b>'.t('HOME_TRADE6').'</b>';
-	$page .= '</div>';
+	$page .= '<div class="subparagraph">'.t('HOME_TRADE6').'</div>';
 	
 	$page .= '<div class="remark">';
 	$page .= t('HOME_TRADE6_NOTE', gold_format($config["gold_trade_feature6"]));
@@ -213,7 +211,7 @@ function warquest_trade_form() {
 	$page .= '</div>';
 		
 	$page .= '<div class="subparagraph">';
-	$page .= '<b>'.t('HOME_TRADE1').'</b>';
+	$page .= t('HOME_TRADE1');
 	$page .= '</div>';
 	
 	$page .= '<div class="remark">';
@@ -253,7 +251,7 @@ function warquest_trade_form() {
 	$page .= '</div>';
 		
 	$page .= '<div class="subparagraph">';
-	$page .= '<b>'.t('HOME_TRADE2').'</b>';
+	$page .= t('HOME_TRADE2');
 	$page .= '</div>';
 		
 	$page .= '<div class="remark">';
@@ -292,7 +290,7 @@ function warquest_trade_form() {
 	$page .= '</div>';
 		
 	$page .= '<div class="subparagraph">';
-	$page .= '<b>'.t('HOME_TRADE3').'</b>';
+	$page .= t('HOME_TRADE3');
 	$page .= '</div>';
 		
 	$page .= '<div class="remark">';
@@ -331,7 +329,7 @@ function warquest_trade_form() {
 	$page .= '</div>';
 		
 	$page .= '<div class="subparagraph">';
-	$page .= '<b>'.t('HOME_TRADE4').'</b>';
+	$page .= t('HOME_TRADE4');
 	$page .= '</div>';
 	
 	$page .= '<div class="remark">';	
@@ -362,7 +360,7 @@ function warquest_trade_form() {
 	$page .= '</div>';
 		
 	$page .= '<div class="subparagraph">';
-	$page .= '<b>'.t('HOME_TRADE5').'</b>';
+	$page .= t('HOME_TRADE5');
 	$page .= '</div>';
 	
 	$page .= '<div class="remark">';	

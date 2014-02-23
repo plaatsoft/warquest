@@ -45,7 +45,7 @@ function warquest_leaderboard3_form() {
 	sscanf($uid, "%03d%03d", $code[0], $code[1]);
 	$code = chr($code[0]).chr($code[1]);
 	
-	$output->title = t('LEADERBORD_PLAYER_COUNTRY',warquest_landcode($uid));
+	$output->title = t('LEADERBORD_PLAYER_COUNTRY',warquest_landcode($code));
 	
 	$limit = 50;
 
@@ -88,9 +88,9 @@ function warquest_leaderboard3_form() {
 	$query .= 'limit '.$offset.','.$limit;
 	$result = warquest_db_query($query);	
 	
-	$page .= '<div class="subparagraph">'.t('LEADERBORD_PLAYER_COUNTRY',warquest_landcode($uid)).'</div>';
+	$page .= '<div class="subparagraph">'.t('LEADERBORD_PLAYER_COUNTRY',warquest_landcode($code)).'</div>';
 	
-	$page .= '<div class="box">';
+	$page .= '<div class="box rows">';
 	
 	$page .= warquest_page_control($offset, $limit, $total, 1, '&sort='.$sort);
 	
@@ -230,7 +230,7 @@ function warquest_leaderboard2_form() {
 	
 	$page .= '<div class="subparagraph">'.t('LEADERBORD_BEST_COUNTRY').'</div>';
 	
-	$page .= '<div class="box">';
+	$page .= '<div class="box rows">';
 	
 	$page .= warquest_page_control($offset, $limit, $total, 1, '&sort='.$sort);
 	
@@ -366,7 +366,7 @@ function warquest_leaderboard1_form() {
 	
 	$page .= '<div class="subparagraph">'.t('LEADERBORD_BEST_PLAYER').'</div>';
 	
-	$page .= '<div class="box">';
+	$page .= '<div class="box rows">';
 	
 	$page .= warquest_page_control($offset, $limit, $total, 1, '&sort='.$sort);
 	

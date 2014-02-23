@@ -442,7 +442,7 @@ function warquest_admin_browser_report() {
 
 	$page .= '<div class="subparagraph">Browsers</div>';
 	
-	$page .= '<div class="box">';
+	$page .= '<div class="box rows">';
 	
 	$page .= '<table>';
 	
@@ -574,7 +574,7 @@ function warquest_admin_level_form() {
 	
 	$page .= '<div class="subparagraph">'.$output->title.'</div>';
 	
-	$page .= '<div class="box">';
+	$page .= '<div class="box rows">';
 	$page .= '<table>';
 	$page .= '<thead>';	
 	$page .= '<tr>';	
@@ -685,7 +685,7 @@ function warquest_admin_messages_form() {
 		
 	} else {	
 			
-		$page .= '<div class="box">';
+		$page .= '<div class="box rows">';
 		
 		$page .= warquest_page_control($offset, $limit, $total, 1);
 		
@@ -855,7 +855,7 @@ function warquest_admin_news_log() {
 
 	$page .= '<div class="subparagraph">News items</div>';
 	
-	$page .= '<div class="box">';
+	$page .= '<div class="box rows">';
 	
 	$page .= '<table>';
 	
@@ -1396,7 +1396,7 @@ function warquest_admin_personal_messages() {
 	
 	if ($count>0) {
 	
-		$page .= '<div class="box">';
+		$page .= '<div class="box rows">';
 	
 		$count=0;
 		
@@ -1467,48 +1467,48 @@ function warquest_admin_player_form() {
 
 	$page .= '<table>';		
 	$page .= '<tr>';
-	$page .= '<td class="clear" width="120">Nickname:</td>';
-	$page .= '<td class="clear" width="380"><input name="name" type="text" size="20" maxlength="15" value="'.$other->name.'" /></td>';
+	$page .= '<td width="120">Nickname:</td>';
+	$page .= '<td width="380"><input name="name" type="text" size="20" maxlength="15" value="'.$other->name.'" /></td>';
 	$page .= '</tr>';
 			
 	$page .= '<tr>';
-	$page .= '<td class="clear">Country:</td>';
-	$page .= '<td class="clear"><input name="country" type="text" size="3" maxlength="2" value="'.$other->country.'" /></td>';
+	$page .= '<td>Country:</td>';
+	$page .= '<td><input name="country" type="text" size="3" maxlength="2" value="'.$other->country.'" /></td>';
 	$page .= '</tr>';
 		
 	$page .= '<tr>';
-	$page .= '<td class="clear">Money:</td>';
-	$page .= '<td class="clear"><input name="money" type="text" size="20" maxlength="15" value="'.number_format($other->money,0,",",".").'" /></td>';
+	$page .= '<td>Money:</td>';
+	$page .= '<td><input name="money" type="text" size="20" maxlength="15" value="'.number_format($other->money,0,",",".").'" /></td>';
 	$page .= '</tr>';
 	
 	$page .= '<tr>';
-	$page .= '<td class="clear">Bonus Deposit:</td>';
-	$page .= '<td class="clear"><input name="bank" type="text" size="20" maxlength="15" value="0"/></td>';
+	$page .= '<td>Bonus Deposit:</td>';
+	$page .= '<td><input name="bank" type="text" size="20" maxlength="15" value="0"/></td>';
 	$page .= '</tr>';
 	
 	$page .= '<tr>';
-	$page .= '<td class="clear">Gold:</td>';
-	$page .= '<td class="clear"><input name="gold" type="text" size="6" maxlength="6" value="0"/></td>';
+	$page .= '<td>Gold:</td>';
+	$page .= '<td><input name="gold" type="text" size="6" maxlength="6" value="0"/></td>';
 	$page .= '</tr>';
 		
 	$page .= '<tr>';
-	$page .= '<td class="clear">Level:</td>';
-	$page .= '<td class="clear"><input name="lid" type="text" size="5" maxlength="5" value="'.$other->lid.'" /></td>';
+	$page .= '<td>Level:</td>';
+	$page .= '<td><input name="lid" type="text" size="5" maxlength="5" value="'.$other->lid.'" /></td>';
 	$page .= '</tr>';
 		
 	$page .= '<tr>';
-	$page .= '<td class="clear">Experience:</td>';
-	$page .= '<td class="clear"><input name="experience" type="text" size="10" maxlength="10" value="'.number_format($other->experience,0,",",".").'" /></td>';
+	$page .= '<td>Experience:</td>';
+	$page .= '<td><input name="experience" type="text" size="10" maxlength="10" value="'.number_format($other->experience,0,",",".").'" /></td>';
 	$page .= '</tr>';
 		
 	$page .= '<tr>';
-	$page .= '<td class="clear">Ban this user:</td>';
-	$page .= '<td class="clear">'.warquest_ui_checkbox("ban", "ban", warquest_db_query_pattern($other, PATTERN_BAN)).'</td>';
+	$page .= '<td>Ban this user:</td>';
+	$page .= '<td>'.warquest_ui_checkbox("ban", "ban", warquest_db_query_pattern($other, PATTERN_BAN)).'</td>';
 	$page .= '</tr>';
 	
 	$page .= '<tr>';
-	$page .= '<td class="clear"></td>';
-	$page .= '<td class="clear">';
+	$page .= '<td></td>';
+	$page .= '<td>';
 	$page .= '<input type="hidden" name="token" value="'.warquest_token('mid='.$mid.'&sid='.PAGE_PLAYERS.'&eid='.EVENT_ADMIN_EDIT.'&oid='.$other->pid).'" />';
 	$page .= '<input type="submit" name="Submit" value="Change" />';
 	$page .= '</td>';
@@ -1524,19 +1524,19 @@ function warquest_admin_player_form() {
 	$page .= '<table>';
 		
 	$page .= '<tr>';
-	$page .= '<td class="clear" width="120">ID:</td>';
-	$page .= '<td class="clear" width="380">';
+	$page .= '<td width="120">ID:</td>';
+	$page .= '<td width="380">';
 	$page .= '<input name="id" type="text" size="10" maxlength="10" value="'.$other->pid.'" disabled="yes" /></td>';
 	$page .= '</tr>';
 		
 	$page .= '</tr>';		
-	$page .= '<td class="clear">Username:</td>';
-	$page .= '<td class="clear">';
+	$page .= '<td>Username:</td>';
+	$page .= '<td>';
 	$page .= '<input name="username" type="text" size="20" maxlength="80" value="'.$member->username.'" disabled="yes"/></td>';
 	$page .= '</tr>';
 	
-	$page .= '<td class="clear">Email:</td>';
-	$page .= '<td class="clear">';
+	$page .= '<td>Email:</td>';
+	$page .= '<td>';
 	$page .= '<input name="email" type="text" size="40" maxlength="120" value="'.$member->email.'" disabled="yes"/>';	
 	if ($member->email_valid==1) {
 		$page .= ' '.warquest_image("other/valid.png",'title="'.t('HOME_EMAIL_VALID').'"');
@@ -1544,23 +1544,23 @@ function warquest_admin_player_form() {
 	$page .= '</td></tr>';
 		
 	$page .= '</tr>';	
-	$page .= '<td class="clear">Created:</td>';
-	$page .= '<td class="clear"><input name="created" type="text" size="20" maxlength="20" value="'.warquest_convert_date($member->created).'" disabled="yes" /></td>';
+	$page .= '<td>Created:</td>';
+	$page .= '<td><input name="created" type="text" size="20" maxlength="20" value="'.warquest_convert_date($member->created).'" disabled="yes" /></td>';
 	$page .= '</tr>';
 		
 	$page .= '</tr>';	
-	$page .= '<td class="clear">Last Login:</td>';
-	$page .= '<td class="clear"><input name="lastlogin" type="text" size="20" maxlength="20" value="'.warquest_convert_date($member->last_login).'" disabled="yes" /></td>';
+	$page .= '<td>Last Login:</td>';
+	$page .= '<td><input name="lastlogin" type="text" size="20" maxlength="20" value="'.warquest_convert_date($member->last_login).'" disabled="yes" /></td>';
 	$page .= '</tr>';
 		
 	$page .= '</tr>';	
-	$page .= '<td class="clear">Previous Login:</td>';
-	$page .= '<td class="clear"><input name="prevlogin" type="text" size="20" maxlength="20" value="'.warquest_convert_date($member->prev_login).'" disabled="yes" /></td>';
+	$page .= '<td>Previous Login:</td>';
+	$page .= '<td><input name="prevlogin" type="text" size="20" maxlength="20" value="'.warquest_convert_date($member->prev_login).'" disabled="yes" /></td>';
 	$page .= '</tr>';
 		
 	$page .= '</tr>';
-	$page .= '<td class="clear">IP address:</td>';
-	$page .= '<td class="clear"><input name="ip" type="text" size="15" maxlength="15" value="'.$member->ip.'" disabled="yes" /></td>';
+	$page .= '<td>IP address:</td>';
+	$page .= '<td><input name="ip" type="text" size="15" maxlength="15" value="'.$member->ip.'" disabled="yes" /></td>';
 	$page .= '</tr>';
 		
 	$page .= '</table>';
@@ -1569,15 +1569,15 @@ function warquest_admin_player_form() {
 	
 	$page .= '<table>';
 	$page .= '<tr>';
-	$page .= '<td class="clear" width="165" align="left">';
+	$page .= '<td width="165" align="left">';
 	$page .= warquest_link_confirm('mid='.$mid.'&oid='.$other->pid.'&sid='.PAGE_PLAYER_LIST.'&eid='.EVENT_ADMIN_DELETE_PLAYER, 
 						'Delete account' ,'Delete '.$other->name.'. Are you sure?');
 	$page .= '</td>';
 		
-	$page .= '<td class="clear" width="165" align="center">';
+	$page .= '<td width="165" align="center">';
 	$page .= warquest_link('mid='.$mid.'&oid='.$other->pid.'&sid='.PAGE_PLAYER_LIST.'&eid='.EVENT_ADMIN_HACK_ACCOUNT, 'Hack Session');
 	$page .= '</td>';
-	$page .= '<td class="clear" width="165" align="right">';
+	$page .= '<td width="165" align="right">';
 	$page .= warquest_link('mid='.$mid.'&oid='.$other->pid.'&sid='.PAGE_PLAYER_COPY, 'Copy account');
 	$page .= '</td>';
 	$page .= '</tr>';
@@ -1769,7 +1769,7 @@ function warquest_admin_member_do() {
 	
 	$result = warquest_db_query($query);	
 	
-	$page .= '<div class="box">';
+	$page .= '<div class="box rows">';
 	
 	$page .= warquest_page_control($offset, $limit, $total, 1, '&sort='.$sort);
 	

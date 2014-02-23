@@ -205,7 +205,7 @@ function warquest_home_messages() {
 		
 	} else {
 		
-		$page .= '<div class="box">';
+		$page .= '<div class="box rows">';
 	
 		$count=0;
 		
@@ -214,9 +214,9 @@ function warquest_home_messages() {
 		$page .= '<table>';
 		
 		$page .= '<tr>';
-		$page .= '<td width="75" ><b>'.t('GENERAL_AGO').'</b></td>';
-		$page .= '<td width="390"><b>'.t('GENERAL_MESSAGE').'</b></td>';
-		$page .= '<td width="55" align="right"><b>'.t('GENERAL_ACTION').'</b></td>';
+		$page .= '<th width="75" >'.t('GENERAL_AGO').'</th>';
+		$page .= '<th width="390">'.t('GENERAL_MESSAGE').'</th>';
+		$page .= '<th width="55" align="right">'.t('GENERAL_ACTION').'</th>';
 		$page .= '</tr>';
 		
 		while ($data=warquest_db_fetch_object($result)) {
@@ -313,16 +313,16 @@ function warquest_home_news() {
 		
 	if ($count>0) {
 	
-		$page .= '<div class="box">';
+		$page .= '<div class="box rows">';
 		
 		$page .= warquest_page_control($offset, $limit, $total, 1);
 	
 		$page .= '<table>';
 
 		$page .= '<tr>';
-		$page .= '<td width="75"><b>'.t('GENERAL_AGO').'</b></td>';
-		$page .= '<td width="370"><b>'.t('GENERAL_MESSAGE').'</b></td>';
-		$page .= '<td width="55" align="right"><b>'.t('GENERAL_ACTION').'</b></td>';
+		$page .= '<th width="75">'.t('GENERAL_AGO').'</th>';
+		$page .= '<th width="370">'.t('GENERAL_MESSAGE').'</th>';
+		$page .= '<th width="55" align="right">'.t('GENERAL_ACTION').'</th>';
 		$page .= '</tr>';
 		
 		

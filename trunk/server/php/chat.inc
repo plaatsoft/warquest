@@ -146,7 +146,7 @@ function warquest_chatroom_form() {
 
 	$result = warquest_db_query($query);	
 	
-	$page .= '<div class="box">';	
+	$page .= '<div class="box rows">';	
 		
 	$page .= '<table>';
 	

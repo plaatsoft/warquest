@@ -197,7 +197,7 @@ function warquest_restore_form() {
 		
 		$page .= '<div class="subparagraph">'.t('PLAYER_RESTORE_SUBTITLE1').' & '.t('PLAYER_RESTORE_SUBTITLE2').'</div>';
 	
-		$page .= '<div class="box">';	
+		$page .= '<div class="box rows">';	
 	
 		$page .= '<table>';
 	
@@ -237,7 +237,7 @@ function warquest_restore_form() {
 		}
 		$page .= '</div>';
 			
-		$page .= '<div class="subparagraph"><b>'.t('PLAYER_HEALTH_TITLE').'</b></div>';
+		$page .= '<div class="subparagraph">'.t('PLAYER_HEALTH_TITLE').'</div>';
 	
 		$page .= '<div class="remark">';
 		$page .= t('PLAYER_HEALTH_NOTE');		
@@ -275,7 +275,7 @@ function warquest_restore_form() {
 		}
 		$page .= '</div>';
 		
-		$page .= '<div class="subparagraph"><b>'.t('PLAYER_UNITS_TITLE').'</b></div>';
+		$page .= '<div class="subparagraph">'.t('PLAYER_UNITS_TITLE').'</div>';
 		
 		$page .= '<div class="remark">';
 		$page .= t('PLAYER_UNITS_NOTE');		
@@ -317,7 +317,7 @@ function warquest_restore_form() {
 		}
 		$page .= '</div>';
 		
-		$page .= '<div class="subparagraph"><b>'.t('PLAYER_BUILDINGS_TITLE').'</b>';
+		$page .= '<div class="subparagraph">'.t('PLAYER_BUILDINGS_TITLE');
 		$page .= '</div>';
 		
 		$page .= '<div class="remark">';
@@ -362,8 +362,7 @@ function warquest_restore_form() {
 		}
 		$page .= '</div>';
 	
-		$page .= '<div class="subparagraph"><b>'.t('PLAYER_REBELLION_TITLE').'</b>';
-		$page .= '</div>';
+		$page .= '<div class="subparagraph">'.t('PLAYER_REBELLION_TITLE').'</div>';
 	
 		$page .= '<div class="remark">';
 		$page .= t('PLAYER_REBELLION_NOTE');		
@@ -417,7 +416,7 @@ function warquest_restore_form() {
 		}
 		$page .= '</div>';
 		
-		$page .= '<div class="subparagraph"><b>'.t('PLAYER_ENERGY_TITLE').'</b></div>';
+		$page .= '<div class="subparagraph">'.t('PLAYER_ENERGY_TITLE').'</div>';
 	
 		$page .= '<div class="remark">';
 		$page .= t('PLAYER_ENERGY_NOTE');		
@@ -471,7 +470,7 @@ function warquest_restore_form() {
 		}
 		$page .= '</div>';
 	
-		$page .= '<div class="subparagraph"><b>'.t('PLAYER_AMMO_TITLE').'</b></div>';
+		$page .= '<div class="subparagraph">'.t('PLAYER_AMMO_TITLE').'</div>';
 	
 		$page .= '<div class="remark">';
 		$page .= t('PLAYER_AMMO_NOTE');		
@@ -543,7 +542,7 @@ function warquest_restore_form() {
 		}
 		$page .= '</div>';
 	
-		$page .= '<div class="subparagraph"><b>'.t('PLAYER_CEASE_FIRE_TITLE').'</b></div>';
+		$page .= '<div class="subparagraph">'.t('PLAYER_CEASE_FIRE_TITLE').'</div>';
 	
 		$page .= '<div class="remark">';
 		$page .= t('PLAYER_CEASE_FIRE_NOTE');		
@@ -615,7 +614,7 @@ function warquest_restore_form() {
 
 		$page .= '</div>';
 	
-		$page .= '<div class="subparagraph"><b>'.t('PLAYER_HOLIDAY_TITLE').'</b></div>';
+		$page .= '<div class="subparagraph">'.t('PLAYER_HOLIDAY_TITLE').'</div>';
 	
 		$page .= '<div class="remark">';
 		$page .= t('PLAYER_HOLIDAY_NOTE');		

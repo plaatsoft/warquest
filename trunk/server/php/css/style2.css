@@ -31,18 +31,11 @@ body {
 }
 
 .subparagraph {
-	font-size: 1.2em;
-	font-weight: bold;
-	padding: 5px 0px 2px 0px; 
-	color: white;
+
 }
 
 .subparagraph2 {
-	font-size: 1.0em;
-	padding: 10px 0px 2px 0px; 
-	text-decoration: underline; 
-	font-weight: bold;
-	color: orange;
+
 }
 
 /* Checkbox */
@@ -260,7 +253,7 @@ table tr {
 	padding-left:0px;
 }
 
-table td {
+.rows table td {
 	padding:0px;
 	background-image: -webkit-linear-gradient(top, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0));
 	background-image: -moz-linear-gradient(top, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0));
@@ -268,11 +261,11 @@ table td {
 	background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0));
 }
 
-table .clear {
+.rows table .clear {
 	background-image: none;
 }
 
-table .bar {  
+.rows table .bar {  
 	font-size: 0.3em;
 	border-bottom: solid 0px; 
 	background-image: none;

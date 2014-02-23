@@ -549,35 +549,35 @@ function warquest_settings_form() {
 	$page .= '</tr>';
 	
 	$page .= '<tr>';
-	$page .= '<td class="clear">'.t('SETTING_TWITTER').':</td>';
-	$page .= '<td class="clear">';
+	$page .= '<td>'.t('SETTING_TWITTER').':</td>';
+	$page .= '<td>';
 	$page .= warquest_ui_input('mytwitter', 30, 20, $player->twitter, false);
 	$page .= '</td>';
 	$page .= '</tr>';
 	
 	$page .= '<tr>';
-	$page .= '<td class="clear">'.t('GENERAL_COUNTRY').':</td>';
-	$page .= '<td class="clear">';
+	$page .= '<td>'.t('GENERAL_COUNTRY').':</td>';
+	$page .= '<td>';
 	$page .= warquest_ui_country("mycountry", $player->country, !($player->country=="EU"));
 	$page .= '</td>';
 	$page .= '</tr>';
 	
 	$page .= '<tr>';
-	$page .= '<td class="clear">'.t('SETTING_LANGUAGE').':</td>';
-	$page .= '<td class="clear">';
+	$page .= '<td>'.t('SETTING_LANGUAGE').':</td>';
+	$page .= '<td>';
 	$page .= warquest_ui_language('mylanguage', $player->language, false);
 	$page .= '</td>';
 	$page .= '</tr>';
 				
 	$page .= '<tr>';
-	$page .= '<td class="clear">'.t('SETTING_BACKGROUND').':</td>';
-	$page .= '<td class="clear">';
+	$page .= '<td>'.t('SETTING_BACKGROUND').':</td>';
+	$page .= '<td>';
 	$page .= warquest_ui_background("mybackground", $player->background, false);
 	$page .= '</td>';
 	$page .= '</tr>';
 		
 	$page .= '<tr>';
-	$page .= '<td class="clear"></td>';
+	$page .= '<td></td>';
 	$page .= '<td class="clear right">';
 	$page .= warquest_link('mid='.$mid.'&sid='.$sid.'&eid='.EVENT_HOME_SETTINGS_SAVE, t('LINK_CHANGE'), 'change-1');
 	$page .= '</td>';
@@ -608,49 +608,49 @@ function warquest_settings_form() {
 	
 	if (!preg_match("/Symbian/", $browser)) {
 	
-		$page .= '<td class="clear">'.warquest_ui_checkbox("bounty", "bounty", warquest_db_query_pattern($player, PATTERN_BOUNTY)).'</td>';
-		$page .= '<td class="clear">'.t('SETTING_BOUNTY').'</td>';
+		$page .= '<td>'.warquest_ui_checkbox("bounty", "bounty", warquest_db_query_pattern($player, PATTERN_BOUNTY)).'</td>';
+		$page .= '<td>'.t('SETTING_BOUNTY').'</td>';
 		$page .= '</tr>';
 	
 		$page .= '<tr>';	
-		$page .= '<td class="clear">'.warquest_ui_checkbox("restore", "restore", warquest_db_query_pattern($player, PATTERN_RESTORE)).'</td>';
-		$page .= '<td class="clear">'.t('SETTING_RESTORE').'</td>';
+		$page .= '<td>'.warquest_ui_checkbox("restore", "restore", warquest_db_query_pattern($player, PATTERN_RESTORE)).'</td>';
+		$page .= '<td>'.t('SETTING_RESTORE').'</td>';
 		$page .= '</tr>';
 	}
 	
 	$page .= '<tr>';
 	
-	$page .= '<td class="clear">'.warquest_ui_checkbox("condition", "condition", warquest_db_query_pattern($player, PATTERN_CONDITION)).'</td>';
-	$page .= '<td class="clear">'.t('SETTING_CONDITION').'</td>';
+	$page .= '<td>'.warquest_ui_checkbox("condition", "condition", warquest_db_query_pattern($player, PATTERN_CONDITION)).'</td>';
+	$page .= '<td>'.t('SETTING_CONDITION').'</td>';
 	$page .= '</tr>';
 	
 	$page .= '<tr>';
-	$page .= '<td class="clear">'.warquest_ui_checkbox("forum", "forum", warquest_db_query_pattern($player, PATTERN_FORUM_SORT)).'</td>';
-	$page .= '<td class="clear">'.t('SETTING_FORUM_SORT').'</td>';
+	$page .= '<td>'.warquest_ui_checkbox("forum", "forum", warquest_db_query_pattern($player, PATTERN_FORUM_SORT)).'</td>';
+	$page .= '<td>'.t('SETTING_FORUM_SORT').'</td>';
 	$page .= '</tr>';
 	
 	$page .= '<tr>';
-	$page .= '<td class="clear">'.warquest_ui_checkbox("sort1", "sort1", warquest_db_query_pattern($player, PATTERN_SORT1)).'</td>';
-	$page .= '<td class="clear">'.t('SETTING_SORT1').'</td>';
+	$page .= '<td>'.warquest_ui_checkbox("sort1", "sort1", warquest_db_query_pattern($player, PATTERN_SORT1)).'</td>';
+	$page .= '<td>'.t('SETTING_SORT1').'</td>';
 	$page .= '</tr>';
 	
 	$page .= '<tr>';
-	$page .= '<td class="clear">'.warquest_ui_checkbox("sort2", "sort2", warquest_db_query_pattern($player, PATTERN_SORT2)).'</td>';
-	$page .= '<td class="clear">'.t('SETTING_SORT2').'</td>';
+	$page .= '<td>'.warquest_ui_checkbox("sort2", "sort2", warquest_db_query_pattern($player, PATTERN_SORT2)).'</td>';
+	$page .= '<td>'.t('SETTING_SORT2').'</td>';
 	$page .= '</tr>';
 	
 	$page .= '<tr>';
-	$page .= '<td class="clear">'.warquest_ui_checkbox("nobotnews", "nobotnews", warquest_db_query_pattern($player, PATTERN_NO_BOT_NEWS)).'</td>';
-	$page .= '<td class="clear">'.t('SETTING_NO_BOT_NEWS').'</td>';
+	$page .= '<td>'.warquest_ui_checkbox("nobotnews", "nobotnews", warquest_db_query_pattern($player, PATTERN_NO_BOT_NEWS)).'</td>';
+	$page .= '<td>'.t('SETTING_NO_BOT_NEWS').'</td>';
 	$page .= '</tr>';
 	
 	$page .= '<tr>';
-	$page .= '<td class="clear">'.warquest_ui_checkbox("allylist", "allylist", warquest_db_query_pattern($player, PATTERN_ALLY_LIST)).'</td>';
-	$page .= '<td class="clear">'.t('SETTING_ALLIES_IN_BATTLE_LIST').'</td>';
+	$page .= '<td>'.warquest_ui_checkbox("allylist", "allylist", warquest_db_query_pattern($player, PATTERN_ALLY_LIST)).'</td>';
+	$page .= '<td>'.t('SETTING_ALLIES_IN_BATTLE_LIST').'</td>';
 	$page .= '</tr>';
 	
 	$page .= '<tr>';
-	$page .= '<td class="clear"></td>';
+	$page .= '<td></td>';
 	$page .= '<td class="clear right">'.warquest_link('mid='.$mid.'&sid='.$sid.'&eid='.EVENT_HOME_SETTINGS_SAVE, t('LINK_CHANGE'), 'change-2').'</td>';
 	$page .= '</tr>';
 	
@@ -669,8 +669,8 @@ function warquest_settings_form() {
 	$page .= '<table cellpadding="2" cellspacing="1">';
 
 	$page .= '<tr>';
-	$page .= '<td class="clear" width="200">'.t('PLAYER_NEW_EMAIL').':</td>';
-	$page .= '<td class="clear" width="300">';
+	$page .= '<td width="200">'.t('PLAYER_NEW_EMAIL').':</td>';
+	$page .= '<td width="300">';
 	$page .= warquest_ui_input('myemail', 30, 100, $member->email, false);
 	if ($member->email_valid==1) {
 		$page .= ' '.warquest_image("other/valid.png",'title="'.t('HOME_EMAIL_VALID').'"');
@@ -690,21 +690,21 @@ function warquest_settings_form() {
 	$page .= '</tr>';
 		
 	$page .= '<tr>';
-	$page .= '<td class="clear">'.t('PLAYER_NOTIFICATION_COMMENT').':</td>';
-	$page .= '<td class="clear">';
+	$page .= '<td>'.t('PLAYER_NOTIFICATION_COMMENT').':</td>';
+	$page .= '<td>';
 	$page .= warquest_ui_checkbox("notification_comment", "notification_comment", $member->notification_comment);
 	$page .= '</td>';
 	$page .= '</tr>';
 				
 	$page .= '<tr>';
-	$page .= '<td class="clear">'.t('PLAYER_NOTIFICATION_ALLIANCE').':</td>';
-	$page .= '<td class="clear">';
+	$page .= '<td>'.t('PLAYER_NOTIFICATION_ALLIANCE').':</td>';
+	$page .= '<td>';
 	$page .= warquest_ui_checkbox("notification_alliance", "notification_alliance", $member->notification_alliance);
 	$page .= '</td>';
 	$page .= '</tr>';
 	
 	$page .= '<tr>';
-	$page .= '<td class="clear"></td>';
+	$page .= '<td></td>';
 	$page .= '<td class="clear right">';
 	$page .= warquest_link('mid='.$mid.'&sid='.$sid.'&eid='.EVENT_HOME_EMAIL_CHANGE, t('LINK_CHANGE'), 'change-3');
 	$page .= '</td>';
@@ -728,8 +728,8 @@ function warquest_settings_form() {
 		$page .= '<table cellpadding="2" cellspacing="1">';
 						
 		$page .= '<tr>';	
-		$page .= '<td class="clear" width="200">'.t('PLAYER_USERNAME').':</td>';
-		$page .= '<td class="clear" width="300">';
+		$page .= '<td width="200">'.t('PLAYER_USERNAME').':</td>';
+		$page .= '<td width="300">';
 	
 		$page .= '<input name="username" type="text" id="username" size="18" ';
 		$page .= 'maxlength="'.$config["max_username_length"].'" value="'.$member->username.'"/>';
@@ -737,31 +737,31 @@ function warquest_settings_form() {
 		$page .= '</tr>';
 		
 		$page .= '<tr>';
-		$page .= '<td class="clear">'.t('PLAYER_CURRENT_PASSWORD').':</td>';
-		$page .= '<td class="clear">';
+		$page .= '<td>'.t('PLAYER_CURRENT_PASSWORD').':</td>';
+		$page .= '<td>';
 		$page .= '<input name="myoldpassword" type="password" id="myoldpassword" size="18" ';
 		$page .= 'maxlength="'.$config["max_password_length"].'" />';
 		$page .= '</td>';
 		$page .= '</tr>';
 		
 		$page .= '<tr>';
-		$page .= '<td class="clear">'.t('PLAYER_NEW_PASSWORD').':</td>';
-		$page .= '<td class="clear">';
+		$page .= '<td>'.t('PLAYER_NEW_PASSWORD').':</td>';
+		$page .= '<td>';
 		$page .= '<input name="mynewpassword1" type="password" id="mynewpassword" size="18" ';
 		$page .= 'maxlength="'.$config["max_password_length"].'" />';
 		$page .= '</td>';
 		$page .= '</tr>';
 	
 		$page .= '<tr>';
-		$page .= '<td class="clear">'.t('PLAYER_NEW_PASSWORD_AGAIN').':</td>';
-		$page .= '<td class="clear">';
+		$page .= '<td>'.t('PLAYER_NEW_PASSWORD_AGAIN').':</td>';
+		$page .= '<td>';
 		$page .= '<input name="mynewpassword2" type="password" id="mynewpassword" size="18" ';
 		$page .= 'maxlength="'.$config["max_password_length"].'" />';
 		$page .= '</td>';
 		$page .= '</tr>';
 		
 		$page .= '<tr>';
-		$page .= '<td class="clear"></td>';
+		$page .= '<td></td>';
 		$page .= '<td class="clear right">';
 		$page .= warquest_link('mid='.$mid.'&sid='.$sid.'&eid='.EVENT_HOME_CHANGE_LOGIN, t('LINK_CHANGE'), 'change-4');
 		$page .= '</td>';
