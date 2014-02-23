@@ -2721,7 +2721,7 @@ function warquest_ui_header() {
 	}
  
 	$page .= '<link href="'.$config["content_url"].'images/favicon.ico" rel="shortcut icon" type="image/x-icon" />'; 
-	$page .= '<link href="'.$config["content_url"].'css/general.css" rel="stylesheet" type="text/css" />';
+	$page .= '<link href="'.$config["content_url"].'css/general1.css" rel="stylesheet" type="text/css" />';
 	
 	if (($mid==MENU_MONEY) && ($sid==PAGE_STOCK_EXCHANGE)) {	
 		$page .= '<link href="'.$config["content_url"].'css/jquery.css" rel="stylesheet" type="text/css" />';
@@ -2779,7 +2779,7 @@ function warquest_ui_header() {
 	}
 	$page .= '</style>';
 	
-	$page .= '<link href="'.$config["content_url"].'css/style'.$background.'.css" rel="stylesheet" type="text/css" />';
+	$page .= '<link href="'.$config["content_url"].'css/style'.$background.'a.css" rel="stylesheet" type="text/css" />';
 	
 	/* Add JavaScripts */
 	$page .= '<script language="JavaScript" src="'.$config["content_url"].'js/link3.js" type="text/javascript"></script>';
