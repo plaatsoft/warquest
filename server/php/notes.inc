@@ -17,9 +17,10 @@
 */
 
 $notes[65] = '
-<div class="subparagraph2">22-02-2014</div>
+<div class="subparagraph2">23-02-2014</div>
 <i>Game Server v6.5</i>
 <ul>
+<li>Max. allowed daily deposit to clan bank is 10x hourly income.</li>
 <li>Refactor HTML to support new CCS3 themas.</li>
 <li>Added transparent CCS3 thema (Home->Settings->Thema)</li>
 <li>Added more color to default thema.</li>

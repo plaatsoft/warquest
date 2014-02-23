@@ -78,10 +78,10 @@ function warquest_unit_deploy_do() {
 	
 		$message = '<table>';
 		$message .= '<tr>';
-		$message .= '<td class="clear" width="100">';
+		$message .= '<td width="100">';
 		$message .= warquest_unit_image($unit, 0, 0);
 		$message .= '</td>';
-		$message .= '<td class="clear">';
+		$message .= '<td>';
 		$message .= t('UNIT_MAX', number_format2($unit->max), t('UNIT_'.$uid));
 		$message .= '</td>';
 		$message .= '</tr>';
@@ -93,10 +93,10 @@ function warquest_unit_deploy_do() {
 		
 		$message = '<table>';
 		$message .= '<tr>';
-		$message .= '<td class="clear" width="100">';
+		$message .= '<td width="100">';
 		$message .= warquest_unit_image($unit, 0, 0);
 		$message .= '</td>';
-		$message .= '<td class="clear">';
+		$message .= '<td>';
 		if ($totalPrice>0) {
 			$message .= t('UNIT_NO_FUNDS', number_format2($amount), t('UNIT_'.$uid), dollar_format($totalPrice));
 		} else {
@@ -112,10 +112,10 @@ function warquest_unit_deploy_do() {
 	
 		$message = '<table>';
 		$message .= '<tr>';
-		$message .= '<td class="clear" width="100">';
+		$message .= '<td width="100">';
 		$message .= warquest_unit_image($unit, 0, 0);
 		$message .= '</td>';
-		$message .= '<td class="clear">';
+		$message .= '<td>';
 		$message .= t('UNIT_NO_UPKEEP',number_format2($amount), t('UNIT_'.$uid));
 		$message .= '</td>';
 		$message .= '</tr>';
@@ -143,11 +143,11 @@ function warquest_unit_deploy_do() {
 		$message = '<table>';
 		$message .= '<tr>';
 		
-		$message .= '<td class="clear" width="100">';
+		$message .= '<td width="100">';
 		$message .= warquest_unit_image($unit, 0, 0);
 		$message .= '</td>';
 		
-		$message .= '<td class="clear">';
+		$message .= '<td>';
 		if ($totalPrice>0) {
 			$message .= t('UNIT_DEPLOY', number_format2($amount), t('UNIT_'.$uid), dollar_format($totalPrice), deploy_format($totalAmount));
 		} else {
@@ -216,10 +216,10 @@ function warquest_unit_disband_do() {
 		
 		$message = '<table>';
 		$message .= '<tr>';
-		$message .= '<td class="clear" width="100">';
+		$message .= '<td width="100">';
 		$message .= warquest_unit_image($unit, 0, 0);
 		$message .= '</td>';
-		$message .= '<td class="clear">';
+		$message .= '<td>';
 		$message .= t('UNIT_DISBAND_FAILED', number_format2($amount), t('UNIT_'.$uid), $totalAmount);
 		$message .= '</td>';
 		$message .= '</tr>';
@@ -245,11 +245,11 @@ function warquest_unit_disband_do() {
 		$message = '<table>';
 		$message .= '<tr>';
 		
-		$message .= '<td class="clear" width="100">';
+		$message .= '<td width="100">';
 		$message .= warquest_unit_image($unit, 0, 0);
 		$message .= '</td>';
 		
-		$message .= '<td class="clear">';
+		$message .= '<td>';
 		if ($totalPrice  > 0) {
 			$message .= t('UNIT_DISBAND',	number_format2($amount), t('UNIT_'.$uid), dollar_format($totalPrice), deploy_format($totalAmount));
 		} else {
@@ -333,7 +333,7 @@ function warquest_unit_form() {
 			
 	} else {
 	
-		$page .= '<div class="box">';
+		$page .= '<div class="box rows">';
 		$page .= '<table>';
 				
 		$count = 0;

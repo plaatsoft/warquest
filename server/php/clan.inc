@@ -292,6 +292,12 @@ function warquest_clan_deposit_do() {
 	/* output */
 	global $output;	
 	
+	$old = mktime(date("H"), date("i"), date("s"), date("m"), date("d")-1, date("Y"));
+
+	$query = 'select date from clan_bank where pid='.$player->pid.' and action=2 and date>"'.date("Y-m-d H:i:s", $old).'" order by date desc limit 0,1 ';
+	$result = warquest_db_query($query);	
+	$data = warquest_db_fetch_object($result);
+	
 	/* Remove dots */
 	$deposit = str_replace(".", "", $deposit);
 	
@@ -299,9 +305,29 @@ function warquest_clan_deposit_do() {
 	
 	if ($deposit > $player->money) {
 			
-		$message = t('BANK_DEPOSIT_FAILED', money_format1($price));
+		$message = t('BANK_DEPOSIT_FAILED', money_format1($deposit));
 		$output->popup .= warquest_box_icon("warning", $message);
+	
+	} else if ($deposit > ($player->money_step*10)) {
+	
+		$message = t('CLAN_DEPOSIT_TOO_HIGH', money_format1($player->money_step*10));
+		$output->popup .= warquest_box_icon("warning", $message);
+	
+	} else if (isset($data->date)) {
+	
+		$new = mktime(date("H"), date("i"), date("s"), date("m"), date("d"), date("Y"));
+		$value = (24*60*60) - ($new - strtotime($data->date));
+	
+		$tmp = '<script language="JavaScript" src="'.$config["content_url"].'js/countdown4.js" type="text/javascript"></script>';
+
+		$tmp .= '<div class="countdown"><div id="countdown_time4"></div></div>';
+		$tmp .= '<script language="JavaScript" type="text/javascript">';
+		$tmp .= "countdown4.init(".$value.", 'countdown_time4', '00:00:00');"; 
+		$tmp .= '</script>';
 		
+		$message = t('CLAN_DEPOSIT_MAX',$tmp );
+		$output->popup .= warquest_box_icon("warning", $message);
+	
 	} else {
 
 		$clan->money += $deposit;
@@ -480,7 +506,7 @@ function warquest_clan_bank_log($cid) {
 	
 	$page .= '<div class="subparagraph">'.t('CLAN_BANK_TRANSACTION_LOG').'</div>';
 		
-	$page .= '<div class="box">';
+	$page .= '<div class="box rows">';
 	
 	$page .= warquest_page_control($offset, $limit, $total, 1, '&cid='.$cid);
 	
@@ -593,7 +619,7 @@ function warquest_clan_form() {
 		
 	} else {		
 	
-		$page .= '<div class="box">';
+		$page .= '<div class="box rows">';
 	
 		$page .= '<table>';
 		
@@ -715,7 +741,7 @@ function warquest_clan_profile_form() {
 	$page .= '<tr>';
 	$page .= '<td width="340">';		
 	$page .= t('LINK_BALANCE').":<br/>";
-	$page .= '<input id="text" name="balance" size="20" maxlength="16" disabled="disabled" type="text" ';
+	$page .= '<input id="text" name="balance" size="22" maxlength="16" disabled="disabled" type="text" ';
 	$page .= 'value="'.number_format($clan->money,0,",",".").'">';
 	$page .= "</td>";
 	
@@ -726,13 +752,13 @@ function warquest_clan_profile_form() {
 	
 	$page .= "<tr>";
 	
-	$page .= '<td class="clear">';
+	$page .= '<td>';
 	$page .= t('LINK_DEPOSIT').":<br/>";
-	$page .= '<input id="text" name="deposit" size="20" maxlength="16" type="text" value="';
-	$page .= number_format($player->money,0,",",".");
+	$page .= '<input id="text" name="deposit" size="22" maxlength="16" type="text" value="';
+	$page .= number_format(($player->money_step*10),0,",",".");
 	$page .= '"><br/>';
 	if ( isset($player_clan->cid) && ($clan->cid==$player_clan->cid) ) {
-		$page .= warquest_link_confirm('mid='.$mid.'&sid='.$sid.'&cid='.$cid.'&eid='.EVENT_CLAN_DEPOSIT, t('LINK_DEPOSIT'), t('CLAN_DEPOSIT_CONFIRM'));
+		$page .= warquest_link('mid='.$mid.'&sid='.$sid.'&cid='.$cid.'&eid='.EVENT_CLAN_DEPOSIT, t('LINK_DEPOSIT'));
 	}
 	$page .= "</td>";
 	
@@ -758,7 +784,7 @@ function warquest_clan_profile_form() {
 	$page .= t('CLAN_SKILLS', $clan->name);
 	$page .= '</div>';
 		
-	$page .= '<div class="box">';			
+	$page .= '<div class="box rows">';			
 	
 	$page .= '<table>';
 	$page .= '<tr>';
@@ -770,11 +796,11 @@ function warquest_clan_profile_form() {
 	$page .= '</td>';
 		
 	$page .= '<td width="150">';
-	$page .= '<b>'.t('CLAN_ATTACK').'</b>';
+	$page .= '<span class="subparagraph">'.t('CLAN_ATTACK').'</span>';
 	$page .= '</td>';
 	
-	$page .= '<td width="200">'.t('PLAYER_CURRENT').': <b>';
-	$page .= number_format(($clan->attack * $config['init_clan_skill_step']),0,",",".").'</b>';
+	$page .= '<td width="200">'.t('PLAYER_CURRENT').': ';
+	$page .= strength_format(($clan->attack * $config['init_clan_skill_step']),0,",",".");
 	$page .= '</td>';
 		
 	$page .= '<td width="100">';
@@ -812,10 +838,10 @@ function warquest_clan_profile_form() {
 	$page .= warquest_image('other/defense.png',' width="30" height="30" ');
 	$page .= '</td>';
 	
-	$page .= '<td><b>'.t('CLAN_DEFENSE').'</b></td>';
+	$page .= '<td><span class="subparagraph">'.t('CLAN_DEFENSE').'</span></td>';
 		
-	$page .= '<td>'.t('PLAYER_CURRENT').': <b>';
-	$page .= number_format(($clan->defense * $config['init_clan_skill_step']),0,",",".").'</b>';
+	$page .= '<td>'.t('PLAYER_CURRENT').': ';
+	$page .= strength_format(($clan->defense * $config['init_clan_skill_step']),0,",",".");
 	$page .='</td>';
 	
 	$page .= '<td>';
@@ -863,7 +889,7 @@ function warquest_clan_profile_form() {
 	
 	} else {
 			
-		$page .= '<div class="box">';
+		$page .= '<div class="box rows">';
 		
 		$page .= '<table>';
 		

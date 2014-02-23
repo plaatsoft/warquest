@@ -575,7 +575,7 @@ function warquest_stock_form() {
 			
 		$result = warquest_db_query($query);	
 	
-		$page .= '<div class="box">';
+		$page .= '<div class="box rows">';
 		$page .= '<table>';
 		$count = 0;
 		while ($data=warquest_db_fetch_object($result)) {

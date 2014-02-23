@@ -165,7 +165,7 @@ function warquest_alliance_accepted_form() {
 	$page .= t('ALLIANCE_ACCEPT_TITLE2', $player->alliance, $player->invite);
 	$page .= '</div>';
 
-	$page .= '<div class="box">';
+	$page .= '<div class="box rows">';
 	$page .= '<table>';
 	
 	$page .= '<tr>';
@@ -444,7 +444,7 @@ function warquest_alliance_pending_form() {
 		
 	} else {
 			
-		$page .= '<div class="box">';
+		$page .= '<div class="box rows">';
 		$page .= '<table>';
 	
 		$page .= '<tr>';
@@ -588,7 +588,7 @@ function warquest_alliance_invite_form() {
 		$query .= 'limit '.$offset.','.$limit;
 		$result = warquest_db_query($query);	
 	
-		$page .= '<div class="box">';
+		$page .= '<div class="box rows">';
 		
 		$page .= warquest_page_control($offset, $limit, $total, 1, '&sort='.$sort);
 	

@@ -465,7 +465,7 @@ function warquest_giftshop_form() {
 	$gold = array(1000,2500,5500,12000,25000);
 	$price = array(1.95, 4.95, 9.95, 19.95, 39.95);
 
-	$page .= '<div class="box">';	
+	$page .= '<div class="box rows">';	
 
 	$page .= '<table class="shop">';
 
@@ -577,7 +577,7 @@ function warquest_help_awards_form() {
 	
 	$page .= '<div class="subparagraph">'.t('HELP_AWARDS_SUBTITLE').'</div>';
 	
-	$page .= '<div class="box">';
+	$page .= '<div class="box rows">';
 		
 	$page .= t('HELP_BATTLE_AWARDS').'<br/>';
 	
@@ -630,7 +630,7 @@ function warquest_help_awards_form() {
 	
 	/* ---------------------------------------- */
 		
-	$page .= '<div class="box">';
+	$page .= '<div class="box rows">';
 		
 	$page .= t('HELP_BOUNTY_AWARDS').'<br/>';
 	
@@ -684,7 +684,7 @@ function warquest_help_awards_form() {
 	
 	/* ---------------------------------------- */
 		
-	$page .= '<div class="box">';
+	$page .= '<div class="box rows">';
 		
 	$page .= t('HELP_REBEL_AWARDS').'<br/>';
 	
@@ -757,7 +757,7 @@ function warquest_help_ranks_form() {
 	
 	$page .= '<div class="subparagraph">'.t('HELP_RANKS_SUBTITLE').'</div>';
 	
-	$page .= '<div class="box">';
+	$page .= '<div class="box rows">';
 	
 	$page .= t('HELP_RANKS').'<br/>';
 	

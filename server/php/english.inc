@@ -419,9 +419,9 @@ $lang['LOGIN_RECOVER_NOTE2'] = 'If you don\'t receive the password recover email
 
 $lang['HOME_TITLE'] = 'HOME';
 
-$lang['HOME_FLASH_NEWS_TITLE'] = 'Breaking news';
+$lang['HOME_FLASH_NEWS_TITLE'] = 'Breaking News';
 
-$lang['HOME_LASTEST_FORUM_ITEM'] = 'Latest forum post';
+$lang['HOME_LASTEST_FORUM_ITEM'] = 'Latest Forum Post';
 
 $lang['HOME_INTRO_PLAYERS'] = 'At the moment %s players from %s countries are active, ';
 $lang['HOME_INTRO_FIGHTS'] = '%s fights took place and ';
@@ -448,7 +448,7 @@ $lang['HOME_BATTLE_AWARDS_TEXT'] = 'You\'ve earned the following battle awards:'
 $lang['HOME_BOUNTY_AWARDS_TEXT'] = 'You\'ve earned the following bounty awards:';
 $lang['HOME_REBEL_AWARDS_TEXT'] = 'You\'ve earned the following rebellion award:';
 $lang['HOME_OVERVIEW_TITLE']= 'Overview';
-$lang['HOME_MAP_TITLE'] = 'continents conquered';
+$lang['HOME_MAP_TITLE'] = 'Continents Conquered';
 $lang['HOME_MAP_NOTE'] = 'Each continent consist out of regions which can be conquered by playing missions.';
 
 $lang['HOME_TRAVEL_TO'] = 'Travel to';
@@ -586,11 +586,11 @@ $lang['PLAYER_SKILL_SUBTITLE2']  = 'Skill points [%s available]';
 $lang['PLAYER_SKILL_NOTE']  = 'Note: Use skill points to increase attack, defence, health, energy or ammo skills.';
 $lang['PLAYER_SKILLS']  = 'Skills'; 
 $lang['PLAYER_CURRENT'] = 'Current'; 
-$lang['PLAYER_ATTACK']  = 'ATTACK';
-$lang['PLAYER_DEFENSE'] = 'DEFENCE';
-$lang['PLAYER_HEALTH']  = 'HEALTH'; 
-$lang['PLAYER_ENERGY']  = 'ENERGY'; 
-$lang['PLAYER_AMMO']  = 'AMMO'; 
+$lang['PLAYER_ATTACK']  = 'Attack';
+$lang['PLAYER_DEFENSE'] = 'Defence';
+$lang['PLAYER_HEALTH']  = 'Health'; 
+$lang['PLAYER_ENERGY']  = 'Enery'; 
+$lang['PLAYER_AMMO']  = 'Ammo'; 
 
 $lang['PLAYER_ATTACK_TIP']  = 'Increase your attack skill to do more damage and win more fights. It takes 1 skill point to increase your attack strength with %s. Decrease your attack skill with %s to get 1 skill point in return.';
 $lang['PLAYER_DEFENSE_TIP'] = 'Increase your defence skill to resist against more attacks. It takes 1 skill point to increase your defense strength with %s. Decrease your defence skill with %s to get 1 skill point in return.';
@@ -3203,8 +3203,8 @@ $lang['BATTLE_NO_UNITS_AVAILABLE'] = 'No units available to fight with!';
 $lang['CLAN_ACCEPTED'] = 'You accept %s to your %s clan.';
 $lang['HOME_EMAIL_VALID'] = 'Email address is verified';
 
-$lang['CLAN_ATTACK']  = 'ATTACK';
-$lang['CLAN_DEFENSE'] = 'DEFENCE';
+$lang['CLAN_ATTACK']  = 'Attack';
+$lang['CLAN_DEFENSE'] = 'Defence';
 
 $lang['CLAN_ATTACK_SKILLS'] = 'Clan attack skills';
 $lang['CLAN_DEFENSE_SKILLS'] = 'Clan defence skills';
@@ -3212,8 +3212,6 @@ $lang['CLAN_DEFENSE_SKILLS'] = 'Clan defence skills';
 $lang['CLAN_SKILLS'] = 'Clan Skills [%s]';
 $lang['CLAN_ATTACK_TIP']  = 'Increase your clan attack skill to do more damage and win more clan fights. Each clan fight %s will be withdraw from the clan bank.';
 $lang['CLAN_DEFENSE_TIP'] = 'Increase your clan defence skill to improve resistance during clan attacks. Each clan fight %s will be withdraw from the clan bank.';
-
-$lang['CLAN_DEPOSIT_CONFIRM'] = 'Are you sure? Money can not be withdraw anymore!';
 
 $lang['CLAN_NO_ALLOWED'] = 'Only the commander of the %s clan is allowed to do this action!';
 $lang['CLAN_MINIMAL_SKILL'] = 'Clan skill has reached minimum value!';
@@ -3239,7 +3237,7 @@ $lang['PROMOTION_INVITE_NOTE'] = 'Invite friends to WarQuest and receive %s for 
 ** ------------------
 */
 
-$lang['CLAN_BANK_NOTE'] = 'Note: There is a %s% fee for any deposit. The clan bank daily service charge is %s%!';
+$lang['CLAN_BANK_NOTE'] = 'Note: There is a %s% fee for any deposit. The clan bank daily service charge is %s%!. Maximum allowed daily deposit is 10 times your hourly income.';
 $lang['CLAN_BANK_TRANSACTION_LOG'] = 'Clan Bank Transactions';
 
 $lang['GENERAL_PREMIUM_MEMBERSHIP'] = 'Premium membership';
@@ -3255,6 +3253,16 @@ $lang['HELP_SUBTITLE_DONATE4'] = 'Support';
 $lang['HELP_DONATE4'] = ' Many thanks for your support. If you have any questions about donations, processing of payments, please contact us by clicking %s. We will response as soon as possible!';
 
 $lang['LINK_HERE'] = 'here';
+
+/*
+** ------------------
+** Added v6.5
+** ------------------
+*/
+
+$lang['CLAN_DEPOSIT_TOO_HIGH'] = 'Maximum allow deposit is %s dollar per day. The maximum is based on 10 times your hourly income.';
+$lang['CLAN_DEPOSIT_MAX'] = 'Daily deposit already done! Wait %s for your next deposit!';
+
 
 /*
 ** ------------------

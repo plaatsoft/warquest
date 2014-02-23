@@ -1894,7 +1894,7 @@ function warquest_battle_enemies_form() {
 				
 		} else {
 		
-			$page .= '<div class="box">';
+			$page .= '<div class="box rows">';
 		
 			$page .= '<table>';
 	
@@ -2123,7 +2123,7 @@ function warquest_battle_bounty_form() {
 				
 		} else {
 		
-			$page .= '<div class="box">';
+			$page .= '<div class="box rows">';
 	
 			$page .= '<table>';
 	
