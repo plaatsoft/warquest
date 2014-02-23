@@ -1478,12 +1478,12 @@ function warquest_admin_player_form() {
 		
 	$page .= '<tr>';
 	$page .= '<td>Money:</td>';
-	$page .= '<td><input name="money" type="text" size="20" maxlength="15" value="'.number_format($other->money,0,",",".").'" /></td>';
+	$page .= '<td><input name="money" type="text" size="22" maxlength="22" value="'.number_format($other->money,0,",",".").'" /></td>';
 	$page .= '</tr>';
 	
 	$page .= '<tr>';
 	$page .= '<td>Bonus Deposit:</td>';
-	$page .= '<td><input name="bank" type="text" size="20" maxlength="15" value="0"/></td>';
+	$page .= '<td><input name="bank" type="text" size="22" maxlength="22" value="0"/></td>';
 	$page .= '</tr>';
 	
 	$page .= '<tr>';
