@@ -14,12 +14,14 @@ TEMPLATE = app
 SOURCES += main.cpp\
         mainwindow.cpp \
     proxy.cpp \
-    about.cpp
+    about.cpp \
+    customstyle.cpp
 
 HEADERS  += mainwindow.h \
     proxy.h \
     about.h \
-    general.h
+    general.h \
+    customstyle.h
 
 FORMS    += mainwindow.ui \
     proxy.ui \
