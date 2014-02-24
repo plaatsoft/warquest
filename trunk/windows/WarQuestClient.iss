@@ -3,15 +3,15 @@
 ;
 ; The file can be processed with "Inno Setup Compiler v5.5.4"
 ;
-; All Copyrights Reserved (c) PlaatSoft 2008-2013
+; All Copyrights Reserved (c) PlaatSoft 2008-2014
 
 [Setup]
 AppPublisher=PlaatSoft
 AppPublisherURL=http://www.plaatsoft.nl
 AppName=WarQuest
-AppVerName=PlaatSoft WarQuest v1.5
-AppVersion=1.5
-AppCopyright=Copyright (C) 2008-2013 PlaatSoft
+AppVerName=PlaatSoft WarQuest v1.6
+AppVersion=1.6
+AppCopyright=Copyright (C) 2008-2014 PlaatSoft
 
 DefaultDirName={pf}\WarQuest
 DefaultGroupName=PlaatSoft
@@ -48,11 +48,11 @@ Source: "build\release\Qt5MultimediaWidgets.dll"; DestDir: "{app}"
 Source: "build\release\Qt5Network.dll"; DestDir: "{app}"
 Source: "build\release\Qt5OpenGL.dll"; DestDir: "{app}"
 Source: "build\release\Qt5PrintSupport.dll"; DestDir: "{app}"
+Source: "build\release\Qt5Positioning.dll"; DestDir: "{app}"
 Source: "build\release\Qt5Qml.dll"; DestDir: "{app}"
 Source: "build\release\Qt5Quick.dll"; DestDir: "{app}"
 Source: "build\release\Qt5Sensors.dll"; DestDir: "{app}"
 Source: "build\release\Qt5Sql.dll"; DestDir: "{app}"
-Source: "build\release\Qt5V8.dll"; DestDir: "{app}"
 Source: "build\release\Qt5WebKit.dll"; DestDir: "{app}"
 Source: "build\release\Qt5WebKitWidgets.dll"; DestDir: "{app}"
 Source: "build\release\Qt5Widgets.dll"; DestDir: "{app}"

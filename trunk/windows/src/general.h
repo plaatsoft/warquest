@@ -3,7 +3,7 @@
  *  @brief The file contain the constants.
  *  @author wplaat
  *
- *  Copyright (C) 2008-2013 PlaatSoft
+ *  Copyright (C) 2008-2014 PlaatSoft
  *
  *  This program is free software; you can redistribute it and/or modify
  *  it under the terms of the GNU General Public License as published by
@@ -25,7 +25,7 @@
 #define SCREEN_WIDTH          550
 
 #define APPL_NAME             "WarQuest"
-#define APPL_VERSION          "1.5"
+#define APPL_VERSION          "1.6"
 #define APPL_URL              "http://www.warquest.nl"
 
 #endif // GENERAL_H
@@ -46,8 +46,19 @@
  * Documentation: wplaat
  *
  * @section ReleaseNotes
+ *  <b>23-02-2012 Version 1.6</b>
+ *  - Update help page.
+ *  - Use QT library 5.2.1 as engine.
+ *  - WarQuest is build with QtCreator v3.0.1.
+ *  - Release app on www.plaatsoft.nl
+ *
+ *  <b>17-11-2013 Version 1.5</b>
+ *  - Use QT library 5.1.1 as engine.
+ *  - WarQuest is build with QtCreator v3.0.0.
+ *  - Release app on www.plaatsoft.nl
+ *
  *  <b>20-02-2012 Version 1.4</b>
- *  - Added local welcome screen.
+ *  - Update local welcome screen.
  *  - WarQuest is build with QtCreator v2.4.1.
  *  - Release app on freewarefiles.com.
  *

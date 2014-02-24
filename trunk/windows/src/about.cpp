@@ -3,7 +3,7 @@
  *  @brief The file contain the about window
  *  @author wplaat
  *
- *  Copyright (C) 2008-2013 PlaatSoft
+ *  Copyright (C) 2008-2014 PlaatSoft
  *
  *  This program is free software; you can redistribute it and/or modify
  *  it under the terms of the GNU General Public License as published by

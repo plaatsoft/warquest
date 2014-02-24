@@ -3,7 +3,7 @@
  *  @brief The file contain the main
  *  @author wplaat
  *
- *  Copyright (C) 2008-2013 PlaatSoft
+ *  Copyright (C) 2008-2014 PlaatSoft
  *
  *  This program is free software; you can redistribute it and/or modify
  *  it under the terms of the GNU General Public License as published by
@@ -22,13 +22,17 @@
 #include <QApplication>
 
 #include "mainwindow.h"
+#include "customstyle.h"
 
 int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
+
+    // Patch Checkbox & Radio Button Bugs
+    QApplication::setStyle(new CustomStyle());
+
     MainWindow w;
     w.show();
-
 
     return a.exec();
 }
