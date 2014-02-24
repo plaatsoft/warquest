@@ -511,7 +511,7 @@ function warquest_cron_clean_bank_log($info=0) {
 	$old = mktime(date("H"), date("i"), date("s"), date("m"), date("d")-$config["max_bank_log_age"], date("Y"));
 	
 	$count = 0;
-	$query  = 'select count(id) as total from bank where date < "'.date("Y-m-d H:i:s", $old).'" ';
+	$query  = 'select count(cbid) as total from bank where date < "'.date("Y-m-d H:i:s", $old).'" ';
 	$result = warquest_db_query($query);			
 	if ($data = warquest_db_fetch_object($result)) {
 		$count = $data->total;
