@@ -20,11 +20,23 @@ $notes[65] = '
 <div class="subparagraph2">23-02-2014</div>
 <i>Game Server v6.5</i>
 <ul>
+<li>Update Help->Instructions.</li>
 <li>Max. allowed daily deposit to clan bank is 10x hourly income.</li>
-<li>Refactor HTML to support new CCS3 themas.</li>
-<li>Added transparent CCS3 thema (Home->Settings->Thema)</li>
-<li>Added more color to default thema.</li>
-<li>Removed not used background themas.</li>
+<li>Refactor HTML to support new CCS3 themes.</li>
+<li>Added "transparent" theme (Home->Settings->Theme)</li>
+<li>Added more color to default theme.</li>
+<li>Removed not used background themes.</li>
+</ul>
+<br/>
+
+<i>Windows Client v1.6</i>
+<ul>
+<li>Added text copy parse support.</li>
+<li>Added CCS3 support.</li>
+<li>Added HTML5 audio support.</li>
+<li>Use QT library 5.2.1 as engine.</li>
+<li>WarQuest was build with QtCreator v3.0.1</li>
+<li>Released app on www.plaatsoft.nl</li>
 </ul>
 <br/>
 

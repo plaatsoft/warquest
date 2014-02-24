@@ -589,7 +589,7 @@ $lang['PLAYER_CURRENT'] = 'Current';
 $lang['PLAYER_ATTACK']  = 'Attack';
 $lang['PLAYER_DEFENSE'] = 'Defence';
 $lang['PLAYER_HEALTH']  = 'Health'; 
-$lang['PLAYER_ENERGY']  = 'Enery'; 
+$lang['PLAYER_ENERGY']  = 'Energy'; 
 $lang['PLAYER_AMMO']  = 'Ammo'; 
 
 $lang['PLAYER_ATTACK_TIP']  = 'Increase your attack skill to do more damage and win more fights. It takes 1 skill point to increase your attack strength with %s. Decrease your attack skill with %s to get 1 skill point in return.';
@@ -715,7 +715,7 @@ $lang['SETTING_GENERAL2'] = 'General settings 2';
 $lang['SETTING_NICKNAME'] = 'WarQuest nickname';
 $lang['SETTING_TWITTER'] = 'Twitter account';
 $lang['SETTING_LANGUAGE'] = 'Language';
-$lang['SETTING_BACKGROUND'] = "Thema";
+$lang['SETTING_BACKGROUND'] = "Theme";
 $lang['SETTING_SOUND'] = 'Enable sound (Experimental)';
 $lang['SETTING_BOUNTY'] = 'Enable bounty confirmation popup.';
 $lang['SETTING_RESTORE'] = 'Enable restore & repair confirmation popup.';
@@ -2535,7 +2535,8 @@ purchase. Each buildings contains citizens which cost hourly income.';
 $lang['HELP_BANKS_TITLE'] = 'Banks';
 $lang['HELP_BANKS'] = 'Each bank will charge a deposit fee. Money which is stored in the National bank 
 is safe from other players but gives a low daily interest. Money stored on the Trasquera or SwissCore 
-bank give higher daily interest but Intel (Earth) or Explorer (Moon/Mars) units from other players can steal money.';
+bank give higher daily interest but Intel (Earth) or Explorer (Moon/Mars/Mercure/Neptune) units from 
+other players can steal money.';
 
 $lang['HELP_ALLIANCE_TITLE'] = 'Alliance'; 
 $lang['HELP_ALLIANCE'] = 'Every approved ally allows you to command 6 additional units (that you own) 
@@ -2548,53 +2549,22 @@ others will cost you only 1 skill point. You can also trade in 2:1 skillpoints t
 
 $lang['HELP_GOLD_TITLE'] = 'Gold';
 $lang['HELP_GOLD']  = 'Gold can be purchased by donate some real dollars. See Help -> Donate. 
-Purchase gold can be used to buy premium membership & units & buildings, can be exchanged in to skill points, cash money or can be used to improve your health, energy or ammo restore timer.
+Purchase gold can be used to buy premium membership, premium units, premium buildings, can be exchanged 
+in to skill points, cash money or can be used to improve your health, energy or ammo restore timer.
 <br/><br/>
 Benefits of premium membership:<br/>
 - Double experience during battles and missions.</br/>
 - Triple money during battles and missions.<br/>
 <br/>
-Benefits of gold buildings:<br/>
+Benefits of premium buildings:<br/>
 - Higher defence strength then normal buildings<br/>
 - No hourly cost<br/>
 - Immortal during fights<br>
 <br/>
-Benefits of gold units:<br/>
+Benefits of premium units:<br/>
 - Higher attack / defence strength the normal units<br/>
 - 50% lower hourly cost then normal units<br/>
 - Immortal during fights';
-
-$lang['HELP_TACTICS_TITLE'] = 'Tactics';
-$lang['HELP_TACTICS'] = 'One thing to keep in mind is that units used in missions are also subject to 
-loss as casualties. This is important to consider as the cost of replacing some of the higher priced 
-units used in a mission may exceed the money earned from the mission itself. In general, if your goal 
-is to maximize money from missions, then focus on the Money / Energy value of the mission. 
-If your goal is to maximize experience points, then focus on the Exp / Energy value of the 
-missions.<br/><br/>
-
-Once you hit the higher levels, the game automatically increases the range of opponents that can 
-attack you. When this occurs, you should increase alliance size or max out the number of members 
-in your alliance.<br/><br/>
-
-Defence buildings are an ideal purchase because they add to your defense score whenever you are attacked. 
-I recommend purchasing as many as you can afford since it will allow you to allocate more of your money 
-toward attack units without having to worry about their defence points.<br/><br/>
-
-In WarQuest, defence buildings make some opponents extremely difficult to successfully attack. 
-Although it is still recommended to put points to defence, I recommend putting as many points 
-as possible in to Attack. You can compensate for lower defence skill points with defence 
-buildings.<br/><br/>
-
-When deciding what units to buy, you need to carefully consider the units hour costs, Attack and 
-Defence strength. Assuming you can afford to buy the unit, cost should not be a factor in your 
-decision since it is only a one time cost. Because of the reduction in income due to hourly
-unit cost, it does not always make sense to buy the best available units. If you are winning most of 
-your fights with your current units, then it may make more strategic sense to not increase your 
-hourly cost and allow your income to build at a faster rate.';
-
-$lang['HELP_GRAVATAR_TITLE'] = 'Gravatar';
-$lang['HELP_GRAVATAR'] = 'WarQuest supports Gravatar (www.gravatar.com) image service. Gravatar is an 
-image that follows you from site to site appearing beside your (nick)name.';
 
 $lang['HELP_BOUNTY_TITLE'] = 'Bounty Hunting';
 $lang['HELP_BOUNTY'] = 'You can set bounty on your opponents head. The bounty price is related to the 
@@ -2611,10 +2581,6 @@ $lang['HELP_BUILDINGS_CONDITION_TITLE'] = 'Buildings Condition (BC)';
 $lang['HELP_BUILDINGS_CONDITION'] = 'This value gives information about your current base buildings 
 condition. If the condition gets below 0% you will lose some buildings. To prevent building loss 
 you can visit (Home -> Restore) to repair your base.'; 
-
-$lang['HELP_FORUM_TITLE'] = 'Forum';
-$lang['HELP_FORUM'] = 'To get more information and chat with other players please visit the Warquest 
-Forum.';
 
 $lang['HELP_WORLDMAP_TITLE'] = 'Map';
 $lang['HELP_WORLDMAP'] = 'Each planet map contain 72 regions which can be conquered with playing 
@@ -2653,10 +2619,46 @@ MOON / MARS / MERCURE / NEPTUNE<br/>
 
 $lang['HELP_REBELLION_CONDITION_TITLE'] = 'Rebellion Condition (RC)';
 $lang['HELP_REBELLION_CONDITION'] = 'This value gives information about your current rebellion condition. Region 
-rebellion is triggered by intel (Earth) or explorers (Moon/Mars) attacks by your opponents. If the 
-condition reaches 100%, some of your conquered regions will be in rebellion. To prevent rebellion, 
+rebellion is triggered by intel (Earth) or explorers (Moon/Mars/Mercure/Neptune) attacks by your opponents. If 
+the condition reaches 100%, some of your conquered regions will be in rebellion. To prevent rebellion, 
 visit (Home -> Restore) to end the rebellion. Each rebellion region results in postponed continent 
 hourly income. Restore control in the rebel region by playing the related mission.';
+
+$lang['HELP_TACTICS_TITLE'] = 'Tactics';
+$lang['HELP_TACTICS'] = 'One thing to keep in mind is that units used in missions are also subject to 
+loss as casualties. This is important to consider as the cost of replacing some of the higher priced 
+units used in a mission may exceed the money earned from the mission itself. In general, if your goal 
+is to maximize money from missions, then focus on the Money / Energy value of the mission. 
+If your goal is to maximize experience points, then focus on the Exp / Energy value of the 
+missions.<br/><br/>
+
+Once you hit the higher levels, the game automatically increases the range of opponents that can 
+attack you. When this occurs, you should increase alliance size or max out the number of members 
+in your alliance.<br/><br/>
+
+Defence buildings are an ideal purchase because they add to your defense score whenever you are attacked. 
+I recommend purchasing as many as you can afford since it will allow you to allocate more of your money 
+toward attack units without having to worry about their defence points.<br/><br/>
+
+In WarQuest, defence buildings make some opponents extremely difficult to successfully attack. 
+Although it is still recommended to put points to defence, I recommend putting as many points 
+as possible in to Attack. You can compensate for lower defence skill points with defence 
+buildings.<br/><br/>
+
+When deciding what units to buy, you need to carefully consider the units hour costs, Attack and 
+Defence strength. Assuming you can afford to buy the unit, cost should not be a factor in your 
+decision since it is only a one time cost. Because of the reduction in income due to hourly
+unit cost, it does not always make sense to buy the best available units. If you are winning most of 
+your fights with your current units, then it may make more strategic sense to not increase your 
+hourly cost and allow your income to build at a faster rate.';
+
+$lang['HELP_FORUM_TITLE'] = 'Forum';
+$lang['HELP_FORUM'] = 'To get more information and chat with other players please visit the Warquest 
+Forum.';
+
+$lang['HELP_GRAVATAR_TITLE'] = 'Gravatar';
+$lang['HELP_GRAVATAR'] = 'WarQuest supports Gravatar (www.gravatar.com) image service. Gravatar is an 
+image that follows you from site to site appearing beside your (nick)name.';
 
 /*
 ** ------------------
