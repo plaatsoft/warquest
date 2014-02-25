@@ -3077,7 +3077,7 @@ function clan_format($clan) {
 	
 	if (isset($clan->cid)) {
 	
-		$value = warquest_link('mid='.MENU_ALLIANCE.'&sid='.PAGE_CLAN_PROFILE.'&id='.$clan->cid, $clan->name, "", $clan->slogan);
+		$value = warquest_link('mid='.MENU_ALLIANCE.'&sid='.PAGE_CLAN_PROFILE.'&cid='.$clan->cid, $clan->name, "", $clan->slogan);
 	}
 	
 	return $value;
