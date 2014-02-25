@@ -394,7 +394,7 @@ function warquest_unit_form() {
 			$page .= '</td>'; 
 		
 			$page .= '<td>'; 
-			$page .= '<span class="subparagraph bold">'.t('UNIT_'.$data2->uid).'</span><br/>';
+			$page .= '<span class="subparagraph">'.t('UNIT_'.$data2->uid).'</span><br/>';
 			if ($data2->attack > 0) {
 				$page .= strength_format($data2->attack).' '.t('GENERAL_ATTACK').' - ';
 			}

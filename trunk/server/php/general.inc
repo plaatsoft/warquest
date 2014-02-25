@@ -1702,12 +1702,12 @@ function warquest_nextlevel($player) {
 			$tmp .= '</td>';
 			
 			$tmp .= '<td width="250">';
-			$tmp .= '<b>'.t('UNIT_'.$data->uid).'</b><br/>';
+			$tmp .= '<span class="subparagraph">'.t('UNIT_'.$data->uid).'</span><br/>';
 			if ($data->attack > 0) {
-				$tmp .= $data->attack.' '.t('GENERAL_ATTACK').' - ';
+				$tmp .= strength_format($data->attack).' '.t('GENERAL_ATTACK').' - ';
 			}
 			if ($data->defense > 0) {
-				$tmp .= $data->defense.' '.t('GENERAL_DEFENSE');
+				$tmp .= strength_format($data->defense).' '.t('GENERAL_DEFENSE');
 			}
 			if ($data->upkeep > 0) {
 				$tmp .= '<br/>'.t('GENERAL_UPKEEP').': '.money_format1($data->upkeep);
@@ -1731,17 +1731,17 @@ function warquest_nextlevel($player) {
 			$tmp .= t('GENERAL_NEW_BUILDING');
 			$tmp .= '</td>';
 			
-			$tmp .= '<td width="250"><b>'.t('BUILDING_'.$data->bid).'</b><br/>' ;
+			$tmp .= '<td width="250"><span class="subparagraph">'.t('BUILDING_'.$data->bid).'</span><br/>' ;
 			if ($data->income > 0) {
 				$tmp .= t('GENERAL_INCOME').': '.dollar_format($data->income);
 			} else if ($data->defense > 0) {
-				$tmp .= t('GENERAL_DEFENSE').': +'.$data->defense;
+				$tmp .= t('GENERAL_DEFENSE').': +'.strength_format($data->defense);
 			} else if ($data->energy > 0) {
-				$tmp .= t('GENERAL_ENERGY').': +'.$data->energy;
+				$tmp .= t('GENERAL_ENERGY').': +'.energy_format($data->energy);
 			} else if ($data->maintenance > 0) {
-				$tmp .= t('GENERAL_MAINTENANCE').': +'.$data->maintenance;			
+				$tmp .= t('GENERAL_MAINTENANCE').': +'.maintenance_format($data->maintenance);
 			} else if ($data->discount > 0) {
-				$tmp .= t('GENERAL_DISCOUNT').': +'.$data->discount;			
+				$tmp .= t('GENERAL_DISCOUNT').': +'.discount_format($data->discount);			
 			}
 			$tmp .= '</td>';	
 		
@@ -1764,7 +1764,7 @@ function warquest_nextlevel($player) {
 			$tmp .= '</td>';
 			
 			$tmp .= '<td width="250">';	
-			$tmp .= '<b>'.t('GENERAL_CONQUER').' '.t('MISSION_'.$data->mid).'</b><br/>';
+			$tmp .= '<span class="subparagraph">'.t('GENERAL_CONQUER').' '.t('MISSION_'.$data->mid).'</span><br/>';
 			$tmp .=  t('GENERAL_GAIN').': '.money_format1($data->min_price).' - ';
 			$tmp .= money_format1($data->max_price);
 			$tmp .= '</td>';
