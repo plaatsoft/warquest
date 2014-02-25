@@ -164,9 +164,11 @@ define('PAGE_DEFENCE',         	2103);
 define('PAGE_BUILDING_INCOME', 	2104);
 define('PAGE_CONTINENT_INCOME',	2105);
 define('PAGE_CLAN_WAR_INCOME',	2106);
-define('PAGE_UNIT_UPKEEP',   		2107);
-define('PAGE_DISCOUNT',        	2108);
-define('PAGE_MAINTENANCE',    	2109);
+define('PAGE_UNIT_COST',   		2107);
+define('PAGE_CITIZENS_COST', 		2108);
+define('PAGE_DISCOUNT',        	2109);
+define('PAGE_MAINTENANCE',    	2110);
+define('PAGE_TOTAL_INCOME',    	2111);
 
 /*
 ** ------------------

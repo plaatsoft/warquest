@@ -187,15 +187,16 @@ a:hover {
 .box2 {
 	border: solid 2px; 
 	padding: 2px 8px; 
-	-moz-border-radius: 5px; 
-	-khtml-border-radius: 5px; 
-	-webkit-border-radius: 5px; 
-	border-radius: 5px; 
+	border-color: #212425;
+	border-width: 1px;
 	margin-bottom: 3px; 
 	margin-left: 75px; 
 	text-align: justify;  
 	width: 66%; 
-	background-color:rgba(25, 25, 25, 0.7);
+	background-image: -webkit-linear-gradient(top, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0));
+	background-image: -moz-linear-gradient(top, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0));
+	background-image: -o-linear-gradient(top, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0));
+	background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0));
 }
 
 .tooltip {

@@ -1079,7 +1079,13 @@ function warquest_admin_copy_do() {
 	
 	} else if (validate_email($myemail)) {
 	
-		$message = 'Email is not valid!';
+		$message = t('EMAIL_INVALID');
+		$output->popup .= warquest_box_icon("warning", $message);
+		
+	}  else if (!validate_dns($email)) {
+	
+		/* Invalid email domain name */
+		$message = t('EMAIL_DOMAIN_INVALID');
 		$output->popup .= warquest_box_icon("warning", $message);
 		
 	} else if ($count3==1) {

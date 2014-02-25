@@ -20,6 +20,12 @@ $notes[65] = '
 <div class="subparagraph2">23-02-2014</div>
 <i>Game Server v6.5</i>
 <ul>
+<li>Added Home->Profile->Total hourly income page.</li>
+<li>Added Home->Profile->Citizens cost page.</li>
+<li>Added hyperlinks from Home->Profile->Assest to Bank pages</li>
+<li>Leaderboard position is now only based on expercience.</li>
+<li>Improve email validation.</li>
+<li>Small redesign of login page.</li>
 <li>Update Help->Instructions.</li>
 <li>Max. allowed daily deposit to clan bank is 10x hourly income.</li>
 <li>Refactor HTML to support new CCS3 themes.</li>
