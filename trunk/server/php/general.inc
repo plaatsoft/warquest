@@ -388,7 +388,7 @@ function warquest_gold_use($gold) {
 	}
 }
 
-	/*
+/*
 ** ---------------------------------------------------------------- 
 ** CALCULATE FORCE
 ** ----------------------------------------------------------------
@@ -637,29 +637,53 @@ function warquest_building_income($player, $planet=0) {
 }
 
 /**
- * Calculate unit upkeep cost
+ * Calculate unit cost
  */
-function warquest_unit_upkeep($player, $planet=0) {
+function warquest_unit_cost($player, $planet=0) {
 
-	/* Calculate upkeep cost */
 	$query =  'select a.upkeep, b.amount from unit a, player_unit b where ';
    $query .= 'a.uid=b.uid and b.pid='.$player->pid.' ';	
-	$query .= 'and a.ugid in (select ugid from unit_group where type!=0 ';
+	$query .= 'and a.ugid in (select ugid from unit_group where type!=0 and type!=6 ';
 	
 	if ($planet>0) {
 		$query.= 'and planet='.$planet.' ';
 	} 
-	$query .= 'group by ugid)';
+	$query .= ')';
 		
 	$result = warquest_db_query($query);
 
-	$upkeep = 0;	
+	$cost = 0;	
 	while ($data = warquest_db_fetch_object($result)) {
 	
-		$upkeep += ($data->upkeep * $data->amount);	
+		$cost += ($data->upkeep * $data->amount);	
 	}
 	
-	return $upkeep;	
+	return $cost;	
+}
+
+/**
+ * Calculate citizens cost
+ */
+function warquest_citizens_cost($player, $planet=0) {
+
+	$query =  'select a.upkeep, b.amount from unit a, player_unit b where ';
+   $query .= 'a.uid=b.uid and b.pid='.$player->pid.' ';	
+	$query .= 'and a.ugid in (select ugid from unit_group where type=6 ';
+	
+	if ($planet>0) {
+		$query.= 'and planet='.$planet.' ';
+	} 
+	$query .= ')';
+		
+	$result = warquest_db_query($query);
+
+	$cost = 0;	
+	while ($data = warquest_db_fetch_object($result)) {
+	
+		$cost += ($data->upkeep * $data->amount);	
+	}
+	
+	return $cost;	
 }
 
 /**
@@ -676,9 +700,12 @@ function warquest_netto_income($player) {
 	/* Calculate clan war sector income */
 	$income += warquest_clan_war_income($player);
 	
-	/* Calculate unit upkeep cost */
-	$income -= warquest_unit_upkeep($player);
+	/* Calculate unit cost */
+	$income -= warquest_unit_cost($player);
 
+	/* Calculate citizens cost */
+	$income -= warquest_citizens_cost($player);
+	
 	/* update player money step */
 	$player->money_step = $income;
 }
@@ -2903,7 +2930,7 @@ function warquest_ui_banner() {
 	$page .= '</tr>';	
 	$page .= '<tr>';
 	
-	$page .= '<td valign="top" class="clear" >';
+	$page .= '<td valign="top">';
 	if ($player->comment>0) {
 		$page .= warquest_link('mid='.MENU_HOME.'&sid='.PAGE_MESSAGES, warquest_image("other/email.gif").' ','mail');
 	}
@@ -2918,14 +2945,14 @@ function warquest_ui_banner() {
 	$page .= '<span class="timer" id="healthcountdown"></span>';
 	$page .= '</td>';
 		
-	$page .= '<td valign="top" class="clear">';
+	$page .= '<td valign="top">';
 	$page .= warquest_link_hidden('mid='.MENU_HOME.'&sid='.PAGE_PROFILE, t('STATUS_ENERGY')).': ';
 	$page .= '<span class="value energy" id="energyvalue"></span> / '.number_format($skill->energy_max,0,",",".");
 	$page .= '<br/>';
 	$page .= '<span class="timer" id="energycountdown"></span>';
 	$page .= '</td>';
 	
-	$page .= '<td valign="top" class="clear">';
+	$page .= '<td valign="top">';
 	$page .= warquest_link_hidden('mid='.MENU_HOME.'&sid='.PAGE_SKILLS, t('STATUS_AMMO')).': ';
 	$page .= '<span class="value ammo" id="ammovalue"></span> / '.$skill->ammo_max;
 	$page .= '<br/>';
@@ -3103,6 +3130,14 @@ function money_format1($value) {
 	} else {
 		return '<span class="negative">'.number_format($value,0,",",".").'</span>';
 	}
+}
+
+/**
+ * Get money html negative format
+ */
+function money_format_negative($value) {
+   
+	return '<span class="negative">'.number_format($value,0,",",".").'</span>';
 }
 
 /**
@@ -3297,6 +3332,21 @@ function validate_email($address) {
 	} else {
 		return false;
 	}
+}
+
+/**
+ * Function validate email domein name
+ * @return true or false
+ */
+function validate_dns($email) {
+
+	$part = explode("@",$email);
+	
+	if(checkdnsrr($part[1],"MX")){
+		return true;
+   } else {
+		return false;
+   }
 }
 
 /*

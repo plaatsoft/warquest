@@ -14,7 +14,7 @@ body {
 	border: solid 2px; 
 	padding: 2px 8px; 
 	border-color: #212425;
-	border-width: 1px 0;
+	border-width: 1px;
 	background-image: -webkit-linear-gradient(top, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0));
 	background-image: -moz-linear-gradient(top, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0));
 	background-image: -o-linear-gradient(top, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0));

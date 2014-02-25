@@ -241,7 +241,6 @@ $lang['GENERAL_REQUESTS'] = 'Requests';
 $lang['GENERAL_EP'] = 'Skill Point';
 $lang['GENERAL_AWARD'] = 'Award';
 $lang['GENERAL_LANGUAGE'] = 'Language';
-$lang['GENERAL_RANKING'] = 'Ranking';
 
 $lang['GENERAL_NEW_UNIT'] = 'NEW UNIT';
 $lang['GENERAL_NEW_BUILDING'] = 'NEW BUILDING';
@@ -370,9 +369,9 @@ $lang['TIP_250'] = 'Start your own neptune colony!';
 ** ------------------
 */
 
-$lang['LOGIN_MEMBER_TITLE'] = 'Member login';
-$lang['LOGIN_REGISTER_TITLE'] = 'Free registration';
-$lang['LOGIN_RECOVER_TITLE'] = 'Password recovery';
+$lang['LOGIN_MEMBER_TITLE'] = 'Member Login';
+$lang['LOGIN_REGISTER_TITLE'] = 'Free Registration';
+$lang['LOGIN_RECOVER_TITLE'] = 'Password Recovery';
 $lang['LOGIN_FACEBOOK_TITLE'] = 'Facebook';
 $lang['LOGIN_MANUAL_TITLE'] = 'Manual';
 
@@ -386,7 +385,7 @@ $lang['LOGIN_USERNAME'] = 'Username';
 $lang['LOGIN_EMAIL'] = 'Email';
 $lang['LOGIN_NICKNAME']  = 'Nickname';
 
-$lang['LOGIN_MAINTENANCE_TITLE'] = 'Server maintenance';
+$lang['LOGIN_MAINTENANCE_TITLE'] = 'Server Maintenance';
 $lang['LOGIN_MAINTENANCE'] = 'At the moment, we are undergoing server maintenance. Please come back in 30 minutes. Thank you!';
 
 $lang['LOGIN_LOGOUT'] = 'You are now logged off!'; 
@@ -397,7 +396,6 @@ $lang['LOGIN_PASSWORD_TO_SHORT'] = 'Password must be at least 6 characters long!
 $lang['LOGIN_USERNAME_TO_SHORT'] = 'Username must be at least 4 characters long!';
 $lang['LOGIN_USERNAME_EXIST'] = 'Username %s already exist!';
 $lang['LOGIN_EMAIL_EXIST'] = 'Email already registered!';
-$lang['LOGIN_EMAIL_INVALID'] = 'Email is invalid! (invalid format)';
 $lang['LOGIN_NICKNAME_EXIST'] = 'Nickname %s already in use!';
 $lang['LOGIN_NICKNAME_NEEDED'] = 'Nickname must be entered!';
 $lang['LOGIN_NEW_PASSWORD_SEND'] = 'New password was sent to your email!';
@@ -455,7 +453,7 @@ $lang['HOME_TRAVEL_TO'] = 'Travel to';
 
 $lang['HOME_INTRO_PLACE1'] = 'You are on <b>%s</b> place on the overall leaderboard '; 
 $lang['HOME_INTRO_PLACE2'] = 'and <b>%s</b> place on the <b>%s</b> leaderboard. '; 
-$lang['HOME_PLAYERS_ONLINE'] = 'Last 24hs %s players were online.';
+$lang['HOME_PLAYERS_ONLINE'] = 'Last 24 hours %s players were online.';
 
 $lang['HOME_HOLIDAY'] = 'Holiday';
 $lang['HOME_HOLIDAY_PERIOD_ACTIVE'] = 'Holiday period active for %s. Missions, battles, units, buildings and money features are locked during this period!';
@@ -469,7 +467,7 @@ $lang['HOME_HOLIDAY_PERIOD_ACTIVE'] = 'Holiday period active for %s. Missions, b
 $lang['PLAYER_TITLE'] = 'PLAYER';
 $lang['PLAYER_WIN_LOST_RATE'] = 'Won/Lost ratio';
 $lang['PLAYER_BUILDINGS'] = 'Buildings';
-$lang['PLAYER_CASH_FLOW'] = 'Cash flow';
+$lang['PLAYER_CASH_FLOW'] = 'Cash Flow';
 $lang['PLAYER_ALLIANCE_SIZE'] = 'Alliance size';
 $lang['PLAYER_EXP_POINTS']  = 'Experience points';
 $lang['PLAYER_SERVER_REQUEST']  = 'Server requests';
@@ -482,8 +480,8 @@ $lang['PLAYER_BUILDING_INCOME'] = 'Building income';
 $lang['PLAYER_CONTINENT_INCOME'] = 'Continent income';
 $lang['PLAYER_BOUNTY_SET'] = 'Bounties set';
 $lang['PLAYER_REBELLION_RISE'] = 'Rebellions started';
-$lang['PLAYER_UPKEEP']  = 'Unit hourly cost';
-$lang['PLAYER_NETTO_INCOME']  = 'Net income';
+$lang['PLAYER_UNIT_COST']  = 'Unit cost';
+$lang['PLAYER_NETTO_INCOME']  = 'Net hourly income';
 $lang['PLAYER_STATISTICS']  = 'Statistics'; 
 $lang['PLAYER_DISCOUNT_MAINTENANCE']  = 'Discount & Maintenance';
 $lang['PLAYER_NAME']  = 'Name'; 
@@ -496,9 +494,9 @@ $lang['PLAYER_LAST_LOGIN'] = 'Last active (ago)';
 $lang['PLAYER_CREATED'] = 'Created (ago)';
 $lang['PLAYER_CASINO_PLAYED']  = 'Casino played';
 $lang['PLAYER_ADS_SHOWED']  = 'Ads showed';
-$lang['PLAYER_TOTAL_HOURLY_INCOME'] = 'Total Hourly Income';
+$lang['PLAYER_TOTAL_HOURLY_INCOME'] = 'Total hourly income';
 
-$lang['PLAYER_MONEY_STATUS'] = 'Current assets';
+$lang['PLAYER_MONEY_STATUS'] = 'Current Assets';
 $lang['PLAYER_CASH_MONEY'] = 'Cash';
 $lang['PLAYER_BANK'] = 'Bank';
 
@@ -528,8 +526,8 @@ $lang['PLAYER_INCOME'] = 'Income';
 $lang['PLAYER_COST'] = 'Cost';
 $lang['PLAYER_BUILDING_OVERVIEW'] = 'Building Income Overview';
 $lang['PLAYER_BUILDING_TEXT'] = 'Currently, player %s has the following %s income buildings:';
-$lang['PLAYER_UPKEEP_COST'] = 'Hourly cost overview';
-$lang['PLAYER_UPKEEP_TEXT'] = 'Currently, player %s owns the following %s unit(s):';
+$lang['PLAYER_UNIT_COST_OVERVIEW'] = 'Unit hourly cost overview';
+$lang['PLAYER_UNIT_COST_TEXT'] = 'Currently, player %s owns the following %s unit(s):';
 $lang['PLAYER_CONTINENT_OVERVIEW'] = 'Continent income overview';
 $lang['PLAYER_CONTINENT_TEXT'] = 'Player %s conquered the following %s continent(s):';
 
@@ -753,8 +751,8 @@ $lang['PLAYER_NEW_EMAIL'] = 'Email Address';
 $lang['PLAYER_NOTIFICATION_ALLIANCE'] = 'Alliance notification by mail';
 $lang['PLAYER_NOTIFICATION_COMMENT'] = 'Message notification by mail';
 $lang['PLAYER_EMAIL_CHANGED'] = 'Email settings changed';
-$lang['PLAYER_EMAIL_EXIST'] = 'Email address is already registered!';
-$lang['PLAYER_EMAIL_INVALID'] = 'Email address is not valid (invalid format)!';
+$lang['PLAYER_EMAIL_EXIST'] = 'Email is already registered!';
+$lang['EMAIL_INVALID'] = 'Email is not valid (invalid format)!';
 
 $lang['PLAYER_LOGIN_SETTINGS'] = 'Login settings';
 $lang['PLAYER_USERNAME'] = 'Username';
@@ -2382,11 +2380,7 @@ $lang['ALLIANCE_MAXIMUM'] = 'Maximum amount of %s allies reached for this level.
 $lang['ALLIANCE_LOCKED'] = 'Alliance invitation is unlocked at level 1';
 $lang['ALLIANCE_NOTE'] = 'Note: With every approved ally you can command 6 more units during fights. Keep in mind that you cannot attack allies.';
 
-$lang['ALLIANCE_INVITE_FRIENDS'] = 'Invite friend by email';
 $lang['ALLIANCE_INVITE_NOTE'] = 'Note: Invite a player for an alliance. If the other player accepts or rejects the alliance you will receive a notification by email (option in settings). Maximum amount of accepted + invited allies for this level is %s.';
-$lang['ALLIANCE_EMAIL_INVALID']= 'Email address is not valid!';
-$lang['ALLIANCE_ALREADY_INVITED'] = 'Email address is already invited!';
-$lang['ALLIANCE_INVITE_SENT'] = 'Invite email is sent.';
 
 $lang['ALLIANCE_COMMENT_TITLE'] = 'Message';
 $lang['ALLIANCE_COMMENT_TEXT1'] = 'Create message (max. 400 characters) for all players';
@@ -3265,6 +3259,16 @@ $lang['LINK_HERE'] = 'here';
 $lang['CLAN_DEPOSIT_TOO_HIGH'] = 'Maximum allow deposit is %s dollar per day. The maximum is based on 10 times your hourly income.';
 $lang['CLAN_DEPOSIT_MAX'] = 'Daily deposit already done! Wait %s for your next deposit!';
 
+$lang['PLAYER_PLANET'] = 'Planet';
+$lang['PLAYER_TITLE_TOTAL_INCOME'] = 'Total hourly income';
+$lang['PLAYER_TOTAL_INCOME'] = 'Total hourly income';
+$lang['PLAYER_TOTAL_INCOME_TEXT'] = 'Total hourly income overview of %s';
+$lang['PLAYER_TOTAL_COST'] = 'Total hourly cost';
+
+$lang['PLAYER_CITIZENS_COST'] = 'Citizens cost';
+$lang['PLAYER_CITIZENS_TEXT'] = 'Currently, player %s owns the following %s citizen(s):';
+
+$lang['EMAIL_DOMAIN_INVALID'] = 'Email is invalid (domain name unknown)!';
 
 /*
 ** ------------------

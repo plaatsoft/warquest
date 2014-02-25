@@ -54,7 +54,7 @@ function warquest_leaderboard3_form() {
 	$total=warquest_db_num_rows($result);
 	
 	/* Get alliance players */
-	$query  = 'select pid, country, name, lid, experience, won, lost, ((experience/30)+won-lost) as ranking ';
+	$query  = 'select pid, country, name, lid, experience, won, lost ';
 	$query .= 'from player where country="'.$code.'" ';
 	
 	switch ($sort) {
@@ -66,7 +66,8 @@ function warquest_leaderboard3_form() {
 			case 2:
 				$query .= 'order by lid desc, experience desc ';
 				break;
-					
+			
+			default:
 			case 3:
 				$query .= 'order by experience desc ';
 				break;
@@ -78,11 +79,6 @@ function warquest_leaderboard3_form() {
 			case 5:
 				$query .= 'order by lost desc ';
 				break;
-			
-			default:	
-			case 6:
-				$query .= 'order by ranking desc ';
-				break;	
 	}
 	
 	$query .= 'limit '.$offset.','.$limit;
@@ -99,31 +95,27 @@ function warquest_leaderboard3_form() {
 	$page .= '<tr>';
 	
 	$page .= '<th width="35">';
-	$page .= t('GENERAL_TOP');
+	$page .= '<b>'.t('GENERAL_TOP').'</b>';
 	$page .= '</th>';
 	
 	$page .= '<th width="160">';
-	$page .= warquest_link('mid='.$mid.'&sid='.$sid.'&uid='.$uid.'&sort=1', t('GENERAL_PLAYER'));
+	$page .= warquest_link('mid='.$mid.'&sid='.$sid.'&sort=1', t('GENERAL_PLAYER'));
 	$page .= '</th>';
 	
 	$page .= '<th width="50">';
-	$page .= warquest_link('mid='.$mid.'&sid='.$sid.'&uid='.$uid.'&sort=2', t('GENERAL_LEVEL'));
+	$page .= warquest_link('mid='.$mid.'&sid='.$sid.'&sort=2', t('GENERAL_LEVEL'));
 	$page .= '</th>';
 	
-	$page .= '<th width="90">';
-	$page .= warquest_link('mid='.$mid.'&sid='.$sid.'&uid='.$uid.'&sort=3', t('GENERAL_EXP'));		
+	$page .= '<th width="110">';
+	$page .= warquest_link('mid='.$mid.'&sid='.$sid.'&sort=3', t('GENERAL_EXP'));			
 	$page .= '</th>';
 	
-	$page .= '<th width="50">';
-	$page .= warquest_link('mid='.$mid.'&sid='.$sid.'&uid='.$uid.'&sort=4', t('GENERAL_WON'));	
+	$page .= '<th width="70">';
+	$page .= warquest_link('mid='.$mid.'&sid='.$sid.'&sort=4', t('GENERAL_WON'));	
 	$page .= '</th>';
 	
-	$page .= '<th width="50">';
-	$page .= warquest_link('mid='.$mid.'&sid='.$sid.'&uid='.$uid.'&sort=5', t('GENERAL_LOST'));
-	$page .= '</th>';
-	
-	$page .= '<th width="60">';
-	$page .= warquest_link('mid='.$mid.'&sid='.$sid.'&uid='.$uid.'&sort=6', t('GENERAL_RANKING'));
+	$page .= '<th width="70">';
+	$page .= warquest_link('mid='.$mid.'&sid='.$sid.'&sort=5', t('GENERAL_LOST'));
 	$page .= '</th>';
 	
 	$page .= '</tr>';
@@ -132,35 +124,37 @@ function warquest_leaderboard3_form() {
 	while ($data=warquest_db_fetch_object($result)) {
 	
 		$page .= '<tr>';
+		
 		$page .= '<td>';
 		$page .= $count++;
 		$page .= '</td>';
+		
 		$page .= '<td>';
 		$page .= player_format($data->pid, $data->name, $data->country, 1);
 		$page .= '</td>';
+		
 		$page .= '<td>';
 		$page .= $data->lid;
 		$page .= '</td>';
+		
 		$page .= '<td>';
 		$page .= number_format($data->experience,0,",",".");
-		
 		$query = 'select approved from player_player where pid1='.$player->pid.' and pid2='.$data->pid;
 		$result2 = warquest_db_query($query);	 
 		$data2=warquest_db_fetch_object($result2);
 		if ((isset($data2->approved)) || ($data->pid==$player->pid)) {
 			$page .= ' '.warquest_image('other/ally.png',' width="14" height="12" title="'.t('ALLIANCE_ALLY').'"');
 		}
-	
 		$page .= '</td>';
+		
 		$page .= '<td>';
 		$page .= number_format($data->won,0,",",".");
 		$page .= '</td>';
+		
 		$page .= '<td>';
 		$page .= number_format($data->lost,0,",",".");
 		$page .= '</td>';
-		$page .= '<td>';
-		$page .= number_format($data->ranking,0,",",".");
-		$page .= '</td>';
+		
 		$page .= '</tr>';
 	}
 
@@ -330,7 +324,7 @@ function warquest_leaderboard1_form() {
 	$total=warquest_db_num_rows($result);
 	
 	/* Get alliance players */
-	$query  = 'select pid, country, name, lid, experience, won, lost, ((experience/30)+won-lost) as ranking ';
+	$query  = 'select pid, country, name, lid, experience, won, lost ';
 	$query .= 'from player where country!="EU" ';	
 	
 	switch ($sort) {
@@ -342,7 +336,8 @@ function warquest_leaderboard1_form() {
 			case 2:
 				$query .= 'order by lid desc, experience desc ';
 				break;
-				
+			
+			default:
 			case 3:
 				$query .= 'order by experience desc ';
 				break;
@@ -354,11 +349,6 @@ function warquest_leaderboard1_form() {
 			case 5:
 				$query .= 'order by lost desc ';
 				break;
-			
-			default:		
-			case 6:
-				$query .= 'order by ranking desc ';
-				break;			
 	}
 	
 	$query .= 'limit '.$offset.','.$limit;
@@ -373,62 +363,68 @@ function warquest_leaderboard1_form() {
 	$page .= '<table>';
 	
 	$page .= '<tr>';
+	
 	$page .= '<th width="35">';
 	$page .= '<b>'.t('GENERAL_TOP').'</b>';
 	$page .= '</th>';
+	
 	$page .= '<th width="160">';
 	$page .= warquest_link('mid='.$mid.'&sid='.$sid.'&sort=1', t('GENERAL_PLAYER'));
 	$page .= '</th>';
+	
 	$page .= '<th width="50">';
 	$page .= warquest_link('mid='.$mid.'&sid='.$sid.'&sort=2', t('GENERAL_LEVEL'));
 	$page .= '</th>';
-	$page .= '<th width="90">';
+	
+	$page .= '<th width="110">';
 	$page .= warquest_link('mid='.$mid.'&sid='.$sid.'&sort=3', t('GENERAL_EXP'));			
 	$page .= '</th>';
-	$page .= '<th width="50">';
+	
+	$page .= '<th width="70">';
 	$page .= warquest_link('mid='.$mid.'&sid='.$sid.'&sort=4', t('GENERAL_WON'));	
 	$page .= '</th>';
-	$page .= '<th width="50">';
+	
+	$page .= '<th width="70">';
 	$page .= warquest_link('mid='.$mid.'&sid='.$sid.'&sort=5', t('GENERAL_LOST'));
 	$page .= '</th>';
-	$page .= '<th width="60">';
-	$page .= warquest_link('mid='.$mid.'&sid='.$sid.'&sort=6', t('GENERAL_RANKING'));
-	$page .= '</th>';
+	
 	$page .= '</tr>';
 	
 	$count=$offset+1;
 	while ($data=warquest_db_fetch_object($result)) {
 	
 		$page .= '<tr>';
+		
 		$page .= '<td>';
 		$page .= $count++;
 		$page .= '</td>';
+		
 		$page .= '<td>';
 		$page .= player_format($data->pid, $data->name, $data->country, 1);
 		$page .= '</td>';
+		
 		$page .= '<td>';
 		$page .= $data->lid;
 		$page .= '</td>';
-		$page .= '<td>';
-		$page .= number_format($data->experience,0,",",".");
 		
+		$page .= '<td>';
+		$page .= number_format($data->experience,0,",",".");		
 		$query = 'select approved from player_player where pid1='.$player->pid.' and pid2='.$data->pid;
 		$result2 = warquest_db_query($query);	 
 		$data2=warquest_db_fetch_object($result2);
 		if ((isset($data2->approved)) || ($data->pid==$player->pid)) {
 			$page .= ' '.warquest_image('other/ally.png',' width="14" height="12" title="'.t('ALLIANCE_ALLY').'"');
-		}
-		
+		}		
 		$page .= '</td>';
+
 		$page .= '<td>';
 		$page .= number_format($data->won,0,",",".");
 		$page .= '</td>';
+
 		$page .= '<td>';
 		$page .= number_format($data->lost,0,",",".");
 		$page .= '</td>';
-		$page .= '<td>';
-		$page .= number_format($data->ranking,0,",",".");
-		$page .= '</td>';
+
 		$page .= '</tr>';
 	}
 

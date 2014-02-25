@@ -241,7 +241,6 @@ $lang['GENERAL_REQUESTS'] = 'Richieste';
 $lang['GENERAL_EP'] = 'Punti skill';
 $lang['GENERAL_AWARD'] = 'Premio';
 $lang['GENERAL_LANGUAGE'] = 'Lingua';
-$lang['GENERAL_RANKING'] = 'Gradi';
 
 $lang['GENERAL_NEW_UNIT'] = 'NUOVA UNITà';
 $lang['GENERAL_NEW_BUILDING'] = 'NUOVO EDIFICIO';
@@ -369,7 +368,6 @@ $lang['LOGIN_PASSWORD_TO_SHORT'] = 'La password dev\'essere lunga almeno 6 carat
 $lang['LOGIN_USERNAME_TO_SHORT'] = 'Il nome utente dev\'essere lungo almeno 4 cratteri!';
 $lang['LOGIN_USERNAME_EXIST'] = 'Il nome utente %s esiste già!';
 $lang['LOGIN_EMAIL_EXIST'] = 'Email già registrata!';
-$lang['LOGIN_EMAIL_INVALID'] = 'L\'email è errato! (formato errato)';
 $lang['LOGIN_NICKNAME_EXIST'] = 'Nickname %s già in uso!';
 $lang['LOGIN_NICKNAME_NEEDED'] = 'Il nickname dev\'essere inserito!';
 $lang['LOGIN_NEW_PASSWORD_SEND'] = 'La nuova password è stata mandata all\'indirizzo email specificato!';
@@ -447,7 +445,7 @@ $lang['PLAYER_BUILDING_INCOME'] = 'Introito edifici';
 $lang['PLAYER_CONTINENT_INCOME'] = 'Introito continente';
 $lang['PLAYER_BOUNTY_SET'] = 'Taglie messe';
 $lang['PLAYER_REBELLION_RISE'] = 'Rivolte iniziate';
-$lang['PLAYER_UPKEEP']  = 'Costo orario unità';
+$lang['PLAYER_UNIT_COST']  = 'Costo unità';
 $lang['PLAYER_NETTO_INCOME']  = 'Introito netto';
 $lang['PLAYER_STATISTICS']  = 'Statistiche'; 
 $lang['PLAYER_DISCOUNT_MAINTENANCE']  = 'Sconto & Manutenzione';
@@ -481,8 +479,8 @@ $lang['PLAYER_INCOME'] = 'Introito';
 $lang['PLAYER_COST'] = 'Costo';
 $lang['PLAYER_BUILDING_OVERVIEW'] = 'Riepilogo introito edifici';
 $lang['PLAYER_BUILDING_TEXT'] = 'Al momento, il giocatore %s ha i seguenti edifici da introito %s :';
-$lang['PLAYER_UPKEEP_COST'] = 'Riepilogo costo orario';
-$lang['PLAYER_UPKEEP_TEXT'] = 'Al momento, il giocatore %s possiede le seguenti unità %s :';
+$lang['PLAYER_UNIT_COST_OVERVIEW'] = 'Riepilogo costo orario';
+$lang['PLAYER_UNIT_COST_TEXT'] = 'Al momento, il giocatore %s possiede le seguenti unità %s :';
 $lang['PLAYER_CONTINENT_OVERVIEW'] = 'Riepilogo introito continente';
 $lang['PLAYER_CONTINENT_TEXT'] = 'Il giocatore %s ha conquistato i seguenti continenti %s :';
 
@@ -658,7 +656,7 @@ $lang['PLAYER_NOTIFICATION_ALLIANCE'] = 'Notifiche alleanza via mail';
 $lang['PLAYER_NOTIFICATION_COMMENT'] = 'Notifiche messaggi via mail';
 $lang['PLAYER_EMAIL_CHANGED'] = 'Impostazioni email cambiate';
 $lang['PLAYER_EMAIL_EXIST'] = 'Indirizzo email già registrato!';
-$lang['PLAYER_EMAIL_INVALID'] = 'Indirizzo email non valido (formato non valido)!';
+$lang['EMAIL_INVALID'] = 'Indirizzo email non valido (formato non valido)!';
 
 $lang['PLAYER_LOGIN_SETTINGS'] = 'Impostazioni login';
 $lang['PLAYER_USERNAME'] = 'Nome utente';
@@ -1969,11 +1967,7 @@ $lang['ALLIANCE_MAXIMUM'] = 'Massima somma di %s alleati raggiunta per questo li
 $lang['ALLIANCE_LOCKED'] = 'Invito alleanza è sbloccato al livello 1';
 $lang['ALLIANCE_NOTE'] = 'Nota: Con ogni alleato approvato puoi comandare 6 unità in più durante le lotte. Tieni a mente che non puoi attaccare gli alleati.';
 
-$lang['ALLIANCE_INVITE_FRIENDS'] = 'Invita amico via email';
 $lang['ALLIANCE_INVITE_NOTE'] = 'Nota: Invita un giocatore per un alleanza. Se l\'altro giocatore accetta o rifiuta you riceverai una notifica tramite mail (opzione in impostazioni). Massima somma di alleati per questo livello è %s.';
-$lang['ALLIANCE_EMAIL_INVALID']= 'Indirizzo email non valido!';
-$lang['ALLIANCE_ALREADY_INVITED'] = 'Indirizzo email già invitato!';
-$lang['ALLIANCE_INVITE_SENT'] = 'Invito via mail mandato.';
 
 $lang['ALLIANCE_COMMENT_TITLE'] = 'Messaggio';
 $lang['ALLIANCE_COMMENT_TEXT1'] = 'Crea messaggio (max. 400 caratteri) per tutti i giocatori';

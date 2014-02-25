@@ -238,7 +238,6 @@ $lang['GENERAL_REQUESTS'] = 'Anfrage';
 $lang['GENERAL_EP'] = 'Erfahrungspunkte';
 $lang['GENERAL_AWARD'] = 'Belohnung';
 $lang['GENERAL_LANGUAGE'] = 'Sprache';
-$lang['GENERAL_RANKING'] = 'Ranking';
 
 $lang['GENERAL_NEW_UNIT'] = 'NEUE EINHEIT';
 $lang['GENERAL_NEW_BUILDING'] = 'NEUES GEBÄUDE';
@@ -364,7 +363,6 @@ $lang['LOGIN_PASSWORD_TO_SHORT'] = 'Passwort muss mindestens 6 Zeichen lang sein
 $lang['LOGIN_USERNAME_TO_SHORT'] = 'Username muss mindestens 4 Zeichen lang sein!';
 $lang['LOGIN_USERNAME_EXIST'] = 'Username %s existiert bereits!';
 $lang['LOGIN_EMAIL_EXIST'] = 'Email ist schon registriert!';
-$lang['LOGIN_EMAIL_INVALID'] = 'Email ist nicht korrekt! (Falsche Schreibweise)';
 $lang['LOGIN_NICKNAME_EXIST'] = 'Nickname %s wird schon benutzt!';
 $lang['LOGIN_NICKNAME_NEEDED'] = 'Nickname muss eingegeben werden!';
 $lang['LOGIN_NEW_PASSWORD_SEND'] = 'Das neue Passwort wurde dir per Mail geschickt!';
@@ -442,7 +440,7 @@ $lang['PLAYER_BUILDING_INCOME'] = 'Gebäude Einkommen';
 $lang['PLAYER_CONTINENT_INCOME'] = 'Kontinent Einkommen';
 $lang['PLAYER_BOUNTY_SET'] = 'Belohnungen ausgesetzt';
 $lang['PLAYER_REBELLION_RISE'] = 'Aufstände ausgelöst';
-$lang['PLAYER_UPKEEP']  = 'Kosten pro Stunde';
+$lang['PLAYER_UNIT_COST']  = 'Unit Kosten';
 $lang['PLAYER_NETTO_INCOME']  = 'Netto Einkommen';
 $lang['PLAYER_STATISTICS']  = 'Statistik'; 
 $lang['PLAYER_DISCOUNT_MAINTENANCE']  = 'Rabatt & Zustand';
@@ -477,8 +475,8 @@ $lang['PLAYER_INCOME'] = 'Einkommen';
 $lang['PLAYER_COST'] = 'Kosten';
 $lang['PLAYER_BUILDING_OVERVIEW'] = 'Gebäude Einkommen Übersicht';
 $lang['PLAYER_BUILDING_TEXT'] = 'SPieler %s hat ein momentaniges Einkommen durch Gebäude in Höhe von %s:';
-$lang['PLAYER_UPKEEP_COST'] = 'Stündliche Kosten Übersicht';
-$lang['PLAYER_UPKEEP_TEXT'] = 'Spieler %s besitzt im Moment folgende %s Einheit(en):';
+$lang['PLAYER_UNIT_COST_OVERVIEW'] = 'Stündliche Kosten Übersicht';
+$lang['PLAYER_UNIT_COST_TEXT'] = 'Spieler %s besitzt im Moment folgende %s Einheit(en):';
 $lang['PLAYER_CONTINENT_OVERVIEW'] = 'Kontinent Einkommen Übersicht';
 $lang['PLAYER_CONTINENT_TEXT'] = 'Spieler %s eroberte folgende %s Kontinent(e):';
 
@@ -689,7 +687,7 @@ $lang['PLAYER_NOTIFICATION_ALLIANCE'] = 'Bündnisanfragen per mail';
 $lang['PLAYER_NOTIFICATION_COMMENT'] = 'Nachrichteneingang per mail';
 $lang['PLAYER_EMAIL_CHANGED'] = 'Email Einstellung geändert';
 $lang['PLAYER_EMAIL_EXIST'] = 'Email Adresse ist bereits registriert!';
-$lang['PLAYER_EMAIL_INVALID'] = 'Email Adresse ist nicht gültig (Falsche Schreibweise)!';
+$lang['EMAIL_INVALID'] = 'Email Adresse ist nicht gültig (Falsche Schreibweise)!';
 
 $lang['PLAYER_LOGIN_SETTINGS'] = 'Login Einstellungen';
 $lang['PLAYER_USERNAME'] = 'Username';
@@ -1452,11 +1450,7 @@ $lang['ALLIANCE_MAXIMUM'] = 'Maximume Anzahl von %s Verbündeten ist für das Leve
 $lang['ALLIANCE_LOCKED'] = 'Bündnisanfragen sind ab level 1 verfügbar';
 $lang['ALLIANCE_NOTE'] = 'Tipp: Mit jedem bestätigtem Verbündeten, kannst du sechs weitere Einheiten in den Kampf schicken. Denke immer daran, Verbündete können nicht angegriffen werden.';
 
-$lang['ALLIANCE_INVITE_FRIENDS'] = 'Invite friend by email';
 $lang['ALLIANCE_INVITE_NOTE'] = 'Note: Invite a player for an alliance. If the other player accepts or rejects the alliance you will receive a notification by email (option in settings). Maximum amount of accepted + invited allies for this level is %s.';
-$lang['ALLIANCE_EMAIL_INVALID']= 'Email address is not valid!';
-$lang['ALLIANCE_ALREADY_INVITED'] = 'Email address is already invited!';
-$lang['ALLIANCE_INVITE_SENT'] = 'Invite email is sent.';
 
 $lang['ALLIANCE_COMMENT_TITLE'] = 'Message';
 $lang['ALLIANCE_COMMENT_TEXT1'] = 'Create message (max. 400 characters) for all players';

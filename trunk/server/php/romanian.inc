@@ -239,7 +239,6 @@ $lang['GENERAL_REQUESTS'] = 'cerinte';
 $lang['GENERAL_EP'] = 'puncte aptitudine';
 $lang['GENERAL_AWARD'] = 'premiu';
 $lang['GENERAL_LANGUAGE'] = 'limba';
-$lang['GENERAL_RANKING'] = 'loc';
 
 $lang['GENERAL_NEW_UNIT'] = 'unitate noua';
 $lang['GENERAL_NEW_BUILDING'] = 'cladire noua';
@@ -382,7 +381,6 @@ $lang['LOGIN_PASSWORD_TO_SHORT'] = 'parola trebuie sa aibe cel putin 6 caractere
 $lang['LOGIN_USERNAME_TO_SHORT'] = 'Username-ul trebuie sa aiba cel putin 4 caractere';
 $lang['LOGIN_USERNAME_EXIST'] = 'Username %s deja exista!';
 $lang['LOGIN_EMAIL_EXIST'] = 'Email deja inregistrat!';
-$lang['LOGIN_EMAIL_INVALID'] = 'Email-ul este invalid! (invalid format)';
 $lang['LOGIN_NICKNAME_EXIST'] = 'Nickname %s deja folosit!';
 $lang['LOGIN_NICKNAME_NEEDED'] = 'Nickname trebuie introdus!';
 $lang['LOGIN_NEW_PASSWORD_SEND'] = 'noua parola a fost trimisa la adresa de mail!';
@@ -465,7 +463,7 @@ $lang['PLAYER_BUILDING_INCOME'] = 'profit';
 $lang['PLAYER_CONTINENT_INCOME'] = 'Continent income';
 $lang['PLAYER_BOUNTY_SET'] = 'vanatoare pusa';
 $lang['PLAYER_REBELLION_RISE'] = 'rascoala inceputa';
-$lang['PLAYER_UPKEEP'] = 'costul unitatilor pe ora';
+$lang['PLAYER_UNIT_COST'] = 'costul unitatilor';
 $lang['PLAYER_NETTO_INCOME'] = 'profit net';
 $lang['PLAYER_STATISTICS'] = 'Statistici'; 
 $lang['PLAYER_DISCOUNT_MAINTENANCE'] = 'reducere & Mentenanta';
@@ -511,8 +509,8 @@ $lang['PLAYER_INCOME'] = 'profit';
 $lang['PLAYER_COST'] = 'Cost';
 $lang['PLAYER_BUILDING_OVERVIEW'] = 'profitul cladirii';
 $lang['PLAYER_BUILDING_TEXT'] = 'acum, jucatorul %s are %s cladiri pentru profit:';
-$lang['PLAYER_UPKEEP_COST'] = 'costuri pe ora';
-$lang['PLAYER_UPKEEP_TEXT'] = 'acum,jucatorul %s are %s unitati';
+$lang['PLAYER_UNIT_COST_OVERVIEW'] = 'costuri pe ora';
+$lang['PLAYER_UNIT_COST_TEXT'] = 'acum,jucatorul %s are %s unitati';
 $lang['PLAYER_CONTINENT_OVERVIEW'] = 'Profitul acestui continent';
 $lang['PLAYER_CONTINENT_TEXT'] = 'jucatorul %s a cucerit continentul %s';
 
@@ -723,7 +721,7 @@ $lang['PLAYER_NOTIFICATION_ALLIANCE'] = 'Notificari despre alianta pe mail';
 $lang['PLAYER_NOTIFICATION_COMMENT'] = 'Mesaje de notificare pe mail';
 $lang['PLAYER_EMAIL_CHANGED'] = 'Setarile de mail schimbate';
 $lang['PLAYER_EMAIL_EXIST'] = 'Adresa de mail deja inregistrata!';
-$lang['PLAYER_EMAIL_INVALID'] = 'Adresa de mail este invalida(format necunoscut)!';
+$lang['EMAIL_INVALID'] = 'Adresa de mail este invalida(format necunoscut)!';
 
 $lang['PLAYER_LOGIN_SETTINGS'] = 'Setari de logare';
 $lang['PLAYER_USERNAME'] = 'Username';
@@ -1573,11 +1571,7 @@ $lang['ALLIANCE_MAXIMUM'] = 'numarul maxim de aliati %s a fost atins.asteapta sa
 $lang['ALLIANCE_LOCKED'] = 'invitatiile de alianter deblocate la nivelul 1';
 $lang['ALLIANCE_NOTE'] = 'Nota:  Cu fiecare alianta aprobata poti comanda cu 6 unitati mai mult pe timpul bataliilor. Tine minte ca nu poti ataca aliatii.';
 
-$lang['ALLIANCE_INVITE_FRIENDS'] = 'Invita un prieten prin email';
 $lang['ALLIANCE_INVITE_NOTE'] = 'Nota: Invita un jucator pentru alianta. Daca celalalt jucator accepta sau respinge alianta vei fi informat prin email(optiune in setari). numarul maxim de acceptati + invitati pentru acest nivel este %s.';
-$lang['ALLIANCE_EMAIL_INVALID']= 'Adresa de email nu este valida!';
-$lang['ALLIANCE_ALREADY_INVITED'] = 'adresa de mail deja invitata!';
-$lang['ALLIANCE_INVITE_SENT'] = 'invitatia pe email a fost facuta.';
 
 $lang['ALLIANCE_COMMENT_TITLE'] = 'Mesaj';
 $lang['ALLIANCE_COMMENT_TEXT1'] = 'Creaza mesaj (max. 400 caractere) pentru toti jucatorii';

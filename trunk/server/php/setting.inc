@@ -59,7 +59,13 @@ function warquest_user_email_confirm_do() {
 	
 	if (validate_email($myemail)) {
 	
-		$message = t('PLAYER_EMAIL_INVALID');
+		$message = t('EMAIL_INVALID');
+		$output->popup .= warquest_box_icon("warning", $message);
+	
+	} else if (!validate_dns($myemail)) {
+	
+		/* Invalid email domain name */
+		$message = t('EMAIL_DOMAIN_INVALID');
 		$output->popup .= warquest_box_icon("warning", $message);
 		
 	} else if (($myemail!=$member->email) && ($count>0)) {
@@ -110,7 +116,13 @@ function warquest_settings_change_email_do() {
 	
 	if (validate_email($myemail)) {
 	
-		$message = t('PLAYER_EMAIL_INVALID');
+		$message = t('EMAIL_INVALID');
+		$output->popup .= warquest_box_icon("warning", $message);
+	
+	} else if (!validate_dns($myemail)) {
+	
+		/* Invalid email domain name */
+		$message = t('EMAIL_DOMAIN_INVALID');
 		$output->popup .= warquest_box_icon("warning", $message);
 		
 	} else if (($myemail!=$member->email) && ($count>0)) {
@@ -542,8 +554,8 @@ function warquest_settings_form() {
 	$page .= '<table cellpadding="2" cellspacing="1">';
 	
 	$page .= '<tr>';
-	$page .= '<td width="200" class="clear">'.t('SETTING_NICKNAME').':</td>';
-	$page .= '<td width="300" class="clear">';
+	$page .= '<td width="200">'.t('SETTING_NICKNAME').':</td>';
+	$page .= '<td width="300">';
 	$page .= warquest_ui_input('myname', 20, 15, $player->name, false);
 	$page .= '</td>';
 	$page .= '</tr>';
@@ -578,7 +590,7 @@ function warquest_settings_form() {
 		
 	$page .= '<tr>';
 	$page .= '<td></td>';
-	$page .= '<td class="clear right">';
+	$page .= '<td class="right">';
 	$page .= warquest_link('mid='.$mid.'&sid='.$sid.'&eid='.EVENT_HOME_SETTINGS_SAVE, t('LINK_CHANGE'), 'change-1');
 	$page .= '</td>';
 	$page .= '</tr>';
@@ -600,8 +612,8 @@ function warquest_settings_form() {
 	
 	$page .= '<tr>';
 	
-	$page .= '<td width="75" class="clear">'.warquest_ui_checkbox("sound", "sound", warquest_db_query_pattern($player, PATTERN_SOUND)).'</td>';
-	$page .= '<td width="425" class="clear">'.t('SETTING_SOUND').'</td>';
+	$page .= '<td width="75">'.warquest_ui_checkbox("sound", "sound", warquest_db_query_pattern($player, PATTERN_SOUND)).'</td>';
+	$page .= '<td width="425">'.t('SETTING_SOUND').'</td>';
 	$page .= '</tr>';
 				
 	$page .= '<tr>';
@@ -651,7 +663,7 @@ function warquest_settings_form() {
 	
 	$page .= '<tr>';
 	$page .= '<td></td>';
-	$page .= '<td class="clear right">'.warquest_link('mid='.$mid.'&sid='.$sid.'&eid='.EVENT_HOME_SETTINGS_SAVE, t('LINK_CHANGE'), 'change-2').'</td>';
+	$page .= '<td class="right">'.warquest_link('mid='.$mid.'&sid='.$sid.'&eid='.EVENT_HOME_SETTINGS_SAVE, t('LINK_CHANGE'), 'change-2').'</td>';
 	$page .= '</tr>';
 	
 	$page .= '</table>';
@@ -705,7 +717,7 @@ function warquest_settings_form() {
 	
 	$page .= '<tr>';
 	$page .= '<td></td>';
-	$page .= '<td class="clear right">';
+	$page .= '<td class="right">';
 	$page .= warquest_link('mid='.$mid.'&sid='.$sid.'&eid='.EVENT_HOME_EMAIL_CHANGE, t('LINK_CHANGE'), 'change-3');
 	$page .= '</td>';
 	$page .= '</tr>';
@@ -762,7 +774,7 @@ function warquest_settings_form() {
 		
 		$page .= '<tr>';
 		$page .= '<td></td>';
-		$page .= '<td class="clear right">';
+		$page .= '<td class="right">';
 		$page .= warquest_link('mid='.$mid.'&sid='.$sid.'&eid='.EVENT_HOME_CHANGE_LOGIN, t('LINK_CHANGE'), 'change-4');
 		$page .= '</td>';
 		$page .= '</tr>';

@@ -240,7 +240,6 @@ $lang['GENERAL_REQUESTS'] = 'Verzoeken';
 $lang['GENERAL_EP'] = 'Vaardigheidpunt';
 $lang['GENERAL_AWARD'] = 'Onderscheiding';
 $lang['GENERAL_LANGUAGE'] = 'Taal';
-$lang['GENERAL_RANKING'] = 'Lijst';
 
 $lang['GENERAL_NEW_UNIT'] = 'NIEUWE EENHEID';
 $lang['GENERAL_NEW_BUILDING']	= 'NIEUW GEBOUW';
@@ -319,7 +318,6 @@ $lang['LOGIN_PASSWORD_TO_SHORT'] = 'Wachtwoord dient minimaal 4 tekens lang te z
 $lang['LOGIN_USERNAME_TO_SHORT'] = 'Gebruikersnaam dient minimaal 4 tekens lang te zijn!';
 $lang['LOGIN_USERNAME_EXIST'] = 'Gebruikersnaam %s bestaat reeds!';
 $lang['LOGIN_EMAIL_EXIST'] = 'Email adres is reeds geregisteerd!';
-$lang['LOGIN_EMAIL_INVALID'] = 'Email adres is ongeldig! (Verkeerd formaat)';
 $lang['LOGIN_NICKNAME_EXIST'] = 'Alias %s reeds in gebruik!';
 $lang['LOGIN_NICKNAME_NEEDED'] = 'Alias moet worden ingevoerd!';
 $lang['LOGIN_NEW_PASSWORD_SEND'] = 'Nieuw wachtwoord is verstuurd per email!';
@@ -397,7 +395,8 @@ $lang['PLAYER_FIGHTS_WON']  = 'Gevechten gewonnen';
 $lang['PLAYER_BUILDING_INCOME'] = 'Vastgoed inkomen';
 $lang['PLAYER_BOUNTY_SET'] = 'Premie uitgedeeld';
 
-$lang['PLAYER_UPKEEP']  = 'Uur prijs';
+$lang['PLAYER_UNIT_COST']  = 'Unit kosten';
+$lang['PLAYER_CITIZENS_COST']  = 'Burger kosten';
 $lang['PLAYER_NETTO_INCOME']  = 'Netto inkomen';
 $lang['PLAYER_STATISTICS']  = 'Statistieken'; 
 $lang['PLAYER_NAME']  = 'Naam'; 
@@ -431,8 +430,8 @@ $lang['PLAYER_INCOME'] = 'Inkomen';
 $lang['PLAYER_COST'] = 'Uitgaven';
 $lang['PLAYER_BUILDING_OVERVIEW'] = 'Overzicht (Vastgoed inkomen)';
 $lang['PLAYER_BUILDING_TEXT'] = '%s heeft momenteel de volgende %s inkomen gebouwen:';
-$lang['PLAYER_UPKEEP_COST'] = 'Overzicht (Uur kosten)';
-$lang['PLAYER_UPKEEP_TEXT'] = '%s bezit op dit moment de volgende %s eenheden:';
+$lang['PPLAYER_UNIT_COST_OVERVIEW'] = 'Overzicht (Uur kosten)';
+$lang['PLAYER_UNIT_COST_TEXT'] = '%s bezit op dit moment de volgende %s eenheden:';
 $lang['PLAYER_CONTINENT_OVERVIEW'] = 'Continent inkomen overzicht';
 $lang['PLAYER_CONTINENT_TEXT'] = '%s heeft de volgende %s continent(en) verroverd:';
 
@@ -595,7 +594,7 @@ $lang['PLAYER_NOTIFICATION_ALLIANCE'] = 'Alliantie notificatie per email';
 $lang['PLAYER_NOTIFICATION_COMMENT'] = 'Bericht notificatie per email';
 $lang['PLAYER_EMAIL_CHANGED'] = 'Email instellingen zijn aangepast';
 $lang['PLAYER_EMAIL_EXIST'] = 'Email adres is al ingebruik bij andere speler!';
-$lang['PLAYER_EMAIL_INVALID'] = 'Email adres is niet correct!';
+$lang['EMAIL_INVALID'] = 'Email adres is niet correct!';
 
 $lang['PLAYER_LOGIN_SETTINGS'] = 'Login Instellingen';
 $lang['PLAYER_USERNAME'] = 'Gebruikersnaam';
@@ -1556,11 +1555,7 @@ $lang['ALLIANCE_MAXIMUM'] = 'Maximum van %s allianties bereikt voor dit level.';
 $lang['ALLIANCE_LOCKED'] = 'Allianties zijn mogelijk vanaf level 1';
 $lang['ALLIANCE_NOTE'] = 'Opmerking: Voor elke goedgekeurde alliantie kan je 6 extra eenheden inzetten tijdens een gevecht.';
 
-$lang['ALLIANCE_INVITE_FRIENDS'] = 'Vriend uitnodigen per email:';
 $lang['ALLIANCE_INVITE_NOTE'] = 'Opmerking: Nodig andere spelers uit voor een alliantie. Als de andere speler jouw uitnodiging accepteerd of weigerd ontvang je een email bericht. Maximum aantal toegestaande allianties voor dit level is %s';
-$lang['ALLIANCE_EMAIL_INVALID']= 'Email adres is niet correct!';
-$lang['ALLIANCE_ALREADY_INVITED'] = 'Email adres is al vaker uitgenodigd!';
-$lang['ALLIANCE_INVITE_SENT'] = 'Uitnodigings email is verzonden.';
 
 $lang['ALLIANCE_COMMENT_TITLE'] = 'Berichten';
 $lang['ALLIANCE_COMMENT_TEXT1'] = 'Maak bericht (max. 400 karakters) voor alle spelers';

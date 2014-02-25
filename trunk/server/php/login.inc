@@ -346,7 +346,7 @@ function warquest_logout_do() {
 	$session="";
 		
 	$page .= '<div class="box2">';
-	$page .= '<span class="info">'.t('BOX_INFO').'</span><br/><br/>';
+	$page .= '<span class="info">'.t('BOX_INFO').'</span> ';
 	$page .= t('LOGIN_LOGOUT');
 	$page .= '</div>';	
 }
@@ -370,8 +370,8 @@ function warquest_email_do() {
 	if (validate_email($myemail)) {
 	
 		$page .= '<div class="box2">';
-		$page .= '<span class="warning">'.t('BOX_WARN').'</span><br/>';
-		$page .= t('LOGIN_EMAIL_INVALID');
+		$page .= '<span class="warning">'.t('BOX_WARN').'</span> ';
+		$page .= t('EMAIL_INVALID');
 		$page .= '</div>';
 		
 		warquest_info($myemail.' email reset failed. Invalid email!');
@@ -379,7 +379,7 @@ function warquest_email_do() {
 	} else if (!isset($data->pid)) {
 	
 		$page .= '<div class="box2">';
-		$page .= '<span class="warning">'.t('BOX_WARN').'</span><br/>';
+		$page .= '<span class="warning">'.t('BOX_WARN').'</span> ';
 		$page .= t('LOGIN_EMAIL_UNKNOWN');
 		$page .= '</div>';
 		
@@ -395,7 +395,7 @@ function warquest_email_do() {
 		warquest_recover_mail($data->pid, $password);
 		
 		$page .= '<div class="box2">';
-		$page .= '<span class="info">'.t('BOX_INFO').'</span><br/>';
+		$page .= '<span class="info">'.t('BOX_INFO').'</span> ';
 		$page .= t('LOGIN_NEW_PASSWORD_SEND');
 		$page .= '</div>';
 	}
@@ -444,7 +444,7 @@ function warquest_register_do($amount) {
 	if (($auto_login==0) && (strlen($myname)==0)) {
 	
 		$page .= '<div class="box2">';
-		$page .= '<span class="warning">'.t('BOX_WARN').'</span><br/>';
+		$page .= '<span class="warning">'.t('BOX_WARN').'</span> ';
 		$page .= t('LOGIN_NICKNAME_NEEDED');
 		$page .= '</div>';
 		
@@ -453,7 +453,7 @@ function warquest_register_do($amount) {
 	} else if (($auto_login==0) && (strrpos($myname, ' ')>0)) {
 	
 		$page .= '<div class="box2">';
-		$page .= '<span class="warning">'.t('BOX_WARN').'</span><br/>';
+		$page .= '<span class="warning">'.t('BOX_WARN').'</span> ';
 		$page .= t('NICKNAME_NO_SPACE');
 		$page .= '</div>';
 		
@@ -462,7 +462,7 @@ function warquest_register_do($amount) {
 	} else if (($count2>0) && ($auto_login==0)) {
 	
 		$page .= '<div class="box2">';
-		$page .= '<span class="warning">'.t('BOX_WARN').'</span><br/>';
+		$page .= '<span class="warning">'.t('BOX_WARN').'</span> ';
 		$page .= T('LOGIN_NICKNAME_EXIST', $myname);
 		$page .= '</div>';
 		
@@ -471,16 +471,25 @@ function warquest_register_do($amount) {
 	} else if (validate_email($myemail) && ($auto_login==0)) {
 	
 		$page .= '<div class="box2">';
-		$page .= '<span class="warning">'.t('BOX_WARN').'</span><br/>';
-		$page .= t('LOGIN_EMAIL_INVALID'); 
+		$page .= '<span class="warning">'.t('BOX_WARN').'</span> ';
+		$page .= t('EMAIL_INVALID'); 
 		$page .= '</div>';
 		
 		warquest_info($myusername.' registration failed. Email invalid');
 		
+	} else if (!validate_dns($myemail) && ($auto_login==0)) {
+	
+		$page .= '<div class="box2">';
+		$page .= '<span class="warning">'.t('BOX_WARN').'</span> ';
+		$page .= t('EMAIL_DOMAIN_INVALID'); 
+		$page .= '</div>';
+		
+		warquest_info($myemail.' registration failed. Email domain name unknown');
+		
 	} else if (($count3>0) && ($auto_login==0)) {
 	
 		$page .= '<div class="box2">';
-		$page .= '<span class="warning">'.t('BOX_WARN').'</span><br/>';
+		$page .= '<span class="warning">'.t('BOX_WARN').'</span> ';
 		$page .= t('LOGIN_EMAIL_EXIST'); 
 		$page .= '</div>';
 		
@@ -489,7 +498,7 @@ function warquest_register_do($amount) {
 	} else if ($count1>0) {
 	
 		$page .= '<div class="box2">';
-		$page .= '<span class="warning">'.t('BOX_WARN').'</span><br/>';
+		$page .= '<span class="warning">'.t('BOX_WARN').'</span> ';
 		$page .= t('LOGIN_USERNAME_EXIST', $myusername);
 		$page .= '</div>';
 		
@@ -498,7 +507,7 @@ function warquest_register_do($amount) {
 	} else if (strlen($myusername)<4) {
 		
 		$page .= '<div class="box2">';
-		$page .= '<span class="warning">'.t('BOX_WARN').'</span><br/>';
+		$page .= '<span class="warning">'.t('BOX_WARN').'</span> ';
 		$page .= t('LOGIN_USERNAME_TO_SHORT');
 		$page .= '</div>';
 		
@@ -507,7 +516,7 @@ function warquest_register_do($amount) {
 	} else if (strlen($mypassword)<6) {
 	
 		$page .= '<div class="box2">';
-		$page .= '<span class="warning">'.t('BOX_WARN').'</span><br/>';
+		$page .= '<span class="warning">'.t('BOX_WARN').'</span> ';
 		$page .= t('LOGIN_PASSWORD_TO_SHORT');
 		$page .= '</div>';
 		
@@ -560,7 +569,7 @@ function warquest_register_do($amount) {
 		}
 		
 		$page .= '<div class="box2">';
-		$page .= '<span class="info">'.t('BOX_INFO').'</span><br/>';
+		$page .= '<span class="info">'.t('BOX_INFO').'</span> ';
 		$page .= t('LOGIN_REGISTER_OK', $myusername);		
 		$page .= '</div>';		
 		
@@ -597,7 +606,7 @@ function warquest_login_do($myusername, $mypassword) {
 	if($pid == 0) {
 	
 		$page .= '<div class="box2">';
-		$page .= '<span class="warning">'.t('BOX_WARN').'</span><br/>';
+		$page .= '<span class="warning">'.t('BOX_WARN').'</span> ';
 		$page .= t('LOGIN_FAILED');
 		$page .= '</div>';
 			
@@ -611,7 +620,7 @@ function warquest_login_do($myusername, $mypassword) {
 		
 			/* Check if player is ban */		
 			$page .= '<div class="box2">';
-			$page .= '<span class="warning">'.t('BOX_WARN').'</span><br/>';
+			$page .= '<span class="warning">'.t('BOX_WARN').'</span> ';
 			$page .= t('LOGIN_BANN');
 			$page .= '</div>';
 				
@@ -680,7 +689,7 @@ function warquest_login_email_confirm_do() {
 				warquest_db_member_update($data);
 					
 				$page .= '<div class="box2">';
-				$page .= '<span class="info">'.t('BOX_INFO').'</span><br/>';	
+				$page .= '<span class="info">'.t('BOX_INFO').'</span> ';	
 				$page .= t('USER_EMAIL_VALID');
 				$page .= '</div>';
 										

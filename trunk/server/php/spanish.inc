@@ -239,7 +239,6 @@ $lang['GENERAL_REQUESTS'] = 'Solicitudes';
 $lang['GENERAL_EP'] = 'Puntos Habilidad';
 $lang['GENERAL_AWARD'] = 'Condecoración';
 $lang['GENERAL_LANGUAGE'] = 'Idioma';
-$lang['GENERAL_RANKING'] = 'Ranking';
 
 $lang['GENERAL_NEW_UNIT'] = 'NUEVA UNIDAD';
 $lang['GENERAL_NEW_BUILDING'] = 'NUEVO EDIFICIO';
@@ -380,7 +379,6 @@ $lang['LOGIN_PASSWORD_TO_SHORT'] = 'La contraseña debe tener como mínimo 6 carac
 $lang['LOGIN_USERNAME_TO_SHORT'] = 'El nombre de usuario debe tener al menos 4 caracteres!';
 $lang['LOGIN_USERNAME_EXIST'] = 'El nombre de usuario %s ya existe!';
 $lang['LOGIN_EMAIL_EXIST'] = 'El email ya está registrado!';
-$lang['LOGIN_EMAIL_INVALID'] = 'El email no válido! (formato invalido)';
 $lang['LOGIN_NICKNAME_EXIST'] = 'El apodo %s ya está en uso!';
 $lang['LOGIN_NICKNAME_NEEDED'] = 'Debe introducir el Apodo!';
 $lang['LOGIN_NEW_PASSWORD_SEND'] = 'La nueva contraseña se ha enviado a su correo electrónico!';
@@ -463,7 +461,7 @@ $lang['PLAYER_BUILDING_INCOME'] = 'Ingreso por edificios';
 $lang['PLAYER_CONTINENT_INCOME'] = 'Ingreso por continentes';
 $lang['PLAYER_BOUNTY_SET'] = 'Recompensas ofrecidas';
 $lang['PLAYER_REBELLION_RISE'] = 'Rebeliones provocadas';
-$lang['PLAYER_UPKEEP']  = 'Coste/hora de unidades';
+$lang['PLAYER_UNIT_COST']  = 'Coste/hora de unidades';
 $lang['PLAYER_NETTO_INCOME']  = 'Ingreso neto';
 $lang['PLAYER_STATISTICS']  = 'Estadísticas'; 
 $lang['PLAYER_DISCOUNT_MAINTENANCE']  = 'Descuento y Mantenimiento';
@@ -509,8 +507,8 @@ $lang['PLAYER_INCOME'] = 'INGRESO';
 $lang['PLAYER_COST'] = 'Gasto';
 $lang['PLAYER_BUILDING_OVERVIEW'] = 'Resumen de ingresos de edificios';
 $lang['PLAYER_BUILDING_TEXT'] = 'Actualmente, %s tiene los siguientes ingresos por edificios en %s:';
-$lang['PLAYER_UPKEEP_COST'] = 'Resumen coste por hora';
-$lang['PLAYER_UPKEEP_TEXT'] = 'Actualmente, %s dispone de las siguiente(s) unidad(es) en %s :';
+$lang['PLAYER_UNIT_COST_OVERVIEW'] = 'Resumen coste por hora';
+$lang['PLAYER_UNIT_COST_TEXT'] = 'Actualmente, %s dispone de las siguiente(s) unidad(es) en %s :';
 $lang['PLAYER_CONTINENT_OVERVIEW'] = 'Resumen de ingresos por continentes';
 $lang['PLAYER_CONTINENT_TEXT'] = 'Jugador %s ha conquistado los siguientes continentes en %s :';
 
@@ -725,7 +723,7 @@ $lang['PLAYER_NOTIFICATION_ALLIANCE'] = 'Notificación de alianzas por email';
 $lang['PLAYER_NOTIFICATION_COMMENT'] = 'Notificación de mensajes por email';
 $lang['PLAYER_EMAIL_CHANGED'] = 'Configuración de email cambiada';
 $lang['PLAYER_EMAIL_EXIST'] = 'La dirección de correo electrónico ya está registrada!';
-$lang['PLAYER_EMAIL_INVALID'] = 'Dirección de correo electrónico no válida (formato inválido)!';
+$lang['EMAIL_INVALID'] = 'Dirección de correo electrónico no válida (formato inválido)!';
 
 $lang['PLAYER_LOGIN_SETTINGS'] = 'Ajustes de acceso';
 $lang['PLAYER_USERNAME'] = 'Nombre usuario';
@@ -2036,11 +2034,8 @@ $lang['ALLIANCE_MAXIMUM'] = 'Número máximo de %s aliados alcanzado en este nivel
 $lang['ALLIANCE_LOCKED'] = 'Las invitaciones de alianzas se desbloquean en el nivel 1';
 $lang['ALLIANCE_NOTE'] = 'Nota: Por cada aliado aceptado puede dirigir 6 unidades más durante los combates. Tenga en cuenta que no se puede atacar a los aliados.';
 
-$lang['ALLIANCE_INVITE_FRIENDS'] = 'Invitar a un amigo por correo electrónico';
 $lang['ALLIANCE_INVITE_NOTE'] = 'Nota: Invite a un jugador como aliado. Si el otro jugador acepta o rechaza la alianza, usted recibirá una notificación por correo electrónico (ver opción en configuración). La cantidad máxima de aceptados + aliados invitados para este nivel es %s.';
-$lang['ALLIANCE_EMAIL_INVALID']= 'Dirección de correo electrónico no válida!';
 $lang['ALLIANCE_ALREADY_INVITED'] = 'Ya se había enviado invitación al email!';
-$lang['ALLIANCE_INVITE_SENT'] = 'Invitación enviada.';
 
 $lang['ALLIANCE_COMMENT_TITLE'] = 'Mensaje';
 $lang['ALLIANCE_COMMENT_TEXT1'] = 'Crear mensaje (máx. 400 caracteres) para todos los jugadores';

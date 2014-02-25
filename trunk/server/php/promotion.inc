@@ -40,10 +40,16 @@ function warquest_promotion_invite_do() {
 	/* output */
 	global $output;	
 	
-	if ( validate_email($email) ) {
+	if (validate_email($email) ) {
 	
 		/* Invalid email address */
-		$message = t('LOGIN_EMAIL_INVALID', $email);
+		$message = t('EMAIL_INVALID');
+		$output->popup .= warquest_box_icon("warning", $message);
+		
+	} else if (!validate_dns($email)) {
+	
+		/* Invalid email domain name */
+		$message = t('EMAIL_DOMAIN_INVALID');
 		$output->popup .= warquest_box_icon("warning", $message);
 		
 	} else if (warquest_db_invite_check($email)>0) {

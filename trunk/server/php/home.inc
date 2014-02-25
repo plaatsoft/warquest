@@ -759,12 +759,11 @@ function warquest_home_welcome() {
 	$result = warquest_db_query($query); 
 	$count = warquest_db_num_rows($result);
 		
-	$ranking = floor($player->experience/30) + $player->won - $player->lost;
-	$query =  'select pid from player where country="'.$player->country.'" and ((experience/30)+won-lost)>='.$ranking;
+	$query =  'select pid from player where country="'.$player->country.'" and experience>='.$player->experience;
 	$result = warquest_db_query($query);
 	$count2 = warquest_db_num_rows($result);
 		
-	$query =  'select pid from player where ((experience/30)+won-lost)>='.$ranking.' and country!="EU"';
+	$query =  'select pid from player where experience>='.$player->experience.' and country!="EU"';
 	$result = warquest_db_query($query);
 	$count3 = warquest_db_num_rows($result);
 	

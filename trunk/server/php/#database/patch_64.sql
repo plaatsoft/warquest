@@ -76,3 +76,6 @@ CREATE TABLE IF NOT EXISTS `clan_bank` (
 ALTER TABLE player ADD premium_date DATETIME NOT NULL AFTER pattern;
 
 ALTER TABLE `poll_answer` CHANGE `answer_id` `answer_id` INT( 11 ) NOT NULL AUTO_INCREMENT;
+
+-- Added index for better leaderboard performance
+ALTER TABLE `player` ADD INDEX ( `experience` ) ;
