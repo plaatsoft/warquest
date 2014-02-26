@@ -148,7 +148,7 @@ function warquest_trade_form() {
 	
 	$page .= '<tr>';
 	$page .= '<td width="170">';	
-	$page .= warquest_image("gold/premium.jpg",' width="155" height="120" ');
+	$page .= warquest_image("trade/trade6.jpg",' width="155" height="120" ');
 	$page .= '</td>';
 	
 	$premium = strtotime($player->premium_date) - time();

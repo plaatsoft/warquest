@@ -277,8 +277,8 @@ $lang['GENERAL_PLANET'] = 'Planet';
 $lang['GENERAL_PLANET_1'] = 'Aarde';
 $lang['GENERAL_PLANET_2'] = 'Maan';
 $lang['GENERAL_PLANET_3'] = 'Mars';
-$lang['GENERAL_PLANET_4'] = 'Mercure';
-$lang['GENERAL_PLANET_5'] = 'Zon';
+$lang['GENERAL_PLANET_4'] = 'Mercury';
+$lang['GENERAL_PLANET_5'] = 'Neptune';
 
 /*
 ** ------------------
@@ -575,9 +575,9 @@ $lang['SETTING_BOUNTY'] = 'Activeer premie bevestigingspopup';
 $lang['SETTING_RESTORE'] = 'Activeer herstel / repareer bevestigingspopup';
 $lang['SETTING_CONDITION'] = 'Activeer eenheden/gebouwen conditie informatie in header';
 $lang['SETTING_FORUM_SORT'] = 'Activeer laatste forum post op home pagina';
-$lang['SETTING_SORT1'] = 'Activeer laatste forum bericht on thuis scherm.';
-$lang['SETTING_SORT2'] = ' Enable oldest battle player on top at battle list.';
-$lang['SETTING_NO_BOT_NEWS'] = 'Deactiveer robot vecht nieuws.';
+$lang['SETTING_SORT1'] = 'Activeer laatste forum bericht on thuis scherm';
+$lang['SETTING_SORT2'] = ' Enable oldest battle player on top at battle list';
+$lang['SETTING_NO_BOT_NEWS'] = 'Deactiveer robot vecht nieuws';
 
 $lang['PLAYER_LANG_ENGLISH'] = 'Engels';
 $lang['PLAYER_LANG_DUTCH'] = 'Nederlands';

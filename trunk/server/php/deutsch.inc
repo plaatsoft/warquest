@@ -654,12 +654,12 @@ $lang['SETTING_TWITTER'] = 'Twitter Account';
 $lang['SETTING_LANGUAGE'] = 'Sprache';
 $lang['SETTING_BACKGROUND'] = "Hintergrund";
 $lang['SETTING_SOUND'] = 'Sound aktivieren (Experimental)';
-$lang['SETTING_BOUNTY'] = 'Kopfgeld Bestätigung aktivieren.';
-$lang['SETTING_RESTORE'] = 'Wiederherstellen & Reparatur Bestätigung aktivieren.';
-$lang['SETTING_CONDITION'] = 'Zustand von Einheiten/Gebäuden/Aufstand in einem Banner aktivieren.';
-$lang['SETTING_FORUM_SORT'] = 'Letzten Eintrag vom Forum auf der Start-Seite aktivieren.';
-$lang['SETTING_SORT1'] = 'Die neuesten Nachrichten oben im Forum.';
-$lang['SETTING_SORT2'] = 'Älteste Spieler nach oben in der Kampf-Liste.';
+$lang['SETTING_BOUNTY'] = 'Kopfgeld Bestätigung aktivieren';
+$lang['SETTING_RESTORE'] = 'Wiederherstellen & Reparatur Bestätigung aktivieren';
+$lang['SETTING_CONDITION'] = 'Zustand von Einheiten/Gebäuden/Aufstand in einem Banner aktivieren';
+$lang['SETTING_FORUM_SORT'] = 'Letzten Eintrag vom Forum auf der Start-Seite aktivieren';
+$lang['SETTING_SORT1'] = 'Die neuesten Nachrichten oben im forum';
+$lang['SETTING_SORT2'] = 'Älteste Spieler nach oben in der Kampf-Liste';
 
 $lang['PLAYER_LANG_ENGLISH'] = 'Englisch';
 $lang['PLAYER_LANG_DUTCH'] = 'Holländisch';
@@ -993,7 +993,7 @@ $lang['MISSION_285'] = 'Hügel Oddvar';
 $lang['MISSION_286'] = 'Tal Radborne';
 $lang['MISSION_287'] = 'Krater Ebenezer';
 
-/* MERCURE */
+/* MERCURY */
 $lang['MISSION_300'] = 'Crater Albococcinea';
 $lang['MISSION_301'] = 'Sinus argentea';
 $lang['MISSION_302'] = 'Vallis Atrococcinea';
@@ -1190,7 +1190,7 @@ $lang['UNIT_GROUP_16']  = 'Explorers';
 $lang['UNIT_GROUP_17'] 	= 'Zivilisten';
 $lang['UNIT_GROUP_18'] 	= 'Armee';
 
-/* MERCURE */
+/* MERCURY */
 $lang['UNIT_GROUP_19']  = 'Drones';
 $lang['UNIT_GROUP_20']  = 'Warriors';
 $lang['UNIT_GROUP_21']  = 'Spacecrafts';
@@ -1204,37 +1204,6 @@ $lang['UNIT_GROUP_24'] 	= 'Army';
 ** UNIT PAGE
 ** ------------------
 */
-
-$lang['UNIT_TITLE'] = 'UNITS';
-
-$lang['UNIT_NOTE_1'] = 'Note: Buy soldier units to enable missions.';
-$lang['UNIT_NOTE_2'] = 'Note: Buy Calvary units to improve your calvary strength. Battle, win and steal money from your opponent\'s cash account.';
-$lang['UNIT_NOTE_3'] = 'Note: Buy Navy units to improve your naval strength. Battle, win and steal money from your opponent\'s cash account.';
-$lang['UNIT_NOTE_4'] = 'Note: Buy Airfoce units to improve your airforce strength. Battle, win and steal money from your opponent\'s cash account.';
-$lang['UNIT_NOTE_6'] = 'Note: Buy Intel units to improve  your intel strength. Batlle, win to start rebellions on Earth regions and steal money from your opponent\'s Trasquera or SwissCore bank account.';
-
-$lang['UNIT_NOTE_8'] = 'Note: Buy Moon Drone units to improve your drone strength. Battle, win and steal money from your opponent\'s cash account.';
-$lang['UNIT_NOTE_7'] = 'Note: Buy Moon Warrior units to improve your warrior strength. Battle, win and steal money from your opponent\'s cash account.';
-$lang['UNIT_NOTE_9'] = 'Note: Buy Moon Spacecraft units to improve your spacecraft strength. Battle, win and steal money from your opponent\'s cash account.';
-$lang['UNIT_NOTE_12'] = 'Note: Buy Moon Explore units to improve your explorer strength. Batlle, win to start rebellions on the Moon and steal money from your opponent\'s Trasquera or SwissCore bank account.';
-
-$lang['UNIT_NOTE_13'] = 'Note: Buy Mars Drone units to improve your drone strength. Battle, win and steal money from your opponent\'s cash account.';
-$lang['UNIT_NOTE_14'] = 'Note: Buy Mars Warrior units to improve your warrior strenght. Battle, win and steal money from your opponent\'s cash account.';
-$lang['UNIT_NOTE_15'] = 'Note: Buy Mars Spacecraft units to improve your spacecraft strength. Battle, win and steal money from your opponent\'s cash account.';
-$lang['UNIT_NOTE_16'] = 'Note: Buy Mars Explore units to improve your explorers strength. Batlle, win to start rebellions on Mars and steal some money from your opponent\'s Trasquera or SwissCore bank account.';
-
-$lang['UNIT_NOTE_19'] = 'Note: Buy mercure drone units to improve your drone strength. Battle, win and steal money from your opponent\'s cash account.';
-$lang['UNIT_NOTE_20'] = 'Note: Buy mercure warrior units to improve your warrior strenght. Battle, win and steal money from your opponent\'s cash account.';
-$lang['UNIT_NOTE_21'] = 'Note: Buy mercure spacecraft units to improve your spacecraft strength. Battle, win and steal money from your opponent\'s cash account.';
-$lang['UNIT_NOTE_22'] = 'Note: Buy mercure explore units to improve your explorers strength. Batlle, win to start rebellions on Mars and steal some money from your opponent\'s Trasquera or SwissCore bank account.';
-
-$lang['UNIT_DISBAND'] = 'You disband %s %s for %s. Still %s deployed.';
-$lang['UNIT_DISBAND_FAILED'] = 'You do not own %s %s. Still %s deployed.';
-
-$lang['UNIT_DEPLOY'] = 'You deploy %s %s for %s. Now %s deployed.';
-$lang['UNIT_NO_UPKEEP'] = 'Not enough hourly income to fund %s %s.';
-$lang['UNIT_NO_FUNDS'] = 'Not enough funds to buy %s %s for %s.';
-$lang['UNIT_MAX'] = 'No more then %s %s(s) allowed!';;
 
 /*
 ** ------------------
@@ -1263,53 +1232,11 @@ $lang['BUILDING_GROUP_13'] = 'Energie';
 $lang['BUILDING_GROUP_14'] = 'Discount';
 $lang['BUILDING_GROUP_15'] = 'Maintenance';
 
-/* Mercure Buildings */
-$lang['BUILDING_GROUP_16'] = 'Income';
-$lang['BUILDING_GROUP_17'] = 'Defence';
-$lang['BUILDING_GROUP_18'] = 'Energy';
-$lang['BUILDING_GROUP_19'] = 'Discount';
-$lang['BUILDING_GROUP_20'] = 'Maintenance';
-
 /*
 ** ------------------
 ** BUILDING PAGE
 ** ------------------
 */
-
-$lang['BUILDING_TITLE'] = 'BUILDINGS';
-
-$lang['BUILDING_NOTE1'] = 'Note: Income buildings provide higher hourly income. Each building contains citizens which increase hourly cost.';
-$lang['BUILDING_NOTE2'] = 'Note: Defence buildings provide higher defence against attacks. Each building contains citizens which increase hourly cost.';
-$lang['BUILDING_NOTE3'] = 'Note: Energy buildings provide faster energy recovery. Each building contains citizens which increase hourly cost.';
-$lang['BUILDING_NOTE4'] = 'Note: Discount buildings provide price discount on building purchase. Each building contains citizens which increase hourly cost.';
-$lang['BUILDING_NOTE5'] = 'Note: Maintenance buildings provide faster unit repair wich results in less unit loss during battles. Each building contains citizens which increase hourly cost.';
-
-$lang['BUILDING_NOTE6'] = 'Note: Income buildings provide higher income for your moon base.';
-$lang['BUILDING_NOTE7'] = 'Note: Defence buildings provide higher defence against attacks on your moon base.';
-$lang['BUILDING_NOTE8'] = 'Note: Energy buildings provide faster energy recovery for your moon base.';
-$lang['BUILDING_NOTE9'] = 'Note: Discount buildings provide price discount on moon building purchase.';
-$lang['BUILDING_NOTE10'] = 'Note: Maintenance buildings provide faster moon unit repair wich results in less unit loss during battles.';
-
-$lang['BUILDING_NOTE11'] = 'Note: Income buildings provide higher income for your mars base.';
-$lang['BUILDING_NOTE12'] = 'Note: Defence buildings provide higher defence against attacks on your mars base.';
-$lang['BUILDING_NOTE13'] = 'Note: Energy buildings provide faster energy recovery for your mars base.';
-$lang['BUILDING_NOTE14'] = 'Note: Discount buildings provide price discount on mars building purchase.';
-$lang['BUILDING_NOTE15'] = 'Note: Maintenance buildings provide faster mars unit repair wich results in less unit loss during battles.';
-
-$lang['BUILDING_NOTE16'] = 'Note: Income buildings provide higher income for your mercure base.';
-$lang['BUILDING_NOTE17'] = 'Note: Defence buildings provide higher defence against attacks on your mercure base.';
-$lang['BUILDING_NOTE18'] = 'Note: Energy buildings provide faster energy recovery for your mercure base.';
-$lang['BUILDING_NOTE19'] = 'Note: Discount buildings provide price discount on your mercure building purchase.';
-$lang['BUILDING_NOTE20'] = 'Note: Maintenance buildings provide faster mercure unit repair wich results in less unit loss during battles.';
-
-$lang['BUILDING_SELL'] = 'You sell %s %s for %s. Still %s deployed.';
-$lang['BUILDING_LOW_UPKEEP'] = 'Not enough hourly income to sell %s %s for %s.';
-$lang['BUILDING_NOT_OWNED'] = 'You do not own %s %s.';
-
-$lang['BUILDING_BUY'] = 'You buy %s %s for %s. Now %s deployed.';
-$lang['BUILDING_MAX'] = 'No more then %s %s(s) allowed!';
-$lang['BUILDING_NO_FUNDS'] = 'Not enough funds to buy %s %s for %s.'; 
-$lang['BUILDING_LOW_UPKEEP2'] = 'Not enough hourly income to buy %s %s for %s.';
 
 $lang['BUILDING_UPKEEP'] = 'Stündliche Kosten';
 $lang['BUILDING_PRICE'] = 'Preis';

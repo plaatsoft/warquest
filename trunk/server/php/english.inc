@@ -281,7 +281,7 @@ $lang['GENERAL_PLANET'] = 'Planet';
 $lang['GENERAL_PLANET_1'] = 'Earth';
 $lang['GENERAL_PLANET_2'] = 'Moon';
 $lang['GENERAL_PLANET_3'] = 'Mars';
-$lang['GENERAL_PLANET_4'] = 'Mercure';
+$lang['GENERAL_PLANET_4'] = 'Mercury';
 $lang['GENERAL_PLANET_5'] = 'Neptune';
 
 /*
@@ -339,17 +339,17 @@ $lang['TIP_148'] = 'Only 2 levels away from starting your own mars colony.';
 $lang['TIP_149'] = 'Only 1 level away from starting your own mars colony.';
 $lang['TIP_150'] = 'Start your own Mars colony!';
 
-$lang['TIP_190'] = 'Only 10 levels away from starting your own mercure colony.';
-$lang['TIP_191'] = 'Only 9 levels away from starting your own mercure colony.';
-$lang['TIP_192'] = 'Only 8 levels away from starting your own mercure colony.';
-$lang['TIP_193'] = 'Only 7 levels away from starting your own mercure colony.';
-$lang['TIP_194'] = 'Only 6 levels away from starting your own mercure colony.';
-$lang['TIP_195'] = 'Only 5 levels away from starting your own mercure colony.';
-$lang['TIP_196'] = 'Only 4 levels away from starting your own mercure colony.';
-$lang['TIP_197'] = 'Only 3 levels away from starting your own mercure colony.';
-$lang['TIP_198'] = 'Only 2 levels away from starting your own mercure colony.';
-$lang['TIP_199'] = 'Only 1 level away from starting your own mercure colony.';
-$lang['TIP_200'] = 'Start your own mercure colony!';
+$lang['TIP_190'] = 'Only 10 levels away from starting your own mercury colony.';
+$lang['TIP_191'] = 'Only 9 levels away from starting your own mercury colony.';
+$lang['TIP_192'] = 'Only 8 levels away from starting your own mercury colony.';
+$lang['TIP_193'] = 'Only 7 levels away from starting your own mercury colony.';
+$lang['TIP_194'] = 'Only 6 levels away from starting your own mercury colony.';
+$lang['TIP_195'] = 'Only 5 levels away from starting your own mercury colony.';
+$lang['TIP_196'] = 'Only 4 levels away from starting your own mercury colony.';
+$lang['TIP_197'] = 'Only 3 levels away from starting your own mercury colony.';
+$lang['TIP_198'] = 'Only 2 levels away from starting your own mercury colony.';
+$lang['TIP_199'] = 'Only 1 level away from starting your own mercury colony.';
+$lang['TIP_200'] = 'Start your own mercury colony!';
 
 $lang['TIP_240'] = 'Only 10 levels away from starting your own neptune colony.';
 $lang['TIP_241'] = 'Only 9 levels away from starting your own neptune colony.';
@@ -407,7 +407,7 @@ $lang['LOGIN_NEW_CLIENT_TITLE'] = 'New WarQuest client available!';
 $lang['LOGIN_NEW_CLIENT'] = 'You are using an old WarQuest Windows client. Please visit www.plaatsoft.nl to get the newest version.';
 
 $lang['LOGIN_RECOVER_NOTE1'] = 'If you have forgotten your password, enter your email address and we\'ll send you a new password by email.';
-$lang['LOGIN_RECOVER_NOTE2'] = 'If you don\'t receive the password recover email please contact the service desk by sending an email to <a href="mailto:support@warquest.nl">support@warquest.nl</a>. We will help you as soon as possible!';
+$lang['LOGIN_RECOVER_NOTE2'] = 'If you don\'t receive the password recover email, please contact the servicedesk by sending an email to <a href="mailto:support@warquest.nl">support@warquest.nl</a>. We will help you as soon as possible!';
 
 /*
 ** ------------------
@@ -442,9 +442,9 @@ $lang['HOME_DAILY_BONUS'] = 'You found %s dollar at an enemy location!';
 $lang['HOME_WELCOME'] = 'Welcome';
 $lang['HOME_LAST_LOGIN'] = 'Last visit was <b>%s</b> ago.';
 $lang['HOME_AWARDS'] = 'Awards';
-$lang['HOME_BATTLE_AWARDS_TEXT'] = 'You\'ve earned the following battle awards:';
-$lang['HOME_BOUNTY_AWARDS_TEXT'] = 'You\'ve earned the following bounty awards:';
-$lang['HOME_REBEL_AWARDS_TEXT'] = 'You\'ve earned the following rebellion award:';
+$lang['HOME_BATTLE_AWARDS_TEXT'] = 'You\'ve earned the following battle award(s):';
+$lang['HOME_BOUNTY_AWARDS_TEXT'] = 'You\'ve earned the following bounty award(s):';
+$lang['HOME_REBEL_AWARDS_TEXT'] = 'You\'ve earned the following rebellion award(s):';
 $lang['HOME_OVERVIEW_TITLE']= 'Overview';
 $lang['HOME_MAP_TITLE'] = 'Continents Conquered';
 $lang['HOME_MAP_NOTE'] = 'Each continent consist out of regions which can be conquered by playing missions.';
@@ -579,8 +579,8 @@ $lang['HOME_NO_MESSAGES'] = 'No player messages available at the moment!';
 ** ------------------
 */
 
-$lang['PLAYER_SKILL_SUBTITLE1']  = 'Skill points';
-$lang['PLAYER_SKILL_SUBTITLE2']  = 'Skill points [%s available]';
+$lang['PLAYER_SKILL_SUBTITLE1']  = 'Skill Points';
+$lang['PLAYER_SKILL_SUBTITLE2']  = 'Skill Points [%s available]';
 $lang['PLAYER_SKILL_NOTE']  = 'Note: Use skill points to increase attack, defence, health, energy or ammo skills.';
 $lang['PLAYER_SKILLS']  = 'Skills'; 
 $lang['PLAYER_CURRENT'] = 'Current'; 
@@ -707,22 +707,22 @@ $lang['PLAYER_REBELLION_CONFIRM'] = 'Do you really want to restore peace?';
 */
 
 $lang['SETTING_TITLE'] = 'Settings';
-$lang['SETTING_GENERAL1'] = 'General settings 1';
-$lang['SETTING_GENERAL2'] = 'General settings 2';
+$lang['SETTING_GENERAL1'] = 'General Settings 1';
+$lang['SETTING_GENERAL2'] = 'General Settings 2';
 
 $lang['SETTING_NICKNAME'] = 'WarQuest nickname';
 $lang['SETTING_TWITTER'] = 'Twitter account';
 $lang['SETTING_LANGUAGE'] = 'Language';
 $lang['SETTING_BACKGROUND'] = "Theme";
 $lang['SETTING_SOUND'] = 'Enable sound (Experimental)';
-$lang['SETTING_BOUNTY'] = 'Enable bounty confirmation popup.';
-$lang['SETTING_RESTORE'] = 'Enable restore & repair confirmation popup.';
-$lang['SETTING_CONDITION'] = 'Enable Unit/Building/Rebel condition information in banner.';
-$lang['SETTING_FORUM_SORT'] = 'Enable latest forum post on home overview page.';
-$lang['SETTING_SORT1'] = 'Enable newest message on top at forum.';
-$lang['SETTING_SORT2'] = 'Enable oldest battle player on top at battle list.';
-$lang['SETTING_NO_BOT_NEWS'] = 'Disable robot battle news and notifcations.';
-$lang['SETTING_ALLIES_IN_BATTLE_LIST'] = 'Enable allies in battle enemies / bount hunting list.';
+$lang['SETTING_BOUNTY'] = 'Enable bounty confirmation popup';
+$lang['SETTING_RESTORE'] = 'Enable restore & repair confirmation popup';
+$lang['SETTING_CONDITION'] = 'Enable Unit/Building/Rebel condition information in banner';
+$lang['SETTING_FORUM_SORT'] = 'Enable latest forum post on home overview page';
+$lang['SETTING_SORT1'] = 'Enable newest message on top at forum';
+$lang['SETTING_SORT2'] = 'Enable oldest battle player on top at battle list';
+$lang['SETTING_NO_BOT_NEWS'] = 'Disable robot battle news and notifcations';
+$lang['SETTING_ALLIES_IN_BATTLE_LIST'] = 'Enable allies in battle enemies / bount hunting list';
 
 $lang['PLAYER_LANG_DUTCH'] = 'Dutch';
 $lang['PLAYER_LANG_ENGLISH'] = 'English';
@@ -746,7 +746,7 @@ $lang['NICKNAME_EXIST'] = 'Nickname already taken!';
 $lang['NICKNAME_TO_SHORT'] = 'Nickname must be at least 4 characters long!';
 $lang['NICKNAME_NO_SPACE'] = 'Space character(s) in nickname is not allowed!';
 
-$lang['PLAYER_CHANGE_EMAIL'] = 'Email settings';
+$lang['PLAYER_CHANGE_EMAIL'] = 'Email Settings';
 $lang['PLAYER_NEW_EMAIL'] = 'Email Address';
 $lang['PLAYER_NOTIFICATION_ALLIANCE'] = 'Alliance notification by mail';
 $lang['PLAYER_NOTIFICATION_COMMENT'] = 'Message notification by mail';
@@ -754,7 +754,7 @@ $lang['PLAYER_EMAIL_CHANGED'] = 'Email settings changed';
 $lang['PLAYER_EMAIL_EXIST'] = 'Email is already registered!';
 $lang['EMAIL_INVALID'] = 'Email is not valid (invalid format)!';
 
-$lang['PLAYER_LOGIN_SETTINGS'] = 'Login settings';
+$lang['PLAYER_LOGIN_SETTINGS'] = 'Login Settings';
 $lang['PLAYER_USERNAME'] = 'Username';
 $lang['PLAYER_USERNAME_TO_SHORT'] = 'Username must be at least 4 characters long!';
 $lang['PLAYER_USERNAME_ALREADY_EXIST'] = 'Username already exist!';
@@ -768,7 +768,7 @@ $lang['PLAYER_PASSWORD_TO_SHORT'] = 'The new password must be at least 6 charact
 $lang['PLAYER_NEWS_PASSWORD_NOT_MATCH'] = 'The new passwords do not match!';
 $lang['PLAYER_LOGIN_NOTE'] = 'WARNING: Automatic login only works when the same username and password are set in the WarQuest app!'; 
 
-$lang['SETTING_ACCOUNT_RESET_TITLE'] = 'Account reset';
+$lang['SETTING_ACCOUNT_RESET_TITLE'] = 'Account Reset';
 $lang['SETTING_YES'] = 'Yes';
 $lang['SETTING_SURE'] = 'Account reset! Are your really sure?';
 $lang['SETTING_ACCOUNT_RESET'] = 'Activate an account reset? ';
@@ -816,7 +816,7 @@ $lang['MISSION_GROUP_26'] = 'Giraffe';
 $lang['MISSION_GROUP_27'] = 'Heron';
 $lang['MISSION_GROUP_28'] = 'Iguana';
 
-/* Mercure Missions */
+/* Mercury Missions */
 $lang['MISSION_GROUP_30'] = 'Alfred';
 $lang['MISSION_GROUP_31'] = 'Benjamin';
 $lang['MISSION_GROUP_32'] = 'Charles';
@@ -1086,7 +1086,7 @@ $lang['MISSION_285'] = 'Vallis Oddvar';
 $lang['MISSION_286'] = 'Sinus Radborne';
 $lang['MISSION_287'] = 'Crater Ebenezer';
 
-/* Mercure */
+/* Mercury */
 $lang['MISSION_300'] = 'Crater Albococcinea';
 $lang['MISSION_301'] = 'Sinus argentea';
 $lang['MISSION_302'] = 'Vallis Atrococcinea';
@@ -1287,11 +1287,11 @@ $lang['MISSION_COMPLETE_TEXT'] = 'You conquered the following continents so far!
 
 $lang['MISSION_REBEL'] = 'Rebellion';
 
-$lang['MISSION_COMPLETE_PLANET_1'] = 'Excellent! You completed all Earth missions. You received 100 million dollar bonus.';
-$lang['MISSION_COMPLETE_PLANET_2'] = 'Excellent! You completed all moon missions. You received 500 million dollar bonus.';
-$lang['MISSION_COMPLETE_PLANET_3'] = 'Excellent! You completed all mars missions. You received 999 billion dollar bonus.';
-$lang['MISSION_COMPLETE_PLANET_4'] = 'Excellent! You completed all mercure missions. You received 2500 gold bonus.';
-$lang['MISSION_COMPLETE_PLANET_5'] = 'Excellent! You completed all neptune missions. You received 5000 gold bonus.';
+$lang['MISSION_COMPLETE_PLANET_1'] = 'Excellent! You completed all Earth missions. You received <span class="money">100</span> million dollar bonus.';
+$lang['MISSION_COMPLETE_PLANET_2'] = 'Excellent! You completed all Moon missions. You received <span class="money">500</span> million dollar bonus.';
+$lang['MISSION_COMPLETE_PLANET_3'] = 'Excellent! You completed all Mars missions. You received <span class="money">999</span> billion dollar bonus.';
+$lang['MISSION_COMPLETE_PLANET_4'] = 'Excellent! You completed all Mercury missions. You received <span class="gold">2500</span> gold bonus.';
+$lang['MISSION_COMPLETE_PLANET_5'] = 'Excellent! You completed all Neptune missions. You received <span class="gold">5000</span> gold bonus.';
 
 $lang['MISSION_NO_MISSIONS'] = 'No missions available yet!';
 
@@ -1377,7 +1377,7 @@ $lang['UNIT_GROUP_16']  = 'Explorers';
 $lang['UNIT_GROUP_17'] 	= 'Citizens';
 $lang['UNIT_GROUP_18'] 	= 'Army';
 
-/* Mercure*/
+/* Mercury*/
 $lang['UNIT_GROUP_19']  = 'Drones';
 $lang['UNIT_GROUP_20']  = 'Warriors';
 $lang['UNIT_GROUP_21']  = 'Spacecrafts';
@@ -1639,7 +1639,7 @@ $lang['UNIT_1702'] = 'Male';
 
 /* ---------------------------------------------------- */
 
-/* Drones (Mercure) - Group 19 */
+/* Drones (Mercury) - Group 19 */
 $lang['UNIT_1900'] = 'Swify I';
 $lang['UNIT_1901'] = 'Euhm II';
 $lang['UNIT_1902'] = 'Mirageman III';
@@ -1652,7 +1652,7 @@ $lang['UNIT_1908'] = 'Vorpal IX';
 $lang['UNIT_1909'] = 'Iyona X';
 $lang['UNIT_1910'] = 'Castor XI';
 
-/* Warriors (Mercure) - Group 20 */
+/* Warriors (Mercury) - Group 20 */
 $lang['UNIT_2000'] = 'Grandmaster I';
 $lang['UNIT_2001'] = 'Courage II';
 $lang['UNIT_2002'] = 'Hero III';
@@ -1665,7 +1665,7 @@ $lang['UNIT_2008'] = 'MerryLad IX';
 $lang['UNIT_2009'] = 'Drenar X';
 $lang['UNIT_2010'] = 'Demetrius XI';
 
-/* Spacecrafts (Mercure) - Group 21 */
+/* Spacecrafts (Mercury) - Group 21 */
 $lang['UNIT_2100'] = 'Halvilion I';
 $lang['UNIT_2101'] = 'Menelaus II';
 $lang['UNIT_2102'] = 'Ultimatum III';
@@ -1678,7 +1678,7 @@ $lang['UNIT_2108'] = 'Partharaon IX';
 $lang['UNIT_2109'] = 'Erudil X';
 $lang['UNIT_2110'] = 'Dice XI';
 
-/* Explorers (Mercure) - Group 22 */
+/* Explorers (Mercury) - Group 22 */
 $lang['UNIT_2200'] = 'Girlyman I';
 $lang['UNIT_2201'] = 'Wuss II';
 $lang['UNIT_2202'] = 'Sissy III';
@@ -1691,7 +1691,7 @@ $lang['UNIT_2208'] = 'Marest IX';
 $lang['UNIT_2209'] = 'Rawrgrable X';
 $lang['UNIT_2210'] = 'Dinos XI';
 
-/* Citizens (Mercure) - Group 23 */
+/* Citizens (Mercury) - Group 23 */
 $lang['UNIT_2300'] = 'Astronaut';
 $lang['UNIT_2301'] = 'Female';
 $lang['UNIT_2302'] = 'Male';
@@ -1710,7 +1710,7 @@ $lang['UNIT_2407'] = 'Iason VIII';
 $lang['UNIT_2408'] = 'Kallias IX';
 $lang['UNIT_2409'] = 'Leontius X';
 
-/* Warriors (Mercure) - Group 25 */
+/* Warriors (Mercury) - Group 25 */
 $lang['UNIT_2500'] = 'Achaikos I';
 $lang['UNIT_2501'] = 'Berenice II';
 $lang['UNIT_2502'] = 'Cassander III';
@@ -1775,10 +1775,10 @@ $lang['UNIT_NOTE_14'] = 'Note: Buy mars warrior units to improve your warrior fo
 $lang['UNIT_NOTE_15'] = 'Note: Buy mars spacecraft units to improve your spacecraft force strength. Battle, win and steal money from your opponent\'s cash account.';
 $lang['UNIT_NOTE_16'] = 'Note: Buy mars explore units to improve your explorers force strength. Battle, win to start rebellions and steal some money from your opponent\'s Trasquera or SwissCore bank account.';
 
-$lang['UNIT_NOTE_19'] = 'Note: Buy mercure drone units to improve your drone force strength. Battle, win and steal money from your opponent\'s cash account.';
-$lang['UNIT_NOTE_20'] = 'Note: Buy mercure warrior units to improve your warrior force strenght. Battle, win and steal money from your opponent\'s cash account.';
-$lang['UNIT_NOTE_21'] = 'Note: Buy mercure spacecraft units to improve your spacecraft force strength. Battle, win and steal money from your opponent\'s cash account.';
-$lang['UNIT_NOTE_22'] = 'Note: Buy mercure explore units to improve your explorers force strength. Batlle, win to start rebellions and steal some money from your opponent\'s Trasquera or SwissCore bank account.';
+$lang['UNIT_NOTE_19'] = 'Note: Buy mercury drone units to improve your drone force strength. Battle, win and steal money from your opponent\'s cash account.';
+$lang['UNIT_NOTE_20'] = 'Note: Buy mercury warrior units to improve your warrior force strenght. Battle, win and steal money from your opponent\'s cash account.';
+$lang['UNIT_NOTE_21'] = 'Note: Buy mercury spacecraft units to improve your spacecraft force strength. Battle, win and steal money from your opponent\'s cash account.';
+$lang['UNIT_NOTE_22'] = 'Note: Buy mercury explore units to improve your explorers force strength. Batlle, win to start rebellions and steal some money from your opponent\'s Trasquera or SwissCore bank account.';
 
 $lang['UNIT_NOTE_25'] = 'Note: Buy neptune drone units to improve your drone force strength. Battle, win and steal money from your opponent\'s cash account.';
 $lang['UNIT_NOTE_26'] = 'Note: Buy neptune warrior units to improve your warrior force strenght. Battle, win and steal money from your opponent\'s cash account.';
@@ -1823,7 +1823,7 @@ $lang['BUILDING_GROUP_13'] = 'Energy';
 $lang['BUILDING_GROUP_14'] = 'Discount';
 $lang['BUILDING_GROUP_15'] = 'Maintenance';
 
-/* Mercure Buildings */
+/* Mercury Buildings */
 $lang['BUILDING_GROUP_16'] = 'Income';
 $lang['BUILDING_GROUP_17'] = 'Defence';
 $lang['BUILDING_GROUP_18'] = 'Energy';
@@ -2053,9 +2053,11 @@ $lang['BUILDING_1403'] = 'Headquarters';
 $lang['BUILDING_1404'] = 'Supply Depot';
 $lang['BUILDING_1405'] = 'Construction Unit';
 $lang['BUILDING_1406'] = 'Bootcamp';
-$lang['BUILDING_1407'] = 'President\'s office';
+$lang['BUILDING_1407'] = 'President\'s Office';
 $lang['BUILDING_1408'] = 'Command Centre';
-$lang['BUILDING_1409'] = 'Shopping centre';
+$lang['BUILDING_1409'] = 'Large City';
+$lang['BUILDING_1410'] = 'Small City';
+$lang['BUILDING_1411'] = 'Medium City';
 
 /* Maintenance (Mars) - Group 15 */
 $lang['BUILDING_1500'] = 'Architect Design Centre';
@@ -2072,7 +2074,7 @@ $lang['BUILDING_1510'] = 'Base Repair Centre';
 
 /* ------------------------------------------------------ */
 
-/* Income (Mercure) - Group 16 */
+/* Income (Mercury) - Group 16 */
 $lang['BUILDING_1600'] = 'General Base';
 $lang['BUILDING_1601'] = 'Research Centre';
 $lang['BUILDING_1602'] = 'Oxygen Factory';
@@ -2085,7 +2087,7 @@ $lang['BUILDING_1608'] = 'Greenhouse';
 $lang['BUILDING_1609'] = 'Hotel';
 $lang['BUILDING_1610'] = 'Uranium Explorer';
 
-/* Defense (Mercure) - Group 17 */
+/* Defense (Mercury) - Group 17 */
 $lang['BUILDING_1700'] = 'Research Centre';
 $lang['BUILDING_1701'] = 'Weapon Factory';
 $lang['BUILDING_1702'] = 'Short Range Missile';
@@ -2101,7 +2103,7 @@ $lang['BUILDING_1711'] = 'Warrior Upgrade Lab';
 $lang['BUILDING_1712'] = 'Solar Attack Unit';
 $lang['BUILDING_1713'] = 'Planet Destroyer';
 
-/* Energy (Mercure) - Group 18 */
+/* Energy (Mercury) - Group 18 */
 $lang['BUILDING_1800'] = 'Gas power facility';
 $lang['BUILDING_1801'] = 'Energy Research Centre';
 $lang['BUILDING_1802'] = 'Petroleum Extractors';
@@ -2114,7 +2116,7 @@ $lang['BUILDING_1808'] = 'Large Orbit Solar Facility';
 $lang['BUILDING_1809'] = 'Large Colony';
 $lang['BUILDING_1810'] = 'Nuclear Fusion Facility';
 
-/* Discount (Mercure) - Group 19 */
+/* Discount (Mercury) - Group 19 */
 $lang['BUILDING_1900'] = 'Training Centre';
 $lang['BUILDING_1901'] = 'Terraforming Centre';
 $lang['BUILDING_1902'] = 'Military Personel Quarters';
@@ -2122,7 +2124,7 @@ $lang['BUILDING_1903'] = 'Military Headquarters';
 $lang['BUILDING_1904'] = 'Supply Depot';
 $lang['BUILDING_1905'] = 'Shopping Centre';
 
-/* Maintenance (Mercure) - Group 20 */
+/* Maintenance (Mercury) - Group 20 */
 $lang['BUILDING_2000'] = 'Architect Design Centre';
 $lang['BUILDING_2001'] = 'Drone Repair Centre';
 $lang['BUILDING_2002'] = 'Warrior Repair Centre';
@@ -2209,11 +2211,11 @@ $lang['BUILDING_NOTE13'] = 'Note: Energy buildings provide faster energy recover
 $lang['BUILDING_NOTE14'] = 'Note: Discount buildings provide price discount on mars building purchase.';
 $lang['BUILDING_NOTE15'] = 'Note: Maintenance buildings provide faster mars unit repair wich results in less unit loss during battles.';
 
-$lang['BUILDING_NOTE16'] = 'Note: Income buildings provide higher income for your mercure base.';
-$lang['BUILDING_NOTE17'] = 'Note: Defence buildings provide higher defence against attacks on your mercure base.';
-$lang['BUILDING_NOTE18'] = 'Note: Energy buildings provide faster energy recovery for your mercure base.';
-$lang['BUILDING_NOTE19'] = 'Note: Discount buildings provide price discount on your mercure building purchase.';
-$lang['BUILDING_NOTE20'] = 'Note: Maintenance buildings provide faster mercure unit repair wich results in less unit loss during battles.';
+$lang['BUILDING_NOTE16'] = 'Note: Income buildings provide higher income for your mercury base.';
+$lang['BUILDING_NOTE17'] = 'Note: Defence buildings provide higher defence against attacks on your mercury base.';
+$lang['BUILDING_NOTE18'] = 'Note: Energy buildings provide faster energy recovery for your mercury base.';
+$lang['BUILDING_NOTE19'] = 'Note: Discount buildings provide price discount on your mercury building purchase.';
+$lang['BUILDING_NOTE20'] = 'Note: Maintenance buildings provide faster mercury unit repair wich results in less unit loss during battles.';
 
 $lang['BUILDING_NOTE21'] = 'Note: Income buildings provide higher income for your neptune base.';
 $lang['BUILDING_NOTE22'] = 'Note: Defence buildings provide higher defence against attacks on your neptune base.';
@@ -2269,7 +2271,7 @@ $lang['BANK_TRANSACTION_TYPE_8'] = 'Clan attack fee';
 $lang['BANK_TRANSACTION_TYPE_9'] = 'Clan defence fee';
 $lang['BANK_TRANSACTION_TYPE_10'] = 'deposited';
 
-$lang['BANK_TRANSACTION_LOG'] = 'Transaction log';
+$lang['BANK_TRANSACTION_LOG'] = 'Transaction Log';
 
 $lang['BANK_WITHDRAW']= 'Withdrawn %s dollar from %s bank';
 $lang['BANK_WITHDRAW_FAILED'] = '%s dollars not available on bank account!';
@@ -2505,11 +2507,11 @@ If a mission is 100% completed you will gain twice the amount of money. If a con
 you receive a hourly income bonus.<br/><br/>
 
 The following extra bonus is given when all planet missions are completed:<br/>
-EARTH: 100 Million dollars<br/>
-MOON: 500 Million dollars<br/>
-MARS: 999 Billion dollars<br/>
-MERCURE: 2500 gold<br/>
-NEPTUNE: 5000 gold';
+EARTH: <span class="money">100</span> Million dollars<br/>
+MOON: <span class="money">500</span> Million dollars<br/>
+MARS: <span class="money">999</span> Billion dollars<br/>
+MERCURY: <span class="gold">2500</span> gold<br/>
+NEPTUNE: <span class="gold">5000</span> gold';
 
 $lang['HELP_BATTLE_TITLE'] = 'Battle';
 $lang['HELP_BATTLE'] =	'Fight other players to gain money and experience points to reach the next 
@@ -2529,7 +2531,7 @@ purchase. Each buildings contains citizens which cost hourly income.';
 $lang['HELP_BANKS_TITLE'] = 'Banks';
 $lang['HELP_BANKS'] = 'Each bank will charge a deposit fee. Money which is stored in the National bank 
 is safe from other players but gives a low daily interest. Money stored on the Trasquera or SwissCore 
-bank give higher daily interest but Intel (Earth) or Explorer (Moon/Mars/Mercure/Neptune) units from 
+bank give higher daily interest but Intel (Earth) or Explorer (Moon/Mars/Mercury/Neptune) units from 
 other players can steal money.';
 
 $lang['HELP_ALLIANCE_TITLE'] = 'Alliance'; 
@@ -2602,8 +2604,9 @@ EARTH<br/>
 - "Calvary" Only calvary earth units.<br/>
 - "Navy" Only navy earth units.<br/>
 - "Airforce" Only aircraft earth units.<br/>
-- "Intel" Only intel earth units.<br/><br/>
-MOON / MARS / MERCURE / NEPTUNE<br/>
+- "Intel" Only intel earth units.<br/>
+<br/>
+MOON / MARS / MERCURY / NEPTUNE<br/>
 - "Army" Best of drone, warrior and spacecraft units.<br/>
 - "Drones" Only drone units.<br/>
 - "Warriors" Only warrior units.<br/>
@@ -2613,7 +2616,7 @@ MOON / MARS / MERCURE / NEPTUNE<br/>
 
 $lang['HELP_REBELLION_CONDITION_TITLE'] = 'Rebellion Condition (RC)';
 $lang['HELP_REBELLION_CONDITION'] = 'This value gives information about your current rebellion condition. Region 
-rebellion is triggered by intel (Earth) or explorers (Moon/Mars/Mercure/Neptune) attacks by your opponents. If 
+rebellion is triggered by intel (Earth) or explorers (Moon/Mars/Mercury/Neptune) attacks by your opponents. If 
 the condition reaches 100%, some of your conquered regions will be in rebellion. To prevent rebellion, 
 visit (Home -> Restore) to end the rebellion. Each rebellion region results in postponed continent 
 hourly income. Restore control in the rebel region by playing the related mission.';
@@ -2719,7 +2722,6 @@ $lang['HELP_STATS_REQUESTS'] = 'Server requests ';
 */
 
 $lang['HELP_DONATE_TITLE1'] = 'Donate';
-$lang['HELP_DONATE_TITLE2'] = 'Donate';
 
 $lang['HELP_SUBTITLE_DONATE1'] = 'General';
 $lang['HELP_DONATE1'] = 'WarQuest software may be used free of charge, but if you wish to express 
@@ -3226,6 +3228,7 @@ $lang['PROMOTION_INVITE'] = 'Invite friends';
 $lang['PROMOTION_INVITE_KNOWN'] = 'Invitation is already sent to %s.';
 $lang['PROMOTION_INVITE_SENT'] = 'Invitation is sent to %s.';
 $lang['PROMOTION_INVITE_NOTE'] = 'Invite friends to WarQuest and receive %s for each new registration.';
+$lang['PROMOTION_MAX_INVITE'] = 'Maximum amount of invites sent, request aborted!';
 
 /*
 ** ------------------

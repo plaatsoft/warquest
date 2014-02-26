@@ -634,7 +634,7 @@ function warquest_building() {
 						warquest_building_sell_do();
 						break;	
 
-		case EVENT_SWITCH_PLANET: 	
+		case EVENT_SWITCH_PLANET:
 						warquest_switch_planet_do();
 						break;			  
 	}

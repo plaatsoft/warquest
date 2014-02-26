@@ -36,7 +36,7 @@ define("EVENT_GET_PLAYER", 	   4);
 define('BONUS_EARTH',				1);
 define('BONUS_MOON',					2);
 define('BONUS_MARS',   				3);
-define('BONUS_MERCURE',				4);
+define('BONUS_MERCURY',				4);
 define('BONUS_NEPTUNE',				5);
 define('BONUS_FACEBOOK_LIKE',		10);
 
@@ -49,7 +49,7 @@ define('BONUS_FACEBOOK_LIKE',		10);
 define('PLANET_EARTH',        	1);
 define('PLANET_MOON',         	2);
 define('PLANET_MARS',         	3);
-define('PLANET_MERCURE',			4);
+define('PLANET_MERCURY',			4);
 define('PLANET_NEPTUNE', 	    	5);
 
 /*
@@ -271,23 +271,25 @@ define("EVENT_ADMIN_NEWS_SAVE",  	     3906);
 define("EVENT_ADMIN_NEWS_DELETE",  	     3907);
 define("EVENT_ADMIN_UPDATE_STAFF",  	  3908);
 define("EVENT_ADMIN_HACK_ACCOUNT",       3909);
-define("EVENT_ADMIN_UPDATE_INTEREST",    3910);
-define("EVENT_ADMIN_CLEAN_BANK_LOG",     3911);
-define("EVENT_ADMIN_UPDATE_INVITATIONS", 3912);
-define("EVENT_ADMIN_UPDATE_AWARDS",  	  3913);
-define("EVENT_ADMIN_UPDATE_LEVELS",  	  3914);
-define("EVENT_ADMIN_CLEAN_BATTLE_LOG",   3915);
-define("EVENT_ADMIN_UPDATE_ROBOTS",  	  3916);
-define("EVENT_ADMIN_OPTIMIZE_DATABASE",  3917);
-define("EVENT_ADMIN_UPDATE_INCOME",  	  3918);
-define("EVENT_ADMIN_UPDATE_CLAN",		  3919);
-define("EVENT_ADMIN_SAVE_TWEET",  	     3920);
-define("EVENT_ADMIN_BACKUP_DATABASE",    3921);
-define("EVENT_ADMIN_INACTIVE_SECTOR",    3922);
+define("EVENT_ADMIN_BANK_INTEREST",      3910);
+define("EVENT_ADMIN_CLAN_BANK_INTEREST", 3911);
+define("EVENT_ADMIN_CLEAN_BANK_LOG",     3912);
+define("EVENT_ADMIN_CLEAN_CLAN_BANK_LOG",3913);
+define("EVENT_ADMIN_UPDATE_INVITATIONS", 3914);
+define("EVENT_ADMIN_UPDATE_AWARDS",  	  3915);
+define("EVENT_ADMIN_UPDATE_LEVELS",  	  3916);
+define("EVENT_ADMIN_CLEAN_BATTLE_LOG",   3917);
+define("EVENT_ADMIN_UPDATE_ROBOTS",  	  3918);
+define("EVENT_ADMIN_OPTIMIZE_DATABASE",  3919);
+define("EVENT_ADMIN_UPDATE_INCOME",  	  3920);
+define("EVENT_ADMIN_UPDATE_CLAN",		  3921);
+define("EVENT_ADMIN_SAVE_TWEET",  	     3922);
+define("EVENT_ADMIN_BACKUP_DATABASE",    3923);
+define("EVENT_ADMIN_INACTIVE_SECTOR",    3924);
 
 /* others (internal used) */
 define("EVENT_PLAYER_PDF_REPORT", 	     4000);
-define("EVENT_SWITCH_PLANET", 	        4001);
+define("EVENT_SWITCH_PLANET",				  4001);
 
 /* others (WARNING external used) */
 define("EVENT_VALID_EMAIL",              4002);

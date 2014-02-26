@@ -26,7 +26,7 @@
 			<xsd:enumeration value="earth" />
 			<xsd:enumeration value="moon" />
 			<xsd:enumeration value="mars" />
-			<xsd:enumeration value="mercure" />
+			<xsd:enumeration value="mercury" />
 			<xsd:enumeration value="neptune" />
 		</xsd:restriction>
 	</xsd:simpleType>

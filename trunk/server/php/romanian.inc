@@ -280,7 +280,7 @@ $lang['GENERAL_PLANET'] = 'Planeta';
 $lang['GENERAL_PLANET_1'] = 'pamant';
 $lang['GENERAL_PLANET_2'] = 'luna';
 $lang['GENERAL_PLANET_3'] = 'marte';
-$lang['GENERAL_PLANET_4'] = 'mercure';
+$lang['GENERAL_PLANET_4'] = 'mercury';
 $lang['GENERAL_PLANET_5'] = 'soare';
 
  /*
@@ -338,17 +338,17 @@ $lang['TIP_148'] = 'doar 2 nivele ramase pana sa iti poti infiinta propria ta co
 $lang['TIP_149'] = 'doar 1 nivel ramas pana sa iti poti infiinta propria ta colonie pe marte';
 $lang['TIP_150'] = 'creaza-ti propria colonie pe marte!';
 
-$lang['TIP_190'] = 'doar 10 nivele ramase pana sa iti poti infiinta propria ta colonie pe mercure';
-$lang['TIP_191'] = 'doar 9 nivele ramase pana sa iti poti infiinta propria ta colonie pe mercure';
-$lang['TIP_192'] = 'doar 8 nivele ramase pana sa iti poti infiinta propria ta colonie pe mercure';
-$lang['TIP_193'] = 'doar 7 nivele ramase pana sa iti poti infiinta propria ta colonie pe mercure';
-$lang['TIP_194'] = 'doar 6 nivele ramase pana sa iti poti infiinta propria ta colonie pe mercure';
-$lang['TIP_195'] = 'doar 5 nivele ramase pana sa iti poti infiinta propria ta colonie pe mercure';
-$lang['TIP_196'] = 'doar 4 nivele ramase pana sa iti poti infiinta propria ta colonie pe mercure';
-$lang['TIP_197'] = 'doar 3 nivele ramase pana sa iti poti infiinta propria ta colonie pe mercure';
-$lang['TIP_198'] = 'doar 2 nivele ramase pana sa iti poti infiinta propria ta colonie pe mercure';
-$lang['TIP_199'] = 'doar 1 nivel ramas pana sa iti poti infiinta propria ta colonie pe mercure';
-$lang['TIP_200'] = 'creaza-ti propria colonie pe mercure';
+$lang['TIP_190'] = 'doar 10 nivele ramase pana sa iti poti infiinta propria ta colonie pe mercury';
+$lang['TIP_191'] = 'doar 9 nivele ramase pana sa iti poti infiinta propria ta colonie pe mercury';
+$lang['TIP_192'] = 'doar 8 nivele ramase pana sa iti poti infiinta propria ta colonie pe mercury';
+$lang['TIP_193'] = 'doar 7 nivele ramase pana sa iti poti infiinta propria ta colonie pe mercury';
+$lang['TIP_194'] = 'doar 6 nivele ramase pana sa iti poti infiinta propria ta colonie pe mercury';
+$lang['TIP_195'] = 'doar 5 nivele ramase pana sa iti poti infiinta propria ta colonie pe mercury';
+$lang['TIP_196'] = 'doar 4 nivele ramase pana sa iti poti infiinta propria ta colonie pe mercury';
+$lang['TIP_197'] = 'doar 3 nivele ramase pana sa iti poti infiinta propria ta colonie pe mercury';
+$lang['TIP_198'] = 'doar 2 nivele ramase pana sa iti poti infiinta propria ta colonie pe mercury';
+$lang['TIP_199'] = 'doar 1 nivel ramas pana sa iti poti infiinta propria ta colonie pe mercury';
+$lang['TIP_200'] = 'creaza-ti propria colonie pe mercury';
 
  /*
  ** ------------------
@@ -696,14 +696,14 @@ $lang['SETTING_TWITTER'] = 'Twitter account';
 $lang['SETTING_LANGUAGE'] = 'Limba';
 $lang['SETTING_BACKGROUND'] = "Fundal";
 $lang['SETTING_SOUND'] = 'Sunet activat(Experimental)';
-$lang['SETTING_BOUNTY'] = 'Activat cand se pune recompensa pe capul tau.';
-$lang['SETTING_RESTORE'] = 'Activat regenerare & reparatie confirmare.';
-$lang['SETTING_CONDITION'] = 'Activat Unitati/Cladiri/Revolte starea lor in fereastra pop-up.';
-$lang['SETTING_FORUM_SORT'] = 'Activat ultimele postari pe forum pe pagina principala.';
-$lang['SETTING_SORT1'] = 'Activat noile mesaje in partea de sus a forumului.';
-$lang['SETTING_SORT2'] = 'Activat vechile lupte la inceput.';
-$lang['SETTING_NO_BOT_NEWS'] = 'Dezactivat Raportul bataliilor si notificarile cand esti atacat.';
-$lang['SETTING_ALLIES_IN_BATTLE_LIST'] = 'Activat aliatii sa fie vazuti pe campul de lupta si la recompense.';
+$lang['SETTING_BOUNTY'] = 'Activat cand se pune recompensa pe capul tau';
+$lang['SETTING_RESTORE'] = 'Activat regenerare & reparatie confirmare';
+$lang['SETTING_CONDITION'] = 'Activat Unitati/Cladiri/Revolte starea lor in fereastra pop-up';
+$lang['SETTING_FORUM_SORT'] = 'Activat ultimele postari pe forum pe pagina principala';
+$lang['SETTING_SORT1'] = 'Activat noile mesaje in partea de sus a forumului';
+$lang['SETTING_SORT2'] = 'Activat vechile lupte la inceput';
+$lang['SETTING_NO_BOT_NEWS'] = 'Dezactivat Raportul bataliilor si notificarile cand esti atacat';
+$lang['SETTING_ALLIES_IN_BATTLE_LIST'] = 'Activat aliatii sa fie vazuti pe campul de lupta si la recompense';
 
 $lang['PLAYER_LANG_ENGLISH'] = 'Engleza';
 $lang['PLAYER_LANG_DUTCH'] = 'Daneza';
@@ -783,7 +783,7 @@ $lang['MISSION_GROUP_26'] = 'Giraffe';
 $lang['MISSION_GROUP_27'] = 'Heron';
 $lang['MISSION_GROUP_28'] = 'Iguana';
 
- /* mercure Missions */
+ /* mercury Missions */
 $lang['MISSION_GROUP_30'] = 'Alfred';
 $lang['MISSION_GROUP_31'] = 'Benjamin';
 $lang['MISSION_GROUP_32'] = 'Charles';
@@ -1041,7 +1041,7 @@ $lang['MISSION_285'] = 'Vallis Oddvar';
 $lang['MISSION_286'] = 'Sinus Radborne';
 $lang['MISSION_287'] = 'Crater Ebenezer';
 
- /* mercure */
+ /* mercury */
 $lang['MISSION_300'] = 'Crater Albococcinea';
 $lang['MISSION_301'] = 'Sinus argentea';
 $lang['MISSION_302'] = 'Vallis Atrococcinea';
@@ -1241,7 +1241,7 @@ $lang['MISSION_REBEL'] = 'Revolta';
 $lang['MISSION_COMPLETE_PLANET_1'] = 'Excellent! Ai completat toate misiunile de pe Pamant. primesti 100 milioane dolari bonus.';
 $lang['MISSION_COMPLETE_PLANET_2'] = 'Excellent! Ai completat toate misiunile de pe Luna. primesti 500 milioane dolari bonus.';
 $lang['MISSION_COMPLETE_PLANET_3'] = 'Excellent! Ai completat toate misiunile de pe Marte. Ai primit 999 billione dolari bonus.';
-$lang['MISSION_COMPLETE_PLANET_4'] = 'Excellent! Ai completat toate misiunile de pe mercure. Primesti 50 puncte de schimb bonus.';
+$lang['MISSION_COMPLETE_PLANET_4'] = 'Excellent! Ai completat toate misiunile de pe mercury. Primesti 50 puncte de schimb bonus.';
 
 $lang['MISSION_NO_MISSIONS'] = 'Nici o misiune disponibila!';
 
@@ -1326,7 +1326,7 @@ $lang['UNIT_GROUP_16']  = 'Exploratori';
 $lang['UNIT_GROUP_17'] 	= 'Cetateni';
 $lang['UNIT_GROUP_18'] 	= 'Army';
 
-/* mercure */
+/* mercury */
 $lang['UNIT_GROUP_19']  = 'Drone';
 $lang['UNIT_GROUP_20']  = 'Warriors';
 $lang['UNIT_GROUP_21']  = 'Nave Spatiale';
@@ -1359,10 +1359,10 @@ $lang['UNIT_NOTE_15'] = 'Note: Cumpara nave spatiale martiene pentru a-ti imbuna
 $lang['UNIT_NOTE_16'] = 'Note: Cumpara exploratori martieni pentru a-ti imbunatati forta de explorare. lupta, castiga ca sa incepi revolta in regiunile inamice de pe marte si fura bani de la inamici  \'s Trasquera or SwissCore bank account.';
 
 
-$lang['UNIT_NOTE_19'] = 'Note: Cumpara drone mercure pentru a-ti imbunatati forta dronelor. Lupta, casiga si fura bani de la inamici \'s cash account.';
-$lang['UNIT_NOTE_20'] = 'Note: Cumpara wariori mercure pentru a-ti imbunatati forta wariorilor. Lupta, casiga si fura bani de la inamici \'s cash account.';
-$lang['UNIT_NOTE_21'] = 'Note: Cumpara nave spatiale mercure pentru a-ti imbunatati forta aeriana. Lupta, casiga si fura bani de la inamici \'s cash account.';
-$lang['UNIT_NOTE_22'] = 'Note: Cumpara exploratori mercure pentru a-ti imbunatati forta de explorare. Batlle, win to start rebellions on mercure and steal some money from your opponent\'s Trasquera or SwissCore bank account.';
+$lang['UNIT_NOTE_19'] = 'Note: Cumpara drone mercury pentru a-ti imbunatati forta dronelor. Lupta, casiga si fura bani de la inamici \'s cash account.';
+$lang['UNIT_NOTE_20'] = 'Note: Cumpara wariori mercury pentru a-ti imbunatati forta wariorilor. Lupta, casiga si fura bani de la inamici \'s cash account.';
+$lang['UNIT_NOTE_21'] = 'Note: Cumpara nave spatiale mercury pentru a-ti imbunatati forta aeriana. Lupta, casiga si fura bani de la inamici \'s cash account.';
+$lang['UNIT_NOTE_22'] = 'Note: Cumpara exploratori mercury pentru a-ti imbunatati forta de explorare. Batlle, win to start rebellions on mercury and steal some money from your opponent\'s Trasquera or SwissCore bank account.';
 
 $lang['UNIT_NOTE_25'] = 'Note: Cumpara drone solare pentru a-ti imbunatati forta dronelor.';
 $lang['UNIT_NOTE_26'] = 'Note: Cumpara wariori solari pentru a-ti imbunatati forta wariorilor.';
@@ -1411,11 +1411,11 @@ $lang['BUILDING_NOTE13'] = 'Nota: cladirile de energie ofera recuperea mai rapid
 $lang['BUILDING_NOTE14'] = 'Nota: Reducerea costului cladirilor ofera reducere la  achizitoinarea cladirilor de pe marte.';
 $lang['BUILDING_NOTE15'] = 'Nota: Mentenanta cladirilor permite repararea mai rapida a unitatilor astfel vei pierde mai putine unitati in timpul bataliilor de pe marte.';
 
-$lang['BUILDING_NOTE16'] = 'Nota: cladirile de profit ofera unb profit mai mare pentru baza ta de pe mercure.';
-$lang['BUILDING_NOTE17'] = 'Nota: cladirile de aparare ofera o protectie mai mare in timpul bataliilor de pe mercure.';
-$lang['BUILDING_NOTE18'] = 'Nota: cladirile de energie ofera recuperea mai rapida a energiei de pe mercure.';
+$lang['BUILDING_NOTE16'] = 'Nota: cladirile de profit ofera unb profit mai mare pentru baza ta de pe mercury.';
+$lang['BUILDING_NOTE17'] = 'Nota: cladirile de aparare ofera o protectie mai mare in timpul bataliilor de pe mercury.';
+$lang['BUILDING_NOTE18'] = 'Nota: cladirile de energie ofera recuperea mai rapida a energiei de pe mercury.';
 $lang['BUILDING_NOTE19'] = 'Nota: Reducerea costului cladirilor ofera reducere la  achizitoinarea cladirilor de pe v.';
-$lang['BUILDING_NOTE20'] = 'Nota: Mentenanta cladirilor permite repararea mai rapida a unitatilor astfel vei pierde mai putine unitati in timpul bataliilor de pe mercure.';
+$lang['BUILDING_NOTE20'] = 'Nota: Mentenanta cladirilor permite repararea mai rapida a unitatilor astfel vei pierde mai putine unitati in timpul bataliilor de pe mercury.';
 
 $lang['BUILDING_NOTE21'] = 'Nota: cladirile de profit ofera unb profit mai mare pentru baza ta de pe soare.';
 $lang['BUILDING_NOTE22'] = 'Nota: cladirile de aparare ofera o protectie mai mare in timpul bataliilor de pe soare.';
@@ -1686,16 +1686,6 @@ O poti incarca totusi la maxim in acelasi fel ca si viata.';
 $lang['HELP_AMMO_TITLE'] = 'Munitie'; 
 $lang['HELP_AMMO'] =	'Fiecare batalie te costa 1 munitie. munitia este regenerata cu trecerea timpului. O poti incarca totusi la maxim in acelasi fel ca si viata.';
 
-$lang['HELP_MISSION_TITLE'] = 'Misiuni';
-$lang['HELP_MISSION'] = 'Joaca misiuni pentru acastiga bani si experienta necesara treceri nivelului. 
-daca o misiune este 100% completata vei primi dublu de bani. daca un continent este cucerit vei primi un profit bonus.<br/><br/>
-
-Urmatorul bonus estre este oferit cand fiecare planeta este cucerita:<br/>
-PAMANT: 100 Million dollari<br/>
-LUNA: 500 Millioane dollari<br/>
-MARTE: 999 Billioane dollari<br/>
-MERCURE: 50 puncte de schimb';
-
 $lang['HELP_BATTLE_TITLE'] = 'LUPTA';
 $lang['HELP_BATTLE'] =	'lupta impotriva altor jucatori pentru a castiga bani si experienta necesare treceri nivelului.
  In timpul bataliilor armata ta si cladirile pot fi deteriorate sau chiar pierdute.';
@@ -1806,8 +1796,8 @@ MARTE<br/>
 - "Warriors" doar warrior .<br/>
 - "Spacecrafts " doar nave spatiale mars units.<br/>
 - "Explorers " doar exploratori.<br/><br/>
-MERCURE<br/>
-- "Army" cele mai bune unitati de pe mercure.<br/>
+MERCURY<br/>
+- "Army" cele mai bune unitati de pe mercury.<br/>
 - "Drones" doar drone s.<br/>
 - "Warriors" doar warrior .<br/>
 - "Spacecrafts " doar nave spatiale.<br/>
@@ -1885,7 +1875,6 @@ $lang['HELP_STATS_REQUESTS'] = 'Server requests';
 */
 
 $lang['HELP_DONATE_TITLE1'] = 'Doneaza';
-$lang['HELP_DONATE_TITLE2'] = 'Doneaza (English only)';
 
 $lang['HELP_SUBTITLE_DONATE1'] = 'General';
 $lang['HELP_DONATE1'] = 'WarQuest poate fi jucat de placere gratis, dar daca vrei sa iti arati recunostinta pentru acest joc,

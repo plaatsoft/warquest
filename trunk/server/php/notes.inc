@@ -17,14 +17,17 @@
 */
 
 $notes[65] = '
-<div class="subparagraph2">23-02-2014</div>
+<div class="subparagraph2">25-02-2014</div>
 <i>Game Server v6.5</i>
 <ul>
+<li>Added two extra mars discount buildings.</li>
 <li>Added Home->Profile->Total hourly income page.</li>
 <li>Added Home->Profile->Citizens cost page.</li>
 <li>Added hyperlinks from Home->Profile->Assest to Bank pages</li>
 <li>Leaderboard position is now only based on expercience.</li>
-<li>Improve email validation.</li>
+<li>Limit maximum amount of promotion email invites.</li>
+<li>Improve email address validation.</li>
+<li>Improve bank transaction log.</li>
 <li>Small redesign of login page.</li>
 <li>Update Help->Instructions.</li>
 <li>Max. allowed daily deposit to clan bank is 10x hourly income.</li>
@@ -132,9 +135,9 @@ $notes[62] = '
 <li>features are available from level 250 till 299.</li>
 <li>adapted game engine to support new planet.</li>
 </ul>
-<li>Rename asteroid to mercure planet.</li>
+<li>Rename asteroid to mercury planet.</li>
 <li>Update most citizens images.</li>
-<li>Rebalance earth, moon, mars and mercure units / buildings.</li>
+<li>Rebalance earth, moon, mars and mercury units / buildings.</li>
 <li>Increase maximum unit amount to 5500.</li>
 <li>Increase maximum building amount to 645.</li>
 <li>Added admin overview clan war map page.</li>
@@ -187,7 +190,7 @@ $notes[60] = '
 <li>Added bonus to each won clan war fight.</li>
 <li>Added clan slogan.</li>
 <li>Mininal clan size is now set to '.$config["min_clan_size"].' during fights.</li>
-<li>Rebalance earth, moon, mars and mercure units and buildings.</li>
+<li>Rebalance earth, moon, mars and mercury units and buildings.</li>
 <li>Limit map access to neighbor sectors which are already conquered.</li>
 <li>Unlock clan wars at level 15.</li>
 </ul>
@@ -393,7 +396,7 @@ $notes[50] = '
 <li>Earth levels are now 0-99.</li>
 <li>Moon levels are now 100-149.</li>
 <li>Mars levels are now 150-199.</li>
-<li>Mercure levels are now 200-249.</li>
+<li>Mercury levels are now 200-249.</li>
 </ul>
 <li>Added italian translation. Thanks ZennCore.</li>
 <li>Added 0.75 day cease fire option.</li>
@@ -418,7 +421,7 @@ $notes[49] = '
 <li>Travel option added to buildings and player profile page.</li>
 <li>Remove travel link on lower part of home page.</li>
 </ul>
-<li>Added planet mercure:</li>
+<li>Added planet mercury:</li>
 <ul>
 <li>with 72 missions.</li>
 <li>with 49 building types.</li>

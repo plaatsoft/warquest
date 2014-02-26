@@ -232,7 +232,6 @@ function warquest_settings_account_reset_do() {
 	$output->popup .= warquest_box_icon("info", $message);
 	
 	warquest_info($message.' ['.$player->pid.']');
-	
 }
 
 
@@ -610,55 +609,52 @@ function warquest_settings_form() {
 	
 	$page .= '<table cellpadding="2" cellspacing="1">';
 	
-	$page .= '<tr>';
-	
-	$page .= '<td width="75">'.warquest_ui_checkbox("sound", "sound", warquest_db_query_pattern($player, PATTERN_SOUND)).'</td>';
-	$page .= '<td width="425">'.t('SETTING_SOUND').'</td>';
+	$page .= '<tr>';	
+	$page .= '<td width="485">'.t('SETTING_SOUND').':</td>';
+	$page .= '<td width="15">'.warquest_ui_checkbox("sound", "sound", warquest_db_query_pattern($player, PATTERN_SOUND)).'</td>';
 	$page .= '</tr>';
 				
-	$page .= '<tr>';
-	
+	$page .= '<tr>';	
 	if (!preg_match("/Symbian/", $browser)) {
 	
+		$page .= '<td>'.t('SETTING_BOUNTY').':</td>';
 		$page .= '<td>'.warquest_ui_checkbox("bounty", "bounty", warquest_db_query_pattern($player, PATTERN_BOUNTY)).'</td>';
-		$page .= '<td>'.t('SETTING_BOUNTY').'</td>';
 		$page .= '</tr>';
 	
 		$page .= '<tr>';	
+		$page .= '<td>'.t('SETTING_RESTORE').':</td>';		
 		$page .= '<td>'.warquest_ui_checkbox("restore", "restore", warquest_db_query_pattern($player, PATTERN_RESTORE)).'</td>';
-		$page .= '<td>'.t('SETTING_RESTORE').'</td>';
 		$page .= '</tr>';
 	}
 	
 	$page .= '<tr>';
-	
+	$page .= '<td>'.t('SETTING_CONDITION').':</td>';	
 	$page .= '<td>'.warquest_ui_checkbox("condition", "condition", warquest_db_query_pattern($player, PATTERN_CONDITION)).'</td>';
-	$page .= '<td>'.t('SETTING_CONDITION').'</td>';
 	$page .= '</tr>';
 	
 	$page .= '<tr>';
+	$page .= '<td>'.t('SETTING_FORUM_SORT').':</td>';
 	$page .= '<td>'.warquest_ui_checkbox("forum", "forum", warquest_db_query_pattern($player, PATTERN_FORUM_SORT)).'</td>';
-	$page .= '<td>'.t('SETTING_FORUM_SORT').'</td>';
 	$page .= '</tr>';
 	
 	$page .= '<tr>';
+	$page .= '<td>'.t('SETTING_SORT1').':</td>';
 	$page .= '<td>'.warquest_ui_checkbox("sort1", "sort1", warquest_db_query_pattern($player, PATTERN_SORT1)).'</td>';
-	$page .= '<td>'.t('SETTING_SORT1').'</td>';
 	$page .= '</tr>';
 	
 	$page .= '<tr>';
+	$page .= '<td>'.t('SETTING_SORT2').':</td>';
 	$page .= '<td>'.warquest_ui_checkbox("sort2", "sort2", warquest_db_query_pattern($player, PATTERN_SORT2)).'</td>';
-	$page .= '<td>'.t('SETTING_SORT2').'</td>';
 	$page .= '</tr>';
 	
 	$page .= '<tr>';
+	$page .= '<td>'.t('SETTING_NO_BOT_NEWS').':</td>';
 	$page .= '<td>'.warquest_ui_checkbox("nobotnews", "nobotnews", warquest_db_query_pattern($player, PATTERN_NO_BOT_NEWS)).'</td>';
-	$page .= '<td>'.t('SETTING_NO_BOT_NEWS').'</td>';
 	$page .= '</tr>';
 	
 	$page .= '<tr>';
+	$page .= '<td>'.t('SETTING_ALLIES_IN_BATTLE_LIST').':</td>';
 	$page .= '<td>'.warquest_ui_checkbox("allylist", "allylist", warquest_db_query_pattern($player, PATTERN_ALLY_LIST)).'</td>';
-	$page .= '<td>'.t('SETTING_ALLIES_IN_BATTLE_LIST').'</td>';
 	$page .= '</tr>';
 	
 	$page .= '<tr>';
@@ -786,7 +782,13 @@ function warquest_settings_form() {
 		$page .= t('PLAYER_LOGIN_NOTE');
 		$page .= '</div>';
 	}
-		
+	
+	/*
+	** ---------------------------------
+	** Reset account 
+	** ---------------------------------
+	*/
+	
 	$page .= '<div class="subparagraph">';
 	$page .= t('SETTING_ACCOUNT_RESET_TITLE');	
 	$page .= '</div>';		
@@ -799,13 +801,6 @@ function warquest_settings_form() {
 	$page .= '<div class="note">';
 	$page .= t('SETTING_ACCOUNT_RESET_NOTE');	
 	$page .= '</div>';
-							
-	
-	/*
-	** ---------------------------------
-	** Reset account 
-	** ---------------------------------
-	*/
 }
 
 /*

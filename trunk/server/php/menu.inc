@@ -25,7 +25,7 @@
 /**
  * Main menu
  */
-function warquest_ui_mainmenu() {
+function warquest_mainmenu() {
 	
 	/* input */
 	global $mid;
@@ -61,7 +61,6 @@ function warquest_ui_mainmenu() {
 		$page .= warquest_ui_menu(MENU_UNITS, $data2->ugid, 0, t('LINK_UNITS'), $mid);			
 		$page .= warquest_ui_menu(MENU_BUILDINGS, $data3->bgid, 0, t('LINK_BUILDINGS'), $mid);
 		$page .= warquest_ui_menu(MENU_MONEY, PAGE_BANK, 1, t('LINK_MONEY'), $mid);
-			
 	}
 		
 	$page .= warquest_ui_menu(MENU_ALLIANCE, PAGE_PENDING, 0, t('LINK_ALLIANCE'), $mid, $recruit);		
@@ -316,7 +315,7 @@ function warquest_subsubmenu_building() {
 	
 	while ($data = warquest_db_fetch_object($result)) {
 			
-		$page .= warquest_ui_subsubmenu($mid, $sid, $data->ugid, t('UNIT_GROUP_'.$data->ugid), $ssid);
+		$page .= warquest_ui_submenu($mid, $sid, $data->ugid, t('UNIT_GROUP_'.$data->ugid), $ssid);
 	}
 	
 	$page .= '</ul>';
@@ -324,7 +323,6 @@ function warquest_subsubmenu_building() {
 
 	return $page;
 }
-
 
 /*
 ** --------------------
@@ -357,7 +355,7 @@ function warquest_menu_money() {
 		
 			while ($data = warquest_db_fetch_object($result)) {
 			
-				$page .= warquest_ui_subsubmenu($mid, $sid, $data->bgid, t('BANK_GROUP_'.$data->bgid), $ssid);
+				$page .= warquest_ui_submenu($mid, $sid, $data->bgid, t('BANK_GROUP_'.$data->bgid), $ssid);
 			}
 			break;
 		
@@ -369,14 +367,14 @@ function warquest_menu_money() {
 			
 			while ($data = warquest_db_fetch_object($result)) {
 		
-				$page .= warquest_ui_subsubmenu($mid, $sid, $data->sgid, t('STOCK_GROUP_'.$data->sgid), $ssid);
+				$page .= warquest_ui_submenu($mid, $sid, $data->sgid, t('STOCK_GROUP_'.$data->sgid), $ssid);
 			}
 			break;
 			
 		case PAGE_CASINO:
 			for($cgid=1; $cgid<=$config["max_casio_groups"]; $cgid++) {			
 			
-				$page .= warquest_ui_subsubmenu($mid, $sid, $cgid, t('CASINO_'.$cgid), $ssid);				
+				$page .= warquest_ui_submenu($mid, $sid, $cgid, t('CASINO_'.$cgid), $ssid);				
 			}
 			break;
 	}
@@ -514,7 +512,7 @@ function warquest_menu_admin() {
 ** -------------
 */
 
-function warquest_ui_submenu() {
+function warquest_submenu() {
 
 	/* input */
 	global $mid;

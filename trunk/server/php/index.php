@@ -365,7 +365,7 @@ if ( $output->format=="html" ) {
 		echo warquest_ui_banner();
 
 		/* Show main menu */
-		echo warquest_ui_mainmenu();
+		echo warquest_mainmenu();
 		
 		/* Show popup message */	
 		if ( isset($output->popup) ) {
@@ -376,7 +376,7 @@ if ( $output->format=="html" ) {
 		echo warquest_ui_title();
 		
 		/* Show submenu */
-		echo warquest_ui_submenu();
+		echo warquest_submenu();
 	}
 
 	/* show page content */
