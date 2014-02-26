@@ -71,7 +71,7 @@ function xml_encode($array, $root, $indent=false, $i=0) {
 */
 
 /**
- * Get sector data
+ * Get sector data (used by map.js)
  */
 function warquest_get_sector_event() {
 
@@ -104,7 +104,7 @@ function warquest_get_sector_event() {
 }
 
 /**
- * Get clan data
+ * Get clan data (used by map.js)
  */
 function warquest_get_clan_event() {
 
@@ -144,7 +144,7 @@ function warquest_fb_like_event() {
 }
 
 /**
- * Get player data
+ * Get player data (NOT USED YET)
  */
 function warquest_get_player_event() {
 

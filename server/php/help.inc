@@ -513,7 +513,7 @@ function warquest_help_donate_form() {
 	
 	$output->title = t('HELP_DONATE_TITLE1');
 	
-	$page .= '<div class="subparagraph">'.t('HELP_DONATE_TITLE2').'</div>';
+	$page .= '<div class="subparagraph">'.t('HELP_DONATE_TITLE1').'</div>';
 	
 	$page .= '<div class="box">';
 	

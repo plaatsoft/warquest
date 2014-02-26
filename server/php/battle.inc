@@ -1153,7 +1153,7 @@ function warquest_battle_do($planet, $ugid) {
 		$message = t('BATTLE_UNLOCKED', t('GENERAL_PLANET_'.$planet), 150);
 		$output->popup .= warquest_box_icon("warning", $message);
 		
-	} else if (($planet==PLANET_MERCURE) && ($player->lid<200)) {
+	} else if (($planet==PLANET_MERCURY) && ($player->lid<200)) {
 	
 		$message = t('BATTLE_UNLOCKED', t('GENERAL_PLANET_'.$planet), 200);
 		$output->popup .= warquest_box_icon("warning", $message);
@@ -1830,7 +1830,7 @@ function warquest_battle_enemies_form() {
 
 		$page .= warquest_box("", $message);
 	
-	} else if (($player->planet==PLANET_MERCURE) && ($player->lid<200)) {
+	} else if (($player->planet==PLANET_MERCURY) && ($player->lid<200)) {
 			
 		$message = '<table>';
 		$message .= '<tr>';
@@ -2023,7 +2023,7 @@ function warquest_battle_bounty_form() {
 
 		$page .= warquest_box("", $message);
 	
-	} else if (($player->planet==PLANET_MERCURE) && ($player->lid<200)) {
+	} else if (($player->planet==PLANET_MERCURY) && ($player->lid<200)) {
 			
 		$message = '<table>';
 		$message .= '<tr>';
@@ -2236,7 +2236,7 @@ function warquest_battle_clan_war_form() {
 
 		$page .= warquest_box("", $message);
 	
-	} else if (($player->planet==PLANET_MERCURE) && ($player->lid<200)) {
+	} else if (($player->planet==PLANET_MERCURY) && ($player->lid<200)) {
 			
 		$message = '<table>';
 		$message .= '<tr>';
@@ -2370,7 +2370,7 @@ function warquest_battle() {
 					warquest_clan_war_battle_do();
 					break;	
 					
-		case EVENT_SWITCH_PLANET: 	
+		case EVENT_SWITCH_PLANET:
 					warquest_switch_planet_do();
 					break;					  
 	}

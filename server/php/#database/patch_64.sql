@@ -10,6 +10,7 @@ CREATE TABLE IF NOT EXISTS `planet` (
   PRIMARY KEY (`planet_id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
+delete from planet;
 INSERT INTO `planet` (`planet_id`, `name`) VALUES
 (1, 'earth'),
 (2, 'moon'),
@@ -20,7 +21,7 @@ INSERT INTO `planet` (`planet_id`, `name`) VALUES
 UPDATE unit_group SET ugid=1 WHERE ugid=0;
 UPDATE battle SET ugid=1 WHERE ugid=0;
 
-ALTER TABLE `unit_group` ADD `name` VARCHAR( 10 ) NOT NULL AFTER `type` ;
+ALTER TABLE `unit_group` ADD `name` VARCHAR( 10 ) NOT NULL AFTER `type`;
 
 UPDATE unit_group SET name="army" WHERE ugid=1;
 UPDATE unit_group SET name="cavalry" WHERE ugid=2;
@@ -57,8 +58,7 @@ UPDATE unit_group SET name="explorers" WHERE ugid=28;
 UPDATE unit_group SET name="citizens" WHERE ugid=29;
 UPDATE unit_group SET name="army" WHERE ugid=30;
 
--- Added clan bank
-
+-- Added clan bank transaction log
 CREATE TABLE IF NOT EXISTS `clan_bank` (
   `cbid` int(11) NOT NULL AUTO_INCREMENT,
   `cid` int(11) NOT NULL,
@@ -70,12 +70,5 @@ CREATE TABLE IF NOT EXISTS `clan_bank` (
   PRIMARY KEY (`cbid`)
 ) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=1;
 
-
 -- Added premium account features
-
 ALTER TABLE player ADD premium_date DATETIME NOT NULL AFTER pattern;
-
-ALTER TABLE `poll_answer` CHANGE `answer_id` `answer_id` INT( 11 ) NOT NULL AUTO_INCREMENT;
-
--- Added index for better leaderboard performance
-ALTER TABLE `player` ADD INDEX ( `experience` ) ;

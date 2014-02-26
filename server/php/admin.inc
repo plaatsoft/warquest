@@ -148,6 +148,12 @@ function warquest_admin_optimize_tables_do() {
 		$message .= $data->Table.' '.$data->Msg_type.' '.$data->Msg_text.'<br/>';
 	}
 	
+	$query  = 'optimize table clan_bank'; 
+	$result = warquest_db_query($query);
+	if ($data=warquest_db_fetch_object($result)) {
+		$message .= $data->Table.' '.$data->Msg_type.' '.$data->Msg_text.'<br/>';
+	}
+	
 	$output->popup .= warquest_box_icon("info", $message);	
 	
 	warquest_info($message);
@@ -349,11 +355,11 @@ function warquest_admin_action_form() {
 	$page .= '<ul>'; 
 	
 	$page .= '<li>';
-	$page .= warquest_link('mid='.$mid.'&sid='.$sid.'&eid='.EVENT_ADMIN_UPDATE_LEVELS, 'Players level update. (HIGH DATABASE LOAD)');
+	$page .= warquest_link('mid='.$mid.'&sid='.$sid.'&eid='.EVENT_ADMIN_UPDATE_LEVELS, 'Update players levels. (HIGH DATABASE LOAD)');
 	$page .= '</li>';
 	
 	$page .= '<li>'; 
-	$page .= warquest_link('mid='.$mid.'&sid='.$sid.'&eid='.EVENT_ADMIN_UPDATE_AWARDS, 'Players awards update. (HIGH DATABASE LOAD)');
+	$page .= warquest_link('mid='.$mid.'&sid='.$sid.'&eid='.EVENT_ADMIN_UPDATE_AWARDS, 'Update players awards. (HIGH DATABASE LOAD)');
 	$page .= '</li>';
 		
 	$page .= '<li>'; 
@@ -361,11 +367,15 @@ function warquest_admin_action_form() {
 	$page .= '</li>';
 
 	$page .= '<li>'; 
-	$page .= warquest_link('mid='.$mid.'&sid='.$sid.'&eid='.EVENT_ADMIN_CLEAN_BATTLE_LOG, 'Players clean battle log (cron job)');
+	$page .= warquest_link('mid='.$mid.'&sid='.$sid.'&eid='.EVENT_ADMIN_CLEAN_BATTLE_LOG, 'Clean player battle log (cron job)');
 	$page .= '</li>';
 	
 	$page .= '<li>'; 
-	$page .= warquest_link('mid='.$mid.'&sid='.$sid.'&eid='.EVENT_ADMIN_CLEAN_BANK_LOG, 'Players clean bank log (cron job)');
+	$page .= warquest_link('mid='.$mid.'&sid='.$sid.'&eid='.EVENT_ADMIN_CLEAN_BANK_LOG, 'Clean player bank log (cron job)');
+	$page .= '</li>';
+	
+	$page .= '<li>'; 
+	$page .= warquest_link('mid='.$mid.'&sid='.$sid.'&eid='.EVENT_ADMIN_CLEAN_CLAN_BANK_LOG, 'Clean clan bank log (cron job)');
 	$page .= '</li>';
 	
 	$page .= '<li>'; 
@@ -412,7 +422,11 @@ function warquest_admin_action_form() {
 	$page .= '</li>';
 	
 	$page .= '<li>'; 
-	$page .= warquest_link('mid='.$mid.'&sid='.$sid.'&eid='.EVENT_ADMIN_UPDATE_INTEREST, 'Pay bank interest (cron job)');
+	$page .= warquest_link('mid='.$mid.'&sid='.$sid.'&eid='.EVENT_ADMIN_BANK_INTEREST, 'Pay player bank interest (cron job)');
+	$page .= '</li>';
+	
+	$page .= '<li>'; 
+	$page .= warquest_link('mid='.$mid.'&sid='.$sid.'&eid='.EVENT_ADMIN_CLAN_BANK_INTEREST, 'Pay clan bank interest (cron job)');
 	$page .= '</li>';
 
 	$page .= '</ul>';
@@ -853,7 +867,7 @@ function warquest_admin_news_log() {
 	
 	$page .= '<div id="news">';
 
-	$page .= '<div class="subparagraph">News items</div>';
+	$page .= '<div class="subparagraph">News Items</div>';
 	
 	$page .= '<div class="box rows">';
 	
@@ -1984,13 +1998,21 @@ function warquest_admin() {
 			warquest_admin_hack();
 			break;
 			
-		case EVENT_ADMIN_UPDATE_INTEREST:
-			warquest_cron_player_interest(1);
+		case EVENT_ADMIN_BANK_INTEREST:
+			warquest_cron_bank_interest(1);
 			break;
 
+		case EVENT_ADMIN_CLAN_BANK_INTEREST:
+			warquest_cron_clan_bank_interest(1);
+			break;
+			
 		case EVENT_ADMIN_CLEAN_BANK_LOG:
 			warquest_cron_clean_bank_log(1);
 			break;			
+			
+		case EVENT_ADMIN_CLEAN_CLAN_BANK_LOG:
+			warquest_cron_clean_clan_bank_log(1);
+			break;	
 			
 		case EVENT_ADMIN_UPDATE_INVITATIONS: 
 			warquest_cron_delete_pending_invitations(1);		

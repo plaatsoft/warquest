@@ -230,6 +230,24 @@ function warquest_chat_events() {
 	}
 }
 
+function warquest_chat_forms() {
+
+	/* input */
+	global $sid;
+						
+	/* Page handler */
+	switch ($sid) {
+				  					
+		case PAGE_CHATROOM: 	
+					warquest_chatroom_form();
+					break;
+						
+		case PAGE_CHAT: 	
+					warquest_chat_form();		
+					break;
+	}	
+}
+
 /*
 ** ---------
 ** THE END

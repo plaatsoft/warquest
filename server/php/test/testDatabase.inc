@@ -48,6 +48,7 @@ class TestDatabase extends PHPUnit_Framework_TestCase {
 		warquest_db_multi_query( file_get_contents('../#database/patch_62.sql', true) );
 		warquest_db_multi_query( file_get_contents('../#database/patch_63.sql', true) );
 		warquest_db_multi_query( file_get_contents('../#database/patch_64.sql', true) );
+		warquest_db_multi_query( file_get_contents('../#database/patch_65.sql', true) );
 		
 		$result = warquest_db_close();
 		$this->assertEquals($result, 1);	
@@ -1165,11 +1166,12 @@ class TestDatabase extends PHPUnit_Framework_TestCase {
 
 		/* test data */	
 		$_SERVER["REMOTE_ADDR"] = "127.0.0.1";
+		$level = 3000;
 						
 		$result = warquest_db_connect($config["dbhost"], $config["dbuser"], $config["dbpass"], $config["dbname"]);
 		$this->assertEquals($result, 1);
 
-		$result = warquest_db_level(null);
+		$result = warquest_db_level( $level);
 		$this->assertEquals($result, 0);	
 				
 		$result = warquest_db_close();
@@ -1189,10 +1191,10 @@ class TestDatabase extends PHPUnit_Framework_TestCase {
 		/* test data */
 		$_SERVER["REMOTE_ADDR"] = "127.0.0.1";
 		
-		$query = 'DROP TABLE `bank`, `bank_group`, `battle`, `battle_award`, `bonus`, `bounty`, `bounty_award`, `building`, `building_group`, `building_unit`, 	
-			`chat`, `clan`, `cron`, `level`, `member`, `mission`, `mission_group`, `mission_unit`, `news`, `player`, `player_building`, `player_clan`,
-			`player_mission`, `player_player`, `player_poll`, `player_stock`, `player_unit`, `poll`, `poll_answer`, `rebel_award`, `sector`, `session`, `skill`,
-			`statistics`, `stock`, `stock_group`, `topic`, `unit`, `unit_group`, invite;'; 
+		$query = 'DROP TABLE bank, bank_group, battle, battle_award, bonus, bounty, bounty_award, building, building_group, building_unit, 	
+			chat, clan, cron, level, member, mission, mission_group, mission_unit, news, player, player_building, player_clan,
+			player_mission, player_player, player_poll, player_stock, player_unit, poll, poll_answer, rebel_award, sector, session, skill,
+			statistics, stock, stock_group, topic, unit, unit_group, invite, clan_bank, comment, planet'; 
 			
 		$result = warquest_db_connect($config["dbhost"], $config["dbuser"], $config["dbpass"], $config["dbname"]);
 		$this->assertEquals($result, 1);

@@ -54,7 +54,7 @@ function warquest_maintenance_info_form($other) {
 
 	$page .= '<br/>';
 	$page .= t('PLAYER_MAINTENANCE_TEXT', 
-						warquest_link('mid='.$mid.'&sid='.PAGE_PROFILE.'&oid='.$other->pid, player_format($other->pid, $other->name, $other->country)),
+						player_format($other->pid, $other->name, $other->country),
 						strtolower(t('GENERAL_PLANET_'.$player->planet)));
 	$page .= '<br/><br/>';
 
@@ -168,7 +168,7 @@ function warquest_discount_info_form($other) {
 
 	$page .= '<br/>';
 	$page .= t('PLAYER_BUILDING_TEXT', 
-						warquest_link('mid='.$mid.'&sid='.PAGE_PROFILE.'&oid='.$other->pid, player_format($other->pid, $other->name, $other->country)),
+						player_format($other->pid, $other->name, $other->country),
 						strtolower(t('GENERAL_PLANET_'.$player->planet)));
 	$page .= '<br/><br/>';
 
@@ -282,7 +282,7 @@ function warquest_continent_income_form($other) {
 
 	$page .= '<br/>';
 	$page .= t('PLAYER_CONTINENT_TEXT', 
-						warquest_link('mid='.$mid.'&sid='.PAGE_PROFILE.'&oid='.$other->pid, player_format($other->pid, $other->name, $other->country)),
+						player_format($other->pid, $other->name, $other->country),
 						strtolower(t('GENERAL_PLANET_'.$player->planet)));
 	$page .= '<br/><br/>';
 
@@ -403,7 +403,7 @@ function warquest_clan_war_income_form($other) {
 
 	$page .= '<br/>';
 	$page .= t('PLAYER_CLAN_WAR_TEXT', 
-						warquest_link('mid='.$mid.'&sid='.PAGE_PROFILE.'&oid='.$other->pid, player_format($other->pid, $other->name, $other->country)),
+						player_format($other->pid, $other->name, $other->country),
 						strtolower(t('GENERAL_PLANET_'.$player->planet)));
 	$page .= '<br/><br/>';
 
@@ -482,7 +482,7 @@ function warquest_unit_cost_form($other) {
 
 	$page .= '<br/>';
 	$page .= t('PLAYER_UNIT_COST_TEXT', 
-						warquest_link('mid='.$mid.'&sid='.PAGE_PROFILE.'&oid='.$other->pid, player_format($other->pid, $other->name, $other->country)),
+						player_format($other->pid, $other->name, $other->country),
 						strtolower(t('GENERAL_PLANET_'.$player->planet)));
 	$page .= '<br/><br/>';
 
@@ -609,7 +609,7 @@ function warquest_citizens_cost_form($other) {
 
 	$page .= '<br/>';
 	$page .= t('PLAYER_CITIZENS_TEXT', 
-						warquest_link('mid='.$mid.'&sid='.PAGE_PROFILE.'&oid='.$other->pid, player_format($other->pid, $other->name, $other->country)),
+						player_format($other->pid, $other->name, $other->country),
 						strtolower(t('GENERAL_PLANET_'.$player->planet)));
 	$page .= '<br/><br/>';
 
@@ -734,7 +734,7 @@ function warquest_building_income_form($other) {
 
 	$page .= '<br/>';
 	$page .= t('PLAYER_BUILDING_TEXT', 
-						warquest_link('mid='.$mid.'&sid='.PAGE_PROFILE.'&oid='.$other->pid, player_format($other->pid, $other->name, $other->country)),
+						player_format($other->pid, $other->name, $other->country),
 						strtolower(t('GENERAL_PLANET_'.$player->planet)));
 	$page .= '<br/><br/>';
 
@@ -868,7 +868,7 @@ function warquest_attack_info_form($other) {
 		
 	$page .= '<br/>';
 	$page .= t('PLAYER_ATTACK_TEXT', 
-						warquest_link('mid='.$mid.'&sid='.PAGE_PROFILE.'&oid='.$other->pid, player_format($other->pid, $other->name, $other->country)),
+						player_format($other->pid, $other->name, $other->country),
 						$other->alliance,
 						$size,
 						strtolower(t('UNIT_GROUP_'.$data1->ugid)));
@@ -1073,7 +1073,7 @@ function warquest_defense_info_form($other) {
 		
 	$page .= '<br/>';
 	$page .= t('PLAYER_DEFENSE_TEXT', 
-						warquest_link('mid='.$mid.'&sid='.PAGE_PROFILE.'&oid='.$other->pid, player_format($other->pid, $other->name, $other->country)),
+						player_format($other->pid, $other->name, $other->country),
 						$other->alliance, 
 						$size,
 						strtolower(t('UNIT_GROUP_'.$data1->ugid)) );
@@ -1316,9 +1316,7 @@ function warquest_total_income_form($other) {
 	$page .= '<div class="box rows">';
 
 	$page .= '<br/>';
-	$page .= t('PLAYER_TOTAL_INCOME_TEXT', 
-						warquest_link('mid='.$mid.'&sid='.PAGE_PROFILE.'&oid='.$other->pid, player_format($other->pid, $other->name, $other->country))
-						);
+	$page .= t('PLAYER_TOTAL_INCOME_TEXT', player_format($other->pid, $other->name, $other->country));
 
 	$page .= '<br/><br/>';
 

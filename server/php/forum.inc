@@ -653,36 +653,6 @@ function warquest_forum_form() {
 
 /*
 ** ---------------------
-** SUBMENU
-** ---------------------
-*/
-
-function warquest_forum_title($title) {
-
-	/* input */
-	global $player;
-	
-	$page = '<table>';
-	$page .= '<tr>';
-	
-	$page .= '<td width="300" align="left">';
-	$page .= '<span class="paragraph">';
-	$page .= warquest_planet_image($player->planet);
-	$page .= $title;
-	$page .= '</span>';	
-	$page .= '</td>';
-	
-	$page .= '<td width="200" align="right">';
-	$page .= '</td>';
-	
-	$page .= '</tr>';
-	$page .= '</table>';
-
-	return $page;
-}
-
-/*
-** ---------------------
 ** HANDLER
 ** ---------------------
 */
@@ -734,25 +704,10 @@ function warquest_forum() {
 		case PAGE_COMMENT: 
 					warquest_comment_form();
 					break;
-				  
-		case PAGE_POLL: 
-					warquest_poll_form();
-					break;
-					 
-		case PAGE_POLL_RESULT: 
-					warquest_poll_result_form();
-					break;
-					
-		case PAGE_CHATROOM: 	
-					warquest_chatroom_form();
-					break;
-						
-		case PAGE_CHAT: 	
-					warquest_chat_form();		
-					break;
 	}	
 	
-
+	warquest_poll_forms();
+	warquest_chat_forms();
 	warquest_player();	
 }
 

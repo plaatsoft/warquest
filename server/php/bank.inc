@@ -192,22 +192,33 @@ function warquest_bank_log() {
 	global $ssid;
 	global $player;	
 	global $config;
+	global $offset;
 	
 	/* output */
 	global $page;
 
+	$limit=25;
+	
+	$query1  = 'select id from bank where bgid='.$ssid.' and pid1='.$player->pid;
+	$result1 = warquest_db_query($query1);	
+	$total = warquest_db_num_rows($result1);
+	
 	/* show bank transactions. */
-	$query  = 'select a.id, a.pid1, a.pid2, a.amount, a.action, a.balance, ';
-	$query .= 'date_format(a.date , "%d-%m-%Y %H:%i:%s") as date, ';
-	$query .= '(select name from player where pid=a.pid2) as name '; 
-	$query .= 'from bank a where a.pid1='.$player->pid.' and a.bgid='.$ssid.' ';
-	$query .= 'order by a.id desc';
+	$query2  = 'select a.id, a.pid1, a.pid2, a.amount, a.action, a.balance, ';
+	$query2 .= 'date_format(a.date , "%d-%m-%Y %H:%i:%s") as date, ';
+	$query2 .= '(select name from player where pid=a.pid2) as name '; 
+	$query2 .= 'from bank a where a.pid1='.$player->pid.' and a.bgid='.$ssid.' ';
+	$query2 .= 'order by a.id desc ';
+	$query2 .= 'limit '.$offset.','.$limit;
 
-	$result = warquest_db_query($query);	
+	$result2 = warquest_db_query($query2);	
 	
 	$page .= '<div class="subparagraph">'.t('BANK_TRANSACTION_LOG').'</div>';
 	
 	$page .= '<div class="box rows">';
+	
+	$page .= warquest_page_control($offset, $limit, $total, 1, '&ssid='.$ssid);
+	
 	$page .= '<table>';
 	
 	$page .= '<tr>';
@@ -216,27 +227,30 @@ function warquest_bank_log() {
 	$page .= '<th width="100">'.t('GENERAL_BALANCE').'</th>';
 	$page .= '</tr>';
 	
-	while ($data=warquest_db_fetch_object($result)) {
+	while ($data2=warquest_db_fetch_object($result2)) {
 	
 		$page .= '<tr>';
-		$page .= '<td>'.warquest_ui_ago($data->date).'</td>';
+		$page .= '<td>'.warquest_ui_ago($data2->date).'</td>';
 		$page .= '<td>';
 		
-		if ($data->action == 5) {
-			$page .= warquest_link('mid='.$mid.'&sid='.PAGE_PROFILE.'&oid='.$data->pid2, $data->name).' ';
-			$page .= t('BANK_TRANSACTION_TYPE_'.$data->action);
-			$page .= ' '.dollar_format($data->amount).'.';
+		if ($data2->action == 5) {
+			$page .= warquest_link('mid='.$mid.'&sid='.PAGE_PROFILE.'&oid='.$data2->pid2, $data2->name).' ';
+			$page .= t('BANK_TRANSACTION_TYPE_'.$data2->action);
+			$page .= ' '.dollar_format($data2->amount).'.';
 		} else {
-			$page .= t('BANK_TRANSACTION_TYPE_'.$data->action);
-			$page .= ' '.dollar_format($data->amount).'.';
+			$page .= t('BANK_TRANSACTION_TYPE_'.$data2->action);
+			$page .= ' '.dollar_format($data2->amount).'.';
 		}
 		
 		$page .= '</td>';
-		$page .= '<td>'.money_format1($data->balance).'</td>';
+		$page .= '<td>'.money_format1($data2->balance).'</td>';
 		$page .= '</tr>';
 	}
 	
 	$page .= '</table>';
+	
+	$page .= warquest_page_control($offset, $limit, $total, 0, '&ssid='.$ssid);
+	
 	$page .= '</div>';
 }
 

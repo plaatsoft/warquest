@@ -77,7 +77,7 @@ function warquest_mission_planet_complet() {
 								$player->money += 999000000000;
 								break;
 							
-					case PLANET_MERCURE:	
+					case PLANET_MERCURY:	
 								$player->gold += 2500;
 								break;
 								
@@ -829,7 +829,7 @@ function warquest_mission() {
 						warquest_mission_do();
 						break;		
 				  
-		case EVENT_SWITCH_PLANET: 	
+		case EVENT_SWITCH_PLANET:
 						warquest_switch_planet_do();
 						break;
 	}				

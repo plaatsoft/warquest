@@ -40,6 +40,10 @@ function warquest_promotion_invite_do() {
 	/* output */
 	global $output;	
 	
+	$query = 'select id from invite where pid='.$player->pid;
+	$result = warquest_db_query($query);	
+	$count = warquest_db_num_rows($result);
+ 
 	if (validate_email($email) ) {
 	
 		/* Invalid email address */
@@ -54,10 +58,16 @@ function warquest_promotion_invite_do() {
 		
 	} else if (warquest_db_invite_check($email)>0) {
 	
-		/* Email adres is already used in the past */
+		/* Email address is already used in the past */
 		$message = t('PROMOTION_INVITE_KNOWN', $email);
 		$output->popup .= warquest_box_icon("warning", $message);
-		
+	
+	} else if ($count>9) {
+	
+		/* Maxmium amount of invites sent */
+		$message = t('PROMOTION_MAX_INVITE', $email);
+		$output->popup .= warquest_box_icon("warning", $message);
+	
 	} else {
 	
 		/* Add invite request in database */

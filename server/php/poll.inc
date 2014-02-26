@@ -317,12 +317,29 @@ function warquest_poll_events() {
 					 
 	}
 }
+
+function warquest_poll_forms() {
+
+	/* input */
+	global $sid;
+							
+	/* Page handler */
+	switch ($sid) {
+				  
+		case PAGE_POLL: 
+					warquest_poll_form();
+					break;
+					 
+		case PAGE_POLL_RESULT: 
+					warquest_poll_result_form();
+					break;
+	}	
+}
 	
 /*
 ** ---------------------
 ** THE END
 ** ---------------------
 */
-
 
 ?>

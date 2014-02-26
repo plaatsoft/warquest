@@ -977,7 +977,7 @@ function warquest_lootoption($level) {
 						$max = 200;
 						break;
 						
-			case PLANET_MERCURE:  
+			case PLANET_MERCURY:  
 						$min = 200;
 						$max = 250;
 						break;
@@ -2149,19 +2149,12 @@ function warquest_ui_ago($date) {
  */
 function warquest_ui_checkbox($name, $value, $checked) {
 
-	$tmp = '<label class="switch">';
-
-	$tmp .= '<input type="checkbox" name="'.$name.'" value="'.$value.'" class="switch-input" ';
+	$tmp = '<input type="checkbox" name="'.$name.'" value="'.$value.'" ';
 	if ($checked==1) {
 		$tmp .= ' checked="checked" ';
 	} 
 	
 	$tmp .= '/>';
-	
-	$tmp .= '<span class="switch-label" data-on="On" data-off="Off"></span>';
-   $tmp .= '<span class="switch-handle"></span>';
-	
-	$tmp .=' </label>';
 	
 	return $tmp;	
 }
@@ -2544,16 +2537,14 @@ function warquest_ui_menu($mid, $sid, $ssid, $label, $active_id, $notification=0
 	if ( $notification > 0 ) {
 		$menu .= '<div class="notification">'.$notification.'</div>';	
 	}
-	
-	
-	
+
 	return $menu;
 }
 
 /**
  * Get HTML submenu bar
  */
-function warquest_ui_subsubmenu($mid, $sid, $ssid, $label, $active_id) {
+function warquest_ui_submenu($mid, $sid, $ssid, $label, $active_id) {
    
 	$menu = '<li>';
 	
@@ -2748,7 +2739,7 @@ function warquest_ui_header() {
 	}
  
 	$page .= '<link href="'.$config["content_url"].'images/favicon.ico" rel="shortcut icon" type="image/x-icon" />'; 
-	$page .= '<link href="'.$config["content_url"].'css/general1.css" rel="stylesheet" type="text/css" />';
+	$page .= '<link href="'.$config["content_url"].'css/general1a.css" rel="stylesheet" type="text/css" />';
 	
 	if (($mid==MENU_MONEY) && ($sid==PAGE_STOCK_EXCHANGE)) {	
 		$page .= '<link href="'.$config["content_url"].'css/jquery.css" rel="stylesheet" type="text/css" />';

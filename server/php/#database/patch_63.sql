@@ -234,7 +234,7 @@ ALTER TABLE clan ADD money BIGINT( 20 ) NOT NULL AFTER lost;
 ALTER TABLE clan ADD attack INT NOT NULL AFTER money;
 ALTER TABLE clan ADD defense INT NOT NULL AFTER attack;
 
--- Add ivite database table
+-- Add promotion invite database table
 CREATE TABLE IF NOT EXISTS `invite` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `email` varchar(120) NOT NULL,
