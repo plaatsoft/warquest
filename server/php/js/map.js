@@ -7,7 +7,8 @@ var mid = 0;
 var flag = true;
 var url="";
 var planet = 1;
-			
+var is_touch_device = 'ontouchstart' in document.documentElement;
+
 function initMap(planet, url, mid) {
 
 	this.planet = planet;
@@ -197,13 +198,20 @@ function drawScreen(event) {
 			drawPologon(obj[i].x,obj[i].y, obj[i].name, obj[i].damage, obj[i].cid, get_clan_color(obj[i].cid));
 		}
 	}
-	
-	/* Draw mouse pointer */
+
+	/* Draw pointer */
 	if (event) {
-		var mousePos = getMousePos(canvas, event);	
+	
+		var pos;
+		if (is_touch_device) {
+			pos = getTouchPos(canvas, event);	
+		} else {
+			pos = getMousePos(canvas, event);	
+		}
+			
 		for(x=0;x<5;x++) {
 			for(y=0;y<15;y++) {
-				if (isPointInPolygon(x, y, mousePos)) {		
+				if (isPointInPolygon(x, y, pos)) {		
 					drawPologon(x, y, " ", "", 0, "rgba(0,255,255,0.5)");
 					
 					ctx.font = '7pt Arial';
@@ -216,6 +224,32 @@ function drawScreen(event) {
 		}
 	}	
 }
+
+function getTouchPos(canvas, evt) {
+   var coors = {
+      x: evt.targetTouches[0].pageX,
+      y: evt.targetTouches[0].pageY
+   };
+	
+	// Now we need to get the offset of the canvas location
+   var obj = sigCanvas;
+ 
+   if (obj.offsetParent) {
+   
+		// Every time we find a new object, we add its offsetLeft and offsetTop to curleft and curtop.
+		do {
+			coors.x -= obj.offsetLeft;
+			coors.y -= obj.offsetTop;
+		}
+		
+		// while loop can be "while (obj = obj.offsetParent)" only, which does return null
+		// when null is passed back, but that creates a warning in some editors (i.e. VS2010).
+      while ((obj = obj.offsetParent) != null);
+   }
+	
+	alert(x);
+	return coors;				
+}
 	
 function getMousePos(canvas, evt) {
 	var rect = canvas.getBoundingClientRect();
@@ -224,9 +258,11 @@ function getMousePos(canvas, evt) {
 		y: evt.clientY - rect.top
 	};
 } 
-		  
-canvas.addEventListener('mousemove', function(event) {
 
+function doMove(event) {
+
+	event.preventDefault();
+ 
 	/* To improve performance only process each second move event */
 	if (flag) { 
 		flag = false;
@@ -234,27 +270,47 @@ canvas.addEventListener('mousemove', function(event) {
 	} else {
 		flag=true;
 	}
-
-	drawScreen(event);
-
-}, false);
-	 
-canvas.addEventListener('click', function(event) {
 	
-	var mousePos = getMousePos(canvas, event);
+	drawScreen(event);
+}
+
+function doPoint(event) {
+	
+	event.preventDefault();
+	 	
+	var pos;
+	if (is_touch_device) {
+		pos = getTouchPos(canvas, event);	
+	} else {
+		pos = getMousePos(canvas, event);	
+	}
 			
 	var obj = eval(json);
-			
+				
 	if (obj) {
 		for(k=0; k<obj.length; k++) {				
-			if (isPointInPolygon(obj[k].x, obj[k].y, mousePos)) {
+			if (isPointInPolygon(obj[k].x, obj[k].y, pos)) {
 				getClanInfo(obj[k].cid);
 				break;
 			}
 		}
 	}		 
-}, false);
+}
+	
+	
+if (is_touch_device) {
+
+	canvas.addEventListener('touchstart', doPoint, false);
+	canvas.addEventListener('touchmove', doMove, false);	
 		
+	
+} else { 
+	
+	canvas.addEventListener('click', doPoint, false);
+	canvas.addEventListener('mousemove', doMove, false);	 
+	
+}
+			
 function refresh() {
 	getSectorData();
    setTimeout(refresh, 5000);
