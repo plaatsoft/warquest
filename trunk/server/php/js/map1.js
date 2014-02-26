@@ -9,6 +9,8 @@ var url="";
 var planet = 1;
 var is_touch_device = 'ontouchstart' in document.documentElement;
 
+alert(is_touch_device);
+
 function initMap(planet, url, mid) {
 
 	this.planet = planet;
@@ -224,6 +226,13 @@ function drawScreen(event) {
 		}
 	}	
 }
+
+function getTouchPos(canvas, evt) {
+   var coors = {
+      x: evt.targetTouches[0].pageX,
+      y: evt.targetTouches[0].pageY
+   };
+}
 	
 function getMousePos(canvas, evt) {
 	var rect = canvas.getBoundingClientRect();
@@ -232,13 +241,6 @@ function getMousePos(canvas, evt) {
 		y: evt.clientY - rect.top
 	};
 } 
-
-function getTouchPos(canvas, evt) {
-   var coors = {
-      x: evt.targetTouches[0].pageX,
-      y: evt.targetTouches[0].pageY
-   };
-}
 
 if (is_touch_device) {
 
@@ -258,7 +260,7 @@ if (is_touch_device) {
 	
 	canvas.addEventListener('touchstart', function(event) {
 	
-		var mousePos = getMousePos(canvas, event);
+		var mousePos = getTouchPos(canvas, event);
 				
 		var obj = eval(json);
 				
