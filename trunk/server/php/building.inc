@@ -438,7 +438,7 @@ function warquest_building_form() {
 	
 	/* Show submenu */
 	if ($building_group->type==2) {
-		$page .= warquest_subsubmenu_building();
+		$page .= warquest_submenu_building();
 	}
 	
 	if (($count2==0) && ($count5==0)) {

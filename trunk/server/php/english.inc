@@ -95,6 +95,8 @@ $lang['LINK_REPORT'] = 'Report';
 $lang['LINK_BOUNTY'] = 'Bounty';
 
 /* Mission */
+$lang['LINK_PLAYER'] = 'Player';
+$lang['LINK_CLAN'] = 'Clan';
 $lang['LINK_PLAY'] = 'Play';
 $lang['LINK_BUY_PLAY'] = 'Buy and play';
 $lang['LINK_DO_AGAIN'] = 'Play again';
@@ -471,7 +473,7 @@ $lang['PLAYER_CASH_FLOW'] = 'Cash Flow';
 $lang['PLAYER_ALLIANCE_SIZE'] = 'Alliance size';
 $lang['PLAYER_EXP_POINTS']  = 'Experience points';
 $lang['PLAYER_SERVER_REQUEST']  = 'Server requests';
-$lang['PLAYER_MISSION_COMPLETED'] = 'Mission completed';
+$lang['PLAYER_MISSION_COMPLETED'] = 'Missions completed';
 $lang['PLAYER_DEFENSE_STRENGTH']  = 'Defense strength';
 $lang['PLAYER_ATTACK_STRENGTH'] = 'Attack strength';
 $lang['PLAYER_FIGHTS_LOST'] = 'Fights lost';
@@ -2270,6 +2272,7 @@ $lang['BANK_TRANSACTION_TYPE_7'] = 'Bank service charge';
 $lang['BANK_TRANSACTION_TYPE_8'] = 'Clan attack fee';
 $lang['BANK_TRANSACTION_TYPE_9'] = 'Clan defence fee';
 $lang['BANK_TRANSACTION_TYPE_10'] = 'deposited';
+$lang['BANK_TRANSACTION_TYPE_11'] = '%s bonus ';
 
 $lang['BANK_TRANSACTION_LOG'] = 'Transaction Log';
 
@@ -2787,9 +2790,9 @@ $lang['RANK_6'] = "Staff Sergeant";
 $lang['RANK_7'] = "Sergeant First Class";
 $lang['RANK_8'] = "Master Sergeant";
 $lang['RANK_9'] = "First Sergeant";
-$lang['RANK_10'] = "Sergeant Major";
+$lang['RANK_10'] = "Sergeant Major 1";
 $lang['RANK_11'] = "Command Sergeant Major";
-$lang['RANK_12'] = "Sergeant Major of the Army";
+$lang['RANK_12'] = "Sergeant Major 2";
 $lang['RANK_13'] = "Second Lieutenant";
 $lang['RANK_14'] = "First Lieutenant";
 $lang['RANK_15'] = "Captain";
@@ -3237,7 +3240,7 @@ $lang['PROMOTION_MAX_INVITE'] = 'Maximum amount of invites sent, request aborted
 */
 
 $lang['CLAN_BANK_NOTE'] = 'There is a %s% fee for any deposit. The clan bank daily service charge is %s%. Maximum allowed daily deposit is 10 times your hourly income.';
-$lang['CLAN_BANK_TRANSACTION_LOG'] = 'Clan Bank Transactions';
+$lang['CLAN_BANK_TRANSACTION'] = 'Clan Bank Transactions [%s]';
 
 $lang['GENERAL_PREMIUM_MEMBERSHIP'] = 'Premium membership';
 
@@ -3272,6 +3275,26 @@ $lang['PLAYER_CITIZENS_COST'] = 'Citizens cost';
 $lang['PLAYER_CITIZENS_TEXT'] = 'Currently, player %s owns the following %s citizen(s):';
 
 $lang['EMAIL_DOMAIN_INVALID'] = 'Email is invalid (domain name unknown)!';
+
+$lang['CLAN_BANK_NO_LOG'] = 'No clan bank transaction yet';
+
+$lang['CLAN_STATISTICS'] = 'Clan Statistics [%s]';
+$lang['CLAN_FIGHTS_LOST'] = 'Fights lost';
+$lang['CLAN_FIGHTS_WON']  = 'Fights won';
+$lang['CLAN_MISSIONS_COMPLETED'] = 'Missions completed';
+$lang['CLAN_WON_LOST_RATIO']  = 'Won/Lost ratio';
+$lang['CLAN_SIZE']  = 'Clan size';
+$lang['CLAN_LAST_ACTIVE']  = 'Last active (ago)';
+
+$lang['MISSION_PLAYER_TITLE'] = 'Player Missions';
+$lang['MISSION_CLAN_TITLE'] = 'Clan Missions';
+
+$lang['MISSION_CLAN_UNLOCK'] = 'Clan missions are unlocked at level %s.';
+$lang['MISSION_NO_CLAN'] = 'You are not part of a clan. Clan missions not possible!';
+
+$lang['MISSION_CLAN_NOTE'] = 'Note: Play clan missions to gain money and experience points. If your clan conquered all %s continents your clan receives %s dollar bonus.';
+
+$lang['MISSION_CLAN_PLANET_COMPLETE'] = 'Excellent! You conquered all %s continents. Your clan received %s bonus.<br/></br/>All missions are now cleared, so try again!';
 
 /*
 ** ------------------

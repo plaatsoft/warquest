@@ -222,9 +222,9 @@ function warquest_bank_log() {
 	$page .= '<table>';
 	
 	$page .= '<tr>';
-	$page .= '<th width="100">'.t('GENERAL_AGO').'</th>';
-	$page .= '<th width="300">'.t('GENERAL_TRANSACTION').'</th>';
-	$page .= '<th width="100">'.t('GENERAL_BALANCE').'</th>';
+	$page .= '<th width="80">'.t('GENERAL_AGO').'</th>';
+	$page .= '<th width="310">'.t('GENERAL_TRANSACTION').'</th>';
+	$page .= '<th width="110">'.t('GENERAL_BALANCE').'</th>';
 	$page .= '</tr>';
 	
 	while ($data2=warquest_db_fetch_object($result2)) {

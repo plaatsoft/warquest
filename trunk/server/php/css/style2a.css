@@ -31,11 +31,10 @@ body {
 }
 
 .subparagraph {
-
-}
-
-.subparagraph2 {
-
+	font-size: 1.2em;
+	font-weight: bold;
+	padding: 0px 0px 2px 0px; 
+	color: white;
 }
 
 /* -- Menu -- */
@@ -43,7 +42,8 @@ body {
 .menu {
 	font-size: 1.0em;
 	display: block;
-	height: 32px;
+	height: 28px;
+	margin: 0px 5px 5px 0px;
 }
 
 .menu ol, ul { 
@@ -56,39 +56,24 @@ body {
 	float: left;
 	position: relative;
 	margin: 0 0 3px;
-	height: 32px;
-	color: #ccc;
+	height: 28px;
 	background-color: rgba(0, 0, 0, 0.05);
 	border: 1px solid #232428;
 	border-bottom-color: #1f2326;
-	background-image: -webkit-linear-gradient(top, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0));
-	background-image: -moz-linear-gradient(top, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0));
-	background-image: -o-linear-gradient(top, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0));
-	background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0));
 }
 
 .menu li.active,
 .menu .active:active,
 .menu li:active {
 	margin: 1px 0px 0px 0px;
-	height: 32px;
-	color: #aaa;
-	background-color: rgba(255, 255, 255, 0.03);
-	border-color: #212425;
-	border-width: 1px 0;
-	background-image: -webkit-linear-gradient(top, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.1));
-	background-image: -moz-linear-gradient(top, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.1));
-	background-image: -o-linear-gradient(top, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.1));
-	background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.1));
+	height: 28px;
 }
 
 .menu li a {
 	display: block;
-	line-height: 32px;
+	line-height: 28px;
 	padding: 0 2px;
-	font-size: 12px;
-	font-weight: bold;
-	color: inherit;
+	font-size: 13px;
 	text-decoration: none;
 	outline: 0;
 }
