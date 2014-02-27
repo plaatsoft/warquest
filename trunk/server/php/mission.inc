@@ -527,7 +527,7 @@ function warquest_mission_clan_do() {
 		}
 	
 		$player->experience += $mission->experience;
-		$player->mission += 1;
+		$player->mission++;
 		
 		$money = rand($mission->min_price,$mission->max_price);
 		if ($premium>0) {
@@ -538,11 +538,11 @@ function warquest_mission_clan_do() {
 		
 			/* If progress is 100% double money */		
 			$money *= 2;
-			$progress=100;
+			$progress = 100;
 			
 		} else {		
 	
-			$progress+=10;
+			$progress+=5;
 		}
 				
 		$player->money += $money;
