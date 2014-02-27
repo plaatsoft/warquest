@@ -1155,6 +1155,39 @@ class TestDatabase extends PHPUnit_Framework_TestCase {
    }
 	
 	/**
+	* @test ClanMission api
+	*/ 
+   public function testClanMissionAPI() {
+
+		echo "testClanMissionAPI()\r\n";
+		
+		global $config;
+		global $popup;
+
+		/* test data */
+		$cid = 1;				
+		$mid = 1;
+		$progress = 10;
+		
+		$_SERVER["REMOTE_ADDR"] = "127.0.0.1";
+						
+		$result = warquest_db_connect($config["dbhost"], $config["dbuser"], $config["dbpass"], $config["dbname"]);
+		$this->assertEquals($result, 1);
+
+		$result = warquest_db_clan_mission_update($cid, $mid, $progress);		
+		$this->assertEquals($result, 1);	
+		
+		$data = warquest_db_clan_mission($cid, $mid);
+		$this->assertEquals($data->progress, $progress);	
+				
+		$result = warquest_db_clan_mission_delete($cid, $mid);
+		$this->assertEquals($result, 1);	
+		
+		$result = warquest_db_close();
+		$this->assertEquals($result, 1);	
+   }
+	
+	/**
 	 * @test SQL error
 	 */ 
    public function testSQLerrror() {
@@ -1194,7 +1227,7 @@ class TestDatabase extends PHPUnit_Framework_TestCase {
 		$query = 'DROP TABLE bank, bank_group, battle, battle_award, bonus, bounty, bounty_award, building, building_group, building_unit, 	
 			chat, clan, cron, level, member, mission, mission_group, mission_unit, news, player, player_building, player_clan,
 			player_mission, player_player, player_poll, player_stock, player_unit, poll, poll_answer, rebel_award, sector, session, skill,
-			statistics, stock, stock_group, topic, unit, unit_group, invite, clan_bank, comment, planet'; 
+			statistics, stock, stock_group, topic, unit, unit_group, invite, clan_bank, comment, planet, clan_mission'; 
 			
 		$result = warquest_db_connect($config["dbhost"], $config["dbuser"], $config["dbpass"], $config["dbname"]);
 		$this->assertEquals($result, 1);

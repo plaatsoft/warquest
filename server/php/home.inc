@@ -780,10 +780,9 @@ function warquest_home_welcome() {
 	$page .= warquest_rank_image($player->lid);
 	$page .= '</div>';
 		
-	$page .= t('HOME_WELCOME').' '.warquest_rank($player->lid);
-	$page .= ' <b>';
+	$page .= t('HOME_WELCOME').' '.warquest_rank($player->lid).' ';
 	$page .= player_format($player->pid, $player->name, $player->country);
-	$page .= '</b><br/>';
+	$page .= '<br/>';
 	
 	$member = warquest_db_member($player->pid);
 	if ($member->prev_login!=0) {
@@ -817,7 +816,7 @@ function warquest_home_welcome() {
 		$data2 = warquest_db_fetch_object($result2);
 	
 		$page .= '<span class="subparagraph2">'.t('HOME_INTRO_TITLE').'</span><br/>';
-		$page .= t('HOME_INTRO_MISSIONS', warquest_link('mid='.MENU_MISSIONS.'&sid='.warquest_get_default_mission($player->planet),t('LINK_MISSIONS'), 'mission1'));
+		$page .= t('HOME_INTRO_MISSIONS', warquest_link('mid='.MENU_MISSIONS.'&sid='.PAGE_MISSION_PLAYER.'&ssid='.warquest_get_default_mission($player->planet),t('LINK_MISSIONS'), 'mission1'));
 		$page .= t('HOME_INTRO_BATTLES', warquest_link('mid='.MENU_BATTLE.'&sid='.PAGE_ENEMIES,t('LINK_BATTLES'), 'battle1'));
 		$page .= t('HOME_INTRO_UNITS', warquest_link('mid='.MENU_UNITS.'&sid='.$data1->ugid, t('LINK_UNITS'), 'unit1'));
 		$page .= t('HOME_INTRO_BUILDINGS', warquest_link('mid='.MENU_BUILDINGS.'&sid='.$data2->bgid, t('LINK_BUILDINGS'), 'building1'));

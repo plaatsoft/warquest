@@ -20,21 +20,35 @@ $notes[65] = '
 <div class="subparagraph2">25-02-2014</div>
 <i>Game Server v6.5</i>
 <ul>
-<li>Added two extra mars discount buildings.</li>
+<li>Clan Wars improvements:</li>
+<ul>
+<li>Added clan missions. See Missions->Clan.</li>
+<li>Added clan statistics to Alliance->Clan->Clan Profile</li>
+<li>Added hyperlink from Home->Profile->Clan to Clan Profile.</li>
+<li>Max. allowed daily deposit to clan bank is 10x hourly income.</li>
+</ul>
+</ul>
+<ul>
+<li>GUI improvements:</li>
+<ul>
+<li>Refactor HTML to support new CCS3 themes.</li>
+<li>Added "transparent" theme (Home->Settings->Theme)</li>
+<li>Redesign of login page.</li>
+<li>Added more color to all themes.</li>
+<li>Removed not used themes.</li>
+<li>Improve bank transaction log.</li>
+<li>Update Help->Instructions text.</li>
 <li>Added Home->Profile->Total hourly income page.</li>
 <li>Added Home->Profile->Citizens cost page.</li>
 <li>Added hyperlinks from Home->Profile->Assest to Bank pages</li>
+</ul>
+<li>Other improvements:</li>
+<ul>
+<li>Added two extra mars discount buildings.</li>
 <li>Leaderboard position is now only based on expercience.</li>
 <li>Limit maximum amount of promotion email invites.</li>
 <li>Improve email address validation.</li>
-<li>Improve bank transaction log.</li>
-<li>Small redesign of login page.</li>
-<li>Update Help->Instructions.</li>
-<li>Max. allowed daily deposit to clan bank is 10x hourly income.</li>
-<li>Refactor HTML to support new CCS3 themes.</li>
-<li>Added "transparent" theme (Home->Settings->Theme)</li>
-<li>Added more color to default theme.</li>
-<li>Removed not used background themes.</li>
+</ul>
 </ul>
 <br/>
 

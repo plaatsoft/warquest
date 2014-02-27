@@ -2359,14 +2359,14 @@ function warquest_ui_map($player, $planet) {
 			$page .= '<img src="planet.php?planet='.$planet.'&data='.$tmp.'" width="'.$width.'" height="'.$height.'" title="'.t('GENERAL_PLANET_1').'" usemap="#map">';	
 			if (($pid==$player->pid) && ($player->lid>1) && ($player->holiday_date <= date("Y-m-d H:i:s", time()))) {
 				$page .= '<map name="map">';		
-				$page .= '<area shape="rect" coords="200,0,250,90" title="'.t('MISSION_GROUP_1').'" href="javascript:link(\''.warquest_token('mid='.MENU_MISSIONS.'&sid=1').'\');" />';
-				$page .= '<area shape="rect" coords="30,0,190,110" title="'.t('MISSION_GROUP_2').'" href="javascript:link(\''.warquest_token('mid='.MENU_MISSIONS.'&sid=2').'\');" />';
-				$page .= '<area shape="rect" coords="80,130,160,250" title="'.t('MISSION_GROUP_3').'" href="javascript:link(\''.warquest_token('mid='.MENU_MISSIONS.'&sid=3').'\');" />';
-				$page .= '<area shape="rect" coords="180,90,260,230" title="'.t('MISSION_GROUP_4').'" href="javascript:link(\''.warquest_token('mid='.MENU_MISSIONS.'&sid=4').'\');" />';	
-				$page .= '<area shape="rect" coords="250,0,500,70" title="'.t('MISSION_GROUP_5').'" href="javascript:link(\''.warquest_token('mid='.MENU_MISSIONS.'&sid=5').'\');" />';
-				$page .= '<area shape="rect" coords="320,70,400,115" title="'.t('MISSION_GROUP_7').'" href="javascript:link(\''.warquest_token('mid='.MENU_MISSIONS.'&sid=7').'\');" />';
-				$page .= '<area shape="rect" coords="390,150,500,250" title="'.t('MISSION_GROUP_8').'" href="javascript:link(\''.warquest_token('mid='.MENU_MISSIONS.'&sid=8').'\');" />';	
-				$page .= '<area shape="rect" coords="250,70,300,130" title="'.t('MISSION_GROUP_9').'" href="javascript:link(\''.warquest_token('mid='.MENU_MISSIONS.'&sid=9').'\');" />';
+				$page .= '<area shape="rect" coords="200,0,250,90" title="'.t('MISSION_GROUP_1').'" href="javascript:link(\''.warquest_token('mid='.MENU_MISSIONS.'&sid='.PAGE_MISSION_PLAYER.'&ssid=1').'\');" />';
+				$page .= '<area shape="rect" coords="30,0,190,110" title="'.t('MISSION_GROUP_2').'" href="javascript:link(\''.warquest_token('mid='.MENU_MISSIONS.'&sid='.PAGE_MISSION_PLAYER.'&ssid=2').'\');" />';
+				$page .= '<area shape="rect" coords="80,130,160,250" title="'.t('MISSION_GROUP_3').'" href="javascript:link(\''.warquest_token('mid='.MENU_MISSIONS.'&sid='.PAGE_MISSION_PLAYER.'&ssid=3').'\');" />';
+				$page .= '<area shape="rect" coords="180,90,260,230" title="'.t('MISSION_GROUP_4').'" href="javascript:link(\''.warquest_token('mid='.MENU_MISSIONS.'&sid='.PAGE_MISSION_PLAYER.'&ssid=4').'\');" />';	
+				$page .= '<area shape="rect" coords="250,0,500,70" title="'.t('MISSION_GROUP_5').'" href="javascript:link(\''.warquest_token('mid='.MENU_MISSIONS.'&sid='.PAGE_MISSION_PLAYER.'&ssid=5').'\');" />';
+				$page .= '<area shape="rect" coords="320,70,400,115" title="'.t('MISSION_GROUP_7').'" href="javascript:link(\''.warquest_token('mid='.MENU_MISSIONS.'&sid='.PAGE_MISSION_PLAYER.'&ssid=7').'\');" />';
+				$page .= '<area shape="rect" coords="390,150,500,250" title="'.t('MISSION_GROUP_8').'" href="javascript:link(\''.warquest_token('mid='.MENU_MISSIONS.'&sid='.PAGE_MISSION_PLAYER.'&ssid=8').'\');" />';	
+				$page .= '<area shape="rect" coords="250,70,300,130" title="'.t('MISSION_GROUP_9').'" href="javascript:link(\''.warquest_token('mid='.MENU_MISSIONS.'&sid='.PAGE_MISSION_PLAYER.'&ssid=9').'\');" />';
 				$page .= '</map>';
 			}
 			break;
@@ -2382,7 +2382,7 @@ function warquest_ui_map($player, $planet) {
 				while ($data=warquest_db_fetch_object($result)) {			
 			
 					$page .= '<area shape="poly" coords="'.calcPologon($data->x,$data->y).'" title="'.t('MISSION_'.$data->mid).'" ';
-					$page .= 'href="javascript:link(\''.warquest_token('mid='.MENU_MISSIONS.'&sid='.$data->mgid.'&anchor='.$data->mid).'\');" />';
+					$page .= 'href="javascript:link(\''.warquest_token('mid='.MENU_MISSIONS.'&sid='.PAGE_MISSION_PLAYER.'&ssid='.$data->mgid.'&anchor='.$data->mid).'\');" />';
 				}			
 				$page .= '</map>';
 			}

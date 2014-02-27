@@ -152,7 +152,6 @@ a:hover {
 
 .countdown {
 	display:inline-block;
-	color: orange;
 }
 
 .link {	
@@ -390,6 +389,7 @@ a:hover {
 }
 
 /* -- Popups -- */
+
 .active {
 	color: orange;
 	padding: 0px;

@@ -1783,7 +1783,7 @@ function warquest_battle_enemies_form() {
 		$message .= '</td>';
 		$message .= '</tr>';
 		$message .= '</table>';
-		$link = warquest_link('mid='.MENU_MISSIONS.'&sid='.PAGE_MISSION_TRAINING, t('LINK_MISSIONS'), "mission-0");
+		$link = warquest_link('mid='.MENU_MISSIONS.'&sid='.PAGE_MISSION_PLAYER.'&ssid='.PAGE_MISSION_TRAINING, t('LINK_MISSIONS'), "mission-0");
 
 		$page .= warquest_box("", $message, $link);
 	

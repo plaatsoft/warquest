@@ -22,15 +22,29 @@ INSERT INTO building (bid, price, gold, lid, income, defense, energy, discount, 
 
 delete from building_unit where bid=1410;
 INSERT INTO `building_unit` (`bid`, `uid`, `amount`) VALUES
-(1410, 2800, 350),
-(1410, 2801, 280),
-(1410, 2802, 300);
+(1410, 1700, 350),
+(1410, 1701, 280),
+(1410, 1702, 300);
 
 delete from building_unit where bid=1411;
 INSERT INTO `building_unit` (`bid`, `uid`, `amount`) VALUES
-(1411, 2800, 450),
-(1411, 2801, 475),
-(1411, 2802, 500);
+(1411, 1700, 450),
+(1411, 1701, 475),
+(1411, 1702, 500);
 
 -- Typo correction
 UPDATE planet SET name="mercury" WHERE planet_id=4;
+
+-- Added clan missions
+ALTER TABLE `clan` ADD `mission` INT NOT NULL AFTER `slogan` ;
+ALTER TABLE `clan` CHANGE `last_activity` `last_activity` DATETIME NOT NULL ;
+ALTER TABLE `clan` CHANGE `created` `created` DATETIME NOT NULL ;
+
+CREATE TABLE IF NOT EXISTS `clan_mission` (
+  `cid` int(11) NOT NULL,
+  `mid` int(11) NOT NULL,
+  `progress` int(11) NOT NULL,
+  PRIMARY KEY (`cid`,`mid`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+

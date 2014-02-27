@@ -49,7 +49,8 @@ function warquest_create_title($title) {
 		switch ($mid) {
 			
 				case MENU_MISSIONS:
- 					$tmp .= '&sid='.warquest_get_default_mission($planet);					
+					$tmp .= '&sid='.$sid;
+ 					$tmp .= '&ssid='.warquest_get_default_mission($planet);					
 					break;
 					
 				case MENU_UNITS:
