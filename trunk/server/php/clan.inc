@@ -870,7 +870,7 @@ function warquest_clan_slogan_part($clan) {
 		$page .= '<td width="500">';
 	
 		$page .= '<textarea style="width:100%" id="slogan" name="slogan" rows="3" ';
-		$page .= 'onKeyDown="limitText(this,199)">'.$comment.'</textarea><br/>';
+		$page .= 'onKeyDown="limitText(this,199)">'.$clan->slogan.'</textarea><br/>';
 		$page .= warquest_show_smilies('slogan');
 		$page .= '<br/><br/>';
 	
@@ -886,7 +886,7 @@ function warquest_clan_slogan_part($clan) {
 		$page .= '<div class="box">';
 		
 		$page .= '<div class="slogan">';
-		$page .= warquest_parse_smilies($comment);
+		$page .= warquest_parse_smilies($clan->slogan);
 		$page .= '</div>';
 		
 		$page .= '</div>';
@@ -1100,13 +1100,8 @@ function warquest_clan_form() {
 function warquest_clan_profile_form() {
 
 	/* input */	
-	global $mid;
-	global $sid;
 	global $cid;
-	
 	global $player;
-	global $other;
-	global $config;
 		
 	/* output */
 	global $page;
@@ -1114,8 +1109,6 @@ function warquest_clan_profile_form() {
 		
 	$clan = warquest_db_clan($cid);
 	$player_clan = warquest_db_player_clan($player->pid);
-	
-	$comment = $clan->slogan;
 	
 	$output->title = t('CLAN_PROFILE', $clan->name);
 	
