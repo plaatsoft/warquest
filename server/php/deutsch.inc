@@ -55,7 +55,6 @@ $lang['LINK_BATTLE'] = 'Kampf';
 $lang['LINK_UNITS']  = 'Einheiten';
 $lang['LINK_BUILDINGS']  = 'Gebäude';
 $lang['LINK_BANKS'] = 'Bank';
-$lang['LINK_ALLIANCE'] = 'Bündnis';
 $lang['LINK_PLAYER'] = 'Spieler';
 $lang['LINK_MONEY'] = 'Geld';
 $lang['LINK_HELP'] = 'Hilfe';
@@ -132,8 +131,8 @@ $lang['LINK_INVITE'] = 'Einladen';
 $lang['LINK_PENDING'] = 'Pending';
 $lang['LINK_APPROVED'] = 'Akzeptieren';
 $lang['LINK_COMMENT']  = 'Nachricht';
-$lang['LINK_BEST_PLAYER']  = 'Bester Spieler';
-$lang['LINK_BEST_COUNTRY'] = 'Bestes Land';
+$lang['LINK_BEST_PLAYER']  = 'Spieler';
+$lang['LINK_BEST_COUNTRY'] = 'Land';
 $lang['LINK_DROP'] = 'Ablehnen';
 $lang['LINK_ACCEPT'] = 'Akzeptieren';
 $lang['LINK_REJECT'] = 'Reject';
@@ -161,8 +160,6 @@ $lang['LINK_DONATE']  = 'Spende';
 ** ------------------
 */
 
-$lang['SYSTEM_HACK_DETECTED'] = 'Please do not use the reload, prev or next button!';
-
 $lang['AGO_DAY']   = ' Tag';	
 $lang['AGO_DAYS']  = ' Tage';
 $lang['AGO_HOUR']  = ' Stunde';
@@ -172,15 +169,13 @@ $lang['AGO_MINS']  = ' Min';
 $lang['AGO_SEC']   = ' Sek';
 $lang['AGO_SECS']  = ' Sek';
 	
-$lang['COPYRIGHT'] = 'Copyright © 2008-2014 - All Rights Reserved - <a target="new" href="http://www.plaatsoft.nl">PlaatSoft</a>';
-
 $lang['STATUS_CASH']  = 'Geld';
 $lang['STATUS_EXP']  = 'Exp.';
 $lang['STATUS_LEVEL']  = 'Rang';
 $lang['STATUS_HEALTH'] = 'Gesundheit';
 $lang['STATUS_ENERGY'] = 'Energie';
 $lang['STATUS_AMMO'] = 'Muni';
-$lang['STATUS_ALLIANCE_SIZE'] = 'Bundnis Größe';
+$lang['STATUS_ALLIANCE_SIZE'] = 'Größe';
 
 $lang['BOX_INFO'] = 'INFO';
 $lang['BOX_WARN'] = 'ACHTUNG';
@@ -279,61 +274,6 @@ $lang['GENERAL_PLANET_2'] = 'Mond';
 
 /*
 ** ------------------
-** TIP
-** ------------------
-*/
-
-$lang['TIP_GENERAL']  = 'TIP';
-$lang['TIP_0'] = 'Play the training mission to collect experience points and reach the next level.';
-$lang['TIP_1'] = 'Buy some units and start battle training to collect experience points.';
-$lang['TIP_2'] = 'Trade in received skill points (Home -> Skills) to improve your soldier skills.';
-$lang['TIP_3'] = 'Enter your email address to receive message and alliance notifications!';
-$lang['TIP_4'] = 'Buy some income buildings to generate hourly income.';
-$lang['TIP_5'] = 'Buy some defense buildings to improve your defense strength.';
-$lang['TIP_6'] = 'Make alliance with ohter players to improve your attack/defense strenght.';
-$lang['TIP_7'] = 'Store cash money on the National bank to keep it safe for other players.';
-$lang['TIP_8'] = 'Collect extra experience points by voting on the available polls!';
-$lang['TIP_9'] = 'Set bounty on other players to collect bounty awards.';
-$lang['TIP_10'] = 'Visit the casino to try out the Wheel of Fortune and win more cash.';
-$lang['TIP_11'] = 'Buy energy buildings for faster energy restore.';
-$lang['TIP_12'] = 'Buy exspionage units to spy other players and start rebellion on there side.';
-$lang['TIP_13'] = 'Store cash money on the Trasquera bank to receive daily interest.';
-$lang['TIP_14'] = 'Visit the forum. New game ideas are welcome!';
-$lang['TIP_15'] = 'Check out the Help section for more information.';
-$lang['TIP_16'] = 'Buy/Sell stocks to make more profit (Money -> StockExchange)';
-$lang['TIP_17'] = 'Store cash money on the SwissCore bank to receive daily interest.';
-$lang['TIP_18'] = 'Complete all continent missions to receive extra bonus skill points.';
-$lang['TIP_19'] = 'Repair units (Home -> Restore) to prevent unit loss';
-$lang['TIP_20'] = 'Visit the casino to try out the Slot Machine and win more cash.';
-$lang['TIP_21'] = 'Repair buildings (Home -> Restore) to prevent building loss';
-$lang['TIP_22'] = 'Continue with the game and become the best player of your country!';
-
-$lang['TIP_115'] = 'Only 10 levels away from starting your own moon colony.';
-$lang['TIP_116'] = 'Only 9 levels away from starting your own moon colony.';
-$lang['TIP_117'] = 'Only 8 levels away from starting your own moon colony.';
-$lang['TIP_118'] = 'Only 7 levels away from starting your own moon colony.';
-$lang['TIP_119'] = 'Only 6 levels away from starting your own moon colony.';
-$lang['TIP_120'] = 'Only 5 levels away from starting your own moon colony.';
-$lang['TIP_121'] = 'Only 4 levels away from starting your own moon colony.';
-$lang['TIP_122'] = 'Only 3 levels away from starting your own moon colony.';
-$lang['TIP_123'] = 'Only 2 levels away from starting your own moon colony.';
-$lang['TIP_124'] = 'Only 1 level away from starting your own moon colony.';
-$lang['TIP_125'] = 'Start your own moon colony!';
-
-$lang['TIP_190'] = 'Only 10 levels away from starting your own mars colony.';
-$lang['TIP_191'] = 'Only 9 levels away from starting your own mars colony.';
-$lang['TIP_192'] = 'Only 8 levels away from starting your own mars colony.';
-$lang['TIP_193'] = 'Only 7 levels away from starting your own mars colony.';
-$lang['TIP_194'] = 'Only 6 levels away from starting your own mars colony.';
-$lang['TIP_195'] = 'Only 5 levels away from starting your own mars colony.';
-$lang['TIP_196'] = 'Only 4 levels away from starting your own mars colony.';
-$lang['TIP_197'] = 'Only 3 levels away from starting your own mars colony.';
-$lang['TIP_198'] = 'Only 2 levels away from starting your own mars colony.';
-$lang['TIP_199'] = 'Only 1 level away from starting your own mars colony.';
-$lang['TIP_200'] = 'Start your own mars colony!';
-
-/*
-** ------------------
 ** LOGIN PAGE
 ** ------------------
 */
@@ -379,8 +319,6 @@ $lang['LOGIN_NEW_CLIENT'] = 'Sie verwenden einen alten WarQuest Windows client. 
 */
 
 $lang['HOME_TITLE'] = 'HOME';
-
-$lang['HOME_FLASH_NEWS_TITLE'] = 'Breaking News';
 
 $lang['HOME_LASTEST_FORUM_ITEM'] = 'Letzter Forum Post';
 
@@ -553,39 +491,6 @@ $lang['PLAYER_SKILL_REJECTED2']  = '%s s Wert ist auf der kleinsten Stufe.';
 
 /*
 ** ------------------
-** HOME - TRADE
-** ------------------
-*/
-
-$lang['HOME_TRADE_CONDITION'] = 'Current';
-$lang['HOME_TRADE_MINIMAL'] = 'Minimal';
-
-$lang['HOME_TRADE1'] = 'Health Timer';
-$lang['HOME_TRADE1_NOTE'] = 'Decrease health timer so your health restores faster. It takes %s to decrease your health timer with 5 seconds.';
-
-$lang['HOME_TRADE2'] = 'Energy Timer';
-$lang['HOME_TRADE2_NOTE'] = 'Decrease energy timer so your energy restores faster. It takes %s to decrease your energy timer with 5 seconds.';
-
-$lang['HOME_TRADE3'] = 'Ammo Timer';
-$lang['HOME_TRADE3_NOTE'] = 'Decrease ammo timer so your ammo restores faster. It takes %s to decrease your ammo timer with 5 seconds.';
-
-$lang['HOME_TRADE4'] = 'Cash';
-$lang['HOME_TRADE4_NOTE'] = 'Get cash to buy new units, buildings, etc.. It takes %s to increase your cash with %s dollar.';
-
-$lang['HOME_TRADE5'] = 'Skill Point';
-$lang['HOME_TRADE5_NOTE'] = 'Get skill points to improve your attack, defence, health, energy or ammo skill. It takes %s point to get 1 skill point.';
-
-$lang['HOME_TRADE_SKILL_POINTS'] = 'skill point(s)';
-$lang['HOME_TRADE_IN'] = 'Trade-In';
-$lang['HOME_MAX_REACHED'] = 'Max Reached';
-
-$lang['HOME_TRADE_HEALTH_TIMER_TO_LARGE'] = 'Health timer has reached minimum value.';
-$lang['HOME_TRADE_ENERGY_TIMER_TO_LARGE'] = 'Energy timer has reached minimum value.';
-$lang['HOME_TRADE_AMMO_TIMER_TO_LARGE'] = 'Ammo timer has reached minimum value.';
-$lang['HOME_TRADE_SUCCESFULL'] = 'The trade is succesfully processed!';
-
-/*
-** ------------------
 ** HOME - RESTORE
 ** ------------------
 */
@@ -701,14 +606,6 @@ $lang['PLAYER_PASSWORD_NO_MATCH'] = 'Das jetztige Passwort stimmt nicht überein!
 $lang['PLAYER_PASSWORD_TO_SHORT'] = 'Das neue Passwort muss mindestens 6 Zeichen lang sein!';
 $lang['PLAYER_LOGIN_NOTE'] = 'ACHTUNG: Der automatische Login während des Starts funktioniert nur wenn der Username und das Passwort eingestellt ist in der WarQuest Android und/oder Windows app!'; 
 
-$lang['SETTING_ACCOUNT_RESET_TITLE'] = 'Account reset';
-$lang['SETTING_YES'] = 'Yes';
-$lang['SETTING_SURE'] = 'Account reset! Are your really sure?';
-$lang['SETTING_ACCOUNT_RESET'] = 'Activate an account reset? ';
-$lang['SETTING_NO_REVERSE'] = '(This reset action can not be reversed!)';
-$lang['SETTING_ACCOUNT_RESET_NOTE'] = 'WARNING: When your account is resetted all data of your account is put back to the begin state. This means that everything is removed (units, buildings, alliances, missions, etc..)'; 
-$lang['SETTING_ACCOUNT_RESETTED'] = 'Player %s account is resetted!';
-
 /*
 ** ------------------
 ** MISSION DATA
@@ -809,271 +706,7 @@ $lang['MISSION_85'] = 'Oman';
 $lang['MISSION_86'] = 'Jordan';
 $lang['MISSION_87'] = 'Israel';
 
-/* Moon Missions */
-$lang['MISSION_GROUP_10'] = 'Alpha ';
-$lang['MISSION_GROUP_11'] = 'Bravo';
-$lang['MISSION_GROUP_12'] = 'Charlie';
-$lang['MISSION_GROUP_13'] = 'Delta';
-$lang['MISSION_GROUP_14'] = 'Echo';
-$lang['MISSION_GROUP_15'] = 'Foxtrot';
-$lang['MISSION_GROUP_16'] = 'Golf';
-$lang['MISSION_GROUP_17'] = 'Hotel';
-$lang['MISSION_GROUP_18'] = 'Lima';
 
-$lang['MISSION_100'] = 'Krater Endymion';
-$lang['MISSION_101'] = 'Krater Franklin';
-$lang['MISSION_102'] = 'Tal Honoris';
-$lang['MISSION_103'] = 'Berg Fidei';
-$lang['MISSION_104'] = 'Krater Blanc';
-$lang['MISSION_105'] = 'Krater Fesenkov';
-$lang['MISSION_106'] = 'Gipfel Temporis';
-$lang['MISSION_107'] = 'Krater Darwin';
-
-$lang['MISSION_110'] = 'Krater Agnes';
-$lang['MISSION_111'] = 'Berg Andre';
-$lang['MISSION_112'] = 'Hügel Ardeshir';
-$lang['MISSION_113'] = 'Krater Aristoteles';
-$lang['MISSION_114'] = 'Mare Blanc';
-$lang['MISSION_115'] = 'Berg Bradley';
-$lang['MISSION_116'] = 'Hügel Delisle';
-$lang['MISSION_117'] = 'Tal Dieter';
-
-$lang['MISSION_120'] = 'Berg Dilip';
-$lang['MISSION_121'] = 'Berg Esam';
-$lang['MISSION_122'] = 'Krater Albategnius';
-$lang['MISSION_123'] = 'Berg Gruithuisen Delta';
-$lang['MISSION_124'] = 'Mare Gruithuisen Gamma';
-$lang['MISSION_125'] = 'Krater Hansteen';
-$lang['MISSION_126'] = 'Hügel Herodotus';
-$lang['MISSION_127'] = 'Berg Huygens';
-
-$lang['MISSION_130'] = 'Tal La Hire';
-$lang['MISSION_131'] = 'Berg Maraldi';
-$lang['MISSION_132'] = 'Berg Moro';
-$lang['MISSION_133'] = 'Krater Aristarchus';
-$lang['MISSION_134'] = 'Berg Pico';
-$lang['MISSION_135'] = 'Hügel Piton';
-$lang['MISSION_136'] = 'Tal Rumker';
-$lang['MISSION_137'] = 'Berg Usov';
-
-$lang['MISSION_140'] = 'Berg Vinogradov';
-$lang['MISSION_141'] = 'Berg Vitruvius';
-$lang['MISSION_142'] = 'Berg Wolff';
-$lang['MISSION_143'] = 'Gipfel Agricola';
-$lang['MISSION_144'] = 'Gipfel Alpes';
-$lang['MISSION_145'] = 'Krater Apenninus';
-$lang['MISSION_146'] = 'Gipfel Archimedes';
-$lang['MISSION_147'] = 'Gipfel Carpatus';
-
-$lang['MISSION_150'] = 'Gipfel Caucasus';
-$lang['MISSION_151'] = 'Mare Cordillera';
-$lang['MISSION_152'] = 'Gipfel Haemus';
-$lang['MISSION_153'] = 'Krater Harbinger';
-$lang['MISSION_154'] = 'Tal Pyrenaeus';
-$lang['MISSION_155'] = 'Gipfel Riphaeus';
-$lang['MISSION_156'] = 'Gipfel Rook';
-$lang['MISSION_157'] = 'Mare Secchi';
-
-$lang['MISSION_160'] = 'Gipfel Spitzbergen';
-$lang['MISSION_161'] = 'Mare Taurus';
-$lang['MISSION_162'] = 'Tal Teneriffe';
-$lang['MISSION_163'] = 'Gipfel Harbinger';
-$lang['MISSION_164'] = 'Hügel Rheita';
-$lang['MISSION_165'] = 'Hügel Baade';
-$lang['MISSION_166'] = 'Krater Bohr';
-$lang['MISSION_167'] = 'Hügel Palitzsch';
-
-$lang['MISSION_170'] = 'Krater Fecunditatis';
-$lang['MISSION_171'] = 'Mare Australe';
-$lang['MISSION_172'] = 'Gipfel Orientale';
-$lang['MISSION_173'] = 'Tal Cognitum';
-$lang['MISSION_174'] = 'Mare Crisium';
-$lang['MISSION_175'] = 'Berg Spumans';
-$lang['MISSION_176'] = 'Gipfel Tranquillitatis';
-$lang['MISSION_177'] = 'Mare Vaporum';
-
-$lang['MISSION_180'] = 'Krater Aestatis';
-$lang['MISSION_181'] = 'Lacus Bonitatis';
-$lang['MISSION_182'] = 'Gipfel Felicitatis';
-$lang['MISSION_183'] = 'Tal Luxuriae';
-$lang['MISSION_184'] = 'Lacus Oblivionis';
-$lang['MISSION_185'] = 'Berg Solitudinis';
-$lang['MISSION_186'] = 'Gipfel Temporis';
-$lang['MISSION_187'] = 'Krater Timoris';
-
-/* Mars Missions */
-$lang['MISSION_GROUP_20'] = 'Alpaca';
-$lang['MISSION_GROUP_21'] = 'Bison';
-$lang['MISSION_GROUP_22'] = 'Coyote';
-$lang['MISSION_GROUP_23'] = 'Dinosaur';
-$lang['MISSION_GROUP_24'] = 'Emu';
-$lang['MISSION_GROUP_25'] = 'Fox';
-$lang['MISSION_GROUP_26'] = 'Gnu';
-$lang['MISSION_GROUP_27'] = 'Heron';
-$lang['MISSION_GROUP_28'] = 'Lion';
-
-$lang['MISSION_200'] = 'Krater Al-Qahira';
-$lang['MISSION_201'] = 'Tal Ares';
-$lang['MISSION_202'] = 'Hügel Auqakuh';
-$lang['MISSION_203'] = 'Krater Bahram';
-$lang['MISSION_204'] = 'Mare Harmakhis';
-$lang['MISSION_205'] = 'Berg Her Desher';
-$lang['MISSION_206'] = 'Tal Hrad';
-$lang['MISSION_207'] = 'Hügel Huo Hsing';
-
-$lang['MISSION_210'] = 'Berg Kasei';
-$lang['MISSION_211'] = 'Mare Labou';
-$lang['MISSION_212'] = 'Hügel Maadim';
-$lang['MISSION_213'] = 'Krater Maja';
-$lang['MISSION_214'] = 'Tal Mamers';
-$lang['MISSION_215'] = 'Hügel Mangala';
-$lang['MISSION_216'] = 'Krater Marte';
-$lang['MISSION_217'] = 'Mare Mawrth';
-
-$lang['MISSION_220'] = 'Krater Nirgal';
-$lang['MISSION_221'] = 'Hügel Shalbatana';
-$lang['MISSION_222'] = 'Krater Simud';
-$lang['MISSION_223'] = 'Tal Tiu';
-$lang['MISSION_224'] = 'Hügel Aloysius';
-$lang['MISSION_225'] = 'Krater Ambrosius';
-$lang['MISSION_226'] = 'Mare Barnabas';
-$lang['MISSION_227'] = 'Mare Constantia';
-
-$lang['MISSION_230'] = 'Hügel Edmondus';
-$lang['MISSION_231'] = 'Mare Eustachius';
-$lang['MISSION_232'] = 'Krater Georgius';
-$lang['MISSION_233'] = 'Tal Griselda';
-$lang['MISSION_234'] = 'Hügel Gualterius';
-$lang['MISSION_235'] = 'Krater Homfridus';
-$lang['MISSION_236'] = 'Mare Henricus';
-$lang['MISSION_237'] = 'Guglielmus';
-
-$lang['MISSION_240'] = 'Mare Janetta';
-$lang['MISSION_241'] = 'Hügel Jerominus';
-$lang['MISSION_242'] = 'Krater Josephus';
-$lang['MISSION_243'] = 'Mare Leonardus';
-$lang['MISSION_244'] = 'Tal Mauritius';
-$lang['MISSION_245'] = 'Krater Nicholaus';
-$lang['MISSION_246'] = 'Hügel Laurentius';
-$lang['MISSION_247'] = 'Berg Octavius';
-
-$lang['MISSION_250'] = 'Krater Misericordia';
-$lang['MISSION_251'] = 'Hügel Petronella';
-$lang['MISSION_252'] = 'Tal Sylvanus';
-$lang['MISSION_253'] = 'Krater Reginaldus';
-$lang['MISSION_254'] = 'Hügel Adeipho';
-$lang['MISSION_255'] = 'Tal Randulphus';
-$lang['MISSION_256'] = 'Krater Xpofer';
-$lang['MISSION_257'] = 'Mare Aegidius';
-
-$lang['MISSION_260'] = 'Tal Aeneas';
-$lang['MISSION_261'] = 'Krater Philipus';
-$lang['MISSION_262'] = 'Tal Beniaminus';
-$lang['MISSION_263'] = 'Hügel Rosamundi';
-$lang['MISSION_264'] = 'Berg Peregrinus';
-$lang['MISSION_265'] = 'Mare Xtianus';
-$lang['MISSION_266'] = 'Hügel Crispianus';
-$lang['MISSION_267'] = 'Krater Clementia';
-
-$lang['MISSION_270'] = 'Hügel Elizabeta';
-$lang['MISSION_271'] = 'Krater Xtopher';
-$lang['MISSION_272'] = 'Mare Placentia';
-$lang['MISSION_273'] = 'Tal Gaufridus';
-$lang['MISSION_274'] = 'Krater Stephanus';
-$lang['MISSION_275'] = 'Hügel Xpianus	';
-$lang['MISSION_276'] = 'Mare Girardus';
-$lang['MISSION_277'] = 'Krater Radulphus';
-
-$lang['MISSION_280'] = 'Krater Xtopherus';
-$lang['MISSION_281'] = 'Hügel Terentius';
-$lang['MISSION_282'] = 'Berg Eamnonn';
-$lang['MISSION_283'] = 'Krater Kadisha';
-$lang['MISSION_284'] = 'Mare Kachine';
-$lang['MISSION_285'] = 'Hügel Oddvar';
-$lang['MISSION_286'] = 'Tal Radborne';
-$lang['MISSION_287'] = 'Krater Ebenezer';
-
-/* MERCURY */
-$lang['MISSION_300'] = 'Crater Albococcinea';
-$lang['MISSION_301'] = 'Sinus argentea';
-$lang['MISSION_302'] = 'Vallis Atrococcinea';
-$lang['MISSION_303'] = 'Crater Colorans';
-$lang['MISSION_304'] = 'Mare Cardinalis';
-$lang['MISSION_305'] = 'Mons Brunnea';
-$lang['MISSION_306'] = 'Sinus Chlorantha';
-$lang['MISSION_307'] = 'Vallis Erythrocarpa';
-
-$lang['MISSION_310'] = 'Mons Ferruginea';
-$lang['MISSION_311'] = 'Mare Colorans';
-$lang['MISSION_312'] = 'Vallis Aurea';
-$lang['MISSION_313'] = 'Crater Atrovirens';
-$lang['MISSION_314'] = 'Sinus lutescens';
-$lang['MISSION_315'] = 'Vallis Maculata';
-$lang['MISSION_316'] = 'Crater Nigrescens';
-$lang['MISSION_317'] = 'Mare Punicea';
-
-$lang['MISSION_320'] = 'Crater Rosea';
-$lang['MISSION_321'] = 'Vallis Rubiginosa';
-$lang['MISSION_322'] = 'Crater Tinctoria';
-$lang['MISSION_323'] = 'Sinus Sulphurea';
-$lang['MISSION_324'] = 'Vallis Sempervirens';
-$lang['MISSION_325'] = 'Crater Rubicunda';
-$lang['MISSION_326'] = 'Mare Variegata';
-$lang['MISSION_327'] = 'Mare Versicolor';
-
-$lang['MISSION_330'] = 'Vallis Vinosa';
-$lang['MISSION_331'] = 'Mare Viridescens';
-$lang['MISSION_332'] = 'Crater Citrodora';
-$lang['MISSION_333'] = 'Sinus Foetidissima';
-$lang['MISSION_334'] = 'Vallis Gravaeolens';
-$lang['MISSION_335'] = 'Crater Odorata';
-$lang['MISSION_336'] = 'Mare Suaveolens';
-$lang['MISSION_337'] = 'Crater Ursina';
-
-$lang['MISSION_340'] = 'Mare Amabile';
-$lang['MISSION_341'] = 'Vallis Praecox ';
-$lang['MISSION_342'] = 'Crater Bella';
-$lang['MISSION_343'] = 'Mare Amoena';
-$lang['MISSION_344'] = 'Sinus Gracilis';
-$lang['MISSION_345'] = 'Crater Formosa';
-$lang['MISSION_346'] = 'Vallis Fragilis';
-$lang['MISSION_347'] = 'Mons Foeniculaceus';
-
-$lang['MISSION_350'] = 'Crater Blanda';
-$lang['MISSION_351'] = 'Vallis Elegantissima';
-$lang['MISSION_352'] = 'Sinus Imperialis';
-$lang['MISSION_353'] = 'Crater Splendens';
-$lang['MISSION_354'] = 'Vallis Superba';
-$lang['MISSION_355'] = 'Sinus Magnifica';
-$lang['MISSION_356'] = 'Crater Campestris';
-$lang['MISSION_357'] = 'Mare Collina';
-
-$lang['MISSION_360'] = 'Sinus Insignis';
-$lang['MISSION_361'] = 'Crater Peregrina';
-$lang['MISSION_362'] = 'Sinus Mutabilis';
-$lang['MISSION_363'] = 'Vallis Spectabilis';
-$lang['MISSION_364'] = 'Mons Thermalis';
-$lang['MISSION_365'] = 'Mare Gracilis';
-$lang['MISSION_366'] = 'Vallis Sinensis';
-$lang['MISSION_367'] = 'Crater Pratensis';
-
-$lang['MISSION_370'] = 'Vallis Mirabilis';
-$lang['MISSION_371'] = 'Crater Umbrosa ';
-$lang['MISSION_372'] = 'Mare Paradoxas';
-$lang['MISSION_373'] = 'Sinus Pulchella';
-$lang['MISSION_374'] = 'Crater Floribunda';
-$lang['MISSION_375'] = 'Vallis Microphylla';
-$lang['MISSION_376'] = 'Mare Parviflora';
-$lang['MISSION_377'] = 'Crater Venusta';
-
-$lang['MISSION_380'] = 'Crater Monstrosus';
-$lang['MISSION_381'] = 'Vallis Septentrionalis';
-$lang['MISSION_382'] = 'Mons Occidentalis';
-$lang['MISSION_383'] = 'Crater Pulcherrima';
-$lang['MISSION_384'] = 'Mare Spectabilis';
-$lang['MISSION_385'] = 'Vallis Regia';
-$lang['MISSION_386'] = 'Sinus Macrantha';
-$lang['MISSION_387'] = 'Crater Caespitosa';
 
 /*
 ** ------------------
@@ -1128,16 +761,6 @@ $lang['BATTLE_ATTACKER_HEALTH_LOW'] = 'Deine Gesundheit ist zu niedrig für den K
 $lang['BATTLE_AMMO_LOW'] = 'You are out of ammo! Wait a few minutes for your ammo to recharge or deploy skill points to improve ammo skill.';
 $lang['BATTLE_UNITS_LOST'] = 'Während des Kampfes ist/sind folgende Einheit/en gefallen:';
 $lang['BATTLE_BUILDINGS_LOST'] = 'Während des Kampfes wurde folgende(s) Gebäude zerstört:';
-$lang['BATTLE_DEFENSE_FORCE'] = '%s defense %s (%s Verteidigungswert):'; 
-$lang['BATTLE_DEFENSE_BASE'] = '%s defense base:'; 
-$lang['BATTLE_ATTACK_FORCE'] = 'Your attack %s (%s attack strenght)';
-$lang['BATTLE_MORE'] = 'more';
-$lang['BATTLE_NO_PLAYER_AVAILABLE'] = 'On this moment no player(s) are available to fight.';
-$lang['BATTLE_UNLOCKED'] = '%s battle is unlocked at level %s.';
-$lang['BATTLE_FIRST_MISSION'] = 'Complete the training mission first.';
-$lang['BATTLE_BOUNTY_UNLOCKED'] = '%s bounty hunting is unlocked at level %s.';
-$lang['BATTLE_ALLY_NO_ATTACK'] = '<b>%s</b> is an ally. You cannot attack allies.';
-$lang['BATTLE_SURRENDER'] = 'Temporary Surrender';
 
 $lang['BATTLE_NOTE1'] = 'Tipp: Kämpfe gegen andere Spieler, um Erfahrungspunkte und Geld zu verdienen. Du kannst nur gegen Spieler aus anderen Ländern kämpfen.';
 $lang['BATTLE_NOTE2'] = 'Tipp: Jage andere Spieler um ein Kopfgeld zu kassieren und um Erfahrungspunkte zu sammeln für einen Stufenaufstieg. Du kannst nur gegen Spieler aus anderen Ländern kämpfen.';
@@ -1152,13 +775,6 @@ $lang['BATTLE_BOUNTY_LOST'] = 'You were attacked by the %s of %s.You LOST. Losin
 $lang['BATTLE_BOUNTY_CONFIRM'] = 'Möchtest du eine Belohnung in Höhe von %s Dollar setzen?';
 
 $lang['BATTLE_CEASE_FIRE_PERIOD'] = 'Waffenruhe ist aktiv! %s';
-$lang['BATTLE_AND'] = 'und';
-$lang['BATTLE_REBEL_UPDATE1'] = 'Well done, you initialed rebellion for %s in the %s region(s). Below you see his current situation.';
-$lang['BATTLE_REBEL_UPDATE2'] = 'Well done, you increased their rebellion chance for %s to %s%.';
-$lang['BATTLE_REBEL_UPDATE3'] = 'Pech gehabt, Es gibt keine Region um eine Rebellion auszulösen!';
-
-$lang['BATTLE_NO_BOUNTY_MONEY'] = 'You do not own %s dollar to set a bounty on %s head.';
-$lang['BATTLE_BOUNTY_SET'] = 'You set %s dollar on %s head. When %s is defeated he will lose %s expercience points.'; 
 
 /*
 ** ------------------
@@ -1280,42 +896,6 @@ $lang['BANK_TRANSACTION_LOG'] = 'Kontoauszug';
 
 /*
 ** ------------------
-** STOCK EXCHANGES
-** ------------------
-*/
-
-$lang['STOCK_GROUP_1'] = 'Nasdaq';
-$lang['STOCK_GROUP_2'] = 'DowJones';
-$lang['STOCK_GROUP_3'] = 'AEX';
-$lang['STOCK_GROUP_4'] = 'Personal';
-
-$lang['STOCK_TITLE'] = 'STOCK EXCHANGES';
-$lang['STOCK_BROKER_ERROR'] = 'Broker connection failed. No trading possible at this moment. Try again later.';
-$lang['STOCK_BUY'] = 'You buy %s %s stocks for %s dollar. Now %s owned.';
-$lang['STOCK_NO_MONEY'] = 'Not enough money to buy %s %s stocks for %s dollar.';
-$lang['STOCK_PRICE'] = 'Stock price %s [%s]';
-$lang['STOCK_PROFIT'] = 'Stock profit %s [%s]';
-$lang['STOCK_NOT_OWNED'] = 'You do not own %s %s stocks.';
-$lang['STOCK_SELL'] = 'You sell %s %s stocks for %s dollar. You paid %s dollar transaction fee. Still %s owned.';
-$lang['STOCK_NOTE'] = 'Note: You can buy or sell stocks to make profit. Stock prices are based on realtime information from yahoo finance service. There is %s% handle fee on each sell transaction.';
-$lang['STOCK_PRICE_TO_LOW'] = 'Stock price to low. Trading blocked!';
-
-$lang['STOCK_SYMBOL'] = 'Stock Symbol'; 
-$lang['STOCK_SYMBOL_INFO'] = 'Note: Enter yahoo financial stock symbol to customize this list.'; 
-
-$lang['STOCK_ADD'] = 'Add Stock';
-$lang['STOCK_SYMBOL_ADDED'] = 'You added (%s) to your personal stock list.';
-$lang['STOCK_NO_SYMBOLS' ] = 'You did not add any personal stocks yet!';
-$lang['STOCK_SYMBOL_NOT_FOUND'] = 'Stock symbol (%s) does not exist!';
-$lang['STOCK_SYMBOL_AVAILABLE'] = 'Stock symbol (%s) all ready available in personal list.';
-
-$lang['STOCK_REMOVE'] = 'Remove Stock';
-$lang['STOCK_SYMBOL_REMOVED'] = 'Stock symbol removed!';
-
-$lang['GENERAL_STOCKS'] = 'Stocks';
-
-/*
-** ------------------
 ** CASINO
 ** ------------------
 */
@@ -1356,18 +936,11 @@ $lang['CASINO_SLOTMACHINE_HELP'] = 'The following slot machine combinations will
 ** ------------------
 */
 
-$lang['ALLIANCE_TITLE'] = 'Verbündete';
-
-$lang['ALLIANCE_PENDING_TITLE1'] = 'Pending';
-$lang['ALLIANCE_PENDING_TITLE2'] = 'Pending [%s accepted - %s invited allies]';
-
 $lang['ALLIANCE_ACCEPT_TITLE1'] = 'Akzeptieren';
-$lang['ALLIANCE_ACCEPT_TITLE2'] = 'Akzeptiert [%s akzeptiert - %s eingeladen]';
+$lang['ALLIANCE_ACCEPT_TITLE2'] = 'Akzeptiert [%s allies]';
 
-$lang['ALLIANCE_INVITE_TITLE1'] = 'Einladen';
-$lang['ALLIANCE_INVITE_TITLE2'] = 'Eingeladen [%s akzeptiert - %s eingeladene Verbündete]';
+$lang['ALLIANCE_INVITE_TITLE'] = 'Einladen';
 
-$lang['ALLIANCE_NO_PENDING'] = 'No pending invitations waiting!'; 
 $lang['ALLIANCE_INVITATION'] = 'Bündnisanfrage gesendet an %s!'; 
 $lang['ALLIANCE_REJECT'] = 'Reject %s as ally!';
 $lang['ALLIANCE_DROP'] = 'Drop %s as ally!';
@@ -1377,51 +950,12 @@ $lang['ALLIANCE_MAXIMUM'] = 'Maximume Anzahl von %s Verbündeten ist für das Leve
 $lang['ALLIANCE_LOCKED'] = 'Bündnisanfragen sind ab level 1 verfügbar';
 $lang['ALLIANCE_NOTE'] = 'Tipp: Mit jedem bestätigtem Verbündeten, kannst du sechs weitere Einheiten in den Kampf schicken. Denke immer daran, Verbündete können nicht angegriffen werden.';
 
-$lang['ALLIANCE_INVITE_NOTE'] = 'Note: Invite a player for an alliance. If the other player accepts or rejects the alliance you will receive a notification by email (option in settings). Maximum amount of accepted + invited allies for this level is %s.';
-
-$lang['ALLIANCE_COMMENT_TITLE'] = 'Message';
-$lang['ALLIANCE_COMMENT_TEXT1'] = 'Create message (max. 400 characters) for all players';
-$lang['ALLIANCE_COMMENT_TEXT2'] = 'Create message (max. 400 characters) for %s';
-$lang['ALLIANCE_PLAYER_NEWS'] = 'Messages';
-$lang['ALLIANCE_COMMENT_ALL'] = 'Message is stored and available for all players.';
-$lang['ALLIANCE_COMMENT_PLAYER'] = 'Message is sent to %s';
-
-$lang['LEADERBORD_BEST_PLAYER'] = 'Leaderboard (Best Players)';
-$lang['LEADERBORD_BEST_PLAYER_NOTE'] = 'Note: Leaderboard shows the best human players. WarQuest robot (cyberspace) players are not shown!';
-
-$lang['LEADERBORD_BEST_COUNTRY'] = 'Leaderboard (Best Countries)';
-$lang['LEADERBORD_BEST_COUNTRY_NOTE'] = 'Note: Leaderboard shows the best real countries.';
-
-$lang['LEADERBORD_PLAYER_COUNTRY'] = 'Leaderboard (Best Players of %s)';
-$lang['LEADERBORD_PLAYER_COUNTRY_NOTE'] = 'Note: Leaderboard shows the best players of the selected country.';
-
 /*
 ** ------------------
 ** FORUM 
 ** ------------------
 */
 
-$lang['FORUM_TITLE'] = 'FORUMS'; 
-$lang['FORUM_TITLE2'] = 'Forums';
-$lang['FORUM_NOTE'] = 'Note: Select a forum to see all posted topics.';
-
-$lang['FORUM_1'] = 'Announcements'; 
-$lang['FORUM_NOTE_1'] = 'General announcements';
-$lang['FORUM_2'] = 'Bug Reports'; 
-$lang['FORUM_NOTE_2'] = 'What goes wrong in this release?';
-$lang['FORUM_3'] = 'Feature Requests'; 
-$lang['FORUM_NOTE_3'] = 'What do you want in the next release?';
-$lang['FORUM_4'] = 'Help'; 
-$lang['FORUM_NOTE_4'] = 'What is not clear in WarQuest?';
-$lang['FORUM_5'] = 'Other'; 
-$lang['FORUM_NOTE_5'] = 'Any other discussion?';
-$lang['FORUM_6'] = 'Country Communities'; 
-$lang['FORUM_NOTE_6'] = 'Local language discussions?';
-
-$lang['FORUM_SEARCH_TOKEN'] = 'Search token must be atleast 3 character long.';
-
-$lang['TOPIC_TITLE'] = 'Topics'; 
-$lang['TOPIC_CREATED_INPUT'] = 'Create new topic (max. 80 characters)';
 $lang['TOPIC_CREATED'] = 'Topic ist erstellt';
 $lang['TOPIC_UPDATED'] = 'Topic ist upgedatet';
 $lang['TOPIC_DELETED'] = 'Topic ist gelöscht';
@@ -1445,8 +979,6 @@ $lang['POLL_VOTE_REMOVE'] = 'Deine Wahl wurde abgebrochen!';
 $lang['POLL_VOTE'] = 'Wahl';
 $lang['POLL_VOTES'] = 'Abstimmen';
 $lang['POLL_CANCEL'] = 'Abbrechen';
-$lang['POLL_SUMMARY'] = 'Total Voters: %s';
-$lang['POLL_WARNING'] = 'Select one of the possible vote options!';
 
 /*
 ** ------------------
@@ -1522,43 +1054,6 @@ $lang['HELP_SKILL_POINTS'] = 'During the game skill points can be collected. Dep
 increase attack, defense, health, energy and/or ammo skills. Ammo skill upgrade costs two skill points, 
 others will cost you only one skill points. You can also trade-in 2:1 skillpoints to reallocate your skills.';
 
-$lang['HELP_TACTICS_TITLE'] = 'Tactics';
-$lang['HELP_TACTICS'] = 'One thing to keep in mind is that units used in missions are also subject to 
-loss as casualties. This is important to consider as the cost of replacing some of the higher priced 
-units used in a mission may exceed the money earned from the mission itself. In general, if your goal 
-is to maximize money from missions, then focus on the Money / Energy value of the mission. 
-If your goal is to maximize experience points, then focus on the Exp / Energy value of the 
-missions.<br/><br/>
-
-Once you hit the higher levels, the game automatically increases the range of opponents that can 
-attack you. When this occurs, you should increase alliance size or max out the number of members 
-in your alliance.<br/><br/>
-
-Defense buildings are an ideal purchase because they added to your defense score whenever you are
- attacked. I recommend purchasing as many as you can afford as it will allow you to allocate more 
- of your money toward attack units without having to worry about their defense points.<br/><br/>
- 
-In WarQuest, defense buildings makes some opponents extremely difficult to successfully attack. 
-Although it is still recommended to allocate points to defense, I recommend putting as many points 
-as possible toward Attack. You can compensate for lower defense skill points with defense 
-buildings.<br/><br/>
-
-When deciding what units to buy, you need to carefully consider the units hour costs, Attack and 
-Defense strenght. Assuming you can afford to buy the unit, cost should not be a factor in your 
-decision since it is only a one time expenditure. Because of the reduction in income dure to hourly
-unit cost, it does not always make sense to buy the best available units. If you are winning most of 
-your fights with your current units, then it may make more strategic sense to not increase your 
-hourly cost and allow your income to build at a faster rate.';
-
-$lang['HELP_GRAVATAR_TITLE'] = 'Gravatar';
-$lang['HELP_GRAVATAR'] = 'WarQuest support gravatar (www.gravatar.com) image service. Gravatar is an 
-image that follows you from site to site appearing beside your (nick)name.';
-
-$lang['HELP_BOUNTY_TITLE'] = 'Bounty Hunting';
-$lang['HELP_BOUNTY'] = 'You can set bounty on your opponents head. The bounty price is related to the 
-opponent level. After you set the bounty other players <b>(from an other country)</b> can attack the 
-opponent (Battle -> BountyHunting). If the opponent is defended he will lose some experience points 
-and the bounty money is transferred to the winner.';
 
 $lang['HELP_UNITS_CONDITION_TITLE'] = 'Einheiten Zustand (EZ)';
 $lang['HELP_UNITS_CONDITION'] = 'Dieser Wert gibt dir aufschlussreiche Inforamtion über den momentanigen Zustand deiner Streitkraft. 
@@ -1573,55 +1068,11 @@ $lang['HELP_FORUM_TITLE'] = 'Forum';
 $lang['HELP_FORUM'] = 'To get more information and chat with other players please visit the Warquest 
 Forum under (Alliance -> Forum).';
 
-$lang['HELP_WORLDMAP_TITLE'] = 'Map';
-$lang['HELP_WORLDMAP'] = 'The map (earth and moon) contain 72 regions which can be conquered with playing 
-missions. The regions can have one of the following colors: <br/>
-- "Green" Region 0% conquered<br/>
-- "Yellow" Region 33% conquered.<br/>
-- "Purple" Region 66% conquered.<br/>
-- "Orange" Region 100% conquered.<br/>
-- "Red" Rebellion in region. Region must be reconquered.';
-
-$lang['HELP_SHORTCUTS_TITLE'] = 'Menu Shortcuts';
-$lang['HELP_SHORTCUTS'] = 'The following hidden menu shortcuts are available in the banner for 
-faster navigation:<br/>
-- Click "Cash" to navigate to player leaderboard page.<br/>
-- Click "Exp." to navigate to country leaderboard page.<br/>
-- Click "Level" to navigate to the poll page.<br/>
-- Click "Health" to navigate to restore page.<br/>
-- Click "Energy" to navigate to player profile page.<br/>
-- Click "Ammo" to navigate to skill points page.';
-
-$lang['HELP_ATTACK_FORCE_TITLE'] = 'Attack Force';
-$lang['HELP_ATTACK_FORCE'] = 'Before battle you can select one of the following attack forces:<br/><br/>
-EARTH<br/>
-- "Army" Best of Cavalry, Navy and Aircrafs units.<br/>
-- "Cavalry" Only Cavalry units.<br/>
-- "Navy" Only Navy units.<br/>
-- "Airforce" Only Aircraft units.<br/>
-- "Espionage" Only Espionage units.<br/><br/>
-MOON<br/>
-- "SpaceTroops" Best of Drone, Warrior and Spacecraft units.<br/>
-- "Drones" Only Drone units.<br/>
-- "Warriors" Only Warrior units.<br/>
-- "Spacecrafts " Only SpaceCraft units.<br/>
-- "Explorers " Only Explorer units.';
-
-$lang['HELP_REBELLION_CONDITION_TITLE'] = 'Rebellion Condition (RC)';
-$lang['HELP_REBELLION_CONDITION'] = 'This value gives information about your current rebellion condition. Region 
-rebellion is trigger by espionage (earth) or explorers (moon) attacks by your opponents. If the 
-condition reaches 100%, some of your conquered regions will be in rebellion. To prevent rebellion, 
-visit (Home -> Restore) to quell the rebellion. Each rebellion region results in postponed continent 
-hourly income. Restore control in the rebel region by playing the related mission.';
-
 /*
 ** ------------------
 ** HELP - RELEASE NOTES
 ** ------------------
 */
-
-$lang['HELP_NOTES_SUBTITLE1'] = 'Release Notes';
-$lang['HELP_NOTES_SUBTITLE2'] = 'Release Notes (English only)';
 
 /*
 ** ------------------
@@ -1629,19 +1080,11 @@ $lang['HELP_NOTES_SUBTITLE2'] = 'Release Notes (English only)';
 ** ------------------
 */
 
-$lang['HELP_RANKS_SUBTITLE'] = 'Ranks';
-$lang['HELP_RANKS'] = 'The following ranks are available:';
-
 /*
 ** ------------------
 ** HELP - AWARDS
 ** ------------------
 */
-
-$lang['HELP_AWARDS_SUBTITLE'] = 'Auszeichnungen';
-$lang['HELP_BATTLE_AWARDS'] = 'The following battle won awards can be earned:';
-$lang['HELP_BOUNTY_AWARDS'] = 'The following bounty set awards can be earned:';
-$lang['HELP_REBEL_AWARDS'] = 'The following rebellion rise awards can be earned:';
 
 /*
 ** ------------------
@@ -1654,61 +1097,6 @@ $lang['HELP_REBEL_AWARDS'] = 'The following rebellion rise awards can be earned:
 ** HELP - STATS
 ** ------------------
 */
-
-/*
-** ------------------
-** HELP - ABOUT
-** ------------------
-*/
-
-$lang['HELP_ABOUT_SUBTITLE'] = 'About';
-$lang['HELP_BACKGROUND_TITLE'] = 'Background';
-$lang['HELP_BACKGROUND'] = 'WarQuest is created by <a target="new" href="http://www.plaatsoft.nl">PlaatSoft</a>. Original game idea is based on some other games available in the Apple appstore. The main reason to recreate this kind of game is to create a better game play and user interface which can be controlled on the following device types: Smart phones (Apple, Android, Nokia and BlackBerry), Tables (Samsung and Apple), Game consoles (Nintendo) and all kinds of notebooks (Intel / AMD base).';
-$lang['HELP_CREDITS_TITLE'] = 'Credits';
-$lang['HELP_BROWSERS_TITLE'] = 'Supported Browsers'; 
-$lang['HELP_HARDWARE_TITLE'] = 'Supported Hardware'; 
-$lang['HELP_DISCLAIMER_TITLE'] = 'Disclaimer'; 
-$lang['HELP_DISCLAIMER'] = 'The program is provided AS IS with NO WARRANTY OF ANY KIND, INCLUDING THE WARRANTY OF DESIGN, MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE.<br/>';
-
-$lang['HELP_CREDITS_TITLE'] = 'Credits';
-$lang['HELP_CREDITS'] = 'Many thanks to the following people and organisations who helped creating this game.';
-$lang['HELP_CREDITS_ARCHITECT'] = 'Architect';
-$lang['HELP_CREDITS_DEVELOPERS'] = 'Developer';
-$lang['HELP_CREDITS_GRAPHICS'] = 'Graphics & Information';
-$lang['HELP_CREDITS_TRANSLATORS'] = 'Translators';
-$lang['HELP_CREDITS_TESTERS'] = 'Testers';
-$lang['HELP_CREDITS_OTHER'] = 'Other';
-$lang['HELP_CREDITS_OTHER_NOTE'] = 'And of course all WarQuest players who sent great feedback to improve the game. Enjoy then game and lets have fun!';
-
-/*
-** ------------------
-** RANK DATA
-** ------------------
-*/
-
-$lang['RANK_1'] = "Private";
-$lang['RANK_2'] = "Private first class";
-$lang['RANK_3'] = "Specialist";
-$lang['RANK_4'] = "Corporal";
-$lang['RANK_5'] = "Sergeant";
-$lang['RANK_6'] = "Staff Sergeant";
-$lang['RANK_7'] = "Sergeant First Class";
-$lang['RANK_8'] = "Master Sergeant";
-$lang['RANK_9'] = "First Sergeant";
-$lang['RANK_10'] = "Sergeant Major";
-$lang['RANK_11'] = "Command Sergeant Major";
-$lang['RANK_12'] = "Sergeant Major of the Army";
-$lang['RANK_13'] = "Second Lieutenant";
-$lang['RANK_14'] = "First Lieutenant";
-$lang['RANK_15'] = "Captain";
-$lang['RANK_16'] = "Major";
-$lang['RANK_17'] = "Lieutenant Colonel";
-$lang['RANK_18'] = "Colonel";
-$lang['RANK_19'] = "Brigadier General";
-$lang['RANK_20'] = "Major General";
-$lang['RANK_21'] = "Lieutenant General";
-$lang['RANK_22'] = "General";
-$lang['RANK_23'] = "General of the Army";
 
 /*
 ** ------------------

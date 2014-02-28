@@ -945,6 +945,32 @@ function warquest_clan_statistics_part($clan) {
 	$page .= '</div>';
 }
 
+function warquest_clan_profile_form() {
+
+	/* input */	
+	global $cid;
+	global $player;
+		
+	/* output */
+	global $page;
+	global $output;
+		
+	$clan = warquest_db_clan($cid);
+	$player_clan = warquest_db_player_clan($player->pid);
+	
+	$output->title = t('CLAN_PROFILE', $clan->name);
+	
+	warquest_clan_statistics_part($clan);
+	warquest_clan_bank_part($clan, $player_clan);
+	warquest_clan_skills_part($clan);
+	warquest_clan_member_part($clan);
+	warquest_clan_slogan_part($clan);
+	
+	$page .= '<div class="note">';
+	$page .= t('CLAN_PROFILE_NOTE');
+   $page .= '</div>';	
+}
+
 function warquest_clan_form() {
 
 	/* input */	
@@ -954,12 +980,14 @@ function warquest_clan_form() {
 	
 	global $player;
 	global $other;
+	global $offset;
 		
 	/* output */
 	global $page;
 	global $output;
 	
 	$lid = 15;
+	$limit = 25;
 	
 	$output->title = t('CLAN_TITLE');
 
@@ -985,12 +1013,17 @@ function warquest_clan_form() {
 		$page .= '</div>';
 	}
 	
+	$query  = 'select cid from clan';
+	$result = warquest_db_query($query);	
+	$total = warquest_db_num_rows($result);
+	
 	$query  = 'select a.cid, a.name, a.created, a.won, a.lost, a.pid, ';
 	$query .= '(select name from player where pid=a.pid) as name2, ';
 	$query .= '(select country from player where pid=a.pid) as country2, ';
 	$query .= '(select count(*) from player_clan where approved=1 and cid=a.cid) as size, ';
 	$query .= '(select count(*) from player_clan d where d.cid=a.cid and d.pid='.$player->pid.') as joined ';
-	$query .= 'from clan a order by a.won desc';
+	$query .= 'from clan a order by a.last_activity desc ';
+	$query .= 'limit '.$offset.','.$limit;
 	
 	$result = warquest_db_query($query);	 	
 	$size = warquest_db_num_rows($result);
@@ -1001,16 +1034,21 @@ function warquest_clan_form() {
 		$page .= warquest_box_icon('info', $message);
 		
 	} else if ($player->lid < $lid) {
-			
+				
 		$message = '<table>';
+		
 		$message .= '<tr>';
+		
 		$message .= '<td>';
 		$message .= warquest_image("other/unlock.png");
 		$message .= '</td>';
+		
 		$message .= '<td>';
 		$message .= t('BATTLE_CLAN_WAR_UNLOCKED', t('GENERAL_PLANET_1'), $lid);
 		$message .= '</td>';
+		
 		$message .= '</tr>';
+		
 		$message .= '</table>';
 		
 		$page .= warquest_box("", $message);
@@ -1019,6 +1057,8 @@ function warquest_clan_form() {
 	
 		$page .= '<div class="box rows">';
 	
+		$page .= warquest_page_control($offset, $limit, $total, 1);
+			
 		$page .= '<table>';
 		
 		$page .= '<tr>';
@@ -1053,7 +1093,7 @@ function warquest_clan_form() {
 			$page .= '<tr>';
 
 			$page .= '<td>';
-			$page .= warquest_image("other/clan.jpg", 'width="50" height="30"').' ';
+			$page .= warquest_image("other/clan.jpg", 'width="32" height="22"').' ';
 			$page .= warquest_link('mid='.$mid.'&sid='.PAGE_CLAN_PROFILE.'&cid='.$data->cid, $data->name);
 			$page .= '</td>';
 					
@@ -1089,37 +1129,14 @@ function warquest_clan_form() {
 		}
 		
 		$page .= '</table>';		
+		
+		$page .= warquest_page_control($offset, $limit, $total, 0);
+		
 		$page .= '</div>';		
 	} 
 		
 	$page .= '<div class="note">';
 	$page .= t('CLAN_NOTE');
-   $page .= '</div>';	
-}
-
-function warquest_clan_profile_form() {
-
-	/* input */	
-	global $cid;
-	global $player;
-		
-	/* output */
-	global $page;
-	global $output;
-		
-	$clan = warquest_db_clan($cid);
-	$player_clan = warquest_db_player_clan($player->pid);
-	
-	$output->title = t('CLAN_PROFILE', $clan->name);
-	
-	warquest_clan_statistics_part($clan);
-	warquest_clan_bank_part($clan, $player_clan);
-	warquest_clan_skills_part($clan);
-	warquest_clan_member_part($clan);
-	warquest_clan_slogan_part($clan);
-	
-	$page .= '<div class="note">';
-	$page .= t('CLAN_PROFILE_NOTE');
    $page .= '</div>';	
 }
 
@@ -1129,11 +1146,12 @@ function warquest_clan_profile_form() {
 ** --------------
 */
 
-function warquest_clan_events() {
+function warquest_clan() {
 
 	/* input */
 	global $eid;
-			
+	global $sid;
+
 	/* Event Handler */
 	switch ($eid) {
 
@@ -1173,14 +1191,7 @@ function warquest_clan_events() {
 			warquest_clan_skill_decrease_do();
 			break;
 	}
-}
-
-function warquest_clan_forms() {
-
-	/* input */
-	global $sid;
 	
-	/* Page handler */
 	switch ($sid) {
 
 		case PAGE_CLAN: 

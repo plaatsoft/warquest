@@ -56,7 +56,6 @@ $lang['LINK_BATTLE'] = 'Lupta';
 $lang['LINK_UNITS'] = 'Armata';
 $lang['LINK_BUILDINGS'] = 'Cladiri';
 $lang['LINK_BANKS'] = 'Banca';
-$lang['LINK_ALLIANCE'] = 'Alianta';
 $lang['LINK_PLAYER'] = 'Jucator';
 $lang['LINK_MONEY'] = 'Bani';
 $lang['LINK_HELP'] = 'Ajutor';
@@ -133,8 +132,8 @@ $lang['LINK_INVITE'] = 'Invita';
 $lang['LINK_PENDING'] = 'Invitati';
 $lang['LINK_APPROVED'] = 'Acceptati';
 $lang['LINK_COMMENT'] = 'Mesaje';
-$lang['LINK_BEST_PLAYER'] = 'cei mai buni jucatori';
-$lang['LINK_BEST_COUNTRY'] = 'cele mai bune tari';
+$lang['LINK_BEST_PLAYER'] = 'jucatori';
+$lang['LINK_BEST_COUNTRY'] = 'tari';
 $lang['LINK_DROP'] = 'arunca';
 $lang['LINK_ACCEPT'] = 'accepta';
 $lang['LINK_REJECT'] = 'refuza';
@@ -177,12 +176,12 @@ $lang['AGO_SECS'] = ' secunde';
 $lang['COPYRIGHT'] = 'Copyright © 2008-2014 - toate drepturile rezervate - <a target="new" href="http://www.plaatsoft.nl">PlaatSoft</a>';
 
 $lang['STATUS_CASH'] = 'bani';
-$lang['STATUS_EXP'] = 'Experienta.';
+$lang['STATUS_EXP'] = 'Exp.';
 $lang['STATUS_LEVEL'] = 'nivel';
 $lang['STATUS_HEALTH'] = 'viata';
 $lang['STATUS_ENERGY'] = 'energie';
 $lang['STATUS_AMMO'] = 'munitie';
-$lang['STATUS_ALLIANCE_SIZE'] = 'marimea aliantei';
+$lang['STATUS_ALLIANCE_SIZE'] = 'aliantei';
 
 $lang['BOX_INFO'] = 'INFOrmatii';
 $lang['BOX_WARN'] = 'atentionari';
@@ -1550,16 +1549,13 @@ $lang['CASINO_SLOTMACHINE_HELP'] = 'urmatoarea combinatie la sloturi castiga';
 ** ------------------
 */
 
-$lang['ALLIANCE_TITLE'] = 'ALIANTA';
-
 $lang['ALLIANCE_PENDING_TITLE1'] = 'Invitaii';
-$lang['ALLIANCE_PENDING_TITLE2'] = 'invitatii [%s acceptati - %s invitati ]';
+$lang['ALLIANCE_PENDING_TITLE2'] = 'invitatii [%s invitati ]';
 
 $lang['ALLIANCE_ACCEPT_TITLE1'] = 'Accepted';
-$lang['ALLIANCE_ACCEPT_TITLE2'] = 'Accepted [%s acceptati - %s invitati]';
+$lang['ALLIANCE_ACCEPT_TITLE2'] = 'Accepted [%s acceptati]';
 
-$lang['ALLIANCE_INVITE_TITLE1'] = 'Invitati';
-$lang['ALLIANCE_INVITE_TITLE2'] = 'Invitati [%s acceptati - %s invitati]';
+$lang['ALLIANCE_INVITE_TITLE'] = 'Invitati';
 
 $lang['ALLIANCE_NO_PENDING'] = 'nici o alianta in asteptare!'; 
 $lang['ALLIANCE_INVITATION'] = 'invitatia de alianta a fost trimisa lui %s!'; 
@@ -1584,7 +1580,6 @@ $lang['LEADERBORD_BEST_PLAYER'] = 'Clasament (Cei mai buni jucatori)';
 $lang['LEADERBORD_BEST_PLAYER_NOTE'] = 'Nota: In clasamentul celor mai buni jucatori sunt doar oameni. robotii WarQuest  (cyberspace) nu sunt disponibili!';
 
 $lang['LEADERBORD_BEST_COUNTRY'] = 'Clasament (Cele mai bune tari)';
-$lang['LEADERBORD_BEST_COUNTRY_NOTE'] = 'Note: Leaderboard shows the best real countries.';
 
 $lang['LEADERBORD_PLAYER_COUNTRY'] = 'Clasament (Cei mai buni jucatori din  %s)';
 $lang['LEADERBORD_PLAYER_COUNTRY_NOTE'] = 'Nota: Clasamentul arata cei mai buni jucatori din tara selectata.';

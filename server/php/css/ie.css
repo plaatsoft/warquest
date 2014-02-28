@@ -3,6 +3,11 @@
 body {	
 	display:block;	
 	width: 510px;
+	font-size: 15px;
+}
+
+.tr {
+	width: 510px;
 }
 
 .content {

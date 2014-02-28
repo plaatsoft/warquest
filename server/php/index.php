@@ -89,7 +89,10 @@ if (strlen($token)>0) {
 		$items = preg_split ("/=/", $item);
 		if (is_numeric($items[1])) {
 			$$items[0] = $items[1];	
-			//echo $items[0].'='.$items[1].' ';
+			
+			if (DEBUG) {
+				echo $items[0].'='.$items[1].' ';
+			}
 		}
 	}
 }
@@ -272,7 +275,8 @@ switch ($mid) {
 			warquest_money();
 			break;
 
-	case MENU_ALLIANCE:
+	case MENU_PLAYERS:
+			include "players.inc";
 			include "alliance.inc";
 			include "clan.inc";
 			include "promotion.inc";
@@ -280,7 +284,7 @@ switch ($mid) {
 			include 'pdf/fpdf.php';
 			include "report.inc";
 			include "leaderboard.inc";
-			warquest_alliance();
+			warquest_players();
 			break;
 
 	case MENU_FORUMS:

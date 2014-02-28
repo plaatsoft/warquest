@@ -217,7 +217,7 @@ function warquest_bank_log() {
 	
 	$page .= '<div class="box rows">';
 	
-	$page .= warquest_page_control($offset, $limit, $total, 1, '&ssid='.$ssid);
+	$page .= warquest_page_control($offset, $limit, $total, 1);
 	
 	$page .= '<table>';
 	
@@ -249,7 +249,7 @@ function warquest_bank_log() {
 	
 	$page .= '</table>';
 	
-	$page .= warquest_page_control($offset, $limit, $total, 0, '&ssid='.$ssid);
+	$page .= warquest_page_control($offset, $limit, $total, 0);
 	
 	$page .= '</div>';
 }

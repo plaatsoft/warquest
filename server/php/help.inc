@@ -777,11 +777,11 @@ function warquest_help_ranks_form() {
 			$page .= '<tr>';
 			
 			$page .= '<td width="150">';
-			$page .= '<b>'.t('GENERAL_LEVEL').' '.$tmp.'</b>';
+			$page .= t('GENERAL_LEVEL').' '.$tmp;
 			$page .= '</td>';
 			
 			$page .= '<td width="200">';
-			$page .= '<b>'.$rank.'</b>';
+			$page .= $rank;
 			$page .= '</td>';
 			
 			$page .= '<td width="150">';

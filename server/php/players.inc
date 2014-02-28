@@ -22,7 +22,7 @@
 ** -------------
 */
 
-function warquest_money() {
+function warquest_players() {
 
 	/* input */
 	global $sid;
@@ -35,26 +35,27 @@ function warquest_money() {
 			warquest_switch_planet_do();
 			break;
 	}	
-	
+		
 	switch ($sid) {
 
-		case PAGE_BANK: 	
-					warquest_bank();
+		case PAGE_ALLIANCE: 	
+					warquest_alliance();
 					break;
 					
-		case PAGE_STOCK_EXCHANGE:  
-					warquest_stock();
+		case PAGE_CLAN:  
+		case PAGE_CLAN_PROFILE:  
+					warquest_clan();
 					break;
 					
-		case PAGE_CASINO:
-					warquest_casino();
+		case PAGE_PROMOTION:
+					warquest_promotion();
 					break;
 					
-		case PAGE_GOLD:
-					warquest_gold();
+		case PAGE_LEADERBOARD:
+					warquest_leaderboard();
 					break;
-		
 	}
+
 	warquest_player();	
 }
 
@@ -65,4 +66,3 @@ function warquest_money() {
 */
 
 ?>
-
