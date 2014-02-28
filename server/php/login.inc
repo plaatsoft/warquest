@@ -169,7 +169,7 @@ function warquest_login_header() {
 	$page .= '</table>';
 	$page .= '</div>';
 		
-	$page .= '<br/>';
+	$page .= '<div class="spacer"></div>';
 		
 	$page .= warquest_login_menu();
 	
@@ -223,9 +223,10 @@ function warquest_login_footer() {
 	$page .= t('LOGIN_BEST_VIEWED');
 	$page .= '</div>';
 			
-	$page .= '<br/>';	
+	$page .= '<div class="spacer"></div>';
 		
 	$page .= '<div class="footer">';
+	
 	$page .= '<table>';
 	$page .= '<tr>';
 	$page .= '<td align="left">';
@@ -284,7 +285,7 @@ function warquest_login_footer() {
 			$page .= number_format(0,0,",",".");
 		}
 		$page .= '</span> ';
-		$page .= t('LOGIN_ONLINE').'<br/>';	
+		$page .= t('LOGIN_ONLINE');	
 		
 		$page .= '</center>';
 	}
