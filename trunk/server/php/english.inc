@@ -56,7 +56,7 @@ $lang['LINK_BATTLE'] = 'Battle';
 $lang['LINK_UNITS']  = 'Units';
 $lang['LINK_BUILDINGS']  = 'Buildings';
 $lang['LINK_BANKS'] = 'Banks';
-$lang['LINK_ALLIANCE'] = 'Alliance';
+$lang['LINK_PLAYERS'] = 'Players';
 $lang['LINK_PLAYER'] = 'Player';
 $lang['LINK_MONEY'] = 'Money';
 $lang['LINK_HELP'] = 'Help';
@@ -96,7 +96,6 @@ $lang['LINK_BOUNTY'] = 'Bounty';
 
 /* Mission */
 $lang['LINK_PLAYER'] = 'Player';
-$lang['LINK_CLAN'] = 'Clan';
 $lang['LINK_PLAY'] = 'Play';
 $lang['LINK_BUY_PLAY'] = 'Buy and play';
 $lang['LINK_DO_AGAIN'] = 'Play again';
@@ -130,19 +129,23 @@ $lang['LINK_DEPOSIT']  = 'Deposit';
 $lang['LINK_WITHDRAW'] = 'Withdraw';
 $lang['LINK_BALANCE']  = 'Balance';
 
-/* Alliance */
+/* Players */
+$lang['LINK_ALLIANCE'] = 'Alliance';
 $lang['LINK_INVITE'] = 'Invite';
 $lang['LINK_PENDING'] = 'Pending';
 $lang['LINK_APPROVED'] = 'Accepted';
 $lang['LINK_COMMENT']  = 'Message';
 $lang['LINK_FORUM']  = 'Forum';
-$lang['LINK_BEST_PLAYER']  = 'Best-Players';
-$lang['LINK_BEST_COUNTRY'] = 'Best-Countries';
 $lang['LINK_DROP'] = 'Drop';
 $lang['LINK_ACCEPT'] = 'Accept';
 $lang['LINK_REJECT'] = 'Reject';
 $lang['LINK_SEND'] = 'Send';
 $lang['LINK_RESET']  = 'Reset';
+
+$lang['LINK_LEADERBOARD'] = 'Leaderboards';
+$lang['LINK_BEST_PLAYER']  = 'Players';
+$lang['LINK_BEST_COUNTRY'] = 'Countries';
+$lang['LINK_BEST_CLAN'] = 'Clans';
 
 /* Forum */
 $lang['LINK_FORUM']  = 'Forums';
@@ -2360,20 +2363,21 @@ $lang['CASINO_TICTACTOE_LOST'] = 'You lost %s dollars.';
 
 /*
 ** ------------------
-** ALLIANCE
+** PLAYERS
 ** ------------------
 */
 
-$lang['ALLIANCE_TITLE'] = 'ALLIANCE';
+$lang['PLAYERS_TITLE'] = 'PLAYERS';
+
+$lang['ALLIANCE_TITLE'] = 'Alliance';
 
 $lang['ALLIANCE_PENDING_TITLE1'] = 'Pending';
-$lang['ALLIANCE_PENDING_TITLE2'] = 'Pending [%s accepted - %s invited allies]';
+$lang['ALLIANCE_PENDING_TITLE2'] = 'Pending [%s invited]';
 
 $lang['ALLIANCE_ACCEPT_TITLE1'] = 'Accepted';
-$lang['ALLIANCE_ACCEPT_TITLE2'] = 'Accepted [%s accepted - %s invited allies]';
+$lang['ALLIANCE_ACCEPT_TITLE2'] = 'Accepted [%s allies]';
 
-$lang['ALLIANCE_INVITE_TITLE1'] = 'Invite';
-$lang['ALLIANCE_INVITE_TITLE2'] = 'Invite [%s accepted - %s invited allies]';
+$lang['ALLIANCE_INVITE_TITLE'] = 'Invite';
 
 $lang['ALLIANCE_NO_PENDING'] = 'No pending invitations waiting!'; 
 $lang['ALLIANCE_INVITATION'] = 'Ally invitation sent to %s!'; 
@@ -2394,14 +2398,18 @@ $lang['ALLIANCE_PLAYER_NEWS'] = 'Messages';
 $lang['ALLIANCE_COMMENT_ALL'] = 'Message is stored and available for all players.';
 $lang['ALLIANCE_COMMENT_PLAYER'] = 'Message is sent to %s';
 
-$lang['LEADERBORD_BEST_PLAYER'] = 'Leaderboard (Best Players)';
-$lang['LEADERBORD_BEST_PLAYER_NOTE'] = 'Note: Leaderboard shows the best human players. WarQuest robot (cyberspace) players are not shown!';
 
-$lang['LEADERBORD_BEST_COUNTRY'] = 'Leaderboard (Best Countries)';
-$lang['LEADERBORD_BEST_COUNTRY_NOTE'] = 'Note: Leaderboard shows the best real countries.';
+$lang['LEADERBORD_BEST_PLAYER'] = 'Top Players';
+$lang['LEADERBORD_BEST_PLAYER_NOTE'] = 'Note: Leaderboard shows the player ranking.';
 
-$lang['LEADERBORD_PLAYER_COUNTRY'] = 'Leaderboard (Best Players of %s)';
-$lang['LEADERBORD_PLAYER_COUNTRY_NOTE'] = 'Note: Leaderboard shows the best players of the selected country.';
+$lang['LEADERBORD_BEST_COUNTRY'] = 'Top Countries';
+$lang['LEADERBORD_BEST_COUNTRY_NOTE'] = 'Note: Leaderboard shows the country ranking.';
+
+$lang['LEADERBORD_PLAYER_COUNTRY'] = 'Top Players of %s';
+$lang['LEADERBORD_PLAYER_COUNTRY_NOTE'] = 'Note: Leaderboard shows the player ranking of the selected country.';
+
+$lang['LEADERBOARD_CLAN'] = 'Top Clans';
+$lang['LEADERBOARD_CLAN_NOTE'] = 'Note: Leaderboard shows the clan ranking.';
 
 /*
 ** ------------------
@@ -2790,9 +2798,9 @@ $lang['RANK_6'] = "Staff Sergeant";
 $lang['RANK_7'] = "Sergeant First Class";
 $lang['RANK_8'] = "Master Sergeant";
 $lang['RANK_9'] = "First Sergeant";
-$lang['RANK_10'] = "Sergeant Major 1";
+$lang['RANK_10'] = "Sergeant Major";
 $lang['RANK_11'] = "Command Sergeant Major";
-$lang['RANK_12'] = "Sergeant Major 2";
+$lang['RANK_12'] = "Sergeant Major of the Army";
 $lang['RANK_13'] = "Second Lieutenant";
 $lang['RANK_14'] = "First Lieutenant";
 $lang['RANK_15'] = "Captain";
@@ -3108,9 +3116,8 @@ $lang['GENERAL_ALL']  = 'All';
 
 $lang['LINK_JOIN'] = 'Join';
 $lang['LINK_LEAVE'] = 'Leave';
-$lang['LINK_CLAN'] = 'Clan';
 
-$lang['CLAN_TITLE'] = 'Clan';
+$lang['CLAN_TITLE'] = 'Clans';
 $lang['CLAN_NOTE'] = 'Create or join a clan to enter clan wars. Each player can only be part of one clan.';
 $lang['CLAN_ADD'] = 'Add Clan';
 $lang['CLAN_CREATE'] = 'New clan name';
@@ -3261,6 +3268,10 @@ $lang['LINK_HERE'] = 'here';
 ** Added v6.5
 ** ------------------
 */
+
+$lang['LINK_CLAN'] = 'Clans';
+
+$lang['GENERAL_MISSIONS'] = 'Missions';
 
 $lang['CLAN_DEPOSIT_TOO_HIGH'] = 'Maximum allow deposit is %s dollar per day. The maximum is based on 10 times your hourly income.';
 $lang['CLAN_DEPOSIT_MAX'] = 'Daily deposit already done! Wait %s for your next deposit!';

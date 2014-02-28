@@ -23,18 +23,169 @@
 */
 
 /*
-** ---------------------
-** Leaderboard best player per country
-** ---------------------
+** -------------------------------
+** Leaderboard best clan
+** -------------------------------
 */
 
-function warquest_leaderboard3_form() {
+function warquest_best_clan_form() {
+
+	/* input */	
+	global $mid;
+	global $sid;
+	global $ssid;
+	global $sort;
+	global $offset;
+			
+	/* output */
+	global $page;
+	global $output;
+	
+	$limit = 25;
+	
+	$output->title = t('LEADERBOARD_CLAN');
+	
+	$page .= '<div class="subparagraph">';
+	$page .= $output->title;
+	$page .= '</div>';
+	
+	$query  = 'select cid from clan';
+	$result = warquest_db_query($query);	
+	$total = warquest_db_num_rows($result);
+	
+	$query  = 'select a.cid, a.name, a.created, a.won, a.lost, a.mission, ';
+	$query .= '(select count(*) from player_clan where approved=1 and cid=a.cid) as size ';
+	$query .= 'from clan a ';
+	
+	switch ($sort) {
+		
+		default:
+		case 1:
+			$query .= 'order by a.won desc ';
+			break;
+				
+		case 2:
+			$query .= 'order by a.lost desc ';
+			break;
+			
+		case 3:
+			$query .= 'order by a.mission desc ';
+			break;
+				
+		case 4:
+			$query .= 'order by size desc ';
+			break;
+	}
+	$query .= 'limit '.$offset.','.$limit;
+	
+		
+	$result = warquest_db_query($query);	 	
+	$size = warquest_db_num_rows($result);
+	
+	if ($size == 0) {
+	
+		$message = t('CLAN_NO_CLANS');
+		$page .= warquest_box_icon('info', $message);
+	
+	} else {		
+	
+		$page .= '<div class="box rows">';
+	
+		$page .= warquest_page_control($offset, $limit, $total, 1, '&sort='.$sort);
+	
+		$page .= '<table>';
+		
+		$page .= '<tr>';
+						
+		$page .= '<th width="35">';
+		$page .= t('GENERAL_TOP');
+		$page .= '</th>';
+						
+		$page .= '<th width="200">';
+		$page .= t('GENERAL_NAME');
+		$page .= '</th>';
+				
+		$page .= '<th width="80">';
+		$page .= warquest_link('mid='.$mid.'&sid='.$sid.'&ssid='.$ssid.'&sort=1', t('GENERAL_WON'));
+		$page .= '</th>';
+
+		$page .= '<th width="80">';
+		$page .= warquest_link('mid='.$mid.'&sid='.$sid.'&ssid='.$ssid.'&sort=2', t('GENERAL_LOST'));
+		$page .= '</th>';		
+				
+		$page .= '<th width="80">';
+		$page .= warquest_link('mid='.$mid.'&sid='.$sid.'&ssid='.$ssid.'&sort=3', t('GENERAL_MISSIONS'));
+		$page .= '</th>';
+		
+		$page .= '<th width="80">';
+		$page .= warquest_link('mid='.$mid.'&sid='.$sid.'&ssid='.$ssid.'&sort=4', t('GENERAL_SIZE'));
+		$page .= '</th>';
+				
+		$page .= '</tr>';
+		
+		$count=$offset;
+		while ($data = warquest_db_fetch_object($result)) {
+		
+			$count++;
+			
+			$page .= '<tr>';
+
+			$page .= '<td>';
+			$page .= $count;
+			$page .= '</td>';
+			
+			$page .= '<td>';
+			$page .= warquest_image("other/clan.jpg", 'width="32" height="22"').' ';
+			$page .= warquest_link('mid='.$mid.'&sid='.PAGE_CLAN_PROFILE.'&cid='.$data->cid, $data->name);
+			$page .= '</td>';
+								
+			$page .= '<td>';
+			$page .= number_format($data->won,0,",",".");
+			$page .= '</td>';
+			
+			$page .= '<td>';
+			$page .= number_format($data->lost,0,",",".");
+			$page .= '</td>';
+									
+			$page .= '<td>';
+			$page .= number_format($data->mission,0,",",".");
+			$page .= '</td>';
+			
+			$page .= '<td>';
+			$page .= number_format($data->size,0,",",".");
+			$page .= '</td>';
+			
+			$page .= '</tr>';
+		}
+		
+		$page .= '</table>';		
+		
+		$page .= warquest_page_control($offset, $limit, $total, 0, '&sort='.$sort);
+		
+		$page .= '</div>';		
+	} 
+		
+	$page .= '<div class="note">';
+	$page .= t('LEADERBOARD_CLAN_NOTE');
+   $page .= '</div>';	
+}
+
+/*
+** -------------------------------
+** Leaderboard best player country
+** -------------------------------
+*/
+
+function warquest_best_player_country_form() {
 
 	/* input */
-	global $player;
-	global $uid;
-	global $sid;
 	global $mid;
+	global $sid;
+	global $ssid;
+	
+	global $uid;
+		
+	global $player;
 	global $offset;
 	global $sort;
 		
@@ -47,7 +198,7 @@ function warquest_leaderboard3_form() {
 	
 	$output->title = t('LEADERBORD_PLAYER_COUNTRY',warquest_landcode($code));
 	
-	$limit = 50;
+	$limit = 25;
 
 	$query  = 'select pid from player where country="'.$code.'"';
 	$result = warquest_db_query($query);	
@@ -60,23 +211,19 @@ function warquest_leaderboard3_form() {
 	switch ($sort) {
 		
 			case 1:
-				$query .= 'order by name asc ';
-				break;
-				
-			case 2:
 				$query .= 'order by lid desc, experience desc ';
 				break;
 			
 			default:
-			case 3:
+			case 2:
 				$query .= 'order by experience desc ';
 				break;
 				
-			case 4:
+			case 3:
 				$query .= 'order by won desc ';
 				break;
 			
-			case 5:
+			case 4:
 				$query .= 'order by lost desc ';
 				break;
 	}
@@ -95,27 +242,27 @@ function warquest_leaderboard3_form() {
 	$page .= '<tr>';
 	
 	$page .= '<th width="35">';
-	$page .= '<b>'.t('GENERAL_TOP').'</b>';
+	$page .= t('GENERAL_TOP');
 	$page .= '</th>';
 	
 	$page .= '<th width="160">';
-	$page .= warquest_link('mid='.$mid.'&sid='.$sid.'&sort=1', t('GENERAL_PLAYER'));
+	$page .= t('GENERAL_PLAYER');
 	$page .= '</th>';
 	
 	$page .= '<th width="50">';
-	$page .= warquest_link('mid='.$mid.'&sid='.$sid.'&sort=2', t('GENERAL_LEVEL'));
+	$page .= warquest_link('mid='.$mid.'&sid='.$sid.'&ssid='.$ssid.'&sort=1', t('GENERAL_LEVEL'));
 	$page .= '</th>';
 	
 	$page .= '<th width="110">';
-	$page .= warquest_link('mid='.$mid.'&sid='.$sid.'&sort=3', t('GENERAL_EXP'));			
+	$page .= warquest_link('mid='.$mid.'&sid='.$sid.'&ssid='.$ssid.'&sort=2', t('GENERAL_EXP'));			
 	$page .= '</th>';
 	
 	$page .= '<th width="70">';
-	$page .= warquest_link('mid='.$mid.'&sid='.$sid.'&sort=4', t('GENERAL_WON'));	
+	$page .= warquest_link('mid='.$mid.'&sid='.$sid.'&ssid='.$ssid.'&sort=3', t('GENERAL_WON'));	
 	$page .= '</th>';
 	
 	$page .= '<th width="70">';
-	$page .= warquest_link('mid='.$mid.'&sid='.$sid.'&sort=5', t('GENERAL_LOST'));
+	$page .= warquest_link('mid='.$mid.'&sid='.$sid.'&ssid='.$ssid.'&sort=4', t('GENERAL_LOST'));
 	$page .= '</th>';
 	
 	$page .= '</tr>';
@@ -170,18 +317,20 @@ function warquest_leaderboard3_form() {
 }
 
 /*
-** ---------------------
-** Leaderboard best countries
-** ---------------------
+** -------------------------
+** Leaderboard best country
+** -------------------------
 */
 
-function warquest_leaderboard2_form() {
+function warquest_best_country_form() {
 
-	/* input */
-	global $offset;
+	/* input */	
 	global $mid;
 	global $sid;
-			
+	global $ssid;
+
+	global $offset;
+	
 	/* output */
 	global $page;
 	global $output;
@@ -190,7 +339,7 @@ function warquest_leaderboard2_form() {
 	$output->title = t('LEADERBORD_BEST_COUNTRY');
 	
 	/* Max records. */
-	$limit = 50;
+	$limit = 25;
 		
 	$query  = 'select country from player where country!="EU" group by country ';
 	$result = warquest_db_query($query);	 
@@ -201,21 +350,17 @@ function warquest_leaderboard2_form() {
 	$query .= 'from player where country!="EU" group by country  ';
 	
 	switch ($sort) {
-		
+					
 			case 1:
-				$query .= 'order by country asc ';
-				break;
-				
-			case 2:
 				$query .= 'order by total desc ';
 				break;
 
 			default:
-			case 3:
+			case 2:
 				$query .= 'order by won desc, country asc ';
 				break;
 				
-			case 4:
+			case 3:
 				$query .= 'order by lost desc ';
 				break;
 	}
@@ -235,24 +380,21 @@ function warquest_leaderboard2_form() {
 	$page .= '<th width="35">';
 	$page .= t('GENERAL_TOP');
 	$page .= '</th>';
-	
-	$page .= '<th width="40">';
-	$page .= '</th>';
-	
+		
 	$page .= '<th width="240">';
-	$page .= warquest_link('mid='.$mid.'&sid='.$sid.'&sort=1', t('GENERAL_COUNTRY'));
+	$page .= t('GENERAL_COUNTRY');
 	$page .= '</th>';
 	
 	$page .= '<th width="70">';
-	$page .= warquest_link('mid='.$mid.'&sid='.$sid.'&sort=2', t('GENERAL_PLAYERS'));
+	$page .= warquest_link('mid='.$mid.'&sid='.$sid.'&ssid='.$ssid.'&sort=1', t('GENERAL_PLAYERS'));
 	$page .= '</th>';
 	
 	$page .= '<th width="80">';
-	$page .= warquest_link('mid='.$mid.'&sid='.$sid.'&sort=3', t('GENERAL_WONS'));
+	$page .= warquest_link('mid='.$mid.'&sid='.$sid.'&ssid='.$ssid.'&sort=2', t('GENERAL_WONS'));
 	$page .= '</th>';
 	
 	$page .= '<th width="70">';
-	$page .= warquest_link('mid='.$mid.'&sid='.$sid.'&sort=4', t('GENERAL_LOSTS'));
+	$page .= warquest_link('mid='.$mid.'&sid='.$sid.'&ssid='.$ssid.'&sort=3', t('GENERAL_LOSTS'));
 	$page .= '</th>';
 	$page .= '</tr>';
 	
@@ -260,22 +402,25 @@ function warquest_leaderboard2_form() {
 	while ($data=warquest_db_fetch_object($result)) {
 	
 		$page .= '<tr>';
+		
 		$page .= '<td>';
 		$page .= $count++;
 		$page .= '</td>';
+		
 		$page .= '<td>';
-		$page .= warquest_flag_image($data->country);
-		$page .= '</td>';
-		$page .= '<td>';
+		$page .= warquest_flag_image($data->country).' ';
 		$code = sprintf("%03d%03d",ord($data->country[0]),ord($data->country[1]));
-		$page .= warquest_link('mid='.$mid.'&sid='.PAGE_BEST_COUNTRY2.'&uid='.$code, warquest_landcode($data->country) ,$data->country);
+		$page .= warquest_link('mid='.$mid.'&sid='.$sid.'&ssid='.PAGE_BEST_COUNTRY2.'&uid='.$code, warquest_landcode($data->country) ,$data->country);
 		$page .= '</td>';
+		
 		$page .= '<td>';
 		$page .= number_format($data->total,0,",",".");;
 		$page .= '</td>';
+		
 		$page .= '<td>';
 		$page .= number_format($data->won,0,",",".");
 		$page .= '</td>';
+		
 		$page .= '<td>';
 		$page .= number_format($data->lost,0,",",".");
 		$page .= '</td>';
@@ -295,18 +440,20 @@ function warquest_leaderboard2_form() {
 }
 
 /*
-** ---------------------
+** -----------------------
 ** Leaderboard best player
-** ---------------------
+** -----------------------
 */
 
-function warquest_leaderboard1_form() {
+function warquest_best_player_form() {
 
 	/* input */
-	global $player;
-	global $uid;
 	global $mid;
 	global $sid;
+	global $ssid;
+	global $uid;
+	
+	global $player;
 	global $offset;
 	global $sort;
 		
@@ -317,7 +464,7 @@ function warquest_leaderboard1_form() {
 	$output->title = t('LEADERBORD_BEST_PLAYER');
 		
 	/* Max records. */
-	$limit = 50;
+	$limit = 25;
 	
 	$query  = 'select pid from player where country!="EU" ';
 	$result = warquest_db_query($query);	
@@ -328,25 +475,21 @@ function warquest_leaderboard1_form() {
 	$query .= 'from player where country!="EU" ';	
 	
 	switch ($sort) {
-		
+						
 			case 1:
-				$query .= 'order by name asc ';
-				break;
-				
-			case 2:
 				$query .= 'order by lid desc, experience desc ';
 				break;
 			
 			default:
-			case 3:
+			case 2:
 				$query .= 'order by experience desc ';
 				break;
 			
-			case 4:
+			case 3:
 				$query .= 'order by won desc ';
 				break;
 			
-			case 5:
+			case 4:
 				$query .= 'order by lost desc ';
 				break;
 	}
@@ -365,27 +508,27 @@ function warquest_leaderboard1_form() {
 	$page .= '<tr>';
 	
 	$page .= '<th width="35">';
-	$page .= '<b>'.t('GENERAL_TOP').'</b>';
+	$page .= t('GENERAL_TOP');
 	$page .= '</th>';
 	
 	$page .= '<th width="160">';
-	$page .= warquest_link('mid='.$mid.'&sid='.$sid.'&sort=1', t('GENERAL_PLAYER'));
+	$page .= t('GENERAL_PLAYER');
 	$page .= '</th>';
 	
 	$page .= '<th width="50">';
-	$page .= warquest_link('mid='.$mid.'&sid='.$sid.'&sort=2', t('GENERAL_LEVEL'));
+	$page .= warquest_link('mid='.$mid.'&sid='.$sid.'&ssid='.$ssid.'&sort=1', t('GENERAL_LEVEL'));
 	$page .= '</th>';
 	
 	$page .= '<th width="110">';
-	$page .= warquest_link('mid='.$mid.'&sid='.$sid.'&sort=3', t('GENERAL_EXP'));			
+	$page .= warquest_link('mid='.$mid.'&sid='.$sid.'&ssid='.$ssid.'&sort=2', t('GENERAL_EXP'));			
 	$page .= '</th>';
 	
 	$page .= '<th width="70">';
-	$page .= warquest_link('mid='.$mid.'&sid='.$sid.'&sort=4', t('GENERAL_WON'));	
+	$page .= warquest_link('mid='.$mid.'&sid='.$sid.'&ssid='.$ssid.'&sort=3', t('GENERAL_WON'));	
 	$page .= '</th>';
 	
 	$page .= '<th width="70">';
-	$page .= warquest_link('mid='.$mid.'&sid='.$sid.'&sort=5', t('GENERAL_LOST'));
+	$page .= warquest_link('mid='.$mid.'&sid='.$sid.'&ssid='.$ssid.'&sort=4', t('GENERAL_LOST'));
 	$page .= '</th>';
 	
 	$page .= '</tr>';
@@ -439,32 +582,37 @@ function warquest_leaderboard1_form() {
    $page .= '</div>';
 }
 
-
 /*
 ** ---------------------
 ** Handlers
 ** ---------------------
 */
 
-function warquest_leaderboard_forms() {
+function warquest_leaderboard() {
 
 	/* input */
-	global $sid;
+	global $ssid;
+
+	/* output */
+	global $page;
 			
-	
 	/* Page handler */
-	switch ($sid) {
+	switch ($ssid) {
 
 		case PAGE_BEST_PLAYER:
-					warquest_leaderboard1_form();
+					warquest_best_player_form();
 					break;
 				  
 		case PAGE_BEST_COUNTRY: 
-					warquest_leaderboard2_form();
+					warquest_best_country_form();
 					break;
 				  		  				  
 		case PAGE_BEST_COUNTRY2: 
-					warquest_leaderboard3_form();
+					warquest_best_player_country_form();
+					break; 
+					
+		case PAGE_BEST_CLAN: 
+					warquest_best_clan_form();
 					break; 
 	}				  
 }

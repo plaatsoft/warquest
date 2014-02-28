@@ -56,7 +56,6 @@ $lang['LINK_BATTLE'] = 'Batalla';
 $lang['LINK_UNITS']  = 'Unidades';
 $lang['LINK_BUILDINGS']  = 'Edificios';
 $lang['LINK_BANKS'] = 'Bancos';
-$lang['LINK_ALLIANCE'] = 'Alianzas';
 $lang['LINK_PLAYER'] = 'Jugador';
 $lang['LINK_MONEY'] = 'Dinero';
 $lang['LINK_HELP'] = 'Ayuda';
@@ -133,8 +132,8 @@ $lang['LINK_INVITE'] = 'Invitar';
 $lang['LINK_PENDING'] = 'Pendientes';
 $lang['LINK_APPROVED'] = 'Aceptados';
 $lang['LINK_COMMENT']  = 'Mensaje';
-$lang['LINK_BEST_PLAYER']  = 'Mejores-Jugadores';
-$lang['LINK_BEST_COUNTRY'] = 'Mejores-Países';
+$lang['LINK_BEST_PLAYER']  = 'Jugadores';
+$lang['LINK_BEST_COUNTRY'] = 'Países';
 $lang['LINK_DROP'] = 'Descartar';
 $lang['LINK_ACCEPT'] = 'Aceptar';
 $lang['LINK_REJECT'] = 'Rechazar';
@@ -2013,16 +2012,13 @@ $lang['CASINO_SLOTMACHINE_HELP'] = 'Se pagarán las siguientes combinaciones de m
 ** ------------------
 */
 
-$lang['ALLIANCE_TITLE'] = 'ALIANZAS';
-
 $lang['ALLIANCE_PENDING_TITLE1'] = 'Pendientes';
-$lang['ALLIANCE_PENDING_TITLE2'] = 'Pendientes [%s aceptados - %s aliados invitados]';
+$lang['ALLIANCE_PENDING_TITLE2'] = 'Pendientes [%s invitados]';
 
 $lang['ALLIANCE_ACCEPT_TITLE1'] = 'Aceptados';
-$lang['ALLIANCE_ACCEPT_TITLE2'] = 'Aceptados [%s aceptados - %s aliados invitados]';
+$lang['ALLIANCE_ACCEPT_TITLE2'] = 'Aceptados [%s aceptados]';
 
-$lang['ALLIANCE_INVITE_TITLE1'] = 'Invitar';
-$lang['ALLIANCE_INVITE_TITLE2'] = 'Invitaciones [%s aceptados - %s aliados invitados]';
+$lang['ALLIANCE_INVITE_TITLE'] = 'Invitar';
 
 $lang['ALLIANCE_NO_PENDING'] = 'No hay invitaciones pendientes!'; 
 $lang['ALLIANCE_INVITATION'] = 'Invitación de aliado enviada a %s!'; 

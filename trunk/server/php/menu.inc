@@ -60,7 +60,7 @@ function warquest_mainmenu() {
 		$menu .= warquest_ui_menu(MENU_MONEY, PAGE_BANK, 1, t('LINK_MONEY'), $mid);
 	}
 		
-	$menu .= warquest_ui_menu(MENU_ALLIANCE, PAGE_PENDING, 0, t('LINK_ALLIANCE'), $mid, $recruit);		
+	$menu .= warquest_ui_menu(MENU_PLAYERS, PAGE_ALLIANCE, PAGE_INVITE, t('LINK_PLAYERS'), $mid, $recruit);		
 	$menu .= warquest_ui_menu(MENU_FORUMS, PAGE_FORUM, 0, t('LINK_FORUM'), $mid);	
 	$menu .= warquest_ui_menu(MENU_HELP, PAGE_INSTRUCTIONS, 0, t('LINK_HELP'), $mid);
 
@@ -70,6 +70,9 @@ function warquest_mainmenu() {
 	
 	$menu .= '</ul>';	
 	$menu .= '</div>';	
+	
+	$menu .= '<div class="clear"></div>';
+	$menu .= '<div class="spacer"></div>';
 			
 	return $menu;
 }
@@ -87,8 +90,14 @@ function warquest_login_menu() {
 	global $sid;
 	global $version;
 	
-	$menu = '<div class="center">';
+	$menu  = '<table>';
+	$menu .= '<tr>';
 		
+	$menu .= '<td width="20%">';
+	$menu .= '</td>';
+	
+	$menu .= '<td width="60%" aling="center">';
+	
 	$menu .= '<div class="menu">';
 	$menu .= '<ul>';
 
@@ -105,7 +114,15 @@ function warquest_login_menu() {
 
 	$menu .= '</ul>';
 	$menu .= '</div>';
-	$menu .= '</div>';
+	
+	$menu .= '</td>';
+	
+	$menu .= '<td width="20%">';
+	$menu .= '</td>';
+	
+	$menu .= '</table>';
+	
+	$menu .= '<div class="clear"></div>';
 	 
 	return $menu;
 }
@@ -147,6 +164,8 @@ function warquest_menu_home() {
 	$menu .= '</ul>';
 	$menu .= '</div>';
 	
+	$menu .= '<div class="clear"></div>';
+	
 	return $menu;
 }
 
@@ -175,7 +194,7 @@ function warquest_menu_mission() {
 	$menu .= '</ul>';
 	$menu .= '</div>';
 	
-	$menu .= '<div class="stop"></div>';
+	$menu .= '<div class="clear"></div>';
 	
 	return $menu;
 }
@@ -212,6 +231,8 @@ function warquest_submenu_mission() {
 	$menu .= '</ul>';
 	$menu .= '</div>';
 	
+	$menu .= '<div class="clear"></div>';
+	
 	return $menu;
 }
 
@@ -236,7 +257,9 @@ function warquest_menu_battle() {
 	
 	$menu .= '</ul>';
 	$menu .= '</div>';
-		
+	
+	$menu .= '<div class="clear"></div>';
+	
 	return $menu;
 }
 
@@ -266,6 +289,8 @@ function warquest_menu_unit() {
 
 	$menu .= '</ul>';
 	$menu .= '</div>';
+
+	$menu .= '<div class="clear"></div>';
 
 	return $menu;
 }
@@ -306,8 +331,10 @@ function warquest_menu_building() {
 		$menu .= warquest_ui_menu($mid, $data->bgid, $ssid, t('BUILDING_GROUP_'.$data->bgid), $sid);
 	}
 	
+	$menu .= '</ul>';
 	$menu .= '</div>';
-	$menu .= '</div>';
+	
+	$menu .= '<div class="clear"></div>';
 	
 	return $menu;
 }
@@ -334,7 +361,9 @@ function warquest_submenu_building() {
 	
 	$menu .= '</ul>';
 	$menu .= '</div>';
-
+	
+	$menu .= '<div class="clear"></div>';
+	
 	return $menu;
 }
 
@@ -352,45 +381,101 @@ function warquest_menu_money() {
 	global $ssid;
 	global $config;
 		
-	$menu = '<div class="menu">';
+	$menu  = '<div class="menu">';
 	$menu .= '<ul>';
 		
 	$menu .= warquest_ui_menu($mid, PAGE_BANK, 1, t('LINK_BANK'), $sid);
 	$menu .= warquest_ui_menu($mid, PAGE_STOCK_EXCHANGE, 1, t('LINK_STOCKEXCHANGE'), $sid);
 	$menu .= warquest_ui_menu($mid, PAGE_CASINO, 1, t('LINK_CASINO'), $sid);
 	
-	switch ( $sid ) { 
+	$menu .= '</ul>';
+	$menu .= '</div>';
 	
-		case PAGE_BANK: 
+	switch ($sid) {
 		
-			/* Get bank group types */
-			$query = 'select bgid from bank_group order by bgid';
-			$result = warquest_db_query($query);	
-		
-			while ($data = warquest_db_fetch_object($result)) {
-			
-				$menu .= warquest_ui_submenu($mid, $sid, $data->bgid, t('BANK_GROUP_'.$data->bgid), $ssid);
-			}
-			break;
-		
-		case PAGE_STOCK_EXCHANGE: 
-		
-			/* Get stock group types */
-			$query = 'select sgid from stock_group order by sgid';
-			$result = warquest_db_query($query);			
-			
-			while ($data = warquest_db_fetch_object($result)) {
-		
-				$menu .= warquest_ui_submenu($mid, $sid, $data->sgid, t('STOCK_GROUP_'.$data->sgid), $ssid);
-			}
-			break;
-			
+		case PAGE_BANK: 	
+					$menu .= warquest_submenu_bank();
+					break;
+					
+		case PAGE_STOCK_EXCHANGE:  
+					$menu .= warquest_submenu_stock_exchange();
+					break;
+					
 		case PAGE_CASINO:
-			for($cgid=1; $cgid<=$config["max_casio_groups"]; $cgid++) {			
+					$menu .= warquest_submenu_casino();
+					break;
+	}
+	
+	$menu .= '<div class="clear"></div>';
+	return $menu;
+}
+
+function warquest_submenu_bank() {
+	
+	/* input */
+	global $mid;
+	global $sid;
+	global $ssid;
+	global $config;
+	
+	/* Get bank group types */
+	$query = 'select bgid from bank_group order by bgid';
+	$result = warquest_db_query($query);	
+	
+	$menu  = '<div class="menu right2">';
+	$menu .= '<ul>';
+	
+	while ($data = warquest_db_fetch_object($result)) {
+	
+		$menu .= warquest_ui_submenu($mid, $sid, $data->bgid, t('BANK_GROUP_'.$data->bgid), $ssid);
+	}
+	
+	$menu .= '</ul>';
+	$menu .= '</div>';
+	
+	return $menu;
+}
+
+function warquest_submenu_stock_exchange() {
+	
+	/* input */
+	global $mid;
+	global $sid;
+	global $ssid;
+	global $config;
+	
+	$menu  = '<div class="menu right2">';
+	$menu .= '<ul>';
+	
+	/* Get stock group types */
+	$query = 'select sgid from stock_group order by sgid';
+	$result = warquest_db_query($query);			
 			
-				$menu .= warquest_ui_submenu($mid, $sid, $cgid, t('CASINO_'.$cgid), $ssid);				
-			}
-			break;
+	while ($data = warquest_db_fetch_object($result)) {
+		
+		$menu .= warquest_ui_submenu($mid, $sid, $data->sgid, t('STOCK_GROUP_'.$data->sgid), $ssid);
+	}
+	
+	$menu .= '</ul>';
+	$menu .= '</div>';
+	
+	return $menu;
+}
+
+function warquest_submenu_casino() {
+	
+	/* input */
+	global $mid;
+	global $sid;
+	global $ssid;
+	global $config;
+	
+	$menu  = '<div class="menu right2">';
+	$menu .= '<ul>';
+	
+	for($cgid=1; $cgid<=$config["max_casio_groups"]; $cgid++) {			
+			
+		$menu .= warquest_ui_submenu($mid, $sid, $cgid, t('CASINO_'.$cgid), $ssid);				
 	}
 
 	$menu .= '</ul>';
@@ -401,15 +486,16 @@ function warquest_menu_money() {
 
 /*
 ** --------------------
-** ALLIANCE MENU
+** PLAYERS MENU
 ** --------------------
 */
 
-function warquest_menu_alliance() {
+function warquest_menu_players() {
 
 	/* input */
 	global $mid;
 	global $sid;
+	
 	global $player;
 	global $config;
 	
@@ -421,13 +507,70 @@ function warquest_menu_alliance() {
 	$menu = '<div class="menu">';
 	$menu .= '<ul>';
 	
-	$menu .= warquest_ui_menu($mid, PAGE_PENDING, 0, t('LINK_PENDING'), $sid, $recruit);
-	$menu .= warquest_ui_menu($mid, PAGE_INVITE, 0, t('LINK_INVITE'), $sid);
-	$menu .= warquest_ui_menu($mid, PAGE_ACCEPTED, 0, t('LINK_APPROVED'), $sid);
-	$menu .= warquest_ui_menu($mid, PAGE_BEST_PLAYER, 0, t('LINK_BEST_PLAYER'), $sid);
-	$menu .= warquest_ui_menu($mid, PAGE_BEST_COUNTRY, 0, t('LINK_BEST_COUNTRY'), $sid);
-	$menu .= warquest_ui_menu($mid, PAGE_CLAN, 0, t('LINK_CLAN'), $sid);
+	$menu .= warquest_ui_menu($mid, PAGE_ALLIANCE, PAGE_INVITE, t('LINK_ALLIANCE'), $sid, $recruit);
+	$menu .= warquest_ui_menu($mid, PAGE_CLAN, 0, t('LINK_CLAN'), $sid);	
+	$menu .= warquest_ui_menu($mid, PAGE_LEADERBOARD, PAGE_BEST_PLAYER, t('LINK_LEADERBOARD'), $sid);
 	$menu .= warquest_ui_menu($mid, PAGE_PROMOTION, 0, t('LINK_PROMOTION'), $sid);
+	
+	$menu .= '</ul>';
+	$menu .= '</div>';
+	
+	switch ($sid) {
+
+		case PAGE_ALLIANCE: 	
+					$menu .= warquest_submenu_alliance();
+					break;
+										
+		case PAGE_LEADERBOARD:
+					$menu .= warquest_submenu_leaderboards();
+					break;
+	}
+	
+	$menu .= '<div class="clear"></div>';
+	
+	return $menu;
+}
+
+function warquest_submenu_alliance() {
+
+	/* input */
+	global $mid;
+	global $sid;
+	global $ssid;
+	global $player;
+	global $config;
+	
+	/* Count not accepted recruit request */
+	$query  = 'select pid1 from player_player where approved=0 and pid2='.$player->pid; 
+	$result = warquest_db_query($query);	
+	$recruit = warquest_db_num_rows($result);
+	
+	$menu = '<div class="menu right2">';
+	$menu .= '<ul>';
+	
+	$menu .= warquest_ui_submenu($mid, $sid, PAGE_INVITE, t('LINK_INVITE'), $ssid);
+	$menu .= warquest_ui_submenu($mid, $sid, PAGE_PENDING, t('LINK_PENDING'), $ssid, $recruit);	
+	$menu .= warquest_ui_submenu($mid, $sid, PAGE_ACCEPTED, t('LINK_APPROVED'), $ssid);
+	
+	$menu .= '</ul>';
+	$menu .= '</div>';
+	
+	return $menu;
+}
+
+function warquest_submenu_leaderboards() {
+
+	/* input */
+	global $mid;
+	global $sid;
+	global $ssid;
+	
+	$menu = '<div class="menu right2">';
+	$menu .= '<ul>';
+	
+	$menu .= warquest_ui_submenu($mid, $sid, PAGE_BEST_PLAYER, t('LINK_BEST_PLAYER'), $ssid);
+	$menu .= warquest_ui_submenu($mid, $sid, PAGE_BEST_COUNTRY, t('LINK_BEST_COUNTRY'), $ssid);
+	$menu .= warquest_ui_submenu($mid, $sid, PAGE_BEST_CLAN, t('LINK_BEST_CLAN'), $ssid);
 	
 	$menu .= '</ul>';
 	$menu .= '</div>';
@@ -456,7 +599,9 @@ function warquest_menu_forum() {
 	
 	$menu .= '</ul>';
 	$menu .= '</div>';
-	
+
+	$menu .= '<div class="clear"></div>';
+
 	return $menu;
 }
 
@@ -487,6 +632,8 @@ function warquest_menu_help() {
 	$menu .= '</ul>';
 	$menu .= '</div>';
 	
+	$menu .= '<div class="clear"></div>';
+	
 	return $menu;
 }
 
@@ -516,6 +663,8 @@ function warquest_menu_admin() {
 
 	$menu .= '</ul>';
 	$menu .= '</div>';
+	
+	$menu .= '<div class="clear"></div>';
 
 	return $menu;
 }
@@ -557,8 +706,8 @@ function warquest_submenu() {
 				$menu = warquest_menu_money();
 				break;
 
-		case MENU_ALLIANCE:
-				$menu = warquest_menu_alliance();
+		case MENU_PLAYERS:
+				$menu = warquest_menu_players();
 				break;
 
 		case MENU_FORUMS:			

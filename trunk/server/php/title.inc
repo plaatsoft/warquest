@@ -91,13 +91,9 @@ function warquest_create_title($title) {
 					}
 	
 					break;
-					
-				case MENU_MONEY:				
-					$tmp .= '&sid='.$sid.'&ssid='.$ssid;
-					break;
-					
+										
 				default: 
-					$tmp .= '&sid='.$sid;
+					$tmp .= '&sid='.$sid.'&ssid='.$ssid;
 					break;
 		}
 		
@@ -112,9 +108,8 @@ function warquest_create_title($title) {
 
 	$page .= '</div>';
 
-	$page .= '<div class="stop">';
-	$page .= '</div>';
-
+	$page .= '<div class="clear"></div>';
+	
 	return $page;
 }
 
@@ -158,8 +153,8 @@ function warquest_ui_title() {
 				$page .= warquest_create_title( t('MONEY_TITLE') );
 				break;
 
-		case MENU_ALLIANCE:
-				$page .= warquest_create_title( t('ALLIANCE_TITLE') );
+		case MENU_PLAYERS:
+				$page .= warquest_create_title( t('PLAYERS_TITLE') );
 				break;
 
 		case MENU_FORUMS:			

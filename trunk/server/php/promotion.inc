@@ -176,11 +176,12 @@ window.fbAsyncInit = function() {
 ** --------------
 */
 
-function warquest_promotion_events() {
+function warquest_promotion() {
 
 	/* input */
 	global $eid;
-			
+	global $sid;
+				
 	/* Event Handler */
 	switch ($eid) {
 				
@@ -188,12 +189,6 @@ function warquest_promotion_events() {
 			warquest_promotion_invite_do();
 			break;	
 	}
-}
-
-function warquest_promotion_forms() {
-
-	/* input */
-	global $sid;
 	
 	/* Page handler */
 	switch ($sid) {

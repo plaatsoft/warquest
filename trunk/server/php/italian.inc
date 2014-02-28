@@ -55,7 +55,6 @@ $lang['LINK_BATTLE'] = 'Lotta';
 $lang['LINK_UNITS']  = 'Unità';
 $lang['LINK_BUILDINGS']  = 'Edifici';
 $lang['LINK_BANKS'] = 'Banche';
-$lang['LINK_ALLIANCE'] = 'Alleanze';
 $lang['LINK_PLAYER'] = 'Giocatore';
 $lang['LINK_MONEY'] = 'Soldi';
 $lang['LINK_HELP'] = 'Aiuto';
@@ -184,7 +183,7 @@ $lang['STATUS_LEVEL']  = 'Livello';
 $lang['STATUS_HEALTH'] = 'Salute';
 $lang['STATUS_ENERGY'] = 'Energia';
 $lang['STATUS_AMMO'] = 'Munizioni';
-$lang['STATUS_ALLIANCE_SIZE'] = 'Grandezza alleanza';
+$lang['STATUS_ALLIANCE_SIZE'] = 'alleanza';
 
 $lang['BOX_INFO'] = 'INFO';
 $lang['BOX_WARN'] = 'ATTENZIONE';
@@ -1946,16 +1945,13 @@ $lang['CASINO_SLOTMACHINE_HELP'] = 'Le seguenti combinazioni slot-machine pagher
 ** ------------------
 */
 
-$lang['ALLIANCE_TITLE'] = 'ALLEANZA';
-
 $lang['ALLIANCE_PENDING_TITLE1'] = 'Attendono';
-$lang['ALLIANCE_PENDING_TITLE2'] = 'Attendono [%s accettati - %s alleati invitati]';
+$lang['ALLIANCE_PENDING_TITLE2'] = 'Attendono [%s invitati]';
 
 $lang['ALLIANCE_ACCEPT_TITLE1'] = 'Accettato';
-$lang['ALLIANCE_ACCEPT_TITLE2'] = 'Accettato [%s accettati - %s alleati invitati]';
+$lang['ALLIANCE_ACCEPT_TITLE2'] = 'Accettato [%s accettati]';
 
-$lang['ALLIANCE_INVITE_TITLE1'] = 'Invita';
-$lang['ALLIANCE_INVITE_TITLE2'] = 'Invita [%s accettati - %s alleati invitati]';
+$lang['ALLIANCE_INVITE_TITLE'] = 'Invita';
 
 $lang['ALLIANCE_NO_PENDING'] = 'Nessun invito in attesa!'; 
 $lang['ALLIANCE_INVITATION'] = 'Invito mandato a %s!'; 

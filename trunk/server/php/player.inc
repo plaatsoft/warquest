@@ -1624,7 +1624,7 @@ function warquest_profile($id) {
 	$page .= '<td>'.t('PLAYER_CLAN_NAME').':</td>';
 	$page .= '<td >';
 	if (isset($data2->cid)) {
-		$page .= warquest_link('mid='.MENU_ALLIANCE.'&sid='.PAGE_CLAN_PROFILE.'&cid='.$data2->cid, $data2->name);
+		$page .= warquest_link('mid='.MENU_PLAYERS.'&sid='.PAGE_CLAN_PROFILE.'&cid='.$data2->cid, $data2->name);
 	}
 	$page .= '</td>';	
 	$page .= '</tr>';
@@ -1671,7 +1671,7 @@ function warquest_profile($id) {
 			  ($player->holiday_date < date("Y-m-d H:i:s", time())) &&
 			  (warquest_db_ally($player->pid, $id)==0) ) {
 			
-			$page .= warquest_link('mid='.MENU_ALLIANCE.'&sid='.PAGE_INVITE.'&eid='.EVENT_ALLIANCE_INVITE.'&oid='.$id, t('LINK_INVITE'), "invite").' ';
+			$page .= warquest_link('mid='.MENU_PLAYERS.'&sid='.PAGE_INVITE.'&eid='.EVENT_ALLIANCE_INVITE.'&oid='.$id, t('LINK_INVITE'), "invite").' ';
 		}
 	
 		if (($player->lid>=9) && 

@@ -66,7 +66,7 @@ define('MENU_BATTLE',         	1003);
 define('MENU_UNITS',          	1004);
 define('MENU_BUILDINGS',      	1005);
 define('MENU_MONEY',          	1006);
-define('MENU_ALLIANCE',      		1007);
+define('MENU_PLAYERS',      		1007);
 define('MENU_FORUMS',         	1008);
 define('MENU_HELP',           	1009);
 define('MENU_ADMIN',          	1010);
@@ -117,22 +117,30 @@ define('PAGE_CASINO',         	1703);
 define('PAGE_GOLD',           	1704);
 
 /* Alliance */
-define('PAGE_PENDING',        	1801);
-define('PAGE_INVITE',        		1802);
-define('PAGE_ACCEPTED',      		1803);
-define('PAGE_BEST_PLAYER',    	1804);
-define('PAGE_BEST_COUNTRY',   	1805);
-define('PAGE_BEST_COUNTRY2',  	1806);
-define('PAGE_CLAN',           	1807); 
-define('PAGE_CLAN_PROFILE',     	1808);
-define('PAGE_PROMOTION',			1809);
+define('PAGE_ALLIANCE',        	1801);
+define('PAGE_PENDING',        	1802);
+define('PAGE_INVITE',        		1803);
+define('PAGE_ACCEPTED',      		1804);
+
+define('PAGE_CLAN',           	1811); 
+define('PAGE_CLAN_PROFILE',     	1812);
+
+define('PAGE_LEADERBOARD',    	1821);
+define('PAGE_BEST_PLAYER',    	1822);
+define('PAGE_BEST_COUNTRY',   	1823);
+define('PAGE_BEST_COUNTRY2',  	1824);
+define('PAGE_BEST_CLAN',  			1825);
+
+define('PAGE_PROMOTION',			1831);
 
 /* Forums */
 define('PAGE_FORUM',          	1901);
 define('PAGE_TOPIC',          	1902);
 define('PAGE_COMMENT',        	1903);
+
 define('PAGE_POLL',           	1904);
 define('PAGE_POLL_RESULT',    	1905);
+
 define('PAGE_CHATROOM',       	1906);
 define('PAGE_CHAT',           	1907);
 		
@@ -149,14 +157,21 @@ define('PAGE_ABOUT',          	2008);
 /* Admin */
 define('PAGE_PLAYER_LIST',    	2101);
 define('PAGE_PLAYERS',        	2102);
+
 define('PAGE_ADMIN_MESSAGES', 	2103);
+
 define('PAGE_LEVEL',          	2104); 
 define('PAGE_LEVEL_ZOOM',    		2105);
 define('PAGE_PLAYER_COPY',    	2106);
+
 define('PAGE_ACTIONS',        	2107);
+
 define('PAGE_ADMIN_NEWS',     	2108);
+
 define('PAGE_BROWSER',         	2109);
+
 define('PAGE_MAPS',           	2110);
+
 define('PAGE_INFO',           	2111);
 
 /* Player */

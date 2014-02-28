@@ -41,9 +41,6 @@ body {
 
 .menu {
 	font-size: 1.0em;
-	display: block;
-	height: 28px;
-	margin: 0px 5px 5px 0px;
 }
 
 .menu ol, ul { 
@@ -54,9 +51,8 @@ body {
 
 .menu li {
 	float: left;
-	position: relative;
 	margin: 0 0 3px;
-	height: 28px;
+	height: 24px;
 	background-color: rgba(0, 0, 0, 0.05);
 	border: 1px solid #232428;
 	border-bottom-color: #1f2326;
@@ -66,13 +62,12 @@ body {
 .menu .active:active,
 .menu li:active {
 	margin: 1px 0px 0px 0px;
-	height: 28px;
+	height: 24px;
 }
 
 .menu li a {
-	display: block;
-	line-height: 28px;
-	padding: 0 2px;
+	line-height: 24px;
+	padding: 0px;
 	font-size: 13px;
 	text-decoration: none;
 	outline: 0;

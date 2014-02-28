@@ -56,8 +56,8 @@ $lang['LINK_BATTLE'] = 'Strijd';
 $lang['LINK_UNITS']  = 'Eenheden';
 $lang['LINK_BUILDINGS']  = 'Gebouwen';
 $lang['LINK_BANKS'] = 'Banken';
-$lang['LINK_ALLIANCE'] = 'Alliantie';
 $lang['LINK_PLAYER'] = 'Speler';
+$lang['LINK_PLAYERS'] = 'Spelers';
 $lang['LINK_MONEY'] = 'Geld';
 $lang['LINK_HELP'] = 'Help';
 $lang['LINK_ADMIN'] = 'Admin';
@@ -134,8 +134,11 @@ $lang['LINK_PENDING'] = 'Gaande';
 $lang['LINK_APPROVED'] = 'Geaccepteerd';
 $lang['LINK_COMMENT']  = 'Bericht';
 $lang['LINK_FORUM']  = 'Forum';
-$lang['LINK_BEST_PLAYER']  = 'Beste-Spelers';
-$lang['LINK_BEST_COUNTRY'] = 'Beste-Landen';
+
+$lang['LINK_BEST_PLAYER']  = 'Spelers';
+$lang['LINK_BEST_COUNTRY'] = 'Landen';
+$lang['LINK_BEST_CLAN'] = 'Clans';
+
 $lang['LINK_DROP'] = 'Afwijzen';
 $lang['LINK_ACCEPT'] = 'Accepteren';
 $lang['LINK_REJECT'] = 'Afwijzen';
@@ -1534,16 +1537,13 @@ $lang['CASINO_SLOTMACHINE_HELP'] = 'Met de volgende combinaties win je X keer je
 ** ------------------
 */
 
-$lang['ALLIANCE_TITLE'] = 'ALLIANTIE';
-
-$lang['ALLIANCE_PENDING_TITLE1'] = 'Lopende';
-$lang['ALLIANCE_PENDING_TITLE2'] = 'Lopende [%s geaccepteerd - %s uitgenodigd allianties]';
+$lang['ALLIANCE_PENDING_TITLE1'] = 'Lopend';
+$lang['ALLIANCE_PENDING_TITLE2'] = 'Lopend [%s uitgenodigd]';
 
 $lang['ALLIANCE_ACCEPT_TITLE1'] = 'Geaccepteerd';
-$lang['ALLIANCE_ACCEPT_TITLE2'] = 'Geaccepteerd [%s geaccepteerd - %s uitgenodigd allianties]';
+$lang['ALLIANCE_ACCEPT_TITLE2'] = 'Geaccepteerd [%s allianties]';
 
-$lang['ALLIANCE_INVITE_TITLE1'] = 'Uitnodiging';
-$lang['ALLIANCE_INVITE_TITLE2'] = 'Uitnodiging [%s geaccepteerd - %s uitgenodigd allianties]';
+$lang['ALLIANCE_INVITE_TITLE'] = 'Uitnodigen';
 
 $lang['ALLIANCE_NO_PENDING'] = 'Op dit moment zijn er geen lopende alliantie uitnodigingen!'; 
 $lang['ALLIANCE_INVITATION'] = 'Alliantie uitnodiging naar %s verstuurd!'; 

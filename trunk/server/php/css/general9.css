@@ -243,29 +243,6 @@ a:hover {
 	background-color: red;
 }
 
-.right {
-	float: right;
-	clear: right;
-	padding: 10px 0px 0px 10px; 
-	display: inline-block;
-}
-
-.left2 {
-	float: left;
-	clear: left;
-	display: block;
-}
-
-.right2 {
-	float: right;
-	display: block;
-}
-
-.stop {
-	float: both;
-	clear: both;
-}
-
 .banner {		
 	font-size: 1.0em;
 }
@@ -366,27 +343,50 @@ a:hover {
 	width: 100%;
 	margin-left: auto;
 	margin-right: auto;  
-	text-align: center ; 
+	text-align: center; 
 }
 
 /* -- Menu -- */
 
 .menu {
 	font-size: 1.0em;
-	padding: 2px 0px 2px 0px; 
-	display: inline-block;
 }
 
 .menu ol, ul { 
-  list-style: none;
-  margin: 0px;
-  padding: 0px;
+	list-style: none;
+	margin: 0px;
+	padding: 0px;
 }
 
 .menu li {
-  float: left;
-  padding: 0px 2px;
+	float: left;
+	padding: 0px 2px;
 }
+
+/* -- Position -- */
+
+.right {
+	float: right;
+	padding: 10px 0px 0px 10px; 
+	display: block;
+}
+
+.right2 {
+	float: right;
+}
+
+.left2 {
+	float: left;
+}
+
+.clear {
+	clear: both;
+}
+
+.spacer {
+	margin: 5px;
+}
+
 
 /* -- Popups -- */
 

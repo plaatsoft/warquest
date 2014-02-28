@@ -139,15 +139,19 @@ function warquest_alliance_accept_do() {
 
 /*
 ** --------------
-** ALLIANCE GUI
+** GUI
 ** --------------
 */
 
+/**
+ * Alliance Accepted form
+ */
 function warquest_alliance_accepted_form() {
 
 	/* input */	
 	global $mid;
 	global $sid;
+	global $ssid;
 	global $player;
 	global $other;
 	global $offset;
@@ -162,7 +166,7 @@ function warquest_alliance_accepted_form() {
 	
 	/* Get approved alliance player */
 	$page .= '<div class="subparagraph">';
-	$page .= t('ALLIANCE_ACCEPT_TITLE2', $player->alliance, $player->invite);
+	$page .= t('ALLIANCE_ACCEPT_TITLE2', $player->alliance);
 	$page .= '</div>';
 
 	$page .= '<div class="box rows">';
@@ -228,7 +232,7 @@ function warquest_alliance_accepted_form() {
 	
 	$page .= '</tr>';
 	
-	$limit = 50;	
+	$limit = 24;	
 		
 	$query = 'select pid1 from player_player where pid1='.$player->pid.' and approved=1';
 	$result = warquest_db_query($query);	 
@@ -291,7 +295,7 @@ function warquest_alliance_accepted_form() {
 			$page .= '</td>';
 			
 			$page .= '<td>';
-			$page .= warquest_link('mid='.$mid.'&sid='.$sid.'&oid='.$data->pid2.'&eid='.EVENT_ALLIANCE_DROP.'&offset='.$offset, t('LINK_DROP') ,"drop".$count);
+			$page .= warquest_link('mid='.$mid.'&sid='.$sid.'&ssid='.$ssid.'&oid='.$data->pid2.'&eid='.EVENT_ALLIANCE_DROP.'&offset='.$offset, t('LINK_DROP') ,"drop".$count);
 			$page .= '</td>';
 			
 			$page .= '</tr>';
@@ -307,11 +311,15 @@ function warquest_alliance_accepted_form() {
    $page .= '</div>';	
 }
 
+/**
+ * Alliance Pending form
+ */
 function warquest_alliance_pending_form() {
 
 	/* input */	
 	global $mid;
 	global $sid;
+	global $ssid;
 	
 	global $player;
 	global $other;
@@ -329,7 +337,7 @@ function warquest_alliance_pending_form() {
 	
 	/* Get pending alliance player */
 	$page .= '<div class="subparagraph">';
-	$page .= t('ALLIANCE_PENDING_TITLE2', $player->alliance, $player->invite);
+	$page .= t('ALLIANCE_PENDING_TITLE2', $player->invite);
 	$page .= '</div>';
 
 	/* Show not approved alliance */
@@ -369,11 +377,11 @@ function warquest_alliance_pending_form() {
 			$tmp1 .= '</td>';	
 	
 			$tmp1 .= '<td>';
-			$tmp1 .= warquest_link('mid='.$mid.'&sid='.$sid.'&oid='.$data->pid1.'&eid='.EVENT_ALLIANCE_REJECT, t('LINK_REJECT'), "reject");
+			$tmp1 .= warquest_link('mid='.$mid.'&sid='.$sid.'&ssid='.$ssid.'&oid='.$data->pid1.'&eid='.EVENT_ALLIANCE_REJECT, t('LINK_REJECT'), "reject");
 			$tmp1 .= '</td>';
 			
 			$tmp1 .= '<td>';
-			$tmp1 .= warquest_link('mid='.$mid.'&sid='.$sid.'&oid='.$data->pid1.'&eid='.EVENT_ALLIANCE_ACCEPT, t('LINK_ACCEPT'), "accept");
+			$tmp1 .= warquest_link('mid='.$mid.'&sid='.$sid.'&ssid='.$ssid.'&oid='.$data->pid1.'&eid='.EVENT_ALLIANCE_ACCEPT, t('LINK_ACCEPT'), "accept");
 			$tmp1 .= '</td>';
 			
 			$tmp1 .= '</tr>';
@@ -430,7 +438,7 @@ function warquest_alliance_pending_form() {
 			$tmp2 .= '</td>';
 			
 			$tmp2 .= '<td>';
-			$tmp2 .= warquest_link('mid='.$mid.'&sid='.$sid.'&oid='.$data->pid2.'&eid='.EVENT_ALLIANCE_DROP, t('LINK_DROP') ,"drop".$count);
+			$tmp2 .= warquest_link('mid='.$mid.'&sid='.$sid.'&ssid='.$ssid.'&oid='.$data->pid2.'&eid='.EVENT_ALLIANCE_DROP, t('LINK_DROP') ,"drop".$count);
 			$tmp2 .= '</td>';
 			
 			$tmp2 .= '</tr>';
@@ -490,7 +498,7 @@ function warquest_alliance_pending_form() {
 }
 
 /**
- * Invite friend form
+ * Alliance invite form
  */
 function warquest_alliance_invite_form() {
 
@@ -499,7 +507,7 @@ function warquest_alliance_invite_form() {
 	global $player;
 	global $mid;
 	global $sid;
-	global $myemail;
+	global $ssid;
 	global $offset;
 	
 	/* output */
@@ -507,10 +515,10 @@ function warquest_alliance_invite_form() {
 	global $output;
 	global $sort;
 	
-	$output->title = t('ALLIANCE_INVITE_TITLE1');
-			
+	$output->title = t('ALLIANCE_INVITE_TITLE');
+		
 	$page .= '<div class="subparagraph">';
-	$page .= t('ALLIANCE_INVITE_TITLE2', $player->alliance, $player->invite);
+	$page .= t('ALLIANCE_INVITE_TITLE');
 	$page .= '</div>';
 
 	if ($player->lid==0) {
@@ -543,7 +551,7 @@ function warquest_alliance_invite_form() {
 	
 	} else {
 		
-		$limit = 50;	
+		$limit = 25;	
 		
 		$query  = 'select pid from player where pid not in ';
 		$query .= '(select pid2 from player_player where pid1='.$player->pid.') and pid!='.$player->pid.' ';
@@ -599,23 +607,23 @@ function warquest_alliance_invite_form() {
 		$page .= '</th>';
 		
 		$page .= '<th width="130">';
-		$page .= warquest_link('mid='.$mid.'&sid='.$sid.'&sort=2', t('GENERAL_PLAYER'));
+		$page .= warquest_link('mid='.$mid.'&sid='.$sid.'&ssid='.$ssid.'&sort=2', t('GENERAL_PLAYER'));
 		$page .= '</th>';
 		
 		$page .= '<th width="70">';
-		$page .= warquest_link('mid='.$mid.'&sid='.$sid.'&sort=3', t('GENERAL_ACTIVE'));
+		$page .= warquest_link('mid='.$mid.'&sid='.$sid.'&ssid='.$ssid.'&sort=3', t('GENERAL_ACTIVE'));
 		$page .= '</th>';
 				
 		$page .= '<th width="50">';
-		$page .= warquest_link('mid='.$mid.'&sid='.$sid.'&sort=4', t('GENERAL_LEVEL'));
+		$page .= warquest_link('mid='.$mid.'&sid='.$sid.'&ssid='.$ssid.'&sort=4', t('GENERAL_LEVEL'));
 		$page .= '</th>';
 		
 		$page .= '<th width="90">';
-		$page .= warquest_link('mid='.$mid.'&sid='.$sid.'&sort=5', t('GENERAL_EXP'));
+		$page .= warquest_link('mid='.$mid.'&sid='.$sid.'&ssid='.$ssid.'&sort=5', t('GENERAL_EXP'));
 		$page .= '</th>';
 		
 		$page .= '<th width="60">';
-		$page .= warquest_link('mid='.$mid.'&sid='.$sid.'&sort=6', t('GENERAL_ALLIANCE'));
+		$page .= warquest_link('mid='.$mid.'&sid='.$sid.'&ssid='.$ssid.'&sort=6', t('GENERAL_ALLIANCE'));
 		$page .= '</th>';
 		
 		$page .= '<th width="50">';
@@ -654,7 +662,7 @@ function warquest_alliance_invite_form() {
 			$page .= '</td>';			
 			
 			$page .= '<td>';
-			$page .= warquest_link('mid='.$mid.'&sid='.$sid.'&oid='.$data->pid.'&eid='.EVENT_ALLIANCE_INVITE.'&sort='.$sort.'&offset='.$offset, t('LINK_RECRUIT'), "recuit".$count++);
+			$page .= warquest_link('mid='.$mid.'&sid='.$sid.'&ssid='.$ssid.'&oid='.$data->pid.'&eid='.EVENT_ALLIANCE_INVITE.'&sort='.$sort.'&offset='.$offset, t('LINK_RECRUIT'), "recuit".$count++);
 			$page .= '</td>';
 			
 			$page .= '</tr>';
@@ -680,7 +688,10 @@ function warquest_alliance() {
 
 	/* input */
 	global $eid;
-	global $sid;
+	global $ssid;
+	
+	/* output */
+	global $page;
 			
 	/* Event Handler */
 	switch ($eid) {
@@ -700,35 +711,23 @@ function warquest_alliance() {
 		case EVENT_ALLIANCE_DROP:
 			warquest_alliance_drop_do();
 			break;	
-		
-		case EVENT_SWITCH_PLANET: 
-			warquest_switch_planet_do();
-			break;
 	}
 	
-	warquest_promotion_events();
-	warquest_clan_events();
-	
 	/* Page handler */
-	switch ($sid) {
-
-		case PAGE_PENDING: 
-					warquest_alliance_pending_form();
-					break;
+	switch ($ssid) {
 
 		case PAGE_INVITE: 
 					warquest_alliance_invite_form();
 					break;
-			  
+					
+		case PAGE_PENDING: 
+					warquest_alliance_pending_form();
+					break;
+
 		case PAGE_ACCEPTED: 
 					warquest_alliance_accepted_form();
 					break;	
 	}				  
-	
-	warquest_leaderboard_forms();
-	warquest_promotion_forms();
-	warquest_clan_forms();	
-	warquest_player();	
 }
 
 /*

@@ -1045,6 +1045,7 @@ function warquest_page_control($offset, $limit, $total, $top=0, $more="") {
 	/* input */
 	global $mid;
 	global $sid;
+	global $ssid;
 	global $uid;
 			
 	$page ="";
@@ -1054,25 +1055,25 @@ function warquest_page_control($offset, $limit, $total, $top=0, $more="") {
 		if ($top==0) {
 			$page .= '<br/>';
 		}
-		$page .= warquest_link('mid='.$mid.'&sid='.$sid.'&uid='.$uid.'&offset=0'.$more, t('LINK_FIRST'),'first');
+		$page .= warquest_link('mid='.$mid.'&sid='.$sid.'&ssid='.$ssid.'&uid='.$uid.'&offset=0'.$more, t('LINK_FIRST'),'first');
 		$page .= '&nbsp;';
 
 		$value = $offset - $limit;
 		if ($value<0) {
 			$value=0;
 		}
-		$page .= warquest_link('mid='.$mid.'&sid='.$sid.'&uid='.$uid.'&offset='.$value.$more, t('LINK_PREVIOUS'), 'prev');
+		$page .= warquest_link('mid='.$mid.'&sid='.$sid.'&ssid='.$ssid.'&uid='.$uid.'&offset='.$value.$more, t('LINK_PREVIOUS'), 'prev');
 		$page .= '&nbsp;';
 	
 		$value = $offset + $limit;
 		if ($value>=$total) {
 			$value = $total - $limit;
 		}	
-		$page .= warquest_link('mid='.$mid.'&sid='.$sid.'&uid='.$uid.'&offset='.$value.$more, t('LINK_NEXT'), 'next');
+		$page .= warquest_link('mid='.$mid.'&sid='.$sid.'&ssid='.$ssid.'&uid='.$uid.'&offset='.$value.$more, t('LINK_NEXT'), 'next');
 		$page .= '&nbsp;';
 	
 		$value = $total - $limit;
-		$page .= warquest_link('mid='.$mid.'&sid='.$sid.'&uid='.$uid.'&offset='.$value.$more, t('LINK_LAST'), 'last');	
+		$page .= warquest_link('mid='.$mid.'&sid='.$sid.'&ssid='.$ssid.'&uid='.$uid.'&offset='.$value.$more, t('LINK_LAST'), 'last');	
 		
 		$page .= '<br/>';
 		
@@ -1091,6 +1092,7 @@ function warquest_page_control_reverse($offset, $limit, $total, $top=0, $more=""
 	/* input */
 	global $mid;
 	global $sid;
+	global $ssid;
 	global $uid;
 			
 	$page ="";
@@ -1100,7 +1102,7 @@ function warquest_page_control_reverse($offset, $limit, $total, $top=0, $more=""
 		if ($top==0) {
 			$page .= '<br/>';
 		}
-		$page .= warquest_link('mid='.$mid.'&sid='.$sid.'&uid='.$uid.'&offset='.$total.$more, t('LINK_FIRST'),'first');
+		$page .= warquest_link('mid='.$mid.'&sid='.$sid.'&ssid='.$ssid.'&uid='.$uid.'&offset='.$total.$more, t('LINK_FIRST'),'first');
 		$page .= '&nbsp;';
 
 		$value = $offset + $limit;
@@ -1108,18 +1110,18 @@ function warquest_page_control_reverse($offset, $limit, $total, $top=0, $more=""
 			$value = $total - $limit;
 		}	
 			
-		$page .= warquest_link('mid='.$mid.'&sid='.$sid.'&uid='.$uid.'&offset='.$value.$more, t('LINK_PREVIOUS'), 'prev');
+		$page .= warquest_link('mid='.$mid.'&sid='.$sid.'&ssid='.$ssid.'&uid='.$uid.'&offset='.$value.$more, t('LINK_PREVIOUS'), 'prev');
 		$page .= '&nbsp;';
 		$value = $offset - $limit;
 		if ($value<0) {
 			$value=0;
 		}
 		
-		$page .= warquest_link('mid='.$mid.'&sid='.$sid.'&uid='.$uid.'&offset='.$value.$more, t('LINK_NEXT'), 'next');
+		$page .= warquest_link('mid='.$mid.'&sid='.$sid.'&ssid='.$ssid.'&uid='.$uid.'&offset='.$value.$more, t('LINK_NEXT'), 'next');
 		$page .= '&nbsp;';
 	
 		$value = $total - $limit;
-		$page .= warquest_link('mid='.$mid.'&sid='.$sid.'&uid='.$uid.'&offset=0'.$more, t('LINK_LAST'), 'last');	
+		$page .= warquest_link('mid='.$mid.'&sid='.$sid.'&ssid='.$ssid.'&uid='.$uid.'&offset=0'.$more, t('LINK_LAST'), 'last');	
 		
 		$page .= '<br/>';
 		
@@ -2739,7 +2741,7 @@ function warquest_ui_header() {
 	}
  
 	$page .= '<link href="'.$config["content_url"].'images/favicon.ico" rel="shortcut icon" type="image/x-icon" />'; 
-	$page .= '<link href="'.$config["content_url"].'css/general1a.css" rel="stylesheet" type="text/css" />';
+	$page .= '<link href="'.$config["content_url"].'css/general9.css" rel="stylesheet" type="text/css" />';
 	
 	if (($mid==MENU_MONEY) && ($sid==PAGE_STOCK_EXCHANGE)) {	
 		$page .= '<link href="'.$config["content_url"].'css/jquery.css" rel="stylesheet" type="text/css" />';
@@ -2797,7 +2799,9 @@ function warquest_ui_header() {
 	}
 	$page .= '</style>';
 	
-	$page .= '<link href="'.$config["content_url"].'css/style'.$background.'a.css" rel="stylesheet" type="text/css" />';
+	if ($background == 2 ) {
+		$page .= '<link href="'.$config["content_url"].'css/style'.$background.'.css" rel="stylesheet" type="text/css" />';
+	}
 	
 	/* Add JavaScripts */
 	$page .= '<script language="JavaScript" src="'.$config["content_url"].'js/link3.js" type="text/javascript"></script>';
@@ -2863,8 +2867,9 @@ function warquest_ui_banner() {
 	
 	$page .= '<tr>';
 	
+	/* First line */
 	$page .= '<td valign="top" width="185">';
-	$page .= warquest_link_hidden('mid='.MENU_ALLIANCE.'&sid='.PAGE_BEST_PLAYER, t('STATUS_CASH')).': ';
+	$page .= warquest_link_hidden('mid='.MENU_PLAYERS.'&sid='.PAGE_BEST_PLAYER, t('STATUS_CASH')).': ';
 	$page .= '<span class="value" id="moneyvalue"></span>';
 	
 	$tmp = "";
@@ -2883,11 +2888,10 @@ function warquest_ui_banner() {
 		$page .= '<span class="timer"><span class="gold">'.number_format($player->gold,0,",",".").'</span></span>';
 	}
 	$page .= '<br/>';
-	$page .= '<br/>';
 	$page .= '</td>';
 	
 	$page .= '<td valign="top" width="195">';
-	$page .= warquest_link_hidden('mid='.MENU_ALLIANCE.'&sid='.PAGE_BEST_COUNTRY, t('STATUS_EXP')).': ';
+	$page .= warquest_link_hidden('mid='.MENU_PLAYERS.'&sid='.PAGE_BEST_COUNTRY, t('STATUS_EXP')).': ';
 	$page .= '<span class="value experience">'.number_format($player->experience,0,",",".");
 	$page .= '</span>';
 	if ($player->lid!=$config["max_level"]) {
@@ -2919,8 +2923,16 @@ function warquest_ui_banner() {
 	}
 	$page .= '</td>';
 	$page .= '</tr>';	
-	$page .= '<tr>';
 	
+	/* Second line */
+	$page .= '<tr>';	
+	$page .= '<td colspan="3">';
+	$page .= '<div class="spacer"></div>';
+	$page .= '</td>';
+	$page .= '</tr>';	
+	
+	/* third line */	
+	$page .= '<tr>';	
 	$page .= '<td valign="top">';
 	if ($player->comment>0) {
 		$page .= warquest_link('mid='.MENU_HOME.'&sid='.PAGE_MESSAGES, warquest_image("other/email.gif").' ','mail');
@@ -3068,7 +3080,7 @@ function clan_format($clan) {
 	
 	if (isset($clan->cid)) {
 	
-		$value = warquest_link('mid='.MENU_ALLIANCE.'&sid='.PAGE_CLAN_PROFILE.'&cid='.$clan->cid, $clan->name, "", $clan->slogan);
+		$value = warquest_link('mid='.MENU_PLAYERS.'&sid='.PAGE_CLAN_PROFILE.'&cid='.$clan->cid, $clan->name, "", $clan->slogan);
 	}
 	
 	return $value;
