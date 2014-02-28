@@ -1053,7 +1053,7 @@ function warquest_page_control($offset, $limit, $total, $top=0, $more="") {
 	if ($total>$limit) {
 
 		if ($top==0) {
-			$page .= '<br/>';
+			$page .= '<div class="spacer"/></div>';
 		}
 		$page .= warquest_link('mid='.$mid.'&sid='.$sid.'&ssid='.$ssid.'&uid='.$uid.'&offset=0'.$more, t('LINK_FIRST'),'first');
 		$page .= '&nbsp;';
@@ -1078,7 +1078,7 @@ function warquest_page_control($offset, $limit, $total, $top=0, $more="") {
 		$page .= '<br/>';
 		
 		if ($top==1) {
-			$page .= '<br/>';
+			$page .= '<div class="spacer"/></div>';
 		}
 	}
 	return $page;
@@ -1100,7 +1100,7 @@ function warquest_page_control_reverse($offset, $limit, $total, $top=0, $more=""
 	if ($total>$limit) {
 
 		if ($top==0) {
-			$page .= '<br/>';
+			$page .= '<div class="spacer"/></div>';
 		}
 		$page .= warquest_link('mid='.$mid.'&sid='.$sid.'&ssid='.$ssid.'&uid='.$uid.'&offset='.$total.$more, t('LINK_FIRST'),'first');
 		$page .= '&nbsp;';
@@ -1126,7 +1126,7 @@ function warquest_page_control_reverse($offset, $limit, $total, $top=0, $more=""
 		$page .= '<br/>';
 		
 		if ($top==1) {
-			$page .= '<br/>';
+			$page .= '<div class="spacer"/></div>';
 		}
 	}
 	return $page;
