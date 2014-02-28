@@ -247,7 +247,6 @@ function getTouchPos(canvas, evt) {
       while ((obj = obj.offsetParent) != null);
    }
 	
-	alert(x);
 	return coors;				
 }
 	
