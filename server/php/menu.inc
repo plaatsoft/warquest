@@ -93,10 +93,10 @@ function warquest_login_menu() {
 	$menu  = '<table>';
 	$menu .= '<tr>';
 		
-	$menu .= '<td width="15%">';
+	$menu .= '<td width="20%">';
 	$menu .= '</td>';
 	
-	$menu .= '<td width="70%" align="center">';
+	$menu .= '<td width="80%" align="center">';
 	
 	$menu .= '<div class="menu">';
 	$menu .= '<ul>';
@@ -117,7 +117,7 @@ function warquest_login_menu() {
 	
 	$menu .= '</td>';
 	
-	$menu .= '<td width="15%">';
+	$menu .= '<td width="20%">';
 	$menu .= '</td>';
 	
 	$menu .= '</table>';
