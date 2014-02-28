@@ -169,7 +169,7 @@ function warquest_login_header() {
 	$page .= '</table>';
 	$page .= '</div>';
 		
-	$page .= '<div class="spacer"></div>';
+	$page .= '<br/>';
 		
 	$page .= warquest_login_menu();
 	
@@ -223,7 +223,7 @@ function warquest_login_footer() {
 	$page .= t('LOGIN_BEST_VIEWED');
 	$page .= '</div>';
 			
-	$page .= '<div class="spacer"></div>';
+	$page .= '<br/>';
 		
 	$page .= '<div class="footer">';
 	
