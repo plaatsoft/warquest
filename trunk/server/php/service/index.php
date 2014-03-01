@@ -31,7 +31,7 @@ $level;
 
 $mid=0;
 $sid=0;
-$uid=0;
+$id=0;
 
 $output = new stdClass();
 $output->format = "xml";	/* Format (html, xml or pdf) */
@@ -282,7 +282,7 @@ function doMission($username, $password, $buy) {
 	global $skill;
 	global $level;	
 	global $output;
-	global $uid;
+	global $id;
 	
 	warquest_info('goMission ['.$username.'] - start');
 	
@@ -310,9 +310,9 @@ function doMission($username, $password, $buy) {
 	$result = warquest_db_query($query);	 
 	$data = warquest_db_fetch_object($result);	
 	
-	$uid = 1;
+	$id = 1;
 	if ( isset($data->mid) ) {
-		$uid = $data->mid;
+		$id = $data->mid;
 		
 	} else {	
 	
@@ -323,7 +323,7 @@ function doMission($username, $password, $buy) {
 		$data = warquest_db_fetch_object($result);	
 			
 		if ( isset($data->mid) ) {
-			$uid = $data->mid;
+			$id = $data->mid;
 		}
 	}
 	
