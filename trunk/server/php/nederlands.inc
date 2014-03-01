@@ -629,37 +629,6 @@ $lang['BACKGROUND_8'] = 'Vuurwerk';
 
 /* Earth */
 $lang['MISSION_GROUP_0'] = 'Training';
-$lang['MISSION_GROUP_1'] = 'Europa';
-$lang['MISSION_GROUP_2'] = 'N-Amerika';
-$lang['MISSION_GROUP_3'] = 'S-Amerika';
-$lang['MISSION_GROUP_4'] = 'Afrika';
-$lang['MISSION_GROUP_5'] = 'N-Azia';
-$lang['MISSION_GROUP_6'] = 'S-Azia';
-$lang['MISSION_GROUP_7'] = 'E-Azia';
-$lang['MISSION_GROUP_8'] = 'Oceania';
-$lang['MISSION_GROUP_9'] = 'M-Oosten';
-
-/* Moon */
-$lang['MISSION_GROUP_10'] = 'Alpha ';
-$lang['MISSION_GROUP_11'] = 'Beta';
-$lang['MISSION_GROUP_12'] = 'Charlie';
-$lang['MISSION_GROUP_13'] = 'Delta';
-$lang['MISSION_GROUP_14'] = 'Echo';
-$lang['MISSION_GROUP_15'] = 'Foxtrot';
-$lang['MISSION_GROUP_16'] = 'Golf';
-$lang['MISSION_GROUP_17'] = 'Hotel';
-$lang['MISSION_GROUP_18'] = 'Lima';
-
-/* Mars */
-$lang['MISSION_GROUP_20'] = 'Alpaca';
-$lang['MISSION_GROUP_21'] = 'Bison';
-$lang['MISSION_GROUP_22'] = 'Coyote';
-$lang['MISSION_GROUP_23'] = 'Dinosaur';
-$lang['MISSION_GROUP_24'] = 'Emu';
-$lang['MISSION_GROUP_25'] = 'Fox';
-$lang['MISSION_GROUP_26'] = 'Gnu';
-$lang['MISSION_GROUP_27'] = 'Heron';
-$lang['MISSION_GROUP_28'] = 'Lion';
 
 /* ---------------------------------------------- */
 

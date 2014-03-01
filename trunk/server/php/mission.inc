@@ -845,9 +845,6 @@ function warquest_mission_clan_form() {
 		$page .= warquest_box_icon("warning", $message);
 				
 	} else {
-	
-		/* Show submenu */ 
-		$page .= warquest_submenu_mission();
 			
 		/* Get clan mission data */
 		$query  = "select a.mid, a.loot, a.min_price, a.max_price, a.energy, ";
@@ -1028,10 +1025,7 @@ function warquest_mission_player_form() {
 		$page .= warquest_box_icon('info', $message, $link);
 	
 	} else {
-				
-		/* Submenu */ 
-		$page .= warquest_submenu_mission();
-	
+					
 		/* Show all unlocked player missions */
 		$query  = "select a.mid, a.loot, a.min_price, a.max_price, a.energy, ";
 		$query .= "a.experience, a.alliance, ifnull(b.progress, 0) as progress, ";

@@ -2800,7 +2800,7 @@ function warquest_ui_header() {
 	$page .= '</style>';
 	
 	if ($background == 2 ) {
-		$page .= '<link href="'.$config["content_url"].'css/style'.$background.'.css" rel="stylesheet" type="text/css" />';
+		$page .= '<link href="'.$config["content_url"].'css/style9.css" rel="stylesheet" type="text/css" />';
 	}
 	
 	/* Add JavaScripts */
@@ -2869,7 +2869,7 @@ function warquest_ui_banner() {
 	
 	/* First line */
 	$page .= '<td valign="top" width="185">';
-	$page .= warquest_link_hidden('mid='.MENU_PLAYERS.'&sid='.PAGE_BEST_PLAYER, t('STATUS_CASH')).': ';
+	$page .= warquest_link_hidden('mid='.MENU_PLAYERS.'&sid='.PAGE_LEADERBOARD.'&ssid='.PAGE_BEST_PLAYER, t('STATUS_CASH')).': ';
 	$page .= '<span class="value" id="moneyvalue"></span>';
 	
 	$tmp = "";
@@ -2890,8 +2890,8 @@ function warquest_ui_banner() {
 	$page .= '<br/>';
 	$page .= '</td>';
 	
-	$page .= '<td valign="top" width="195">';
-	$page .= warquest_link_hidden('mid='.MENU_PLAYERS.'&sid='.PAGE_BEST_COUNTRY, t('STATUS_EXP')).': ';
+	$page .= '<td valign="top" width="190">';
+	$page .= warquest_link_hidden('mid='.MENU_PLAYERS.'&sid='.PAGE_LEADERBOARD.'&ssid='.PAGE_BEST_COUNTRY, t('STATUS_EXP')).': ';
 	$page .= '<span class="value experience">'.number_format($player->experience,0,",",".");
 	$page .= '</span>';
 	if ($player->lid!=$config["max_level"]) {
@@ -2914,7 +2914,7 @@ function warquest_ui_banner() {
 	}
 	$page .= '</td>';
 	
-	$page .= '<td valign="top" width="120">';
+	$page .= '<td valign="top" width="125">';
 	$page .= warquest_link_hidden('mid='.MENU_FORUMS.'&sid='.PAGE_FORUM, t('STATUS_LEVEL')).': ';
 	$page .= '<span class="value level">'.$player->lid.'</span>';
 	if ($player->lid>0) {

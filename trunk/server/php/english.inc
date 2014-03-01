@@ -790,8 +790,8 @@ $lang['SETTING_ACCOUNT_RESETTED'] = 'Player %s account is resetted!';
 /* Earth Missions */
 $lang['MISSION_GROUP_0'] = 'Training';
 $lang['MISSION_GROUP_1'] = 'Europe';
-$lang['MISSION_GROUP_2'] = 'N-America';
-$lang['MISSION_GROUP_3'] = 'S-America';
+$lang['MISSION_GROUP_2'] = 'N.A.';
+$lang['MISSION_GROUP_3'] = 'S.A.';
 $lang['MISSION_GROUP_4'] = 'Africa';
 $lang['MISSION_GROUP_5'] = 'N-Asia';
 $lang['MISSION_GROUP_6'] = 'S-Asia';
@@ -823,11 +823,11 @@ $lang['MISSION_GROUP_28'] = 'Iguana';
 
 /* Mercury Missions */
 $lang['MISSION_GROUP_30'] = 'Alfred';
-$lang['MISSION_GROUP_31'] = 'Benjamin';
+$lang['MISSION_GROUP_31'] = 'Ben';
 $lang['MISSION_GROUP_32'] = 'Charles';
 $lang['MISSION_GROUP_33'] = 'David';
 $lang['MISSION_GROUP_34'] = 'Edward';
-$lang['MISSION_GROUP_35'] = 'Frederick';
+$lang['MISSION_GROUP_35'] = 'Fred';
 $lang['MISSION_GROUP_36'] = 'George';
 $lang['MISSION_GROUP_37'] = 'Harry';
 $lang['MISSION_GROUP_38'] = 'Isaac';
@@ -3269,7 +3269,8 @@ $lang['LINK_HERE'] = 'here';
 ** ------------------
 */
 
-$lang['LINK_CLAN'] = 'Clans';
+$lang['LINK_CLAN'] = 'Clan';
+$lang['LINK_CLANS'] = 'Clans';
 
 $lang['GENERAL_MISSIONS'] = 'Missions';
 
