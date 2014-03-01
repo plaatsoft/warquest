@@ -131,15 +131,16 @@
 		<xsd:sequence>
 			<xsd:element name="cid" type="xsd:integer" minOccurs="0" maxOccurs="1"/>
 			<xsd:element name="name" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+			<xsd:element name="slogan" type="xsd:string" minOccurs="0" maxOccurs="1"/>
 			<xsd:element name="created" type="xsd:dateTime" minOccurs="0" maxOccurs="1"/>
-			<xsd:element name="last_activity" type="xsd:dateTime" minOccurs="0" maxOccurs="1"/>
-			<xsd:element name="pid" type="xsd:integer" minOccurs="0" maxOccurs="1"/>
+			<xsd:element name="last_activity" type="xsd:dateTime" minOccurs="0" maxOccurs="1"/>		
 			<xsd:element name="won" type="xsd:integer" minOccurs="0" maxOccurs="1"/>
 			<xsd:element name="lost" type="xsd:integer" minOccurs="0" maxOccurs="1"/>
+			<xsd:element name="mission" type="xsd:integer" minOccurs="0" maxOccurs="1"/>
 			<xsd:element name="money" type="xsd:long" minOccurs="0" maxOccurs="1"/>
 			<xsd:element name="attack" type="xsd:integer" minOccurs="0" maxOccurs="1"/>
 			<xsd:element name="defense" type="xsd:integer" minOccurs="0" maxOccurs="1"/>
-			<xsd:element name="slogan" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+			<xsd:element name="pid" type="xsd:integer" minOccurs="0" maxOccurs="1"/>
 		</xsd:sequence>
 	</xsd:complexType>
 		
