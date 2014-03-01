@@ -685,51 +685,6 @@ $lang['BACKGROUND_8'] = 'Fuochi d\'artificio';
 ** ------------------
 */
 
-/* Missioni Terra */
-$lang['MISSION_GROUP_0'] = 'Allenamento';
-$lang['MISSION_GROUP_1'] = 'Europa';
-$lang['MISSION_GROUP_2'] = 'N-America';
-$lang['MISSION_GROUP_3'] = 'S-America';
-$lang['MISSION_GROUP_4'] = 'Africa';
-$lang['MISSION_GROUP_5'] = 'N-Asia';
-$lang['MISSION_GROUP_6'] = 'S-Asia';
-$lang['MISSION_GROUP_7'] = 'E-Asia';
-$lang['MISSION_GROUP_8'] = 'Oceania';
-$lang['MISSION_GROUP_9'] = 'Medioriente';
-
-/* Missioni Luna */
-$lang['MISSION_GROUP_10'] = 'Alpha ';
-$lang['MISSION_GROUP_11'] = 'Beta';
-$lang['MISSION_GROUP_12'] = 'Charlie';
-$lang['MISSION_GROUP_13'] = 'Delta';
-$lang['MISSION_GROUP_14'] = 'Echo';
-$lang['MISSION_GROUP_15'] = 'Foxtrot';
-$lang['MISSION_GROUP_16'] = 'Golf';
-$lang['MISSION_GROUP_17'] = 'Hotel';
-$lang['MISSION_GROUP_18'] = 'Lima';
-
-/* Missioni Marte */
-$lang['MISSION_GROUP_20'] = 'Alpaca';
-$lang['MISSION_GROUP_21'] = 'Bison';
-$lang['MISSION_GROUP_22'] = 'Coyote';
-$lang['MISSION_GROUP_23'] = 'Dinosaur';
-$lang['MISSION_GROUP_24'] = 'Emu';
-$lang['MISSION_GROUP_25'] = 'Fox';
-$lang['MISSION_GROUP_26'] = 'Gnu';
-$lang['MISSION_GROUP_27'] = 'Heron';
-$lang['MISSION_GROUP_28'] = 'Lion';
-
-/* Mercury */
-$lang['MISSION_GROUP_30'] = 'Alfred';
-$lang['MISSION_GROUP_31'] = 'Benjamin';
-$lang['MISSION_GROUP_32'] = 'Charles';
-$lang['MISSION_GROUP_33'] = 'David';
-$lang['MISSION_GROUP_34'] = 'Edward';
-$lang['MISSION_GROUP_35'] = 'Frederick';
-$lang['MISSION_GROUP_36'] = 'George';
-$lang['MISSION_GROUP_37'] = 'Harry';
-$lang['MISSION_GROUP_38'] = 'Isaac';
-
 /* Terra */
 $lang['MISSION_0'] = 'Missione allenamento';
 $lang['MISSION_1'] = 'Regione Inghilterra';

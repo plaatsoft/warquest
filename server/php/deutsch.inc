@@ -612,19 +612,8 @@ $lang['PLAYER_LOGIN_NOTE'] = 'ACHTUNG: Der automatische Login w‰hrend des Starts
 ** ------------------
 */
 
-/* Earth Missions */
-$lang['MISSION_GROUP_0'] = 'Training';
-$lang['MISSION_GROUP_1'] = 'Europa';
-$lang['MISSION_GROUP_2'] = 'N-Amerika';
-$lang['MISSION_GROUP_3'] = 'S-Amerika';
-$lang['MISSION_GROUP_4'] = 'Afrika';
-$lang['MISSION_GROUP_5'] = 'N-Asien';
-$lang['MISSION_GROUP_6'] = 'S-Asien';
-$lang['MISSION_GROUP_7'] = 'E-Asien';
-$lang['MISSION_GROUP_8'] = 'Australien';
-$lang['MISSION_GROUP_9'] = 'Nahost';
-
 $lang['MISSION_0'] = 'Trainings Mission';
+
 $lang['MISSION_1'] = 'Groﬂ-Britannien';
 $lang['MISSION_2'] = 'Luxemburg';
 $lang['MISSION_3'] = 'Frankreich';
@@ -705,8 +694,6 @@ $lang['MISSION_84'] = 'Yemen';
 $lang['MISSION_85'] = 'Oman';
 $lang['MISSION_86'] = 'Jordan';
 $lang['MISSION_87'] = 'Israel';
-
-
 
 /*
 ** ------------------

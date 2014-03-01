@@ -193,7 +193,9 @@ function warquest_menu_mission() {
 	
 	$menu .= '</ul>';
 	$menu .= '</div>';
-	
+			
+	$menu .= warquest_submenu_mission();
+					
 	$menu .= '<div class="clear"></div>';
 	
 	return $menu;
@@ -212,7 +214,7 @@ function warquest_submenu_mission() {
 	$query  = 'select mgid from mission_group where planet='.$player->planet.' and mgid!=0 order by mgid';
 	$result = warquest_db_query($query);	
 	
-	$menu = '<div class="menu">';
+	$menu = '<div class="menu right2">';
 	$menu .= '<ul>';
 	
 	if ($player->lid==0) {
@@ -230,8 +232,6 @@ function warquest_submenu_mission() {
 		
 	$menu .= '</ul>';
 	$menu .= '</div>';
-	
-	$menu .= '<div class="clear"></div>';
 	
 	return $menu;
 }
@@ -508,7 +508,7 @@ function warquest_menu_players() {
 	$menu .= '<ul>';
 	
 	$menu .= warquest_ui_menu($mid, PAGE_ALLIANCE, PAGE_INVITE, t('LINK_ALLIANCE'), $sid, $recruit);
-	$menu .= warquest_ui_menu($mid, PAGE_CLAN, 0, t('LINK_CLAN'), $sid);	
+	$menu .= warquest_ui_menu($mid, PAGE_CLAN, 0, t('LINK_CLANS'), $sid);	
 	$menu .= warquest_ui_menu($mid, PAGE_LEADERBOARD, PAGE_BEST_PLAYER, t('LINK_LEADERBOARD'), $sid);
 	$menu .= warquest_ui_menu($mid, PAGE_PROMOTION, 0, t('LINK_PROMOTION'), $sid);
 	
