@@ -185,8 +185,7 @@ function warquest_mission_planet_complet() {
 function warquest_mission_continent_complet() {
 
 	/* input */
-	global $ssid;
-	global $uid;
+	global $id;
 	global $config;
 	
 	/* output */
@@ -194,16 +193,18 @@ function warquest_mission_continent_complet() {
 	global $skill;		
 	global $output;
 			 
-	$data1 = warquest_db_player_mission($player->pid, $uid);
-	$part = $data1->part2+1;
+	$player_mission = warquest_db_player_mission($player->pid, $id);
+	$part = $player_mission->part2+1;
 	
-	$query2  = 'select sum(progress) as progress from player_mission a, ';
-	$query2 .= 'mission b where a.mid=b.mid and a.pid='.$player->pid.' and b.mgid='.$ssid;
-	$result2 = warquest_db_query($query2);	
-	$data2 = warquest_db_fetch_object($result2);
+	$mission = warquest_db_mission($id);
+	
+	$query  = 'select sum(progress) as progress from player_mission a, ';
+	$query .= 'mission b where a.mid=b.mid and a.pid='.$player->pid.' and b.mgid='.$mission->mgid;
+	$result = warquest_db_query($query);	
+	$data = warquest_db_fetch_object($result);
 	
 	/* Detect if all continent mission parts are 100% complete */
-	if (($part*800)==$data2->progress) {
+	if (($part*800)==$data->progress) {
 		
 		/* calculate skill points bonus. */
 		$bonus = warquest_format_part($part)+2;
@@ -217,13 +218,13 @@ function warquest_mission_continent_complet() {
 
 		/* Clear progress state for all eight missions. */
 		$query  = 'update player_mission a, mission b set a.part='.$part.', a.part2='.$part.' where '; 
-		$query .= 'a.mid=b.mid and a.pid='.$player->pid.' and b.mgid='.$ssid;
+		$query .= 'a.mid=b.mid and a.pid='.$player->pid.' and b.mgid='.$mission->mgid;
 		warquest_db_query($query);		
 						 
 		$message  = t('MISSION_CONTINTENT_READY1', 
 							warquest_format_part($part-1), 
 							$config["max_mission_part"], 
-							t('MISSION_GROUP_'.$ssid));
+							t('MISSION_GROUP_'.$mission->mgid));
 									
 		$message .= t('MISSION_CONTINTENT_READY2', $bonus);
 				
@@ -254,7 +255,7 @@ function warquest_mission_continent_complet() {
 function warquest_mission_unit_lost() {
 
    /* input */
-	global $uid;
+	global $id;
 	global $level;
 	
 	/* output */
@@ -282,7 +283,7 @@ function warquest_mission_unit_lost() {
 	$query  = 'select a.uid, c.gold, c.defense, c.attack, a.amount, c.upkeep ';
 	$query .= 'from mission_unit a LEFT JOIN unit c ' ;
 	$query .= 'ON a.uid=c.uid left join player_unit b ';
-	$query .= 'ON a.uid=b.uid and b.pid='.$player->pid.' where a.mid='.$uid;
+	$query .= 'ON a.uid=b.uid and b.pid='.$player->pid.' where a.mid='.$id;
 		
 	$result = warquest_db_query($query);
 	
@@ -341,7 +342,7 @@ function warquest_mission_unit_lost() {
 function warquest_buy_missing_units_do() {
 	
 	/* input */
-	global $uid;
+	global $id;
 	
 	/* output */
 	global $player;
@@ -351,7 +352,7 @@ function warquest_buy_missing_units_do() {
 	$query .= 'a.amount-ifnull(b.amount,0) as total ';
 	$query .= 'from mission_unit a LEFT JOIN unit c ' ;
 	$query .= 'ON a.uid = c.uid left join player_unit b ';
-	$query .= 'ON a.uid=b.uid and b.pid='.$player->pid.' where a.mid='.$uid.' ';
+	$query .= 'ON a.uid=b.uid and b.pid='.$player->pid.' where a.mid='.$id.' ';
 	$query .= 'and a.amount-ifnull(b.amount,0)>0';
 	$result = warquest_db_query($query); 
 	
@@ -420,7 +421,7 @@ function warquest_mission_clan_do() {
 	global $mid;
 	global $sid;	
 	global $ssid;	
-	global $uid;
+	global $id;
 	global $config;
 	
 	/* output */
@@ -428,14 +429,14 @@ function warquest_mission_clan_do() {
 	global $output;
 
 	/* Get mission data */
-	$mission = warquest_db_mission($uid);
+	$mission = warquest_db_mission($id);
 	
 	/* Get player clan data */
 	$player_clan = warquest_db_player_clan($player->pid);
 	
 	/* Get progress data */	
 	$progress = 0;	
-	$data = warquest_db_clan_mission($player_clan->cid, $uid);
+	$data = warquest_db_clan_mission($player_clan->cid, $id);
 	if ( isset($data->cid) ) {
 		$progress = $data->progress;
 	}
@@ -444,7 +445,7 @@ function warquest_mission_clan_do() {
 	$query  = 'select a.uid, c.price, c.upkeep, c.attack, c.defense, a.amount-ifnull(b.amount,0) ';
 	$query .= 'as total from mission_unit a LEFT JOIN unit c ' ;
 	$query .= 'ON a.uid = c.uid left join player_unit b ';
-	$query .= 'ON a.uid=b.uid and b.pid='.$player->pid.' where a.mid='.$uid.' ';
+	$query .= 'ON a.uid=b.uid and b.pid='.$player->pid.' where a.mid='.$id.' ';
 	$query .= 'and a.amount-ifnull(b.amount,0)>0';
 	$result2 = warquest_db_query($query);
 	
@@ -495,9 +496,9 @@ function warquest_mission_clan_do() {
 		$message .= t('MISSION_MISSING_UNITS_PRICE',money_format2($total), money_format2($upkeep));
 
 		$link = warquest_image('bar/bar'.$progress.'.png').'<br/>';		
-		$link .= warquest_link('mid='.$mid.'&sid='.$sid.'&ssid='.$ssid.'&uid='.$uid.'&eid='.EVENT_MISSION_CLAN_BUY_PLAY, t('LINK_BUY_PLAY'), 'buyplay');
+		$link .= warquest_link('mid='.$mid.'&sid='.$sid.'&ssid='.$ssid.'&id='.$id.'&eid='.EVENT_MISSION_CLAN_BUY_PLAY, t('LINK_BUY_PLAY'), 'buyplay');
 	
-		$output->popup .= warquest_box(t('GENERAL_CONQUER').' '.t('MISSION_'.$uid), $message, $link);
+		$output->popup .= warquest_box(t('GENERAL_CONQUER').' '.t('MISSION_'.$id), $message, $link);
 		
 	} else if ($player->energy < $mission->energy) {
 
@@ -505,16 +506,16 @@ function warquest_mission_clan_do() {
 		$message .= t('MISSION_NO_ENERGY');
 				
 		$link  = warquest_image('bar/bar'.$progress.'.png').'<br/>';
-		$link .= warquest_link('mid='.$mid.'&sid='.$sid.'&ssid='.$ssid.'&uid='.$uid.'&eid='.EVENT_MISSION_CLAN_PLAY, t('LINK_DO_AGAIN'),'doagain');		
+		$link .= warquest_link('mid='.$mid.'&sid='.$sid.'&ssid='.$ssid.'&id='.$id.'&eid='.EVENT_MISSION_CLAN_PLAY, t('LINK_DO_AGAIN'),'doagain');		
 		
-		$output->popup .= warquest_box(t('GENERAL_CONQUER').' '.t('MISSION_'.$uid), $message, $link);
+		$output->popup .= warquest_box(t('GENERAL_CONQUER').' '.t('MISSION_'.$id), $message, $link);
 		
 	} else if ($player->alliance < $mission->alliance) {
 	
 		$message = '<span class="warning">'.t('MISSION_ABORTED').'</span><br/>';
 		$message .= t('MISSION_LOW_ALLIANCE');
 				
-		$output->popup .= warquest_box(t('GENERAL_CONQUER').' '.t('MISSION_'.$uid), $message);
+		$output->popup .= warquest_box(t('GENERAL_CONQUER').' '.t('MISSION_'.$id), $message);
 		
 	} else {
 			 
@@ -552,7 +553,7 @@ function warquest_mission_clan_do() {
 		warquest_user_log($player, $log);
 				
 		/* Update clan mission progress */
-		warquest_db_clan_mission_update($player_clan->cid, $uid, $progress);	
+		warquest_db_clan_mission_update($player_clan->cid, $id, $progress);	
 		
 		/* update clan statistics */
 		$clan = warquest_db_clan($player_clan->cid);
@@ -575,10 +576,10 @@ function warquest_mission_clan_do() {
 		}
 			
 		$link  = warquest_image('bar/bar'.$progress.'.png').'<br/>';	
-		$link .= warquest_link('mid='.$mid.'&sid='.$sid.'&ssid='.$ssid.'&eid='.EVENT_MISSION_CLAN_PLAY.'&uid='.$uid, t('LINK_DO_AGAIN'), "doagain");
+		$link .= warquest_link('mid='.$mid.'&sid='.$sid.'&ssid='.$ssid.'&eid='.EVENT_MISSION_CLAN_PLAY.'&id='.$id, t('LINK_DO_AGAIN'), "doagain");
 		
 		$output->result = true;
-		$output->popup .= warquest_box(t('GENERAL_CONQUER').' '.t('MISSION_'.$uid), $message, $link);
+		$output->popup .= warquest_box(t('GENERAL_CONQUER').' '.t('MISSION_'.$id), $message, $link);
 		
 		/* Play sound */			
 		warquest_sound('mission'.rand(1,2).'.mp3');	
@@ -594,7 +595,7 @@ function warquest_mission_do() {
 	global $mid;
 	global $sid;	
 	global $ssid;	
-	global $uid;
+	global $id;
 	global $config;
 	
 	/* output */
@@ -602,14 +603,14 @@ function warquest_mission_do() {
 	global $output;
 
 	/* Get mission data */
-	$mission = warquest_db_mission($uid);
+	$mission = warquest_db_mission($id);
 	
 	/* Get progress data */	
 	$progress = 0;
 	$part = 0;
 	$part2 = 0;
 	
-	$data = warquest_db_player_mission($player->pid, $uid);
+	$data = warquest_db_player_mission($player->pid, $id);
 
 	if ( isset($data->pid) ) {
 		$progress = $data->progress;
@@ -621,7 +622,7 @@ function warquest_mission_do() {
 	$query  = 'select a.uid, c.price, c.upkeep, c.attack, c.defense, a.amount-ifnull(b.amount,0) ';
 	$query .= 'as total from mission_unit a LEFT JOIN unit c ' ;
 	$query .= 'ON a.uid = c.uid left join player_unit b ';
-	$query .= 'ON a.uid=b.uid and b.pid='.$player->pid.' where a.mid='.$uid.' ';
+	$query .= 'ON a.uid=b.uid and b.pid='.$player->pid.' where a.mid='.$id.' ';
 	$query .= 'and a.amount-ifnull(b.amount,0)>0';
 	$result2 = warquest_db_query($query);
 	
@@ -677,9 +678,9 @@ function warquest_mission_do() {
 			$max=1;
 		}		
 		$link .= t('MISSION_PART').' '.warquest_format_part($part).'/'.$max.'<br/>';
-		$link .= warquest_link('mid='.$mid.'&sid='.$sid.'&ssid='.$ssid.'&uid='.$uid.'&eid='.EVENT_MISSION_BUY_PLAY, t('LINK_BUY_PLAY'), 'buyplay');
+		$link .= warquest_link('mid='.$mid.'&sid='.$sid.'&ssid='.$ssid.'&id='.$id.'&eid='.EVENT_MISSION_BUY_PLAY, t('LINK_BUY_PLAY'), 'buyplay');
 	
-		$output->popup .= warquest_box(t('GENERAL_CONQUER').' '.t('MISSION_'.$uid), $message, $link);
+		$output->popup .= warquest_box(t('GENERAL_CONQUER').' '.t('MISSION_'.$id), $message, $link);
 		
 	} else if ($player->energy < $mission->energy) {
 
@@ -692,16 +693,16 @@ function warquest_mission_do() {
 			$max=1;
 		}		
 		$link .= t('MISSION_PART').' '.warquest_format_part($part).'/'.$max.'<br/>';
-		$link .= warquest_link('mid='.$mid.'&sid='.$sid.'&ssid='.$ssid.'&eid='.EVENT_MISSION_PLAY.'&uid='.$uid, t('LINK_DO_AGAIN'),'doagain');		
+		$link .= warquest_link('mid='.$mid.'&sid='.$sid.'&ssid='.$ssid.'&eid='.EVENT_MISSION_PLAY.'&id='.$id, t('LINK_DO_AGAIN'),'doagain');		
 		
-		$output->popup .= warquest_box(t('GENERAL_CONQUER').' '.t('MISSION_'.$uid), $message, $link);
+		$output->popup .= warquest_box(t('GENERAL_CONQUER').' '.t('MISSION_'.$id), $message, $link);
 		
 	} else if ($player->alliance < $mission->alliance) {
 	
 		$message = '<span class="warning">'.t('MISSION_ABORTED').'</span><br/>';
 		$message .= t('MISSION_LOW_ALLIANCE');
 				
-		$output->popup .= warquest_box(t('GENERAL_CONQUER').' '.t('MISSION_'.$uid), $message);
+		$output->popup .= warquest_box(t('GENERAL_CONQUER').' '.t('MISSION_'.$id), $message);
 		
 	} else {
 			 
@@ -752,7 +753,7 @@ function warquest_mission_do() {
 		} 
 		
 		/* Update database */
-		warquest_db_player_mission_update($player->pid, $uid, $progress, $part, $part2);	
+		warquest_db_player_mission_update($player->pid, $id, $progress, $part, $part2);	
 		
 		/* Check if all missions of a continent are complete */
 		warquest_mission_continent_complet();
@@ -788,10 +789,10 @@ function warquest_mission_do() {
 				$max=1;
 			}		
 			$link .= t('MISSION_PART').' '.warquest_format_part($part).'/'.$max.'<br/>';
-			$link .= warquest_link('mid='.$mid.'&sid='.$sid.'&ssid='.$ssid.'&eid='.EVENT_MISSION_PLAY.'&uid='.$uid, t('LINK_DO_AGAIN'), "doagain");
+			$link .= warquest_link('mid='.$mid.'&sid='.$sid.'&ssid='.$ssid.'&eid='.EVENT_MISSION_PLAY.'&id='.$id, t('LINK_DO_AGAIN'), "doagain");
 
 			$output->result = true;
-			$output->popup .= warquest_box(t('GENERAL_CONQUER').' '.t('MISSION_'.$uid), $message, $link);
+			$output->popup .= warquest_box(t('GENERAL_CONQUER').' '.t('MISSION_'.$id), $message, $link);
 		
 			/* Play sound */			
 			warquest_sound('mission'.rand(1,2).'.mp3');	
@@ -886,7 +887,7 @@ function warquest_mission_clan_form() {
 			if ($player->lid==0) {
 				$max=1;
 			}
-			$page .= warquest_link('mid='.$mid.'&sid='.$sid.'&ssid='.$ssid.'&eid='.EVENT_MISSION_CLAN_PLAY.'&uid='.$data->mid,t('LINK_PLAY'),'play'.$line);
+			$page .= warquest_link('mid='.$mid.'&sid='.$sid.'&ssid='.$ssid.'&eid='.EVENT_MISSION_CLAN_PLAY.'&id='.$data->mid,t('LINK_PLAY'),'play'.$line);
 			$page .= '</td>';
 		
 			$page .= '</tr>';
@@ -1066,7 +1067,7 @@ function warquest_mission_player_form() {
 			}
 		
 			$page .= t('MISSION_PART').' '.warquest_format_part($data->part).'/'.$max.'<br/>';
-			$page .= warquest_link('mid='.$mid.'&sid='.$sid.'&ssid='.$ssid.'&eid='.EVENT_MISSION_PLAY.'&uid='.$data->mid,t('LINK_PLAY'),'play'.$line);
+			$page .= warquest_link('mid='.$mid.'&sid='.$sid.'&ssid='.$ssid.'&eid='.EVENT_MISSION_PLAY.'&id='.$data->mid,t('LINK_PLAY'),'play'.$line);
 			$page .= '</td>';
 		
 			$page .= '</tr>';

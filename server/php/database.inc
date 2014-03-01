@@ -2117,8 +2117,8 @@ function warquest_db_player_clan_delete($pid, $cid) {
  */
 function warquest_db_mission($mid) {
 
-	$query  = 'select mid, min_price, max_price, energy, experience, alliance, ';
-	$query .= 'loot, lid from mission where mid='.$mid;  
+	$query  = 'select mid, min_price, max_price, experience, loot, energy, alliance, ';
+	$query .= 'lid, mgid from mission where mid='.$mid;  
 	
 	$result = warquest_db_query($query); 
 	
