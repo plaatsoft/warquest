@@ -380,6 +380,9 @@ $server->addFunction(array("getPlayer", "getClan", "getPlanet", "doBattle", "doM
 /* Process Soap Call */
 $server->handle();
 
+/* Added statitics event */
+warquest_db_view_add();
+	
 /* Close database connection */
 warquest_db_close();
 

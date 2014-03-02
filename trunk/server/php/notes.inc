@@ -16,6 +16,16 @@
 **  All copyrights reserved (c) 2008-2014 PlaatSoft
 */
 
+/* $notes[66] = '
+<div class="subparagraph2">02-03-2014</div>
+<i>Game Server v6.6</i>
+<ul>
+<li>Added page views statistics functionality.</li>
+<li>Added page views admin page.</li>
+<li>Disable account reset functionality.</li>
+<li>Disable clan (member) inactive automatic removable.</li>
+</ul>';*/
+
 $notes[65] = '
 <div class="subparagraph2">27-02-2014</div>
 <i>Game Server v6.5</i>

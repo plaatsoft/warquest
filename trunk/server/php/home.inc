@@ -751,26 +751,30 @@ function warquest_home_welcome() {
 	
 	$output->title = t('HOME_OVERVIEW_TITLE');
 	
-	$query =  'select count(pid) as count, sum(request) as request, sum(won) as won from player';
-	$result = warquest_db_query($query); 
-	$data = warquest_db_fetch_object($result);
+	$query1 =  'select count(pid) as count, sum(won) as won from player';
+	$result1 = warquest_db_query($query1); 
+	$data1 = warquest_db_fetch_object($result1);
 		
 	$query =  'select distinct(country) from player';
 	$result = warquest_db_query($query); 
 	$count = warquest_db_num_rows($result);
 		
-	$query =  'select pid from player where country="'.$player->country.'" and experience>='.$player->experience;
-	$result = warquest_db_query($query);
-	$count2 = warquest_db_num_rows($result);
+	$query2 =  'select pid from player where country="'.$player->country.'" and experience>='.$player->experience;
+	$result2 = warquest_db_query($query2);
+	$count2 = warquest_db_num_rows($result2);
 		
-	$query =  'select pid from player where experience>='.$player->experience.' and country!="EU"';
-	$result = warquest_db_query($query);
-	$count3 = warquest_db_num_rows($result);
+	$query3 =  'select pid from player where experience>='.$player->experience.' and country!="EU"';
+	$result3 = warquest_db_query($query3);
+	$count3 = warquest_db_num_rows($result3);
 	
 	$yesterday = mktime(date("H"), date("i"), date("s"), date("m"), date("d")-1, date("Y"));
 	$query4  = 'select count(pid) as count from member where last_login > "'.date("Y-m-d H:i:s", $yesterday).'" ';		
 	$result4 = warquest_db_query($query4);
 	$data4 =  warquest_db_fetch_object($result4);
+	
+	$query5 =  'select sum(requests) as requests from views';
+	$result5 = warquest_db_query($query5); 
+	$data5 = warquest_db_fetch_object($result5);
 		
 	$page .= '<div class="subparagraph">'.t('HOME_OVERVIEW_TITLE').'</div>';
 	
@@ -794,9 +798,9 @@ function warquest_home_welcome() {
 	
 	if ($player->lid > 5) {
 		$page .= '<br/>';
-		$page .= t('HOME_INTRO_PLAYERS', energy_format($data->count), country_format($count));
-		$page .= t('HOME_INTRO_FIGHTS', health_format($data->won));
-		$page .= t('HOME_INTRO_REQUESTS', money_format1($data->request));
+		$page .= t('HOME_INTRO_PLAYERS', energy_format($data1->count), country_format($count));
+		$page .= t('HOME_INTRO_FIGHTS', health_format($data1->won));
+		$page .= t('HOME_INTRO_REQUESTS', money_format1($data5->requests));
 		$page .= t('HOME_PLAYERS_ONLINE',energy_format($data4->count));			
 		$page .= '<br/>';
 	}

@@ -1926,6 +1926,87 @@ function warquest_admin_maps() {
 	}
 }
 
+function warquest_admin_page_views() {
+
+	/* output */
+	global $page;
+	global $output;
+	
+	$query = 'select mid, sid, ssid, eid, requests from views order by requests desc';
+	$result = warquest_db_query($query);
+	
+	$page .= '<div class="box rows">';
+	
+	$page .= '<table>';
+	
+	$page .= '<thead>';	
+	
+	$page .= '<tr>';	
+	
+	$page .= '<th width="80">';
+	$page .= 'mid';
+	$page .= '</th>';
+	
+	$page .= '<th width="80">';
+	$page .= 'sid';
+	$page .= '</th>';
+
+	$page .= '<th width="80">';
+	$page .= 'ssid';
+	$page .= '</th>';
+	
+	$page .= '<th width="80">';
+	$page .= 'eid';
+	$page .= '</th>';
+	
+	$page .= '<th width="180">';
+	$page .= 'requests';
+	$page .= '</th>';
+	
+	$page .= '</tr>';
+	
+	$page .= '</thead>';
+	
+	$page .= '<tbody>';
+	
+	while ($data = warquest_db_fetch_object($result)) {
+	
+		$page .= '<tr>';
+		
+		$page .= '<td>';
+		$page .= $data->mid;
+		$page .= '</td>';
+		
+		$page .= '<td>';
+		$page .= $data->sid;
+		$page .= '</td>';
+		
+		$page .= '<td>';
+		$page .= $data->ssid;
+		$page .= '</td>';
+		
+		$page .= '<td>';
+		$page .= $data->eid;
+		$page .= '</td>';
+		
+		$page .= '<td>';
+		$page .= $data->requests;
+		$page .= '</td>';
+	
+		$page .= '</tr>';
+	}
+
+	$page .= '</tbody>';
+	$page .= '</table>';
+		
+	$page .= '</div>';	
+	
+	$page .= '<div class="note">';
+	$page .= 'Note: All paeg views.';
+   $page .= '</div>';
+	
+
+}
 
 /*
 ** ---------------------
@@ -2106,6 +2187,10 @@ function warquest_admin() {
 			
 		case PAGE_MAPS:
 			warquest_admin_maps();
+			break;	
+			
+		case PAGE_VIEWS:
+			warquest_admin_page_views();
 			break;	
 			
 		case PAGE_INFO:

@@ -251,7 +251,7 @@ function warquest_cron_statistics($info=0) {
 	/* input */
 	global $config;	
 		
-	$query1  = 'select count(*) as count, sum(request) as request, sum(won) as won, ';
+	$query1  = 'select count(*) as count, sum(won) as won, ';
 	$query1 .= 'sum(mission) as missions, sum(casino) as casino from player';
 	$result1 = warquest_db_query($query1);	
 	$data1 = warquest_db_fetch_object($result1);
@@ -262,6 +262,10 @@ function warquest_cron_statistics($info=0) {
 	$result2 = warquest_db_query($query2);	
 	$data2 = warquest_db_fetch_object($result2);
 	
+	$query3 =  'select sum(requests) as requests from views';
+	$result3 = warquest_db_query($query3); 
+	$data3 = warquest_db_fetch_object($result3);
+		
 	if ($info==1) {
 		$date = mktime(date("H"), date("i"), date("s"), date("m"), date("d"), date("Y"));
 	}
@@ -270,7 +274,7 @@ function warquest_cron_statistics($info=0) {
 	 
 	if ( isset($stats->id) ) {
 
-		$stats->requests = $data1->request;
+		$stats->requests = $data3->requests;
 		$stats->fights = $data1->won;
 		$stats->players = $data1->count;
 		$stats->logins = $data2->count;
@@ -281,7 +285,7 @@ function warquest_cron_statistics($info=0) {
 		
 	} else {
 	
-		warquest_db_statistics_insert($date, $data1->request, $data1->won, $data1->count, $data2->count, $data1->missions, 0, $data1->casino);	
+		warquest_db_statistics_insert($date, $data3->requests, $data1->won, $data1->count, $data2->count, $data1->missions, 0, $data1->casino);	
 	}
 			
 	$message = 'Statistics of '.date("d-m-Y", $date).' updated!'; 

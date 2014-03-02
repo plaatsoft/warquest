@@ -195,10 +195,7 @@ function warquest_get_player_event() {
 function warquest_service() {
 
 	global $eid;
-		
-	/* Update request counter */
-	warquest_db_player_login_counter(1);
-	
+			
 	/* Event handler */
 	switch ($eid) {
 		
@@ -218,6 +215,9 @@ function warquest_service() {
 			warquest_get_player_event();
 			break;
 	}
+	
+	/* Added statitics event */
+	warquest_db_view_add();
 }
 
 /*
