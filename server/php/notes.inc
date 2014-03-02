@@ -21,7 +21,7 @@
 <i>Game Server v6.6</i>
 <ul>
 <li>Added page views statistics functionality.</li>
-<li>Added page views admin page.</li>
+<li>Added Admin->Views page (Admin Mode only).</li>
 <li>Disable account reset functionality.</li>
 <li>Disable clan (member) inactive automatic removable.</li>
 </ul>';*/
@@ -33,7 +33,7 @@ $notes[65] = '
 <li>Clan Wars improvements:</li>
 <ul>
 <li>Added clan missions. See Missions->Clan.</li>
-<li>Added clan statistics to Alliance->Clan->Clan Profile</li>
+<li>Added clan statistics to Players->Clan->Clan Profile</li>
 <li>Added hyperlink from Home->Profile->Clan to Clan Profile.</li>
 <li>Added Players->Leaderboard->Best-Clans.</li>
 <li>Max. allowed daily deposit to clan bank is 10x hourly income.</li>

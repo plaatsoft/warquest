@@ -71,6 +71,7 @@ define('MENU_FORUMS',         	1008);
 define('MENU_HELP',           	1009);
 define('MENU_ADMIN',          	1010);
 define('MENU_SERVICE',          	1011);
+define('MENU_WEB_SERVICE',      	1012);
 
 /*
 ** ------------------

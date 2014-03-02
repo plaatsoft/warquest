@@ -372,6 +372,10 @@ warquest_info("webservice - start");
 /* Create database connection */
 warquest_db_connect($config["dbhost"], $config["dbuser"], $config["dbpass"], $config["dbname"]);
 
+/* Added statitics event */
+$mid = MENU_WEB_SERVICE;
+warquest_db_view_add();
+
 /* Create Soap Server */
 ini_set('soap.wsdl_cache_enabled', '0');
 $server = new SoapServer('warquest.wsdl');
@@ -380,9 +384,6 @@ $server->addFunction(array("getPlayer", "getClan", "getPlanet", "doBattle", "doM
 /* Process Soap Call */
 $server->handle();
 
-/* Added statitics event */
-warquest_db_view_add();
-	
 /* Close database connection */
 warquest_db_close();
 
