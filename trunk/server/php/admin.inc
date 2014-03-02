@@ -2002,7 +2002,7 @@ function warquest_admin_page_views() {
 	$page .= '</div>';	
 	
 	$page .= '<div class="note">';
-	$page .= 'Note: All paeg views.';
+	$page .= 'Note: All page views.';
    $page .= '</div>';
 	
 
