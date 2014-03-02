@@ -1954,7 +1954,7 @@ function warquest_admin_page_views() {
 				break;
 			
 			case 4:
-				$query .= 'order by eid desc ';
+				$query .= 'order by eid asc ';
 				break;
 								
 			default:
