@@ -236,28 +236,29 @@ function warquest_login_footer() {
 	
 	/* If no database error show game statistics. */
 	if ($sid!=PAGE_MAINTENANCE) {
-	
-		/* Update login counter */
-		warquest_db_player_login_counter(1);
-	
-		$query =  'select count(pid) as count, sum(request) as request from player';
-		$result = warquest_db_query($query); 
-		$data=warquest_db_fetch_object($result);
+		
+		$query1 =  'select count(pid) as count from player';
+		$result1 = warquest_db_query($query1); 
+		$data1 = warquest_db_fetch_object($result1);
 				
-		$query =  'select distinct(country) from player';
-		$result = warquest_db_query($query); 
-		$count=warquest_db_num_rows($result);
+		$query2 =  'select distinct(country) from player';
+		$result2 = warquest_db_query($query2); 
+		$count2 = warquest_db_num_rows($result2);
 			
+		$query3 =  'select sum(requests) as requests from views';
+		$result3 = warquest_db_query($query3); 
+		$data3 = warquest_db_fetch_object($result3);
+		
 		$yesterday = mktime(date("H"), date("i"), date("s"), date("m"), date("d")-1, date("Y"));
 		$query4  = 'select count(pid) as count from member where last_login > "'.date("Y-m-d H:i:s", $yesterday).'" ';		
 		$result4 = warquest_db_query($query4);
-		$data4=warquest_db_fetch_object($result4);
+		$data4 = warquest_db_fetch_object($result4);
 		
 		$page .= '<center>';	
 		
 		$page .= '<span class="energy">';
-		if ( isset($data->count)) {
-			$page .= number_format($data->count,0,",",".");
+		if ( isset($data1->count)) {
+			$page .= number_format($data1->count,0,",",".");
 		} else {
 			$page .= number_format(0,0,",",".");
 		}		
@@ -265,13 +266,13 @@ function warquest_login_footer() {
 		$page .= t('LOGIN_PLAYERS').'<br/>';		
 		
 		$page .= '<span class="country">';
-		$page .= number_format($count,0,",",".");		
+		$page .= number_format($count2,0,",",".");		
 		$page .= '</span> ';		
 		$page .= t('LOGIN_COUNTRIES').'<br/>';			
 		
 		$page .= '<span class="money">';
-		if ( isset($data->request) ) {		
-			$page .= number_format($data->request,0,",",".");
+		if ( isset($data3->requests) ) {		
+			$page .= number_format($data3->requests,0,",",".");
 		} else {
 			$page .= number_format(0,0,",",".");
 		}

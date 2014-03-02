@@ -59,8 +59,6 @@ $result = warquest_db_query($query);
 /* Needed for player_format function */
 $mid = MENU_FORUMS;
 
-warquest_db_player_login_counter($pid);
-
 $page = "";
 while ($data = warquest_db_fetch_object($result)) {
 
@@ -73,6 +71,9 @@ while ($data = warquest_db_fetch_object($result)) {
 }
 
 echo $page;
+
+/* Added statitics event */
+warquest_db_view_add();
 
 /*
 ** ---------

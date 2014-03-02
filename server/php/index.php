@@ -386,6 +386,9 @@ if ( $output->format=="html" ) {
 	/* show page content */
 	echo $page;
 
+	/* Added statitics event */
+	warquest_db_view_add();
+
 	$time_end = microtime(true);
 	$time = $time_end - $time_start;
 

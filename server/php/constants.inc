@@ -157,22 +157,16 @@ define('PAGE_ABOUT',          	2008);
 /* Admin */
 define('PAGE_PLAYER_LIST',    	2101);
 define('PAGE_PLAYERS',        	2102);
-
 define('PAGE_ADMIN_MESSAGES', 	2103);
-
 define('PAGE_LEVEL',          	2104); 
 define('PAGE_LEVEL_ZOOM',    		2105);
 define('PAGE_PLAYER_COPY',    	2106);
-
 define('PAGE_ACTIONS',        	2107);
-
 define('PAGE_ADMIN_NEWS',     	2108);
-
 define('PAGE_BROWSER',         	2109);
-
 define('PAGE_MAPS',           	2110);
-
 define('PAGE_INFO',           	2111);
+define('PAGE_VIEWS', 		      2112);
 
 /* Player */
 define('PAGE_PROFILE',         	2201);

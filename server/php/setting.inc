@@ -589,7 +589,7 @@ function warquest_settings_form() {
 		
 	$page .= '<tr>';
 	$page .= '<td></td>';
-	$page .= '<td class="right">';
+	$page .= '<td class="right2">';
 	$page .= warquest_link('mid='.$mid.'&sid='.$sid.'&eid='.EVENT_HOME_SETTINGS_SAVE, t('LINK_CHANGE'), 'change-1');
 	$page .= '</td>';
 	$page .= '</tr>';
@@ -659,7 +659,7 @@ function warquest_settings_form() {
 	
 	$page .= '<tr>';
 	$page .= '<td></td>';
-	$page .= '<td class="right">'.warquest_link('mid='.$mid.'&sid='.$sid.'&eid='.EVENT_HOME_SETTINGS_SAVE, t('LINK_CHANGE'), 'change-2').'</td>';
+	$page .= '<td class="right2">'.warquest_link('mid='.$mid.'&sid='.$sid.'&eid='.EVENT_HOME_SETTINGS_SAVE, t('LINK_CHANGE'), 'change-2').'</td>';
 	$page .= '</tr>';
 	
 	$page .= '</table>';
@@ -713,7 +713,7 @@ function warquest_settings_form() {
 	
 	$page .= '<tr>';
 	$page .= '<td></td>';
-	$page .= '<td class="right">';
+	$page .= '<td class="right2">';
 	$page .= warquest_link('mid='.$mid.'&sid='.$sid.'&eid='.EVENT_HOME_EMAIL_CHANGE, t('LINK_CHANGE'), 'change-3');
 	$page .= '</td>';
 	$page .= '</tr>';
@@ -770,7 +770,7 @@ function warquest_settings_form() {
 		
 		$page .= '<tr>';
 		$page .= '<td></td>';
-		$page .= '<td class="right">';
+		$page .= '<td class="right2">';
 		$page .= warquest_link('mid='.$mid.'&sid='.$sid.'&eid='.EVENT_HOME_CHANGE_LOGIN, t('LINK_CHANGE'), 'change-4');
 		$page .= '</td>';
 		$page .= '</tr>';
@@ -789,7 +789,7 @@ function warquest_settings_form() {
 	** ---------------------------------
 	*/
 	
-	$page .= '<div class="subparagraph">';
+	/*$page .= '<div class="subparagraph">';
 	$page .= t('SETTING_ACCOUNT_RESET_TITLE');	
 	$page .= '</div>';		
 	$page .= '<div class="box">';	
@@ -800,7 +800,7 @@ function warquest_settings_form() {
 	
 	$page .= '<div class="note">';
 	$page .= t('SETTING_ACCOUNT_RESET_NOTE');	
-	$page .= '</div>';
+	$page .= '</div>';*/
 }
 
 /*

@@ -1207,33 +1207,6 @@ function warquest_db_player_delete($pid) {
 	return warquest_db_query($query);	
 }
 
-/** 
- * Update player page requests counter
- * @unitTest
- */
-function warquest_db_player_login_counter($pid) {
-
-	/* Get player data */
-	$query =  'select pid, request, request_date from player where pid='.$pid;  
-	$result = warquest_db_query($query);	
-	$data = warquest_db_fetch_object($result);
-	
-	if (isset($data->pid)) {
-		$data->request_date = date('Y-m-d H:i:s', time());
-		$data->request+=1;
-
-		/* update player data */
-		$query  = 'update player set '; 	
-		$query .= 'request='.$data->request.', ';
-		$query .= 'request_date="'.$data->request_date.'" ';
-		$query .= 'where pid='.$pid; 
-
-		$result = warquest_db_query($query);	
-	}
-	
-	return $result;
-}
-
 /*
 ** -----------------
 ** SKILL
@@ -2308,6 +2281,58 @@ function warquest_db_clan_bank_insert($cid, $pid, $amount, $balance, $action) {
 	
 	return $value;
 }
+
+/*
+** ---------------------
+** VIEWS
+** ---------------------
+*/
+
+/**
+ * Add views event (statistic use only)
+ */
+function warquest_db_view_add() {
+
+	/* input */
+	global $mid;
+	global $sid;
+	global $ssid;
+	global $eid;
+	
+	if (!isset($mid)) {
+		$mid=0;
+	}
+	
+	if (!isset($sid)) {
+		$sid=0;
+	}
+	
+	if (!isset($ssid)) {
+		$ssid=0;
+	}
+	
+	if (!isset($eid)) {
+		$eid=0;
+	}
+	
+	$query  = 'select requests from views where mid='.$mid.' and sid='.$sid.' and ssid='.$ssid.' and eid='.$eid;	
+	$result = warquest_db_query($query);
+	$data = warquest_db_fetch_object($result);
+	
+	if (isset($data->requests)) {
+					
+		$query  = 'update views set requests='.++$data->requests;
+		$query .= ' where mid='.$mid.' and sid='.$sid.' and ssid='.$ssid.' and eid='.$eid;	
+		
+	} else {		
+	
+		$query  = 'insert into views (mid, sid, ssid, eid, requests) values ';
+		$query .= '('.$mid.','.$sid.','.$ssid.','.$eid.', 1)';	    
+	} 
+	
+	return warquest_db_query($query);
+}
+
 
 /*
 ** ---------------------

@@ -659,6 +659,7 @@ function warquest_menu_admin() {
 	$menu .= warquest_ui_menu($mid, PAGE_BROWSER, 0, 'Browsers', $sid);
 	$menu .= warquest_ui_menu($mid, PAGE_INFO, 0, 'Info', $sid);
 	$menu .= warquest_ui_menu($mid, PAGE_MAPS, 0, 'Maps', $sid);
+	$menu .= warquest_ui_menu($mid, PAGE_VIEWS, 0, 'Views', $sid);
 	$menu .= warquest_ui_menu($mid, PAGE_ACTIONS, 0, 'Actions', $sid);
 
 	$menu .= '</ul>';
