@@ -1928,11 +1928,41 @@ function warquest_admin_maps() {
 
 function warquest_admin_page_views() {
 
+	/* input */
+	global $mid;
+	global $sid;
+	global $sort;
+
 	/* output */
 	global $page;
 	global $output;
 	
-	$query = 'select mid, sid, ssid, eid, requests from views order by requests desc';
+	$query = 'select mid, sid, ssid, eid, requests from views ';
+	
+	switch ($sort) {
+		
+			case 1:
+				$query .= 'order by mid asc ';
+				break;
+				
+			case 2:
+				$query .= 'order by sid asc ';
+				break;
+				
+			case 3:
+				$query .= 'order by ssid asc ';
+				break;
+			
+			case 4:
+				$query .= 'order by eid desc ';
+				break;
+								
+			default:
+			case 5:
+				$query .= 'order by requests desc ';
+				break;
+	}
+				
 	$result = warquest_db_query($query);
 	
 	$page .= '<div class="box rows">';
@@ -1944,23 +1974,23 @@ function warquest_admin_page_views() {
 	$page .= '<tr>';	
 	
 	$page .= '<th width="80">';
-	$page .= 'mid';
+	$page .= warquest_link('mid='.$mid.'&sid='.$sid.'&sort=1', 'mid');
 	$page .= '</th>';
 	
 	$page .= '<th width="80">';
-	$page .= 'sid';
+	$page .= warquest_link('mid='.$mid.'&sid='.$sid.'&sort=2', 'sid');
 	$page .= '</th>';
 
 	$page .= '<th width="80">';
-	$page .= 'ssid';
+	$page .= warquest_link('mid='.$mid.'&sid='.$sid.'&sort=3', 'ssid');
 	$page .= '</th>';
 	
 	$page .= '<th width="80">';
-	$page .= 'eid';
+	$page .= warquest_link('mid='.$mid.'&sid='.$sid.'&sort=4', 'eid');
 	$page .= '</th>';
 	
 	$page .= '<th width="180">';
-	$page .= 'requests';
+	$page .= warquest_link('mid='.$mid.'&sid='.$sid.'&sort=5', 'requests');
 	$page .= '</th>';
 	
 	$page .= '</tr>';
