@@ -1228,7 +1228,7 @@ class TestDatabase extends PHPUnit_Framework_TestCase {
 		$query = 'DROP TABLE bank, bank_group, battle, battle_award, bonus, bounty, bounty_award, building, building_group, building_unit, 	
 			chat, clan, cron, level, member, mission, mission_group, mission_unit, news, player, player_building, player_clan,
 			player_mission, player_player, player_poll, player_stock, player_unit, poll, poll_answer, rebel_award, sector, session, skill,
-			statistics, stock, stock_group, topic, unit, unit_group, invite, clan_bank, comment, planet, clan_mission'; 
+			statistics, stock, stock_group, topic, unit, unit_group, invite, clan_bank, comment, planet, clan_mission, views'; 
 			
 		$result = warquest_db_connect($config["dbhost"], $config["dbuser"], $config["dbpass"], $config["dbname"]);
 		$this->assertEquals($result, 1);

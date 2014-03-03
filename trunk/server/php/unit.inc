@@ -48,6 +48,7 @@ function warquest_unit_deploy_do() {
 	global $mid;
 	global $eid;
 	global $sid;
+	global $ssid;
 	global $uid;
 	global $amount;
 	
@@ -171,7 +172,7 @@ function warquest_unit_deploy_do() {
 	$link="";
 	$amountDiff = $unit->max - $totalAmount;
 	if ($amountDiff>0) {
-		$link  = warquest_link('mid='.$mid.'&uid='.$uid.'&eid='.$eid.'&sid='.$sid, t('LINK_DEPLOY_AGAIN'), 'deploy-0');
+		$link  = warquest_link('mid='.$mid.'&uid='.$uid.'&eid='.$eid.'&sid='.$sid.'&ssid='.$ssid, t('LINK_DEPLOY_AGAIN'), 'deploy-0');
 		$link .= '<br/><br/>'.t('GENERAL_AMOUNT').'<br/>';
 		$link .= warquest_amount_selected($amountDiff);
 	}
@@ -187,6 +188,7 @@ function warquest_unit_disband_do() {
 	/* input */
 	global $mid;
 	global $sid;
+	global $ssid;
 	global $eid;
 	global $uid;
 	global $amount;
@@ -272,7 +274,7 @@ function warquest_unit_disband_do() {
 	
 	$link = "";
 	if ($totalAmount>0) {
-		$link  = warquest_link('mid='.$mid.'&uid='.$uid.'&eid='.$eid.'&sid='.$sid, t('LINK_DISBAND_AGAIN'), 'disband-0');
+		$link  = warquest_link('mid='.$mid.'&uid='.$uid.'&eid='.$eid.'&sid='.$sid.'&ssid='.$ssid, t('LINK_DISBAND_AGAIN'), 'disband-0');
 		$link .= '<br/><br/>'.t('GENERAL_AMOUNT').'<br/>';
 		$link .= warquest_amount_selected($totalAmount);
 	}
@@ -294,6 +296,7 @@ function warquest_unit_form() {
 	/* input */
 	global $mid;
 	global $sid;
+	global $ssid;
 	global $uid;
 	
 	global $player;
@@ -304,19 +307,19 @@ function warquest_unit_form() {
 	global $page; 
 	global $output;
 	
-	$output->title = t('UNIT_GROUP_'.$sid);
+	$output->title = t('UNIT_GROUP_'.$ssid);
 		
 	/* Get player unit data */
 	$query1  = "select a.uid, a.price, a.gold, a.attack, a.defense, a.upkeep, a.max, a.ugid, ";
 	$query1 .= "IFNULL(b.amount, 0) as amount from unit a left join player_unit b ";
-	$query1 .= "ON a.uid=b.uid and b.pid=".$player->pid." where a.ugid=".$sid." and a.lid<=".$player->lid.' ';  
+	$query1 .= "ON a.uid=b.uid and b.pid=".$player->pid." where a.ugid=".$ssid." and a.lid<=".$player->lid.' ';  
 	$query1 .= 'order by a.lid';
 	
 	$result1 = warquest_db_query($query1);  
 	$count1 = warquest_db_num_rows($result1);
 	
 	/* Get first locked unit */
-	$query2  = 'select uid, lid, attack, defense, upkeep from unit where ugid='.$sid;
+	$query2  = 'select uid, lid, attack, defense, upkeep from unit where ugid='.$ssid;
 	$query2 .= ' and lid>'.$player->lid.' order by lid limit 0,1';
 	
 	$result2 = warquest_db_query($query2);
@@ -353,7 +356,7 @@ function warquest_unit_form() {
 			$page .= '<span class="subparagraph">'.t('UNIT_'.$data1->uid).'</span>';			
 			if (warquest_library($data1->uid,0)==1) {
 				$page .= ' ';
-				$page .= warquest_link('mid='.$mid.'&sid='.PAGE_LIBRARY.'&uid='.$data1->uid, warquest_image('other/info.png','width="16" height="16"'),'info'.$count);
+				$page .= warquest_link('mid='.$mid.'&sid='.PAGE_UNIT_LIBRARY.'&uid='.$data1->uid, warquest_image('other/info.png','width="16" height="16"'),'info'.$count);
 			}
 			$page .= '<br/>';
 			if ($data1->attack > 0) {
@@ -373,11 +376,11 @@ function warquest_unit_form() {
 			} else {
 				$page .= gold_format($data1->gold).'<br/>';
 			}
-			$page .= warquest_link('mid='.$mid.'&sid='.$sid.'&eid='.EVENT_UNIT_DEPLOY.'&uid='.$data1->uid, t('LINK_DEPLOY'),'deploy-'.($count+100));
+			$page .= warquest_link('mid='.$mid.'&sid='.$sid.'&ssid='.$ssid.'&eid='.EVENT_UNIT_DEPLOY.'&uid='.$data1->uid, t('LINK_DEPLOY'),'deploy-'.($count+100));
 			$page .= '</td>';
 			
 			$page .= '<td width="110">'.t('GENERAL_DEPLOYED').': '.deploy_format($data1->amount).'<br/>';
-			$page .= warquest_link('mid='.$mid.'&sid='.$sid.'&eid='.EVENT_UNIT_DISBAND.'&uid='.$data1->uid, t('LINK_DISBAND'),'disband-'.$count);
+			$page .= warquest_link('mid='.$mid.'&sid='.$sid.'&ssid='.$ssid.'&eid='.EVENT_UNIT_DISBAND.'&uid='.$data1->uid, t('LINK_DISBAND'),'disband-'.$count);
 
 			$page .= '</td>';
 		
@@ -418,7 +421,7 @@ function warquest_unit_form() {
 	}
 
 	$page .= '<div class="note">';
-	$page .= t('UNIT_NOTE_'.$sid);
+	$page .= t('UNIT_NOTE_'.$ssid);
 	$page .= '</div>';	
 }
 
@@ -458,7 +461,7 @@ function warquest_unit() {
 				warquest_unit_form();
 				break;
 
-		case PAGE_LIBRARY: 
+		case PAGE_UNIT_LIBRARY: 
 					warquest_library($uid, 1);
 					break;
 					

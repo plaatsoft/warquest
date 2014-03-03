@@ -41,7 +41,7 @@ $config["adminPid"]						= 18;
 $config["default_background"]			= 1;
 
 /* Server version */
-$config["applVersion"]					= 'Version 6.4';
+$config["applVersion"]					= 'Version 6.5';
 
 /* Client version settings */
 $config["windows_client_version"]	= '1.4';

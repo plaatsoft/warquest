@@ -565,7 +565,7 @@ function warquest_register_do($amount) {
 					warquest_info($player->name.' ['.$player->pid.'] registration bonus - 500 gold added');
 		
 					$message = $player->name.' joined WarQuest. You both receive 500 gold!';		
-					warquest_db_comment_insert(0, $player->pid, $other->pid, $message);
+					warquest_db_comment_insert(0, 0, $player->pid, $other->pid, $message);
 				}
 			}
 		}

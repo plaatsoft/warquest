@@ -55,13 +55,13 @@ function warquest_mainmenu() {
 		
 		$menu .= warquest_ui_menu(MENU_MISSIONS, PAGE_MISSION_PLAYER, warquest_get_default_mission($player->planet), t('LINK_MISSIONS'), $mid);	
 		$menu .= warquest_ui_menu(MENU_BATTLE, PAGE_ENEMIES, 0, t('LINK_BATTLE'), $mid);
-		$menu .= warquest_ui_menu(MENU_UNITS, $data2->ugid, 0, t('LINK_UNITS'), $mid);			
+		$menu .= warquest_ui_menu(MENU_UNITS, PAGE_UNIT_PLAYER, $data2->ugid, t('LINK_UNITS'), $mid);			
 		$menu .= warquest_ui_menu(MENU_BUILDINGS, $data3->bgid, 0, t('LINK_BUILDINGS'), $mid);
 		$menu .= warquest_ui_menu(MENU_MONEY, PAGE_BANK, 1, t('LINK_MONEY'), $mid);
 	}
 		
 	$menu .= warquest_ui_menu(MENU_PLAYERS, PAGE_ALLIANCE, PAGE_INVITE, t('LINK_PLAYERS'), $mid, $recruit);		
-	$menu .= warquest_ui_menu(MENU_FORUMS, PAGE_FORUM, 0, t('LINK_FORUM'), $mid);	
+	$menu .= warquest_ui_menu(MENU_FORUMS, PAGE_FORUM, 0, t('LINK_FORUM'), $mid, $player->clan_notification);
 	$menu .= warquest_ui_menu(MENU_HELP, PAGE_INSTRUCTIONS, 0, t('LINK_HELP'), $mid);
 
 	if ($player->pid==$config["adminPid"]) {
@@ -274,6 +274,7 @@ function warquest_menu_unit() {
 	/* input */
 	global $mid;
 	global $sid;
+	global $ssid;
 	global $player;
 	
 	$menu = '<div class="menu">';
@@ -284,7 +285,7 @@ function warquest_menu_unit() {
 	
 	while ($data=warquest_db_fetch_object($result)) {
 			
-		$menu .= warquest_ui_menu($mid, $data->ugid, 0, t('UNIT_GROUP_'.$data->ugid), $sid);	
+		$menu .= warquest_ui_submenu($mid, $sid, $data->ugid, t('UNIT_GROUP_'.$data->ugid), $ssid);	
 	}
 
 	$menu .= '</ul>';
@@ -589,6 +590,7 @@ function warquest_menu_forum() {
 	/* input */
 	global $mid;
 	global $sid;
+	global $player;
 
 	$menu = '<div class="menu">';
 	$menu .= '<ul>';
@@ -596,6 +598,7 @@ function warquest_menu_forum() {
 	$menu .= warquest_ui_menu($mid, PAGE_FORUM, 0, t('LINK_FORUM'), $sid);
 	$menu .= warquest_ui_menu($mid, PAGE_POLL, 0, t('LINK_POLLS'), $sid);
 	$menu .= warquest_ui_menu($mid, PAGE_CHATROOM, 0, t('LINK_CHATROOM'), $sid);
+	$menu .= warquest_ui_menu($mid, PAGE_CLAN_COMMENT, 0, t('LINK_CLAN_COMMENT'), $sid, $player->clan_notification);
 	
 	$menu .= '</ul>';
 	$menu .= '</div>';

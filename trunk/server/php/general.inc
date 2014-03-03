@@ -365,7 +365,7 @@ function warquest_debug($text) {
 }
 
 /** 
- * Updaet gold use statistics
+ * Update gold use statistics
  */
 function warquest_gold_use($gold) {
 
@@ -2576,7 +2576,7 @@ function warquest_ui_tip() {
 	@$help=t('TIP_'.$player->lid);
 	
 	if (strlen($help)>0) {	
-		$page .= '<span class="tip">TIP: '.$help.'</span>';		
+		$page .= '<br/><span class="tip">TIP: '.$help.'</span>';		
 	}	
 	
 	return $page;

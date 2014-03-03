@@ -3310,6 +3310,16 @@ $lang['MISSION_CLAN_PLANET_COMPLETE'] = 'Excellent! You conquered all %s contine
 
 /*
 ** ------------------
+** Added v6.6
+** ------------------
+*/
+
+$lang['LINK_CLAN_COMMENT'] = 'Clan';
+$lang['CLAN_COMMENT_TITLE'] = 'Clan comment';
+$lang['CLAN_COMMENT_TEXT'] = 'Create message (max. 400 characters) for all clan players';
+
+/*
+** ------------------
 ** THE END
 ** ------------------
 */

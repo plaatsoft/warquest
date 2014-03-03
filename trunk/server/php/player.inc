@@ -1671,7 +1671,7 @@ function warquest_profile($id) {
 			  ($player->holiday_date < date("Y-m-d H:i:s", time())) &&
 			  (warquest_db_ally($player->pid, $id)==0) ) {
 			
-			$page .= warquest_link('mid='.MENU_PLAYERS.'&sid='.PAGE_INVITE.'&eid='.EVENT_ALLIANCE_INVITE.'&oid='.$id, t('LINK_INVITE'), "invite").' ';
+			$page .= warquest_link('mid='.MENU_PLAYERS.'&sid='.PAGE_ALLIANCE.'&ssid='.PAGE_INVITE.'&eid='.EVENT_ALLIANCE_INVITE.'&oid='.$id, t('LINK_INVITE'), "invite").' ';
 		}
 	
 		if (($player->lid>=9) && 
@@ -1905,21 +1905,33 @@ function warquest_profile($id) {
 		$page .= '<tr>';
 		$page .= '<td>'.t('BANK_GROUP_1').' '.t('PLAYER_BANK').':</td>';
 		$page .= '<td >';
-		$page .= warquest_link('mid='.MENU_MONEY.'&sid='.PAGE_BANK.'&ssid=1', number_format($data->bank1, 0,",","."), "bank1");
+		if (isset($other->pid)) {
+			$page .= number_format($data->bank1, 0,",",".");
+		} else {
+			$page .= warquest_link('mid='.MENU_MONEY.'&sid='.PAGE_BANK.'&ssid=1', number_format($data->bank1, 0,",","."), "bank1");
+		}
 		$page .= ' '.t('GENERAL_DOLLAR').'</td>';
 		$page .= '</tr>';
 
 		$page .= '<tr>';
 		$page .= '<td>'.t('BANK_GROUP_2').' '.t('PLAYER_BANK').':</td>';
 		$page .= '<td >';
-		$page .= warquest_link('mid='.MENU_MONEY.'&sid='.PAGE_BANK.'&ssid=2', number_format($data->bank2, 0,",","."), "bank2");
+		if (isset($other->pid)) {
+			$page .= number_format($data->bank2, 0,",",".");
+		} else {
+			$page .= warquest_link('mid='.MENU_MONEY.'&sid='.PAGE_BANK.'&ssid=2', number_format($data->bank2, 0,",","."), "bank2");
+		}
 		$page .= ' '.t('GENERAL_DOLLAR').'</td>';
 		$page .= '</tr>';
 	
 		$page .= '<tr>';
 		$page .= '<td>'.t('BANK_GROUP_3').' '.t('PLAYER_BANK').':</td>';
 		$page .= '<td >';
-		$page .= warquest_link('mid='.MENU_MONEY.'&sid='.PAGE_BANK.'&ssid=3', number_format($data->bank3, 0,",","."), "bank3");
+		if (isset($other->pid)) {
+			$page .= number_format($data->bank3, 0,",",".");
+		} else {
+			$page .= warquest_link('mid='.MENU_MONEY.'&sid='.PAGE_BANK.'&ssid=3', number_format($data->bank3, 0,",","."), "bank3");
+		}
 		$page .= ' '.t('GENERAL_DOLLAR').'</td>';
 		$page .= '</tr>';
 	

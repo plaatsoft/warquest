@@ -64,7 +64,7 @@ function warquest_clan_drop_do() {
 	
 		/* Send internal message */
 		$message = $player->name.' removed you from the '.$clan->name.' clan!';		
-		warquest_db_comment_insert(0, $player->pid, $other->pid, $message);
+		warquest_db_comment_insert(0, 0, $player->pid, $other->pid, $message);
 		$other->comment++;
 				
 		/* Show confirm message on screen */
@@ -104,7 +104,7 @@ function warquest_clan_accept_do() {
 		
 		/* Send internal message */
 		$message = $player->name.' accepted your request! You are now part of the '.$clan->name.' clan!';		
-		warquest_db_comment_insert(0, $player->pid, $other->pid, $message);
+		warquest_db_comment_insert(0, 0, $player->pid, $other->pid, $message);
 		$other->comment++;
 		
 		/* Send mail to member of clan */
@@ -178,7 +178,7 @@ function warquest_clan_join_do() {
 		warquest_clan_join_mail($other->pid, $player->name);
 				
 		$message = $player->name.' wants to join your clan!';		
-		warquest_db_comment_insert(0, $player->pid, $other->pid, $message);
+		warquest_db_comment_insert(0, 0, $player->pid, $other->pid, $message);
 		$other->comment++;
 		
 		$message = t('CLAN_JOINED', $clan->name, player_format($other->pid, $other->name, $other->country, 1));	

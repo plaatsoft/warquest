@@ -54,12 +54,12 @@ function warquest_create_title($title) {
 					break;
 					
 				case MENU_UNITS:
-					if ($sid==PAGE_LIBRARY) {
+					if ($sid==PAGE_UNIT_LIBRARY) {
 						$tmp .= '&sid='.$sid;
 						
 					} else {
 					
-						$query = 'select type from unit_group where ugid='.$sid;
+						$query = 'select type from unit_group where ugid='.$ssid;
 						$result = warquest_db_query($query);
 						$data = warquest_db_fetch_object($result);
 						
@@ -67,7 +67,7 @@ function warquest_create_title($title) {
 						$result = warquest_db_query($query);
 						$data = warquest_db_fetch_object($result);
 					
-						$tmp .= '&sid='.$data->ugid;
+						$tmp .= '&sid='.$sid.'&ssid='.$data->ugid;
 					}
 					break;
 	
