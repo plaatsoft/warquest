@@ -16,7 +16,7 @@
 **  All copyrights reserved (c) 2008-2014 PlaatSoft
 */
 
-/* $notes[66] = '
+$notes[66] = '
 <div class="subparagraph2">02-03-2014</div>
 <i>Game Server v6.6</i>
 <ul>
@@ -24,7 +24,13 @@
 <li>Added Admin->Views page (Admin Mode only).</li>
 <li>Disable account reset functionality.</li>
 <li>Disable clan (member) inactive automatic removable.</li>
-</ul>';*/
+</ul></br>
+
+<i>General</i>
+<ul>
+<li>Please visit www.gravatar.com to upload a player image.</li>
+</ul>
+';
 
 $notes[65] = '
 <div class="subparagraph2">27-02-2014</div>
@@ -71,12 +77,6 @@ $notes[65] = '
 <li>Use QT library 5.2.1 as engine.</li>
 <li>WarQuest was build with QtCreator v3.0.1</li>
 <li>Released app on www.plaatsoft.nl</li>
-</ul>
-<br/>
-
-<i>General</i>
-<ul>
-<li>Please visit www.gravatar.com to upload a player image.</li>
 </ul>';
 
 $notes[64] = '

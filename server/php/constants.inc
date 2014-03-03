@@ -105,17 +105,16 @@ define('PAGE_BOUNTY',         	1402);
 define('PAGE_CLAN_WAR',       	1403);
 
 /* Units */
-define('PAGE_UNITS',          	1501);
-define('PAGE_LIBRARY',        	1502);
+define('PAGE_UNIT_PLAYER',    	1501);
+define('PAGE_UNIT_LIBRARY',    	1502);
 
 /* Buildings */
-define('PAGE_BUILDINGS',      	1601);
+define('PAGE_BUILDING_PLAYER', 	1601);
 
 /* Money */
 define('PAGE_BANK',          		1701);
 define('PAGE_STOCK_EXCHANGE',		1702);
 define('PAGE_CASINO',         	1703);
-define('PAGE_GOLD',           	1704);
 
 /* Alliance */
 define('PAGE_ALLIANCE',        	1801);
@@ -138,12 +137,11 @@ define('PAGE_PROMOTION',			1831);
 define('PAGE_FORUM',          	1901);
 define('PAGE_TOPIC',          	1902);
 define('PAGE_COMMENT',        	1903);
-
 define('PAGE_POLL',           	1904);
 define('PAGE_POLL_RESULT',    	1905);
-
 define('PAGE_CHATROOM',       	1906);
 define('PAGE_CHAT',           	1907);
+define('PAGE_CLAN_COMMENT',    	1908);
 		
 /* Help */
 define('PAGE_INSTRUCTIONS',   	2001);
@@ -232,14 +230,12 @@ define("EVENT_BUILDING_SELL",            3502);
 /* money */
 define("EVENT_BANK_DEPOSIT",             3601);
 define("EVENT_BANK_WITHDRAW",            3602);
-
 define("EVENT_CASINO_WHEEL_PLAY",        3603);
 define("EVENT_CASINO_WHEEL_RESULT",      3604);
 define("EVENT_CASINO_SLOT_PLAY",         3605);
 define("EVENT_CASINO_SLOT_RESULT",       3606);
 define("EVENT_CASINO_TIC_PLAY",          3607);
 define("EVENT_CASINO_TIC_RESULT",        3608);
-
 define("EVENT_STOCK_BUY",                3610);
 define("EVENT_STOCK_SELL",               3611);
 define("EVENT_STOCK_ADD",                3612);
@@ -250,7 +246,6 @@ define("EVENT_ALLIANCE_INVITE",          3701);
 define("EVENT_ALLIANCE_ACCEPT",          3702);
 define("EVENT_ALLIANCE_REJECT",          3703);
 define("EVENT_ALLIANCE_DROP",            3704);
-
 define("EVENT_CLAN_CREATE",              3705);
 define("EVENT_CLAN_JOIN",                3706);
 define("EVENT_CLAN_LEAVE",               3707);
@@ -260,7 +255,6 @@ define("EVENT_CLAN_SLOGAN",              3710);
 define("EVENT_CLAN_DEPOSIT",             3711);
 define("EVENT_CLAN_SKILL_INCREASE" ,     3712);
 define("EVENT_CLAN_SKILL_DECREASE" ,     3713);
-
 define("EVENT_PROMOTION_INVITE",			  3714);
 
 /* forum */
@@ -275,7 +269,6 @@ define("EVENT_FORUM_POLL_UNVOTE", 	     3807);
 /* help */
 
 /* admin */
-define("EVENT_ADMIN_EDIT",  	           3900);
 define("EVENT_ADMIN_DELETE_MSG",  	     3901);
 define("EVENT_ADMIN_COPY",  	           3902);
 define("EVENT_ADMIN_DELETE_PLAYER",  	  3903);
@@ -300,6 +293,7 @@ define("EVENT_ADMIN_UPDATE_CLAN",		  3921);
 define("EVENT_ADMIN_SAVE_TWEET",  	     3922);
 define("EVENT_ADMIN_BACKUP_DATABASE",    3923);
 define("EVENT_ADMIN_INACTIVE_SECTOR",    3924);
+define("EVENT_ADMIN_EDIT",  	           3925);
 
 /* others (internal used) */
 define("EVENT_PLAYER_PDF_REPORT", 	     4000);

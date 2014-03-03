@@ -69,7 +69,7 @@ function warquest_home_comment_save_do() {
 	if (strlen($comment)>0) {
 	
 		if ($uid==0) {
-			warquest_db_comment_insert(0, $player->pid, $other->pid, $comment);
+			warquest_db_comment_insert(0, 0, $player->pid, $other->pid, $comment);
 		} else {		
 			warquest_db_comment_update($uid, $comment);
 		}
@@ -822,7 +822,7 @@ function warquest_home_welcome() {
 		$page .= '<span class="subparagraph2">'.t('HOME_INTRO_TITLE').'</span><br/>';
 		$page .= t('HOME_INTRO_MISSIONS', warquest_link('mid='.MENU_MISSIONS.'&sid='.PAGE_MISSION_PLAYER.'&ssid='.warquest_get_default_mission($player->planet),t('LINK_MISSIONS'), 'mission1'));
 		$page .= t('HOME_INTRO_BATTLES', warquest_link('mid='.MENU_BATTLE.'&sid='.PAGE_ENEMIES,t('LINK_BATTLES'), 'battle1'));
-		$page .= t('HOME_INTRO_UNITS', warquest_link('mid='.MENU_UNITS.'&sid='.$data1->ugid, t('LINK_UNITS'), 'unit1'));
+		$page .= t('HOME_INTRO_UNITS', warquest_link('mid='.MENU_UNITS.'&sid='.PAGE_UNIT_PLAYER.'&ssid='.$data1->ugid, t('LINK_UNITS'), 'unit1'));
 		$page .= t('HOME_INTRO_BUILDINGS', warquest_link('mid='.MENU_BUILDINGS.'&sid='.$data2->bgid, t('LINK_BUILDINGS'), 'building1'));
 		$page .= t('HOME_INTRO_ENEMY');
 		$page .= '<br/>';			
@@ -832,10 +832,10 @@ function warquest_home_welcome() {
 		$page .= warquest_poll_teaser();	
 	}
 
-	$page .= '</div>';	
-
 	/* Show tip */
 	$page .= warquest_ui_tip();	
+	
+	$page .= '</div>';	
 }
 
 /** 

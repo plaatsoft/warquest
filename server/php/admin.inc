@@ -2016,19 +2016,44 @@ function warquest_admin_page_views() {
 		$page .= '<tr>';
 		
 		$page .= '<td>';
-		$page .= $data->mid;
+		switch ($sort) {
+		
+			case 1:
+			case 5:
+				$page .= $data->mid;
+				break;
+		}
+	
 		$page .= '</td>';
 		
 		$page .= '<td>';
-		$page .= $data->sid;
+		switch ($sort) {
+		
+			case 2:
+			case 5:
+				$page .= $data->sid;
+				break;
+		}
 		$page .= '</td>';
 		
 		$page .= '<td>';
-		$page .= $data->ssid;
+		switch ($sort) {
+		
+			case 3:
+			case 5:
+				$page .= $data->ssid;
+				break;
+		}
 		$page .= '</td>';
 		
 		$page .= '<td>';
-		$page .= $data->eid;
+		switch ($sort) {
+		
+			case 4:
+			case 5:
+				$page .= $data->eid;
+				break;
+		}
 		$page .= '</td>';
 		
 		$page .= '<td>';

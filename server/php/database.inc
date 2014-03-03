@@ -369,17 +369,17 @@ function warquest_db_chat_insert($pid1, $pid2, $message) {
  *  pid1 = sender
  *  pid2 = receiver (0 = All)
  */
-function warquest_db_comment_insert($tid, $pid1, $pid2, $comment) {
+function warquest_db_comment_insert($tid, $cid, $pid1, $pid2, $comment) {
 
 	$value = 0;
 	$now = date('Y-m-d H:i:s');
 
-	$query  = 'insert into comment (tid, pid1, pid2, date, comment, deleted) values (';
-	$query .= $tid.','.$pid1.','.$pid2.',"'.$now.'","'.warquest_db_escape($comment).'" ,0)';	
+	$query  = 'insert into comment (tid, cid, pid1, pid2, date, comment, deleted) values (';
+	$query .= $tid.','.$cid.','.$pid1.','.$pid2.',"'.$now.'","'.warquest_db_escape($comment).'" ,0)';	
 	
 	warquest_db_query($query);
 	
-	$query = 'select id from comment where pid1='.$pid1.' and pid2='.$pid2.' and tid ='.$tid.' and date="'.$now.'"';
+	$query = 'select id from comment where pid1='.$pid1.' and pid2='.$pid2.' and tid ='.$tid.' and cid='.$cid.' and date="'.$now.'"';
 	$result = warquest_db_query($query);
 	$data = warquest_db_fetch_object($result);
 	
@@ -1146,6 +1146,7 @@ function warquest_db_player_update($player) {
 	$query .= 'news='.$player->news.', ';
 	$query .= 'chat='.$player->chat.', ';
 	$query .= 'comment='.$player->comment.', ';
+	$query .= 'clan_notification='.$player->clan_notification.', ';
 	$query .= 'language="'.$player->language.'", ';
 	$query .= 'background='.$player->background.', ';
 	$query .= 'default_force="'.warquest_db_escape($player->default_force).'", ';
@@ -1183,12 +1184,13 @@ function warquest_db_player($pid) {
 	$query  = 'select pid, name, twitter, country, health, energy, ammo, money, lid, won_level, ';
 	$query .= 'experience, mission, won, lost, ';	
 	$query .= 'energy_step, health_step, language, background, ';
-	$query .= 'money_step, money_date, gold, energy_date, health_date, ammo_date, ammo_step, news, comment, ';
+	$query .= 'money_step, money_date, gold, energy_date, health_date, ammo_date, ammo_step, ';
+	$query .= 'news, comment, chat, clan_notification, ';
 	$query .= 'alliance, invite, bank1, bank2, bank3, upkeep, damage_units, damage_buildings, last_battle, ';
 	$query .= 'default_force, default_mission, default_amount, ';
 	$query .= 'bonus_date, request, request_date, casino, ';
 	$query .= 'restore_health, restore_energy, restore_ammo, cease_fire_date, holiday_date, rebel_status, ';
-	$query .= 'bounty, bounty_level, planet, pattern, chat, rebel, rebel_level, premium_date ';
+	$query .= 'bounty, bounty_level, planet, pattern, rebel, rebel_level, premium_date ';
 	$query .= 'from player where pid='.$pid;  
 	
 	$result = warquest_db_query($query);  

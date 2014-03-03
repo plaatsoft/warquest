@@ -51,7 +51,7 @@ function warquest_poll_teaser() {
 			$page .=' </span>';
 			$page .= '<br>';
 			$page .= $data->question.' '.warquest_link('mid='.MENU_FORUMS.'&sid='.PAGE_POLL, t('POLL_VOTE'), 'vote');			
-			$page .= '<br/><br/>';
+			$page .= '<br/>';
 		}
 	}
 
