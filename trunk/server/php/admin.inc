@@ -680,7 +680,7 @@ function warquest_admin_messages_form() {
 	$result = warquest_db_query($query);	
 	$total = warquest_db_num_rows($result);
 	
-	$query  = 'select a.id, a.date, a.comment, ';
+	$query  = 'select a.id, a.date, a.comment, a.tid, a.cid, ';
 	$query .= 'a.pid1, b.name as name1, b.country as country1, ';
 	$query .= 'a.pid2, c.name as name2, c.country as country2 ';
 	$query .= 'from comment a left join player b ';
@@ -715,7 +715,10 @@ function warquest_admin_messages_form() {
 			$page .= '<span class="subparagraph2">';
 			$page .= player_format($data->pid1, $data->name1, $data->country1).' -> ';
 			
-			if ($data->pid2==0) {
+			if ($data->cid>0) {
+				$clan = warquest_db_clan($data->cid);
+				$page .= clan_format($clan).' clan';
+			} else if ($data->pid2==0) {
 				$page .= t("GENERAL_ALL");
 			} else {
 				$page .= player_format($data->pid2, $data->name2, $data->country2);
@@ -2016,44 +2019,19 @@ function warquest_admin_page_views() {
 		$page .= '<tr>';
 		
 		$page .= '<td>';
-		switch ($sort) {
-		
-			case 1:
-			case 5:
-				$page .= $data->mid;
-				break;
-		}
-	
+		$page .= $data->mid;
+		$page .= '</td>';
+
+		$page .= '<td>';
+		$page .= $data->sid;
 		$page .= '</td>';
 		
 		$page .= '<td>';
-		switch ($sort) {
-		
-			case 2:
-			case 5:
-				$page .= $data->sid;
-				break;
-		}
+		$page .= $data->ssid;
 		$page .= '</td>';
 		
 		$page .= '<td>';
-		switch ($sort) {
-		
-			case 3:
-			case 5:
-				$page .= $data->ssid;
-				break;
-		}
-		$page .= '</td>';
-		
-		$page .= '<td>';
-		switch ($sort) {
-		
-			case 4:
-			case 5:
-				$page .= $data->eid;
-				break;
-		}
+		$page .= $data->eid;
 		$page .= '</td>';
 		
 		$page .= '<td>';

@@ -90,8 +90,10 @@
 			<xsd:element name="health_date" type="xsd:dateTime" minOccurs="0" maxOccurs="1"/>
 			<xsd:element name="ammo_date" type="xsd:dateTime" minOccurs="0" maxOccurs="1"/>
 			<xsd:element name="ammo_step" type="xsd:integer" minOccurs="0" maxOccurs="1"/>		
-			<xsd:element name="news" type="xsd:integer" minOccurs="0" maxOccurs="1"/>
-			<xsd:element name="comment" type="xsd:integer" minOccurs="0" maxOccurs="1"/>
+			<xsd:element name="news_notification" type="xsd:integer" minOccurs="0" maxOccurs="1"/>
+			<xsd:element name="chat_notification" type="xsd:integer" minOccurs="0" maxOccurs="1" />
+			<xsd:element name="comment_notification" type="xsd:integer" minOccurs="0" maxOccurs="1"/>
+			<xsd:element name="clan_notification" type="xsd:integer" minOccurs="0" maxOccurs="1"/>
 			<xsd:element name="alliance" type="xsd:integer" minOccurs="0" maxOccurs="1"/>
 			<xsd:element name="invite" type="xsd:integer" minOccurs="0" maxOccurs="1"/>
 			<xsd:element name="bank1" type="xsd:long" minOccurs="0" maxOccurs="1"/>
@@ -118,7 +120,7 @@
 			<xsd:element name="bounty_level" type="xsd:integer" minOccurs="0" maxOccurs="1"/>
 			<xsd:element name="planet" type="tns:planet" minOccurs="0" maxOccurs="1" />
 			<xsd:element name="pattern" type="xsd:string" minOccurs="0" maxOccurs="1" />
-			<xsd:element name="chat" type="xsd:integer" minOccurs="0" maxOccurs="1" />
+			
 			<xsd:element name="rebel" type="xsd:integer" minOccurs="0" maxOccurs="1"/>
 			<xsd:element name="rebel_level" type="xsd:integer" minOccurs="0" maxOccurs="1"/>		
 			<xsd:element name="premium_date" type="xsd:dateTime" minOccurs="0" maxOccurs="1"/>		

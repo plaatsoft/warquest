@@ -2934,12 +2934,12 @@ function warquest_ui_banner() {
 	/* third line */	
 	$page .= '<tr>';	
 	$page .= '<td valign="top">';
-	if ($player->comment>0) {
+	if ($player->comment_notification>0) {
 		$page .= warquest_link('mid='.MENU_HOME.'&sid='.PAGE_MESSAGES, warquest_image("other/email.gif").' ','mail');
 	}
 	
-	if ($player->chat>0) {
-		$page .= warquest_link('mid='.MENU_FORUMS.'&sid='.PAGE_CHAT.'&oid='.$player->chat, warquest_image('other/chat.gif').' ','chat');
+	if ($player->chat_notification>0) {
+		$page .= warquest_link('mid='.MENU_FORUMS.'&sid='.PAGE_CHAT.'&oid='.$player->chat_notification, warquest_image('other/chat.gif').' ','chat');
 	}
 		
 	$page .= warquest_link_hidden('mid='.MENU_HOME.'&sid='.PAGE_RESTORE, t('STATUS_HEALTH')).': ';

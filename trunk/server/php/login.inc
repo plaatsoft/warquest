@@ -554,7 +554,7 @@ function warquest_register_do($amount) {
 					/* Add bonus to friend */
 					$other = warquest_db_player($data->pid);
 					$other->gold += 500;
-					$other->comment++;
+					$other->comment_notification++;
 					warquest_db_player_update($other);
 					warquest_info($other->name.' ['.$other->pid.'] registration bonus - 500 gold added');
 					

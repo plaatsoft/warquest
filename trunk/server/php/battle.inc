@@ -267,7 +267,7 @@ function warquest_robot_battle($player, $other) {
 			
 			if (warquest_db_query_pattern($player, PATTERN_NO_BOT_NEWS)==0) {
 			
-				$player->news++;
+				$player->news_notification++;
 			
 				/* Update battle log. */
 				warquest_db_battle_insert($other->pid, $player->pid, $money, $health_losser, 0, 1, $force);
@@ -311,7 +311,7 @@ function warquest_robot_battle($player, $other) {
 			
 			if (warquest_db_query_pattern($player, PATTERN_NO_BOT_NEWS)==0) {
 			
-				$player->news++;
+				$player->news_notification++;
 				
 				/* Update battle log. */
 				warquest_db_battle_insert($other->pid, $player->pid, 0, $health_winner, $exp, 0, $force);
@@ -1262,7 +1262,7 @@ function warquest_battle_do($planet, $ugid) {
 		$other->health -= $health_losser;
 		$other->lost += 1;
 		$other->last_battle = date("Y-m-d H:i:s");
-		$other->news++;
+		$other->news_notification++;
 		
 		$maintenance = warquest_db_maintenance($other, $planet);
 	
@@ -1405,7 +1405,7 @@ function warquest_battle_do($planet, $ugid) {
 		$other->health -= $health_winner;
 		$other->won += 1;
 		$other->last_battle = date("Y-m-d H:i:s");
-		$other->news++;
+		$other->news_notification++;
 		
 		$maintenance = warquest_db_maintenance($other, $other->planet);
 		
@@ -1511,7 +1511,7 @@ function warquest_player_bounty_do() {
 			warquest_db_battle_insert($player->pid, $other->pid, $money, 0, $exp, 0, 0, 1);
 			
 			/* Set news flag */
-			$other->news++;
+			$other->news_notification++;
 			
 			/* Update battle timestamp */
 			$other->last_battle = date("Y-m-d H:i:s");
