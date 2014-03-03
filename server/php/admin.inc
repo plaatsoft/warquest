@@ -1926,6 +1926,13 @@ function warquest_admin_maps() {
 	}
 }
 
+function warquest_constant_name($value) {
+    $constants = get_defined_constants();
+
+    $name = array_search($value, $constants, TRUE);   
+    return $name;
+}
+
 function warquest_admin_page_views() {
 
 	/* input */
@@ -1936,11 +1943,12 @@ function warquest_admin_page_views() {
 	/* output */
 	global $page;
 	global $output;
-	
+		
 	$query = 'select mid, sid, ssid, eid, sum(requests) as requests from views ';
 	
 	switch ($sort) {
 		
+			default:
 			case 1:
 				$query .= 'group by mid order by mid asc ';
 				break;
@@ -1956,8 +1964,7 @@ function warquest_admin_page_views() {
 			case 4:
 				$query .= 'group by eid order by eid asc ';
 				break;
-								
-			default:
+											
 			case 5:
 				$query .= 'group by mid, sid, ssid, eid order by requests desc ';
 				break;
@@ -1973,24 +1980,28 @@ function warquest_admin_page_views() {
 	
 	$page .= '<tr>';	
 	
-	$page .= '<th width="80">';
+	$page .= '<th width="60">';
 	$page .= warquest_link('mid='.$mid.'&sid='.$sid.'&sort=1', 'mid');
 	$page .= '</th>';
 	
-	$page .= '<th width="80">';
+	$page .= '<th width="60">';
 	$page .= warquest_link('mid='.$mid.'&sid='.$sid.'&sort=2', 'sid');
 	$page .= '</th>';
 
-	$page .= '<th width="80">';
+	$page .= '<th width="60">';
 	$page .= warquest_link('mid='.$mid.'&sid='.$sid.'&sort=3', 'ssid');
 	$page .= '</th>';
 	
-	$page .= '<th width="80">';
+	$page .= '<th width="60">';
 	$page .= warquest_link('mid='.$mid.'&sid='.$sid.'&sort=4', 'eid');
 	$page .= '</th>';
 	
-	$page .= '<th width="180">';
+	$page .= '<th width="100">';
 	$page .= warquest_link('mid='.$mid.'&sid='.$sid.'&sort=5', 'requests');
+	$page .= '</th>';
+	
+	$page .= '<th width="150">';
+	$page .= 'label';
 	$page .= '</th>';
 	
 	$page .= '</tr>';
@@ -2025,6 +2036,30 @@ function warquest_admin_page_views() {
 		$total += $data->requests;
 		$page .= '</td>';
 	
+		$page .= '<td>';
+		switch ($sort) {
+		
+			default:
+			case 1:
+				$page .= warquest_constant_name((int)$data->mid);
+				break;
+				
+			case 2:
+				$page .= warquest_constant_name((int)$data->sid);
+				break;
+				
+			case 3:
+				$page .= warquest_constant_name((int)$data->ssid);
+				break;
+			
+			case 4:
+				$page .= warquest_constant_name((int)$data->eid);
+				break;
+				
+			case 5:
+		}
+		$page .= '</td>';
+		
 		$page .= '</tr>';
 	}
 
@@ -2045,6 +2080,9 @@ function warquest_admin_page_views() {
 		
 	$page .= '<td>';
 	$page .= number_format($total,0,",",".");
+	$page .= '</td>';
+	
+	$page .= '<td>';
 	$page .= '</td>';
 	
 	$page .= '</tr>';
