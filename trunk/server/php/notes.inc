@@ -20,7 +20,7 @@ $notes[66] = '
 <div class="subparagraph2">02-03-2014</div>
 <i>Game Server v6.6</i>
 <ul>
-<li>Added Forum->Clan clan message system.</li>
+<li>Added Forums->Clan clan message system.</li>
 <li>Added page views statistics functionality.</li>
 <li>Added Admin->Views page (Admin Mode only).</li>
 <li>Disable account reset functionality.</li>
