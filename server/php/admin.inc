@@ -1937,29 +1937,29 @@ function warquest_admin_page_views() {
 	global $page;
 	global $output;
 	
-	$query = 'select mid, sid, ssid, eid, requests from views ';
+	$query = 'select mid, sid, ssid, eid, sum(requests) as requests from views ';
 	
 	switch ($sort) {
 		
 			case 1:
-				$query .= 'order by mid asc ';
+				$query .= 'group by mid order by mid asc ';
 				break;
 				
 			case 2:
-				$query .= 'order by sid asc ';
+				$query .= 'group by sid order by sid asc ';
 				break;
 				
 			case 3:
-				$query .= 'order by ssid asc ';
+				$query .= 'group by ssid order by ssid asc ';
 				break;
 			
 			case 4:
-				$query .= 'order by eid asc ';
+				$query .= 'group by eid order by eid asc ';
 				break;
 								
 			default:
 			case 5:
-				$query .= 'order by requests desc ';
+				$query .= 'group by mid, sid, ssid, eid order by requests desc ';
 				break;
 	}
 				
@@ -1999,6 +1999,7 @@ function warquest_admin_page_views() {
 	
 	$page .= '<tbody>';
 	
+	$total=0;
 	while ($data = warquest_db_fetch_object($result)) {
 	
 		$page .= '<tr>';
@@ -2020,12 +2021,34 @@ function warquest_admin_page_views() {
 		$page .= '</td>';
 		
 		$page .= '<td>';
-		$page .= $data->requests;
+		$page .= number_format($data->requests,0,",",".");
+		$total += $data->requests;
 		$page .= '</td>';
 	
 		$page .= '</tr>';
 	}
 
+	$page .= '<tr>';
+		
+	$page .= '<td>';
+	$page .= '<div class="subparagraph">'.t('GENERAL_TOTAL').'</div>';
+	$page .= '</td>';
+		
+	$page .= '<td>';
+	$page .= '</td>';
+		
+	$page .= '<td>';
+	$page .= '</td>';
+		
+	$page .= '<td>';
+	$page .= '</td>';
+		
+	$page .= '<td>';
+	$page .= number_format($total,0,",",".");
+	$page .= '</td>';
+	
+	$page .= '</tr>';
+		
 	$page .= '</tbody>';
 	$page .= '</table>';
 		
