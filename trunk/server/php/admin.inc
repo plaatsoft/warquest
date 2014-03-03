@@ -1930,7 +1930,7 @@ function warquest_constant_name($value) {
     $constants = get_defined_constants();
 
     $name = array_search($value, $constants, TRUE);   
-    return $name;
+    return strtolower($name);
 }
 
 function warquest_admin_page_views() {
