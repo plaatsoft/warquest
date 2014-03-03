@@ -2041,19 +2041,27 @@ function warquest_admin_page_views() {
 		
 			default:
 			case 1:
-				$page .= warquest_constant_name((int)$data->mid);
+				if ($data->mid>=1000) {
+					$page .= warquest_constant_name((int)$data->mid);
+				}
 				break;
 				
 			case 2:
-				$page .= warquest_constant_name((int)$data->sid);
+				if ($data->sid>=1000) {
+					$page .= warquest_constant_name((int)$data->sid);
+				}
 				break;
 				
 			case 3:
-				$page .= warquest_constant_name((int)$data->ssid);
+				if ($data->ssid>=1000) {
+					$page .= warquest_constant_name((int)$data->ssid);
+				}
 				break;
 			
 			case 4:
-				$page .= warquest_constant_name((int)$data->eid);
+				if ($data->eid>=1000) {
+					$page .= warquest_constant_name((int)$data->eid);
+				}
 				break;
 				
 			case 5:
