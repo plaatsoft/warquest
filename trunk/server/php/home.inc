@@ -190,7 +190,7 @@ function warquest_home_messages() {
 	$result = warquest_db_query($query); 
 	$total = warquest_db_num_rows($result);
 	
-	$query  = 'select a.id, a.pid1, a.pid2, a.date, a.comment, b.name, b.country from comment a, player b ';
+	$query  = 'select a.id, a.pid1, a.pid2, a.date, a.comment, a.cid, b.name, b.country from comment a, player b ';
    $query .= 'where ((a.pid1=b.pid and pid2='.$player->pid.') or (a.pid2=b.pid and pid1='.$player->pid.')) ';
 	$query .= 'and deleted=0 order by a.date desc ';
 	$query .= 'limit '.$offset.','.$limit;
@@ -237,10 +237,16 @@ function warquest_home_messages() {
 			} else {
 				$page .= player_format($player->pid, $player->name, $player->country);
 				$page .= ' -> ';
-				if ($data->pid2!=0) {
-					$page .= player_format($data->pid2, $data->name, $data->country);
-				} else {
+				
+				if ($data->cid > 0) {
+					$clan = warquest_db_clan($data->cid);
+					$page .= clan_format($clan).' clan';
+					
+				} else if ($data->pid2==0) {
 					$page .= t('GENERAL_ALL');
+					
+				} else {
+					$page .= player_format($data->pid2, $data->name, $data->country);
 				}
 			}
 			$page .= '</span>';
