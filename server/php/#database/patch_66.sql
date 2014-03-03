@@ -16,3 +16,6 @@ insert into views (mid, sid, ssid, eid, requests) values (0,0,0,0, 44926454);
 
 ALTER TABLE `player` ADD `clan_notification` INT NOT NULL AFTER `comment`;
 ALTER TABLE `comment` ADD `cid` INT NOT NULL AFTER `tid` ;
+ALTER TABLE `player` CHANGE `news` `news_notification` INT( 11 ) NOT NULL;
+ALTER TABLE `player` CHANGE `chat` `chat_notification` INT( 11 ) NOT NULL;
+ALTER TABLE `player` CHANGE `comment` `comment_notification` INT( 11 ) NOT NULL ;

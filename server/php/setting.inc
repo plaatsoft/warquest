@@ -206,7 +206,7 @@ function warquest_settings_account_reset_do() {
 	$player->experience = 0;
 	$player->alliance = 1;
 	$player->invite = 0;
-	$player->news = 0;
+	$player->news_notification = 0;
 	$player->mission = 0;
 	$player->bounty = 0;
 	$player->rebel = 0;

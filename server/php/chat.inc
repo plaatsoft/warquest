@@ -45,7 +45,7 @@ function warquest_chat_msg_do() {
 		warquest_db_chat_insert($player->pid, $other->pid, $message);
 
 		/* Set chat flag */
-		$other->chat=$player->pid;	
+		$other->chat_notification=$player->pid;	
 		
 		$message="";
 	}
@@ -74,7 +74,7 @@ function warquest_chat_form() {
 	global $output;	
 	
 	/* Clear chat flag */
-	$player->chat=0;	
+	$player->chat_notification=0;	
 	
 	$output->title = t('CHAT_TITLE');
 	

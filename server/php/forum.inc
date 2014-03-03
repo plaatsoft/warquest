@@ -58,6 +58,31 @@ function warquest_comment_delete_do() {
 }
 
 /**
+ * Send comment notification to all clan members 
+ */
+function warquest_clan_comment_notification() {
+
+	/* input */
+	global $cid;
+	global $player;
+		
+	$clan = warquest_db_clan($cid);
+	
+	if ( isset($clan->cid) ) {
+		
+		$query1 = 'select pid from player_clan where cid='.$cid.' and pid<>'.$player->pid;
+		$result1 = warquest_db_query($query1);	
+
+		while ($data1=warquest_db_fetch_object($result1)) {
+		
+			$data2 = warquest_db_player($data1->pid);
+			$data2->clan_notification++;
+			warquest_db_player_update($data2);
+		}
+	}
+}
+	
+/**
  * Save comment
  */
 function warquest_comment_save_do() {
@@ -73,33 +98,70 @@ function warquest_comment_save_do() {
 	/* output */
 	global $output;
 	
+	if (!isset($tid)) {
+		$tid=0;
+	}
+	
+	if (!isset($cid)) {
+		$cid=0;
+	}
+		
 	if (strlen($comment)>0) {
-	
-		if ($uid==0) {
-	
-			if (isset($other->pid)) {	
-				warquest_db_comment_insert($tid, $cid, $player->pid, $other->pid, $comment);
-					
-				$other->comment++;
+		
+		if (isset($other->pid)) {	
+			
+			/* Private player message */
+			warquest_db_comment_insert($tid, $cid, $player->pid, $other->pid, $comment);
+				
+			if ($uid==0) {
+			
+				/* Only new comment giv email notification */				
 				warquest_comment_mail($other->pid, $comment, $player->name);
-				$message = t('ALLIANCE_COMMENT_PLAYER', $other->name);
-	
+				
+				/* only new comment give notifacation */
+				$other->comment_notification++;				
+			}
+				
+			$message = t('ALLIANCE_COMMENT_PLAYER', $other->name);
+					
+		} else if ($tid>0) {
+			
+			/* Forum message for all players */
+			if ($uid==0) {
+			
+				/* new comment */
+				warquest_db_comment_insert($tid, 0, $player->pid, 0, $comment);
+				
 			} else {
 			
-				warquest_db_comment_insert($tid, $cid, $player->pid, 0, $comment);
-							
-				$message = t('ALLIANCE_COMMENT_ALL');
-				warquest_info("Post message: ".$comment);
+				/* update comment */
+				warquest_db_comment_update($uid, $comment);
+			}
+		
+			$message = t('ALLIANCE_COMMENT_ALL');
+			warquest_info("Post message: ".$comment);
+			
+		} else {
+				
+			/* Clan comment only for clan players */
+			if ($uid==0) {
+			
+				warquest_db_comment_insert(0, $cid, $player->pid, 0, $comment);
+				
+				/* only new comment give notification */
+				warquest_clan_comment_notification();
+				
+			} else {
+			
+				warquest_db_comment_update($uid, $comment);
 			}
 						
-		} else {
+			$clan = warquest_db_clan($cid);
 		
-			warquest_db_comment_update($uid, $comment);
-			
-			$message = t('ALLIANCE_COMMENT_ALL');
-			warquest_info("Post message: ".$comment);	
+			$message = t('CLAN_COMMENT_ALL', clan_format($clan));
+			warquest_info("Post message: ".$comment);
 		}
-		
+						
 		/* Clear input parameters */
 		$uid = 0;
 		
@@ -108,7 +170,7 @@ function warquest_comment_save_do() {
 }
 
 /**
- * Forum comment
+ * forum comment
  */
 function warquest_comment_form() {
 
@@ -242,9 +304,9 @@ function warquest_comment_form() {
 	
 	$page .= '<tr>';
 	
-	$page .= '<td width="75"><b>'.t('GENERAL_AGO').'</b></td>';
-	$page .= '<td width="370"><b>'.t('GENERAL_MESSAGE').'</b></td>';
-	$page .= '<td width="55" align="right"><b>'.t('GENERAL_ACTION').'</b></td>';
+	$page .= '<th width="75">'.t('GENERAL_AGO').'</b></th>';
+	$page .= '<th width="370">'.t('GENERAL_MESSAGE').'</b></th>';
+	$page .= '<th width="55" align="right">'.t('GENERAL_ACTION').'</th>';
 			
 	$page .= '</tr>';
 	
@@ -278,6 +340,157 @@ function warquest_comment_form() {
 	$page .= warquest_page_control($offset, $limit, $total, 0, '&tid='.$tid.'&fid='.$fid);
 	
 	$page .= '</div>';
+}
+
+/**
+ * Clan comment
+ */
+function warquest_clan_comment_form() {
+
+	/* input */
+	global $mid;
+	global $sid;
+	global $uid;
+
+	global $config;
+	global $player;
+	global $other;
+	
+	/* output */
+	global $page;
+	global $output;
+	global $offset;
+	
+	$player_clan = warquest_db_player_clan($player->pid);
+		
+	/* Clear clan notifcation flag is any. */
+	$player->clan_notification = 0;
+	
+	$output->title = t('CLAN_COMMENT_TITLE');
+	
+	$page .= '<div class="subparagraph">';
+	$page .= $output->title;
+	$page .= '</div>';	
+		
+	if ( !isset($player_clan->cid) || ($player_clan->approved==0)) { 
+	
+		$message = t('CLAN_COMMENT_NO_CLAN');
+		$page .= warquest_box_icon("warning", $message);
+		
+	} else {
+		
+		$clan = warquest_db_clan($player_clan->cid);
+		
+		/* ---------------------------------------------------- */
+	
+		$comment = "";
+		if ($uid!=0) {
+			$query  = 'select comment from comment where id='.$uid;
+			$result = warquest_db_query($query);	
+			
+			$data = warquest_db_fetch_object($result);		
+			$comment = $data->comment;		
+		} 
+	
+		$page .= "<script language=\"JavaScript\" type=\"text/javascript\">function limitText(limitField, limitNum) { if (limitField.value.length >= limitNum) { limitField.value = limitField.value.substring(0, limitNum); } } </script>";
+		
+		$page .= '<div class="box">';	
+	
+		$page .= '<table>';
+		$page .= '<tr>';
+		$page .= '<td width="500">';
+		$page .= t('CLAN_COMMENT_TEXT', clan_format($clan)).'<br/>'; 
+		
+		$page .= '<textarea style="width:100%" id="comment" name="comment" rows="5" ';
+		$page .= 'onKeyDown="limitText(this,400)">'.$comment.'</textarea><br/>';
+		$page .= warquest_show_smilies();
+		$page .= '<br/><br/>';
+	
+		$page .= warquest_link('mid='.$mid.'&sid='.$sid.'&eid='.EVENT_FORUM_COMMENT_SAVE.'&cid='.$player_clan->cid.'&uid='.$uid, t('LINK_SAVE'), 'save-0');
+		if ($uid!=0) {
+			$page .= ' ';
+			$page .= warquest_link('mid='.$mid.'&sid='.$sid.'&eid='.EVENT_FORUM_COMMENT_DELETE.'&cid='.$player_clan->cid.'&uid='.$uid, t('LINK_DELETE'), 'delete-0');
+		}
+	
+		$page .= '</td>';
+		$page .= '</tr>';
+		$page .= '</table>';
+	
+		$page .= "</div>";	
+	
+		/* ---------------------------------------------------- */
+	
+		$limit=30;
+		
+		$query  = 'select pid1 from comment where deleted=0 and cid='.$player_clan->cid;
+		$result = warquest_db_query($query);	
+		$total = warquest_db_num_rows($result);
+		
+		$query  = 'select a.id, a.pid1, a.date, a.comment, b.name, b.country from comment a, player b ';
+		$query .= 'where a.pid1=b.pid and a.pid2=0 and a.deleted=0 and a.cid='.$player_clan->cid.' ';
+
+		if (warquest_db_query_pattern($player, PATTERN_SORT1)==1) {
+			$query .= 'order by a.date desc ';
+		} else {
+			$query .= 'order by a.date asc ';
+		}
+		$query .= 'limit '.$offset.','.$limit;
+		
+		$result = warquest_db_query($query);	
+	
+		$page .= '<div class="box rows">';
+	
+		$page .= warquest_page_control($offset, $limit, $total, 1, '&cid='.$player_clan->cid);
+	
+		$page .= '<table>';
+	
+		$page .= '<tr>';
+	
+		$page .= '<th width="75">';
+		$page .= t('GENERAL_AGO');
+		$page .= '</th>';
+		
+		$page .= '<th width="370">';
+		$page .= t('GENERAL_MESSAGE');
+		$page .= '</th>';
+		
+		$page .= '<th width="55" align="right">';
+		$page .= t('GENERAL_ACTION');
+		$page .= '</th>';
+				
+		$page .= '</tr>';
+	
+		$count=0;
+		while ($data=warquest_db_fetch_object($result)) {
+		
+			$page .= '<tr valign="top">';
+		
+			$page .= '<td>';
+			$page .= warquest_ui_ago($data->date);
+			$page .= '</td>';
+					
+			$page .= '<td>';
+			$page .= player_format($data->pid1,$data->name, $data->country);
+			$page .= '<br/>';
+			$page .= warquest_parse_smilies(wordwrap($data->comment, 40, "\n\r", true));
+			$page .= '</td>';
+		
+			$page .= '<td align="right">';
+			if (($player->pid==$data->pid1) || ($player->pid==$config["adminPid"])) {
+				$page .= warquest_link('mid='.$mid.'&sid='.$sid.'&cid='.$player_clan->cid.'&uid='.$data->id, t('LINK_EDIT'), 'edit'.$count);
+			}
+			$page .= '</td>';
+			
+			$page .= '</tr>';
+			
+			$count++;
+		}
+		$page .= '</table>';
+		
+		$page .= warquest_page_control($offset, $limit, $total, 0, '&cid='.$player_clan->cid);
+		
+		$page .= '</div>';
+	}
 }
 
 /*
@@ -650,139 +863,6 @@ function warquest_forum_form() {
 	$page .= '</div>';
 	
 	$page .= '<div class="note">'.t('FORUM_NOTE').'</div>';
-}
-
-/**
- * Clan comment
- */
-function warquest_clan_comment_form() {
-
-	/* input */
-	global $mid;
-	global $sid;
-	
-	global $uid;
-	global $cid;	
-	
-	global $config;
-	global $player;
-	global $other;
-	
-	/* output */
-	global $page;
-	global $output;
-	global $offset;
-	
-	$output->title = t('CLAN_COMMENT_TITLE');
-		
-	$comment = "";
-	if ($uid!=0) {
-		$query  = 'select comment from comment where id='.$uid;
-		$result = warquest_db_query($query);	
-		
-		$data = warquest_db_fetch_object($result);		
-		$comment = $data->comment;		
-	} 
-	
-	$page .= "<script language=\"JavaScript\" type=\"text/javascript\">function limitText(limitField, limitNum) { if (limitField.value.length >= limitNum) { limitField.value = limitField.value.substring(0, limitNum); } } </script>";
-
-	$page .= '<div class="subparagraph">';
-	$page .= $output->title;
-	$page .= '</div>';	
-	
-	$page .= '<div class="box">';	
-	
-	$page .= '<table>';
-	$page .= '<tr>';
-	$page .= '<td width="500">';
-	$page .= t('CLAN_COMMENT_TEXT').'<br/>'; 
-	 
-	$page .= '<textarea style="width:100%" id="comment" name="comment" rows="5" ';
-	$page .= 'onKeyDown="limitText(this,400)">'.$comment.'</textarea><br/>';
-	$page .= warquest_show_smilies();
-	$page .= '<br/><br/>';
-	
-	$page .= warquest_link('mid='.$mid.'&sid='.$sid.'&eid='.EVENT_FORUM_COMMENT_SAVE.'&cid='.$cid.'&tid=0&uid='.$uid, t('LINK_SAVE'), 'save-0');
-	if ($uid!=0) {
-		$page .= ' ';
-		$page .= warquest_link('mid='.$mid.'&sid='.$sid.'&eid='.EVENT_FORUM_COMMENT_DELETE.'&cid='.$cid.'&tid=0&uid='.$uid, t('LINK_DELETE'), 'delete-0');
-	}
-	
-	$page .= '</td>';
-	$page .= '</tr>';
-	$page .= '</table>';
-
-	$page .= "</div>";	
-	
-	/* ---------------------------------------------------- */
-
-	if (isset($other->pid)) {
-		
-		return;
-	}
-	
-	$limit=30;
-		
-	$query  = 'select pid1 from comment where deleted=0 and cid='.$cid;
-	$result = warquest_db_query($query);	
-	$total = warquest_db_num_rows($result);
-	
-	$query  = 'select a.id, a.pid1, a.date, a.comment, b.name, b.country from comment a, player b ';
-	$query .= 'where a.pid1=b.pid and a.pid2=0 and a.deleted=0 and a.tid='.$tid.' ';
-
-	if (warquest_db_query_pattern($player, PATTERN_SORT1)==1) {
-		$query .= 'order by a.date desc ';
-	} else {
-		$query .= 'order by a.date asc ';
-	}
-	$query .= 'limit '.$offset.','.$limit;
-	
-	$result = warquest_db_query($query);	
-	
-	$page .= '<div class="box rows">';
-	
-	$page .= warquest_page_control($offset, $limit, $total, 1, '&tid='.$tid.'&fid='.$fid);
-	
-	$page .= '<table>';
-	
-	$page .= '<tr>';
-	
-	$page .= '<td width="75"><b>'.t('GENERAL_AGO').'</b></td>';
-	$page .= '<td width="370"><b>'.t('GENERAL_MESSAGE').'</b></td>';
-	$page .= '<td width="55" align="right"><b>'.t('GENERAL_ACTION').'</b></td>';
-			
-	$page .= '</tr>';
-	
-	$count=0;
-	while ($data=warquest_db_fetch_object($result)) {
-	
-		$page .= '<tr valign="top">';
-		
-		$page .= '<td>';
-		$page .= warquest_ui_ago($data->date);
-		$page .= '</td>';
-				
-		$page .= '<td>';
-		$page .= player_format($data->pid1,$data->name, $data->country);
-		$page .= '<br/>';
-		$page .= warquest_parse_smilies(wordwrap($data->comment, 40, "\n\r", true));
-		$page .= '</td>';
-		
-		$page .= '<td align="right">';
-		if (($player->pid==$data->pid1) || ($player->pid==$config["adminPid"])) {
-			$page .= warquest_link('mid='.$mid.'&sid='.$sid.'&fid='.$fid.'&tid='.$tid.'&uid='.$data->id, t('LINK_EDIT'), 'edit'.$count);
-		}
-		$page .= '</td>';
-		
-		$page .= '</tr>';
-		
-		$count++;
-	}
-	$page .= '</table>';
-	
-	$page .= warquest_page_control($offset, $limit, $total, 0, '&tid='.$tid.'&fid='.$fid);
-	
-	$page .= '</div>';
 }
 
 /*

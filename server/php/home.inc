@@ -76,7 +76,7 @@ function warquest_home_comment_save_do() {
 		
 		if (isset($other->pid)) {
 		
-			$other->comment++;
+			$other->comment_notification++;
 			warquest_comment_mail($other->pid, $comment, $player->name);
 			$message = t('ALLIANCE_COMMENT_PLAYER', player_format($other->pid, $other->name, $other->country));
 			
@@ -180,7 +180,7 @@ function warquest_home_messages() {
 	global $output;
 	
 	/* Clear new flag */
-	$player->comment=0;
+	$player->comment_notification=0;
 		
 	$output->title = t('HOME_MESSAGES_TITLE');
 	
@@ -292,7 +292,7 @@ function warquest_home_news() {
 	$output->title = t('HOME_BATTLE_TITLE');
 		
 	/* Clear new flag */
-	$player->news=0;
+	$player->news_notification=0;
 		
 	$query  = 'select id from battle where pid2='.$player->pid;
 	$result = warquest_db_query($query);	

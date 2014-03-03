@@ -3315,8 +3315,10 @@ $lang['MISSION_CLAN_PLANET_COMPLETE'] = 'Excellent! You conquered all %s contine
 */
 
 $lang['LINK_CLAN_COMMENT'] = 'Clan';
-$lang['CLAN_COMMENT_TITLE'] = 'Clan comment';
-$lang['CLAN_COMMENT_TEXT'] = 'Create message (max. 400 characters) for all clan players';
+$lang['CLAN_COMMENT_TITLE'] = 'Clan messages';
+$lang['CLAN_COMMENT_TEXT'] = 'Create message (max. 400 characters) for %s clan players';
+$lang['CLAN_COMMENT_ALL'] = 'Message is stored and available for all %s clan players.';
+$lang['CLAN_COMMENT_NO_CLAN'] = 'You are not part of a clan. No clan messages possible!';
 
 /*
 ** ------------------

@@ -1143,9 +1143,9 @@ function warquest_db_player_update($player) {
 	$query .= 'damage_buildings='.$player->damage_buildings.', ';
 	$query .= 'last_battle="'.$player->last_battle.'", ';
 	$query .= 'country="'.$player->country.'", ';
-	$query .= 'news='.$player->news.', ';
-	$query .= 'chat='.$player->chat.', ';
-	$query .= 'comment='.$player->comment.', ';
+	$query .= 'news_notification='.$player->news_notification.', ';
+	$query .= 'chat_notification='.$player->chat_notification.', ';
+	$query .= 'comment_notification='.$player->comment_notification.', ';
 	$query .= 'clan_notification='.$player->clan_notification.', ';
 	$query .= 'language="'.$player->language.'", ';
 	$query .= 'background='.$player->background.', ';
@@ -1185,7 +1185,7 @@ function warquest_db_player($pid) {
 	$query .= 'experience, mission, won, lost, ';	
 	$query .= 'energy_step, health_step, language, background, ';
 	$query .= 'money_step, money_date, gold, energy_date, health_date, ammo_date, ammo_step, ';
-	$query .= 'news, comment, chat, clan_notification, ';
+	$query .= 'news_notification, comment_notification, chat_notification, clan_notification, ';
 	$query .= 'alliance, invite, bank1, bank2, bank3, upkeep, damage_units, damage_buildings, last_battle, ';
 	$query .= 'default_force, default_mission, default_amount, ';
 	$query .= 'bonus_date, request, request_date, casino, ';
