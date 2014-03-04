@@ -413,7 +413,7 @@ function warquest_buy_missing_units_do() {
 }
 
 /** 
- * Play clan mission 
+ * Do clan mission 
  */ 
 function warquest_mission_clan_do() {
 
@@ -422,7 +422,6 @@ function warquest_mission_clan_do() {
 	global $sid;	
 	global $ssid;	
 	global $id;
-	global $config;
 	
 	/* output */
 	global $player;
@@ -434,6 +433,13 @@ function warquest_mission_clan_do() {
 	/* Get player clan data */
 	$player_clan = warquest_db_player_clan($player->pid);
 	
+	if ( !isset($player_clan->cid) || ($player_clan->approved==0)) { 
+	
+		$message = t('MISSION_NO_CLAN');
+		$output->popup .= warquest_box_icon("warning", $message);
+		return;
+	}
+		
 	/* Get progress data */	
 	$progress = 0;	
 	$data = warquest_db_clan_mission($player_clan->cid, $id);
@@ -569,6 +575,11 @@ function warquest_mission_clan_do() {
 		$message = t('MISSION_YOU_GAIN').': '.money_format1($money).t('MISSION_DOLLAR_AND');
 		$message .= experience_format($mission->experience).' '.t('GENERAL_EXPERIENCE_POINTS').'. <br/>';
 		$message .= t('MISSION_YOU_USED').': '.energy_format($mission->energy).' '.t('GENERAL_ENERGY').'. <br/>';
+		
+		if ($output->format=="xml") {
+			$message .= 'Mission progress: '.$progress.'% ';
+		}
+		
 		$message .= warquest_mission_unit_lost();
 		
 		if ($mission->loot==1) {
@@ -587,7 +598,7 @@ function warquest_mission_clan_do() {
 }
 
 /** 
- * Play Player Mission 
+ * Do Player Mission 
  */ 
 function warquest_mission_do() {
 
@@ -776,6 +787,11 @@ function warquest_mission_do() {
 			$message = t('MISSION_YOU_GAIN').': '.money_format1($money).t('MISSION_DOLLAR_AND');
 			$message .= experience_format($mission->experience).' '.t('GENERAL_EXPERIENCE_POINTS').'. <br/>';
 			$message .= t('MISSION_YOU_USED').': '.energy_format($mission->energy).' '.t('GENERAL_ENERGY').'. <br/>';
+			
+			if ($output->format=="xml") {
+				$message .= 'Mission progress: '.warquest_format_progress($progress, $part).'% ';
+			}
+		
 			$message .= warquest_mission_unit_lost();
 			
 			if ($mission->loot==1) {
