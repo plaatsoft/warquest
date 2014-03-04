@@ -273,7 +273,7 @@ function doBattle($username, $password, $planet, $force) {
 }
 
 /* Do Mission */
-function doMission($username, $password, $buy) {
+function doMission($username, $password, $buy, $clan) {
 
 	include '../mission.inc';	
 
@@ -284,7 +284,7 @@ function doMission($username, $password, $buy) {
 	global $output;
 	global $id;
 	
-	warquest_info('goMission ['.$username.'] - start');
+	warquest_info('goMission ['.$username.'|'.$buy.'|'.$clan.'] - start');
 	
 	/* Authenicate player */
 	$pid = warquest_login_do($username, $password);
@@ -296,43 +296,78 @@ function doMission($username, $password, $buy) {
 	$player = warquest_db_player($pid);
 	$skill = warquest_db_skill($player->pid);
 	$level = warquest_db_level($player->lid);
+	$player_clan = warquest_db_player_clan($player->pid);
 
 	/* Update player timers (before) */
 	warquest_update_timers($player);
 	
-	/* Get random mission which is not complete yet */
-	$query  = 'select mid from mission where mid NOT in ';
-	$query .= '(select mid from player_mission where pid='.$player->pid.' and '; 
-	$query .= '((part=0 and progress=100) or (part=1 and progress=200) or ';
-	$query .= '(part=2 and progress=300) or progress=(part*100)) ) ';
-	$query .= 'and lid<'.$player->lid.' order by rand() limit 0, 1';
-	
-	$result = warquest_db_query($query);	 
-	$data = warquest_db_fetch_object($result);	
-	
 	$id = 1;
-	if ( isset($data->mid) ) {
-		$id = $data->mid;
-		
-	} else {	
 	
-		/* All mission 100% ready, select just random mission */
-		$query  = 'select mid from mission where lid<'.$player->lid.' order by rand() limit 0, 1';
+	if ($clan==0) {
+		 
+		/* Get player mission */
+		
+		/* Get random mission which is not complete yet */
+		$query  = 'select mid from mission where mid NOT in ';
+		$query .= '(select mid from player_mission where pid='.$player->pid.' and '; 
+		$query .= '((part=0 and progress=100) or (part=1 and progress=200) or ';
+		$query .= '(part=2 and progress=300) or progress=(part*100)) ) ';
+		$query .= 'and lid<'.$player->lid.' order by rand() limit 0, 1';
 		
 		$result = warquest_db_query($query);	 
 		$data = warquest_db_fetch_object($result);	
-			
+		
 		if ( isset($data->mid) ) {
 			$id = $data->mid;
+			
+		} else {	
+	
+			/* All player missions 100% ready, just select one */
+			$query  = 'select mid from mission where lid<'.$player->lid.' order by rand() limit 0, 1';
+			
+			$result = warquest_db_query($query);	 
+			$data = warquest_db_fetch_object($result);	
+			
+			if ( isset($data->mid) ) {
+				$id = $data->mid;
+			}
+		}
+		
+	} else {
+	
+		/* Get first clan mission with is not ready */		
+		
+		if (isset($player_clan->cid)) {
+			
+			$query  = 'select mid from mission where mid NOT in ';
+			$query .= '(select mid from clan_mission where progress=100 and cid='.$player_clan->cid.') ';
+			$query .= 'and lid<'.$player->lid.' and mid!=0 order by mid asc limit 0, 1';
+		
+			$result = warquest_db_query($query);	 
+			$data = warquest_db_fetch_object($result);	
+			
+			if ( isset($data->mid) ) {
+				$id = $data->mid;
+			}	
 		}
 	}
 	
-	/* Do Mission */
-	if ($buy==true) {
+	
+	/* Buy missing units, if needed */
+	if ($buy==1) {
 		warquest_buy_missing_units_do();
 	}
 	
-	warquest_mission_do();
+	if ($clan==0) {
+	
+		/* Do player mission */
+		warquest_mission_do();
+		
+	} else {
+		
+		/* Do clan mission */
+		warquest_mission_clan_do();
+	}
 	
 	/* Update player timers (after) */
 	warquest_update_timers($player);

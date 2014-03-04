@@ -10,7 +10,7 @@
 
 <wsdl:documentation>
 	Service: WarQuestService
-   Version: 0.7
+   Version: 0.8
    Owner: PlaatSoft
 </wsdl:documentation>
 
@@ -56,6 +56,7 @@
 	<wsdl:part name="login" type="xsd:string" />
 	<wsdl:part name="password" type="xsd:string" />
 	<wsdl:part name="buy" type="xsd:boolean" />
+	<wsdl:part name="clan" type="xsd:boolean" />
 </wsdl:message>
 
 <wsdl:message name='doMissionResponse'>
