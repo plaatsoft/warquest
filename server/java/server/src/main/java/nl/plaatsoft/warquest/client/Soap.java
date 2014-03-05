@@ -4,54 +4,90 @@ import javax.xml.soap.*;
 import javax.xml.transform.*;
 import javax.xml.transform.stream.*;
 
+@SuppressWarnings("restriction")
 public class Soap {
 
 	public static void main(String args[]) {
-		
-		String username = "test";
-		String password = "test";
+					
+		String username = "robot";
+		String password = "robot";
+				
 		String planet = "earth";
-		String force = "navy";
-		String buy = "true";
+		String force = "airforce";
 		
-		for (int i=1; i<300; i++) {
-						 
-			try {
-
-				long startTime = System.currentTimeMillis();
-				 
-				SOAPConnectionFactory soapConnectionFactory = SOAPConnectionFactory.newInstance();
-				SOAPConnection soapConnection = soapConnectionFactory.createConnection();
-
-				String url = "http://www.warquest.nl/service/";
-				
-				SOAPMessage soapResponse = soapConnection.call(doBattle(username+i, password, planet, force),url);
-				printSOAPResponse(soapResponse);
-				
-				System.out.print("\n");
-				
-				soapResponse = soapConnection.call(doMission(username+i, password, planet, buy),url);
-				printSOAPResponse(soapResponse);
-				
-				soapConnection.close();
-				 
-				long endTime = System.currentTimeMillis();
-
-				long duration = endTime - startTime;
-				System.out.print("duration "+duration+" ms\n");
-				System.out.print("------------------------------------------------------\n");
+		String buy = "true";
+		String clan = "false";
+		
+		for (int j=1; j<=2506; j++) {
+			for (int i=1; i<2; i++) {
+				doBattle(username+j, password+j, planet, force);
+			}
 			
-			 } catch (Exception e) {
-				 System.err.println("Error occurred while sending SOAP Request to Server");
-				 e.printStackTrace();
-			 }
+			for (int i=1; i<2; i++) {
+				doMission(username+j, password+j, buy, clan);
+			}
+		}
+	}
+	
+	private static void doBattle(String username, String password, String planet, String force) {
+										 
+		try {
+
+			long startTime = System.currentTimeMillis();
+				 
+			SOAPConnectionFactory soapConnectionFactory = SOAPConnectionFactory.newInstance();
+			SOAPConnection soapConnection = soapConnectionFactory.createConnection();
+
+			String url = "http://www.warquest.nl/service/";
+				
+			SOAPMessage soapResponse = soapConnection.call(doBattleCall(username, password, planet, force),url);
+			printSOAPResponse(soapResponse);
+								
+			soapConnection.close();
+				 
+			long endTime = System.currentTimeMillis();
+
+			long duration = endTime - startTime;
+			System.out.print("duration "+duration+" ms\n");
+			System.out.print("------------------------------------------------------\n");
+			
+		} catch (Exception e) {
+			System.err.println("Error occurred while sending SOAP Request to Server");
+			e.printStackTrace();
 		}
 	}
 
+	private static void doMission(String username, String password, String buy, String clan) {
+
+		try {
+			long startTime = System.currentTimeMillis();
+			 
+			SOAPConnectionFactory soapConnectionFactory = SOAPConnectionFactory.newInstance();
+			SOAPConnection soapConnection = soapConnectionFactory.createConnection();
+
+			String url = "http://www.warquest.nl/service/";
+							
+			SOAPMessage soapResponse = soapConnection.call(doMissionCall(username, password, buy, clan),url);
+			printSOAPResponse(soapResponse);
+			
+			soapConnection.close();
+			 
+			long endTime = System.currentTimeMillis();
+
+			long duration = endTime - startTime;
+			System.out.print("duration "+duration+" ms\n");
+			System.out.print("------------------------------------------------------\n");
+		
+		 } catch (Exception e) {
+			 System.err.println("Error occurred while sending SOAP Request to Server");
+			 e.printStackTrace();
+		 }
+	}
+	
 	/**
 	 * SOAP doBattle Request
 	 */
-	private static SOAPMessage doBattle(String username, String password, String planet, String force) throws Exception {
+	private static SOAPMessage doBattleCall(String username, String password, String planet, String force) throws Exception {
 		MessageFactory messageFactory = MessageFactory.newInstance();
 		SOAPMessage soapMessage = messageFactory.createMessage();
 		SOAPPart soapPart = soapMessage.getSOAPPart();
@@ -93,14 +129,14 @@ public class Soap {
 	/**
 	 * SOAP doMission Request
 	 */
-	private static SOAPMessage doMission(String username, String password, String planet, String buy) throws Exception {
+	private static SOAPMessage doMissionCall(String username, String password, String buy, String clan) throws Exception {
 		MessageFactory messageFactory = MessageFactory.newInstance();
 		SOAPMessage soapMessage = messageFactory.createMessage();
 		SOAPPart soapPart = soapMessage.getSOAPPart();
 
 		String serverURI = "http://www.warquest.nl/service/warquest.wsdl";
 
-		// SOAP Envelope
+		// SOAP Envelope		
 		SOAPEnvelope envelope = soapPart.getEnvelope();
 		envelope.addNamespaceDeclaration("war", serverURI);
 
@@ -111,10 +147,10 @@ public class Soap {
 		soapBodyElem1.addTextNode(username);
 		SOAPElement soapBodyElem2 = soapBodyElem.addChildElement("password","war");
 		soapBodyElem2.addTextNode(password);
-		SOAPElement soapBodyElem3 = soapBodyElem.addChildElement("planet","war");
-		soapBodyElem3.addTextNode(planet);
-		SOAPElement soapBodyElem4 = soapBodyElem.addChildElement("buy", "war");
-		soapBodyElem4.addTextNode(buy);
+		SOAPElement soapBodyElem3 = soapBodyElem.addChildElement("buy", "war");
+		soapBodyElem3.addTextNode(buy);
+		SOAPElement soapBodyElem4 = soapBodyElem.addChildElement("clan", "war");
+		soapBodyElem4.addTextNode(clan);
 
 		MimeHeaders headers = soapMessage.getMimeHeaders();
 		headers.addHeader("SOAPAction", serverURI);
