@@ -312,7 +312,7 @@ function doMission($username, $password, $buy, $clan) {
 		$query .= '(select mid from player_mission where pid='.$player->pid.' and '; 
 		$query .= '((part=0 and progress=100) or (part=1 and progress=200) or ';
 		$query .= '(part=2 and progress=300) or progress=(part*100)) ) ';
-		$query .= 'and lid<'.$player->lid.' order by rand() limit 0, 1';
+		$query .= 'and lid<'.$player->lid.' order by mid asc limit 0, 1';
 		
 		$result = warquest_db_query($query);	 
 		$data = warquest_db_fetch_object($result);	
