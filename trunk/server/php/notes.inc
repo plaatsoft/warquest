@@ -22,7 +22,7 @@ $notes[66] = '
 <ul>
 <li>Added Forums->Clan message system.</li>
 <li>Added Admin->Views page (Admin Mode only).</li>
-<li>Added robot account update (Admin Mode only).<li>
+<li>Added robot account update (Admin Mode only).</li>
 <li>Disable account reset functionality.</li>
 <li>Disable clan (member) inactive automatic removable.</li>
 </ul></br>
