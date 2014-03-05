@@ -17,12 +17,12 @@
 */
 
 $notes[66] = '
-<div class="subparagraph2">02-03-2014</div>
+<div class="subparagraph2">04-03-2014</div>
 <i>Game Server v6.6</i>
 <ul>
-<li>Added Forums->Clan clan message system.</li>
-<li>Added page views statistics functionality.</li>
+<li>Added Forums->Clan message system.</li>
 <li>Added Admin->Views page (Admin Mode only).</li>
+<li>Added robot account update (Admin Mode only).<li>
 <li>Disable account reset functionality.</li>
 <li>Disable clan (member) inactive automatic removable.</li>
 </ul></br>
