@@ -1805,8 +1805,8 @@ function warquest_battle_award_won_do($player) {
 
 	$query =  "select won, ep from battle_award where id=".$player->won_level;  	
 	$result = warquest_db_query($query);
-
-	$won = 999999;
+	
+	$won = 99999999999;
 	if ($data = warquest_db_fetch_object($result)) {
 		$won = $data->won;
 	}
