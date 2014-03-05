@@ -35,7 +35,301 @@ $language = warquest_post('language', $player->language);
 
 /*
 ** ---------------------
-** technical info page
+** MEMBER
+** ---------------------
+*/
+
+function warquest_admin_level_zoom_form() {
+
+	/* input */
+	global $player;
+	global $uid;
+	global $mid;
+	global $config;
+			
+	/* output */
+	global $page;
+			
+	/* Get alliance players */
+	$query  = 'select pid, country, name, lid, experience, alliance, won, lost ';
+	$query .= 'from player where pid!='.$config["adminPid"].' and lid="'.$uid.'" ';
+	$query .= 'order by lid desc, experience desc';
+	$result = warquest_db_query($query);	
+	
+	$page .= '<div class="subparagraph">Players in level '.$uid.'</div>';
+	
+	$page .= '<div class="box">';
+	$page .= '<table>';
+	
+	$page .= '<tr>';
+	
+	$page .= '<th width="35">';
+	$page .= 'Top';
+	$page .= '</th>';
+	
+	$page .= '<th width="160">';
+	$page .= 'Name';
+	$page .= '</th>';
+	
+	$page .= '<th width="50">';
+	$page .= 'Level';
+	$page .= '</th>';
+	
+	$page .= '<th width="90">';
+	$page .= 'Experience';	
+	$page .= '</th>';
+	
+	$page .= '<th width="60">';
+	$page .= 'Alliance';	
+	$page .= '</th>';
+	
+	$page .= '<th width="50">';
+	$page .= 'Won';	
+	$page .= '</th>';
+	
+	$page .= '<th width="50">';
+	$page .= 'Lost';	
+	$page .= '</th>';
+	
+	$page .= '</tr>';
+	
+	$count=1;
+	while ($data=warquest_db_fetch_object($result)) {
+	
+		$page .= '<tr>';
+		$page .= '<td>';
+		$page .= $count++;
+		$page .= '</td>';
+		$page .= '<td>';
+		$page .= warquest_link('mid='.$mid.'&oid='.$data->pid.'&sid='.PAGE_PLAYERS, warquest_flag_image($data->country));
+		$page .= ' ';
+		$page .= warquest_link('mid='.$mid.'&oid='.$data->pid.'&sid='.PAGE_PLAYERS, $data->name);
+		$page .= '</td>';
+		$page .= '<td>';
+		$page .= $data->lid;
+		$page .= '</td>';
+		$page .= '<td>';
+		$page .= number_format($data->experience,0,",",".");
+		$page .= '</td>';
+		$page .= '<td>';
+		$page .= $data->alliance;
+		$page .= '</td>';
+		$page .= '<td>';
+		$page .= number_format($data->won,0,",",".");
+		$page .= '</td>';
+		$page .= '<td>';
+		$page .= number_format($data->lost,0,",",".");
+		$page .= '</td>';
+		$page .= '</tr>';
+	}
+
+	$page .= '</table>';
+	$page .= '</div>';	
+	
+	$page .= '<div class="note">';
+	$page .= 'Note: Show all players of selected level.';
+   $page .= '</div>';
+}
+
+function warquest_admin_member_do() {
+
+	/* input */
+	global $mid;
+	global $sid;
+	global $offset;
+	global $sort;
+	global $config;
+	global $player;
+	global $nickname;
+
+	/* output */
+	global $page;
+	
+	/* Max records. */
+	$limit = 50;
+	
+	$query  = 'select pid from player '; 
+	if (strlen($nickname)>0) {
+		$query .= 'where pid like "'.$nickname.'"';
+	}
+	$result = warquest_db_query($query);	
+	$total = warquest_db_num_rows($result);
+	
+	
+		
+	if ($total != 0 ) {
+					
+		$query  = 'select a.pid, a.created, b.request_date, b.name, b.country, b.experience, a.platform, ';
+		$query .= 'b.request from player b left join member a on a.pid=b.pid ';
+		if (strlen($nickname)>0) {
+			$query .= 'where b.pid like "'.$nickname.'" ';
+		}
+		
+	} else {
+	
+		$query  = 'select a.pid from player a left join member b on a.pid=b.pid ';
+		if (strlen($nickname)>0) {
+			$query .='where a.name like "%'.$nickname.'%" or b.username like "%'.$nickname.'%"';	
+		}	
+		$result = warquest_db_query($query);	
+		$total = warquest_db_num_rows($result);
+		
+		$query  = 'select a.pid, a.created, b.request_date, b.name, b.country, b.experience, a.platform, ';
+		$query .= 'b.request from player b left join member a on a.pid=b.pid ';
+		if (strlen($nickname)>0) {
+			$query .= 'where b.name like "%'.$nickname.'%" or a.username like "%'.$nickname.'%" ';
+		}
+	}
+				
+	switch ($sort) {
+		
+			default:
+				$query .= 'order by request_date desc ';
+				break;
+				
+			case 1:
+				$query .= 'order by country asc ';
+				break;
+				
+			case 2:
+				$query .= 'order by name asc ';
+				break;
+			
+			case 3:
+				$query .= 'order by request desc ';
+				break;
+				
+			case 4:
+				$query .= 'order by platform desc ';
+				break;
+				
+			case 5:
+				$query .= 'order by created desc ';
+				break;
+	}
+				
+	$query .= 'limit '.$offset.','.$limit;
+	
+	$result = warquest_db_query($query);	
+	
+	$page .= '<div class="box rows">';
+	
+	$page .= warquest_page_control($offset, $limit, $total, 1, '&sort='.$sort);
+	
+	$page .= '<table>';
+	
+	$page .= '<thead>';	
+	
+	$page .= '<tr>';	
+	
+	$page .= '<th width="60">';
+	$page .= warquest_link('mid='.$mid.'&sid='.$sid.'&sort=1', "Country");
+	$page .= '</th>';
+	
+	$page .= '<th width="110">';
+	$page .= warquest_link('mid='.$mid.'&sid='.$sid.'&sort=2', "Name");
+	$page .= '</th>';
+
+	$page .= '<th width="75">';
+	$page .= warquest_link('mid='.$mid.'&sid='.$sid.'&sort=3', "Requests");
+	$page .= '</th>';
+	
+	$page .= '<th width="80">';
+	$page .= warquest_link('mid='.$mid.'&sid='.$sid.'&sort=4', "Platform");
+	$page .= '</th>';
+	
+	$page .= '<th width="80">';
+	$page .= warquest_link('mid='.$mid.'&sid='.$sid.'&sort=5', "Created");
+	$page .= '</th>';
+	
+	$page .= '<th width="90">';
+	$page .= warquest_link('mid='.$mid.'&sid='.$sid.'&sort=0', "Last Active");
+	$page .= '</th>';
+
+	$page .= '</tr>';
+	
+	$page .= '</thead>';
+	
+	$page .= '<tbody>';
+	
+	while ($data=warquest_db_fetch_object($result)) {
+	
+		$page .= '<tr>';
+		$page .= '<td>';
+		$page .= warquest_link('mid='.$mid.'&oid='.$data->pid.'&sid='.PAGE_PLAYERS,warquest_flag_image($data->country));
+		$page .= '</td>';
+		$page .= '<td>';
+		$page .= warquest_link('mid='.$mid.'&oid='.$data->pid.'&sid='.PAGE_PLAYERS, $data->name);		
+		$page .= '</td>';
+		$page .= '<td>';
+		$page .= number_format($data->request,0,",",".");
+		$page .= '</td>';
+		$page .= '<td>';
+		$page .= warquest_platform_image($data->platform);
+		$page .= '</td>';
+		$page .= '<td>';
+		$page .= warquest_ui_ago($data->created);
+		$page .= '</td>';
+		$page .= '<td>';
+		$page .= warquest_ui_ago($data->request_date);
+		$page .= '</td>';		
+		$page .= '</tr>';
+	}
+
+	$page .= '</tbody>';
+	$page .= '</table>';
+	
+	$page .= warquest_page_control($offset, $limit, $total, 0, '&sort='.$sort);
+	
+	$page .= '</div>';	
+	
+	$page .= '<div class="note">';
+	$page .= 'Note: Report show all or filter members.';
+   $page .= '</div>';
+}
+
+	
+function warquest_admin_member_form() {
+
+	/* input */
+	global $mid;
+	global $nickname;
+	
+	/* output */
+	global $page;
+	global $output;
+	
+	$output->title = 'Members'; 
+		
+	$page .= '<div class="subparagraph">'.$output->title.'</div>';
+	
+	$page .= '<form method="post">';
+	$page .=	'<div class="box">';
+	$page .=	'<table>';
+		
+	$page .=	'<tr>';
+	
+	$page .=	'<td width="100">Nickname:</td>';
+	$page .=	'<td>';
+	$page .=	'<input name="nickname" type="text" id="nickname" size="40" maxlength="30" value="'.$nickname.'" >';
+	$page .=	'</td>';
+	
+	$page .=	'<td width="130" align="right">';
+	$page .=	'<input type="hidden" name="token" value="'.warquest_token('mid='.$mid.'&sid='.PAGE_PLAYER_LIST).'" />';
+	$page .=	'<input type="submit" name="Submit" value="Search" />';
+	$page .=	'</td>';
+	
+	$page .=	'</tr>';
+		
+	$page .=	'</table>';
+	$page .=	'</div>';
+	$page .=	'</form>';	
+}
+
+
+/*
+** ---------------------
+** INFO
 ** ---------------------
 */
 
@@ -73,365 +367,6 @@ function warquest_admin_info() {
 	$page .= '<br/>';
 	
 	$page .= '</div>';
-}
-
-/*
-** --------------- 
-** FORM ACTIONS
-** ---------------
-*/
-
-function warquest_admin_optimize_tables_do() {
-	
-	/* output */
-	global $output;
-	
-	$message = 'Tables optimized!<br/>';
-	
-	$query  = 'optimize table bank'; 
-	$result = warquest_db_query($query);
-	if ($data=warquest_db_fetch_object($result)) {
-		$message .= $data->Table.' '.$data->Msg_type.' '.$data->Msg_text.'<br/>';
-	}
-
-	$query  = 'optimize table battle'; 
-	$result = warquest_db_query($query);
-	if ($data=warquest_db_fetch_object($result)) {
-		$message .= $data->Table.' '.$data->Msg_type.' '.$data->Msg_text.'<br/>';
-	}
-	
-	$query  = 'optimize table bounty'; 
-	$result = warquest_db_query($query);
-	if ($data=warquest_db_fetch_object($result)) {
-		$message .= $data->Table.' '.$data->Msg_type.' '.$data->Msg_text.'<br/>';
-	}
-	
-	$query  = 'optimize table news'; 
-	$result = warquest_db_query($query);
-	if ($data=warquest_db_fetch_object($result)) {
-		$message .= $data->Table.' '.$data->Msg_type.' '.$data->Msg_text.'<br/>';
-	}
-	
-	$query  = 'optimize table player_building'; 
-	$result = warquest_db_query($query);
-	if ($data=warquest_db_fetch_object($result)) {
-		$message .= $data->Table.' '.$data->Msg_type.' '.$data->Msg_text.'<br/>';
-	}
-	
-	$query  = 'optimize table player_player'; 
-	$result = warquest_db_query($query);
-	if ($data=warquest_db_fetch_object($result)) {
-		$message .= $data->Table.' '.$data->Msg_type.' '.$data->Msg_text.'<br/>';
-	}
-
-	$query  = 'optimize table player_unit'; 
-	$result = warquest_db_query($query);
-	if ($data=warquest_db_fetch_object($result)) {
-		$message .= $data->Table.' '.$data->Msg_type.' '.$data->Msg_text.'<br/>';
-	}
-		
-	$query  = 'optimize table session'; 
-	$result = warquest_db_query($query);
-	if ($data=warquest_db_fetch_object($result)) {
-		$message .= $data->Table.' '.$data->Msg_type.' '.$data->Msg_text.'<br/>';
-	}
-	
-	$query  = 'optimize table player_stock'; 
-	$result = warquest_db_query($query);
-	if ($data=warquest_db_fetch_object($result)) {
-		$message .= $data->Table.' '.$data->Msg_type.' '.$data->Msg_text.'<br/>';
-	}
-	
-	$query  = 'optimize table player_poll'; 
-	$result = warquest_db_query($query);
-	if ($data=warquest_db_fetch_object($result)) {
-		$message .= $data->Table.' '.$data->Msg_type.' '.$data->Msg_text.'<br/>';
-	}
-	
-	$query  = 'optimize table clan_bank'; 
-	$result = warquest_db_query($query);
-	if ($data=warquest_db_fetch_object($result)) {
-		$message .= $data->Table.' '.$data->Msg_type.' '.$data->Msg_text.'<br/>';
-	}
-	
-	$output->popup .= warquest_box_icon("info", $message);	
-	
-	warquest_info($message);
-}
-
-function warquest_admin_update_building_staff_do() {
-	
-	/* output */
-	global $output;
-	
-	$query  = 'select pid from player'; 
-	$result = warquest_db_query($query);
-	
-	$count=0;
-	$update=0;
-	while ($data=warquest_db_fetch_object($result)) {
-				
-		$query2  = 'select a.uid, sum(b.amount * c.amount) as amount from unit a ';
-		$query2 .= 'left join building_unit b on b.uid=a.uid, player_building c ';
-		$query2 .= 'where a.ugid=5 and b.bid=c.bid and c.pid='.$data->pid.' group by a.uid';
-	 
-		$result2 = warquest_db_query($query2);	
-  
-		while ($data2=warquest_db_fetch_object($result2)) {		
-			warquest_db_unit_add($data->pid, $data2->uid, $data2->amount, 1);
-			$update++;
-		}
-	
-		$count++;
-	}
-	
-	$message = $update.' citizens updated!<br>'.$count.' players checked';
-	$output->popup .= warquest_box_icon("info", $message);
-	
-	warquest_info($message);
-}
-		
-function warquest_admin_player_award_update_do() {
-			
-	/* output */
-	global $output;
-	
-	$query  = 'select pid from player'; 
-	$result = warquest_db_query($query);		
-	
-	$count=0;
-	$update=0;
-	while ($data=warquest_db_fetch_object($result)) {
-		
-		$found = 0;
-
-		/* Load player data */
-		$player = warquest_db_player($data->pid);
-			
-		if (warquest_battle_award_won_do($player)>0) {
-			$update++;
-			$found = 1;
-		}
-		
-		if (warquest_bounty_award_won_do($player)>0) {
-			$update++;
-			$found = 1;	
-		}
-		
-		if (warquest_rebel_award_won_do($player)>0) {
-			$update++;
-			$found = 1;	
-		}
-		
-		if ($found == 1 ) { 
-		
-			/* Save player data */
-			warquest_db_player_update($player);
-		}
-		
-		$count++;
-	}
-		
-	$message = $update.' player awards updated!<br/>'.$count.' players checked.';
-	$output->popup .= warquest_box_icon("info", $message);
-	
-	warquest_info($message);
-}
-
-function warquest_admin_update_player_level_do() {
-		
-	/* output */
-	global $output;
-	
-	$query  = 'select pid from player'; 
-	$result = warquest_db_query($query);			
-	
-	$count=0;
-	$update=0;
-	while ($data=warquest_db_fetch_object($result)) {
-		
-		/* Load player data */
-		$player = warquest_db_player($data->pid);
-				
-		if (warquest_nextlevel_do($player)==1) {
-			$update++;
-			
-			/* Save player data */
-			warquest_db_player_update($player);
-		}
-		
-		$count++;
-	}
-	
-	$message = $update.' player levels updated!<br/>'.$count.' players checked.';
-	$output->popup .= warquest_box_icon("info", $message);
-	
-	warquest_info($message);
-}
-
-
-function warquest_admin_update_all_money_do() {
-	
-	/* output */
-	global $output;
-	
-	$query  = 'select pid from player'; 
-	$result = warquest_db_query($query);			
-	
-	$count=0;
-	while ($data=warquest_db_fetch_object($result)) {
-		
-		/* Load player data */
-		$player = warquest_db_player($data->pid);
-	
-		warquest_netto_income($player);
-		
-		/* Save player data */
-		warquest_db_player_update($player);
-		
-		$count++;
-	}
-	
-	$message = 'Money parameters updated!<br>'.$count.' players checked';
-	$output->popup .= warquest_box_icon("info", $message);
-	
-	warquest_info($message);
-}
-
-
-function warquest_admin_update_all_timers_do() {
-		
-	/* output */
-	global $output;
-	
-	$query  = 'select pid from player where country="eu"'; 
-	$result = warquest_db_query($query);			
-	
-	$count=0;
-	while ($data1=warquest_db_fetch_object($result)) {
-	
-		/* Update login member information. */
-		$member = warquest_db_member($data1->pid);
-		$member->prev_login = $member->last_login;
-		$member->last_login = date("Y-m-d H:i:s");
-		warquest_db_member_update($member);
-	
-		/* Load player data */
-		$player1 = warquest_db_player($data1->pid);
-	
-		/* Update player timers */
-		warquest_update_timers($player1);
-		
-		/* Save player data */
-		warquest_db_player_update($player1);
-		
-		$count++;
-	}
-	
-	$message = 'Robot timers updated!<br>'.$count.' robots checked.';
-	$output->popup .= warquest_box_icon("info", $message);
-	
-	warquest_info($message);
-}
-
-function warquest_admin_action_form() {
-
-	/* intput */
-	global $mid;
-	global $sid;
-	
-	/* output */
-	global $page;
-	global $output;
-	
-	$output->title = 'Actions';
-					
-	$page .= '<div class="subparagraph">Actions</div>';
-	
-	$page .= '<div class="box action">';
-		
-	$page .= '<b>GENERAL ACTIONS</b>'; 
-	
-	$page .= '<ul>'; 
-	
-	$page .= '<li>';
-	$page .= warquest_link('mid='.$mid.'&sid='.$sid.'&eid='.EVENT_ADMIN_UPDATE_LEVELS, 'Update players levels. (HIGH DATABASE LOAD)');
-	$page .= '</li>';
-	
-	$page .= '<li>'; 
-	$page .= warquest_link('mid='.$mid.'&sid='.$sid.'&eid='.EVENT_ADMIN_UPDATE_AWARDS, 'Update players awards. (HIGH DATABASE LOAD)');
-	$page .= '</li>';
-		
-	$page .= '<li>'; 
-	$page .= warquest_link('mid='.$mid.'&sid='.$sid.'&eid='.EVENT_ADMIN_UPDATE_ROBOTS, 'Accept all robot ally requested (cron job)');
-	$page .= '</li>';
-
-	$page .= '<li>'; 
-	$page .= warquest_link('mid='.$mid.'&sid='.$sid.'&eid='.EVENT_ADMIN_CLEAN_BATTLE_LOG, 'Clean player battle log (cron job)');
-	$page .= '</li>';
-	
-	$page .= '<li>'; 
-	$page .= warquest_link('mid='.$mid.'&sid='.$sid.'&eid='.EVENT_ADMIN_CLEAN_BANK_LOG, 'Clean player bank log (cron job)');
-	$page .= '</li>';
-	
-	$page .= '<li>'; 
-	$page .= warquest_link('mid='.$mid.'&sid='.$sid.'&eid='.EVENT_ADMIN_CLEAN_CLAN_BANK_LOG, 'Clean clan bank log (cron job)');
-	$page .= '</li>';
-	
-	$page .= '<li>'; 
-	$page .= warquest_link('mid='.$mid.'&sid='.$sid.'&eid='.EVENT_ADMIN_UPDATE_INVITATIONS, 'Delete long pending alliance requests (cron job)');
-	$page .= '</li>';
-	
-	$page .= '<li>'; 
-	$page .= warquest_link('mid='.$mid.'&sid='.$sid.'&eid='.EVENT_ADMIN_UPDATE_INCOME, 'Update players with negative hourly income (cron job)');
-	$page .= '</li>';
-	
-	$page .= '<li>'; 
-	$page .= warquest_link('mid='.$mid.'&sid='.$sid.'&eid='.EVENT_ADMIN_UPDATE_CLAN, 'Remove inactive clan members (cron job)');
-	$page .= '</li>';
-		
-	$page .= '<li>'; 
-	$page .= warquest_link('mid='.$mid.'&sid='.$sid.'&eid='.EVENT_ADMIN_INACTIVE_SECTOR, 'Clear inactive sectors (cron job)');
-	$page .= '</li>';
-	
-	$page .= '<li>'; 
-	$page .= warquest_link('mid='.$mid.'&sid='.$sid.'&eid='.EVENT_ADMIN_BACKUP_DATABASE, 'Make database backup (cron job)');
-	$page .= '</li>';
-
-	$page .= '<li>'; 
-	$page .= warquest_link('mid='.$mid.'&sid='.$sid.'&eid='.EVENT_ADMIN_OPTIMIZE_DATABASE, 'Optimize database tables');
-	$page .= '</li>';
-	
-	$page .= '</ul>';
-	
-	$page .= '<br/>';
-	$page .= '<b>SPECIAL ACTIONS</b>'; 
-	
-	$page .= '<ul>';
-	
-	$page .= '<li>'; 
-	$page .= warquest_link('mid='.$mid.'&sid='.$sid.'&eid='.EVENT_ADMIN_UPDATE_TIMERS, 'Generate 24h extra robot income.');
-	$page .= '</li>';
-		
-	$page .= '<li>'; 
-	$page .= warquest_link('mid='.$mid.'&sid='.$sid.'&eid='.EVENT_ADMIN_UPDATE_MONEY, 'Players money update. (HIGH DATABASE LOAD)');
-	$page .= '</li>';
-					
-	$page .= '<li>'; 
-	$page .= warquest_link('mid='.$mid.'&sid='.$sid.'&eid='.EVENT_ADMIN_UPDATE_STAFF, 'Players citizens update. (HIGH DATABASE LOAD)');
-	$page .= '</li>';
-	
-	$page .= '<li>'; 
-	$page .= warquest_link('mid='.$mid.'&sid='.$sid.'&eid='.EVENT_ADMIN_BANK_INTEREST, 'Pay player bank interest (cron job)');
-	$page .= '</li>';
-	
-	$page .= '<li>'; 
-	$page .= warquest_link('mid='.$mid.'&sid='.$sid.'&eid='.EVENT_ADMIN_CLAN_BANK_INTEREST, 'Pay clan bank interest (cron job)');
-	$page .= '</li>';
-
-	$page .= '</ul>';
-	
-	$page .= '</div>';	
 }
 
 /*
@@ -1613,298 +1548,12 @@ function warquest_admin_player_form() {
 	warquest_admin_personal_messages();
 }
 
+
 /*
-** ---------------------
-** FORM SEARCH MEMBER
-** ---------------------
+** --------------- 
+** MAPS
+** ---------------
 */
-
-function warquest_admin_level_zoom_form() {
-
-	/* input */
-	global $player;
-	global $uid;
-	global $mid;
-	global $config;
-			
-	/* output */
-	global $page;
-			
-	/* Get alliance players */
-	$query  = 'select pid, country, name, lid, experience, alliance, won, lost ';
-	$query .= 'from player where pid!='.$config["adminPid"].' and lid="'.$uid.'" ';
-	$query .= 'order by lid desc, experience desc';
-	$result = warquest_db_query($query);	
-	
-	$page .= '<div class="subparagraph">Players in level '.$uid.'</div>';
-	
-	$page .= '<div class="box">';
-	$page .= '<table>';
-	
-	$page .= '<tr>';
-	
-	$page .= '<th width="35">';
-	$page .= 'Top';
-	$page .= '</th>';
-	
-	$page .= '<th width="160">';
-	$page .= 'Name';
-	$page .= '</th>';
-	
-	$page .= '<th width="50">';
-	$page .= 'Level';
-	$page .= '</th>';
-	
-	$page .= '<th width="90">';
-	$page .= 'Experience';	
-	$page .= '</th>';
-	
-	$page .= '<th width="60">';
-	$page .= 'Alliance';	
-	$page .= '</th>';
-	
-	$page .= '<th width="50">';
-	$page .= 'Won';	
-	$page .= '</th>';
-	
-	$page .= '<th width="50">';
-	$page .= 'Lost';	
-	$page .= '</th>';
-	
-	$page .= '</tr>';
-	
-	$count=1;
-	while ($data=warquest_db_fetch_object($result)) {
-	
-		$page .= '<tr>';
-		$page .= '<td>';
-		$page .= $count++;
-		$page .= '</td>';
-		$page .= '<td>';
-		$page .= warquest_link('mid='.$mid.'&oid='.$data->pid.'&sid='.PAGE_PLAYERS, warquest_flag_image($data->country));
-		$page .= ' ';
-		$page .= warquest_link('mid='.$mid.'&oid='.$data->pid.'&sid='.PAGE_PLAYERS, $data->name);
-		$page .= '</td>';
-		$page .= '<td>';
-		$page .= $data->lid;
-		$page .= '</td>';
-		$page .= '<td>';
-		$page .= number_format($data->experience,0,",",".");
-		$page .= '</td>';
-		$page .= '<td>';
-		$page .= $data->alliance;
-		$page .= '</td>';
-		$page .= '<td>';
-		$page .= number_format($data->won,0,",",".");
-		$page .= '</td>';
-		$page .= '<td>';
-		$page .= number_format($data->lost,0,",",".");
-		$page .= '</td>';
-		$page .= '</tr>';
-	}
-
-	$page .= '</table>';
-	$page .= '</div>';	
-	
-	$page .= '<div class="note">';
-	$page .= 'Note: Show all players of selected level.';
-   $page .= '</div>';
-}
-
-function warquest_admin_member_do() {
-
-	/* input */
-	global $mid;
-	global $sid;
-	global $offset;
-	global $sort;
-	global $config;
-	global $player;
-	global $nickname;
-
-	/* output */
-	global $page;
-	
-	/* Max records. */
-	$limit = 50;
-	
-	$query  = 'select pid from player '; 
-	if (strlen($nickname)>0) {
-		$query .= 'where pid like "'.$nickname.'"';
-	}
-	$result = warquest_db_query($query);	
-	$total = warquest_db_num_rows($result);
-	
-	
-		
-	if ($total != 0 ) {
-					
-		$query  = 'select a.pid, a.created, b.request_date, b.name, b.country, b.experience, a.platform, ';
-		$query .= 'b.request from player b left join member a on a.pid=b.pid ';
-		if (strlen($nickname)>0) {
-			$query .= 'where b.pid like "'.$nickname.'" ';
-		}
-		
-	} else {
-	
-		$query  = 'select a.pid from player a left join member b on a.pid=b.pid ';
-		if (strlen($nickname)>0) {
-			$query .='where a.name like "%'.$nickname.'%" or b.username like "%'.$nickname.'%"';	
-		}	
-		$result = warquest_db_query($query);	
-		$total = warquest_db_num_rows($result);
-		
-		$query  = 'select a.pid, a.created, b.request_date, b.name, b.country, b.experience, a.platform, ';
-		$query .= 'b.request from player b left join member a on a.pid=b.pid ';
-		if (strlen($nickname)>0) {
-			$query .= 'where b.name like "%'.$nickname.'%" or a.username like "%'.$nickname.'%" ';
-		}
-	}
-				
-	switch ($sort) {
-		
-			default:
-				$query .= 'order by request_date desc ';
-				break;
-				
-			case 1:
-				$query .= 'order by country asc ';
-				break;
-				
-			case 2:
-				$query .= 'order by name asc ';
-				break;
-			
-			case 3:
-				$query .= 'order by request desc ';
-				break;
-				
-			case 4:
-				$query .= 'order by platform desc ';
-				break;
-				
-			case 5:
-				$query .= 'order by created desc ';
-				break;
-	}
-				
-	$query .= 'limit '.$offset.','.$limit;
-	
-	$result = warquest_db_query($query);	
-	
-	$page .= '<div class="box rows">';
-	
-	$page .= warquest_page_control($offset, $limit, $total, 1, '&sort='.$sort);
-	
-	$page .= '<table>';
-	
-	$page .= '<thead>';	
-	
-	$page .= '<tr>';	
-	
-	$page .= '<th width="60">';
-	$page .= warquest_link('mid='.$mid.'&sid='.$sid.'&sort=1', "Country");
-	$page .= '</th>';
-	
-	$page .= '<th width="110">';
-	$page .= warquest_link('mid='.$mid.'&sid='.$sid.'&sort=2', "Name");
-	$page .= '</th>';
-
-	$page .= '<th width="75">';
-	$page .= warquest_link('mid='.$mid.'&sid='.$sid.'&sort=3', "Requests");
-	$page .= '</th>';
-	
-	$page .= '<th width="80">';
-	$page .= warquest_link('mid='.$mid.'&sid='.$sid.'&sort=4', "Platform");
-	$page .= '</th>';
-	
-	$page .= '<th width="80">';
-	$page .= warquest_link('mid='.$mid.'&sid='.$sid.'&sort=5', "Created");
-	$page .= '</th>';
-	
-	$page .= '<th width="90">';
-	$page .= warquest_link('mid='.$mid.'&sid='.$sid.'&sort=0', "Last Active");
-	$page .= '</th>';
-
-	$page .= '</tr>';
-	
-	$page .= '</thead>';
-	
-	$page .= '<tbody>';
-	
-	while ($data=warquest_db_fetch_object($result)) {
-	
-		$page .= '<tr>';
-		$page .= '<td>';
-		$page .= warquest_link('mid='.$mid.'&oid='.$data->pid.'&sid='.PAGE_PLAYERS,warquest_flag_image($data->country));
-		$page .= '</td>';
-		$page .= '<td>';
-		$page .= warquest_link('mid='.$mid.'&oid='.$data->pid.'&sid='.PAGE_PLAYERS, $data->name);		
-		$page .= '</td>';
-		$page .= '<td>';
-		$page .= number_format($data->request,0,",",".");
-		$page .= '</td>';
-		$page .= '<td>';
-		$page .= warquest_platform_image($data->platform);
-		$page .= '</td>';
-		$page .= '<td>';
-		$page .= warquest_ui_ago($data->created);
-		$page .= '</td>';
-		$page .= '<td>';
-		$page .= warquest_ui_ago($data->request_date);
-		$page .= '</td>';		
-		$page .= '</tr>';
-	}
-
-	$page .= '</tbody>';
-	$page .= '</table>';
-	
-	$page .= warquest_page_control($offset, $limit, $total, 0, '&sort='.$sort);
-	
-	$page .= '</div>';	
-	
-	$page .= '<div class="note">';
-	$page .= 'Note: Report show all or filter members.';
-   $page .= '</div>';
-}
-
-	
-function warquest_admin_member_form() {
-
-	/* input */
-	global $mid;
-	global $nickname;
-	
-	/* output */
-	global $page;
-	global $output;
-	
-	$output->title = 'Members'; 
-		
-	$page .= '<div class="subparagraph">'.$output->title.'</div>';
-	
-	$page .= '<form method="post">';
-	$page .=	'<div class="box">';
-	$page .=	'<table>';
-		
-	$page .=	'<tr>';
-	
-	$page .=	'<td width="100">Nickname:</td>';
-	$page .=	'<td>';
-	$page .=	'<input name="nickname" type="text" id="nickname" size="40" maxlength="30" value="'.$nickname.'" >';
-	$page .=	'</td>';
-	
-	$page .=	'<td width="130" align="right">';
-	$page .=	'<input type="hidden" name="token" value="'.warquest_token('mid='.$mid.'&sid='.PAGE_PLAYER_LIST).'" />';
-	$page .=	'<input type="submit" name="Submit" value="Search" />';
-	$page .=	'</td>';
-	
-	$page .=	'</tr>';
-		
-	$page .=	'</table>';
-	$page .=	'</div>';
-	$page .=	'</form>';	
-}
 
 /**
  * Admin Maps page
@@ -1928,6 +1577,12 @@ function warquest_admin_maps() {
 		$page .= '</div>';
 	}
 }
+
+/*
+** --------------- 
+** VIEWS
+** ---------------
+*/
 
 function warquest_constant_name($value) {
     $constants = get_defined_constants();
@@ -2106,9 +1761,412 @@ function warquest_admin_page_views() {
 	$page .= '<div class="note">';
 	$page .= 'Note: All page views.';
    $page .= '</div>';
-	
-
 }
+
+/*
+** --------------- 
+** ACTIONS
+** ---------------
+*/
+
+/**
+ * update alle bot mmeber accouts 
+ */
+function warquest_admin_update_robots() {
+
+	/* input */
+	global $config;
+	
+	/* output */
+	global $output;
+	
+	$query  = 'select a.pid from member a, player b where a.pid = b.pid AND b.country = "eu" ';
+	$query .= 'and a.username not like "3%" and a.username not like "20%" order by a.pid';
+
+	$result = warquest_db_query($query);	
+
+	$count=0;
+	while ($data = warquest_db_fetch_object($result)) {
+
+		$count++;
+		
+		$member = warquest_db_member($data->pid);
+		$member->email = 'robot'.$count.'@warquest.nl';
+		$member->email_valid = 0;
+		$member->notification_comment = 0;
+		$member->notification_alliance = 0;
+		$member->ip = "";
+		$member->browser = "";
+		$member->version = "";
+		$member->platform = "";		
+		warquest_db_member_update($member);
+		
+		warquest_db_member_username_update($data->pid, 'robot'.$count);
+		warquest_db_member_password_update($data->pid, 'robot'.$count);
+	}
+	
+	$message  = number_format($count,0,",",".").' robot login accounts updated.<br/>';
+	
+	$output->popup .= warquest_box_icon("warning", $message);
+}
+
+function warquest_admin_optimize_tables_do() {
+	
+	/* output */
+	global $output;
+	
+	$message = 'Tables optimized!<br/>';
+	
+	$query  = 'optimize table bank'; 
+	$result = warquest_db_query($query);
+	if ($data=warquest_db_fetch_object($result)) {
+		$message .= $data->Table.' '.$data->Msg_type.' '.$data->Msg_text.'<br/>';
+	}
+
+	$query  = 'optimize table battle'; 
+	$result = warquest_db_query($query);
+	if ($data=warquest_db_fetch_object($result)) {
+		$message .= $data->Table.' '.$data->Msg_type.' '.$data->Msg_text.'<br/>';
+	}
+	
+	$query  = 'optimize table bounty'; 
+	$result = warquest_db_query($query);
+	if ($data=warquest_db_fetch_object($result)) {
+		$message .= $data->Table.' '.$data->Msg_type.' '.$data->Msg_text.'<br/>';
+	}
+	
+	$query  = 'optimize table news'; 
+	$result = warquest_db_query($query);
+	if ($data=warquest_db_fetch_object($result)) {
+		$message .= $data->Table.' '.$data->Msg_type.' '.$data->Msg_text.'<br/>';
+	}
+	
+	$query  = 'optimize table player_building'; 
+	$result = warquest_db_query($query);
+	if ($data=warquest_db_fetch_object($result)) {
+		$message .= $data->Table.' '.$data->Msg_type.' '.$data->Msg_text.'<br/>';
+	}
+	
+	$query  = 'optimize table player_player'; 
+	$result = warquest_db_query($query);
+	if ($data=warquest_db_fetch_object($result)) {
+		$message .= $data->Table.' '.$data->Msg_type.' '.$data->Msg_text.'<br/>';
+	}
+
+	$query  = 'optimize table player_unit'; 
+	$result = warquest_db_query($query);
+	if ($data=warquest_db_fetch_object($result)) {
+		$message .= $data->Table.' '.$data->Msg_type.' '.$data->Msg_text.'<br/>';
+	}
+		
+	$query  = 'optimize table session'; 
+	$result = warquest_db_query($query);
+	if ($data=warquest_db_fetch_object($result)) {
+		$message .= $data->Table.' '.$data->Msg_type.' '.$data->Msg_text.'<br/>';
+	}
+	
+	$query  = 'optimize table player_stock'; 
+	$result = warquest_db_query($query);
+	if ($data=warquest_db_fetch_object($result)) {
+		$message .= $data->Table.' '.$data->Msg_type.' '.$data->Msg_text.'<br/>';
+	}
+	
+	$query  = 'optimize table player_poll'; 
+	$result = warquest_db_query($query);
+	if ($data=warquest_db_fetch_object($result)) {
+		$message .= $data->Table.' '.$data->Msg_type.' '.$data->Msg_text.'<br/>';
+	}
+	
+	$query  = 'optimize table clan_bank'; 
+	$result = warquest_db_query($query);
+	if ($data=warquest_db_fetch_object($result)) {
+		$message .= $data->Table.' '.$data->Msg_type.' '.$data->Msg_text.'<br/>';
+	}
+	
+	$output->popup .= warquest_box_icon("info", $message);	
+	
+	warquest_info($message);
+}
+
+function warquest_admin_update_building_staff_do() {
+	
+	/* output */
+	global $output;
+	
+	$query  = 'select pid from player'; 
+	$result = warquest_db_query($query);
+	
+	$count=0;
+	$update=0;
+	while ($data=warquest_db_fetch_object($result)) {
+				
+		$query2  = 'select a.uid, sum(b.amount * c.amount) as amount from unit a ';
+		$query2 .= 'left join building_unit b on b.uid=a.uid, player_building c ';
+		$query2 .= 'where a.ugid=5 and b.bid=c.bid and c.pid='.$data->pid.' group by a.uid';
+	 
+		$result2 = warquest_db_query($query2);	
+  
+		while ($data2=warquest_db_fetch_object($result2)) {		
+			warquest_db_unit_add($data->pid, $data2->uid, $data2->amount, 1);
+			$update++;
+		}
+	
+		$count++;
+	}
+	
+	$message = $update.' citizens updated!<br>'.$count.' players checked';
+	$output->popup .= warquest_box_icon("info", $message);
+	
+	warquest_info($message);
+}
+		
+function warquest_admin_player_award_update_do() {
+			
+	/* output */
+	global $output;
+	
+	$query  = 'select pid from player'; 
+	$result = warquest_db_query($query);		
+	
+	$count=0;
+	$update=0;
+	while ($data=warquest_db_fetch_object($result)) {
+		
+		$found = 0;
+
+		/* Load player data */
+		$player = warquest_db_player($data->pid);
+			
+		if (warquest_battle_award_won_do($player)>0) {
+			$update++;
+			$found = 1;
+		}
+		
+		if (warquest_bounty_award_won_do($player)>0) {
+			$update++;
+			$found = 1;	
+		}
+		
+		if (warquest_rebel_award_won_do($player)>0) {
+			$update++;
+			$found = 1;	
+		}
+		
+		if ($found == 1 ) { 
+		
+			/* Save player data */
+			warquest_db_player_update($player);
+		}
+		
+		$count++;
+	}
+		
+	$message = $update.' player awards updated!<br/>'.$count.' players checked.';
+	$output->popup .= warquest_box_icon("info", $message);
+	
+	warquest_info($message);
+}
+
+function warquest_admin_update_player_level_do() {
+		
+	/* output */
+	global $output;
+	
+	$query  = 'select pid from player'; 
+	$result = warquest_db_query($query);			
+	
+	$count=0;
+	$update=0;
+	while ($data=warquest_db_fetch_object($result)) {
+		
+		/* Load player data */
+		$player = warquest_db_player($data->pid);
+				
+		if (warquest_nextlevel_do($player)==1) {
+			$update++;
+			
+			/* Save player data */
+			warquest_db_player_update($player);
+		}
+		
+		$count++;
+	}
+	
+	$message = $update.' player levels updated!<br/>'.$count.' players checked.';
+	$output->popup .= warquest_box_icon("info", $message);
+	
+	warquest_info($message);
+}
+
+
+function warquest_admin_update_all_money_do() {
+	
+	/* output */
+	global $output;
+	
+	$query  = 'select pid from player'; 
+	$result = warquest_db_query($query);			
+	
+	$count=0;
+	while ($data=warquest_db_fetch_object($result)) {
+		
+		/* Load player data */
+		$player = warquest_db_player($data->pid);
+	
+		warquest_netto_income($player);
+		
+		/* Save player data */
+		warquest_db_player_update($player);
+		
+		$count++;
+	}
+	
+	$message = 'Money parameters updated!<br>'.$count.' players checked';
+	$output->popup .= warquest_box_icon("info", $message);
+	
+	warquest_info($message);
+}
+
+
+function warquest_admin_update_all_timers_do() {
+		
+	/* output */
+	global $output;
+	
+	$query  = 'select pid from player where country="eu"'; 
+	$result = warquest_db_query($query);			
+	
+	$count=0;
+	while ($data1=warquest_db_fetch_object($result)) {
+	
+		/* Update login member information. */
+		$member = warquest_db_member($data1->pid);
+		$member->prev_login = $member->last_login;
+		$member->last_login = date("Y-m-d H:i:s");
+		warquest_db_member_update($member);
+	
+		/* Load player data */
+		$player1 = warquest_db_player($data1->pid);
+	
+		/* Update player timers */
+		warquest_update_timers($player1);
+		
+		/* Save player data */
+		warquest_db_player_update($player1);
+		
+		$count++;
+	}
+	
+	$message = 'Robot timers updated!<br>'.$count.' robots checked.';
+	$output->popup .= warquest_box_icon("info", $message);
+	
+	warquest_info($message);
+}
+
+function warquest_admin_action_form() {
+
+	/* intput */
+	global $mid;
+	global $sid;
+	
+	/* output */
+	global $page;
+	global $output;
+	
+	$output->title = 'Actions';
+					
+	$page .= '<div class="subparagraph">Actions</div>';
+	
+	$page .= '<div class="box action">';
+		
+	$page .= '<b>GENERAL ACTIONS</b>'; 
+	
+	$page .= '<ul>'; 
+	
+	$page .= '<li>';
+	$page .= warquest_link('mid='.$mid.'&sid='.$sid.'&eid='.EVENT_ADMIN_UPDATE_LEVELS, 'Update players levels. (HIGH DATABASE LOAD)');
+	$page .= '</li>';
+	
+	$page .= '<li>'; 
+	$page .= warquest_link('mid='.$mid.'&sid='.$sid.'&eid='.EVENT_ADMIN_UPDATE_AWARDS, 'Update players awards. (HIGH DATABASE LOAD)');
+	$page .= '</li>';
+		
+	$page .= '<li>'; 
+	$page .= warquest_link('mid='.$mid.'&sid='.$sid.'&eid='.EVENT_ADMIN_UPDATE_ROBOTS, 'Accept all robot ally requested (cron job)');
+	$page .= '</li>';
+
+	$page .= '<li>'; 
+	$page .= warquest_link('mid='.$mid.'&sid='.$sid.'&eid='.EVENT_ADMIN_CLEAN_BATTLE_LOG, 'Clean player battle log (cron job)');
+	$page .= '</li>';
+	
+	$page .= '<li>'; 
+	$page .= warquest_link('mid='.$mid.'&sid='.$sid.'&eid='.EVENT_ADMIN_CLEAN_BANK_LOG, 'Clean player bank log (cron job)');
+	$page .= '</li>';
+	
+	$page .= '<li>'; 
+	$page .= warquest_link('mid='.$mid.'&sid='.$sid.'&eid='.EVENT_ADMIN_CLEAN_CLAN_BANK_LOG, 'Clean clan bank log (cron job)');
+	$page .= '</li>';
+	
+	$page .= '<li>'; 
+	$page .= warquest_link('mid='.$mid.'&sid='.$sid.'&eid='.EVENT_ADMIN_UPDATE_INVITATIONS, 'Delete long pending alliance requests (cron job)');
+	$page .= '</li>';
+	
+	$page .= '<li>'; 
+	$page .= warquest_link('mid='.$mid.'&sid='.$sid.'&eid='.EVENT_ADMIN_UPDATE_INCOME, 'Update players with negative hourly income (cron job)');
+	$page .= '</li>';
+	
+	$page .= '<li>'; 
+	$page .= warquest_link('mid='.$mid.'&sid='.$sid.'&eid='.EVENT_ADMIN_UPDATE_CLAN, 'Remove inactive clan members (cron job)');
+	$page .= '</li>';
+		
+	$page .= '<li>'; 
+	$page .= warquest_link('mid='.$mid.'&sid='.$sid.'&eid='.EVENT_ADMIN_INACTIVE_SECTOR, 'Clear inactive sectors (cron job)');
+	$page .= '</li>';
+	
+	$page .= '<li>'; 
+	$page .= warquest_link('mid='.$mid.'&sid='.$sid.'&eid='.EVENT_ADMIN_BACKUP_DATABASE, 'Make database backup (cron job)');
+	$page .= '</li>';
+
+	$page .= '<li>'; 
+	$page .= warquest_link('mid='.$mid.'&sid='.$sid.'&eid='.EVENT_ADMIN_OPTIMIZE_DATABASE, 'Optimize database tables');
+	$page .= '</li>';
+	
+	$page .= '</ul>';
+	
+	$page .= '<br/>';
+	$page .= '<b>SPECIAL ACTIONS</b>'; 
+	
+	$page .= '<ul>';
+	
+	$page .= '<li>'; 
+	$page .= warquest_link('mid='.$mid.'&sid='.$sid.'&eid='.EVENT_ADMIN_UPDATE_TIMERS, 'Generate 24h extra robot income.');
+	$page .= '</li>';
+		
+	$page .= '<li>'; 
+	$page .= warquest_link('mid='.$mid.'&sid='.$sid.'&eid='.EVENT_ADMIN_UPDATE_MONEY, 'Players money update. (HIGH DATABASE LOAD)');
+	$page .= '</li>';
+					
+	$page .= '<li>'; 
+	$page .= warquest_link('mid='.$mid.'&sid='.$sid.'&eid='.EVENT_ADMIN_UPDATE_STAFF, 'Players citizens update. (HIGH DATABASE LOAD)');
+	$page .= '</li>';
+	
+	$page .= '<li>'; 
+	$page .= warquest_link('mid='.$mid.'&sid='.$sid.'&eid='.EVENT_ADMIN_BANK_INTEREST, 'Pay player bank interest (cron job)');
+	$page .= '</li>';
+	
+	$page .= '<li>'; 
+	$page .= warquest_link('mid='.$mid.'&sid='.$sid.'&eid='.EVENT_ADMIN_CLAN_BANK_INTEREST, 'Pay clan bank interest (cron job)');
+	$page .= '</li>';
+
+	$page .= '<li>'; 
+	$page .= warquest_link('mid='.$mid.'&sid='.$sid.'&eid='.EVENT_ADMIN_UPDATE_BOTS, 'Update robot login accounts');
+	$page .= '</li>';
+	
+	$page .= '</ul>';
+	
+	$page .= '</div>';	
+}
+
 
 /*
 ** ---------------------
@@ -2239,6 +2297,10 @@ function warquest_admin() {
 			
 		case EVENT_ADMIN_INACTIVE_SECTOR:
 			warquest_cron_clear_inactive_sectors(1);
+			break;
+			
+		case EVENT_ADMIN_UPDATE_BOTS:
+			warquest_admin_update_robots();
 			break;
 			
 		case EVENT_SWITCH_PLANET: 

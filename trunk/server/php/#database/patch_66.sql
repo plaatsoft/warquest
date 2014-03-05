@@ -19,3 +19,6 @@ ALTER TABLE `comment` ADD `cid` INT NOT NULL AFTER `tid` ;
 ALTER TABLE `player` CHANGE `news` `news_notification` INT( 11 ) NOT NULL;
 ALTER TABLE `player` CHANGE `chat` `chat_notification` INT( 11 ) NOT NULL;
 ALTER TABLE `player` CHANGE `comment` `comment_notification` INT( 11 ) NOT NULL ;
+
+
+
