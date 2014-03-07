@@ -590,9 +590,8 @@ $lang['PLAYER_SKILL_REJECTED2'] = '%s trebuie sa ai nivelul minim.';
  ** ------------------
  */
 
-$lang['HOME_TRADE_TITLE1'] = 'Puncte de schimb';
-$lang['HOME_TRADE_TITLE2'] = 'Puncte de schimb [%s disponibile]';
-$lang['HOME_TRADE_NOTE'] = 'Nota: I-ati Puncte de schimb(vezi Ajutor - Pagina de Donatii) pentru a le pitea schimba in puncte de aptitudine,bani sau pot fi folosite ca sa iti imbunatatesti timpul de regenerare a vietii energiei sau munitiei.';
+$lang['TRADE_TITLE'] = 'Puncte de schimb';
+$lang['TRADE_NOTE'] = 'Nota: I-ati Puncte de schimb(vezi Ajutor - Pagina de Donatii) pentru a le pitea schimba in puncte de aptitudine,bani sau pot fi folosite ca sa iti imbunatatesti timpul de regenerare a vietii energiei sau munitiei.';
 
 $lang['HOME_TRADE_CONDITION'] = 'Current';
 $lang['HOME_TRADE_MINIMAL'] = 'Minim';
@@ -626,10 +625,8 @@ $lang['HOME_TRADE_AMMO_TIMER_TO_LARGE'] = 'timpul pentru munitie a ajuns la mini
  ** ------------------
  */
 
-$lang['PLAYER_RESTORE_TITLE'] = 'Recuperare&Reparatie';
-$lang['PLAYER_RESTORE_SUBTITLE1'] = 'Recuperare';
-$lang['PLAYER_RESTORE_SUBTITLE2'] = 'Reparatie';
-$lang['PLAYER_RESTORE_UNLOCKED'] = 'Recuperarea & Reparatia vor fi deblocate la nivelul %s.';
+$lang['RESTORE_TITLE'] = 'Recuperare&Reparatie';
+$lang['RESTORE_LOCKED'] = 'Recuperarea & Reparatia vor fi deblocate la nivelul %s.';
 $lang['PLAYER_RESTORE_PRICE'] = 'Pretul recuperarii';
 $lang['PLAYER_RESTORE_PRICE_PER_DAY'] = 'Pretul recuperarii pe zi';
 $lang['PLAYER_REPAIR_PRICE'] = 'Pretul reparatiei';
@@ -1785,10 +1782,6 @@ $lang['HELP_RANKS'] = 'Urmatoarele grade sunt disponibile:';
 */
 
 $lang['HELP_AWARDS_SUBTITLE'] = 'Premii';
-$lang['HELP_BATTLE_AWARDS'] = 'Umatorul premiu de victorie poate fi castigat:';
-$lang['HELP_BOUNTY_AWARDS'] = 'Umatorul premiu pentru punere de recompense poate fi castigat:';
-$lang['HELP_REBEL_AWARDS'] = 'Umatorul premiu pentru inceperea rascoalei poate fi castigat:';
-
 
 /*
 ** ------------------

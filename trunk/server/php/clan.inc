@@ -1034,24 +1034,9 @@ function warquest_clan_form() {
 		$page .= warquest_box_icon('info', $message);
 		
 	} else if ($player->lid < $lid) {
-				
-		$message = '<table>';
 		
-		$message .= '<tr>';
-		
-		$message .= '<td>';
-		$message .= warquest_image("other/unlock.png");
-		$message .= '</td>';
-		
-		$message .= '<td>';
-		$message .= t('BATTLE_CLAN_WAR_UNLOCKED', t('GENERAL_PLANET_1'), $lid);
-		$message .= '</td>';
-		
-		$message .= '</tr>';
-		
-		$message .= '</table>';
-		
-		$page .= warquest_box("", $message);
+		$message = t('CLAN_LOCKED', $lid);
+		$page .= warquest_box_icon('locked', $message);
 		
 	} else {		
 	

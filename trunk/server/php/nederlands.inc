@@ -517,10 +517,8 @@ $lang['PLAYER_SKILL_REJECTED2']  = 'Vaardigheid %s heeft laagste punt bereikt.';
 ** ------------------
 */
 
-$lang['PLAYER_RESTORE_TITLE'] = 'Herstel & Reparatie';
-$lang['PLAYER_RESTORE_SUBTITLE1'] = 'Herstel';
-$lang['PLAYER_RESTORE_SUBTITLE2'] = 'Reparatie';
-$lang['PLAYER_RESTORE_UNLOCKED'] = 'Herstel & Reparatie is ontgrendeld in nivo %s.';
+$lang['RESTORE_TITLE'] = 'Herstel & Reparatie';
+$lang['RESTORE_LOCKED'] = 'Herstel & Reparatie is ontgrendeld in nivo %s.';
 $lang['PLAYER_RESTORE_PRICE'] = 'Herstel prijs';
 $lang['PLAYER_REPAIR_PRICE'] = 'Repareer prijs';
 $lang['PLAYER_RESTORED_FAILED'] = 'Je bezit geen %s dollar om deze actie uit te voeren!';
@@ -1683,8 +1681,6 @@ $lang['HELP_LEVEL_FEATURES'] = 'Feature unlock schema';
 */
 
 $lang['HELP_AWARDS_SUBTITLE'] = 'Onderscheidingen';
-$lang['HELP_BATTLE_AWARDS'] = 'De volgende gevechten onderscheidingen kunnen worden verdiend:';
-$lang['HELP_BOUNTY_AWARDS'] = 'De volgende premie onderscheidingen kunnen worden verdiend:';
 
 /*
 ** ------------------

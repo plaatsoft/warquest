@@ -524,13 +524,17 @@ function warquest_stock_form() {
 	global $page; 
 	global $output;
 
+	$stocklist="";
+	$symbols="";
+	$lid = 15;
+
 	$output->title = t('STOCK_GROUP_'.$ssid);
 
 	$page .= '<div class="subparagraph">';	
 	$page .= t('STOCK_GROUP_'.$ssid).' '.t('GENERAL_STOCKS');
 	$page .= '</div>';
 	
-	/* Get player data */	
+	/* Get player stock data */	
 	$query  = 'select symbol from stock where gsid='.$ssid;
 	if ($ssid==4) {
 		$query .= ' and pid='.$player->pid;
@@ -540,102 +544,105 @@ function warquest_stock_form() {
 	$result = warquest_db_query($query);	
 	$count = warquest_db_num_rows($result);
 	
-	$symbols="";
 	while ($data=warquest_db_fetch_object($result)) {
 	
 		if ($symbols!="") $symbols .= ",";
 		$symbols .= $data->symbol;
 	}
 
-	if ($ssid==4) {
-		$page .= warquest_stock_add_form();
-	}
-	
-	$stocklist="";
-	if (strlen($symbols)==0) {
-	
-		$message = t('STOCK_NO_SYMBOLS');
-		$page .= warquest_box_icon("info", $message);
+	if ($player->lid < $lid) {
 		
-		return;
-	}
-
-	/* Fetch stock ticker data */
-	$stocklist=warquest_stocklist($symbols);	
-	if ($stocklist!="") {
-			
-		/* Get player data */
-		$query  = "select a.sid, a.symbol, IFNULL(b.amount, 0) as amount, IFNULL(b.cost, 0) as cost ";
-		$query .= 'from stock a left join player_stock b ';
-		$query .= 'on a.sid=b.sid and b.pid='.$player->pid.' where a.gsid='.$ssid;		
-		if ($ssid==4) {
-			$query .= ' and a.pid='.$player->pid;
-		}
-		$query .= ' order by a.symbol asc';  
-			
-		$result = warquest_db_query($query);	
-	
-		$page .= '<div class="box rows">';
-		$page .= '<table>';
-		$count = 0;
-		while ($data=warquest_db_fetch_object($result)) {
-			
-			$price = $stocklist[$data->symbol]["last"];			
-			$change = $stocklist[$data->symbol]["change"];
-		
-			$count++;
-			$page .= '<tr>';
-		
-			$page .= '<td width="100">';		
-			$page .= warquest_stock_image($data);			
-			$page .= '</td>';
-			
-			$page .= '<td width="200"><b>';
-			$page .= $stocklist[$data->symbol]["company"];
-			$page .= '</b><br/><div class="stock">';
-			
-			$diff = $price - $change;
-			if ($diff>0) {
-				$tmp = ($change/$diff)*100;
-			} else {
-				$tmp = 0;
-			}
-			
-			$page .= t('STOCK_PRICE', stock_format($price), procent_format($tmp));
-			$page .= '<br/>';
-			$tmp=0;
-			if ($data->amount>0) {
-				$tmp = (($data->amount * $price)-$data->cost) / $data->amount;				
-				$tmp2 = (($tmp * $data->amount)/ $data->cost)*100;				
-				$page .= t('STOCK_PROFIT', stock_format($tmp), procent_format($tmp2));
-			}
-			$page .= '</div></td>';
-			
-			$page .= '<td width="100" >';		
-			$page .= money_format2($price*100);
-			$page .= '<br/>';
-			$page .= warquest_link('mid='.$mid.'&sid='.$sid.'&ssid='.$ssid.'&uid='.$data->sid.'&eid='.EVENT_STOCK_BUY, t('LINK_BUY'),"buy-".$count);
-			$page .= '</td>';
-			
-			$page .= '<td width="150" >';		
-			$page .= t('GENERAL_AMOUNT').': '.number_format2($data->amount).'<br/>';	
-			$page .= warquest_link('mid='.$mid.'&sid='.$sid.'&ssid='.$ssid.'&uid='.$data->sid.'&eid='.EVENT_STOCK_SELL, t('LINK_SELL'), "sell-".($count+100));
-						
-			$page .= '</td>';
-		
-			$page .= '</tr>';
-		}
-	
-		$page .= "</table>";	
-		$page .= '</div>';
+		$message = t('STOCK_EXCHANGE_LOCKED', $lid);	
+		$page .= warquest_box_icon('locked', $message);
 		
 	} else {
 	
-		/* broker connection failed */		
-		$message = t('STOCK_BROKER_ERROR');	 
-	 	$page .= warquest_box_icon("warning", $message);	
+		if ($ssid==4) {
+			$page .= warquest_stock_add_form();
+		}
+	
+		/* Fetch stock ticker data */
+		$stocklist = warquest_stocklist($symbols);	
+	
+		if (strlen($symbols)==0) {
+	
+			$message = t('STOCK_NO_SYMBOLS');
+			$page .= warquest_box_icon("info", $message);
+			
+		} else if ($stocklist=="") {
+	
+			/* broker connection failed */		
+			$message = t('STOCK_BROKER_ERROR');	 
+			$page .= warquest_box_icon("warning", $message);	
+			
+		} else {
+		
+			$query  = "select a.sid, a.symbol, IFNULL(b.amount, 0) as amount, IFNULL(b.cost, 0) as cost ";
+			$query .= 'from stock a left join player_stock b ';
+			$query .= 'on a.sid=b.sid and b.pid='.$player->pid.' where a.gsid='.$ssid;		
+			if ($ssid==4) {
+				$query .= ' and a.pid='.$player->pid;
+			}
+			$query .= ' order by a.symbol asc';  
+				
+			$result = warquest_db_query($query);	
+		
+			$page .= '<div class="box rows">';
+			$page .= '<table>';
+			$count = 0;
+			while ($data=warquest_db_fetch_object($result)) {
+				
+				$price = $stocklist[$data->symbol]["last"];			
+				$change = $stocklist[$data->symbol]["change"];
+			
+				$count++;
+				$page .= '<tr>';
+			
+				$page .= '<td width="100">';		
+				$page .= warquest_stock_image($data);			
+				$page .= '</td>';
+				
+				$page .= '<td width="200"><b>';
+				$page .= $stocklist[$data->symbol]["company"];
+				$page .= '</b><br/><div class="stock">';
+				
+				$diff = $price - $change;
+				if ($diff>0) {
+					$tmp = ($change/$diff)*100;
+				} else {
+					$tmp = 0;
+				}
+				
+				$page .= t('STOCK_PRICE', stock_format($price), procent_format($tmp));
+				$page .= '<br/>';
+				$tmp=0;
+				if ($data->amount>0) {
+					$tmp = (($data->amount * $price)-$data->cost) / $data->amount;				
+					$tmp2 = (($tmp * $data->amount)/ $data->cost)*100;				
+					$page .= t('STOCK_PROFIT', stock_format($tmp), procent_format($tmp2));
+				}
+				$page .= '</div></td>';
+				
+				$page .= '<td width="100" >';		
+				$page .= money_format2($price*100);
+				$page .= '<br/>';
+				$page .= warquest_link('mid='.$mid.'&sid='.$sid.'&ssid='.$ssid.'&uid='.$data->sid.'&eid='.EVENT_STOCK_BUY, t('LINK_BUY'),"buy-".$count);
+				$page .= '</td>';
+				
+				$page .= '<td width="150" >';		
+				$page .= t('GENERAL_AMOUNT').': '.number_format2($data->amount).'<br/>';	
+				$page .= warquest_link('mid='.$mid.'&sid='.$sid.'&ssid='.$ssid.'&uid='.$data->sid.'&eid='.EVENT_STOCK_SELL, t('LINK_SELL'), "sell-".($count+100));
+							
+				$page .= '</td>';
+			
+				$page .= '</tr>';
+			}
+		
+			$page .= "</table>";	
+			$page .= '</div>';
+		}
 	}
-
+	
 	$page .= '<div class="note">';
 	$page .= t('STOCK_NOTE', $config["init_stock_fee"]);
 	$page .= '</div>';

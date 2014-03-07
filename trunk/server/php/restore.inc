@@ -175,28 +175,20 @@ function warquest_restore_form() {
 	global $page;
 	global $output;
 	
-	$output->title = t('PLAYER_RESTORE_TITLE');
+	$output->title = t('RESTORE_TITLE');
 	
-	$lid=1;
+	$page .= '<div class="subparagraph">';
+	$page .= $output->title;
+	$page .= '</div>';
+	
+	$lid=2;
 	if ($player->lid < $lid) {
 		
-		$message = '<table>';
-		$message .= '<tr>';
-		$message .= '<td>';
-		$message .= warquest_image("other/unlock.png");
-		$message .= '</td>';
-		$message .= '<td>';
-		$message .= t('PLAYER_RESTORE_UNLOCKED', $lid);
-		$message .= '</td>';
-		$message .= '</tr>';
-		$message .= '</table>';
-	
-		$page .= warquest_box("", $message);
-					
-	} else {
+		$message = t('RESTORE_LOCKED', $lid);	
+		$page .= warquest_box_icon('locked', $message);
 		
-		$page .= '<div class="subparagraph">'.t('PLAYER_RESTORE_SUBTITLE1').' & '.t('PLAYER_RESTORE_SUBTITLE2').'</div>';
-	
+	} else {
+			
 		$page .= '<div class="box rows">';	
 	
 		$page .= '<table>';
@@ -630,6 +622,10 @@ function warquest_restore_form() {
 		$page .= '</table>';
 		$page .= '</div>'; 
 	}
+	
+	$page .= '<p>';
+	$page .= '<div class="note">'.t('RESTORE_NOTE').'</div>';
+	$page .=  '</p>';
 }
 
 /*

@@ -495,10 +495,8 @@ $lang['PLAYER_SKILL_REJECTED2']  = '%s s Wert ist auf der kleinsten Stufe.';
 ** ------------------
 */
 
-$lang['PLAYER_RESTORE_TITLE'] = 'Wiederherstellen & Reparieren';
-$lang['PLAYER_RESTORE_SUBTITLE1'] = 'Wiederherstellen';
-$lang['PLAYER_RESTORE_SUBTITLE2'] = 'Reparieren';
-$lang['PLAYER_RESTORE_UNLOCKED'] = 'Wiederherstellen & Reparieren ist freigeschaltet ab Level %s.';
+$lang['RESTORE_TITLE'] = 'Wiederherstellen & Reparieren';
+$lang['RESTORE_LOCKED'] = 'Wiederherstellen & Reparieren ist freigeschaltet ab Level %s.';
 $lang['PLAYER_RESTORE_PRICE'] = 'Wiederherstellungspreis';
 $lang['PLAYER_REPAIR_PRICE'] = 'Reperaturkosten';
 $lang['PLAYER_RESTORED_FAILED'] = 'Nicht genug Geld!';

@@ -1654,7 +1654,7 @@ function warquest_profile($id) {
 	if ($player->pid!=$id) {	
 		$page .= warquest_link('mid='.MENU_FORUMS.'&sid='.PAGE_COMMENT.'&oid='.$id, t('LINK_COMMENT'), "comment").' ';		
 	
-		if ( ($player->lid>0) &&
+		if ( ($player->lid>0) && ($player->pid!=$id) &&
 		     ($other->lid >= warquest_get_min_attack_level()) &&
 			  ($other->lid <= warquest_get_max_attack_level()) && 
 			  ($other->cease_fire_date < date("Y-m-d H:i:s", time())) && 

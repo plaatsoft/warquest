@@ -678,7 +678,7 @@ function warquest_view_awards() {
 		while ($data = warquest_db_fetch_object($result)) {
  		
 			$max=9;		
-			$page .= warquest_battle_image($data->id, $data->won);
+			$page .= warquest_battle_award_image($data->id, $data->won);
 					
 			if (($data->id % $max) == 0) { 
 				$page .='<br/>';
@@ -688,7 +688,30 @@ function warquest_view_awards() {
 		$page .= '<br/>';
 	}
 			
-			
+	/* Get mission award data */
+	$query =  "select id, won from mission_award where id<".$player->mission_level.' order by id';  
+	$result = warquest_db_query($query);
+	$count = warquest_db_num_rows($result);
+	
+	if ($count>0) {
+	
+		$page .= '<br/>';
+		$page .= t('HOME_MISSION_AWARDS_TEXT');
+		$page .= '<br/>';
+		
+		while ($data = warquest_db_fetch_object($result)) {
+ 		
+			$max=9;		
+			$page .= warquest_mission_award_image($data->id, $data->won);
+					
+			if (($data->id % $max) == 0) { 
+				$page .='<br/>';
+			}
+		}
+		
+		$page .= '<br/>';
+	}
+	
 	/* Get bounty award data */
 	$query =  "select id, amount from bounty_award where id<".$player->bounty_level.' order by id';  
 	$result = warquest_db_query($query);
@@ -703,7 +726,7 @@ function warquest_view_awards() {
 		while ($data = warquest_db_fetch_object($result)) {
  		
 			$max=9;		
-			$page .= warquest_bounty_image($data->id, $data->amount);
+			$page .= warquest_bounty_award_image($data->id, $data->amount);
 					
 			if (($data->id % $max) == 0) { 
 				$page .='<br/>';
@@ -727,7 +750,7 @@ function warquest_view_awards() {
 		while ($data = warquest_db_fetch_object($result)) {
  		
 			$max=9;		
-			$page .= warquest_rebel_image($data->id, $data->amount);
+			$page .= warquest_rebel_award_image($data->id, $data->amount);
 					
 			if (($data->id % $max) == 0) { 
 				$page .='<br/>';
@@ -991,6 +1014,7 @@ function warquest_home() {
 					warquest_daily_bonus();
 					warquest_nextlevel($player);
 					warquest_battle_award_won($player);
+					warquest_mission_award_won($player);
 					warquest_bounty_award_won($player);
 					warquest_rebel_award_won($player);
 					warquest_holiday_message();

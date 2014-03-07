@@ -583,9 +583,8 @@ $lang['PLAYER_SKILL_REJECTED2']  = '%s habilidad ha alcanzado el nivel mínimo.';
 ** ------------------
 */
 
-$lang['HOME_TRADE_TITLE1'] = 'Puntos de comercio';
-$lang['HOME_TRADE_TITLE2'] = 'Puntos de comercio [%s disponibles]';
-$lang['HOME_TRADE_NOTE']  = 'Nota: los puntos de comercio adquiridos (ver ayuda - Página de donaciones) se pueden cambiar por puntos de habilidad, dinero en efectivo o se pueden utilizar para mejorar el tiempo de recuperación de su salud, energía o munición.';
+$lang['TRADE_TITLE'] = 'Puntos de comercio';
+$lang['TRADE_NOTE']  = 'Nota: los puntos de comercio adquiridos (ver ayuda - Página de donaciones) se pueden cambiar por puntos de habilidad, dinero en efectivo o se pueden utilizar para mejorar el tiempo de recuperación de su salud, energía o munición.';
 
 $lang['HOME_TRADE_CONDITION'] = 'Actual';
 $lang['HOME_TRADE_MINIMAL'] = 'Mínimo';
@@ -619,10 +618,8 @@ $lang['HOME_TRADE_AMMO_TIMER_TO_LARGE'] = 'El temporizador de Municion ha alcanz
 ** ------------------
 */
 
-$lang['PLAYER_RESTORE_TITLE'] = 'Restaurar & Reparar';
-$lang['PLAYER_RESTORE_SUBTITLE1'] = 'Restaurar';
-$lang['PLAYER_RESTORE_SUBTITLE2'] = 'Reparar';
-$lang['PLAYER_RESTORE_UNLOCKED'] = 'Restaurar & Reparar se desbloquea en el nivel %s.';
+$lang['RESTORE_TITLE'] = 'Restaurar & Reparar';
+$lang['RESTORE_LOCKED'] = 'Restaurar & Reparar se desbloquea en el nivel %s.';
 $lang['PLAYER_RESTORE_PRICE'] = 'Precio por Restaurar';
 $lang['PLAYER_RESTORE_PRICE_PER_DAY'] = 'Precio de restaurar diario';
 $lang['PLAYER_REPAIR_PRICE'] = 'Precio de Reparación';
@@ -2284,10 +2281,6 @@ $lang['HELP_RANKS'] = 'Están disponibles los siguientes rangos militares:';
 */
 
 $lang['HELP_AWARDS_SUBTITLE'] = 'Condecoraciones';
-$lang['HELP_BATTLE_AWARDS'] = 'Se pueden conseguir las siguientes condecoraciones por batallas ganadas:';
-$lang['HELP_BOUNTY_AWARDS'] = 'Se pueden conseguir las siguientes condecoraciones por recompensas ofrecidas:';
-$lang['HELP_REBEL_AWARDS'] = 'Se pueden conseguir las siguientes condecoraciones por iniciar rebeliones:';
-
 
 /*
 ** ------------------

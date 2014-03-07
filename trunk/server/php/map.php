@@ -113,7 +113,7 @@ if (isset($_GET['data'])) {
 	$page .= '<canvas id="myCanvas" width="483" height="300" >HTML5 canvas features are not supported!</canvas>';
 	$page .= '<script language="JavaScript" src="js/map.js?version=2"></script>';
 	$page .= '<script language="JavaScript">';
-	$page .= 'initMap('.$planet.',"'.$config["base_url"].'",'.MENU_SERVICE.');';
+	$page .= 'initMap('.$planet.','.MENU_SERVICE.');';
 	$page .= '</script>';
 	$page .= '</body>';
 	$page .= '</html>';
