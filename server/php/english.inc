@@ -2690,12 +2690,12 @@ $lang['HELP_RANKS'] = 'The following ranks are available:';
 */
 
 $lang['HELP_AWARDS_SUBTITLE'] = 'Awards';
-$lang['HELP_AWARDS_TEXT'] = 'The following awards can he earned:';
+$lang['HELP_AWARDS_TEXT'] = 'The following awards can be earned:';
 
 $lang['HELP_BATTLE_AWARDS'] = 'Battle awards';
-$lang['HELP_MISSION_AWARDS'] = 'Mission completed awards';
-$lang['HELP_BOUNTY_AWARDS'] = 'Bounty set Awards';
-$lang['HELP_REBEL_AWARDS'] = 'Rebellion awards';
+$lang['HELP_MISSION_AWARDS'] = 'Mission complete awards';
+$lang['HELP_BOUNTY_AWARDS'] = 'Bounty Awards';
+$lang['HELP_REBEL_AWARDS'] = 'Rebellio:n awards';
 
 
 /*
