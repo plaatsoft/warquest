@@ -30,16 +30,13 @@ function warquest_alliance_invite_do() {
 	global $output;
 	global $config;
 	
-	$query  = 'select pid1 from player_player where ';
-	$query .= '(pid1='.$player->pid.' and pid2='.$other->pid.') or '; 
-	$query .= '(pid1='.$other->pid.' and pid2='.$player->pid.')'; 
-	$result = warquest_db_query($query);	
-	
-	$count=warquest_db_num_rows($result);
-	
-	if (($player->alliance + $player->invite) >= $player->lid*$config["max_ally_factor"]) {
+	$count = warquest_db_ally($player->pid, $other->pid);
+	$output->result = false;
 		
-		/* Skip action. Max size */
+	if (($player->alliance + $player->invite) >= ($player->lid*$config["max_ally_factor"])) {
+		
+		$message = t('ALLIANCE_MAXIMUM', $player->lid * $config["max_ally_factor"]);		
+		$output->popup .= warquest_box_icon("info", $message);
 		
 	} else if ($count==0) {
 	
@@ -52,6 +49,8 @@ function warquest_alliance_invite_do() {
 		
 		$message = t('ALLIANCE_INVITATION', $other->name);
 		$output->popup .= warquest_box_icon("info", $message);
+		
+		$output->result = true;
 	}
 }
 
@@ -64,20 +63,25 @@ function warquest_alliance_drop_do() {
 		/* output */
 	global $output;
 	
-	warquest_db_alliance_delete($player->pid, $other->pid);
-	warquest_db_alliance_delete($other->pid, $player->pid);
+	$count = warquest_db_ally($player->pid, $other->pid);
+	
+	if ($count>0) {
+	
+		warquest_db_alliance_delete($player->pid, $other->pid);
+		warquest_db_alliance_delete($other->pid, $player->pid);
 
-	/* Update attack and defense value */
-	$player->alliance = warquest_db_alliance_size($player->pid);
-	$player->invite = warquest_db_invite_size($player->pid);
-	
-	$other->alliance = warquest_db_alliance_size($other->pid);
-	$other->invite = warquest_db_invite_size($other->pid);
+		/* Update attack and defense value */
+		$player->alliance = warquest_db_alliance_size($player->pid);
+		$player->invite = warquest_db_invite_size($player->pid);
 		
-	warquest_alliance_drop_mail($other->pid, $player->name);
+		$other->alliance = warquest_db_alliance_size($other->pid);
+		$other->invite = warquest_db_invite_size($other->pid);
+		
+		warquest_alliance_drop_mail($other->pid, $player->name);
 	
-	$message = t('ALLIANCE_DROP', $other->name);
-	$output->popup .= warquest_box_icon("info", $message);
+		$message = t('ALLIANCE_DROP', $other->name);
+		$output->popup .= warquest_box_icon("info", $message);
+	}
 }
 				
 function warquest_alliance_reject_do() {
@@ -89,20 +93,25 @@ function warquest_alliance_reject_do() {
 	/* output */
 	global $output;
 	
-	warquest_db_alliance_delete($player->pid, $other->pid);
-	warquest_db_alliance_delete($other->pid, $player->pid);
+	$count = warquest_db_ally($player->pid, $other->pid);
+	
+	if ($count>0) {
+	
+		warquest_db_alliance_delete($player->pid, $other->pid);
+		warquest_db_alliance_delete($other->pid, $player->pid);
 
-	/* Update attack and defense value */
-	$player->alliance = warquest_db_alliance_size($player->pid);
-	$player->invite = warquest_db_invite_size($player->pid);
-	
-	$other->alliance = warquest_db_alliance_size($other->pid);
-	$other->invite = warquest_db_invite_size($other->pid);
+		/* Update attack and defense value */
+		$player->alliance = warquest_db_alliance_size($player->pid);
+		$player->invite = warquest_db_invite_size($player->pid);
 		
-	warquest_alliance_reject_mail($other->pid, $player->name);
+		$other->alliance = warquest_db_alliance_size($other->pid);
+		$other->invite = warquest_db_invite_size($other->pid);
+			
+		warquest_alliance_reject_mail($other->pid, $player->name);
 	
-	$message = t('ALLIANCE_REJECT', $other->name);
-	$output->popup .= warquest_box_icon("info", $message);
+		$message = t('ALLIANCE_REJECT', $other->name);
+		$output->popup .= warquest_box_icon("info", $message);
+	}
 }
 	
 function warquest_alliance_accept_do() {
@@ -116,7 +125,7 @@ function warquest_alliance_accept_do() {
 	
 	$query  = 'select pid1 from player_player where pid1='.$player->pid.' and pid2='.$other->pid;
 	$result = warquest_db_query($query);	
-	$count=warquest_db_num_rows($result);
+	$count = warquest_db_num_rows($result);
 	
 	if ($count==0) {
 		/* Create alliance connection $player -> $other */
@@ -543,10 +552,9 @@ function warquest_alliance_invite_form() {
 
 		$page .= warquest_box_icon('info', $message);
 	
-	} else if (($player->alliance + $player->invite) >= $player->lid*$config["max_ally_factor"]) {
+	} else if (($player->alliance + $player->invite) >= ($player->lid*$config["max_ally_factor"])) {
 		
-		$message = t('ALLIANCE_MAXIMUM', $player->lid * $config["max_ally_factor"]);
-		
+		$message = t('ALLIANCE_MAXIMUM', $player->lid * $config["max_ally_factor"]);		
 		$page .= warquest_box_icon("info", $message);
 	
 	} else {

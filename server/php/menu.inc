@@ -497,18 +497,10 @@ function warquest_menu_players() {
 	global $mid;
 	global $sid;
 	
-	global $player;
-	global $config;
-	
-	/* Count not accepted recruit request */
-	$query  = 'select pid1 from player_player where approved=0 and pid2='.$player->pid; 
-	$result = warquest_db_query($query);	
-	$recruit = warquest_db_num_rows($result);
-	
 	$menu = '<div class="menu">';
 	$menu .= '<ul>';
 	
-	$menu .= warquest_ui_menu($mid, PAGE_ALLIANCE, PAGE_INVITE, t('LINK_ALLIANCE'), $sid, $recruit);
+	$menu .= warquest_ui_menu($mid, PAGE_ALLIANCE, PAGE_INVITE, t('LINK_ALLIANCE'), $sid);
 	$menu .= warquest_ui_menu($mid, PAGE_CLAN, 0, t('LINK_CLANS'), $sid);	
 	$menu .= warquest_ui_menu($mid, PAGE_LEADERBOARD, PAGE_BEST_PLAYER, t('LINK_LEADERBOARD'), $sid);
 	$menu .= warquest_ui_menu($mid, PAGE_PROMOTION, 0, t('LINK_PROMOTION'), $sid);
@@ -538,9 +530,9 @@ function warquest_submenu_alliance() {
 	global $mid;
 	global $sid;
 	global $ssid;
-	global $player;
-	global $config;
 	
+	global $player;
+		
 	/* Count not accepted recruit request */
 	$query  = 'select pid1 from player_player where approved=0 and pid2='.$player->pid; 
 	$result = warquest_db_query($query);	

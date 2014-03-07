@@ -35,101 +35,9 @@ $language = warquest_post('language', $player->language);
 
 /*
 ** ---------------------
-** MEMBER
+** MEMBERS
 ** ---------------------
 */
-
-function warquest_admin_level_zoom_form() {
-
-	/* input */
-	global $player;
-	global $uid;
-	global $mid;
-	global $config;
-			
-	/* output */
-	global $page;
-			
-	/* Get alliance players */
-	$query  = 'select pid, country, name, lid, experience, alliance, won, lost ';
-	$query .= 'from player where pid!='.$config["adminPid"].' and lid="'.$uid.'" ';
-	$query .= 'order by lid desc, experience desc';
-	$result = warquest_db_query($query);	
-	
-	$page .= '<div class="subparagraph">Players in level '.$uid.'</div>';
-	
-	$page .= '<div class="box">';
-	$page .= '<table>';
-	
-	$page .= '<tr>';
-	
-	$page .= '<th width="35">';
-	$page .= 'Top';
-	$page .= '</th>';
-	
-	$page .= '<th width="160">';
-	$page .= 'Name';
-	$page .= '</th>';
-	
-	$page .= '<th width="50">';
-	$page .= 'Level';
-	$page .= '</th>';
-	
-	$page .= '<th width="90">';
-	$page .= 'Experience';	
-	$page .= '</th>';
-	
-	$page .= '<th width="60">';
-	$page .= 'Alliance';	
-	$page .= '</th>';
-	
-	$page .= '<th width="50">';
-	$page .= 'Won';	
-	$page .= '</th>';
-	
-	$page .= '<th width="50">';
-	$page .= 'Lost';	
-	$page .= '</th>';
-	
-	$page .= '</tr>';
-	
-	$count=1;
-	while ($data=warquest_db_fetch_object($result)) {
-	
-		$page .= '<tr>';
-		$page .= '<td>';
-		$page .= $count++;
-		$page .= '</td>';
-		$page .= '<td>';
-		$page .= warquest_link('mid='.$mid.'&oid='.$data->pid.'&sid='.PAGE_PLAYERS, warquest_flag_image($data->country));
-		$page .= ' ';
-		$page .= warquest_link('mid='.$mid.'&oid='.$data->pid.'&sid='.PAGE_PLAYERS, $data->name);
-		$page .= '</td>';
-		$page .= '<td>';
-		$page .= $data->lid;
-		$page .= '</td>';
-		$page .= '<td>';
-		$page .= number_format($data->experience,0,",",".");
-		$page .= '</td>';
-		$page .= '<td>';
-		$page .= $data->alliance;
-		$page .= '</td>';
-		$page .= '<td>';
-		$page .= number_format($data->won,0,",",".");
-		$page .= '</td>';
-		$page .= '<td>';
-		$page .= number_format($data->lost,0,",",".");
-		$page .= '</td>';
-		$page .= '</tr>';
-	}
-
-	$page .= '</table>';
-	$page .= '</div>';	
-	
-	$page .= '<div class="note">';
-	$page .= 'Note: Show all players of selected level.';
-   $page .= '</div>';
-}
 
 function warquest_admin_member_do() {
 
@@ -326,364 +234,9 @@ function warquest_admin_member_form() {
 	$page .=	'</form>';	
 }
 
-
 /*
 ** ---------------------
-** INFO
-** ---------------------
-*/
-
-function warquest_admin_info() {
-	
-	/* output */
-	global $page;
-	global $output;
-	
-	$output->title = 'Info';
-					
-	$page .= '<div class="subparagraph">Technical Info</div>';
-	
-	$page .= '<div class="box">';
-		
-	$page .= 'PHP version = '.phpversion();
-	$page .= '<br/>';
-	
-	$page .= 'display_errors = '.ini_get('display_errors');
-	$page .= '<br/>';
-			
-	$page .= 'post_max_size = '.ini_get('post_max_size');
-	$page .= '<br/>';
-	
-	$page .= 'Server IP = '.gethostbyname($_SERVER['SERVER_NAME']);
-	$page .= '<br/>';
-
-	$page .= 'Server URL = '.$_SERVER['HTTP_HOST'];
-	$page .= '<br/>';
-	
-	$page .= 'Server Software = '.$_SERVER['SERVER_SOFTWARE'];
-	$page .= '<br/>';
-	
-	$page .= 'Client IP addres = '.$_SERVER['REMOTE_ADDR'];
-	$page .= '<br/>';
-	
-	$page .= '</div>';
-}
-
-/*
-** ---------------------
-** FORM BROWSER
-** ---------------------
-*/
-
-function warquest_admin_browser_report() {
-	
-	/* output */
-	global $page;
-	global $output;
-	
-	$output->title = 'Browsers';
-		
-	$query  = 'select COUNT(*) as count, browser, platform, version ';
-	$query .= 'from member group by browser, platform, version ';
-	$query .= 'order by browser asc, version asc ';
-
-	$result = warquest_db_query($query);		
-
-	$page .= '<div class="subparagraph">Browsers</div>';
-	
-	$page .= '<div class="box rows">';
-	
-	$page .= '<table>';
-	
-	$page .= '<tr>';	
-	$page .= '<th width="150">Browser</th>';
-	$page .= '<th width="150">Version</th>';
-	$page .= '<th width="100">Count</th>';	
-	$page .= '<th width="100">Platform</th>';
-	$page .= '</tr>';	
-	
-	$total = 0;
-	while ($data=warquest_db_fetch_object($result)) {
-	
-		$page .= '<tr>';
-		
-		$page .= '<td>';
-		if ($data->browser=="") {
-			$page .= "Unknown";
-		} else {
-			$page .= $data->browser;
-		}
-		$page .= '</td>';
-		
-		$page .= '<td>';
-		$page .= $data->version;
-		$page .= '</td>';
-		
-		$page .= '<td>';
-		$page .= $data->count;
-		$total += $data->count;
-		$page .= '</td>';
-		
-		$page .= '<td>';
-		if ($data->platform!="") {
-			$page .= warquest_platform_image($data->platform);
-		}
-		$page .= '</td>';
-		
-		$page .= '</tr>';
-	}
-	
-	$page .= '<tr>';	
-	$page .= '<td width="150"><b>Total</b></td>';
-	$page .= '<td width="150"></td>';
-	$page .= '<td width="50"><b>'.$total.'</b></td>';	
-	$page .= '</tr>';	
-	
-	$page .= '</table>';
-	$page .= '</div>';	
-	
-	/* ------------------------------ */
-	
-	$query  = 'select platform, COUNT(*) as count ';
-	$query .= 'from member group by platform ';
-	$query .= 'order by platform asc ';
-	
-	$result = warquest_db_query($query);	
-
-	$page .= '<div class="subparagraph">Platforms</div>';
-	
-	$page .= '<div class="box">';
-	
-	$page .= '<table>';
-	
-	$page .= '<tr>';	
-	$page .= '<th width="150">Platform</th>';	
-	$page .= '<th width="150">Logo</th>';	
-	$page .= '<th width="200">Count</th>';	
-	$page .= '</tr>';	
-		
-	$total = 0;
-	while ($data=warquest_db_fetch_object($result)) {
-	
-		$page .= '<tr>';
-		
-		$page .= '<td>';
-		if ($data->platform=="") {
-			$page .= "Unknown";
-		} else {
-			$page .= $data->platform;
-		}
-		$page .= '</td>';
-
-		$page .= '<td>';
-		if ($data->platform!="") {
-			$page .= warquest_platform_image($data->platform);
-		}
-		$page .= '</td>';
-		
-		$page .= '<td>';
-		$page .= $data->count;
-		$total += $data->count;
-		$page .= '</td>';
-		
-		$page .= '</tr>';
-	}
-	
-	$page .= '<tr>';	
-	$page .= '<td><b>Total</b></td>';
-	$page .= '<td><b></b></td>';	
-	$page .= '<td><b>'.$total.'</b></td>';	
-	$page .= '</tr>';	
-	
-	$page .= '</table>';
-	$page .= '</div>';			
-}
-
-/*
-** ---------------------
-** FORM LEVELS
-** ---------------------
-*/
-
-function warquest_admin_level_form() {
-
-	/* input */
-	global $mid;
-			
-	/* output */
-	global $page;
-	global $output;
-			
-	$output->title = 'Levels'; 
-	
-	/* Get alliance players */
-	$query  = 'select lid, count(*) as total, count(distinct country) as country ';
-	$query .= 'from player group by lid order by lid asc'; 
-	$result = warquest_db_query($query);	
-	
-	$page .= '<div class="subparagraph">'.$output->title.'</div>';
-	
-	$page .= '<div class="box rows">';
-	$page .= '<table>';
-	$page .= '<thead>';	
-	$page .= '<tr>';	
-	$page .= '<th width="100">Level</th>';
-	$page .= '<th width="125">Players</th>';
-	$page .= '<th width="125">Countries</th>';
-	$page .= '<th width="200"></th>';
-	$page .= '</tr>';
-	$page .= '</thead>';	
-	$page .= '<tbody>';	
-	$total = 0;
-	while ($data=warquest_db_fetch_object($result)) {
-	
-		$page .= '<tr>';
-		$page .= '<td>';
-		$page .= warquest_link('mid='.$mid.'&uid='.$data->lid.'&sid='.PAGE_LEVEL_ZOOM, $data->lid);
-		$page .= '</td>';
-		
-		$page .= '<td>';
-		$page .= number_format($data->total,0,",",".");
-		$total += $data->total;
-		$page .= '</td>';
-		
-		$page .= '<td>';
-		$page .= number_format($data->country,0,",",".");
-		$page .= '</td>';
-		
-		$page .= '<td>';
-		$page .= '</td>';
-		$page .= '</tr>';
-	}
-
-	$page .= '<tr>';
-	$page .= '<td>';
-	$page .= 'Total';
-	$page .= '</td>';
-	$page .= '<td>';
-	$page .= number_format($total,0,",",".");
-	$page .= '</td>';
-	$page .= '</tr>';
-	
-	$page .= '</tbody>';
-	$page .= '</table>';
-	$page .= '</div>';	
-	
-	$page .= '<div class="note">';
-	$page .= 'Note: Report show amount of players per level.';
-   $page .= '</div>';
-}
-
-/*
-** ---------------------
-** FORM MESSAGES
-** ---------------------
-*/
-
-function warquest_admin_message_delete_do() {
-	
-	/* input */
-	global $uid;
-	
-	/* output */
-	global $output;
-	
-	if (warquest_db_comment_delete($uid) == 1) {
-		
-		$message = t('HOME_NO_MESSAGES');
-		$output->popup .= warquest_box_icon("info", $message);		
-	}
-}
-
-function warquest_admin_messages_form() {
-   
-	/* input */
-	global $other;
-	global $mid;
-	global $sid;
-	global $offset;
-	
-	/* output */
-	global $page;
-	global $output;
-
-	$output->title = 'Messages';
-	
-	$limit=30;
-	
-	$query  = 'select pid1 from comment where deleted=0';
-	$result = warquest_db_query($query);	
-	$total = warquest_db_num_rows($result);
-	
-	$query  = 'select a.id, a.date, a.comment, a.tid, a.cid, ';
-	$query .= 'a.pid1, b.name as name1, b.country as country1, ';
-	$query .= 'a.pid2, c.name as name2, c.country as country2 ';
-	$query .= 'from comment a left join player b ';
-	$query .= 'on b.pid=a.pid1 left join player c on c.pid=a.pid2 ';
-	$query .= 'where a.deleted=0 order by a.date desc ';
-	$query .= 'limit '.$offset.','.$limit;
-	$result = warquest_db_query($query);	
-	$count = warquest_db_num_rows($result);
-	
-			
-	$page .= '<div class="subparagraph">'.$output->title.'</div>';
-			
-	if ($count==0) {
-		
-		$page .= warquest_box_icon("info",t('HOME_NO_MESSAGES'));
-		
-	} else {	
-			
-		$page .= '<div class="box rows">';
-		
-		$page .= warquest_page_control($offset, $limit, $total, 1);
-		
-		$page .= '<table>';
-		while ($data=warquest_db_fetch_object($result)) {
-	
-			$page .= '<tr>';
-			$page .= '<td width="100" valign="top" >';
-			$page .= warquest_ui_ago($data->date).' ago';
-			$page .= '</td>';
-			
-			$page .= '<td width="340" valign="top">';
-			$page .= '<span class="subparagraph2">';
-			$page .= player_format($data->pid1, $data->name1, $data->country1).' -> ';
-			
-			if ($data->cid>0) {
-				$clan = warquest_db_clan($data->cid);
-				$page .= clan_format($clan).' clan';
-			} else if ($data->pid2==0) {
-				$page .= t("GENERAL_ALL");
-			} else {
-				$page .= player_format($data->pid2, $data->name2, $data->country2);
-			}
-			$page .= '</span><br/>';
-			
-			$page .= warquest_parse_smilies(wordwrap($data->comment, 40, "\n\r", true));
-			
-			$page .= '</td>';
-		
-			$page .= '<td width="60" align="right" valign="top">';
-			$page .= warquest_link_confirm('mid='.$mid.'&sid='.$sid.'&eid='.EVENT_ADMIN_DELETE_MSG.'&uid='.$data->id, 'Delete', 'Delete message. Are your sure?');
-			$page .= '</td>';
-		
-			$page .= '</tr>';
-		}
-		$page .= '</table>';
-		
-		$page .= warquest_page_control($offset, $limit, $total, 0);
-		
-		$page .= '</div>';
-	}
-	$page .= '<div class="note">';
-	$page .= 'Note: Show last 50 messages of players.';
-	$page .= '</div>';
-}
-
-/*
-** ---------------------
-** FORM NEWS
+** NEWS
 ** ---------------------
 */
 
@@ -962,6 +515,495 @@ function warquest_admin_news() {
 	$page .= '</table>';
 		
 	$page .= "</div>";
+}
+
+/*
+** ---------------------
+** INFO
+** ---------------------
+*/
+
+function warquest_admin_info() {
+	
+	/* output */
+	global $page;
+	global $output;
+	
+	$output->title = 'Info';
+					
+	$page .= '<div class="subparagraph">Technical Info</div>';
+	
+	$page .= '<div class="box">';
+		
+	$page .= 'PHP version = '.phpversion();
+	$page .= '<br/>';
+	
+	$page .= 'display_errors = '.ini_get('display_errors');
+	$page .= '<br/>';
+			
+	$page .= 'post_max_size = '.ini_get('post_max_size');
+	$page .= '<br/>';
+	
+	$page .= 'Server IP = '.gethostbyname($_SERVER['SERVER_NAME']);
+	$page .= '<br/>';
+
+	$page .= 'Server URL = '.$_SERVER['HTTP_HOST'];
+	$page .= '<br/>';
+	
+	$page .= 'Server Software = '.$_SERVER['SERVER_SOFTWARE'];
+	$page .= '<br/>';
+	
+	$page .= 'Client IP addres = '.$_SERVER['REMOTE_ADDR'];
+	$page .= '<br/>';
+	
+	$page .= '</div>';
+}
+
+/*
+** ---------------------
+** FORM BROWSER
+** ---------------------
+*/
+
+function warquest_admin_browser_report() {
+	
+	/* output */
+	global $page;
+	global $output;
+	
+	$output->title = 'Browsers';
+		
+	$query  = 'select COUNT(*) as count, browser, platform, version ';
+	$query .= 'from member group by browser, platform, version ';
+	$query .= 'order by browser asc, version asc ';
+
+	$result = warquest_db_query($query);		
+
+	$page .= '<div class="subparagraph">Browsers</div>';
+	
+	$page .= '<div class="box rows">';
+	
+	$page .= '<table>';
+	
+	$page .= '<tr>';	
+	$page .= '<th width="150">Browser</th>';
+	$page .= '<th width="150">Version</th>';
+	$page .= '<th width="100">Count</th>';	
+	$page .= '<th width="100">Platform</th>';
+	$page .= '</tr>';	
+	
+	$total = 0;
+	while ($data=warquest_db_fetch_object($result)) {
+	
+		$page .= '<tr>';
+		
+		$page .= '<td>';
+		if ($data->browser=="") {
+			$page .= "Unknown";
+		} else {
+			$page .= $data->browser;
+		}
+		$page .= '</td>';
+		
+		$page .= '<td>';
+		$page .= $data->version;
+		$page .= '</td>';
+		
+		$page .= '<td>';
+		$page .= $data->count;
+		$total += $data->count;
+		$page .= '</td>';
+		
+		$page .= '<td>';
+		if ($data->platform!="") {
+			$page .= warquest_platform_image($data->platform);
+		}
+		$page .= '</td>';
+		
+		$page .= '</tr>';
+	}
+	
+	$page .= '<tr>';	
+	$page .= '<td width="150"><b>Total</b></td>';
+	$page .= '<td width="150"></td>';
+	$page .= '<td width="50"><b>'.$total.'</b></td>';	
+	$page .= '</tr>';	
+	
+	$page .= '</table>';
+	$page .= '</div>';	
+	
+	/* ------------------------------ */
+	
+	$query  = 'select platform, COUNT(*) as count ';
+	$query .= 'from member group by platform ';
+	$query .= 'order by platform asc ';
+	
+	$result = warquest_db_query($query);	
+
+	$page .= '<div class="subparagraph">Platforms</div>';
+	
+	$page .= '<div class="box">';
+	
+	$page .= '<table>';
+	
+	$page .= '<tr>';	
+	$page .= '<th width="150">Platform</th>';	
+	$page .= '<th width="150">Logo</th>';	
+	$page .= '<th width="200">Count</th>';	
+	$page .= '</tr>';	
+		
+	$total = 0;
+	while ($data=warquest_db_fetch_object($result)) {
+	
+		$page .= '<tr>';
+		
+		$page .= '<td>';
+		if ($data->platform=="") {
+			$page .= "Unknown";
+		} else {
+			$page .= $data->platform;
+		}
+		$page .= '</td>';
+
+		$page .= '<td>';
+		if ($data->platform!="") {
+			$page .= warquest_platform_image($data->platform);
+		}
+		$page .= '</td>';
+		
+		$page .= '<td>';
+		$page .= $data->count;
+		$total += $data->count;
+		$page .= '</td>';
+		
+		$page .= '</tr>';
+	}
+	
+	$page .= '<tr>';	
+	$page .= '<td><b>Total</b></td>';
+	$page .= '<td><b></b></td>';	
+	$page .= '<td><b>'.$total.'</b></td>';	
+	$page .= '</tr>';	
+	
+	$page .= '</table>';
+	$page .= '</div>';			
+}
+
+/*
+** ---------------------
+** LEVELS
+** ---------------------
+*/
+
+function warquest_admin_level_zoom_form() {
+
+	/* input */
+	global $player;
+	global $uid;
+	global $mid;
+	global $config;
+			
+	/* output */
+	global $page;
+			
+	/* Get alliance players */
+	$query  = 'select pid, country, name, lid, experience, alliance, won, lost ';
+	$query .= 'from player where pid!='.$config["adminPid"].' and lid="'.$uid.'" ';
+	$query .= 'order by lid desc, experience desc';
+	$result = warquest_db_query($query);	
+	
+	$page .= '<div class="subparagraph">Players in level '.$uid.'</div>';
+	
+	$page .= '<div class="box">';
+	$page .= '<table>';
+	
+	$page .= '<tr>';
+	
+	$page .= '<th width="35">';
+	$page .= 'Top';
+	$page .= '</th>';
+	
+	$page .= '<th width="160">';
+	$page .= 'Name';
+	$page .= '</th>';
+	
+	$page .= '<th width="50">';
+	$page .= 'Level';
+	$page .= '</th>';
+	
+	$page .= '<th width="90">';
+	$page .= 'Experience';	
+	$page .= '</th>';
+	
+	$page .= '<th width="60">';
+	$page .= 'Alliance';	
+	$page .= '</th>';
+	
+	$page .= '<th width="50">';
+	$page .= 'Won';	
+	$page .= '</th>';
+	
+	$page .= '<th width="50">';
+	$page .= 'Lost';	
+	$page .= '</th>';
+	
+	$page .= '</tr>';
+	
+	$count=1;
+	while ($data=warquest_db_fetch_object($result)) {
+	
+		$page .= '<tr>';
+		$page .= '<td>';
+		$page .= $count++;
+		$page .= '</td>';
+		$page .= '<td>';
+		$page .= warquest_link('mid='.$mid.'&oid='.$data->pid.'&sid='.PAGE_PLAYERS, warquest_flag_image($data->country));
+		$page .= ' ';
+		$page .= warquest_link('mid='.$mid.'&oid='.$data->pid.'&sid='.PAGE_PLAYERS, $data->name);
+		$page .= '</td>';
+		$page .= '<td>';
+		$page .= $data->lid;
+		$page .= '</td>';
+		$page .= '<td>';
+		$page .= number_format($data->experience,0,",",".");
+		$page .= '</td>';
+		$page .= '<td>';
+		$page .= $data->alliance;
+		$page .= '</td>';
+		$page .= '<td>';
+		$page .= number_format($data->won,0,",",".");
+		$page .= '</td>';
+		$page .= '<td>';
+		$page .= number_format($data->lost,0,",",".");
+		$page .= '</td>';
+		$page .= '</tr>';
+	}
+
+	$page .= '</table>';
+	$page .= '</div>';	
+	
+	$page .= '<div class="note">';
+	$page .= 'Note: Show all players of selected level.';
+   $page .= '</div>';
+}
+
+function warquest_admin_level_form() {
+
+	/* input */
+	global $mid;
+	global $config;
+			
+	/* output */
+	global $page;
+	global $output;
+			
+	$output->title = 'Levels'; 
+	
+	/* Get alliance players */
+	
+	
+	$page .= '<div class="subparagraph">'.$output->title.'</div>';
+	
+	$page .= '<div class="box rows">';
+	$page .= '<table>';
+	
+	$page .= '<thead>';	
+	$page .= '<tr>';	
+	$page .= '<th width="100">Level</th>';
+	$page .= '<th width="125">Players</th>';
+	$page .= '<th width="125">Robots</th>';
+	$page .= '<th width="125">Countries</th>';
+	$page .= '<th width="100">Total</th>';
+	$page .= '</tr>';
+	$page .= '</thead>';	
+	
+	$page .= '<tbody>';	
+	
+	$total_players = 0;
+	$total_robots = 0;
+	
+	for ($lid=0; $lid<=$config["max_level"]; $lid++) {
+	
+		$query  = 'select lid, ';
+		$query .= '(select count(*) from player where country!="eu" and lid='.$lid.') as players,';
+		$query .= '(select count(*) from player where country="eu" and lid='.$lid.') as robots,';
+		$query .= 'count(distinct country) as country ';
+		$query .= 'from player where lid='.$lid; 
+		
+		$result = warquest_db_query($query);	
+		$data=warquest_db_fetch_object($result);
+	
+		$page .= '<tr>';
+		$page .= '<td>';
+		$page .= warquest_link('mid='.$mid.'&uid='.$lid.'&sid='.PAGE_LEVEL_ZOOM, $lid);
+		$page .= '</td>';
+		
+		$page .= '<td>';
+		$page .= number_format($data->players,0,",",".");
+		$total_players += $data->players;
+		$page .= '</td>';
+		
+		$page .= '<td>';
+		$page .= number_format($data->robots,0,",",".");
+		$total_robots += $data->robots;
+		$page .= '</td>';
+		
+		$page .= '<td>';
+		$page .= number_format($data->country,0,",",".");
+		$page .= '</td>';
+		
+		$page .= '<td>';
+		$page .= number_format(($data->players+$data->robots),0,",",".");
+		$page .= '</td>';
+				
+		$page .= '</tr>';
+	}
+
+	$page .= '<tr>';
+	
+	$page .= '<td>';
+	$page .= '<div class="subparagraph">';
+	$page .= 'Total';
+	$page .= '</div>';
+	$page .= '</td>';
+	
+	$page .= '<td>';
+	$page .= '<div class="subparagraph">';
+	$page .= number_format($total_players,0,",",".");
+	$page .= '</div>';
+	$page .= '</td>';
+		
+	$page .= '<td>';
+	$page .= '<div class="subparagraph">';
+	$page .= number_format($total_robots,0,",",".");
+	$page .= '</div>';
+	$page .= '</td>';
+
+	$page .= '<td>';
+	$page .= '</td>';
+	
+	$page .= '<td>';
+	$page .= '<div class="subparagraph">';
+	$page .= number_format(($total_players+$total_robots),0,",",".");
+	$page .= '</div>';
+	$page .= '</td>';
+		
+	$page .= '</tr>';
+	
+	$page .= '</tbody>';
+	$page .= '</table>';
+	$page .= '</div>';	
+	
+	$page .= '<div class="note">';
+	$page .= 'Note: Report show amount of players per level.';
+   $page .= '</div>';
+}
+
+/*
+** ---------------------
+** FORM MESSAGES
+** ---------------------
+*/
+
+function warquest_admin_message_delete_do() {
+	
+	/* input */
+	global $uid;
+	
+	/* output */
+	global $output;
+	
+	if (warquest_db_comment_delete($uid) == 1) {
+		
+		$message = t('HOME_NO_MESSAGES');
+		$output->popup .= warquest_box_icon("info", $message);		
+	}
+}
+
+function warquest_admin_messages_form() {
+   
+	/* input */
+	global $other;
+	global $mid;
+	global $sid;
+	global $offset;
+	
+	/* output */
+	global $page;
+	global $output;
+
+	$output->title = 'Messages';
+	
+	$limit=30;
+	
+	$query  = 'select pid1 from comment where deleted=0';
+	$result = warquest_db_query($query);	
+	$total = warquest_db_num_rows($result);
+	
+	$query  = 'select a.id, a.date, a.comment, a.tid, a.cid, ';
+	$query .= 'a.pid1, b.name as name1, b.country as country1, ';
+	$query .= 'a.pid2, c.name as name2, c.country as country2 ';
+	$query .= 'from comment a left join player b ';
+	$query .= 'on b.pid=a.pid1 left join player c on c.pid=a.pid2 ';
+	$query .= 'where a.deleted=0 order by a.date desc ';
+	$query .= 'limit '.$offset.','.$limit;
+	$result = warquest_db_query($query);	
+	$count = warquest_db_num_rows($result);
+	
+			
+	$page .= '<div class="subparagraph">'.$output->title.'</div>';
+			
+	if ($count==0) {
+		
+		$page .= warquest_box_icon("info",t('HOME_NO_MESSAGES'));
+		
+	} else {	
+			
+		$page .= '<div class="box rows">';
+		
+		$page .= warquest_page_control($offset, $limit, $total, 1);
+		
+		$page .= '<table>';
+		while ($data=warquest_db_fetch_object($result)) {
+	
+			$page .= '<tr>';
+			$page .= '<td width="100" valign="top" >';
+			$page .= warquest_ui_ago($data->date).' ago';
+			$page .= '</td>';
+			
+			$page .= '<td width="340" valign="top">';
+			$page .= '<span class="subparagraph2">';
+			$page .= player_format($data->pid1, $data->name1, $data->country1).' -> ';
+			
+			if ($data->cid>0) {
+				$clan = warquest_db_clan($data->cid);
+				$page .= clan_format($clan).' clan';
+			} else if ($data->pid2==0) {
+				$page .= t("GENERAL_ALL");
+			} else {
+				$page .= player_format($data->pid2, $data->name2, $data->country2);
+			}
+			$page .= '</span><br/>';
+			
+			$page .= warquest_parse_smilies(wordwrap($data->comment, 40, "\n\r", true));
+			
+			$page .= '</td>';
+		
+			$page .= '<td width="60" align="right" valign="top">';
+			$page .= warquest_link_confirm('mid='.$mid.'&sid='.$sid.'&eid='.EVENT_ADMIN_DELETE_MSG.'&uid='.$data->id, 'Delete', 'Delete message. Are your sure?');
+			$page .= '</td>';
+		
+			$page .= '</tr>';
+		}
+		$page .= '</table>';
+		
+		$page .= warquest_page_control($offset, $limit, $total, 0);
+		
+		$page .= '</div>';
+	}
+	$page .= '<div class="note">';
+	$page .= 'Note: Show last 50 messages of players.';
+	$page .= '</div>';
 }
 
 /*

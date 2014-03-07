@@ -395,6 +395,88 @@ function doMission($username, $password, $buy, $clan) {
 	return $output;
 }
 
+/* Do Alliance */
+function doAlliance($username, $password) {
+
+	include '../alliance.inc';	
+	include '../email.inc';	
+
+	/* input */
+	global $player;
+	global $other;
+	global $skill;
+	global $level;	
+	global $config;
+	
+	global $output;
+		
+	warquest_info('goAlliance ['.$username.'] - start');
+	
+	/* Authenicate player */
+	$pid = warquest_login_do($username, $password);
+	if ($pid==0) {
+		return new SoapFault("Server", "Authenication failed!");
+	} 
+	
+	/* Load player data from database */
+	$player = warquest_db_player($pid);
+	$skill = warquest_db_skill($player->pid);
+	$level = warquest_db_level($player->lid);
+	
+	/* Update player timers (before) */
+	warquest_update_timers($player);
+	
+	$id = 1;
+	
+	/* Get free available alliance player */
+	$query  = 'select pid from player where pid not in ';
+	$query .= '(select pid2 from player_player where pid1='.$player->pid.') and pid!='.$player->pid.' ';
+	$query .= 'and (alliance+invite)<(lid*'.$config["max_ally_factor"].') ';
+	$query .= 'limit 0, 1';	
+		
+	$result = warquest_db_query($query);	 
+	$data = warquest_db_fetch_object($result);	
+	
+	$other = warquest_db_player($data->pid);
+	
+	/* Update other timers (before) */
+	warquest_update_timers($other);
+	
+	/* Do Alliance */
+	warquest_alliance_invite_do();
+	
+	/* Update player timers (after) */
+	warquest_update_timers($player);
+	
+	/* Update player timers (after) */
+	warquest_update_timers($other);
+
+	/* Update statistics counters */
+	$player->request_date=date("Y-m-d H:i:s", time());
+	$player->request+=1;
+		
+	/* Save player data */
+	warquest_db_player_update($player);
+	
+	/* Save other data */
+	warquest_db_player_update($other);
+
+	/* Convert data */
+	$output->popup = strip_tags($output->popup);
+		
+	warquest_info($output->popup);
+	
+	/* Remove unwanted parts in the output */
+	unset($output->format);
+	unset($output->title);
+	
+	$output = new SoapVar($output, SOAP_ENC_OBJECT, null, null, 'alliance');
+	
+	warquest_info('goAlliance - end');
+		
+	return $output;
+}
+
 /*
 ** ---------
 ** Handler
@@ -402,7 +484,6 @@ function doMission($username, $password, $buy, $clan) {
 */
 
 warquest_info("-----------------------");
-warquest_info("webservice - start");
 
 /* Create database connection */
 warquest_db_connect($config["dbhost"], $config["dbuser"], $config["dbpass"], $config["dbname"]);
@@ -414,15 +495,13 @@ warquest_db_view_add();
 /* Create Soap Server */
 ini_set('soap.wsdl_cache_enabled', '0');
 $server = new SoapServer('warquest.wsdl');
-$server->addFunction(array("getPlayer", "getClan", "getPlanet", "doBattle", "doMission"));
+$server->addFunction(array("getPlayer", "getClan", "getPlanet", "doBattle", "doMission", "doAlliance"));
 
 /* Process Soap Call */
 $server->handle();
 
 /* Close database connection */
 warquest_db_close();
-
-warquest_info("webservice - end");
 
 /*
 ** ---------------------------------------------------------------- 
