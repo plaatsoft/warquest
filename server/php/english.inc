@@ -196,10 +196,12 @@ $lang['BOX_WARN'] = 'WARNING';
 $lang['BOX_ERROR'] = 'ERROR';
 
 $lang['GENERAL_NEXT_LEVEL'] = 'Brilliant! You have reached the next level! You received %s skill points and %s dollars. Your health, energy and ammo are restored. ';
-$lang['GENERAL_BATTLE_LEVEL'] = 'Brilliant! You have won %s battles and received %s extra skill point(s) and %s dollars.';
-$lang['GENERAL_BOUNTY_LEVEL'] = 'Great! You have set %s bounties and received %s extra skill point(s) and %s dollars.';
-$lang['GENERAL_REBEL_LEVEL'] = 'Great! You started %s rebellions and received %s extra skill point(s) and %s dollars.';
+$lang['GENERAL_BATTLE_LEVEL'] = 'Brilliant! You have won %s ore mote battles and received %s extra skill point(s) and %s dollars.';
+$lang['GENERAL_MISSION_LEVEL'] = 'Brilliant! You have completed %s or more missions and received %s extra skill point(s) and %s dollars.';
+$lang['GENERAL_BOUNTY_LEVEL'] = 'Great! You have set %s ore more bounties and received %s extra skill point(s) and %s dollars.';
+$lang['GENERAL_REBEL_LEVEL'] = 'Great! You started %s or more rebellions and received %s extra skill point(s) and %s dollars.';
 $lang['GENERAL_BATTLE_AWARD_WON'] = 'fights won';
+$lang['GENERAL_MISSION_AWARD_WON'] = 'missions completed';
 $lang['GENERAL_BOUNTY_AWARD_WON'] = 'bounties set';
 $lang['GENERAL_REBEL_AWARD_WON'] = 'rebellions started';
 $lang['GENERAL_UNLOCK'] = 'Unlocked at level %s';
@@ -448,7 +450,8 @@ $lang['HOME_WELCOME'] = 'Welcome';
 $lang['HOME_LAST_LOGIN'] = 'Last visit was <b>%s</b> ago.';
 $lang['HOME_AWARDS'] = 'Awards';
 $lang['HOME_BATTLE_AWARDS_TEXT'] = 'You\'ve earned the following battle award(s):';
-$lang['HOME_BOUNTY_AWARDS_TEXT'] = 'You\'ve earned the following bounty award(s):';
+$lang['HOME_MISSION_AWARDS_TEXT'] = 'You\'ve earned the following mission award(s):';
+$lang['HOME_BOUNTY_AWARDS_TEXT'] = 'You\'ve earned the following bounty hunting award(s):';
 $lang['HOME_REBEL_AWARDS_TEXT'] = 'You\'ve earned the following rebellion award(s):';
 $lang['HOME_OVERVIEW_TITLE']= 'Overview';
 $lang['HOME_MAP_TITLE'] = 'Continents Conquered';
@@ -612,9 +615,8 @@ $lang['PLAYER_SKILL_REJECTED2']  = '%s skill have reach minimal level.';
 ** ------------------
 */
 
-$lang['HOME_TRADE_TITLE1'] = 'Trade';
-
-$lang['HOME_TRADE_NOTE']  = 'Note: Purchased gold (see help - donate page) can be exchanged in to skill points, cash money or can be used to improve your health, energy or ammo restore timer.';
+$lang['TRADE_TITLE'] = 'Trade';
+$lang['TRADE_NOTE']  = 'Note: Purchased gold (see help - donate page) can be exchanged in to skill points, cash money or can be used to improve your health, energy or ammo restore timer.';
 
 $lang['HOME_TRADE_CONDITION'] = 'Current';
 $lang['HOME_TRADE_MINIMAL'] = 'Minimal';
@@ -643,18 +645,14 @@ $lang['HOME_TRADE_ENERGY_TIMER_TO_LARGE'] = 'Energy timer has reached minimum va
 $lang['HOME_TRADE_AMMO_TIMER_TO_LARGE'] = 'Ammo timer has reached minimum value.';
 $lang['HOME_TRADE_SUCCESFULL'] = 'The trade is succesfully processed! ';
 
-$lang['HOME_TRADE_NO_GOLD'] = 'You do not own %s.';
-
 /*
 ** ------------------
 ** HOME - RESTORE
 ** ------------------
 */
 
-$lang['PLAYER_RESTORE_TITLE'] = 'Restore & Repair';
-$lang['PLAYER_RESTORE_SUBTITLE1'] = 'Restore';
-$lang['PLAYER_RESTORE_SUBTITLE2'] = 'Repair';
-$lang['PLAYER_RESTORE_UNLOCKED'] = 'Restore & Repair gets unlocked at level %s.';
+$lang['RESTORE_TITLE'] = 'Restore & Repair';
+$lang['RESTORE_LOCKED'] = 'Restore & Repair features are unlocked at level %s.';
 $lang['PLAYER_RESTORE_PRICE'] = 'Restore Price';
 $lang['PLAYER_RESTORE_PRICE_PER_DAY'] = 'Restore price per day';
 $lang['PLAYER_REPAIR_PRICE'] = 'Repair Price';
@@ -2385,8 +2383,8 @@ $lang['ALLIANCE_REJECT'] = 'Reject %s as ally!';
 $lang['ALLIANCE_DROP'] = 'Drop %s as ally!';
 $lang['ALLIANCE_ACCEPT'] = 'Accept %s as ally!';
 $lang['ALLIANCE_ALLY'] = 'Ally';
-$lang['ALLIANCE_MAXIMUM'] = 'Maximum amount of %s allies reached for this level.'; 
-$lang['ALLIANCE_LOCKED'] = 'Alliance invitation is unlocked at level 1';
+$lang['ALLIANCE_MAXIMUM'] = 'Maximum amount of %s invited/accepted allies reached for this level.'; 
+$lang['ALLIANCE_LOCKED'] = 'Alliance features are unlocked at level 1';
 $lang['ALLIANCE_NOTE'] = 'Note: With every approved ally you can command 6 more units during fights. Keep in mind that you cannot attack allies.';
 
 $lang['ALLIANCE_INVITE_NOTE'] = 'Note: Invite a player for an alliance. If the other player accepts or rejects the alliance you will receive a notification by email (option in settings). Maximum amount of accepted + invited allies for this level is %s.';
@@ -2397,7 +2395,6 @@ $lang['ALLIANCE_COMMENT_TEXT2'] = 'Create message (max. 400 characters) for %s';
 $lang['ALLIANCE_PLAYER_NEWS'] = 'Messages';
 $lang['ALLIANCE_COMMENT_ALL'] = 'Message is stored and available for all players.';
 $lang['ALLIANCE_COMMENT_PLAYER'] = 'Message is sent to %s';
-
 
 $lang['LEADERBORD_BEST_PLAYER'] = 'Top Players';
 $lang['LEADERBORD_BEST_PLAYER_NOTE'] = 'Note: Leaderboard shows the player ranking.';
@@ -2693,9 +2690,12 @@ $lang['HELP_RANKS'] = 'The following ranks are available:';
 */
 
 $lang['HELP_AWARDS_SUBTITLE'] = 'Awards';
-$lang['HELP_BATTLE_AWARDS'] = 'The following battle victory awards can be earned:';
-$lang['HELP_BOUNTY_AWARDS'] = 'The following bounty set awards can be earned:';
-$lang['HELP_REBEL_AWARDS'] = 'The following rebellion start awards can be earned:';
+$lang['HELP_AWARDS_TEXT'] = 'The following awards can he earned:';
+
+$lang['HELP_BATTLE_AWARDS'] = 'Battle awards';
+$lang['HELP_MISSION_AWARDS'] = 'Mission completed awards';
+$lang['HELP_BOUNTY_AWARDS'] = 'Bounty set Awards';
+$lang['HELP_REBEL_AWARDS'] = 'Rebellion awards';
 
 
 /*
@@ -3143,8 +3143,9 @@ $lang['CLAN_SLOGAN'] = 'Clan Slogan [%s]';
 $lang['CLAN_SLOGAN_NOTE'] = 'Enter or update then clan slogan!';
 $lang['CLAN_SLOGAN_SAVED'] = 'Clan slogan is saved';
 $lang['CLAN_SLOGAN_TOO_SHORT'] = 'Clan slogan is to short';
-$lang['CLAN_SLOGAN_TOO_LONG'] = 'Clan slogan is to long. Maximum 200 characters allowed.';$lang['BATTLE_CLAN_WAR_UNLOCKED'] = '%s clan war is unlocked at level %s.';
+$lang['CLAN_SLOGAN_TOO_LONG'] = 'Clan slogan is to long. Maximum 200 characters allowed.';
 
+$lang['BATTLE_CLAN_WAR_UNLOCKED'] = '%s clan war is unlocked at level %s.';
 $lang['BATTLE_CLAN_WAR_TITLE'] = 'Clan War';
 $lang['BATTLE_CLAN_WAR'] = 'Clan-War';
 $lang['BATTLE_SECTOR_ALL_CONQUERED'] = 'Sector already conquered!';
@@ -3178,6 +3179,8 @@ $lang['GENERAL_GOLD'] = 'gold';
 $lang['PLAYER_GOLD'] = 'Gold'; 
 
 $lang['HOME_ANNOUNCEMENTS'] = 'Announcements';
+
+$lang['TRADE_NO_GOLD'] = 'You do not own %s.';
 
 /*
 ** ------------------
@@ -3315,10 +3318,18 @@ $lang['MISSION_CLAN_PLANET_COMPLETE'] = 'Excellent! You conquered all %s contine
 */
 
 $lang['LINK_CLAN_COMMENT'] = 'Clan';
+
 $lang['CLAN_COMMENT_TITLE'] = 'Clan messages';
 $lang['CLAN_COMMENT_TEXT'] = 'Create message (max. 400 characters) for %s clan players';
 $lang['CLAN_COMMENT_ALL'] = 'Message is stored and available for all %s clan players.';
 $lang['CLAN_COMMENT_NO_CLAN'] = 'You are not part of a clan. No clan messages possible!';
+
+$lang['CLAN_LOCKED'] = 'Clan features are unlocked at level %s.';
+$lang['TRADE_LOCKED'] = 'Trade features are unlocked at level %s.';
+$lang['STOCK_EXCHANGE_LOCKED'] = 'Stock exchange features are unlocked at level %s.';
+
+$lang['RESTORE_NOTE']  = 'Note: You can restore health, energy, ammo with cash to reach the next level faster. You can also repair damaged units and/or buildings.';
+
 
 /*
 ** ------------------

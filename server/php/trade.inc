@@ -41,7 +41,7 @@ function warquest_trade_do() {
 							
 	if ($totalGold > $player->gold) {
 				
-		$message = t('HOME_TRADE_NO_GOLD', gold_format($totalGold));
+		$message = t('TRADE_NO_GOLD', gold_format($totalGold));
 		$output->popup .= warquest_box_icon("warning", $message);
 		
 	} else if (($uid==1) && ($skill->health_timer>=$config['max_health_reduction'])) {
@@ -136,252 +136,263 @@ function warquest_trade_form() {
 	global $page;
 	global $output;
 	
-	$output->title = t('HOME_TRADE_TITLE1');
+	$output->title = t('TRADE_TITLE');
 	
-	$page .= '<div class="subparagraph">'.t('HOME_TRADE_TITLE1').'</div>';
+	$page .= '<div class="subparagraph">';
+	$page .= t('TRADE_TITLE');
+	$page .= '</div>';
 			
-	$page .= '<div class="box rows">';
+	$lid = 3;
+	if ($player->lid < $lid) {
 		
-	$page .= '<table>';
+		$message = t('TRADE_LOCKED', $lid);	
+		$page .= warquest_box_icon('locked', $message);
+		
+	} else {
+	
+		$page .= '<div class="box rows">';
+		
+		$page .= '<table>';
 
-	/* -------------------------------------------------------------------- */
-	
-	$page .= '<tr>';
-	$page .= '<td width="170">';	
-	$page .= warquest_image("trade/trade6.jpg",' width="155" height="120" ');
-	$page .= '</td>';
-	
-	$premium = strtotime($player->premium_date) - time();
-	
-	$page .= '<td width="330" valign="top" >';
-	
-	$page .= '<div class="right">';
-	
-	if ($premium<=0) {
-		
-		$page .= warquest_link('mid='.$mid.'&sid='.$sid.'&eid='.EVENT_HOME_TRADE.'&uid=6', t('HOME_TRADE_IN'), "trade6");
-		
-	}
-	$page .= '</div>';
-		
-	$page .= '<div class="subparagraph">'.t('HOME_TRADE6').'</div>';
-	
-	$page .= '<div class="remark">';
-	$page .= t('HOME_TRADE6_NOTE', gold_format($config["gold_trade_feature6"]));
-	$page .= '</div>';
-	
-	$page .= '<br/>';	
-		
-	$page .= t('GENERAL_STATUS').': ';
-	if ($premium<=0) {
-	
-		$page .= t('PREMIUM_NOT_ACTIVE');
-		
-	} else { 
-		
-		$page .= '<script language="JavaScript" src="'.$config["content_url"].'js/countdown1.js" type="text/javascript"></script>';
-	
-		$page .= t('PREMIUM_ACTIVE');
-		
-		$page .= '<div class="countdown"><div id="countdown_time1"></div></div>';
-		$page .= '<script language="JavaScript" type="text/javascript">';
-		$page .= "countdown1.init(".$premium.", 'countdown_time1', '00:00:00');"; 
-		$page .= '</script>';
-	}
-
-	$page .= '</td>';
-	$page .= '</tr>';	
-		
-	$page .= '<tr>';
-	$page .= '<td colspan="2" class="bar">&nbsp;</td>';
-	$page .= '</tr>';
-
-
-	/* -------------------------------------------------------------------- */
-	
-	$page .= '<tr>';
-	$page .= '<td width="170">';	
-	$page .= warquest_image("trade/trade1.jpg",' width="155" height="120" ');
-	$page .= '</td>';
-	
-	$page .= '<td width="330" valign="top" >';
-	
-	$page .= '<div class="right">';
-	$page .= warquest_link('mid='.$mid.'&sid='.$sid.'&eid='.EVENT_HOME_TRADE.'&uid=1', t('HOME_TRADE_IN'), "trade1");
-	$page .= '</div>';
-		
-	$page .= '<div class="subparagraph">';
-	$page .= t('HOME_TRADE1');
-	$page .= '</div>';
-	
-	$page .= '<div class="remark">';
-	$page .= t('HOME_TRADE1_NOTE', gold_format($config["gold_trade_feature1"]));
-	$page .= '</div>';
-	
-	$page .= '<br/>';	
-			
-	$tmp = $config["init_health_timer"] - ($skill->health_timer * 5);	
-	$page .= t('HOME_TRADE_CONDITION').': '.level_format($tmp);
-	$page .= t('AGO_SECS');	
-	$page .= '<br/>';
-
-	$tmp = $config['init_health_timer']-($config['max_health_reduction']*5);
-	$page .= t('HOME_TRADE_MINIMAL').': '.level_format($tmp);
-	$page .= t('AGO_SECS');	
-	$page .= '<br/>';
-	
-	$page .= '</td>';
-	$page .= '</tr>';	
-		
-	$page .= '<tr>';
-	$page .= '<td colspan="2" class="bar">&nbsp;</td>';
-	$page .= '</tr>';
-
-	/* -------------------------------------------------------------------- */
-	
-	$page .= '<tr>';
-	$page .= '<td width="170">';	
-	$page .= warquest_image("trade/trade2.jpg",' width="155" height="120" ');
-	$page .= '</td>';
-	
-	$page .= '<td width="330" valign="top" >';
-	
-	$page .= '<div class="right">';
-	$page .= warquest_link('mid='.$mid.'&sid='.$sid.'&eid='.EVENT_HOME_TRADE.'&uid=2', t('HOME_TRADE_IN'), "trade2");
-	$page .= '</div>';
-		
-	$page .= '<div class="subparagraph">';
-	$page .= t('HOME_TRADE2');
-	$page .= '</div>';
-		
-	$page .= '<div class="remark">';
-	$page .= t('HOME_TRADE2_NOTE', gold_format($config["gold_trade_feature2"]));
-	$page .= '</div>';
-	$page .= '<br/>';	
-	
-	$tmp = $config["init_energy_timer"] - ($skill->energy_timer * 5); 		
-	$page .= t('HOME_TRADE_CONDITION').': '.level_format($tmp);
-	$page .= t('AGO_SECS');	
-	$page .= '<br/>';
-	
-	$tmp = $config['init_energy_timer']-($config['max_energy_reduction']*5);
-	$page .= t('HOME_TRADE_MINIMAL').': '.level_format($tmp);
-	$page .= t('AGO_SECS');	
-	$page .= '<br/>';
-	
-	$page .= '</td>';
-	$page .= '</tr>';	
-		
-	$page .= '<tr>';
-	$page .= '<td colspan="2" class="bar">&nbsp;</td>';
-	$page .= '</tr>';
-
-	/* -------------------------------------------------------------------- */
-	
-	$page .= '<tr>';
-	$page .= '<td width="170">';	
-	$page .= warquest_image("trade/trade3.jpg",' width="155" height="120" ');
-	$page .= '</td>';
-	
-	$page .= '<td width="330" valign="top" >';
-	
-	$page .= '<div class="right">';
-	$page .= warquest_link('mid='.$mid.'&sid='.$sid.'&eid='.EVENT_HOME_TRADE.'&uid=3', t('HOME_TRADE_IN'), "trade3");
-	$page .= '</div>';
-		
-	$page .= '<div class="subparagraph">';
-	$page .= t('HOME_TRADE3');
-	$page .= '</div>';
-		
-	$page .= '<div class="remark">';
-	$page .= t('HOME_TRADE3_NOTE', gold_format($config["gold_trade_feature3"]));
-	$page .= '</div>';
-	$page .= '<br/>';	
-	
-	$tmp = $config["init_ammo_timer"] - ($skill->ammo_timer * 5);		
-	$page .= t('HOME_TRADE_CONDITION').': '.level_format($tmp);	
-	$page .= t('AGO_SECS');	
-	$page .= '<br/>';
-	
-	$tmp = $config['init_ammo_timer']-($config['max_ammo_reduction']*5);
-	$page .= t('HOME_TRADE_MINIMAL').': '.level_format($tmp);
-	$page .= t('AGO_SECS');	
-	$page .= '<br/>';
-	
-	$page .= '</td>';
-	$page .= '</tr>';
-
-	$page .= '<tr>';
-	$page .= '<td colspan="2" class="bar">&nbsp;</td>';
-	$page .= '</tr>';		
-	
-	/* -------------------------------------------------------------------- */
-	
-	$page .= '<tr>';
-	$page .= '<td width="170">';	
-	$page .= warquest_image("trade/trade4.jpg",' width="155" height="120" ');
-	$page .= '</td>';
-	
-	$page .= '<td width="330" valign="top" >';
-	
-	$page .= '<div class="right">';
-	$page .= warquest_link('mid='.$mid.'&sid='.$sid.'&eid='.EVENT_HOME_TRADE.'&uid=4', t('HOME_TRADE_IN'), "trade4");
-	$page .= '</div>';
-		
-	$page .= '<div class="subparagraph">';
-	$page .= t('HOME_TRADE4');
-	$page .= '</div>';
-	
-	$page .= '<div class="remark">';	
-	$page .= t('HOME_TRADE4_NOTE', gold_format($config["gold_trade_feature4"]), money_format1(10000000000));
-	$page .= '</div>';
-	$page .= '<br/>';	
-		
-	$page .= t('HOME_TRADE_CONDITION').': '.dollar_format($player->money);
-			
-	$page .= '</td>';
-	$page .= '</tr>';	
-		
-	$page .= '<tr>';
-	$page .= '<td colspan="2" class="bar">&nbsp;</td>';
-	$page .= '</tr>';
-	
 		/* -------------------------------------------------------------------- */
 	
-	$page .= '<tr>';
-	$page .= '<td width="170">';	
-	$page .= warquest_image("trade/trade5.jpg",' width="155" height="120" ');
-	$page .= '</td>';
-	
-	$page .= '<td width="330" valign="top" >';
-	
-	$page .= '<div class="right">';
-	$page .= warquest_link('mid='.$mid.'&sid='.$sid.'&eid='.EVENT_HOME_TRADE.'&uid=5', t('HOME_TRADE_IN'), "trade5");
-	$page .= '</div>';
+		$page .= '<tr>';
+		$page .= '<td width="170">';	
+		$page .= warquest_image("trade/trade6.jpg",' width="155" height="120" ');
+		$page .= '</td>';
 		
-	$page .= '<div class="subparagraph">';
-	$page .= t('HOME_TRADE5');
-	$page .= '</div>';
-	
-	$page .= '<div class="remark">';	
-	$page .= t('HOME_TRADE5_NOTE', gold_format($config["gold_trade_feature5"]));
-	$page .= '</div>';
-	$page .= '<br/>';	
-	$page .= t('HOME_TRADE_CONDITION').': '.level_format($skill->skill_points).' '.t('HOME_TRADE_SKILL_POINTS');
+		$premium = strtotime($player->premium_date) - time();
 		
-	$page .= '</td>';
-	$page .= '</tr>';
-					
-	/* -------------------------------------------------------------------- */
+		$page .= '<td width="330" valign="top" >';
+		
+		$page .= '<div class="right">';
+		
+		if ($premium<=0) {
+			
+			$page .= warquest_link('mid='.$mid.'&sid='.$sid.'&eid='.EVENT_HOME_TRADE.'&uid=6', t('HOME_TRADE_IN'), "trade6");
+			
+		}
+		$page .= '</div>';
+			
+		$page .= '<div class="subparagraph">'.t('HOME_TRADE6').'</div>';
+		
+		$page .= '<div class="remark">';
+		$page .= t('HOME_TRADE6_NOTE', gold_format($config["gold_trade_feature6"]));
+		$page .= '</div>';
+		
+		$page .= '<br/>';	
+			
+		$page .= t('GENERAL_STATUS').': ';
+		if ($premium<=0) {
+		
+			$page .= t('PREMIUM_NOT_ACTIVE');
+			
+		} else { 
+			
+			$page .= '<script language="JavaScript" src="'.$config["content_url"].'js/countdown1.js" type="text/javascript"></script>';
+		
+			$page .= t('PREMIUM_ACTIVE');
+			
+			$page .= '<div class="countdown"><div id="countdown_time1"></div></div>';
+			$page .= '<script language="JavaScript" type="text/javascript">';
+			$page .= "countdown1.init(".$premium.", 'countdown_time1', '00:00:00');"; 
+			$page .= '</script>';
+		}
 	
-	$page .= '</table>';	
-	$page .= '</div>';
+		$page .= '</td>';
+		$page .= '</tr>';	
+			
+		$page .= '<tr>';
+		$page .= '<td colspan="2" class="bar">&nbsp;</td>';
+		$page .= '</tr>';
+	
+	
+		/* -------------------------------------------------------------------- */
+		
+		$page .= '<tr>';
+		$page .= '<td width="170">';	
+		$page .= warquest_image("trade/trade1.jpg",' width="155" height="120" ');
+		$page .= '</td>';
+		
+		$page .= '<td width="330" valign="top" >';
+		
+		$page .= '<div class="right">';
+		$page .= warquest_link('mid='.$mid.'&sid='.$sid.'&eid='.EVENT_HOME_TRADE.'&uid=1', t('HOME_TRADE_IN'), "trade1");
+		$page .= '</div>';
+			
+		$page .= '<div class="subparagraph">';
+		$page .= t('HOME_TRADE1');
+		$page .= '</div>';
+		
+		$page .= '<div class="remark">';
+		$page .= t('HOME_TRADE1_NOTE', gold_format($config["gold_trade_feature1"]));
+		$page .= '</div>';
+		
+		$page .= '<br/>';	
+				
+		$tmp = $config["init_health_timer"] - ($skill->health_timer * 5);	
+		$page .= t('HOME_TRADE_CONDITION').': '.level_format($tmp);
+		$page .= t('AGO_SECS');	
+		$page .= '<br/>';
+	
+		$tmp = $config['init_health_timer']-($config['max_health_reduction']*5);
+		$page .= t('HOME_TRADE_MINIMAL').': '.level_format($tmp);
+		$page .= t('AGO_SECS');	
+		$page .= '<br/>';
+		
+		$page .= '</td>';
+		$page .= '</tr>';	
+			
+		$page .= '<tr>';
+		$page .= '<td colspan="2" class="bar">&nbsp;</td>';
+		$page .= '</tr>';
+	
+		/* -------------------------------------------------------------------- */
+		
+		$page .= '<tr>';
+		$page .= '<td width="170">';	
+		$page .= warquest_image("trade/trade2.jpg",' width="155" height="120" ');
+		$page .= '</td>';
+		
+		$page .= '<td width="330" valign="top" >';
+		
+		$page .= '<div class="right">';
+		$page .= warquest_link('mid='.$mid.'&sid='.$sid.'&eid='.EVENT_HOME_TRADE.'&uid=2', t('HOME_TRADE_IN'), "trade2");
+		$page .= '</div>';
+			
+		$page .= '<div class="subparagraph">';
+		$page .= t('HOME_TRADE2');
+		$page .= '</div>';
+		
+		$page .= '<div class="remark">';
+		$page .= t('HOME_TRADE2_NOTE', gold_format($config["gold_trade_feature2"]));
+		$page .= '</div>';
+		$page .= '<br/>';	
+		
+		$tmp = $config["init_energy_timer"] - ($skill->energy_timer * 5); 		
+		$page .= t('HOME_TRADE_CONDITION').': '.level_format($tmp);
+		$page .= t('AGO_SECS');	
+		$page .= '<br/>';
+	
+		$tmp = $config['init_energy_timer']-($config['max_energy_reduction']*5);
+		$page .= t('HOME_TRADE_MINIMAL').': '.level_format($tmp);
+		$page .= t('AGO_SECS');	
+		$page .= '<br/>';
+		
+		$page .= '</td>';
+		$page .= '</tr>';	
+			
+		$page .= '<tr>';
+		$page .= '<td colspan="2" class="bar">&nbsp;</td>';
+		$page .= '</tr>';
+	
+		/* -------------------------------------------------------------------- */
+		
+		$page .= '<tr>';
+		$page .= '<td width="170">';	
+		$page .= warquest_image("trade/trade3.jpg",' width="155" height="120" ');
+		$page .= '</td>';
+		
+		$page .= '<td width="330" valign="top" >';
+		
+		$page .= '<div class="right">';
+		$page .= warquest_link('mid='.$mid.'&sid='.$sid.'&eid='.EVENT_HOME_TRADE.'&uid=3', t('HOME_TRADE_IN'), "trade3");
+		$page .= '</div>';
+			
+		$page .= '<div class="subparagraph">';
+		$page .= t('HOME_TRADE3');
+		$page .= '</div>';
+			
+		$page .= '<div class="remark">';
+		$page .= t('HOME_TRADE3_NOTE', gold_format($config["gold_trade_feature3"]));
+		$page .= '</div>';
+		$page .= '<br/>';	
+		
+		$tmp = $config["init_ammo_timer"] - ($skill->ammo_timer * 5);		
+		$page .= t('HOME_TRADE_CONDITION').': '.level_format($tmp);	
+		$page .= t('AGO_SECS');	
+		$page .= '<br/>';
+	
+		$tmp = $config['init_ammo_timer']-($config['max_ammo_reduction']*5);
+		$page .= t('HOME_TRADE_MINIMAL').': '.level_format($tmp);
+		$page .= t('AGO_SECS');	
+		$page .= '<br/>';
+		
+		$page .= '</td>';
+		$page .= '</tr>';
+
+		$page .= '<tr>';
+		$page .= '<td colspan="2" class="bar">&nbsp;</td>';
+		$page .= '</tr>';		
+		
+		/* -------------------------------------------------------------------- */
+		
+		$page .= '<tr>';
+		$page .= '<td width="170">';	
+		$page .= warquest_image("trade/trade4.jpg",' width="155" height="120" ');
+		$page .= '</td>';
+		
+		$page .= '<td width="330" valign="top" >';
+		
+		$page .= '<div class="right">';
+		$page .= warquest_link('mid='.$mid.'&sid='.$sid.'&eid='.EVENT_HOME_TRADE.'&uid=4', t('HOME_TRADE_IN'), "trade4");
+		$page .= '</div>';
+			
+		$page .= '<div class="subparagraph">';
+		$page .= t('HOME_TRADE4');
+		$page .= '</div>';
+		
+		$page .= '<div class="remark">';	
+		$page .= t('HOME_TRADE4_NOTE', gold_format($config["gold_trade_feature4"]), money_format1(10000000000));
+		$page .= '</div>';
+		$page .= '<br/>';	
+			
+		$page .= t('HOME_TRADE_CONDITION').': '.dollar_format($player->money);
+				
+		$page .= '</td>';
+		$page .= '</tr>';	
+			
+		$page .= '<tr>';
+		$page .= '<td colspan="2" class="bar">&nbsp;</td>';
+		$page .= '</tr>';
+		
+		/* -------------------------------------------------------------------- */
+		
+		$page .= '<tr>';
+		$page .= '<td width="170">';	
+		$page .= warquest_image("trade/trade5.jpg",' width="155" height="120" ');
+		$page .= '</td>';
+		
+		$page .= '<td width="330" valign="top" >';
+		
+		$page .= '<div class="right">';
+		$page .= warquest_link('mid='.$mid.'&sid='.$sid.'&eid='.EVENT_HOME_TRADE.'&uid=5', t('HOME_TRADE_IN'), "trade5");
+		$page .= '</div>';
+			
+		$page .= '<div class="subparagraph">';
+		$page .= t('HOME_TRADE5');
+		$page .= '</div>';
+		
+		$page .= '<div class="remark">';	
+		$page .= t('HOME_TRADE5_NOTE', gold_format($config["gold_trade_feature5"]));
+		$page .= '</div>';
+		$page .= '<br/>';	
+		$page .= t('HOME_TRADE_CONDITION').': '.level_format($skill->skill_points).' '.t('HOME_TRADE_SKILL_POINTS');
+			
+		$page .= '</td>';
+		$page .= '</tr>';
+						
+		/* -------------------------------------------------------------------- */
+		
+		$page .= '</table>';	
+		$page .= '</div>';
+	}	
 	
 	$page .= '<p>';
-	$page .= '<div class="note">'.t('HOME_TRADE_NOTE').'</div>';
+	$page .= '<div class="note">'.t('TRADE_NOTE').'</div>';
 	$page .=  '</p>';
 }
-
+	
 /*
 ** ------------------
 ** HANDLER

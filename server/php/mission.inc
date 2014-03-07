@@ -572,6 +572,9 @@ function warquest_mission_clan_do() {
 		/* Check next level of player */
 		warquest_nextlevel($player);
 	 
+		/* Check if mission award is won */
+		warquest_mission_award_won($player);
+		
 		$message = t('MISSION_YOU_GAIN').': '.money_format1($money).t('MISSION_DOLLAR_AND');
 		$message .= experience_format($mission->experience).' '.t('GENERAL_EXPERIENCE_POINTS').'. <br/>';
 		$message .= t('MISSION_YOU_USED').': '.energy_format($mission->energy).' '.t('GENERAL_ENERGY').'. <br/>';
@@ -772,6 +775,9 @@ function warquest_mission_do() {
 		/* Check if all missions of a planet are complete */
 		warquest_mission_planet_complet();
 
+		/* Check if mission award is won */
+		warquest_mission_award_won($player);
+		
 		/* Update income value */
 		warquest_netto_income($player);		
 		

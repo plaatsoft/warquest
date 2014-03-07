@@ -1112,7 +1112,7 @@ function warquest_battle_do($planet, $ugid) {
 	} else if ($player->lid==0) {
 			
 		$message = t('BATTLE_UNLOCKED', t('GENERAL_PLANET_1'), 1).' '.t('BATTLE_FIRST_MISSION');
-		$output->popup .= warquest_box_icon("warning", $message);
+		$output->popup .= warquest_box_icon("locked", $message);
 		
 	} else if ($player->ammo<=0) {
 	
@@ -1146,22 +1146,22 @@ function warquest_battle_do($planet, $ugid) {
 	} else if (($planet==PLANET_MOON) && ($player->lid<100)) {
 	
 		$message = t('BATTLE_UNLOCKED', t('GENERAL_PLANET_'.$planet), 100);
-		$output->popup .= warquest_box_icon("warning", $message);
+		$output->popup .= warquest_box_icon("locked", $message);
 	
 	} else if (($planet==PLANET_MARS) && ($player->lid<150)) {
 	
 		$message = t('BATTLE_UNLOCKED', t('GENERAL_PLANET_'.$planet), 150);
-		$output->popup .= warquest_box_icon("warning", $message);
+		$output->popup .= warquest_box_icon("locked", $message);
 		
 	} else if (($planet==PLANET_MERCURY) && ($player->lid<200)) {
 	
 		$message = t('BATTLE_UNLOCKED', t('GENERAL_PLANET_'.$planet), 200);
-		$output->popup .= warquest_box_icon("warning", $message);
+		$output->popup .= warquest_box_icon("locked", $message);
 
 	} else if (($planet==PLANET_NEPTUNE) && ($player->lid<250)) {
 	
 		$message = t('BATTLE_UNLOCKED', t('GENERAL_PLANET_'.$planet), 250);		
-		$output->popup .= warquest_box_icon("warning", $message);
+		$output->popup .= warquest_box_icon("locked", $message);
 		
 	} else if (warquest_battle_check($player, $other, $ugid)==1) {
 		
@@ -1770,23 +1770,33 @@ function warquest_battle_enemies_form() {
 		$page .= warquest_box_icon('info', t('BATTLE_NO_UNITS_AVAILABLE'));
 		
 	} else if ($player->lid==0) {
-			
-		$message = '<table>';
-		$message .= '<tr>';
-		$message .= '<td>';
-		$message .= warquest_image("other/unlock.png");
-		$message .= '</td>';
-		$message .= '<td>';
-		$message .= t('BATTLE_UNLOCKED', t('GENERAL_PLANET_1'), 1);
-		$message .= '<br/>';
-		$message .= t('BATTLE_FIRST_MISSION');
-		$message .= '</td>';
-		$message .= '</tr>';
-		$message .= '</table>';
+		
+		$message = t('BATTLE_FIRST_MISSION');		
+		
 		$link = warquest_link('mid='.MENU_MISSIONS.'&sid='.PAGE_MISSION_PLAYER.'&ssid='.PAGE_MISSION_TRAINING, t('LINK_MISSIONS'), "mission-0");
-
-		$page .= warquest_box("", $message, $link);
+		
+		$page .= warquest_box_icon('locked', $message, $link);
+			
+	} else if (($player->planet==PLANET_MOON) && ($player->lid<100)) {
+			
+		$message = t('BATTLE_UNLOCKED', t('GENERAL_PLANET_'.$player->planet), 100);
+		$page .= warquest_box_icon('locked', $message);
+		
+	} else if (($player->planet==PLANET_MARS) && ($player->lid<150)) {
+		
+		$message = t('BATTLE_UNLOCKED', t('GENERAL_PLANET_'.$player->planet), 150);
+		$page .= warquest_box_icon('locked', $message);
 	
+	} else if (($player->planet==PLANET_MERCURY) && ($player->lid<200)) {
+			
+		$message = t('BATTLE_UNLOCKED', t('GENERAL_PLANET_'.$player->planet), 200);
+		$page .= warquest_box_icon('locked', $message);
+		
+	} else if (($player->planet==PLANET_NEPTUNE) && ($player->lid<250)) {
+			
+		$message = t('BATTLE_UNLOCKED', t('GENERAL_PLANET_'.$player->planet), 250);
+		$page .= warquest_box_icon('locked', $message);
+		
 	} else if ($player->cease_fire_date > date("Y-m-d H:i:s", time())) {
 	
 		$value = strtotime($player->cease_fire_date)-time();
@@ -1799,66 +1809,6 @@ function warquest_battle_enemies_form() {
 		$page .= '<script language="JavaScript" type="text/javascript">';
 		$page .= "countdown4.init(".$value.", 'countdown_time4', '00:00:00');"; 
 		$page .= '</script>';
-				
-	} else if (($player->planet==PLANET_MOON) && ($player->lid<100)) {
-			
-		$message = '<table>';
-		$message .= '<tr>';
-		$message .= '<td>';
-		$message .= warquest_image("other/unlock.png");
-		$message .= '</td>';
-		$message .= '<td>';
-		$message .= t('BATTLE_UNLOCKED', t('GENERAL_PLANET_'.$player->planet), 100);
-		$message .= '</td>';
-		$message .= '</tr>';
-		$message .= '</table>';
-
-		$page .= warquest_box("", $message);
-		
-	} else if (($player->planet==PLANET_MARS) && ($player->lid<150)) {
-		
-		$message = '<table>';
-		$message .= '<tr>';
-		$message .= '<td>';
-		$message .= warquest_image("other/unlock.png");
-		$message .= '</td>';
-		$message .= '<td>';
-		$message .= t('BATTLE_UNLOCKED', t('GENERAL_PLANET_'.$player->planet), 150);
-		$message .= '</td>';
-		$message .= '</tr>';
-		$message .= '</table>';
-
-		$page .= warquest_box("", $message);
-	
-	} else if (($player->planet==PLANET_MERCURY) && ($player->lid<200)) {
-			
-		$message = '<table>';
-		$message .= '<tr>';
-		$message .= '<td>';
-		$message .= warquest_image("other/unlock.png");
-		$message .= '</td>';
-		$message .= '<td>';
-		$message .= t('BATTLE_UNLOCKED', t('GENERAL_PLANET_'.$player->planet), 200);
-		$message .= '</td>';
-		$message .= '</tr>';
-		$message .= '</table>';
-
-		$page .= warquest_box("", $message);
-		
-	} else if (($player->planet==PLANET_NEPTUNE) && ($player->lid<250)) {
-			
-		$message = '<table>';
-		$message .= '<tr>';
-		$message .= '<td>';
-		$message .= warquest_image("other/unlock.png");
-		$message .= '</td>';
-		$message .= '<td>';
-		$message .= t('BATTLE_UNLOCKED', t('GENERAL_PLANET_'.$player->planet), 250);
-		$message .= '</td>';
-		$message .= '</tr>';
-		$message .= '</table>';
-
-		$page .= warquest_box("", $message);
 		
 	} else {
 				
@@ -1995,79 +1945,29 @@ function warquest_battle_bounty_form() {
 		
 	} else if (($player->planet==PLANET_MOON) && ($player->lid<100)) {
 	
-		$message = '<table>';
-		$message .= '<tr>';
-		$message .= '<td>';
-		$message .= warquest_image("other/unlock.png");
-		$message .= '</td>';
-		$message .= '<td>';
-		$message .= t('BATTLE_BOUNTY_UNLOCKED', t('GENERAL_PLANET_'.$player->planet), 100);
-		$message .= '</td>';
-		$message .= '</tr>';
-		$message .= '</table>';
-
-		$page .= warquest_box("", $message);
+		$message = t('BATTLE_BOUNTY_UNLOCKED', t('GENERAL_PLANET_'.$player->planet), 100);
+		$page .= warquest_box_icon('locked', $message);
 		
 	} else if (($player->planet==PLANET_MARS) && ($player->lid<150)) {
 			
-		$message = '<table>';
-		$message .= '<tr>';
-		$message .= '<td>';
-		$message .= warquest_image("other/unlock.png");
-		$message .= '</td>';
-		$message .= '<td>';
-		$message .= t('BATTLE_BOUNTY_UNLOCKED', t('GENERAL_PLANET_'.$player->planet), 150);
-		$message .= '</td>';
-		$message .= '</tr>';
-		$message .= '</table>';
-
-		$page .= warquest_box("", $message);
+		$message = t('BATTLE_BOUNTY_UNLOCKED', t('GENERAL_PLANET_'.$player->planet), 150);
+		$page .= warquest_box_icon('locked', $message);
 	
 	} else if (($player->planet==PLANET_MERCURY) && ($player->lid<200)) {
 			
-		$message = '<table>';
-		$message .= '<tr>';
-		$message .= '<td>';
-		$message .= warquest_image("other/unlock.png");
-		$message .= '</td>';
-		$message .= '<td>';
-		$message .= t('BATTLE_BOUNTY_UNLOCKED', t('GENERAL_PLANET_'.$player->planet), 200);
-		$message .= '</td>';
-		$message .= '</tr>';
-		$message .= '</table>';
-
-		$page .= warquest_box("", $message);
+		$message = t('BATTLE_BOUNTY_UNLOCKED', t('GENERAL_PLANET_'.$player->planet), 200);
+		$page .= warquest_box_icon('locked', $message);
 	
 	} else if (($player->planet==PLANET_NEPTUNE) && ($player->lid<250)) {
 			
-		$message = '<table>';
-		$message .= '<tr>';
-		$message .= '<td>';
-		$message .= warquest_image("other/unlock.png");
-		$message .= '</td>';
-		$message .= '<td>';
-		$message .= t('BATTLE_BOUNTY_UNLOCKED', t('GENERAL_PLANET_'.$player->planet), 250);
-		$message .= '</td>';
-		$message .= '</tr>';
-		$message .= '</table>';
-
-		$page .= warquest_box("", $message);
+		$message = t('BATTLE_BOUNTY_UNLOCKED', t('GENERAL_PLANET_'.$player->planet), 250);
+		$page .= warquest_box_icon('locked', $message);
 	
 	} else if ($player->lid < $lid) {
 	
-		$message = '<table>';
-		$message .= '<tr>';
-		$message .= '<td>';
-		$message .= warquest_image("other/unlock.png");
-		$message .= '</td>';
-		$message .= '<td>';
-		$message .= t('BATTLE_BOUNTY_UNLOCKED', t('GENERAL_PLANET_1'), $lid);
-		$message .= '</td>';
-		$message .= '</tr>';
-		$message .= '</table>';
+		$message = t('BATTLE_BOUNTY_UNLOCKED', t('GENERAL_PLANET_1'), $lid);
+		$page .= warquest_box_icon('locked', $message);
 	
-		$page .= warquest_box("", $message);
-
 	} else if ($player->cease_fire_date > date("Y-m-d H:i:s", time())) {
 	
 		$value = strtotime($player->cease_fire_date)-time();
@@ -2111,7 +2011,11 @@ function warquest_battle_bounty_form() {
 			$query .= 'and b.lid > 249 ';
 		}
 		
-		$query .= 'order by rand() limit 0, 20';	
+		if (warquest_db_query_pattern($player, PATTERN_SORT2)==1) {
+			$query .= 'order by b.last_battle asc limit 0, 20'; 
+		} else { 		
+			$query .= 'order by rand() limit 0, 20';	
+		}
 	
 		$result = warquest_db_query($query);	  
 		$count=warquest_db_num_rows($result);
@@ -2208,78 +2112,30 @@ function warquest_battle_clan_war_form() {
 		
 	} else if (($player->planet==PLANET_MOON) && ($player->lid<100)) {
 	
-		$message = '<table>';
-		$message .= '<tr>';
-		$message .= '<td>';
-		$message .= warquest_image("other/unlock.png");
-		$message .= '</td>';
-		$message .= '<td>';
-		$message .= t('BATTLE_CLAN_WAR_UNLOCKED', t('GENERAL_PLANET_'.$player->planet), 100);
-		$message .= '</td>';
-		$message .= '</tr>';
-		$message .= '</table>';
+		$message = t('BATTLE_CLAN_WAR_UNLOCKED', t('GENERAL_PLANET_'.$player->planet), 100);
+		$page .= warquest_box_icon('locked', $message);
 
 		$page .= warquest_box("", $message);
 		
 	} else if (($player->planet==PLANET_MARS) && ($player->lid<150)) {
 			
-		$message = '<table>';
-		$message .= '<tr>';
-		$message .= '<td>';
-		$message .= warquest_image("other/unlock.png");
-		$message .= '</td>';
-		$message .= '<td>';
-		$message .= t('BATTLE_CLAN_WAR_UNLOCKED', t('GENERAL_PLANET_'.$player->planet), 150);
-		$message .= '</td>';
-		$message .= '</tr>';
-		$message .= '</table>';
-
-		$page .= warquest_box("", $message);
+		$message = t('BATTLE_CLAN_WAR_UNLOCKED', t('GENERAL_PLANET_'.$player->planet), 150);
+		$page .= warquest_box_icon('locked', $message);
 	
 	} else if (($player->planet==PLANET_MERCURY) && ($player->lid<200)) {
 			
-		$message = '<table>';
-		$message .= '<tr>';
-		$message .= '<td>';
-		$message .= warquest_image("other/unlock.png");
-		$message .= '</td>';
-		$message .= '<td>';
-		$message .= t('BATTLE_CLAN_WAR_UNLOCKED', t('GENERAL_PLANET_'.$player->planet), 200);
-		$message .= '</td>';
-		$message .= '</tr>';
-		$message .= '</table>';
-
-		$page .= warquest_box("", $message);
+		$message = t('BATTLE_CLAN_WAR_UNLOCKED', t('GENERAL_PLANET_'.$player->planet), 200);
+		$page .= warquest_box_icon('locked', $message);
 		
 	} else if (($player->planet==PLANET_NEPTUNE) && ($player->lid<250)) {
 			
-		$message = '<table>';
-		$message .= '<tr>';
-		$message .= '<td>';
-		$message .= warquest_image("other/unlock.png");
-		$message .= '</td>';
-		$message .= '<td>';
-		$message .= t('BATTLE_CLAN_WAR_UNLOCKED', t('GENERAL_PLANET_'.$player->planet), 250);
-		$message .= '</td>';
-		$message .= '</tr>';
-		$message .= '</table>';
-
-		$page .= warquest_box("", $message);
+		$message = t('BATTLE_CLAN_WAR_UNLOCKED', t('GENERAL_PLANET_'.$player->planet), 250);
+		$page .= warquest_box_icon('locked', $message);
 			
 	} else if ($player->lid < $lid) {
 			
-		$message = '<table>';
-		$message .= '<tr>';
-		$message .= '<td>';
-		$message .= warquest_image("other/unlock.png");
-		$message .= '</td>';
-		$message .= '<td>';
-		$message .= t('BATTLE_CLAN_WAR_UNLOCKED', t('GENERAL_PLANET_'.$player->planet), $lid);
-		$message .= '</td>';
-		$message .= '</tr>';
-		$message .= '</table>';
-		
-		$page .= warquest_box("", $message);
+		$message = t('BATTLE_CLAN_WAR_UNLOCKED', t('GENERAL_PLANET_'.$player->planet), $lid);
+		$page .= warquest_box_icon('locked', $message);
 
 	} else if ($player->cease_fire_date > date("Y-m-d H:i:s", time())) {
 	

@@ -63,8 +63,6 @@ function warquest_admin_member_do() {
 	$result = warquest_db_query($query);	
 	$total = warquest_db_num_rows($result);
 	
-	
-		
 	if ($total != 0 ) {
 					
 		$query  = 'select a.pid, a.created, b.request_date, b.name, b.country, b.experience, a.platform, ';
@@ -213,23 +211,13 @@ function warquest_admin_member_form() {
 	
 	$page .= '<form method="post">';
 	$page .=	'<div class="box">';
-	$page .=	'<table>';
-		
-	$page .=	'<tr>';
 	
-	$page .=	'<td width="100">Nickname:</td>';
-	$page .=	'<td>';
+	$page .=	'Nickname: ';
 	$page .=	'<input name="nickname" type="text" id="nickname" size="40" maxlength="30" value="'.$nickname.'" >';
-	$page .=	'</td>';
-	
-	$page .=	'<td width="130" align="right">';
+	$page .=	'<div class="right2">';
 	$page .=	'<input type="hidden" name="token" value="'.warquest_token('mid='.$mid.'&sid='.PAGE_PLAYER_LIST).'" />';
 	$page .=	'<input type="submit" name="Submit" value="Search" />';
-	$page .=	'</td>';
-	
-	$page .=	'</tr>';
-		
-	$page .=	'</table>';
+	$page .=	'</div>';
 	$page .=	'</div>';
 	$page .=	'</form>';	
 }
@@ -1984,6 +1972,11 @@ function warquest_admin_player_award_update_do() {
 			$found = 1;
 		}
 		
+		if (warquest_mission_award_won_do($player)>0) {
+			$update++;
+			$found = 1;
+		}
+		
 		if (warquest_bounty_award_won_do($player)>0) {
 			$update++;
 			$found = 1;	
@@ -2126,15 +2119,15 @@ function warquest_admin_action_form() {
 	$page .= '<ul>'; 
 	
 	$page .= '<li>';
-	$page .= warquest_link('mid='.$mid.'&sid='.$sid.'&eid='.EVENT_ADMIN_UPDATE_LEVELS, 'Update players levels. (HIGH DATABASE LOAD)');
+	$page .= warquest_link('mid='.$mid.'&sid='.$sid.'&eid='.EVENT_ADMIN_UPDATE_LEVELS, 'Update players levels (HIGH DATABASE LOAD)');
 	$page .= '</li>';
 	
 	$page .= '<li>'; 
-	$page .= warquest_link('mid='.$mid.'&sid='.$sid.'&eid='.EVENT_ADMIN_UPDATE_AWARDS, 'Update players awards. (HIGH DATABASE LOAD)');
+	$page .= warquest_link('mid='.$mid.'&sid='.$sid.'&eid='.EVENT_ADMIN_UPDATE_AWARDS, 'Update players awards (HIGH DATABASE LOAD)');
 	$page .= '</li>';
 		
 	$page .= '<li>'; 
-	$page .= warquest_link('mid='.$mid.'&sid='.$sid.'&eid='.EVENT_ADMIN_UPDATE_ROBOTS, 'Accept all robot ally requested (cron job)');
+	$page .= warquest_link('mid='.$mid.'&sid='.$sid.'&eid='.EVENT_ADMIN_UPDATE_ROBOTS, 'Accept robot alliance requests (cron job)');
 	$page .= '</li>';
 
 	$page .= '<li>'; 
@@ -2185,11 +2178,11 @@ function warquest_admin_action_form() {
 	$page .= '</li>';
 		
 	$page .= '<li>'; 
-	$page .= warquest_link('mid='.$mid.'&sid='.$sid.'&eid='.EVENT_ADMIN_UPDATE_MONEY, 'Players money update. (HIGH DATABASE LOAD)');
+	$page .= warquest_link('mid='.$mid.'&sid='.$sid.'&eid='.EVENT_ADMIN_UPDATE_MONEY, 'Players money update (HIGH DATABASE LOAD)');
 	$page .= '</li>';
 					
 	$page .= '<li>'; 
-	$page .= warquest_link('mid='.$mid.'&sid='.$sid.'&eid='.EVENT_ADMIN_UPDATE_STAFF, 'Players citizens update. (HIGH DATABASE LOAD)');
+	$page .= warquest_link('mid='.$mid.'&sid='.$sid.'&eid='.EVENT_ADMIN_UPDATE_STAFF, 'Players citizens update (HIGH DATABASE LOAD)');
 	$page .= '</li>';
 	
 	$page .= '<li>'; 

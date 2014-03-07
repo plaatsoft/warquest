@@ -17,9 +17,11 @@
 */
 
 $notes[66] = '
-<div class="subparagraph2">04-03-2014</div>
+<div class="subparagraph2">06-03-2014</div>
 <i>Game Server v6.6</i>
 <ul>
+<li>Added 45 mission awards.</li>
+<li>Added player search to Player->Alliance->Invite page.</li>
 <li>Added Forums->Clan message system.</li>
 <li>Added Admin->Views page (Admin Mode only).</li>
 <li>Added robot account update (Admin Mode only).</li>
@@ -28,6 +30,7 @@ $notes[66] = '
 <li>Improve doMission method of WarQuest WebService interface.</li>
 <li>Disable account reset functionality.</li>
 <li>Disable automatic clan (member) inactive remove.</li>
+<li>Added trade, restore features to unlock schema.</li>
 </ul></br>
 
 <i>General</i>

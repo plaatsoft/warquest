@@ -573,15 +573,20 @@ function warquest_help_awards_form() {
 	global $page;
 	global $output;
 	
-	$output->title = t('HELP_AWARDS_SUBTITLE');
-	
+	$output->title = t('HELP_AWARDS_SUBTITLE');	
 	$page .= '<div class="subparagraph">'.t('HELP_AWARDS_SUBTITLE').'</div>';
 	
-	$page .= '<div class="box rows">';
-		
-	$page .= t('HELP_BATTLE_AWARDS').'<br/>';
+	$page .= '<br/>';
+	
+	$page .= t('HELP_AWARDS_TEXT').'<br/>';
 	
 	$page .= '<br/>';
+	
+	$page .= '<div class="subparagraph">';
+	$page .= t('HELP_BATTLE_AWARDS').'<br/>';
+	$page .= '</div>';
+	
+	$page .= '<div class="box rows">';
 
 	$page .= '<table>';
 
@@ -615,7 +620,7 @@ function warquest_help_awards_form() {
 		$page .= '</td>';
 
 		$page .= '<td>';
-		$page .= warquest_battle_image($data->id, $data->won);
+		$page .= warquest_battle_award_image($data->id, $data->won);
 		$page .= '</td>';
 		
 		$page .= '<td>';
@@ -626,16 +631,67 @@ function warquest_help_awards_form() {
 	}
 	$page .= '</table>';	
 	$page .= '</div>';		
+		
+	/* ---------------------------------------- */
 	
+	$page .= '<div class="subparagraph">';
+	$page .= t('HELP_MISSION_AWARDS').'<br/>';
+	$page .= '</div>';
+	
+	$page .= '<div class="box rows">';
+		
+	$page .= '<table>';
+
+	$page .= '<tr>';
+	
+	$page .= '<th width="250">';
+	$page .= t('GENERAL_WON');
+	$page .= '</th>';
+
+	$page .= '<th width="150">';
+	$page .= t('GENERAL_AWARD');
+	$page .= '</th>';
+		
+	$page .= '<th width="100">';
+	$page .= t('GENERAL_EP');
+	$page .= '</th>';
+		
+	$page .= '</tr>';
+		
+	$query =  'select id, won, ep from mission_award order by id';  
+	$result = warquest_db_query($query);
+	
+	$count = 0;
+	while ($data = warquest_db_fetch_object($result)) {
+	
+		$page .= '<tr>';
+		$page .= '<td>';
+		
+		$page .= number_format($data->won,0,",",".").' '.t('GENERAL_MISSION_AWARD_WON');
+
+		$page .= '</td>';
+
+		$page .= '<td>';
+		$page .= warquest_mission_award_image($data->id, $data->won);
+		$page .= '</td>';
+		
+		$page .= '<td>';
+		$page .= '+'.$data->ep;
+		$page .= '</td>';
+		
+		$page .= '</tr>';
+	}
+	$page .= '</table>';	
+	$page .= '</div>';	
 	
 	/* ---------------------------------------- */
 		
+	$page .= '<div class="subparagraph">';
+	$page .= t('HELP_BOUNTY_AWARDS').'<br/>';
+	$page .= '</div>';
+		
 	$page .= '<div class="box rows">';
 		
-	$page .= t('HELP_BOUNTY_AWARDS').'<br/>';
-	
-	$page .= '<br/>';
-
 	$page .= '<table>';
 
 	$page .= '<tr>';
@@ -669,7 +725,7 @@ function warquest_help_awards_form() {
 		$page .= '</td>';
 
 		$page .= '<td>';
-		$page .= warquest_bounty_image($data->id, $data->amount);
+		$page .= warquest_bounty_award_image($data->id, $data->amount);
 		$page .= '</td>';
 		
 		$page .= '<td>';
@@ -683,13 +739,13 @@ function warquest_help_awards_form() {
 	
 	
 	/* ---------------------------------------- */
-		
+	
+	$page .= '<div class="subparagraph">';
+	$page .= t('HELP_REBEL_AWARDS').'<br/>';
+	$page .= '</div>';
+	
 	$page .= '<div class="box rows">';
 		
-	$page .= t('HELP_REBEL_AWARDS').'<br/>';
-	
-	$page .= '<br/>';
-
 	$page .= '<table>';
 
 	$page .= '<tr>';
@@ -723,7 +779,7 @@ function warquest_help_awards_form() {
 		$page .= '</td>';
 
 		$page .= '<td>';
-		$page .= warquest_rebel_image($data->id, $data->amount);
+		$page .= warquest_rebel_award_image($data->id, $data->amount);
 		$page .= '</td>';
 		
 		$page .= '<td>';

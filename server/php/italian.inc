@@ -564,10 +564,8 @@ $lang['PLAYER_SKILL_REJECTED2']  = 'Skill %s ha raggiunto il livello minimo.';
 ** ------------------
 */
 
-$lang['PLAYER_RESTORE_TITLE'] = 'Ricarica & ripara';
-$lang['PLAYER_RESTORE_SUBTITLE1'] = 'Ricarica';
-$lang['PLAYER_RESTORE_SUBTITLE2'] = 'Ripara';
-$lang['PLAYER_RESTORE_UNLOCKED'] = 'Ricarica & ripara vengono sbloccate al livello %s.';
+$lang['RESTORE_TITLE'] = 'Ricarica & ripara';
+$lang['RESTORE_LOCKED'] = 'Ricarica & ripara vengono sbloccate al livello %s.';
 $lang['PLAYER_RESTORE_PRICE'] = 'Prezzo ricarica';
 $lang['PLAYER_RESTORE_PRICE_PER_DAY'] = 'Prezzo ricarica giornaliero';
 $lang['PLAYER_REPAIR_PRICE'] = 'Prezzo riparazioni';
@@ -2161,9 +2159,6 @@ $lang['HELP_RANKS'] = 'I seguenti ranghi sono disponibili:';
 */
 
 $lang['HELP_AWARDS_SUBTITLE'] = 'Premi';
-$lang['HELP_BATTLE_AWARDS'] = 'I seguenti premi per la vittoria nelle lotte possono essere guadagnati:';
-$lang['HELP_BOUNTY_AWARDS'] = 'I seguenti premi per le taglie messe possono essere guadagnati:';
-$lang['HELP_REBEL_AWARDS'] = 'I seguenti premi per inizio rivolta possono essere guadgnati:';
 
 /*
 ** ------------------

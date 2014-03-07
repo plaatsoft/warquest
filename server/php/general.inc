@@ -876,11 +876,11 @@ function t() {
 function warquest_place($place) {
 	
 	if ($place==1) {
-		return t('GENERAL_ST',$place);	
+		return t('GENERAL_ST',number_format($place, 0,",","."));	
 	} else if ($place==2) {
-		return t('GENERAL_ND',$place);	
+		return t('GENERAL_ND',number_format($place, 0,",","."));	
 	} else {
-		return t('GENERAL_TH',$place);
+		return t('GENERAL_TH',number_format($place, 0,",","."));
 	}
 }
 
@@ -1828,7 +1828,6 @@ function warquest_battle_award_won_do($player) {
 	return $returnValue;
 }
 
-
 /** 
  * Detect when player wins a battle award
  */
@@ -1859,9 +1858,85 @@ function warquest_battle_award_won($player) {
 		}
 		$message .= '<br/><br/>'; 
 		 
-		$message .= t('GENERAL_RECEIVED_AWARD')."<br/><br/>";			
-		$message .= warquest_battle_image($player->won_level-1, $player->won);
+		$message .= t('GENERAL_RECEIVED_AWARD').'  ';	
+		$message .= warquest_battle_award_image($player->won_level-1, $player->won);
+			
+		$link = warquest_link('mid='.MENU_HOME.'&sid='.PAGE_SKILLS, t('LINK_SP'));
+		
+		$output->popup .= warquest_box("info", $message, $link);
+	}
+}
+
+/** 
+ *  Detect when player wins a mission award
+ */
+function warquest_mission_award_won_do($player) {
+
+	global $config;
+	
+	$returnValue = 0;
+
+	$query =  "select won, ep from mission_award where id=".$player->mission_level;  	
+	$result = warquest_db_query($query);
+	
+	$won = 99999999999;
+	if ($data = warquest_db_fetch_object($result)) {
+		$won = $data->won;
+	}
+	
+	/* Detect next level */
+	if ($player->mission>=$won) {		
+	
+		/* Update player info */
+		$player->mission_level++;
+			
+		/* Update skill points */
+		$skill = warquest_db_skill($player->pid);
+		$skill->skill_points += $data->ep;
+		warquest_db_skill_update($skill);
+		
+		$returnValue = $data->ep;
+	}
+	
+	return $returnValue;
+}
+
+/** 
+ * Detect when player wins a mission award
+ */
+function warquest_mission_award_won($player) {
+		
+	/* input */
+	global $config;
+	
+		/* output */
+	global $output;
+	
+	$ep = warquest_mission_award_won_do($player);
+		
+	if ($ep>0) {
+	
+		$query = "select won, ep from mission_award where id=".($player->mission_level-1);  	
+		$result = warquest_db_query($query);
+		$data = warquest_db_fetch_object($result);
+	
+		/* Add bonus */
+		$money = $config["init_money"] * $player->lid * rand(1,3);
+		$player->money += $money;
+		
+		$log = 'Mission award bonus '.number_format2($money);		
+		warquest_user_log($player, $log);
+		
+		/* Show message */
+		$message  = t('GENERAL_MISSION_LEVEL', number_format2($data->won), $ep, money_format1($money)).'<br/><br/>';
+			
+		for ($tmp=0; $tmp<$ep; $tmp++) {
+			$message .= warquest_image("other/star.jpg");
+		}
 		$message .= '<br/><br/>'; 
+		 
+		$message .= t('GENERAL_RECEIVED_AWARD').'  ';			
+		$message .= warquest_mission_award_image($player->mission_level-1, $player->won);
 			
 		$link = warquest_link('mid='.MENU_HOME.'&sid='.PAGE_SKILLS, t('LINK_SP'));
 		
@@ -1933,9 +2008,8 @@ function warquest_bounty_award_won($player) {
 		}
 		$message .= '<br/><br/>'; 
 		 
-		$message .= t('GENERAL_RECEIVED_AWARD')."<br/><br/>";			
-		$message .= warquest_bounty_image($player->bounty_level-1, $player->bounty);
-		$message .= '<br/><br/>'; 
+		$message .= t('GENERAL_RECEIVED_AWARD').'  ';	
+		$message .= warquest_bounty_award_image($player->bounty_level-1, $player->bounty);
 			
 		$link = warquest_link('mid='.MENU_HOME.'&sid='.PAGE_SKILLS, t('LINK_SP'));
 		$output->popup .= warquest_box("info", $message, $link);
@@ -2007,10 +2081,9 @@ function warquest_rebel_award_won($player) {
 		}
 		$message .= '<br/><br/>'; 
 		 
-		$message .= t('GENERAL_RECEIVED_AWARD')."<br/><br/>";			
-		$message .= warquest_rebel_image($player->bounty_level-1, $player->bounty);
-		$message .= '<br/><br/>'; 
-			
+		$message .= t('GENERAL_RECEIVED_AWARD').'  ';		
+		$message .= warquest_rebel_award_image($player->bounty_level-1, $player->bounty);
+
 		$link = warquest_link('mid='.MENU_HOME.'&sid='.PAGE_SKILLS, t('LINK_SP'));
 		$output->popup .= warquest_box("info", $message, $link);
 	}
@@ -2640,6 +2713,7 @@ function warquest_box_icon($title, $content, $link="") {
 		$message .= '<tr>';
 	
 		if ($title=="info") {
+			
 			$message .= '<td width="70" valign="top">'; 
 			$message .= warquest_image('other/info.png',' width="64" height="64" ');
 			$message .= '</td>';
@@ -2648,6 +2722,7 @@ function warquest_box_icon($title, $content, $link="") {
 			$message .= '<div class="paragraph"><span class="info">'.t('BOX_INFO').'</span></div>';
 			
 		} else if ($title=="warning") {
+			
 			$message .= '<td width="70" valign="top">'; 
 			$message .= warquest_image('other/warning.png',' width="64" height="64" ');
 			$message .= '</td>';
@@ -2656,6 +2731,7 @@ function warquest_box_icon($title, $content, $link="") {
 			$message .= '<div class="paragraph"><span class="warning">'.t('BOX_WARN').'</span></div>';
 	
 		} else if ($title=="error") {
+			
 			$message .= '<td width="70" valign="top">'; 
 			$message .= warquest_image('other/error.png',' width="64" height="64" ');
 			$message .= '</td>';
@@ -2664,6 +2740,7 @@ function warquest_box_icon($title, $content, $link="") {
 			$message .= '<div class="paragraph"><span class="error">'.t('BOX_ERROR').'</span></div>';
 				
 		} else if ($title=="classified") {
+			
 			$message .= '<td width="70" valign="top">'; 
 			$message .= warquest_image('other/classified.png',' width="64" height="64" ');
 			$message .= '</td>';
@@ -2671,6 +2748,15 @@ function warquest_box_icon($title, $content, $link="") {
 			$message .= '<td width="430">';
 			$message .= '<div class="paragraph"><span class="warning">CLASSIFIED</span></div>';
 		
+		} else if ($title=="locked") {
+		
+			$message .= '<td width="70" valign="top">'; 
+			$message .= warquest_image('other/unlock.png',' width="64" height="64" ');
+			$message .= '</td>';
+			
+			$message .= '<td width="430">';
+			$message .= '<div class="paragraph"><span class="warning">LOCKED</span></div>';
+			
 		} else { 
 	
 			$message .= '<td width="430">'; 
@@ -3392,7 +3478,7 @@ function warquest_planet_image($id) {
 /**
  * Get battle image
  */
-function warquest_battle_image($id, $won) {
+function warquest_battle_award_image($id, $won) {
 
 	/* input */
 	global $config;
@@ -3410,9 +3496,30 @@ function warquest_battle_image($id, $won) {
 }
 
 /**
+ * Get mission image
+ */
+function warquest_mission_award_image($id, $won) {
+
+	/* input */
+	global $config;
+	
+	$image = '<div id="btip'.$id.'" class="tooltip">';
+	$image .= number_format($won,0,",",".").' '.t('GENERAL_MISSION_AWARD_WON');
+	$image .= '</div>';
+		
+	$image  .= '<img id="baward'.$id.'" src="'.$config["content_url"].'images/mission/mission'.$id.'.png" ';
+	$image .= 'width="50" height="20" style="padding:1" ';
+	$image .= 'onmouseover="tooltip_show(\'btip'.$id.'\', \'baward'.$id.'\', 5, 5);" ';
+	$image .= 'onmouseout="tooltip_hide(\'btip'.$id.'\');" />';
+				
+	return $image;
+}
+
+
+/**
  * Get bounty image
  */
-function warquest_bounty_image($id, $amount) {
+function warquest_bounty_award_image($id, $amount) {
 
 	/* input */
 	global $config;
@@ -3432,7 +3539,7 @@ function warquest_bounty_image($id, $amount) {
 /**
  * Get rebel image
  */
-function warquest_rebel_image($id, $amount) {
+function warquest_rebel_award_image($id, $amount) {
 
 	/* input */
 	global $config;

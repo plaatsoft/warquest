@@ -201,88 +201,76 @@ function warquest_casino_wheel() {
 	
 	if ($player->lid < $config["casino_unlock_level_1"]) {
 	
-		$page .= '<br/>';
-	
-		$message = '<table>';
-		$message .= '<tr>';
-		$message .= '<td>';
-		$message .= warquest_image("other/unlock.png");
-		$message .= '</td>';
-		$message .= '<td>';
-		$message .= t('CASINO_UNLOCK', $output->title, $config["casino_unlock_level_1"]);
-		$message .= '</td>';
-		$message .= '</tr>';
-		$message .= '</table>';
+		$message = t('CASINO_UNLOCK', $output->title, $config["casino_unlock_level_1"]);
+		$page .= warquest_box_icon('locked', $message);
 
-		$page .= warquest_box("", $message);
-	
-		return;
-	}
-	
-	$money=0;
-		
-	$page .= '<div class="box">';
-	$page .= '<table>';
-	$page .= '<tr>';
-	
-	$page .= '<td width="160" >';	
-	$page .= warquest_casino_image($ssid, 140, 100);
-	$page .= '</td>';
-	
-	$page .= '<td width="340">';
-	
-	$page .= '<table>';	
-
-	$page .= '<tr>';
-	$page .= '<td width="320">';
-	$page .= t('CASINO_NUMBER').":<br/>";
-	
-	$page .= warquest_lucky_number_selected($number);
-	
-	$page .= '<br/>';	
-
-	$page .= t('CASINO_BET').":<br/>";
-	$page .= '<input type="text" id="bet" name="bet" size="20" maxlength="7" type="text" value="'.$bet.'" onkeydown="if (event.keyCode == 13) return false" > ';
-	$page .= warquest_link('mid='.$mid.'&sid='.$sid.'&ssid='.$ssid.'&eid='.EVENT_CASINO_WHEEL_PLAY, t('CASINO_PLAY'), 'play');
-	$page .= "</td>";
-	$page .= "</tr>";
-	
-	$page .= '</table>';
-	
-	$page .= '</td>';	
-	$page .= '</tr>';
-	$page .= '</table>';
-	
-	$page .= '</div>';
-	
-	$page .= '<div class="box">';
-	
-	$page .= '<canvas id="canvas" width="500" height="500"></canvas>';
-	$page .= '<script language="JavaScript" src="'.$config["content_url"].'js/wheel5.js"></script>';
-	
-	$page .= '<script language="JavaScript">'; 
-
-	$page .= 'initWheel('.$bet.','.$angle.','.$player->request.',\''.warquest_token('mid='.$mid.'&sid='.$sid.'&ssid='.$ssid.'&eid='.EVENT_CASINO_WHEEL_RESULT).'\');';
-	$page .= 'drawWheel();';
-	
-	/* Start the wheel */
-	if (($wheel==0) && ($eid==EVENT_CASINO_WHEEL_PLAY)) {		
-		$page .= 'document.getElementById("number").disabled = true;';
-		$page .= 'document.getElementById("bet").disabled = true;';
-		$page .= 'spinWheel();';
-		$page .= '</script>';
-		$page .= '<input type="hidden" name="number" value="'.$number.'" />';
-		$page .= '<input type="hidden" name="bet" value="'.$bet.'" />';
 	} else {
-		$page .= '</script>';
+	
+		$money=0;
+			
+		$page .= '<div class="box">';
+		$page .= '<table>';
+		$page .= '<tr>';
+		
+		$page .= '<td width="160" >';	
+		$page .= warquest_casino_image($ssid, 140, 100);
+		$page .= '</td>';
+		
+		$page .= '<td width="340">';
+		
+		$page .= '<table>';	
+	
+		$page .= '<tr>';
+		$page .= '<td width="320">';
+		$page .= t('CASINO_NUMBER').":<br/>";
+		
+		$page .= warquest_lucky_number_selected($number);
+		
+		$page .= '<br/>';	
+	
+		$page .= t('CASINO_BET').":<br/>";
+		$page .= '<input type="text" id="bet" name="bet" size="20" maxlength="7" type="text" value="'.$bet.'" onkeydown="if (event.keyCode == 13) return false" > ';
+		$page .= warquest_link('mid='.$mid.'&sid='.$sid.'&ssid='.$ssid.'&eid='.EVENT_CASINO_WHEEL_PLAY, t('CASINO_PLAY'), 'play');
+		$page .= "</td>";
+		$page .= "</tr>";
+		
+		$page .= '</table>';
+		
+		$page .= '</td>';	
+		$page .= '</tr>';
+		$page .= '</table>';
+		
+		$page .= '</div>';
+		
+		$page .= '<div class="box">';
+		
+		$page .= '<canvas id="canvas" width="500" height="500"></canvas>';
+		$page .= '<script language="JavaScript" src="'.$config["content_url"].'js/wheel5.js"></script>';
+		
+		$page .= '<script language="JavaScript">'; 
+		
+		$page .= 'initWheel('.$bet.','.$angle.','.$player->request.',\''.warquest_token('mid='.$mid.'&sid='.$sid.'&ssid='.$ssid.'&eid='.EVENT_CASINO_WHEEL_RESULT).'\');';
+		$page .= 'drawWheel();';
+		
+		/* Start the wheel */
+		if (($wheel==0) && ($eid==EVENT_CASINO_WHEEL_PLAY)) {		
+			$page .= 'document.getElementById("number").disabled = true;';
+			$page .= 'document.getElementById("bet").disabled = true;';
+			$page .= 'spinWheel();';
+			$page .= '</script>';
+			$page .= '<input type="hidden" name="number" value="'.$number.'" />';
+			$page .= '<input type="hidden" name="bet" value="'.$bet.'" />';
+		} else {
+			$page .= '</script>';
+		}
+		$page .= '</div>';	
 	}
-	$page .= '</div>';	
 	
 	$page .= '<div class="note">';
 	$page .= t('CASINO_NOTE'.$ssid);
 	$page .= '</div>';
 }
-
+	
 
 /*
 ** ---------------------------------------------------------------- 
@@ -610,127 +598,115 @@ function warquest_casino_slotmachine() {
 
 			
 	if ($player->lid < $config["casino_unlock_level_2"]) {
-	
-		$page .= '<br/>';
-	
-		$message = '<table>';
-		$message .= '<tr>';
-		$message .= '<td>';
-		$message .= warquest_image("other/unlock.png");
-		$message .= '</td>';
-		$message .= '<td>';
-		$message .= t('CASINO_UNLOCK', $output->title, $config["casino_unlock_level_2"]);
-		$message .= '</td>';
-		$message .= '</tr>';
-		$message .= '</table>';
-
-		$page .= warquest_box("", $message);
-	
-		return;
-	}
 		
-	$money=0;
+		$message = t('CASINO_UNLOCK', $output->title, $config["casino_unlock_level_2"]);
+		$page .= warquest_box_icon('locked', $message);
 		
-	$page .= '<script language="JavaScript" src="'.$config["content_url"].'js/slotmachine.js"></script>';
+	} else {
 		
-	$page .= '<div class="box">';
-	$page .= '<table>';
-	$page .= '<tr>';
-	
-	$page .= '<td width="160" >';	
-	$page .= warquest_casino_image($ssid, 140, 100);
-	$page .= '</td>';
-	
-	$page .= '<td width="340">';
-	
-	$page .= '<table>';
+		$money=0;
 			
-	$page .= '<tr>';
-	$page .= '<td width="290">';
-	$page .= t('CASINO_BET').":<br/>";
-	$page .= '<input id="bet" name="bet" size="20" maxlength="7" type="text" value="'.$bet.'" onkeydown="if (event.keyCode == 13) return false" /> ';
-	if ($eid!=EVENT_CASINO_SLOT_PLAY) {
-		$page .= warquest_link('mid='.$mid.'&sid='.$sid.'&ssid='.$ssid.'&eid='.EVENT_CASINO_SLOT_PLAY, t('CASINO_PLAY'), 'play');
-	} else {
-		$page .= '<a href="javascript:Go()">'.t('CASINO_PLAY').'</a>';
+		$page .= '<script language="JavaScript" src="'.$config["content_url"].'js/slotmachine.js"></script>';
+		
+		$page .= '<div class="box">';
+		$page .= '<table>';
+		$page .= '<tr>';
+	
+		$page .= '<td width="160" >';	
+		$page .= warquest_casino_image($ssid, 140, 100);
+		$page .= '</td>';
+	
+		$page .= '<td width="340">';
+	
+		$page .= '<table>';
+			
+		$page .= '<tr>';
+		$page .= '<td width="290">';
+		$page .= t('CASINO_BET').":<br/>";
+		$page .= '<input id="bet" name="bet" size="20" maxlength="7" type="text" value="'.$bet.'" onkeydown="if (event.keyCode == 13) return false" /> ';
+		if ($eid!=EVENT_CASINO_SLOT_PLAY) {
+			$page .= warquest_link('mid='.$mid.'&sid='.$sid.'&ssid='.$ssid.'&eid='.EVENT_CASINO_SLOT_PLAY, t('CASINO_PLAY'), 'play');
+		} else {
+			$page .= '<a href="javascript:Go()">'.t('CASINO_PLAY').'</a>';
+		}
+		$page .= "</td>";
+	
+		$page .= '<td align="right">';	
+		$page .= '<br/>';
+		$page .= warquest_link('mid='.$mid.'&sid='.$sid.'&ssid=4', t('LINK_HELP'), 'help4');
+		$page .= '</td>';
+		$page .= "</tr>";
+		
+		$page .= '</table>';
+		$page .= '</td>';
+		$page .= "</tr>";
+		
+		$page .= '</table>';
+		$page .= '</div>';
+		
+		$page .= '<div class="box">';
+			
+		$page .= '<table border=0 cellpadding=0 cellspacing=0>';
+	
+		$page .= '<tr>';
+		$page .= '<td><a href="javascript:Hold(0)"><img src="" name="r0top"></a></td>';
+		$page .= '<td width=9></td>';
+		$page .= '<td><a href="javascript:Hold(1)"><img src="" name="r1top"></a></td>';
+		$page .= '<td width=9></td>';
+		$page .= '<td><a href="javascript:Hold(2)"><img src="" name="r2top"></a></td>';
+		$page .= '</tr>';
+	
+		$page .= '<tr>';
+		$page .= '<td><a href="javascript:Hold(0)"><img src="" name="r0main"></a></td>';
+		$page .= '<td width=9></td>';
+		$page .= '<td><a href="javascript:Hold(1)"><img src="" name="r1main"></a></td>';
+		$page .= '<td width=9></td>';
+		$page .= '<td><a href="javascript:Hold(2)"><img src="" name="r2main"></a></td>';
+		$page .= '</tr>';
+	
+		$page .= '<tr>';
+		$page .= '<td><a href="javascript:Hold(0)"><img src="" name="r0btm"></a></td>';
+		$page .= '<td width=9></td>';
+		$page .= '<td><a href="javascript:Hold(1)"><img src="" name="r1btm"></a></td>';
+		$page .= '<td width=9></td>';
+		$page .= '<td><a href="javascript:Hold(2)"><img src="" name="r2btm"></a></td>';
+		$page .= '</tr>';
+	
+		$page .= '<tr>';
+		$page .= '<td><center><a href="javascript:Hold(0)"><label id="Hold0">'.t('CASINO_ROLL').'</label></a></center></td>';
+		$page .= '<td width=9></td>';
+		$page .= '<td><center><a href="javascript:Hold(1)"><label id="Hold1">'.t('CASINO_ROLL').'</label></a></center></td>';
+		$page .= '<td width=9></td>';
+		$page .= '<td><center><a href="javascript:Hold(2)"><label id="Hold2">'.t('CASINO_ROLL').'</label></a></center></td>';
+		$page .= '</tr>';
+		
+		$page .= '</table>';
+	
+		$page .= '</div>';
+
+		$page .= '<script language="JavaScript">';
+		
+		if (($price==0) && ($eid==EVENT_CASINO_SLOT_PLAY)) {		
+	
+			$page .= 'moneyStopTimer();';		
+			$page .= 'healthStopTimer();';		
+			$page .= 'energyStopTimer();';
+			$page .= 'ammoStopTimer();';
+			
+			$page .= 'Init("'.$a00.'","'.$a01.'","'.$a02.'","'.$a10.'","'.$a11.'","'.$a12.'","'.$a20.'","'.$a21.'","'.$a22.'","'.$bet.'","'.$player->request.'",\''.warquest_token('mid='.$mid.'&sid='.$sid.'&ssid='.$ssid.'&eid='.EVENT_CASINO_SLOT_RESULT).'\' );';
+			$page .= 'Go();';
+			
+			$page .= 'document.getElementById("bet").disabled = true;';
+		
+		} else {
+
+			$page .= 'Init("'.$a00.'","'.$a01.'","'.$a02.'","'.$a10.'","'.$a11.'","'.$a12.'","'.$a20.'","'.$a21.'","'.$a22.'","0","'.$player->request.'",\''.warquest_token('mid='.$mid.'&sid='.$sid.'&ssid='.$ssid.'&eid='.EVENT_CASINO_SLOT_RESULT).'\');';
+			$page .= 'Show();';		 
+		}
+
+		$page .= '</script>'; 
 	}
-	$page .= "</td>";
-
-	$page .= '<td align="right">';	
-	$page .= '<br/>';
-	$page .= warquest_link('mid='.$mid.'&sid='.$sid.'&ssid=4', t('LINK_HELP'), 'help4');
-	$page .= '</td>';
-	$page .= "</tr>";
 	
-	$page .= '</table>';
-	$page .= '</td>';
-	$page .= "</tr>";
-	
-	$page .= '</table>';
-	$page .= '</div>';
-	
-	$page .= '<div class="box">';
-		
-	$page .= '<table border=0 cellpadding=0 cellspacing=0>';
-
-	$page .= '<tr>';
-	$page .= '<td><a href="javascript:Hold(0)"><img src="" name="r0top"></a></td>';
-	$page .= '<td width=9></td>';
-	$page .= '<td><a href="javascript:Hold(1)"><img src="" name="r1top"></a></td>';
-	$page .= '<td width=9></td>';
-	$page .= '<td><a href="javascript:Hold(2)"><img src="" name="r2top"></a></td>';
-	$page .= '</tr>';
-
-	$page .= '<tr>';
-	$page .= '<td><a href="javascript:Hold(0)"><img src="" name="r0main"></a></td>';
-	$page .= '<td width=9></td>';
-	$page .= '<td><a href="javascript:Hold(1)"><img src="" name="r1main"></a></td>';
-	$page .= '<td width=9></td>';
-	$page .= '<td><a href="javascript:Hold(2)"><img src="" name="r2main"></a></td>';
-	$page .= '</tr>';
-
-	$page .= '<tr>';
-	$page .= '<td><a href="javascript:Hold(0)"><img src="" name="r0btm"></a></td>';
-	$page .= '<td width=9></td>';
-	$page .= '<td><a href="javascript:Hold(1)"><img src="" name="r1btm"></a></td>';
-	$page .= '<td width=9></td>';
-	$page .= '<td><a href="javascript:Hold(2)"><img src="" name="r2btm"></a></td>';
-	$page .= '</tr>';
-
-	$page .= '<tr>';
-	$page .= '<td><center><a href="javascript:Hold(0)"><label id="Hold0">'.t('CASINO_ROLL').'</label></a></center></td>';
-	$page .= '<td width=9></td>';
-	$page .= '<td><center><a href="javascript:Hold(1)"><label id="Hold1">'.t('CASINO_ROLL').'</label></a></center></td>';
-	$page .= '<td width=9></td>';
-	$page .= '<td><center><a href="javascript:Hold(2)"><label id="Hold2">'.t('CASINO_ROLL').'</label></a></center></td>';
-	$page .= '</tr>';
-	
-	$page .= '</table>';
-	
-	$page .= '</div>';
-
-	$page .= '<script language="JavaScript">';
-		
-	if (($price==0) && ($eid==EVENT_CASINO_SLOT_PLAY)) {		
-
-		$page .= 'moneyStopTimer();';		
-		$page .= 'healthStopTimer();';		
-		$page .= 'energyStopTimer();';
-		$page .= 'ammoStopTimer();';
-		
-		$page .= 'Init("'.$a00.'","'.$a01.'","'.$a02.'","'.$a10.'","'.$a11.'","'.$a12.'","'.$a20.'","'.$a21.'","'.$a22.'","'.$bet.'","'.$player->request.'",\''.warquest_token('mid='.$mid.'&sid='.$sid.'&ssid='.$ssid.'&eid='.EVENT_CASINO_SLOT_RESULT).'\' );';
-		$page .= 'Go();';
-		
-		$page .= 'document.getElementById("bet").disabled = true;';
-		
-	} else {
-
-		$page .= 'Init("'.$a00.'","'.$a01.'","'.$a02.'","'.$a10.'","'.$a11.'","'.$a12.'","'.$a20.'","'.$a21.'","'.$a22.'","0","'.$player->request.'",\''.warquest_token('mid='.$mid.'&sid='.$sid.'&ssid='.$ssid.'&eid='.EVENT_CASINO_SLOT_RESULT).'\');';
-		$page .= 'Show();';		 
-	}
-
-	$page .= '</script>'; 
-
 	$page .= '<div class="note">';
 	$page .= t('CASINO_NOTE'.$ssid);
 	$page .= '</div>';
@@ -872,90 +848,78 @@ function warquest_casino_tictactoe() {
 	$page .= $output->title;
 	$page .= '</div>';
 	
-	if ($player->lid < $config["casino_unlock_level_3"]) {
+	if ($player->lid < ($config["casino_unlock_level_3"])) {
 	
+		$message = t('CASINO_UNLOCK', $output->title, $config["casino_unlock_level_3"]);
+		$page .= warquest_box_icon('locked', $message);
+		
+	} else {
+	 
+		$money = 0;
+			
+		$page .= '<div class="box">';
+		$page .= '<table>';
+		$page .= '<tr>';
+		
+		$page .= '<td width="160" >';	
+		$page .= warquest_casino_image($ssid, 140, 100);
+		$page .= '</td>';
+	
+		$page .= '<td width="340">';	
+		
+		$page .= "<table>";
+		
+		$page .= "<tr>";
+	
+		$page .= '<td width="320">';
+		$page .= t('CASINO_BET').":<br/>";
+		$page .= '<input type="text" id="bet" name="bet" size="20" maxlength="7" type="text" onkeydown="if (event.keyCode == 13) return false" value="'.$bet.'"> ';
+			
+		$page .= warquest_link('mid='.$mid.'&sid='.$sid.'&ssid='.$ssid.'&eid='.EVENT_CASINO_TIC_PLAY, t('CASINO_PLAY'), 'play');
+			
+		$page .= "</td>";
+		$page .= "</tr>";
+						
+		$page .= '</table>';
+		
+		$page .= '</td>';	
+		$page .= '</tr>';
+		$page .= '</table>';
+		
+		$page .= '</div>';
+			
+		$page .= '<div class="box">';
+		
+		$page .= '<br/>';
+		$page .= '<center>';
+		$page .= '<input type="button" id="sqr1" class="tictac" onClick="setTicTacToe(1)">';
+		$page .= '<input type="button" id="sqr2" class="tictac" onClick="setTicTacToe(2)">';
+		$page .= '<input type="button" id="sqr3" class="tictac" onClick="setTicTacToe(3)">';
+		$page .= '<br/>';
+		$page .= '<input type="button" id="sqr4" class="tictac" onClick="setTicTacToe(4)">';
+		$page .= '<input type="button" id="sqr5" class="tictac" onClick="setTicTacToe(5)">';
+		$page .= '<input type="button" id="sqr6" class="tictac" onClick="setTicTacToe(6)">';
+		$page .= '<br/>';
+		$page .= '<input type="button" id="sqr7" class="tictac" onClick="setTicTacToe(7)">';
+		$page .= '<input type="button" id="sqr8" class="tictac" onClick="setTicTacToe(8)">';
+		$page .= '<input type="button" id="sqr9" class="tictac" onClick="setTicTacToe(9)">';
+		$page .= '</center>';
 		$page .= '<br/>';
 	
-		$message = '<table>';
-		$message .= '<tr>';
-		$message .= '<td>';
-		$message .= warquest_image("other/unlock.png");
-		$message .= '</td>';
-		$message .= '<td>';
-		$message .= t('CASINO_UNLOCK', $output->title, $config["casino_unlock_level_3"]);
-		$message .= '</td>';
-		$message .= '</tr>';
-		$message .= '</table>';
+		if ($eid!=EVENT_CASINO_TIC_PLAY) {
+			$page .= '<script language="JavaScript">'; 
+			$page .= 'disableTicTacToe();';		
+			$page .= '</script>';
+		}
 
-		$page .= warquest_box("", $message);
-	
-		return;
-	}
-	
-	$money = 0;
-		
-	$page .= '<div class="box">';
-	$page .= '<table>';
-	$page .= '<tr>';
-	
-	$page .= '<td width="160" >';	
-	$page .= warquest_casino_image($ssid, 140, 100);
-	$page .= '</td>';
-	
-	$page .= '<td width="340">';	
-	
-	$page .= "<table>";
-	
-	$page .= "<tr>";
-
-	$page .= '<td width="320">';
-	$page .= t('CASINO_BET').":<br/>";
-	$page .= '<input type="text" id="bet" name="bet" size="20" maxlength="7" type="text" onkeydown="if (event.keyCode == 13) return false" value="'.$bet.'"> ';
-		
-	$page .= warquest_link('mid='.$mid.'&sid='.$sid.'&ssid='.$ssid.'&eid='.EVENT_CASINO_TIC_PLAY, t('CASINO_PLAY'), 'play');
-		
-	$page .= "</td>";
-	$page .= "</tr>";
+		if ($eid==EVENT_CASINO_TIC_RESULT) {
+			$page .= '<script language="JavaScript">'; 
+			$page .= 'showTicTacToe(\''.$board.'\')';
+			$page .= '</script>';
+		}
 					
-	$page .= '</table>';
-	
-	$page .= '</td>';	
-	$page .= '</tr>';
-	$page .= '</table>';
-	
-	$page .= '</div>';
-		
-	$page .= '<div class="box">';
-	
-	$page .= '<br/>';
-	$page .= '<center>';
-	$page .= '<input type="button" id="sqr1" class="tictac" onClick="setTicTacToe(1)">';
-	$page .= '<input type="button" id="sqr2" class="tictac" onClick="setTicTacToe(2)">';
-	$page .= '<input type="button" id="sqr3" class="tictac" onClick="setTicTacToe(3)">';
-	$page .= '<br/>';
-	$page .= '<input type="button" id="sqr4" class="tictac" onClick="setTicTacToe(4)">';
-	$page .= '<input type="button" id="sqr5" class="tictac" onClick="setTicTacToe(5)">';
-	$page .= '<input type="button" id="sqr6" class="tictac" onClick="setTicTacToe(6)">';
-	$page .= '<br/>';
-	$page .= '<input type="button" id="sqr7" class="tictac" onClick="setTicTacToe(7)">';
-	$page .= '<input type="button" id="sqr8" class="tictac" onClick="setTicTacToe(8)">';
-	$page .= '<input type="button" id="sqr9" class="tictac" onClick="setTicTacToe(9)">';
-	$page .= '</center>';
-	$page .= '<br/>';
-
-	if ($eid!=EVENT_CASINO_TIC_PLAY) {
-		$page .= '<script language="JavaScript">'; 
-		$page .= 'disableTicTacToe();';		
-		$page .= '</script>';
+		$page .= '</div>';	
 	}
-
-	if ($eid==EVENT_CASINO_TIC_RESULT) {
-		$page .= '<script language="JavaScript">'; 
-		$page .= 'showTicTacToe(\''.$board.'\')';
-		$page .= '</script>';
-	}
-				
-	$page .= '</div>';	
 	
 	$page .= '<div class="note">';
 	$page .= t('CASINO_NOTE'.$ssid);

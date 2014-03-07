@@ -9,10 +9,31 @@ var url="";
 var planet = 1;
 var is_touch_device = 'ontouchstart' in document.documentElement;
 
-function initMap(planet, url, mid) {
+function getBaseURL() {
+	var url = location.href;  
+	var baseURL = url.substring(0, url.indexOf('/', 14));
+
+
+	if (baseURL.indexOf('http://127.0.0.1') != -1) {
+
+		var url = location.href;  
+		var pathname = location.pathname;  
+		var index1 = url.indexOf(pathname);
+		var index2 = url.indexOf("/", index1 + 1);
+		var baseLocalUrl = url.substr(0, index2);
+	
+		return baseLocalUrl + "/";
+		
+	} else {
+
+		return baseURL + "/";
+	}
+}
+
+function initMap(planet, mid) {
 
 	this.planet = planet;
-	this.url = url;
+	this.url = getBaseURL();
 	this.mid = mid;
 	drawScreen();
 	refresh();
@@ -56,7 +77,7 @@ function getSectorData() {
 		}
 	}
 	
-	xmlhttp.open("POST", url+"/" ,true);
+	xmlhttp.open("POST", url ,true);
 	xmlhttp.setRequestHeader("Content-type","application/x-www-form-urlencoded");
 	xmlhttp.send("mid="+mid+"&eid=1&id="+planet);
 }
@@ -91,7 +112,7 @@ function getClanInfo(cid) {
 		}
 	}
 	
-	xmlhttp.open("POST", url+"/" ,true);
+	xmlhttp.open("POST", url ,true);
 	xmlhttp.setRequestHeader("Content-type","application/x-www-form-urlencoded");
 	xmlhttp.send("mid="+mid+"&eid=2&id="+cid);
 }

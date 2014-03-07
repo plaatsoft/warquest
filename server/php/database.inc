@@ -1073,7 +1073,7 @@ function warquest_db_player_insert($name, $pid) {
 	$query .= 'bonus_date, ';
 	$query .= 'restore_health, restore_energy, restore_ammo, cease_fire_date, holiday_date, ';
 	$query .= 'bank1, bank2, bank3, ';	
-	$query .= 'lid, alliance, won_level, default_amount, bounty_level, rebel_level, ';
+	$query .= 'lid, alliance, won_level, default_amount, bounty_level, rebel_level, mission_level,';
 	$query .= 'request, request_date, last_battle, background, pattern, ';
 	$query .= 'country, gold, planet, premium_date) ';
 	$query .= 'values (';	
@@ -1085,7 +1085,7 @@ function warquest_db_player_insert($name, $pid) {
 	$query .= '"'.date("Y-m-d H:i:s", time()-10).'", ';
 	$query .= '"'.date("Y-m-d H:i:s", time()-10).'", "'.date("Y-m-d H:i:s", time()-10).'", "'.date("Y-m-d H:i:s", time()-10).'", "'.date("Y-m-d H:i:s", time()-10).'", "'.date("Y-m-d H:i:s", time()-10).'", ';
 	$query .= $config["init_money_bank1"].','.$config["init_money_bank2"].','.$config["init_money_bank3"].',';
-	$query .= $config["init_level"].', 1, 1, 1, 1, 1,';
+	$query .= $config["init_level"].', 1, 1, 1, 1, 1, 1, ';
 	$query .= '1,"'.date("Y-m-d H:i:s", time()).'", "'.date("Y-m-d H:i:s", time()).'",1,"0010000000000000", ';
 	$query .= '"'.warquest_getlocation($_SERVER["REMOTE_ADDR"]).'", 0, '.PLANET_EARTH.',"'.date("Y-m-d H:i:s", time()).'")';  
 		
@@ -1129,11 +1129,12 @@ function warquest_db_player_update($player) {
 	$query .= 'gold='.$player->gold.', ';
 	$query .= 'upkeep='.$player->upkeep.', ';
 	$query .= 'experience='.$player->experience.', ';
-	$query .= 'lid='.$player->lid.', ';
-	$query .= 'won_level='.$player->won_level.', ';
+	$query .= 'lid='.$player->lid.', ';	
 	$query .= 'won='.$player->won.', ';
+	$query .= 'won_level='.$player->won_level.', ';
 	$query .= 'lost='.$player->lost.', ';
 	$query .= 'mission='.$player->mission.', ';
+	$query .= 'mission_level='.$player->mission_level.', ';
 	$query .= 'alliance='.$player->alliance.', ';
 	$query .= 'invite='.$player->invite.', ';
 	$query .= 'bank1='.$player->bank1.', ';
@@ -1182,7 +1183,7 @@ function warquest_db_player($pid) {
 
 	/* Get player data */
 	$query  = 'select pid, name, twitter, country, health, energy, ammo, money, lid, won_level, ';
-	$query .= 'experience, mission, won, lost, ';	
+	$query .= 'experience, mission, mission_level, won, lost, ';	
 	$query .= 'energy_step, health_step, language, background, ';
 	$query .= 'money_step, money_date, gold, energy_date, health_date, ammo_date, ammo_step, ';
 	$query .= 'news_notification, comment_notification, chat_notification, clan_notification, ';
