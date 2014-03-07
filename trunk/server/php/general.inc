@@ -2497,24 +2497,24 @@ function warquest_ui_language($tag, $id, $readonly) {
 						 "es" => t('PLAYER_LANG_SPANISH') 
 						 );
 
-	$page  = '<div class="dropdown dropdown-dark">';
-	$page .='<select id="'.$tag.'" name="'.$tag.'" class="dropdown-select">';
+	$tmp  = '<div class="dropdown dropdown-dark">';
+	$tmp .='<select id="'.$tag.'" name="'.$tag.'" class="dropdown-select">';
 	
 	foreach ($array as $key => $value) {
 	
-		$page.='<option value="'.$key.'"';
+		$tmp.='<option value="'.$key.'"';
 		
 		if ($id == $key) {
-			$page .= ' selected="selected"';
+			$tmp .= ' selected="selected"';
 		}
 		
-		$page .= '>'.$value.'</option>';
+		$tmp .= '>'.$value.'</option>';
 	}
 	
-	$page.='</select>';
-	$page.='</div>';
+	$tmp.='</select>';
+	$tmp.='</div>';
 	  
-   return $page;
+   return $tmp;
 }
 
 /**
@@ -2546,19 +2546,25 @@ function warquest_ui_menu($mid, $sid, $ssid, $label, $active_id, $notification=0
 /**
  * Get HTML submenu bar
  */
-function warquest_ui_submenu($mid, $sid, $ssid, $label, $active_id) {
+function warquest_ui_submenu($mid, $sid, $ssid, $label, $active_id, $notification=0) {
    
 	$menu = '<li>';
 	
-	if (($ssid==$active_id)) {
+	if ( $ssid==$active_id ) {
 		$menu .= '<div class="active">';
 	} 
 	
 	$menu .= warquest_link('mid='.$mid.'&sid='.$sid.'&ssid='.$ssid, $label, strtolower($label));
 	
-	if (($ssid==$active_id)) {
+	if ( $ssid==$active_id ) {
 		$menu .= '</div>';
 	} 
+	
+	$menu .= '</li>';
+	
+	if ( $notification > 0 ) {
+		$menu .= '<div class="notification">'.$notification.'</div>';	
+	}
 	
 	return $menu;
 }
@@ -2571,15 +2577,15 @@ function warquest_ui_tip() {
 	/* input */
 	global $player;
 	
-	$page = '';
+	$tmp = '';
 	
 	@$help=t('TIP_'.$player->lid);
 	
 	if (strlen($help)>0) {	
-		$page .= '<br/><span class="tip">TIP: '.$help.'</span>';		
+		$tmp .= '<br/><span class="tip">TIP: '.$help.'</span>';		
 	}	
 	
-	return $page;
+	return $tmp;
 }
 
 /**

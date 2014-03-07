@@ -23,8 +23,11 @@ $notes[66] = '
 <li>Added Forums->Clan message system.</li>
 <li>Added Admin->Views page (Admin Mode only).</li>
 <li>Added robot account update (Admin Mode only).</li>
+<li>Improve Admin->Levels page (Admin Mode only).</li>
+<li>Added doAlliance method to WarQuest WebService interface.</li>
+<li>Improve doMission method of WarQuest WebService interface.</li>
 <li>Disable account reset functionality.</li>
-<li>Disable clan (member) inactive automatic removable.</li>
+<li>Disable automatic clan (member) inactive remove.</li>
 </ul></br>
 
 <i>General</i>
@@ -102,11 +105,11 @@ $notes[64] = '
 <li>Added basic SOAP web service interface</li>
 <ul>
 <li>URL is http://www.warquest.nl/service?wsdl</li>
-<li>Added getPlayer methode</li>
-<li>Added getClan methode</li>
-<li>Added getPlanet methode</li>
-<li>Added doBattle methode</li>
-<li>Added doMission methode</li>
+<li>Added getPlayer method</li>
+<li>Added getClan method</li>
+<li>Added getPlanet method</li>
+<li>Added doBattle method</li>
+<li>Added doMission method</li>
 </ul>
 <li>Enable HTTPS in Apache (based on selfsigned certificate).</li>
 <li>Refactor HTML output handeling.</li>
