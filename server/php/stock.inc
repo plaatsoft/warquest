@@ -526,7 +526,7 @@ function warquest_stock_form() {
 
 	$stocklist="";
 	$symbols="";
-	$lid = 15;
+	$lid = 25;
 
 	$output->title = t('STOCK_GROUP_'.$ssid);
 

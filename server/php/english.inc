@@ -3327,6 +3327,7 @@ $lang['CLAN_COMMENT_NO_CLAN'] = 'You are not part of a clan. No clan messages po
 $lang['CLAN_LOCKED'] = 'Clan features are unlocked at level %s.';
 $lang['TRADE_LOCKED'] = 'Trade features are unlocked at level %s.';
 $lang['STOCK_EXCHANGE_LOCKED'] = 'Stock exchange features are unlocked at level %s.';
+$lang['PROMOTION_LOCKED'] = 'Promotion features are unlocked at level %s.';
 
 $lang['RESTORE_NOTE']  = 'Note: You can restore health, energy, ammo with cash to reach the next level faster. You can also repair damaged units and/or buildings.';
 

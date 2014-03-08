@@ -107,33 +107,42 @@ function warquest_promotion_form() {
 	$page .= t('PROMOTION_INVITE');
 	$page .= '</div>';
 	
-	$page .= '<div class="box">';
+	$lid = 25;
 	
-	$page .= t('LOGIN_EMAIL').' ';
-	$page .= '<td><input name="email" type="text" size="50" maxlength="120" value="'.$email.'" id="email"> ';
-	$page .= '<input type="hidden" name="token" value="'.warquest_token('mid='.$mid.'&sid='.$sid.'&eid='.EVENT_PROMOTION_INVITE).'">';
-	$page .= '<input type="submit" name="Submit" id="do" value="'.t('LINK_INVITE').'">';
-	$page .= '</td>';
-	$page .= '</tr>';
+	if ($player->lid < $lid) {
+		
+		$message = t('PROMOTION_LOCKED', $lid);	
+		$page .= warquest_box_icon('locked', $message);
+		
+	} else {
 	
-	$page .= '</table>';
-
-	$page .= '</div>';
+		$page .= '<div class="box">';
 	
-	$page .= '<div class="note">';
-	$page .= t('PROMOTION_INVITE_NOTE', gold_format(500));
-	$page .= '</div>';
+		$page .= t('LOGIN_EMAIL').' ';
+		$page .= '<td><input name="email" type="text" size="50" maxlength="120" value="'.$email.'" id="email"> ';
+		$page .= '<input type="hidden" name="token" value="'.warquest_token('mid='.$mid.'&sid='.$sid.'&eid='.EVENT_PROMOTION_INVITE).'">';
+		$page .= '<input type="submit" name="Submit" id="do" value="'.t('LINK_INVITE').'">';
+		$page .= '</td>';
+		$page .= '</tr>';
+		
+		$page .= '</table>';
 	
+		$page .= '</div>';
+		
+		$page .= '<div class="note">';
+		$page .= t('PROMOTION_INVITE_NOTE', gold_format(500));
+		$page .= '</div>';
+		
 		/* Facebook */
-	$page .= '<div class="subparagraph">';
-	$page .= t('PROMOTION_FACEBOOK');
-	$page .= '</div>';
+		$page .= '<div class="subparagraph">';
+		$page .= t('PROMOTION_FACEBOOK');
+		$page .= '</div>';
+			
+		$page .= '<div class="box">';			
+			
+		$page .= '<div id="fb-root"></div>';
 		
-	$page .= '<div class="box">';			
-		
-	$page .= '<div id="fb-root"></div>';
-		
-	$page .= "<script type='text/javascript'>
+		$page .= "<script type='text/javascript'>
 window.fbAsyncInit = function() {
  FB.init({appId: '146129318831064', status: true, cookie: true, xfbml: true});
  FB.Event.subscribe('edge.create', function(href, widget) {
@@ -162,12 +171,13 @@ window.fbAsyncInit = function() {
    }(document, 'script', 'facebook-jssdk'));
 </script>";
 
-	$page .= '<div class="fb-like" data-href="http://www.facebook.com/WarQuest" data-send="true" colorscheme="dark" data-width="450" data-show-faces="true"></div>';
-	$page .= '</div>';
+		$page .= '<div class="fb-like" data-href="http://www.facebook.com/WarQuest" data-send="true" colorscheme="dark" data-width="450" data-show-faces="true"></div>';
+		$page .= '</div>';
 	
-	$page .= '<div class="note">';
-	$page .= t('PROMOTION_FACEBOOK_NOTE', gold_format(500));
-	$page .= '</div>';
+		$page .= '<div class="note">';
+		$page .= t('PROMOTION_FACEBOOK_NOTE', gold_format(500));
+		$page .= '</div>';
+	}
 }
 
 /*
