@@ -31,7 +31,7 @@ $notes[66] = '
 <li>Disable account reset functionality.</li>
 <li>Disable automatic clan (member) inactive remove.</li>
 <li>Added trade, restore features to unlock schema.</li>
-<li>Enable as default scheme "transparent" for new players.<li>
+<li>Enable as default scheme "transparent" for new players.</li>
 </ul></br>
 
 <i>General</i>
