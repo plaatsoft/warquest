@@ -680,7 +680,7 @@ function warquest_view_awards() {
 			$max=9;		
 			$page .= warquest_battle_award_image($data->id, $data->won);
 					
-			if ((($data->id % $max)==0) && ($max!=$count)) { 
+			if ((($data->id % $max)==0) && ($data->id!=$count)) { 
 				$page .='<br/>';
 			}
 		}
@@ -704,7 +704,7 @@ function warquest_view_awards() {
 			$max=9;		
 			$page .= warquest_mission_award_image($data->id, $data->won);
 					
-			if ((($data->id % $max)==0) && ($max!=$count)) { 
+			if ((($data->id % $max)==0) && ($data->id!=$count)) { 
 				$page .='<br/>';
 			}
 		}
@@ -728,7 +728,7 @@ function warquest_view_awards() {
 			$max=9;		
 			$page .= warquest_bounty_award_image($data->id, $data->amount);
 					
-			if ((($data->id % $max)==0) && ($max!=$count)) { 
+			if ((($data->id % $max)==0) && ($data->id!=$count)) { 
 				$page .='<br/>';
 			}
 		}
@@ -752,7 +752,7 @@ function warquest_view_awards() {
 			$max=9;		
 			$page .= warquest_rebel_award_image($data->id, $data->amount);
 					
-			if ((($data->id % $max)==0) && ($max!=$count)) { 
+			if ((($data->id % $max)==0) && ($data->id!=$count)) { 
 				$page .='<br/>';
 			}
 		}
