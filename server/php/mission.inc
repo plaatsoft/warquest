@@ -236,7 +236,7 @@ function warquest_mission_continent_complet() {
 		$message .= '<br/><br/>';
 		
 		for ($tmp=0; $tmp<$bonus; $tmp++) {
-			$message .= warquest_image("other/star.jpg");
+			$message .= warquest_image('other/star.gif', ' width="60" height="60" ');
 		}
 		
 		$message .= '<br/><br/>';		
