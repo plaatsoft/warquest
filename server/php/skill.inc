@@ -222,169 +222,160 @@ function warquest_skills_form() {
 	
 	$page .= '<table>';
 
-	if ($player->lid>0) {
+	/* -------------------------------------------------------------------- */
 	
-		/* -------------------------------------------------------------------- */
-	
-		$page .= '<tr>';	
+	$page .= '<tr>';	
 		
-		$page .= '<td width="50">';
-		$page .= warquest_image('other/attack.png',' width="30" height="30" ');
-		$page .= '</td>';
-		
-		$page .= '<td width="150">';
-		$page .= '<span class="subparagraph">'.t('PLAYER_ATTACK').'</span>';
-		$page .= '</td>';
+	$page .= '<td width="50">';
+	$page .= warquest_image('other/attack.png',' width="30" height="30" ');
+	$page .= '</td>';
 	
-		$page .= '<td width="200">'.t('PLAYER_CURRENT').': ';
-		$page .= strength_format(($skill->attack_max * $config['init_player_skill_step'] * $player->lid),0,",",".");
-		$page .= '</td>';
-	
-		$page .= '<td width="100">';
-		$page .= warquest_link('mid='.$mid.'&sid='.$sid.'&eid='.EVENT_HOME_SKILL_INCREASE.'&uid=1',t('LINK_INCREASE'), "attack1");
-		$page .= '</td>';
-	
-		$page .= '<td width="65" align="right">';
-		$page .= warquest_link('mid='.$mid.'&sid='.$sid.'&eid='.EVENT_HOME_SKILL_DECREASE.'&uid=1',t('LINK_DECREASE'), "attack2");
-		$page .= '</td>';
-	
-		$page .= '</tr>';
-	
-		$page .= '<tr>';
-		$page .= '<td class="clear"></td>';
-		$page .= '<td colspan="4" class="clear">';
-		$page .= '<div class="remark">';
-		$page .= t('PLAYER_ATTACK_TIP',
-							number_format2($config['init_player_skill_step'] * $player->lid), 
-							number_format2($config['init_player_skill_step'] * 2 * $player->lid));
-		$page .= '</div>';
-		$page .= '</td>';
-		$page .= '</tr>';
+	$page .= '<td width="150">';
+	$page .= '<span class="subparagraph">'.t('PLAYER_ATTACK').'</span>';
+	$page .= '</td>';
 
-		$page .= '<tr>';
-		$page .= '<td colspan="5" class="bar">&nbsp;</td>';
-		$page .= '</tr>';
+	$page .= '<td width="200">'.t('PLAYER_CURRENT').': ';
+	$page .= strength_format(($skill->attack_max * $config['init_player_skill_step'] * $player->lid),0,",",".");
+	$page .= '</td>';
+
+	$page .= '<td width="100">';
+	$page .= warquest_link('mid='.$mid.'&sid='.$sid.'&eid='.EVENT_HOME_SKILL_INCREASE.'&uid=1',t('LINK_INCREASE'), "attack1");
+	$page .= '</td>';
+
+	$page .= '<td width="65" align="right">';
+	$page .= warquest_link('mid='.$mid.'&sid='.$sid.'&eid='.EVENT_HOME_SKILL_DECREASE.'&uid=1',t('LINK_DECREASE'), "attack2");
+	$page .= '</td>';
+
+	$page .= '</tr>';
+
+	$page .= '<tr>';
+	$page .= '<td class="clear"></td>';
+	$page .= '<td colspan="4" class="clear">';
+	$page .= '<div class="remark">';
+	$page .= t('PLAYER_ATTACK_TIP',
+						number_format2($config['init_player_skill_step'] * $player->lid), 
+						number_format2($config['init_player_skill_step'] * 2 * $player->lid));
+	$page .= '</div>';
+	$page .= '</td>';
+	$page .= '</tr>';
+
+	$page .= '<tr>';
+	$page .= '<td colspan="5" class="bar">&nbsp;</td>';
+	$page .= '</tr>';
+
+	/* -------------------------------------------------------------------- */
 	
-		/* -------------------------------------------------------------------- */
+	$page .= '<tr>';
+
+	$page .= '<td>';
+	$page .= warquest_image('other/defense.png',' width="30" height="30" ');
+	$page .= '</td>';
+
+	$page .= '<td><span class="subparagraph">'.t('PLAYER_DEFENSE').'</span></td>';
 	
-		$page .= '<tr>';
-	
-		$page .= '<td>';
-		$page .= warquest_image('other/defense.png',' width="30" height="30" ');
-		$page .= '</td>';
-	
-		$page .= '<td><span class="subparagraph">'.t('PLAYER_DEFENSE').'</span></td>';
-		
-		$page .= '<td>'.t('PLAYER_CURRENT').': ';
-		$page .= strength_format(($skill->defense_max * $config['init_player_skill_step'] * $player->lid),0,",",".");
-		$page .='</td>';
-	
-		$page .= '<td>';
-		$page .= warquest_link('mid='.$mid.'&sid='.$sid.'&eid='.EVENT_HOME_SKILL_INCREASE.'&uid=2', t('LINK_INCREASE'), "defense1");
-		$page .= '</td>';
-	
-		$page .= '<td align="right">';
-		$page .= warquest_link('mid='.$mid.'&sid='.$sid.'&eid='.EVENT_HOME_SKILL_DECREASE.'&uid=2', t('LINK_DECREASE'), "defense2");
-		$page .= '</td>';
-	
-		$page .= '</tr>';
-	
-		$page .= '<tr>';
-		$page .= '<td class="clear"></td>';
-		$page .= '<td colspan="4" class="clear">';
-		$page .= '<div class="remark">';
-		$page .= t('PLAYER_DEFENSE_TIP',
-							number_format2($config['init_player_skill_step'] * $player->lid),
-							number_format2($config['init_player_skill_step'] * 2 * $player->lid));
-		$page .= '</div>';
-		$page .= '</td>';
-		$page .= '</tr>';
-	
-		$page .= '<tr>';
-		$page .= '<td colspan="5" class="bar">&nbsp;</td>';
-		$page .= '</tr>';
-	}
+	$page .= '<td>'.t('PLAYER_CURRENT').': ';
+	$page .= strength_format(($skill->defense_max * $config['init_player_skill_step'] * $player->lid),0,",",".");
+	$page .='</td>';
+
+	$page .= '<td>';
+	$page .= warquest_link('mid='.$mid.'&sid='.$sid.'&eid='.EVENT_HOME_SKILL_INCREASE.'&uid=2', t('LINK_INCREASE'), "defense1");
+	$page .= '</td>';
+
+	$page .= '<td align="right">';
+	$page .= warquest_link('mid='.$mid.'&sid='.$sid.'&eid='.EVENT_HOME_SKILL_DECREASE.'&uid=2', t('LINK_DECREASE'), "defense2");
+	$page .= '</td>';
+
+	$page .= '</tr>';
+
+	$page .= '<tr>';
+	$page .= '<td class="clear"></td>';
+	$page .= '<td colspan="4" class="clear">';
+	$page .= '<div class="remark">';
+	$page .= t('PLAYER_DEFENSE_TIP',
+						number_format2($config['init_player_skill_step'] * $player->lid),
+						number_format2($config['init_player_skill_step'] * 2 * $player->lid));
+	$page .= '</div>';
+	$page .= '</td>';
+	$page .= '</tr>';
+
+	$page .= '<tr>';
+	$page .= '<td colspan="5" class="bar">&nbsp;</td>';
+	$page .= '</tr>';
 	
 	/* -------------------------------------------------------------------- */
 	
-	if ($player->lid>5) {
+	$page .= '<tr>';
 	
-		$page .= '<tr>';
-	
-		$page .= '<td width="50">';
-		$page .= warquest_image('other/health.png',' width="30" height="30" ');
-		$page .= '</td>';
-	
-		$page .= '<td width="150"><span class="subparagraph">'.t('PLAYER_HEALTH').'</span></td>';
-	
-		$page .= '<td width="200">'.t('PLAYER_CURRENT').': ';
-		$page .= health_format($skill->health_max,0,",",".");
-		$page .= '</td>';
-	
-		$page .= '<td width="100">';
-		$page .= warquest_link('mid='.$mid.'&sid='.$sid.'&eid='.EVENT_HOME_SKILL_INCREASE.'&uid=3',t('LINK_INCREASE'), "health1");
-		$page .= '</td>';
-	
-		$page .= '<td width="65" align="right">';
-		$page .= warquest_link('mid='.$mid.'&sid='.$sid.'&eid='.EVENT_HOME_SKILL_DECREASE.'&uid=3',t('LINK_DECREASE'), "health2");
-		$page .= '</td>';
-	
-		$page .= '</tr>';
-	
-		$page .= '<tr>';
-		$page .= '<td class="clear"></td>';
-		$page .= '<td colspan="4" class="clear">';
-		$page .= '<div class="remark">';
-		$page .= t('PLAYER_HEALTH_TIP');
-		$page .= '</div>';
-		$page .= '</td>';
-		$page .= '</tr>';
-	
-		$page .= '<tr>';
-		$page .= '<td colspan="5" class="bar">&nbsp;</td>';
-		$page .= '</tr>';
-	}
-	
+	$page .= '<td width="50">';
+	$page .= warquest_image('other/health.png',' width="30" height="30" ');
+	$page .= '</td>';
+
+	$page .= '<td width="150"><span class="subparagraph">'.t('PLAYER_HEALTH').'</span></td>';
+
+	$page .= '<td width="200">'.t('PLAYER_CURRENT').': ';
+	$page .= health_format($skill->health_max,0,",",".");
+	$page .= '</td>';
+
+	$page .= '<td width="100">';
+	$page .= warquest_link('mid='.$mid.'&sid='.$sid.'&eid='.EVENT_HOME_SKILL_INCREASE.'&uid=3',t('LINK_INCREASE'), "health1");
+	$page .= '</td>';
+
+	$page .= '<td width="65" align="right">';
+	$page .= warquest_link('mid='.$mid.'&sid='.$sid.'&eid='.EVENT_HOME_SKILL_DECREASE.'&uid=3',t('LINK_DECREASE'), "health2");
+	$page .= '</td>';
+
+	$page .= '</tr>';
+
+	$page .= '<tr>';
+	$page .= '<td class="clear"></td>';
+	$page .= '<td colspan="4" class="clear">';
+	$page .= '<div class="remark">';
+	$page .= t('PLAYER_HEALTH_TIP');
+	$page .= '</div>';
+	$page .= '</td>';
+	$page .= '</tr>';
+
+	$page .= '<tr>';
+	$page .= '<td colspan="5" class="bar">&nbsp;</td>';
+	$page .= '</tr>';
+
 	/* -------------------------------------------------------------------- */
 	
-	if ($player->lid>8) {
+	$page .= '<tr>';
 	
-		$page .= '<tr>';
-	
-		$page .= '<td>';
-		$page .= warquest_image('other/energy.png',' width="30" height="30" ');
-		$page .= '</td>';
-	
-		$page .= '<td><span class="subparagraph">'.t('PLAYER_ENERGY').'</span></td>';
-	
-		$page .= '<td>'.t('PLAYER_CURRENT').': ';
-		$page .= energy_format($skill->energy_max,0,",",".");
-		$page .= '</td>';
-	
-		$page .= '<td>';
-		$page .= warquest_link('mid='.$mid.'&sid='.$sid.'&eid='.EVENT_HOME_SKILL_INCREASE.'&uid=4',t('LINK_INCREASE') ,"energy1");
-		$page .= '</td>';
+	$page .= '<td>';
+	$page .= warquest_image('other/energy.png',' width="30" height="30" ');
+	$page .= '</td>';
 
-		$page .= '<td align="right">';
-		$page .= warquest_link('mid='.$mid.'&sid='.$sid.'&eid='.EVENT_HOME_SKILL_DECREASE.'&uid=4',t('LINK_DECREASE') ,"energy2");
-		$page .= '</td>';
-		
-		$page .= '</tr>';
+	$page .= '<td><span class="subparagraph">'.t('PLAYER_ENERGY').'</span></td>';
+
+	$page .= '<td>'.t('PLAYER_CURRENT').': ';
+	$page .= energy_format($skill->energy_max,0,",",".");
+	$page .= '</td>';
 	
-		$page .= '<tr>';
-		$page .= '<td class="clear"></td>';
-		$page .= '<td colspan="4" class="clear">';
-		$page .= '<div class="remark">';
-		$page .= t('PLAYER_ENERGY_TIP');
-		$page .= '</div>';
-		$page .= '</td>';
-		$page .= '</tr>';
-		
-		$page .= '<tr>';
-		$page .= '<td colspan="5" class="bar">&nbsp;</td>';
-		$page .= '</tr>';
-	}
-		
+	$page .= '<td>';
+	$page .= warquest_link('mid='.$mid.'&sid='.$sid.'&eid='.EVENT_HOME_SKILL_INCREASE.'&uid=4',t('LINK_INCREASE') ,"energy1");
+	$page .= '</td>';
+
+	$page .= '<td align="right">';
+	$page .= warquest_link('mid='.$mid.'&sid='.$sid.'&eid='.EVENT_HOME_SKILL_DECREASE.'&uid=4',t('LINK_DECREASE') ,"energy2");
+	$page .= '</td>';
+	
+	$page .= '</tr>';
+	
+	$page .= '<tr>';
+	$page .= '<td class="clear"></td>';
+	$page .= '<td colspan="4" class="clear">';
+	$page .= '<div class="remark">';
+	$page .= t('PLAYER_ENERGY_TIP');
+	$page .= '</div>';
+	$page .= '</td>';
+	$page .= '</tr>';
+	
+	$page .= '<tr>';
+	$page .= '<td colspan="5" class="bar">&nbsp;</td>';
+	$page .= '</tr>';
+	
 	/* -------------------------------------------------------------------- */
 	
 	$page .= '<tr>';
