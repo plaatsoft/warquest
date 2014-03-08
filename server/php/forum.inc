@@ -371,8 +371,15 @@ function warquest_clan_comment_form() {
 	$page .= '<div class="subparagraph">';
 	$page .= $output->title;
 	$page .= '</div>';	
+	
+	$lid = 15;
+	
+	if ($player->lid < $lid) {
 		
-	if ( !isset($player_clan->cid) || ($player_clan->approved==0)) { 
+		$message = t('CLAN_LOCKED', $lid);
+		$page .= warquest_box_icon('locked', $message);
+		
+	} else if ( !isset($player_clan->cid) || ($player_clan->approved==0)) { 
 	
 		$message = t('CLAN_COMMENT_NO_CLAN');
 		$page .= warquest_box_icon("warning", $message);
