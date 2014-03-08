@@ -795,7 +795,7 @@ function warquest_mission_do() {
 			$message .= t('MISSION_YOU_USED').': '.energy_format($mission->energy).' '.t('GENERAL_ENERGY').'. <br/>';
 			
 			if ($output->format=="xml") {
-				$message .= 'Mission progress: '.warquest_format_progress($progress, $part).'% ';
+				$message .= 'Mission progress: '.warquest_format_progress($progress, $part).'%. ';
 			}
 		
 			$message .= warquest_mission_unit_lost();

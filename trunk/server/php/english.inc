@@ -1278,15 +1278,15 @@ $lang['MISSION_NO_ENERGY'] = 'You do not have enough energy to complete the miss
 $lang['MISSION_LOW_ALLIANCE'] = 'Your alliance size is too small to play this mission.';
 $lang['MISSION_MISSING_UNITS'] = 'You do not have the right amount of units to complete the mission. Missing unit(s): ';
 $lang['MISSION_MISSING_UNITS_PRICE'] = 'Total price to buy unit(s) is %s dollar. Hourly cost will increase by %s dollars.';
-$lang['MISSION_UNITS_LOST'] = 'During the mission you lost the following unit(s)';
-$lang['MISSION_LOOT_WON'] = 'You won the following loot';
+$lang['MISSION_UNITS_LOST'] = 'During the mission you lost the following unit(s) ';
+$lang['MISSION_LOOT_WON'] = 'You won the following loot ';
 $lang['MISSION_UNLOCKED'] = 'Now continue with the battle training.';
 
 $lang['MISSION_CONTINTENT_READY1'] = 'Brilliant! You have completed part %s of %s of the %s continent! ';
 $lang['MISSION_CONTINTENT_READY2'] = 'You have received %s extra skill points. ';
-$lang['MISSION_CONTINTENT_READY3'] = 'You have finished all parts. Continue with the next continent!';
-$lang['MISSION_CONTINTENT_READY4'] = 'Proceed with part %s of this continent!';
-$lang['MISSION_COMPLETE_TEXT'] = 'You conquered the following continents so far!';
+$lang['MISSION_CONTINTENT_READY3'] = 'You have finished all parts. Continue with the next continent! ';
+$lang['MISSION_CONTINTENT_READY4'] = 'Proceed with part %s of this continent! ';
+$lang['MISSION_COMPLETE_TEXT'] = 'You conquered the following continents so far! ';
 
 $lang['MISSION_REBEL'] = 'Rebellion';
 
