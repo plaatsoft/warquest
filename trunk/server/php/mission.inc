@@ -860,7 +860,7 @@ function warquest_mission_clan_form() {
 	if ($player->lid < $lid) {
 	
 		$message = t('MISSION_CLAN_UNLOCK', $lid);
-		$page .= warquest_box_icon('info', $message);
+		$page .= warquest_box_icon('locked', $message);
 	
 	} else if ( !isset($player_clan->cid) || ($player_clan->approved==0)) { 
 	
