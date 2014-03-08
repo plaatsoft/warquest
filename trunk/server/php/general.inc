@@ -1676,7 +1676,7 @@ function warquest_nextlevel($player) {
 		$message  = t('GENERAL_NEXT_LEVEL', $config["next_level_sp_bonus"], money_format1($money)).'<br/><br/>';
 		
 		for ($tmp=0; $tmp<$config["next_level_sp_bonus"]; $tmp++) {
-			$message .= warquest_image("other/star.jpg");
+			$message .= warquest_image('other/star.gif', ' width="60" height="60" ');
 		}
 		$message .= '<br/><br/>'; 
 		
@@ -1854,7 +1854,7 @@ function warquest_battle_award_won($player) {
 		$message  = t('GENERAL_BATTLE_LEVEL', number_format2($player->won), $ep, money_format1($money)).'<br/><br/>';
 			
 		for ($tmp=0; $tmp<$ep; $tmp++) {
-			$message .= warquest_image("other/star.jpg");
+			$message .= warquest_image('other/star.gif', ' width="60" height="60" ');
 		}
 		$message .= '<br/><br/>'; 
 		 
@@ -1931,7 +1931,7 @@ function warquest_mission_award_won($player) {
 		$message  = t('GENERAL_MISSION_LEVEL', number_format2($data->won), $ep, money_format1($money)).'<br/><br/>';
 			
 		for ($tmp=0; $tmp<$ep; $tmp++) {
-			$message .= warquest_image("other/star.jpg");
+			$message .= warquest_image('other/star.gif', ' width="60" height="60" ');
 		}
 		$message .= '<br/><br/>'; 
 		 
@@ -2004,7 +2004,7 @@ function warquest_bounty_award_won($player) {
 		$message  = t('GENERAL_BOUNTY_LEVEL', number_format2($player->bounty), $ep, money_format1($money)).'<br/><br/>';
 			
 		for ($tmp=0; $tmp<$ep; $tmp++) {
-			$message .= warquest_image("other/star.jpg");
+			$message .= warquest_image('other/star.gif', ' width="60" height="60" ');
 		}
 		$message .= '<br/><br/>'; 
 		 
@@ -2077,7 +2077,7 @@ function warquest_rebel_award_won($player) {
 		$message  = t('GENERAL_REBEL_LEVEL', $player->rebel, $ep, money_format1($money)).'<br/><br/>';
 			
 		for ($tmp=0; $tmp<$ep; $tmp++) {
-			$message .= warquest_image("other/star.jpg");
+			$message .= warquest_image('other/star.gif', ' width="60" height="60" ');
 		}
 		$message .= '<br/><br/>'; 
 		 
