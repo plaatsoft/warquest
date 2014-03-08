@@ -17,7 +17,7 @@
 */
 
 $notes[66] = '
-<div class="subparagraph2">06-03-2014</div>
+<div class="subparagraph2">08-03-2014</div>
 <i>Game Server v6.6</i>
 <ul>
 <li>Added 45 mission awards.</li>
@@ -31,6 +31,7 @@ $notes[66] = '
 <li>Disable account reset functionality.</li>
 <li>Disable automatic clan (member) inactive remove.</li>
 <li>Added trade, restore features to unlock schema.</li>
+<li>Enable as default scheme "transparent" for new players.<li>
 </ul></br>
 
 <i>General</i>

@@ -142,7 +142,7 @@ function warquest_trade_form() {
 	$page .= t('TRADE_TITLE');
 	$page .= '</div>';
 			
-	$lid = 3;
+	$lid = 10;
 	if ($player->lid < $lid) {
 		
 		$message = t('TRADE_LOCKED', $lid);	

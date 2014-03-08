@@ -132,6 +132,12 @@ function warquest_restore_do() {
 	}
 }
 
+/*
+** --------------- 
+** UI
+** ---------------
+*/
+
 function warquest_cease_fire_period() {
 
 	$values = array(0.25, 0.5, 0.75, 1);
@@ -181,7 +187,7 @@ function warquest_restore_form() {
 	$page .= $output->title;
 	$page .= '</div>';
 	
-	$lid=2;
+	$lid = 5;
 	if ($player->lid < $lid) {
 		
 		$message = t('RESTORE_LOCKED', $lid);	
