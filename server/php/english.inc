@@ -196,10 +196,10 @@ $lang['BOX_WARN'] = 'WARNING';
 $lang['BOX_ERROR'] = 'ERROR';
 
 $lang['GENERAL_NEXT_LEVEL'] = 'Brilliant! You have reached the next level! You received %s skill points and %s dollars. Your health, energy and ammo are restored. ';
-$lang['GENERAL_BATTLE_LEVEL'] = 'Brilliant! You have won %s ore mote battles and received %s extra skill point(s) and %s dollars.';
-$lang['GENERAL_MISSION_LEVEL'] = 'Brilliant! You have completed %s or more missions and received %s extra skill point(s) and %s dollars.';
-$lang['GENERAL_BOUNTY_LEVEL'] = 'Great! You have set %s ore more bounties and received %s extra skill point(s) and %s dollars.';
-$lang['GENERAL_REBEL_LEVEL'] = 'Great! You started %s or more rebellions and received %s extra skill point(s) and %s dollars.';
+$lang['GENERAL_BATTLE_LEVEL'] = 'Brilliant! You have won %s battles and received %s extra skill point(s) and %s dollars.';
+$lang['GENERAL_MISSION_LEVEL'] = 'Brilliant! You have completed %s missions and received %s extra skill point(s) and %s dollars.';
+$lang['GENERAL_BOUNTY_LEVEL'] = 'Great! You have set %s bounties and received %s extra skill point(s) and %s dollars.';
+$lang['GENERAL_REBEL_LEVEL'] = 'Great! You started %s rebellions and received %s extra skill point(s) and %s dollars.';
 $lang['GENERAL_BATTLE_AWARD_WON'] = 'fights won';
 $lang['GENERAL_MISSION_AWARD_WON'] = 'missions completed';
 $lang['GENERAL_BOUNTY_AWARD_WON'] = 'bounties set';
@@ -2693,9 +2693,9 @@ $lang['HELP_AWARDS_SUBTITLE'] = 'Awards';
 $lang['HELP_AWARDS_TEXT'] = 'The following awards can be earned:';
 
 $lang['HELP_BATTLE_AWARDS'] = 'Battle awards';
-$lang['HELP_MISSION_AWARDS'] = 'Mission complete awards';
+$lang['HELP_MISSION_AWARDS'] = 'Mission Awards';
 $lang['HELP_BOUNTY_AWARDS'] = 'Bounty Awards';
-$lang['HELP_REBEL_AWARDS'] = 'Rebellio:n awards';
+$lang['HELP_REBEL_AWARDS'] = 'Rebellion Awards';
 
 
 /*
