@@ -662,7 +662,7 @@ function warquest_view_awards() {
 	global $config;
 	global $browser;
 	
-	$page="";
+	$page = '<div class="award">';
 	
 	/* Get battle award data */
 	$query =  "select id, won from battle_award where id<".$player->won_level.' order by id';  
@@ -759,6 +759,8 @@ function warquest_view_awards() {
 		
 		$page .= '<br/>';
 	}
+	
+	$page .= '</div>';
 	
 	return $page;
 }	
