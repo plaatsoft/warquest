@@ -344,6 +344,10 @@ a:hover {
 	text-align: center; 
 }
 
+.award img {
+	margin: 0px 2px 0px 0px;
+}
+
 /* -- Menu -- */
 
 .menu {
