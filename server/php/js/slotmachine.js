@@ -1,3 +1,5 @@
+/* All copyrights reserved (c) 2008-2014 PlaatSoft */
+
 peartop=new Image(80,40);
 peartop.src="images/slotmachine/peartop.jpg";
 

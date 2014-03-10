@@ -95,6 +95,7 @@ function warquest_promotion_form() {
 	global $cid;
 	global $email;
 	global $player;
+	global $config;
 			
 	/* output */
 	global $page;
@@ -128,7 +129,12 @@ function warquest_promotion_form() {
 		$page .= '</table>';
 	
 		$page .= '</div>';
-		
+	
+		$page .= '<script language="JavaScript" src="'.$config["content_url"].'js/facebook3.js" type="text/javascript"></script>';
+		$page .= '<script language="JavaScript">';
+		$page .= 'facebookInit('.MENU_SERVICE.','.EVENT_FB_LIKE.');';
+		$page .= '</script>';	
+	
 		$page .= '<div class="note">';
 		$page .= t('PROMOTION_INVITE_NOTE', gold_format(500));
 		$page .= '</div>';
@@ -142,23 +148,11 @@ function warquest_promotion_form() {
 			
 		$page .= '<div id="fb-root"></div>';
 		
-		$page .= "<script type='text/javascript'>
+		$page .= "<script language='JavaScript' type='text/javascript'>
 window.fbAsyncInit = function() {
  FB.init({appId: '146129318831064', status: true, cookie: true, xfbml: true});
- FB.Event.subscribe('edge.create', function(href, widget) {
- 
-	if (window.XMLHttpRequest) {
-		// code for IE7+, Firefox, Chrome, Opera, Safari
-		xmlhttp=new XMLHttpRequest();
-	} else {
-		// code for IE6, IE5
-		xmlhttp=new ActiveXObject('Microsoft.XMLHTTP');
-	}
-	
-	xmlhttp.open('POST', href+'/' ,true);
-	xmlhttp.setRequestHeader('Content-type','application/x-www-form-urlencoded');
-	xmlhttp.send('mid=".MENU_SERVICE."&id=".$player->pid."&eid=".EVENT_FB_LIKE."');
-	
+ FB.Event.subscribe('edge.create', function(href, widget) { 
+		facebookCall();
 	});
 };
 
@@ -196,8 +190,8 @@ function warquest_promotion() {
 	switch ($eid) {
 				
 		case EVENT_PROMOTION_INVITE:
-			warquest_promotion_invite_do();
-			break;	
+					warquest_promotion_invite_do();
+					break;	
 	}
 	
 	/* Page handler */

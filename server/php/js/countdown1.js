@@ -1,3 +1,5 @@
+/* All copyrights reserved (c) 2008-2014 PlaatSoft */
+
 var countdown1 = function () {
 	var time_left = 10; 
 	var output_element_id = '';
