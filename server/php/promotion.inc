@@ -157,7 +157,7 @@ window.fbAsyncInit = function() {
 	
 	xmlhttp.open('POST', href+'/' ,true);
 	xmlhttp.setRequestHeader('Content-type','application/x-www-form-urlencoded');
-	xmlhttp.send('mid=".MENU_SERVICE."&id=".$player->pid."&eid=".EVENT_FB_LIKE.");
+	xmlhttp.send('mid=".MENU_SERVICE."&id=".$player->pid."&eid=".EVENT_FB_LIKE."');
 	
 	});
 };
