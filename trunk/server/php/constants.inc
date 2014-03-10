@@ -22,8 +22,8 @@
 ** ------------------
 */
 
-define('EVENT_GET_CLAN', 	      5001);
-define('EVENT_GET_SECTOR', 	   5002);
+define('EVENT_GET_SECTOR', 	   5001);
+define('EVENT_GET_CLAN', 	      5002);
 define('EVENT_FB_LIKE', 	      5003);
 define('EVENT_GET_PLAYER', 	   5004);
 define('EVENT_GET_HEADLINES',    5005);

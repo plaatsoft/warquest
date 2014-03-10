@@ -1,3 +1,5 @@
+/* All copyrights reserved (c) 2008-2014 PlaatSoft */
+
 var snowmax=100;
 var snowcolor=new Array("#AAAACC","#DDDDFF","#CCCCDD","#F3F3F3","#F0FFFF");
 var snowtype=new Array("Arial Black","Arial Narrow","Times","Comic Sans MS");

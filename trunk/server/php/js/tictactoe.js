@@ -1,3 +1,4 @@
+/* All copyrights reserved (c) 2008-2014 PlaatSoft */
 
 if (document.all||document.getElementById){
 	document.write('<style>.tictac{')

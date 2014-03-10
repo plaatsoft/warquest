@@ -1,3 +1,5 @@
+/* All copyrights reserved (c) 2008-2014 PlaatSoft */
+
 var timer3;
 var value3;
 var max3;

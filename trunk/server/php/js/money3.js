@@ -1,3 +1,5 @@
+/* All copyrights reserved (c) 2008-2014 PlaatSoft */
+
 var timer4;
 var value4;
 var step4;

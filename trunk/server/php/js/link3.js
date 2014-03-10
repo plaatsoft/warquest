@@ -1,3 +1,5 @@
+/* All copyrights reserved (c) 2008-2014 PlaatSoft */
+
 function link(value)
 {
 	var form = document.forms['warquest'];

@@ -3,12 +3,12 @@
 var mid;
 var eid;
 
-function newsInit(mid, eid) {
+function facebookInit(mid, eid) {
 	this.mid = mid;
-	this.eid = eid;
+	this.eid = eid;	
 }
 
-function newsURL() {
+function facebookURL() {
 	var url = location.href;  
 	var baseURL = url.substring(0, url.indexOf('/', 14));
 
@@ -28,7 +28,7 @@ function newsURL() {
 	}
 }
 
-function newsCall() {
+function facebookCall() {
 
 	if (window.XMLHttpRequest) {
 		// code for IE7+, Firefox, Chrome, Opera, Safari
@@ -37,15 +37,8 @@ function newsCall() {
 		// code for IE6, IE5
 		xmlhttp=new ActiveXObject('Microsoft.XMLHTTP');
 	}
-	
-	xmlhttp.onreadystatechange=function() {
-		if (xmlhttp.readyState==4 && xmlhttp.status==200) {
 		
-			document.getElementById("breakingnews").innerHTML += xmlhttp.responseText;
-		}
-	}
-	
-	xmlhttp.open('POST',  newsURL() ,true);
+	xmlhttp.open('POST',  facebookURL(), true);
 	xmlhttp.setRequestHeader('Content-type','application/x-www-form-urlencoded');
 	xmlhttp.send('mid='+mid+'&eid='+eid);
 }
