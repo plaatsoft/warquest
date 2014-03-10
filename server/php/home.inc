@@ -881,6 +881,7 @@ function warquest_show_breaking_news() {
 	global $browser;
 
 	$page .= '<div class="subparagraph">'.t('HOME_FLASH_NEWS_TITLE').'</div>';
+	$message = '';
 	
 	$language="en";
 	if (isset($player) && (strlen($player->language)>0)) {
@@ -889,52 +890,27 @@ function warquest_show_breaking_news() {
 		
 	$query  = 'select date, body, content from news where language="en" order by id desc ';
 	$result = warquest_db_query($query);
-	
-	$message = '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;';
-	
+		
 	while ($data=warquest_db_fetch_object($result)) {
 			
 		$message .= '<span class="money">';
 		$message .= $data->body;
 		$message .= '</span> ';
 		$message .= $data->content;
-		$message .= '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;';
+		$message .= ' ';
 	}
 		
 	$page .= '<div class="box">';
 	
-	if (preg_match("/Symbian/", $browser)) {
-	   $page .= '<marquee behavior="scroll" direction="left" scrollamount="3">';
-		
-	} else if (preg_match("/MSIE/", $browser)) {
-		$page .= '<marquee behavior="scroll" direction="left" scrollamount="3">';
-	
-	} else if (preg_match("/Chrome/", $browser)) {
-		$page .= '<marquee behavior="scroll" direction="left" scrollamount="3">';
-		
-	} else {
-		$page .= '<div id="TICKER" STYLE="overflow:hidden; width:500px">';
-	}
-		
+   $page .= '<marquee id="breakingnews" behavior="scroll" direction="left" scrollamount="4">';
 	$page .= $message;
-			
-	if (preg_match("/Symbian/", $browser)) {
-		$page .= '</marquee>';
-		$page .= '</div>';
-		
-	} else if (preg_match("/MSIE/", $browser)) {
-		$page .= '</marquee>';
-		$page .= '</div>';
-		
-	} else if (preg_match("/Chrome/", $browser)) {
-		$page .= '</marquee>';
-		$page .= '</div>';
-		
-	} else {
-		$page .= '</div>';
-		$page .= '</div>';
-		$page .= '<script type="text/javascript" src="'.$config["content_url"].'js/news.js" language="javascript"></script>';
-	}
+	$page .= '</marquee>';
+	$page .= '</div>';
+	
+	$page .= '<script language="JavaScript" src="'.$config["content_url"].'js/news2.js" type="text/javascript"></script>';
+	$page .= '<script language="JavaScript">';
+	$page .= 'newsInit('.MENU_SERVICE.','.EVENT_GET_HEADLINES.'); newsCall();';
+	$page .= '</script>';
 }
 	
 /** 

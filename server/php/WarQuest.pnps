@@ -1,1 +1,1 @@
-<pd><ViewState><e p="WarQuest" x="true"></e><e p="WarQuest\css" x="false"></e><e p="WarQuest\test" x="false"></e><e p="WarQuest\js" x="false"></e><e p="WarQuest\database" x="false"></e><e p="WarQuest\service" x="false"></e></ViewState></pd>
+<pd><ViewState><e p="WarQuest" x="true"></e><e p="WarQuest\css" x="false"></e><e p="WarQuest\database" x="true"></e><e p="WarQuest\test" x="true"></e><e p="WarQuest\js" x="true"></e><e p="WarQuest\service" x="false"></e></ViewState></pd>

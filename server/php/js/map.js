@@ -1,3 +1,5 @@
+// All copyrights reserved (c) 2008-2014 PlaatSoft
+
 var canvas = document.getElementById('myCanvas');
 var ctx = canvas.getContext('2d');
 var json = "";
@@ -79,7 +81,7 @@ function getSectorData() {
 	
 	xmlhttp.open("POST", url ,true);
 	xmlhttp.setRequestHeader("Content-type","application/x-www-form-urlencoded");
-	xmlhttp.send("mid="+mid+"&eid=1&id="+planet);
+	xmlhttp.send("mid="+mid+"&eid=5001&id="+planet);
 }
 
 function getClanInfo(cid) {
@@ -114,7 +116,7 @@ function getClanInfo(cid) {
 	
 	xmlhttp.open("POST", url ,true);
 	xmlhttp.setRequestHeader("Content-type","application/x-www-form-urlencoded");
-	xmlhttp.send("mid="+mid+"&eid=2&id="+cid);
+	xmlhttp.send("mid="+mid+"&eid=5002&id="+cid);
 }
 		
 function IsInPath(event) {

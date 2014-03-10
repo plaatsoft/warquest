@@ -186,6 +186,34 @@ function warquest_get_player_event() {
 	}
 }
 
+/** 
+ * Web services to fetch news headlines 
+ */
+function warquest_service_headlines() { 
+
+	$tmp = "";
+	
+	$xml = "http://feeds.bbci.co.uk/news/world/rss.xml?edition=uk";
+
+	$xmlDoc = new DOMDocument();
+	$xmlDoc->load($xml);
+
+	$x=$xmlDoc->getElementsByTagName('item');
+	
+	for ($i=0; $i<3; $i++) {
+		$item_title=$x->item($i)->getElementsByTagName('title')->item(0)->childNodes->item(0)->nodeValue;
+		$item_desc=$x->item($i)->getElementsByTagName('description')->item(0)->childNodes->item(0)->nodeValue;
+		
+		$tmp .= '<span class="money">';
+		$tmp .= $item_title;
+		$tmp .= '</span> ';
+		$tmp .= $item_desc;
+		$tmp .= ' ';
+	}
+	
+	echo $tmp;
+}
+
 /*
 ** ---------
 ** HANDLER
@@ -213,6 +241,10 @@ function warquest_service() {
 
 		case EVENT_GET_PLAYER:
 			warquest_get_player_event();
+			break;
+			
+		case EVENT_GET_HEADLINES:
+			warquest_service_headlines();
 			break;
 	}
 	
