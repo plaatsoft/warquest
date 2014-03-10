@@ -18,19 +18,12 @@
 
 /*
 ** ---------
-** POST
+** PARAMETERS
 ** ---------
 */
 
 $eid = warquest_post('eid', 0);
-if ($eid==0) {
-	$eid = warquest_get('eid', 0);
-}
-
 $id = warquest_post('id', 0);
-if ($id==0) {
-	$id = warquest_get('id', 0);
-}
 
 /*
 ** ---------
@@ -187,9 +180,9 @@ function warquest_get_player_event() {
 }
 
 /** 
- * Web services to fetch news headlines 
+ * Get news headlines from bbc rss feed
  */
-function warquest_service_headlines() { 
+function warquest_get_headlines() { 
 
 	$tmp = "";
 	
@@ -244,7 +237,7 @@ function warquest_service() {
 			break;
 			
 		case EVENT_GET_HEADLINES:
-			warquest_service_headlines();
+			warquest_get_headlines();
 			break;
 	}
 	
