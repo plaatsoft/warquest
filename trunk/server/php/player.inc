@@ -1709,27 +1709,13 @@ function warquest_profile($id) {
 			
 			$page .= '<div class="subparagraph">'.t('PLAYER_LAST_TWEET').'</div>';
 		
+		
 			$page .= '<div class="box">';
-	
-			if (preg_match("/MSIE/", $browser)) {
-				$page .= '<div id="TICKER" STYLE="overflow:hidden; width:490px">';
-			} else {
-				$page .= '<div id="TICKER" STYLE="overflow:hidden; width:500px">';
-			}
-		
-			for ($tmp=0; $tmp<100; $tmp++) {
-				$page .= '&nbsp;';
-			}	
-		
+			$page .= '<marquee behavior="scroll" direction="left" scrollamount="3">';
 			$page .= $tmp1;
+			$page .= '</marquee>';	
 			
-			for ($tmp=0; $tmp<100; $tmp++) {
-				$page .= '&nbsp;';
-			}	
-	
 			$page .= '</div>';
-			$page .= '</div>';
-			$page .= '<script type="text/javascript" src="'.$config["content_url"].'js/news.js" language="javascript"></script>';
 		}
 	}
 			

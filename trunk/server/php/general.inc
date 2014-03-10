@@ -1233,34 +1233,7 @@ function warquest_twitter($player) {
 	return $tmp;	
 }
 
-/** 
- * Web services to fetch news headlines 
- */
-function warquest_news_headlines() { 
-
-	$tmp = "";
 	
-	$xml = "http://feeds.bbci.co.uk/news/world/rss.xml?edition=uk";
-
-	$xmlDoc = new DOMDocument();
-	$xmlDoc->load($xml);
-
-	$x=$xmlDoc->getElementsByTagName('item');
-	
-	for ($i=0; $i<3; $i++) {
-		$item_title=$x->item($i)->getElementsByTagName('title')->item(0)->childNodes->item(0)->nodeValue;
-		$item_desc=$x->item($i)->getElementsByTagName('description')->item(0)->childNodes->item(0)->nodeValue;
-		
-		$tmp .= '<span class="money">';
-		$tmp .= $item_title;
-		$tmp .= '</span> ';
-		$tmp .= $item_desc;
-		$tmp .= '   ';
-	}
-	
-	return $tmp;
-}
-		
 /* 
 ** ----------------------
 ** UI
