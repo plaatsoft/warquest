@@ -53,3 +53,17 @@ img {
 	vertical-align:middle;
 	padding: 1px;
 }
+
+.award img {
+	margin: 2px 2px 0px 0px;
+}
+
+/* -- input -- */
+
+input[type="checkbox"] {
+	border: none;
+}
+
+input[type="radio"] {
+	border: none;
+}

@@ -86,23 +86,23 @@ function warquest_client_overview() {
 	$page .= '<td width="20">'; 
 	$page .= '</td>';
 	
-	$page .= '<td width="155" align="center">';
+	$page .= '<td width="155">';
 	$page .= '<center><a target="_blank" href="http://market.android.com/details?id=nl.plaatsoft.warquest">';
-	$page .= warquest_image("other/android.png");
+	$page .= warquest_image("other/android.png", 'width="150" height="60"');
 	$page .= '<br/>WarQuest for Android</a>'; 
 	$page .= '</center>';
 	$page .= '</td>';
 	
-	$page .= '<td width="155" align="right">';
+	$page .= '<td width="155">';
 	$page .= '<center><a target="_blank" href="http://store.ovi.com/content/253826">';
-	$page .= warquest_image("other/symbian.jpg");
+	$page .= warquest_image("other/symbian.jpg", 'width="150" height="60"');
 	$page .= '<br/>WarQuest for Symbian</a>'; 
 	$page .= '</center>';
 	$page .= '</td>';
 	
-	$page .= '<td width="155" align="right">';
+	$page .= '<td width="155">';
 	$page .= '<center><a target="_blank" href="https://marketplace.firefox.com/app/warquest/">';
-	$page .= warquest_image("other/firefoxOS.jpg");
+	$page .= warquest_image("other/firefoxOS.jpg" ,'width="150" height="60"');
 	$page .= '<br/>WarQuest for Firefox</a>'; 
 	$page .= '</center>';
 	$page .= '</td>';
@@ -116,24 +116,31 @@ function warquest_client_overview() {
 	$page .= '<table>';
 	$page .= '<tr>';
 	
-	$page .= '<td width="100">'; 
+	$page .= '<td width="20">'; 
 	$page .= '</td>';
 	
-	$page .= '<td width="155" align="right">';
+	$page .= '<td width="155">';
 	$page .= '<center><a target="_blank" href="http://www.plaatsoft.nl/windows/warquest">';
-	$page .= warquest_image("other/windows.jpg");
+	$page .= warquest_image("other/windows.jpg", 'width="150" height="60"');
 	$page .= '<br/>WarQuest for Windows</a>'; 
 	$page .= '</center>';
 	$page .= '</td>';
 		
-	$page .= '<td width="155" align="right">';
+	$page .= '<td width="155">';
 	$page .= '<center><a target="_blank" href="https://myapps.developer.ubuntu.com/dev/apps/859">';
-	$page .= warquest_image("other/linux.jpg");
+	$page .= warquest_image("other/linux.jpg", 'width="150" height="60"');
 	$page .= '<br/>WarQuest for Linux</a>'; 
 	$page .= '</center>';
 	$page .= '</td>';
 	
-	$page .= '<td width="100">'; 
+	$page .= '<td width="155">';
+	$page .= '<center><a target="_blank" href="https://chrome.google.com/webstore/detail/warquest/iiepejicaanlolcnnnofbibilekojhcl?hl=en">';
+	$page .= warquest_image("other/chrome.jpg", 'width="150" height="60"');
+	$page .= '<br/>WarQuest for Chrome</a>'; 
+	$page .= '</center>';
+	$page .= '</td>';
+	
+	$page .= '<td width="20">'; 
 	$page .= '</td>';
 		
 	$page .= '</tr>';
