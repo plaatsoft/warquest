@@ -431,7 +431,7 @@ function doAlliance($username, $password) {
 	/* Get free available alliance player */
 	$query  = 'select pid from player where pid not in ';
 	$query .= '(select pid2 from player_player where pid1='.$player->pid.') and pid!='.$player->pid.' ';
-	$query .= 'and (alliance+invite)<(lid*'.$config["max_ally_factor"].') ';
+	$query .= 'and (alliance+invite)<(lid*'.$config["max_ally_factor"].') and country="eu" ';
 	$query .= 'limit 0, 1';	
 		
 	$result = warquest_db_query($query);	 
