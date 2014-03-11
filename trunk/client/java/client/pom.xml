@@ -1,0 +1,35 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>nl.warquest</groupId>
+  <artifactId>client</artifactId>
+  <version>0.1</version>
+  <name>WarQuest</name>
+  <description>WarQuest client</description>
+  
+  <build>
+    <plugins>
+  		<plugin>
+   			<groupId>org.apache.cxf</groupId>
+    		<artifactId>cxf-codegen-plugin</artifactId>
+    		<version>2.7.10</version>
+    		<executions>
+        		<execution>
+            		<id>generate-sources</id>
+            		<phase>generate-sources</phase>
+            		<configuration>
+                		<sourceRoot>${project.build.directory}/generated/cxf</sourceRoot>
+                		<wsdlOptions>
+                    		<wsdlOption>
+                        		<wsdl>http://www.warquest.nl/service?wsdl</wsdl>
+                    		</wsdlOption>
+                		</wsdlOptions>
+            		</configuration>
+            		<goals>
+                		<goal>wsdl2java</goal>
+            		</goals>
+        		</execution>
+    		</executions>
+		</plugin>
+  	</plugins>
+  </build>
+</project>
