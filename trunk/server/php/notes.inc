@@ -17,9 +17,10 @@
 */
 
 $notes[66] = '
-<div class="subparagraph2">08-03-2014</div>
+<div class="subparagraph2">11-03-2014</div>
 <i>Game Server v6.6</i>
 <ul>
+<li>Added BBC news headlines to home breaking news section.</li>
 <li>Added 45 mission awards.</li>
 <li>Added player search to Player->Alliance->Invite page.</li>
 <li>Added Forums->Clan message system.</li>
