@@ -16,6 +16,21 @@
 **  All copyrights reserved (c) 2008-2014 PlaatSoft
 */
 
+$notes[67] = '
+<div class="subparagraph2">16-03-2014</div>
+<i>Game Server v6.6</i>
+<ul>
+<li>Added basic Money->Lottery feature.</li>
+<li>More is coming soon.</li>
+</ul>
+</br>
+
+<i>General</i>
+<ul>
+<li>Please visit www.gravatar.com to upload a player image.</li>
+</ul>';
+
+
 $notes[66] = '
 <div class="subparagraph2">11-03-2014</div>
 <i>Game Server v6.6</i>
@@ -33,13 +48,7 @@ $notes[66] = '
 <li>Disable automatic clan (member) inactive remove.</li>
 <li>Added trade, restore features to unlock schema.</li>
 <li>Enable as default scheme "transparent" for new players.</li>
-</ul></br>
-
-<i>General</i>
-<ul>
-<li>Please visit www.gravatar.com to upload a player image.</li>
-</ul>
-';
+</ul>';
 
 $notes[65] = '
 <div class="subparagraph2">27-02-2014</div>

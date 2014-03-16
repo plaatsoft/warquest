@@ -58,9 +58,7 @@ function warquest_unit_deploy_do() {
 	global $output;
 	
 	/* Get unit info */
-	$query = 'select uid, price, gold, attack, defense, max, upkeep from unit where uid='.$uid;
-	$result = warquest_db_query($query);	
- 	$unit = warquest_db_fetch_object($result); 
+ 	$unit = warquest_db_unit($uid);
 
 	/* Get amount of units already deployed */
 	$query  = "select amount from player_unit where uid=".$uid." and pid=".$player->pid;
@@ -200,10 +198,8 @@ function warquest_unit_disband_do() {
 	global $output;
 	
 	/* Get unit  */
-	$query  = "select uid, price, gold, attack, defense, upkeep from unit where uid=".$uid;
-	$result = warquest_db_query($query);	
- 	$unit = warquest_db_fetch_object($result);
-			
+	$unit = warquest_db_unit($uid);
+				
 	/* Unit amount of player */
 	$query  = "select amount from player_unit where pid=".$player->pid." and uid=".$uid;
 	$result = warquest_db_query($query);
