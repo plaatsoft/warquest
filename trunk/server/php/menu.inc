@@ -388,6 +388,7 @@ function warquest_menu_money() {
 	$menu .= warquest_ui_menu($mid, PAGE_BANK, 1, t('LINK_BANK'), $sid);
 	$menu .= warquest_ui_menu($mid, PAGE_STOCK_EXCHANGE, 1, t('LINK_STOCKEXCHANGE'), $sid);
 	$menu .= warquest_ui_menu($mid, PAGE_CASINO, 1, t('LINK_CASINO'), $sid);
+	$menu .= warquest_ui_menu($mid, PAGE_LOTTERY, 1, t('LINK_LOTTERY'), $sid);
 	
 	$menu .= '</ul>';
 	$menu .= '</div>';

@@ -2327,9 +2327,13 @@ $lang['GENERAL_STOCKS'] = 'Stocks';
 
 $lang['CASINO_TITLE'] = 'CASINO' ;
 
-$lang['CASINO_1'] = 'WheelOfFortune';
+$lang['CASINO_1'] = 'Wheel';
 $lang['CASINO_2'] = 'SlotMachine';
 $lang['CASINO_3'] = 'TicTacToe';
+
+$lang['CASINO_TITLE_1'] = 'Wheel Of Fortune';
+$lang['CASINO_TITLE_2'] = 'Slot Machine';
+$lang['CASINO_TITLE_3'] = 'Tic Tac Toe';
 
 $lang['CASINO_MONEY'] = 'Money';
 $lang['CASINO_NUMBER'] = 'Lucky number';
@@ -3331,6 +3335,29 @@ $lang['PROMOTION_LOCKED'] = 'Promotion features are unlocked at level %s.';
 
 $lang['RESTORE_NOTE']  = 'Note: You can restore health, energy, ammo with cash to reach the next level faster. You can also repair damaged units and/or buildings.';
 
+/*
+** ------------------
+** Added v6.7
+** ------------------
+*/
+
+$lang['LINK_LOTTERY'] = 'Lottery';
+$lang['LINK_BET'] = 'Bet';
+$lang['LINK_BET_AGAIN'] = 'Bet Again';
+
+$lang['LOTTERY_TITLE'] = 'Lottery';
+$lang['LOTTERY_UNLOCKED'] = 'Lottery features are unlocked at level %s.';
+$lang['LOTTERY_NOTE'] = 'Make a bet to make a chance on winning the lottery. After the lottery timer expire the winner is random selected and receive the price(s). How more bets you make, how higher the chance you win!';
+$lang['LOTTERY_NOT_AVAILABLE'] = 'No lotteries available on this moment. Come back later!';
+$lang['LOTTERY_INVALID'] = 'Invalid lottery selected';
+$lang['LOTTERY_EXPIRED'] = 'Lottery is expired!';
+$lang['LOTTERY_NO_GOLD'] = 'You do not have enough gold to set a bet!';
+$lang['LOTTERY_BET_SET'] = 'You bet is processed for lottery %s and %s is withdraw from in-game wallet!'; 
+
+$lang['LOTTERY_BET_COST'] = 'Bet Cost';
+$lang['LOTTERY_BET_EXPIRE'] = 'Lottery Expire';
+$lang['LOTTERY_CHANCE'] = 'Win Chance';
+$lang['LOTTERY_PRICE'] = 'Win';
 
 /*
 ** ------------------

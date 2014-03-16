@@ -270,7 +270,8 @@ switch ($mid) {
 			include "money.inc";
 			include "bank.inc";
 			include "stock.inc";
-			include "casino.inc";			
+			include "casino.inc";
+			include "lottery.inc";			
 			include "player.inc";
 			warquest_money();
 			break;

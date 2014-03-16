@@ -193,7 +193,7 @@ function warquest_casino_wheel() {
 	global $page; 
 	global $output;
 	
-	$output->title = t('CASINO_1');
+	$output->title = t('CASINO_TITLE_1');
 	
 	$page .= '<div class="subparagraph">';	
 	$page .= $output->title;
@@ -590,7 +590,7 @@ function warquest_casino_slotmachine() {
 	global $page; 
 	global $output; 
 
-	$output->title = t('CASINO_2');
+	$output->title = t('CASINO_TITLE_2');
 	
 	$page .= '<div class="subparagraph">';	
 	$page .= $output->title;
@@ -842,7 +842,7 @@ function warquest_casino_tictactoe() {
 	global $page; 
 	global $output;
 	
-	$output->title = t('CASINO_3');
+	$output->title = t('CASINO_TITLE_3');
 	
 	$page .= '<div class="subparagraph">';	
 	$page .= $output->title;

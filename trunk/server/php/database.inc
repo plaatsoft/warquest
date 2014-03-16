@@ -506,6 +506,24 @@ function warquest_db_topic_delete($tid) {
 	return $returnValue;
 }
 
+
+/*
+** -----------------
+** UNIT
+** -----------------
+*/
+
+/**
+ * Get unit 
+ */
+function warquest_db_unit($uid) {
+	
+	$query = 'select uid, price, gold, attack, defense, max, upkeep from unit where uid='.$uid;
+	$result = warquest_db_query($query);	
+	
+ 	return warquest_db_fetch_object($result); 
+}
+
 /*
 ** -----------------
 ** PLAYER UNIT
@@ -740,6 +758,26 @@ function warquest_db_maintenance($player, $planet) {
 	return $maintenance;
 }
 
+
+/*
+** -----------------
+** BUILDING
+** -----------------
+*/
+
+/**
+ * Get building information 
+ */
+ 
+function warquest_db_building($bid) {
+
+	$query  = 'select bid, price, ugid, gold, income, defense, energy, max from building where bid='.$bid;
+	$result = warquest_db_query($query);	 
+ 	
+	return warquest_db_fetch_object($result); 
+}
+
+	
 /*
 ** -----------------
 ** BUILDING_GROUP
@@ -2336,6 +2374,42 @@ function warquest_db_view_add() {
 	return warquest_db_query($query);
 }
 
+/*
+** ---------------------
+** LOTTERY
+** ---------------------
+*/
+
+/**
+ * Get lottery
+ */
+function warquest_db_lottery($lottery_id) {
+		
+	$query  = 'select lottery_id, expire_date, bet, uid, uid_amount, bid, bid_amount, money, gold ';
+	$query .= 'from lottery where lottery_id='.$lottery_id;
+	
+	$result = warquest_db_query($query);
+	return warquest_db_fetch_object($result);
+}
+
+/*
+** ---------------------
+** PLAYER_LOTTERY
+** ---------------------
+*/
+
+/**
+ * Insert player lottery bet
+ */
+function warquest_db_player_lottery($pid, $lottery_id) {
+	
+	$now = date('Y-m-d H:i:s');
+	
+	$query  = 'insert into player_lottery (pid, lottery_id, bet_date) ';
+	$query .= 'values ('.$pid.','.$lottery_id.',"'.$now.'")';
+	
+	return warquest_db_query($query);  
+}
 
 /*
 ** ---------------------
