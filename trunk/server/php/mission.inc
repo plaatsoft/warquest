@@ -89,13 +89,16 @@ function warquest_mission_clan_planet_complet() {
 			$message .= '</td>';
 			$message .= '</tr>';
 			$message .= '</table>';
+			
+			/* Play sound */			
+			warquest_sound('mission1.mp3');
 					
 		} else {
 				
-			$message = t('MISSION_COMPLETE_PLANET_'.$player->planet);					
+			$message = t('MISSION_COMPLETE_PLANET_'.$player->planet);
 		}
 						
-		$output->popup .= warquest_box("info", $message);							
+		$output->popup .= warquest_box("info", $message);
 	}
 }
 
@@ -168,9 +171,12 @@ function warquest_mission_planet_complet() {
 					$message .= '</tr>';
 					$message .= '</table>';
 					
+					/* Play sound */			
+					warquest_sound('mission1.mp3');
+					
 				} else {
 				
-					$message = t('MISSION_COMPLETE_PLANET_'.$player->planet);					
+					$message = t('MISSION_COMPLETE_PLANET_'.$player->planet);
 				}
 						
 				$output->popup .= warquest_box("info", $message);					
@@ -246,6 +252,9 @@ function warquest_mission_continent_complet() {
 		
 		$link = warquest_link('mid='.MENU_HOME.'&sid='.PAGE_SKILLS, t('LINK_SP') ,'skillpoints');
 		$output->popup .= warquest_box("info", $message, $link);
+		
+		/* Play sound */			
+		warquest_sound('mission2.mp3');	
 	} 
 }
 
@@ -593,10 +602,7 @@ function warquest_mission_clan_do() {
 		$link .= warquest_link('mid='.$mid.'&sid='.$sid.'&ssid='.$ssid.'&eid='.EVENT_MISSION_CLAN_PLAY.'&id='.$id, t('LINK_DO_AGAIN'), "doagain");
 		
 		$output->result = true;
-		$output->popup .= warquest_box(t('GENERAL_CONQUER').' '.t('MISSION_'.$id), $message, $link);
-		
-		/* Play sound */			
-		warquest_sound('mission'.rand(1,2).'.mp3');	
+		$output->popup .= warquest_box(t('GENERAL_CONQUER').' '.t('MISSION_'.$id), $message, $link);		
 	}
 }
 
@@ -815,9 +821,6 @@ function warquest_mission_do() {
 
 			$output->result = true;
 			$output->popup .= warquest_box(t('GENERAL_CONQUER').' '.t('MISSION_'.$id), $message, $link);
-		
-			/* Play sound */			
-			warquest_sound('mission'.rand(1,2).'.mp3');	
 		} 
 	}
 }
