@@ -1065,7 +1065,7 @@ function warquest_db_player_insert($name, $pid) {
 	
 	/* Create user account */
 	$query  = 'insert into player (';
-	$query .= 'pid, name, ';
+	$query .= 'pid, name, language, ';
 	$query .= 'ammo, ammo_step, ammo_date,  ';
 	$query .= 'health, health_step, health_date, ';
 	$query .= 'energy, energy_step, energy_date, ';
@@ -1077,7 +1077,7 @@ function warquest_db_player_insert($name, $pid) {
 	$query .= 'request, request_date, last_battle, background, pattern, ';
 	$query .= 'country, gold, planet, premium_date) ';
 	$query .= 'values (';	
-	$query .= $pid.', "'.warquest_db_escape($name).'", ';
+	$query .= $pid.', "'.warquest_db_escape($name).'", "en", ';
 	$query .= $config["init_ammo_max"].', '.$config["init_ammo_step"].', "'.date("Y-m-d H:i:s", (time()+$config["init_ammo_timer"])).'", ';
 	$query .= $config["init_health_max"].', '.$config["init_health_step"].', "'.date("Y-m-d H:i:s", (time()+$config["init_health_timer"])).'", ';	
 	$query .= $config["init_energy_max"].', '.$config["init_energy_step"].', "'.date("Y-m-d H:i:s", (time()+$config["init_energy_timer"])).'", ';
