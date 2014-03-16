@@ -1,0 +1,186 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+
+<wsdl:definitions 
+	targetNamespace='http://www.warquest.nl/service/warquest.wsdl'	
+	xmlns:tns='http://www.warquest.nl/service/warquest.wsdl' 
+	xmlns:xsd1='http://www.warquest.nl/service/warquest.xsd'
+	xmlns:xsd='http://www.w3.org/2001/XMLSchema'
+	xmlns:soap='http://schemas.xmlsoap.org/wsdl/soap/' 
+	xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' >
+
+<wsdl:documentation>
+	Service: WarQuestService
+   Version: 1.0
+   Owner: PlaatSoft
+</wsdl:documentation>
+
+<wsdl:import namespace="http://www.warquest.nl/service"
+	location="http://www.warquest.nl/service/warquest.xsd"/>
+			  
+<wsdl:message name='getPlayerRequest'>
+	<wsdl:part name='name' type='xsd:string'/>
+</wsdl:message>
+
+<wsdl:message name='getPlayerResponse'>
+	<wsdl:part name='player' type='xsd1:player'/>
+</wsdl:message>
+
+<wsdl:message name='getClanRequest'>
+	<wsdl:part name='name' type='xsd:string'/>
+</wsdl:message>
+
+<wsdl:message name='getClanResponse'>
+	<wsdl:part name='clan' type='xsd1:clan'/>
+</wsdl:message>
+
+<wsdl:message name='getPlanetRequest'>
+	<wsdl:part name='planet' type='xsd1:planet'/>
+</wsdl:message>
+
+<wsdl:message name='getPlanetResponse'>
+	<wsdl:part name='sectors' type='xsd1:sectors'/>
+</wsdl:message>
+
+<wsdl:message name='doBattleRequest'>
+	<wsdl:part name="login" type="xsd:string" />
+	<wsdl:part name="password" type="xsd:string" />
+	<wsdl:part name="planet" type="xsd1:planet" />
+	<wsdl:part name="force" type="xsd1:force" />
+</wsdl:message>
+
+<wsdl:message name='doBattleResponse'>
+	<wsdl:part name='battle' type='xsd1:battle' />
+</wsdl:message>
+
+<wsdl:message name='doMissionRequest'>
+	<wsdl:part name="login" type="xsd:string" />
+	<wsdl:part name="password" type="xsd:string" />
+	<wsdl:part name="buy" type="xsd:boolean" />
+	<wsdl:part name="clan" type="xsd:boolean" />
+</wsdl:message>
+
+<wsdl:message name='doMissionResponse'>
+	<wsdl:part name='mission' type='xsd1:mission'/>
+</wsdl:message>
+
+<wsdl:message name='doAllianceRequest'>
+	<wsdl:part name="login" type="xsd:string" />
+	<wsdl:part name="password" type="xsd:string" />
+</wsdl:message>
+
+<wsdl:message name='doAllianceResponse'>
+	<wsdl:part name='alliance' type='xsd1:alliance'/>
+</wsdl:message>
+
+<wsdl:portType name='WarQuestPort'>
+	
+	<wsdl:documentation>The following methodes can be used to play WarQuest</wsdl:documentation>
+	 
+	<wsdl:operation name='getPlayer'>
+		<wsdl:input message='tns:getPlayerRequest'/>	
+		<wsdl:output message='tns:getPlayerResponse'/>
+   </wsdl:operation>
+	
+	<wsdl:operation name='getClan'>
+		<wsdl:input message='tns:getClanRequest'/>	
+		<wsdl:output message='tns:getClanResponse'/>
+   </wsdl:operation>
+	
+	<wsdl:operation name='getPlanet'>
+		<wsdl:input message='tns:getPlanetRequest'/>	
+		<wsdl:output message='tns:getPlanetResponse'/>
+   </wsdl:operation>
+	
+	<wsdl:operation name='doBattle'>
+		<wsdl:input message='tns:doBattleRequest'/>	
+		<wsdl:output message='tns:doBattleResponse'/>
+   </wsdl:operation>
+	
+	<wsdl:operation name='doMission'>
+		<wsdl:input message='tns:doMissionRequest'/>	
+		<wsdl:output message='tns:doMissionResponse'/>
+   </wsdl:operation>
+	
+	<wsdl:operation name='doAlliance'>
+		<wsdl:input message='tns:doAllianceRequest'/>	
+		<wsdl:output message='tns:doAllianceResponse'/>
+   </wsdl:operation>
+	
+</wsdl:portType>
+
+<wsdl:binding name='WarQuestBinding' type='tns:WarQuestPort'>
+   <soap:binding style='rpc'  transport='http://schemas.xmlsoap.org/soap/http' />
+	
+   <wsdl:operation name='getPlayer'>
+     <soap:operation soapAction='getPlayer' style="rpc"/>
+		<wsdl:input>
+        <soap:body use='literal' namespace="http://www.warquest.nl/service/warquest.wsdl" />
+      </wsdl:input>
+		<wsdl:output>
+			<soap:body use='literal' namespace="http://www.warquest.nl/service/warquest.wsdl" />
+		</wsdl:output>
+	</wsdl:operation>
+	
+	<wsdl:operation name='getClan'>
+     <soap:operation soapAction='getClan' style="rpc"/>
+		<wsdl:input>
+        <soap:body use='literal' namespace="http://www.warquest.nl/service/warquest.wsdl" />
+      </wsdl:input>
+		<wsdl:output>
+			<soap:body use='literal' namespace="http://www.warquest.nl/service/warquest.wsdl" />
+		</wsdl:output>
+	</wsdl:operation>
+	
+	<wsdl:operation name='getPlanet'>
+     <soap:operation soapAction='getPlanet' style="rpc"/>
+		<wsdl:input>
+        <soap:body use='literal' namespace="http://www.warquest.nl/service/warquest.wsdl" />
+      </wsdl:input>
+		<wsdl:output>
+			<soap:body use='literal' namespace="http://www.warquest.nl/service/warquest.wsdl" />
+		</wsdl:output>
+	</wsdl:operation>
+	
+	<wsdl:operation name='doBattle'>
+     <soap:operation soapAction='doBattle' style="rpc"/>
+		<wsdl:input>
+        <soap:body use='literal' namespace="http://www.warquest.nl/service/warquest.wsdl" />
+      </wsdl:input>
+		<wsdl:output>
+			<soap:body use='literal' namespace="http://www.warquest.nl/service/warquest.wsdl" />
+		</wsdl:output>
+	</wsdl:operation>
+	
+	<wsdl:operation name='doMission'>
+     <soap:operation soapAction='doMission' style="rpc"/>
+		<wsdl:input>
+        <soap:body use='literal' namespace="http://www.warquest.nl/service/warquest.wsdl" />
+      </wsdl:input>
+		<wsdl:output>
+			<soap:body use='literal' namespace="http://www.warquest.nl/service/warquest.wsdl" />
+		</wsdl:output>
+	</wsdl:operation>
+	
+	<wsdl:operation name='doAlliance'>
+     <soap:operation soapAction='doAlliance' style="rpc"/>
+		<wsdl:input>
+        <soap:body use='literal' namespace="http://www.warquest.nl/service/warquest.wsdl" />
+      </wsdl:input>
+		<wsdl:output>
+			<soap:body use='literal' namespace="http://www.warquest.nl/service/warquest.wsdl" />
+		</wsdl:output>
+	</wsdl:operation>
+	
+</wsdl:binding>
+
+<wsdl:service name='WarQuest'>
+
+	<wsdl:documentation>WSDL file for WarQuest</wsdl:documentation>
+	
+	<wsdl:port binding='tns:WarQuestBinding' name='WarQuestPort'>
+		<soap:address location='http://www.warquest.nl/service/' />
+	</wsdl:port>
+	
+</wsdl:service>
+
+</wsdl:definitions>

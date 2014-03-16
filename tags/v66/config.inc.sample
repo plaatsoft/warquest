@@ -1,0 +1,174 @@
+<?php
+
+/* 
+**  ========
+**  WARQUEST
+**  ========
+**
+**  Created by wplaat
+**
+**  For more information visit the following website.
+**  Website : www.plaatsoft.nl 
+**
+**  Or send an email to the following address.
+**  Email   : info@plaatsoft.nl
+**
+**  All copyrights reserved (c) 2008-2014 PlaatSoft
+*/
+
+/*
+** ---------------------------------------------------------------- 
+** VARIABLE CONFIG ITEMS
+** ---------------------------------------------------------------- 
+*/
+
+/* Enable MySQL (else PostgreSQL) */
+define('MYSQL', 1);
+
+/* Enable debug mode -> If enabled SQL is logged */
+define('DEBUG', 0);
+
+/* Database settings */
+$config["dbuser"]							= "warquest";
+$config["dbpass"]							= "warquest";
+$config["dbname"]							= "warquest";
+$config["dbhost"]							= "127.0.0.1";
+$config["content_url"]					= "";
+$config["base_url"]						= "http://www.warquest.nl";
+$config['backup_period']   		   = 30;
+$config["webservices"]					= 1;
+$config["adminPid"]						= 18;
+$config["default_background"]			= 1;
+
+/* Server version */
+$config["applVersion"]					= 'Version 6.5';
+
+/* Client version settings */
+$config["windows_client_version"]	= '1.4';
+$config["windows_client_url"] 		= 'http://www.plaatsoft.nl/download/41/';
+$config["android_client_version"]	= '2.6';
+
+/* Gold features */
+$config["gold_dollar_ratio"]			= 500;
+$config["gold_trade_feature1"]		= 50;
+$config["gold_trade_feature2"]		= 50;
+$config["gold_trade_feature3"]		= 50;
+$config["gold_trade_feature4"]		= 250;
+$config["gold_trade_feature5"]		= 200;
+$config["gold_trade_feature6"]		= 300;
+
+/*
+** ---------------------------------------------------------------- 
+** STATIC CONFIG ITEMS
+** ---------------------------------------------------------------- 
+*/
+
+$config["applName"]						= 'WarQuest';
+$config["from_email"]					= 'info@warquest.nl';
+
+$config["next_level_sp_bonus"]		= 3;
+$config["continent_conquer_bonus"]  = 7000000;
+
+$config["init_level"]					= 0;
+$config["init_attack_max"]				= 1;
+$config["init_defense_max"]			= 1;
+$config["init_health_min"]				= 27;
+$config["init_max_log_entries"]		= 30;
+$config["init_rebel_treshhold"]     = 100;
+$config["init_bank1_deposit"]			= 2;
+$config["init_bank1_interest"]		= 0.1;
+$config["init_bank2_deposit"]			= 6;
+$config["init_bank2_interest"]		= 1.5;
+$config["init_bank3_deposit"]			= 10;
+$config["init_bank3_interest"]		= 2.0;
+$config["init_stock_fee"]				= 0.5;
+$config["init_money"]					= 25000;
+$config["init_money_bank1"]			= 25000;
+$config["init_money_bank2"]			= 0;
+$config["init_money_bank3"]			= 0;
+$config["init_money_step"]				= 0;
+$config["init_money_timer"]			= 3600;
+$config["init_health_max"]				= 100;
+$config["init_health_step"]			= 1;
+$config["init_health_timer"]			= 140;
+$config["init_energy_max"]				= 100;
+$config["init_energy_step"]			= 10;
+$config["init_energy_timer"]			= 190;
+$config["init_ammo_max"]				= 3;
+$config["init_ammo_step"]				= 1;
+$config["init_ammo_timer"]				= 140;
+$config['init_clan_skill_step']     = 1;
+$config['init_clan_skill_price']    = 200;
+$config["init_player_skill_step"]	= 5;
+$config["init_clan_bank_deposit"]	= 10;
+$config["init_clan_bank_interest"]	= 5;
+
+$config["unit_sell_ratio"]				= .6;
+$config["building_sell_ratio"]		= .6;
+
+$config["min_clan_size"]				= 6;
+
+$config["max_planets"]					= 5;
+$config["max_level"]				 	   = 299;
+$config["max_attack_level_diff"]		= 3;
+$config["max_linear_attack_level"]	= 30;
+$config["max_username_length"]		= 15;
+$config["max_password_length"]		= 15;
+$config["max_mission_part"]			= 3;
+$config["max_bank_groups"]				= 6;
+$config["max_ally_factor"]				= 3;
+$config["max_forums"]					= 6;
+$config["max_restore_health"]			= 5 * 60;
+$config["max_restore_energy"]			= 24 * 60 * 60;
+$config["max_restore_ammo"]			= 24 * 60 * 60;
+$config["max_income_period"]			= 24 * 60 * 60;
+$config['max_cooldown_period']		= 8 * 60 * 60;
+$config["max_invite_period"]			= 2;
+$config["max_sector_damage"]		   = 10;
+$config["max_money_win"]            = 1500000000;
+$config["max_casio_groups"] 			= 3;
+$config["max_health_reduction"]		= 10;
+$config["max_energy_reduction"]		= 20;
+$config["max_ammo_reduction"]			= 10;
+$config["max_battle_log_age"]       = 2;
+$config["max_bank_log_age"]         = 30;
+$config["max_clan_inactive"]  		= 60;
+$config["max_clan_member_inactive"] = 30;
+$config["max_sector_inactive"]      = 3;
+
+$config["restore_warning_level"]    = 90;
+
+$config["casino_unlock_level_1"]    = 10;
+$config["casino_unlock_level_2"]    = 15;
+$config["casino_unlock_level_3"]    = 20;
+
+/*
+** ---------------------------------------------------------------- 
+** TWITTER CONFIG
+** ---------------------------------------------------------------- 
+*/
+
+$config['consumer_key']					= '';
+$config['consumer_secret']				= '';
+$config['user_token']					= '';
+$config['user_secret']					= '';
+
+/*
+** ---------------------------------------------------------------- 
+** PAYPAL CONFIG
+** ---------------------------------------------------------------- 
+*/
+
+$config['paypal_donate_key']			= '';
+$config['paypal_buy_key1']				= '';
+$config['paypal_buy_key2']				= '';
+$config['paypal_buy_key3']				= '';
+$config['paypal_buy_key4']				= '';
+$config['paypal_buy_key5']				= '';
+/*
+** ---------------------------------------------------------------- 
+** THE END
+** ----------------------------------------------------------------
+*/
+
+?>

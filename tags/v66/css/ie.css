@@ -1,0 +1,69 @@
+/* WarQuest IE CSS - All copyrights reserved (c) 2008-2014 PlaatSoft */
+
+body {	
+	display:block;	
+	width: 510px;
+	font-size: 15px;
+}
+
+.tr {
+	width: 510px;
+}
+
+.content {
+	text-align:left;
+	width: 510px;
+}
+
+.header {
+	width: 510px;
+}
+
+.menu {
+	width: 510px;
+}
+
+.footer {
+	width: 510px;
+}
+
+.note3 {
+	width: 400px;
+}
+
+.note2 {
+	width: 510px;
+}
+
+.copyright {
+	width: 510px;
+}
+
+.box {
+	width: 510px;
+}
+
+.box2 {
+	margin: 0px 0px 0px 50px;
+	width: 400px;
+}
+
+img {
+	border: 0;	
+	vertical-align:middle;
+	padding: 1px;
+}
+
+.award img {
+	margin: 2px 2px 0px 0px;
+}
+
+/* -- input -- */
+
+input[type="checkbox"] {
+	border: none;
+}
+
+input[type="radio"] {
+	border: none;
+}
