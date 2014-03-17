@@ -65,4 +65,3 @@ function warquest_money() {
 */
 
 ?>
-

@@ -39,37 +39,36 @@ function warquest_lottery_bet_do() {
 	
 		$message = t('LOTTERY_INVALID');
 		$output->popup .= warquest_box_icon("warning", $message);
+	
+	} else if ($lottery->done==1) {
 		
+		$message = t('LOTTERY_EXPIRED');
+		$output->popup .= warquest_box_icon("warning", $message);
+	
 	} else if ($player->gold<$lottery->bet) {
 	
 		$message = t('LOTTERY_NO_GOLD');
 		$output->popup .= warquest_box_icon("warning", $message);
 	
 	} else {
-	
-		$active = strtotime($lottery->expire_date) - time();			
+
+		/* Withdraw gold from player wallet */
+		$player->gold -= $lottery->bet;
 		
-		if ($active<0) {
+		/* Set bet */
+		warquest_db_player_lottery($player->pid, $lottery->lottery_id);
 		
-			$message = t('LOTTERY_EXPIRED');
-			$output->popup .= warquest_box_icon("warning", $message);
-				
-		} else { 
-	
-			$player->gold -= $lottery->bet;
+		/* Log user event */
+		$log = 'Buy loot in lottery '.$lottery->lottery_id.' for '.gold_format($lottery->bet);		
+		warquest_user_log($player, $log);
 			
-			warquest_db_player_lottery($player->pid, $lottery->lottery_id);
-						
-			$log = 'Buy loot in lottery for '.gold_format($lottery->bet);		
-			warquest_user_log($player, $log);
-			
-			/* Update Statistics */
-			warquest_gold_use($lottery->bet);
+		/* Update gold statistics */
+		warquest_gold_use($lottery->bet);
 		
-			$link = warquest_link('mid='.$mid.'&sid='.$sid.'&id='.$lottery->lottery_id.'&eid='.EVENT_LOTTERY_BET, t('LINK_BET_AGAIN'));		
-			$message = t('LOTTERY_BET_SET', $lottery->lottery_id, gold_format($lottery->bet));
-			$output->popup .= warquest_box_icon("info", $message, $link);			
-		}
+		/* Show popup message */
+		$link = warquest_link('mid='.$mid.'&sid='.$sid.'&id='.$lottery->lottery_id.'&eid='.EVENT_LOTTERY_BET, t('LINK_BET_AGAIN'));		
+		$message = t('LOTTERY_BET_SET', $lottery->lottery_id, gold_format($lottery->bet));
+		$output->popup .= warquest_box_icon("info", $message, $link);			
 	}
 }
 
@@ -86,10 +85,10 @@ function warquest_lottery_form() {
 	global $sid;
 	global $ssid;
 	
-	global $anchor;
 	global $player;
 	global $config;
-	
+	global $offset;
+		
 	/* output */
 	global $page; 
 	global $output;
@@ -97,33 +96,40 @@ function warquest_lottery_form() {
 	warquest_set_default_mission($ssid);	
 	
 	$lid = 30;
+	$limit = 5;
 	
 	$output->title = t('LOTTERY_TITLE');
 	
-	/* Title */	
 	$page .= '<div class="subparagraph">';
 	$page .= t('LOTTERY_TITLE');		
 	$page .= '</div>';
 	
-	/* Validate */
-	if ($player->lid<=$lid) {
+	if ($player->lid < $lid) {
 	
 		$message = t('LOTTERY_UNLOCKED', $lid);
 		$page .= warquest_box_icon('locked', $message);
 	
 	} else {
 		
-		$now = date('Y-m-d H:i:s');
+		$query  = 'select count(lottery_id) as total from lottery';
+		$result = warquest_db_query($query);
+		$data = warquest_db_fetch_object($result);
+		$total = $data->total;
 		
-		/* Show all lotterys */
-		$query  = 'select lottery_id, expire_date, bet, uid, uid_amount, bid, bid_amount, money, gold from lottery ';
-		$query .= 'where expire_date > "'.$now.'" ';
-		$query .= 'order by lottery_id asc';
+		$page .= warquest_page_control($offset, $limit, $total, 1);
+		
+		/* Show running lotteries */
+		$query  = 'select lottery_id, expire_date, bet, uid, uid_amount, bid, bid_amount, money, gold, done from lottery ';		
+		$query .= 'order by lottery_id desc ';
+		$query .= 'limit '.$offset.','.$limit;
 	
 		$result = warquest_db_query($query);
 
 		$line=0;
+		$count=0;
 		while ( $data=warquest_db_fetch_object($result) ) {
+	
+			$active = strtotime($data->expire_date) - time();
 	
 			$line++;
 		
@@ -138,48 +144,88 @@ function warquest_lottery_form() {
 			
 			$page .= '<div class="box" >';
 		
-			$page .= '<div class="right2">';
-			$page .= warquest_link('mid='.$mid.'&sid='.$sid.'&id='.$data->lottery_id.'&eid='.EVENT_LOTTERY_BET, t('LINK_BET'));
-			$page .= '</div>';
+			if ($active>0) {	
+				$page .= '<div class="right2">';
+				$page .= warquest_link('mid='.$mid.'&sid='.$sid.'&id='.$data->lottery_id.'&eid='.EVENT_LOTTERY_BET, t('LINK_BET'));
+				$page .= '</div>';
+			}
 						
 			$page .= '<div class="subparagraph">';
 			$page .= t('LOTTERY_TITLE').' '.$data->lottery_id;
+			if ($player->pid==$config["adminPid"]) {
+				$page .= ' ['.$data2->total.' bets]';
+			}
+			
 			$page .= '</div>';			
 			
 			$page .= '<table>';
 			$page .= '<tr>';
-		
-			$page .= '<td width="145">';			
-			$page .= t('LOTTERY_BET_COST').': ';
-			$page .= gold_format($data->bet);		
-			$page .= '</td>';
+					
+			if ($data->done==0) {
 			
-			$page .= '<td width="200">';
-			$page .= t('LOTTERY_BET_EXPIRE').': ';			
-			$active = strtotime($data->expire_date) - time();			
-			if ($active>0) {
-	
-				$page .= '<script language="JavaScript" src="'.$config["content_url"].'js/countdown'.$line.'.js" type="text/javascript"></script>';
-				$page .= '<div class="countdown strength"><div id="countdown_time'.$line.'"></div></div>';
-				$page .= '<script language="JavaScript" type="text/javascript">';
-				$page .= 'countdown'.$line.'.init('.$active.', "countdown_time'.$line.'", "00:00:00");'; 
-				$page .= '</script>';
-			}
-			$page .= '</td>';
+				$page .= '<td width="135">';
+				$page .= t('LOTTERY_BET_COST').': ';
+				$page .= gold_format($data->bet);		
+				$page .= '</td>';
 				
-			$page .= '<td width="125">';
-			$page .= t('LOTTERY_CHANCE').': ';			
+			} else {
 			
-			$chance = 0;
-			if ($data2->total>0) {
-				$chance = ($data3->total/$data2->total)*100;
+				$page .= '<td width="250">';		
+				$query4  = 'select pid from player_lottery where lottery_id='.$data->lottery_id.' limit 0,1 ';
+				$result4 = warquest_db_query($query4);
+				$data4 = warquest_db_fetch_object($result4);
+				
+				$other = warquest_db_player($data4->pid);
+				$page .= t('LOTTERY_WINNER_IS').': ';
+				$page .= player_format($other->pid, $other->name, $other->country);	
+				$page .= '</td>';
 			}
 			
-			$page .= '<span class="health">';
-			$page .= round($chance,2)."%";
-			$page .= '</span>';
-			$page .= '</td>';
-	
+			if ($data->done==0) {		
+
+				$page .= '<td width="175">';
+				$page .= t('LOTTERY_EXPIRE').': ';			
+				$active = strtotime($data->expire_date) - time();			
+				if ($active>0) {		
+					$page .= '<script language="JavaScript" src="'.$config["content_url"].'js/countdown'.$line.'.js" type="text/javascript"></script>';
+					$page .= '<div class="countdown strength"><div id="countdown_time'.$line.'"></div></div>';
+					$page .= '<script language="JavaScript" type="text/javascript">';
+					$page .= 'countdown'.$line.'.init('.$active.', "countdown_time'.$line.'", "00:00:00");'; 
+					$page .= '</script>';
+					
+				} else {
+				
+					$page .= '<span class="strength">00:00:00</span>';
+				}
+				$page .= '</td>';
+				
+			} else {
+			
+				$page .= '<td width="250">';
+				$page .= t('LOTTERY_DATE').': ';
+				$page .= '<span class="strength">';
+				$page .= warquest_ui_ago($data->expire_date).' ';
+				$page .= '</span>';
+				$page .= t('GENERAL_BY');	
+				$page .= '</td>';	
+			}
+			
+			if ($data->done==0) {
+				
+				$page .= '<td width="150">';
+				$page .= t('LOTTERY_CHANCE').': ';			
+				
+				$chance = 0;
+				if ($data2->total>0) {
+					$chance = ($data3->total/$data2->total)*100;
+				}
+			
+				$page .= '<span class="health">';
+				$page .= round($chance,2)."%";
+				$page .= '</span>';
+				$page .= '</td>';
+			}
+			
 			$page .= '</tr>';		
 			$page .= '</table>';
 			
@@ -211,7 +257,7 @@ function warquest_lottery_form() {
 				$unit = warquest_db_unit($data->uid);
 				
 				$page .= '<td>';								
-				$page .= warquest_unit_image($unit, 1, 1, 160, 130);	
+				$page .= warquest_unit_image($unit, $count++, 1, 160, 130);	
 				$page .= '<br/><center>'.$data->uid_amount.'x</center>';
 				$page .= '</td>';
 			}
@@ -221,15 +267,20 @@ function warquest_lottery_form() {
 				$building = warquest_db_building($data->bid);
 				
 				$page .= '<td>';								
-				$page .= warquest_building_image($building, 2, 1, 160, 130);	
+				$page .= warquest_building_image($building, $count++, 1, 160, 130);	
 				$page .= '<br/><center>'.$data->bid_amount.'x</center>';
 				$page .= '</td>';
 			}
 			
 			$page .= '</tr>';		
 			$page .= '</table>';
+			
+			$page .= '<div class="spacer"></div>';
+			
 			$page .= '</div>';
 		}
+	
+		$page .= warquest_page_control($offset, $limit, $total, 0);
 	
 		if ($line==0) {
 		

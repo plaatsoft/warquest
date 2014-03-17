@@ -560,18 +560,18 @@ function warquest_register_do($amount) {
 				
 					/* Add bonus to friend */
 					$other = warquest_db_player($data->pid);
-					$other->gold += 500;
+					$other->gold += $config['gold_bonus_invite_friend'];
 					$other->comment_notification++;
 					warquest_db_player_update($other);
-					warquest_info($other->name.' ['.$other->pid.'] registration bonus - 500 gold added');
+					warquest_info($other->name.' ['.$other->pid.'] registration bonus - '.$config['gold_bonus_invite_friend'].' gold added');
 					
 					/* Add bonus to new player */
 					$player = warquest_db_player($pid);
-					$player->gold += 500;
+					$player->gold += $config['gold_bonus_invite_friend'];
 					warquest_db_player_update($player);					
-					warquest_info($player->name.' ['.$player->pid.'] registration bonus - 500 gold added');
+					warquest_info($player->name.' ['.$player->pid.'] registration bonus - '.$config['gold_bonus_invite_friend'].' gold added');
 		
-					$message = $player->name.' joined WarQuest. You both receive 500 gold!';		
+					$message = $player->name.' joined WarQuest. You both receive '.$config['gold_bonus_invite_friend'].' gold!';		
 					warquest_db_comment_insert(0, 0, $player->pid, $other->pid, $message);
 				}
 			}

@@ -690,4 +690,3 @@ function warquest_stock() {
 */
 
 ?>
-

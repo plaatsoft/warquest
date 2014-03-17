@@ -3244,7 +3244,7 @@ $lang['PROMOTION_FACEBOOK_NOTE'] = 'Like WarQuest at Facebook and receive %s!';
 $lang['PROMOTION_INVITE'] = 'Invite friends';
 $lang['PROMOTION_INVITE_KNOWN'] = 'Invitation is already sent to %s.';
 $lang['PROMOTION_INVITE_SENT'] = 'Invitation is sent to %s.';
-$lang['PROMOTION_INVITE_NOTE'] = 'Invite friends to WarQuest and receive %s for each new registration.';
+$lang['PROMOTION_INVITE_NOTE'] = 'Invite friends to WarQuest and receive %s for each new registration. Maximum 10 invites allowed!';
 $lang['PROMOTION_MAX_INVITE'] = 'Maximum amount of invites sent, request aborted!';
 
 /*
@@ -3346,18 +3346,22 @@ $lang['LINK_BET'] = 'Bet';
 $lang['LINK_BET_AGAIN'] = 'Bet Again';
 
 $lang['LOTTERY_TITLE'] = 'Lottery';
-$lang['LOTTERY_UNLOCKED'] = 'Lottery features are unlocked at level %s.';
+$lang['LOTTERY_UNLOCKED'] = 'Lottery feature is unlocked at level %s.';
 $lang['LOTTERY_NOTE'] = 'Make a bet to make a chance on winning the lottery. After the lottery timer expire the winner is random selected and receive the price(s). How more bets you make, how higher the chance you win!';
 $lang['LOTTERY_NOT_AVAILABLE'] = 'No lotteries available on this moment. Come back later!';
 $lang['LOTTERY_INVALID'] = 'Invalid lottery selected';
 $lang['LOTTERY_EXPIRED'] = 'Lottery is expired!';
 $lang['LOTTERY_NO_GOLD'] = 'You do not have enough gold to set a bet!';
-$lang['LOTTERY_BET_SET'] = 'You bet is processed for lottery %s and %s is withdraw from in-game wallet!'; 
+$lang['LOTTERY_BET_SET'] = 'You bet is processed for lottery %s and %s is withdraw from your in-game wallet!'; 
 
 $lang['LOTTERY_BET_COST'] = 'Bet Cost';
-$lang['LOTTERY_BET_EXPIRE'] = 'Lottery Expire';
+$lang['LOTTERY_EXPIRE'] = 'Lottery Expire';
+$lang['LOTTERY_WINNER_IS'] = 'Lottery Winner';
 $lang['LOTTERY_CHANCE'] = 'Win Chance';
-$lang['LOTTERY_PRICE'] = 'Win';
+$lang['LOTTERY_DATE'] = 'Lottery Date';
+$lang['LOTTERY_PRICE'] = 'Price';
+
+$lang['LOTTERY_WON'] = ' CONGRATULATION! You won lottery %s. The price is added to your account.';	
 
 /*
 ** ------------------

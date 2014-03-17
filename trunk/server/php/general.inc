@@ -3644,31 +3644,6 @@ function warquest_platform_image($platform) {
 }
 
 /**
- * Get mission image
- */
-function warquest_mission_image($mission, $width=90, $height=65) {
-
-	/* input */
-	global $config;
-	
-	$query  = 'select b.planet from mission a, level b where a.lid=b.lid and a.mid='.$mission->mid;
-	$result = warquest_db_query($query);
-	$data   = warquest_db_fetch_object($result);	
-	
-	$image = '<div id="mtip'.$mission->mid.'" class="tooltip" align="left">';
-	$image .= '<b>'.t('GENERAL_CONQUER').' '.t('MISSION_'.$mission->mid).'</b><br/>';
-	$image .= t('GENERAL_PLANET').' '.t('GENERAL_PLANET_'.$data->planet).'<br/>';		
-	$image .= '</div>';
-	$image .= '<img id="image'.$mission->mid.'" src="'.$config["content_url"].'images/planet/mission'.$data->planet.'a.jpg" ';
-	$image .= 'width="'.$width.'" height="'.$height.'" ';		 
-	$image .= 'onmouseover="tooltip_show(\'mtip'.$mission->mid.'\', \'image'.$mission->mid.'\', 5, 5);" ';
-	$image .= 'onmouseout="tooltip_hide(\'mtip'.$mission->mid.'\');"';
-	$image .= '/>';
-			
-	return $image;
-}	
-
-/**
  * Get casino image
  */
 function warquest_casino_image($id, $width=90, $height=65) {
@@ -3677,7 +3652,7 @@ function warquest_casino_image($id, $width=90, $height=65) {
 	global $config;
 	
 	$image = '<div id="ctip'.$id.'" class="tooltip" align="left">';
-	$image .= '<b>'.t('CASINO_'.$id).'</b><br/>';
+	$image .= '<b>CASINO<br/>'.t('CASINO_TITLE_'.$id).'</b><br/>';
 	$image .= '</div>';
 		
 	$image .= '<img id="cimage'.$id.'" src="'.$config["content_url"].'images/casino/casino'.$id.'.jpg" ';
@@ -3703,6 +3678,31 @@ function warquest_bank_image($id, $width=90, $height=65) {
 	return $image;
 }
 
+
+/**
+ * Get mission image
+ */
+function warquest_mission_image($mission, $width=90, $height=65) {
+
+	/* input */
+	global $config;
+	
+	$query  = 'select b.planet from mission a, level b where a.lid=b.lid and a.mid='.$mission->mid;
+	$result = warquest_db_query($query);
+	$data   = warquest_db_fetch_object($result);	
+	
+	$image = '<div id="mtip'.$mission->mid.'" class="tooltip" align="left">';
+	$image .= '<b>MISSION</b><br/>'.t('GENERAL_CONQUER').' '.t('MISSION_'.$mission->mid).'<br/>';
+	$image .= '</div>';
+	$image .= '<img id="image'.$mission->mid.'" src="'.$config["content_url"].'images/planet/mission'.$data->planet.'a.jpg" ';
+	$image .= 'width="'.$width.'" height="'.$height.'" ';		 
+	$image .= 'onmouseover="tooltip_show(\'mtip'.$mission->mid.'\', \'image'.$mission->mid.'\', 5, 5);" ';
+	$image .= 'onmouseout="tooltip_hide(\'mtip'.$mission->mid.'\');"';
+	$image .= '/>';
+			
+	return $image;
+}	
+
 /**
  * Get unit image
  */
@@ -3713,18 +3713,15 @@ function warquest_unit_image($unit, $count, $tip=1, $width=90, $height=65, $opti
 	
 	if ($tip == 1) {
 		$image = '<div id="utip'.$count.$unit->uid.'" class="tooltip" align="left">';
-		$image .= '<b>'.t('UNIT_'.$unit->uid).'</b><br/>';
+		$image .= '<b>UNIT</b><br/>'.t('UNIT_'.$unit->uid).'<br/>';
 		
 		/* Only show attack / defense information for fighters */
 		if ($unit->attack>0) {
-			$image .= $unit->attack.' '.t('GENERAL_ATTACK').'<br/>';
+			$image .= strength_format($unit->attack).' '.t('GENERAL_ATTACK').'<br/>';
 		}
 		if ($unit->defense>0) {
-			$image .= $unit->defense.' '.t('GENERAL_DEFENSE').'<br/>';
+			$image .= strength_format($unit->defense).' '.t('GENERAL_DEFENSE').'<br/>';
 		}		
-		if ($unit->upkeep>0) {
-			$image .= money_format2($unit->upkeep).' '.t('GENERAL_UPKEEP');
-		}
 		$image .= '</div>';
 		
 		$image .= '<img id="image'.$count.$unit->uid.'" src="'.$config["content_url"].'images/units/unit'.$unit->uid.'.jpg" ';
@@ -3772,26 +3769,26 @@ function warquest_building_image($building, $count=0, $tip=1, $width=90, $height
 	
 	if ($tip==1) {
 		$image = '<div id="btip'.$count.$building->bid.'" class="tooltip">';
-		$image .= '<b>'.t('BUILDING_'.$building->bid).'</b><br/>';
+		$image .= '<b>BUILDING</b><br/>'.t('BUILDING_'.$building->bid).'<br/>';
 		if (isset($building->income) && ($building->income > 0)) {
 			$image .= '+'.money_format1($building->income).' '.t('GENERAL_INCOME'); 
 		}
 		
 		if (isset($building->defense) && ($building->defense > 0)) {
-			$image .= '+'.$building->defense.' '.t('GENERAL_DEFENSE'); 			
+			$image .= strength_format($building->defense).' '.t('GENERAL_DEFENSE'); 			
 			$image .= '<br/>'.loot_format(t('UNIT_GROUP_'.$building->ugid));
 		}
 		
 		if (isset($building->energy) && ($building->energy > 0)) {
-			$image .= '+'.$building->energy.' '.t('GENERAL_ENERGY'); 
+			$image .= energy_format($building->energy).' '.t('GENERAL_ENERGY'); 
 		}
 		
 		if (isset($building->discount) && ($building->discount > 0)) {
-			$image .= '+'.$building->discount.'% '.t('GENERAL_DISCOUNT');
+			$image .= discount_format($building->discount).'% '.t('GENERAL_DISCOUNT');
 		}
 		
 		if (isset($building->maintenance) && ($building->maintenance>0)) {
-			$image .= '+'.$building->maintenance.'% '.t('GENERAL_MAINTENANCE');
+			$image .= maintenance_format($building->maintenance).'% '.t('GENERAL_MAINTENANCE');
 		}
 		$image .= '</div>';
 	
