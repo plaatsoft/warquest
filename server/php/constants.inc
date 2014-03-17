@@ -299,6 +299,7 @@ define('EVENT_ADMIN_BACKUP_DATABASE',    3923);
 define('EVENT_ADMIN_INACTIVE_SECTOR',    3924);
 define('EVENT_ADMIN_EDIT',  	           3925);
 define('EVENT_ADMIN_UPDATE_BOTS',        3926); 
+define('EVENT_ADMIN_UPDATE_LOTTERY',     3927); 
 
 /* others (internal used) */
 define('EVENT_PLAYER_PDF_REPORT', 	     4000);

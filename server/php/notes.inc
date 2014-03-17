@@ -18,10 +18,12 @@
 
 $notes[67] = '
 <div class="subparagraph2">16-03-2014</div>
-<i>Game Server v6.6</i>
+<i>Game Server v6.7</i>
 <ul>
 <li>Added basic Money->Lottery feature.</li>
-<li>More is coming soon.</li>
+<li>Improve buildings page layout.</li>
+<li>Adapted facebook like and friend invite gold bonus.</li>
+<li>Improve unit/building/mission toolkit popup message.</li>
 </ul>
 </br>
 
@@ -29,7 +31,6 @@ $notes[67] = '
 <ul>
 <li>Please visit www.gravatar.com to upload a player image.</li>
 </ul>';
-
 
 $notes[66] = '
 <div class="subparagraph2">11-03-2014</div>
@@ -48,7 +49,14 @@ $notes[66] = '
 <li>Disable automatic clan (member) inactive remove.</li>
 <li>Added trade, restore features to unlock schema.</li>
 <li>Enable as default scheme "transparent" for new players.</li>
-</ul>';
+</ul></br>
+
+<i>Chrome Client v1.0</i>
+<ul>
+<li>Creating Chrome client app</li>
+<li>Released app in chrome webstore</li>
+</ul>
+';
 
 $notes[65] = '
 <div class="subparagraph2">27-02-2014</div>

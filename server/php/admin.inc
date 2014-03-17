@@ -2151,17 +2151,13 @@ function warquest_admin_action_form() {
 	$page .= '</li>';
 	
 	$page .= '<li>'; 
-	$page .= warquest_link('mid='.$mid.'&sid='.$sid.'&eid='.EVENT_ADMIN_UPDATE_CLAN, 'Remove inactive clan members (cron job)');
+	$page .= warquest_link('mid='.$mid.'&sid='.$sid.'&eid='.EVENT_ADMIN_INACTIVE_SECTOR, 'Clear inactive sectors (cron job)');
 	$page .= '</li>';
 		
 	$page .= '<li>'; 
-	$page .= warquest_link('mid='.$mid.'&sid='.$sid.'&eid='.EVENT_ADMIN_INACTIVE_SECTOR, 'Clear inactive sectors (cron job)');
+	$page .= warquest_link('mid='.$mid.'&sid='.$sid.'&eid='.EVENT_ADMIN_UPDATE_LOTTERY, 'Update lotteries (cron job)');
 	$page .= '</li>';
 	
-	$page .= '<li>'; 
-	$page .= warquest_link('mid='.$mid.'&sid='.$sid.'&eid='.EVENT_ADMIN_BACKUP_DATABASE, 'Make database backup (cron job)');
-	$page .= '</li>';
-
 	$page .= '<li>'; 
 	$page .= warquest_link('mid='.$mid.'&sid='.$sid.'&eid='.EVENT_ADMIN_OPTIMIZE_DATABASE, 'Optimize database tables');
 	$page .= '</li>';
@@ -2172,7 +2168,15 @@ function warquest_admin_action_form() {
 	$page .= '<b>SPECIAL ACTIONS</b>'; 
 	
 	$page .= '<ul>';
+
+	$page .= '<li>'; 
+	$page .= warquest_link('mid='.$mid.'&sid='.$sid.'&eid='.EVENT_ADMIN_UPDATE_CLAN, 'Remove inactive clan members (cron job)');
+	$page .= '</li>';
 	
+	$page .= '<li>'; 
+	$page .= warquest_link('mid='.$mid.'&sid='.$sid.'&eid='.EVENT_ADMIN_BACKUP_DATABASE, 'Make database backup (cron job)');
+	$page .= '</li>';
+		
 	$page .= '<li>'; 
 	$page .= warquest_link('mid='.$mid.'&sid='.$sid.'&eid='.EVENT_ADMIN_UPDATE_TIMERS, 'Generate 24h extra robot income.');
 	$page .= '</li>';
@@ -2336,6 +2340,10 @@ function warquest_admin() {
 			
 		case EVENT_ADMIN_UPDATE_BOTS:
 			warquest_admin_update_robots();
+			break;
+			
+		case EVENT_ADMIN_UPDATE_LOTTERY:
+			warquest_cron_update_lottery(1);
 			break;
 			
 		case EVENT_SWITCH_PLANET: 

@@ -121,6 +121,7 @@ function warquest_get_clan_event() {
 function warquest_fb_like_event() {
 
 	global $id;
+	global $config;
 	
 	$player = warquest_db_player($id);
 	
@@ -128,10 +129,10 @@ function warquest_fb_like_event() {
 	
 		warquest_db_bonus_insert($player->pid, BONUS_FACEBOOK_LIKE);
 	
-		$player->gold += 500;
+		$player->gold += $config['gold_bonus_facebook_like'];
 		warquest_db_player_update($player);
 		
-		$log = $player->name.' ['.$player->pid.'] facebook like bonus - 500 gold added';
+		$log = $player->name.' ['.$player->pid.'] facebook like bonus - '.$config['gold_bonus_facebook_like'].' gold added';
 		warquest_info($log);
 	}
 }

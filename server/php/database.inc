@@ -2361,7 +2361,7 @@ function warquest_db_view_add() {
 	$data = warquest_db_fetch_object($result);
 	
 	if (isset($data->requests)) {
-					
+
 		$query  = 'update views set requests='.++$data->requests;
 		$query .= ' where mid='.$mid.' and sid='.$sid.' and ssid='.$ssid.' and eid='.$eid;	
 		
@@ -2381,11 +2381,45 @@ function warquest_db_view_add() {
 */
 
 /**
+ * Insert lottery
+ */
+function warquest_db_lottery_insert($expire_date, $bet, $money, $gold, $uid, $uid_amount, $bid, $bid_amount) {
+
+	$value = 0;
+	
+	$query  = 'insert into lottery (expire_date, bet, money, gold, uid, uid_amount, bid, bid_amount, done) ';
+	$query .= 'values ("'.date("Y-m-d H:i:s", $expire_date).'",'.$bet.','.$money.','.$gold.','.$uid.','.$uid_amount.','.$bid.','.$bid_amount.',0)';
+	
+	warquest_db_query($query); 
+	
+	$query  = 'select lottery_id from lottery where expire_date="'.date("Y-m-d H:i:s", $expire_date).'" and bet='.$bet.' and gold='.$gold;
+	$result = warquest_db_query($query);
+	$data   = warquest_db_fetch_object($result);
+	
+	if (isset($data->lottery_id)) {
+		$value = $data->lottery_id;
+	}
+	
+	return $value;
+}
+
+/**
+ * Update lottery
+ */
+function warquest_db_lottery_update($lottery) {
+	
+	$query  = 'update lottery set done='.$lottery->done.' ';
+	$query .= 'where lottery_id='.$lottery->lottery_id;	
+	
+	return warquest_db_query($query);
+}
+		
+/**
  * Get lottery
  */
 function warquest_db_lottery($lottery_id) {
 		
-	$query  = 'select lottery_id, expire_date, bet, uid, uid_amount, bid, bid_amount, money, gold ';
+	$query  = 'select lottery_id, expire_date, bet, uid, uid_amount, bid, bid_amount, money, gold, done ';
 	$query .= 'from lottery where lottery_id='.$lottery_id;
 	
 	$result = warquest_db_query($query);
@@ -2399,16 +2433,27 @@ function warquest_db_lottery($lottery_id) {
 */
 
 /**
- * Insert player lottery bet
+ * Insert player lottery
  */
 function warquest_db_player_lottery($pid, $lottery_id) {
 	
 	$now = date('Y-m-d H:i:s');
 	
-	$query  = 'insert into player_lottery (pid, lottery_id, bet_date) ';
-	$query .= 'values ('.$pid.','.$lottery_id.',"'.$now.'")';
+	$query  = 'insert into player_lottery (pid, lottery_id, bet_date, winner) ';
+	$query .= 'values ('.$pid.','.$lottery_id.',"'.$now.'", 0)';
 	
 	return warquest_db_query($query);  
+}
+
+/**
+ * Set player lottery winner
+ */
+function warquest_db_lottery_winner($pid, $lottery_id) {
+	
+	$query  = 'update player_lottery set winner=1 ';
+	$query .= 'where pid='.$pid.' and lottery_id='.$lottery_id;	
+	
+	return warquest_db_query($query);
 }
 
 /*

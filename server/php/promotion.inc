@@ -121,8 +121,10 @@ function warquest_promotion_form() {
 	
 		$page .= t('LOGIN_EMAIL').' ';
 		$page .= '<td><input name="email" type="text" size="50" maxlength="120" value="'.$email.'" id="email"> ';
+		$page .= '<div class="right2">';
 		$page .= '<input type="hidden" name="token" value="'.warquest_token('mid='.$mid.'&sid='.$sid.'&eid='.EVENT_PROMOTION_INVITE).'">';
 		$page .= '<input type="submit" name="Submit" id="do" value="'.t('LINK_INVITE').'">';
+		$page .= '</div>';
 		$page .= '</td>';
 		$page .= '</tr>';
 		
@@ -130,16 +132,17 @@ function warquest_promotion_form() {
 	
 		$page .= '</div>';
 	
+		$page .= '<div class="note">';
+		$page .= t('PROMOTION_INVITE_NOTE', gold_format($config['gold_bonus_invite_friend']));
+		$page .= '</div>';
+
+		/* ---- Facebook part ------ */
+		
 		$page .= '<script language="JavaScript" src="'.$config["content_url"].'js/facebook3.js" type="text/javascript"></script>';
 		$page .= '<script language="JavaScript">';
 		$page .= 'facebookInit('.MENU_SERVICE.','.EVENT_FB_LIKE.');';
-		$page .= '</script>';	
-	
-		$page .= '<div class="note">';
-		$page .= t('PROMOTION_INVITE_NOTE', gold_format(500));
-		$page .= '</div>';
+		$page .= '</script>';
 		
-		/* Facebook */
 		$page .= '<div class="subparagraph">';
 		$page .= t('PROMOTION_FACEBOOK');
 		$page .= '</div>';
@@ -169,7 +172,7 @@ window.fbAsyncInit = function() {
 		$page .= '</div>';
 	
 		$page .= '<div class="note">';
-		$page .= t('PROMOTION_FACEBOOK_NOTE', gold_format(500));
+		$page .= t('PROMOTION_FACEBOOK_NOTE', gold_format($config['gold_bonus_facebook_like']));
 		$page .= '</div>';
 	}
 }
