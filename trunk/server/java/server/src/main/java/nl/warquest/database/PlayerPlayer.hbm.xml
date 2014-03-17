@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 17-mrt-2014 21:30:42 by Hibernate Tools 3.2.2.GA -->
+<hibernate-mapping>
+    <class name="nl.warquest.database.PlayerPlayer" table="player_player" catalog="warquest">
+        <composite-id name="id" class="nl.warquest.database.PlayerPlayerId">
+            <key-property name="pid1" type="int">
+                <column name="pid1" />
+            </key-property>
+            <key-property name="pid2" type="int">
+                <column name="pid2" />
+            </key-property>
+        </composite-id>
+        <property name="approved" type="int">
+            <column name="approved" not-null="true" />
+        </property>
+        <property name="inviteDate" type="timestamp">
+            <column name="invite_date" length="19" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

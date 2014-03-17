@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 17-mrt-2014 21:30:42 by Hibernate Tools 3.2.2.GA -->
+<hibernate-mapping>
+    <class name="nl.warquest.database.PlayerStock" table="player_stock" catalog="warquest">
+        <composite-id name="id" class="nl.warquest.database.PlayerStockId">
+            <key-property name="pid" type="int">
+                <column name="pid" />
+            </key-property>
+            <key-property name="sid" type="int">
+                <column name="sid" />
+            </key-property>
+        </composite-id>
+        <property name="amount" type="long">
+            <column name="amount" not-null="true" />
+        </property>
+        <property name="cost" type="long">
+            <column name="cost" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,45 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 17-mrt-2014 21:30:42 by Hibernate Tools 3.2.2.GA -->
+<hibernate-mapping>
+    <class name="nl.warquest.database.Clan" table="clan" catalog="warquest">
+        <id name="cid" type="java.lang.Integer">
+            <column name="cid" />
+            <generator class="identity" />
+        </id>
+        <property name="name" type="string">
+            <column name="name" length="6" not-null="true" />
+        </property>
+        <property name="created" type="timestamp">
+            <column name="created" length="19" not-null="true" />
+        </property>
+        <property name="lastActivity" type="timestamp">
+            <column name="last_activity" length="19" not-null="true" />
+        </property>
+        <property name="pid" type="int">
+            <column name="pid" not-null="true" />
+        </property>
+        <property name="won" type="int">
+            <column name="won" not-null="true" />
+        </property>
+        <property name="lost" type="int">
+            <column name="lost" not-null="true" />
+        </property>
+        <property name="money" type="long">
+            <column name="money" not-null="true" />
+        </property>
+        <property name="attack" type="int">
+            <column name="attack" not-null="true" />
+        </property>
+        <property name="defense" type="int">
+            <column name="defense" not-null="true" />
+        </property>
+        <property name="slogan" type="string">
+            <column name="slogan" length="200" not-null="true" />
+        </property>
+        <property name="mission" type="int">
+            <column name="mission" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

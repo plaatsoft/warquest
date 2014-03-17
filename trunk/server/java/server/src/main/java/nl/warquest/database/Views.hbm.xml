@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 17-mrt-2014 21:30:42 by Hibernate Tools 3.2.2.GA -->
+<hibernate-mapping>
+    <class name="nl.warquest.database.Views" table="views" catalog="warquest">
+        <composite-id name="id" class="nl.warquest.database.ViewsId">
+            <key-property name="mid" type="int">
+                <column name="mid" />
+            </key-property>
+            <key-property name="sid" type="int">
+                <column name="sid" />
+            </key-property>
+            <key-property name="ssid" type="int">
+                <column name="ssid" />
+            </key-property>
+            <key-property name="eid" type="int">
+                <column name="eid" />
+            </key-property>
+        </composite-id>
+        <property name="requests" type="int">
+            <column name="requests" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

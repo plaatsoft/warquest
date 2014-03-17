@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 17-mrt-2014 21:30:42 by Hibernate Tools 3.2.2.GA -->
+<hibernate-mapping>
+    <class name="nl.warquest.database.StockGroup" table="stock_group" catalog="warquest">
+        <id name="sgid" type="int">
+            <column name="sgid" />
+            <generator class="assigned" />
+        </id>
+    </class>
+</hibernate-mapping>

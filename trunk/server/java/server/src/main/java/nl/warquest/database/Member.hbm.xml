@@ -1,0 +1,54 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 17-mrt-2014 21:30:42 by Hibernate Tools 3.2.2.GA -->
+<hibernate-mapping>
+    <class name="nl.warquest.database.Member" table="member" catalog="warquest">
+        <id name="pid" type="java.lang.Integer">
+            <column name="pid" />
+            <generator class="identity" />
+        </id>
+        <version name="version" type="string">
+            <column name="version" length="20" not-null="true" />
+        </version>
+        <property name="username" type="string">
+            <column name="username" length="40" not-null="true" />
+        </property>
+        <property name="password" type="string">
+            <column name="password" length="65" not-null="true" />
+        </property>
+        <property name="email" type="string">
+            <column name="email" length="120" not-null="true" />
+        </property>
+        <property name="emailValid" type="int">
+            <column name="email_valid" not-null="true" />
+        </property>
+        <property name="notificationComment" type="int">
+            <column name="notification_comment" not-null="true" />
+        </property>
+        <property name="notificationAlliance" type="int">
+            <column name="notification_alliance" not-null="true" />
+        </property>
+        <property name="created" type="timestamp">
+            <column name="created" length="19" not-null="true" />
+        </property>
+        <property name="lastLogin" type="timestamp">
+            <column name="last_login" length="19" not-null="true" />
+        </property>
+        <property name="prevLogin" type="timestamp">
+            <column name="prev_login" length="19" not-null="true" />
+        </property>
+        <property name="ip" type="string">
+            <column name="ip" length="16" not-null="true" />
+        </property>
+        <property name="browser" type="string">
+            <column name="browser" length="128" not-null="true" />
+        </property>
+        <property name="platform" type="string">
+            <column name="platform" length="128" not-null="true" />
+        </property>
+        <property name="autoLogin" type="int">
+            <column name="auto_login" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>
