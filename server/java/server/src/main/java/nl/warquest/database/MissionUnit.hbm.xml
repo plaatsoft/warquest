@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 17-mrt-2014 21:30:42 by Hibernate Tools 3.2.2.GA -->
+<hibernate-mapping>
+    <class name="nl.warquest.database.MissionUnit" table="mission_unit" catalog="warquest">
+        <composite-id name="id" class="nl.warquest.database.MissionUnitId">
+            <key-property name="mid" type="int">
+                <column name="mid" />
+            </key-property>
+            <key-property name="uid" type="int">
+                <column name="uid" />
+            </key-property>
+        </composite-id>
+        <property name="amount" type="int">
+            <column name="amount" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

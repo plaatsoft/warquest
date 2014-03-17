@@ -1,0 +1,45 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 17-mrt-2014 21:30:42 by Hibernate Tools 3.2.2.GA -->
+<hibernate-mapping>
+    <class name="nl.warquest.database.Building" table="building" catalog="warquest">
+        <id name="bid" type="int">
+            <column name="bid" />
+            <generator class="assigned" />
+        </id>
+        <property name="price" type="long">
+            <column name="price" not-null="true" />
+        </property>
+        <property name="gold" type="int">
+            <column name="gold" not-null="true" />
+        </property>
+        <property name="lid" type="int">
+            <column name="lid" not-null="true" />
+        </property>
+        <property name="income" type="int">
+            <column name="income" not-null="true" />
+        </property>
+        <property name="defense" type="int">
+            <column name="defense" not-null="true" />
+        </property>
+        <property name="energy" type="int">
+            <column name="energy" not-null="true" />
+        </property>
+        <property name="discount" type="int">
+            <column name="discount" not-null="true" />
+        </property>
+        <property name="maintenance" type="int">
+            <column name="maintenance" not-null="true" />
+        </property>
+        <property name="max" type="int">
+            <column name="max" not-null="true" />
+        </property>
+        <property name="bgid" type="int">
+            <column name="bgid" not-null="true" />
+        </property>
+        <property name="ugid" type="int">
+            <column name="ugid" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

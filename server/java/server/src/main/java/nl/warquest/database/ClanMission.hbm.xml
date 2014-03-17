@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 17-mrt-2014 21:30:42 by Hibernate Tools 3.2.2.GA -->
+<hibernate-mapping>
+    <class name="nl.warquest.database.ClanMission" table="clan_mission" catalog="warquest">
+        <composite-id name="id" class="nl.warquest.database.ClanMissionId">
+            <key-property name="cid" type="int">
+                <column name="cid" />
+            </key-property>
+            <key-property name="mid" type="int">
+                <column name="mid" />
+            </key-property>
+        </composite-id>
+        <property name="progress" type="int">
+            <column name="progress" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

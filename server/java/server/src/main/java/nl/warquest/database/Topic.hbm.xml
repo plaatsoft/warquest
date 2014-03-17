@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 17-mrt-2014 21:30:42 by Hibernate Tools 3.2.2.GA -->
+<hibernate-mapping>
+    <class name="nl.warquest.database.Topic" table="topic" catalog="warquest">
+        <id name="tid" type="java.lang.Integer">
+            <column name="tid" />
+            <generator class="identity" />
+        </id>
+        <property name="fid" type="int">
+            <column name="fid" not-null="true" />
+        </property>
+        <property name="pid" type="int">
+            <column name="pid" not-null="true" />
+        </property>
+        <property name="description" type="string">
+            <column name="description" length="128" not-null="true" />
+        </property>
+        <property name="date" type="timestamp">
+            <column name="date" length="19" not-null="true" />
+        </property>
+        <property name="deleted" type="int">
+            <column name="deleted" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

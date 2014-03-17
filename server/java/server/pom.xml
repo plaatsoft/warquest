@@ -9,6 +9,19 @@
 
   <dependencies>
   
+  <dependency>
+    <groupId>javax</groupId>
+    <artifactId>javaee-api</artifactId>
+    <version>6.0</version>
+    <scope>provided</scope>
+</dependency>
+
+  <dependency>
+	<groupId>commons-logging</groupId>
+	<artifactId>commons-logging</artifactId>
+	<version>1.1.1</version>
+</dependency>
+
     <dependency>
       <groupId>org.eclipse.jetty</groupId>
       <artifactId>jetty-server</artifactId>
@@ -33,58 +46,126 @@
 		<version>4.8.1</version>
 	</dependency>        
 	
+ <dependency>
+        <groupId>org.hibernate</groupId>
+        <artifactId>hibernate-entitymanager</artifactId>
+        <version>3.5.5-Final</version>
+    </dependency>
+    
   </dependencies>
   
   <build>
-  
-    <plugins>
-	  <plugin>
-	    <artifactId>maven-assembly-plugin</artifactId>
-	    <executions>
-      		<execution>
-		        <phase>package</phase>
-	        	<goals>
-          		<goal>single</goal>
-	        	</goals>
-      		</execution>
-	    </executions>
-    	<configuration>
-    		<archive>
-    	  		<manifest>
-			        <mainClass>nl.plaatsoft.warquest.server.Loader</mainClass>
-      			</manifest>
-		    </archive>
-	      	<descriptorRefs>
-        		<descriptorRef>jar-with-dependencies</descriptorRef>
-      		</descriptorRefs>
-    		</configuration>
-  		</plugin>
-  		
-  		<plugin>
-   			<groupId>org.apache.cxf</groupId>
-    		<artifactId>cxf-codegen-plugin</artifactId>
-    		<version>2.7.10</version>
-    		<executions>
-        		<execution>
-            		<id>generate-sources</id>
-            		<phase>generate-sources</phase>
-            		<configuration>
-                		<sourceRoot>${project.build.directory}/generated/cxf</sourceRoot>
-                		<wsdlOptions>
-                    		<wsdlOption>
-                        		<wsdl>http://www.warquest.nl/service?wsdl</wsdl>
-                    		</wsdlOption>
-                		</wsdlOptions>
-            		</configuration>
-            		<goals>
-                		<goal>wsdl2java</goal>
-            		</goals>
-        		</execution>
-    		</executions>
-		</plugin>
-
-  	</plugins>
+        <plugins>
+         <plugin>
+    <groupId>org.codehaus.mojo</groupId>
+        <artifactId>hibernate3-maven-plugin</artifactId>
+        <version>2.2</version>
+        <executions>
+        <execution>
  
-  </build>
+    <id>hbm2cfgxml</id>
+    <phase>generate-resources</phase>
+    <goals>
+        <goal>hbm2cfgxml</goal>
+    </goals>
+    <inherited>false</inherited>
+    <configuration>
+        <components>
+            <component>
+                <name>hbm2cfgxml</name>
+                <implementation>jdbcconfiguration</implementation>
+            </component>
+        </components>
+        <componentProperties>
+            <packagename>nl.warquest.database</packagename>
+        </componentProperties>
+    </configuration>
+</execution>
+
+       <execution>
+    <id>hbm2hbmxml</id>
+    <phase>generate-resources</phase>
+    <goals>
+        <goal>hbm2hbmxml</goal>
+    </goals>
+    <inherited>false</inherited>
+    <configuration>
+        <components>
+            <component>
+                <name>hbm2hbmxml</name>
+                <outputDirectory>src/main/java</outputDirectory>
+            </component>
+        </components>
+        <componentProperties>
+            <packagename>nl.warquest.database</packagename>
+        </componentProperties>
+    </configuration>
+</execution>
+
+<execution>
+    <id>hbm2java</id>
+    <phase>test</phase>
+    <goals>
+        <goal>hbm2java</goal>
+    </goals>
+    <inherited>false</inherited>
+    <configuration>
+        <components>
+            <component>
+                <name>hbm2java</name>
+                <implementation>annotationconfiguration</implementation>
+                <outputDirectory>src/main/java</outputDirectory>
+            </component>
+        </components>
+        <componentProperties>
+            <packagename>nl.warquest.database</packagename>
+            <configurationfile>target/hibernate3/generated-mappings/hibernate.cfg.xml</configurationfile>
+			<templatepath>src/main/resources/hbmtemplates</templatepath>
+            <ejb3>true</ejb3>
+            <jdk5>true</jdk5>
+        </componentProperties>
+    </configuration>
+</execution>
+
+<execution>
+    <id>hbm2dao</id>
+    <phase>test</phase>
+    <goals>
+        <goal>hbm2dao</goal>
+    </goals>
+    <inherited>false</inherited>
+    <configuration>
+        <components>
+            <component>
+                <name>hbm2dao</name>
+                <implementation>jdbcconfiguration</implementation>
+                <outputDirectory>src/main/java</outputDirectory>
+            </component>
+        </components>
+        <componentProperties>
+            <packagename>nl.warquest.database</packagename>
+            <configurationfile>target/hibernate3/generated-mappings/hibernate.cfg.xml</configurationfile>
+            <templatepath>src/main/resources/hbmtemplates/</templatepath>
+            <ejb3>true</ejb3>
+            <jdk5>true</jdk5>
+        </componentProperties>
+    </configuration>
+</execution>
+
+
+    </executions>
+     <dependencies>
+      <dependency>
+		<groupId>mysql</groupId>
+		<artifactId>mysql-connector-java</artifactId>
+		<version>5.1.6</version>
+	</dependency>
+	</dependencies>
+	
+</plugin>    
+
+
+  </plugins>
   
+  </build>
 </project>
