@@ -22,6 +22,20 @@
 ** ---------------------------------------------------------------- 
 */
 
+/* 
+** -----------
+** PARAMETERS
+** -----------
+*/
+
+$amount = warquest_post('amount', 1);
+
+/* 
+** -----------
+** ACTIONS
+** -----------
+*/
+
 function warquest_lottery_bet_do() {
 
 	/* input */
@@ -29,6 +43,7 @@ function warquest_lottery_bet_do() {
 	global $sid;
 	global $player;
 	global $id;
+	global $amount;
 	
 	/* output */
 	global $output;	
@@ -45,7 +60,7 @@ function warquest_lottery_bet_do() {
 		$message = t('LOTTERY_EXPIRED');
 		$output->popup .= warquest_box_icon("warning", $message);
 	
-	} else if ($player->gold<$lottery->bet) {
+	} else if ($player->gold<($lottery->bet * $amount)) {
 	
 		$message = t('LOTTERY_NO_GOLD');
 		$output->popup .= warquest_box_icon("warning", $message);
@@ -53,22 +68,32 @@ function warquest_lottery_bet_do() {
 	} else {
 
 		/* Withdraw gold from player wallet */
-		$player->gold -= $lottery->bet;
+		$player->gold -= ($lottery->bet * $amount);
 		
 		/* Set bet */
-		warquest_db_player_lottery($player->pid, $lottery->lottery_id);
+		for ($i=0; $i<$amount; $i++) {
+			warquest_db_player_lottery($player->pid, $lottery->lottery_id);
+		}
 		
 		/* Log user event */
-		$log = 'Buy loot in lottery '.$lottery->lottery_id.' for '.gold_format($lottery->bet);		
+		$log = 'Buy '.$amount.' loot(s) in lottery '.$lottery->lottery_id.' for '.gold_format($lottery->bet);		
 		warquest_user_log($player, $log);
 			
 		/* Update gold statistics */
-		warquest_gold_use($lottery->bet);
+		warquest_gold_use($lottery->bet * $amount);
 		
 		/* Show popup message */
 		$link = warquest_link('mid='.$mid.'&sid='.$sid.'&id='.$lottery->lottery_id.'&eid='.EVENT_LOTTERY_BET, t('LINK_BET_AGAIN'));		
-		$message = t('LOTTERY_BET_SET', $lottery->lottery_id, gold_format($lottery->bet));
-		$output->popup .= warquest_box_icon("info", $message, $link);			
+		$link .= '<br/><br/>'.t('GENERAL_AMOUNT').'<br/>';
+		
+		$max=1;
+		if ($lottery->bet>0) {
+			$max = round($player->gold/$lottery->bet);
+		}
+		$link .= warquest_amount_selected($max);
+		
+		$message = t('LOTTERY_BET_SET', $lottery->lottery_id, gold_format($lottery->bet*$amount));
+		$output->popup .= warquest_box_icon("info", $message, $link);
 	}
 }
 
