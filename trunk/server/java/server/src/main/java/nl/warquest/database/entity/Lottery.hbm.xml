@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Mar 18, 2014 8:01:52 PM by Hibernate Tools 3.2.2.GA -->
+<hibernate-mapping>
+    <class name="nl.warquest.database.entity.Lottery" table="lottery" catalog="warquest">
+        <id name="lotteryId" type="java.lang.Integer">
+            <column name="lottery_id" />
+            <generator class="identity" />
+        </id>
+        <property name="expireDate" type="timestamp">
+            <column name="expire_date" length="19" not-null="true" />
+        </property>
+        <property name="bet" type="int">
+            <column name="bet" not-null="true" />
+        </property>
+        <property name="money" type="long">
+            <column name="money" not-null="true" />
+        </property>
+        <property name="gold" type="long">
+            <column name="gold" not-null="true" />
+        </property>
+        <property name="uid" type="int">
+            <column name="uid" not-null="true" />
+        </property>
+        <property name="uidAmount" type="int">
+            <column name="uid_amount" not-null="true" />
+        </property>
+        <property name="bid" type="int">
+            <column name="bid" not-null="true" />
+        </property>
+        <property name="bidAmount" type="int">
+            <column name="bid_amount" not-null="true" />
+        </property>
+        <property name="done" type="int">
+            <column name="done" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

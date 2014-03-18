@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Mar 18, 2014 8:01:52 PM by Hibernate Tools 3.2.2.GA -->
+<hibernate-mapping>
+    <class name="nl.warquest.database.entity.PlayerPoll" table="player_poll" catalog="warquest">
+        <composite-id name="id" class="nl.warquest.database.entity.PlayerPollId">
+            <key-property name="pid" type="int">
+                <column name="pid" />
+            </key-property>
+            <key-property name="pollId" type="int">
+                <column name="poll_id" />
+            </key-property>
+        </composite-id>
+        <property name="answerId" type="int">
+            <column name="answer_id" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Mar 18, 2014 8:01:52 PM by Hibernate Tools 3.2.2.GA -->
+<hibernate-mapping>
+    <class name="nl.warquest.database.entity.Mission" table="mission" catalog="warquest">
+        <id name="mid" type="int">
+            <column name="mid" />
+            <generator class="assigned" />
+        </id>
+        <property name="minPrice" type="long">
+            <column name="min_price" not-null="true" />
+        </property>
+        <property name="maxPrice" type="long">
+            <column name="max_price" not-null="true" />
+        </property>
+        <property name="experience" type="int">
+            <column name="experience" not-null="true" />
+        </property>
+        <property name="loot" type="int">
+            <column name="loot" not-null="true" />
+        </property>
+        <property name="energy" type="int">
+            <column name="energy" not-null="true" />
+        </property>
+        <property name="alliance" type="int">
+            <column name="alliance" not-null="true" />
+        </property>
+        <property name="lid" type="int">
+            <column name="lid" not-null="true" />
+        </property>
+        <property name="mgid" type="int">
+            <column name="mgid" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>
