@@ -1855,7 +1855,7 @@ function warquest_profile($id) {
 
 		$page .= '<tr>';
 		$page .= '<td>'.t('PLAYER_BROWSER_VERSION').':</td>';
-		$page .= '<td >'.$member->version.'</td>';
+		$page .= '<td >'.$member->versie.'</td>';
 		$page .= '</tr>';
 	
 		$page .= '<tr>';

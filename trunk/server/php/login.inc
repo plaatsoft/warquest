@@ -345,7 +345,7 @@ function warquest_logout_do() {
 	if ($pid!=0) {
 	
 		$member = warquest_db_member($pid);	
-		$version = $member->version;
+		$version = $member->versie;
 		
 		warquest_info($member->username.' logout succesfull');
 	}
@@ -651,7 +651,7 @@ function warquest_login_do($myusername, $mypassword) {
 		
 			$browser = new Browser($version);
 			$member->browser=$browser->getBrowser();
-			$member->version=$browser->getVersion();
+			$member->versie=$browser->getVersion();
 			$member->platform=$browser->getPlatform();
 				
 			warquest_db_member_update($member);

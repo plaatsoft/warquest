@@ -561,9 +561,9 @@ function warquest_admin_browser_report() {
 	
 	$output->title = 'Browsers';
 		
-	$query  = 'select COUNT(*) as count, browser, platform, version ';
-	$query .= 'from member group by browser, platform, version ';
-	$query .= 'order by browser asc, version asc ';
+	$query  = 'select COUNT(*) as count, browser, platform, versie ';
+	$query .= 'from member group by browser, platform, versie ';
+	$query .= 'order by browser asc, versie asc ';
 
 	$result = warquest_db_query($query);		
 
@@ -594,7 +594,7 @@ function warquest_admin_browser_report() {
 		$page .= '</td>';
 		
 		$page .= '<td>';
-		$page .= $data->version;
+		$page .= $data->versie;
 		$page .= '</td>';
 		
 		$page .= '<td>';
@@ -1827,7 +1827,7 @@ function warquest_admin_update_robots() {
 		$member->notification_alliance = 0;
 		$member->ip = "";
 		$member->browser = "";
-		$member->version = "";
+		$member->versie = "";
 		$member->platform = "";		
 		warquest_db_member_update($member);
 		

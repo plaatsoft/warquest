@@ -184,7 +184,7 @@ function warquest_player_report_do($id) {
 			$this->SetFont('','B');
 			$this->Cell($width,$height, t('PLAYER_BROWSER_VERSION'), 1, 0,'L',true);			
 			$this->SetFont('','');
-			$this->Cell($width,$height, $member->version, 1, 0,'L',true);
+			$this->Cell($width,$height, $member->versie, 1, 0,'L',true);
 			$this->Ln();
 			
 			$this->SetFont('','B');

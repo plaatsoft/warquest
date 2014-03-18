@@ -37,3 +37,6 @@ CREATE TABLE IF NOT EXISTS `player_lottery` (
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1 AUTO_INCREMENT=1;
 
 INSERT INTO  cron (cid, note, last_run) VALUES (13, 'Lottery job', '2014-03-03 00:00:00');
+
+-- Rename action because version is a reserved word in java hibernate framework.
+ALTER TABLE `member` CHANGE `version` `versie` VARCHAR( 20 ) CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL ;
