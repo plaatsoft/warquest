@@ -1,0 +1,43 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Mar 18, 2014 8:01:52 PM by Hibernate Tools 3.2.2.GA -->
+<hibernate-mapping>
+    <class name="nl.warquest.database.entity.Battle" table="battle" catalog="warquest">
+        <id name="id" type="java.lang.Integer">
+            <column name="id" />
+            <generator class="identity" />
+        </id>
+        <property name="pid1" type="int">
+            <column name="pid1" not-null="true">
+                <comment>Source player</comment>
+            </column>
+        </property>
+        <property name="pid2" type="int">
+            <column name="pid2" not-null="true">
+                <comment>Target player</comment>
+            </column>
+        </property>
+        <property name="date" type="timestamp">
+            <column name="date" length="19" not-null="true" />
+        </property>
+        <property name="money" type="long">
+            <column name="money" not-null="true" />
+        </property>
+        <property name="health" type="int">
+            <column name="health" not-null="true" />
+        </property>
+        <property name="experience" type="int">
+            <column name="experience" not-null="true" />
+        </property>
+        <property name="win" type="int">
+            <column name="win" not-null="true" />
+        </property>
+        <property name="ugid" type="int">
+            <column name="ugid" not-null="true" />
+        </property>
+        <property name="bounty" type="int">
+            <column name="bounty" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

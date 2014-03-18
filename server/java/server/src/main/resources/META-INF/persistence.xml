@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence xmlns="http://xmlns.jcp.org/xml/ns/persistence" 
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence_1_0.xsd"
+             version="1.0">
+
+	<persistence-unit name="warquest" >
+		<description>Persistence unit for the JPA interface</description>
+
+		<properties>
+		 	<property name="hibernate.dialect" value="org.hibernate.dialect.MySQLDialect"/>
+			<property name="hibernate.connection.driver_class" value="com.mysql.jdbc.Driver" />
+			<property name="hibernate.connection.url" value="jdbc:mysql://192.168.56.102:3306/warquest" />
+			<property name="hibernate.connection.username" value="warquest" />
+			<property name="hibernate.connection.password" value="warquest" /> 		
+			<property name="hibernate.show_sql" value="true" />
+			<property name="hibernate.format_sql" value="true"/>
+			
+		</properties>
+ 
+	</persistence-unit>
+ 
+</persistence>
+

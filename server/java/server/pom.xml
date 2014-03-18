@@ -1,171 +1,182 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-  <modelVersion>4.0.0</modelVersion>
-  <groupId>nl.plaatsoft.warquest</groupId>
-  <artifactId>server</artifactId>
-  <version>0.1</version>
-  <name>Server</name>
-  <packaging>jar</packaging>
-  <description>WarQuest Server</description>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>nl.plaatsoft.warquest</groupId>
+	<artifactId>server</artifactId>
+	<version>0.1</version>
+	<name>Server</name>
+	<packaging>jar</packaging>
+	<description>WarQuest Server</description>
 
-  <dependencies>
-  
-  <dependency>
-    <groupId>javax</groupId>
-    <artifactId>javaee-api</artifactId>
-    <version>6.0</version>
-    <scope>provided</scope>
-</dependency>
+	<dependencies>
 
-  <dependency>
-	<groupId>commons-logging</groupId>
-	<artifactId>commons-logging</artifactId>
-	<version>1.1.1</version>
-</dependency>
+		<dependency>
+			<groupId>javax.ejb</groupId>
+			<artifactId>ejb-api</artifactId>
+			<version>3.0</version>
+		</dependency>
+		
+		<dependency>
+			<groupId>javax.persistence</groupId>
+			<artifactId>persistence-api</artifactId>
+			<version>1.0</version>
+		</dependency>
 
-    <dependency>
-      <groupId>org.eclipse.jetty</groupId>
-      <artifactId>jetty-server</artifactId>
-      <version>9.1.2.v20140210</version>
-    </dependency>
-    
-    <dependency>
-		<groupId>log4j</groupId>
-		<artifactId>log4j</artifactId>
-		<version>1.2.17</version>
-	</dependency>
-    
-    <dependency>
-		<groupId>mysql</groupId>
-		<artifactId>mysql-connector-java</artifactId>
-		<version>5.1.6</version>
-	</dependency>
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-log4j12</artifactId>
+			<version>1.5.2</version>
+		</dependency>
 
-	<dependency>
-		<groupId>junit</groupId>
-		<artifactId>junit</artifactId>
-		<version>4.8.1</version>
-	</dependency>        
-	
- <dependency>
-        <groupId>org.hibernate</groupId>
-        <artifactId>hibernate-entitymanager</artifactId>
-        <version>3.5.5-Final</version>
-    </dependency>
-    
-  </dependencies>
-  
-  <build>
-        <plugins>
-         <plugin>
-    <groupId>org.codehaus.mojo</groupId>
-        <artifactId>hibernate3-maven-plugin</artifactId>
-        <version>2.2</version>
-        <executions>
-        <execution>
- 
-    <id>hbm2cfgxml</id>
-    <phase>generate-resources</phase>
-    <goals>
-        <goal>hbm2cfgxml</goal>
-    </goals>
-    <inherited>false</inherited>
-    <configuration>
-        <components>
-            <component>
-                <name>hbm2cfgxml</name>
-                <implementation>jdbcconfiguration</implementation>
-            </component>
-        </components>
-        <componentProperties>
-            <packagename>nl.warquest.database</packagename>
-        </componentProperties>
-    </configuration>
-</execution>
+		<dependency>
+			<groupId>commons-logging</groupId>
+			<artifactId>commons-logging</artifactId>
+			<version>1.1.1</version>
+		</dependency>
 
-       <execution>
-    <id>hbm2hbmxml</id>
-    <phase>generate-resources</phase>
-    <goals>
-        <goal>hbm2hbmxml</goal>
-    </goals>
-    <inherited>false</inherited>
-    <configuration>
-        <components>
-            <component>
-                <name>hbm2hbmxml</name>
-                <outputDirectory>src/main/java</outputDirectory>
-            </component>
-        </components>
-        <componentProperties>
-            <packagename>nl.warquest.database</packagename>
-        </componentProperties>
-    </configuration>
-</execution>
+		<dependency>
+			<groupId>org.eclipse.jetty</groupId>
+			<artifactId>jetty-server</artifactId>
+			<version>9.1.2.v20140210</version>
+		</dependency>
 
-<execution>
-    <id>hbm2java</id>
-    <phase>test</phase>
-    <goals>
-        <goal>hbm2java</goal>
-    </goals>
-    <inherited>false</inherited>
-    <configuration>
-        <components>
-            <component>
-                <name>hbm2java</name>
-                <implementation>annotationconfiguration</implementation>
-                <outputDirectory>src/main/java</outputDirectory>
-            </component>
-        </components>
-        <componentProperties>
-            <packagename>nl.warquest.database</packagename>
-            <configurationfile>target/hibernate3/generated-mappings/hibernate.cfg.xml</configurationfile>
-			<templatepath>src/main/resources/hbmtemplates</templatepath>
-            <ejb3>true</ejb3>
-            <jdk5>true</jdk5>
-        </componentProperties>
-    </configuration>
-</execution>
+		<dependency>
+			<groupId>log4j</groupId>
+			<artifactId>log4j</artifactId>
+			<version>1.2.17</version>
+		</dependency>
 
-<execution>
-    <id>hbm2dao</id>
-    <phase>test</phase>
-    <goals>
-        <goal>hbm2dao</goal>
-    </goals>
-    <inherited>false</inherited>
-    <configuration>
-        <components>
-            <component>
-                <name>hbm2dao</name>
-                <implementation>jdbcconfiguration</implementation>
-                <outputDirectory>src/main/java</outputDirectory>
-            </component>
-        </components>
-        <componentProperties>
-            <packagename>nl.warquest.database</packagename>
-            <configurationfile>target/hibernate3/generated-mappings/hibernate.cfg.xml</configurationfile>
-            <templatepath>src/main/resources/hbmtemplates/</templatepath>
-            <ejb3>true</ejb3>
-            <jdk5>true</jdk5>
-        </componentProperties>
-    </configuration>
-</execution>
+		<dependency>
+			<groupId>mysql</groupId>
+			<artifactId>mysql-connector-java</artifactId>
+			<version>5.1.15</version>
+		</dependency>
 
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>4.8.1</version>
+		</dependency>
 
-    </executions>
-     <dependencies>
-      <dependency>
-		<groupId>mysql</groupId>
-		<artifactId>mysql-connector-java</artifactId>
-		<version>5.1.6</version>
-	</dependency>
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-entitymanager</artifactId>
+			<version>3.4.0.GA</version>
+		</dependency>
+
 	</dependencies>
-	
-</plugin>    
 
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>hibernate3-maven-plugin</artifactId>
+				<version>2.2</version>
+				<executions>
+					<execution>
 
-  </plugins>
-  
-  </build>
+						<id>hbm2cfgxml</id>
+						<phase>generate-resources</phase>
+						<goals>
+							<goal>hbm2cfgxml</goal>
+						</goals>
+						<inherited>false</inherited>
+						<configuration>
+							<components>
+								<component>
+									<name>hbm2cfgxml</name>
+									<implementation>jdbcconfiguration</implementation>
+								</component>
+							</components>
+							<componentProperties>
+								<packagename>nl.warquest.database.entity</packagename>
+							</componentProperties>
+						</configuration>
+					</execution>
+
+					<execution>
+						<id>hbm2hbmxml</id>
+						<phase>generate-resources</phase>
+						<goals>
+							<goal>hbm2hbmxml</goal>
+						</goals>
+						<inherited>false</inherited>
+						<configuration>
+							<components>
+								<component>
+									<name>hbm2hbmxml</name>
+									<outputDirectory>src/main/java</outputDirectory>
+								</component>
+							</components>
+							<componentProperties>
+								<packagename>nl.warquest.database.entity</packagename>
+							</componentProperties>
+						</configuration>
+					</execution>
+
+					<execution>
+						<id>hbm2java</id>
+						<phase>test</phase>
+						<goals>
+							<goal>hbm2java</goal>
+						</goals>
+						<inherited>false</inherited>
+						<configuration>
+							<components>
+								<component>
+									<name>hbm2java</name>
+									<implementation>annotationconfiguration</implementation>
+									<outputDirectory>src/main/java</outputDirectory>
+								</component>
+							</components>
+							<componentProperties>
+								<packagename>nl.warquest.database.entity</packagename>
+								<configurationfile>target/hibernate3/generated-mappings/hibernate.cfg.xml</configurationfile>
+								<templatepath>src/main/resources/hbmtemplates</templatepath>
+								<ejb3>true</ejb3>
+								<jdk5>true</jdk5>
+							</componentProperties>
+						</configuration>
+					</execution>
+
+					<execution>
+						<id>hbm2dao</id>
+						<phase>test</phase>
+						<goals>
+							<goal>hbm2dao</goal>
+						</goals>
+						<inherited>false</inherited>
+						<configuration>
+							<components>
+								<component>
+									<name>hbm2dao</name>
+									<implementation>jdbcconfiguration</implementation>
+									<outputDirectory>src/main/java</outputDirectory>
+								</component>
+							</components>
+							<componentProperties>
+								<packagename>nl.warquest.database.home</packagename>
+								<configurationfile>target/hibernate3/generated-mappings/hibernate.cfg.xml</configurationfile>
+								<templatepath>src/main/resources/hbmtemplates/</templatepath>
+								<ejb3>true</ejb3>
+								<jdk5>true</jdk5>
+								<format>true</format>
+								<haltonerror>true</haltonerror>
+							</componentProperties>
+						</configuration>
+					</execution>
+
+				</executions>
+
+				<dependencies>
+					<dependency>
+						<groupId>mysql</groupId>
+						<artifactId>mysql-connector-java</artifactId>
+						<version>5.1.6</version>
+					</dependency>
+				</dependencies>
+
+			</plugin>
+		</plugins>
+	</build>
 </project>

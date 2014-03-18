@@ -1,0 +1,42 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Mar 18, 2014 8:01:52 PM by Hibernate Tools 3.2.2.GA -->
+<hibernate-mapping>
+    <class name="nl.warquest.database.entity.Skill" table="skill" catalog="warquest">
+        <id name="pid" type="int">
+            <column name="pid" />
+            <generator class="assigned" />
+        </id>
+        <property name="attackMax" type="int">
+            <column name="attack_max" not-null="true" />
+        </property>
+        <property name="defenseMax" type="int">
+            <column name="defense_max" not-null="true" />
+        </property>
+        <property name="healthMax" type="int">
+            <column name="health_max" not-null="true" />
+        </property>
+        <property name="energyMax" type="int">
+            <column name="energy_max" not-null="true" />
+        </property>
+        <property name="ammoMax" type="int">
+            <column name="ammo_max" not-null="true" />
+        </property>
+        <property name="skillPoints" type="int">
+            <column name="skill_points" not-null="true" />
+        </property>
+        <property name="healthTimer" type="int">
+            <column name="health_timer" not-null="true" />
+        </property>
+        <property name="energyTimer" type="int">
+            <column name="energy_timer" not-null="true" />
+        </property>
+        <property name="ammoTimer" type="int">
+            <column name="ammo_timer" not-null="true" />
+        </property>
+        <property name="tradePoints" type="int">
+            <column name="trade_points" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>
