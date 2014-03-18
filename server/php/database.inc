@@ -994,7 +994,7 @@ function warquest_db_member_insert($username, $password, $email) {
 	
 	/* Create user account */
 	$query  = 'insert into member (username, password, email, created, notification_comment, notification_alliance, ';
-	$query .= 'last_login, prev_login, ip, browser, version, platform, auto_login  ) ' ;
+	$query .= 'last_login, prev_login, ip, browser, versie, platform, auto_login  ) ' ;
 	$query .= 'values ("'.warquest_db_escape($username).'","'.md5($password).'","'.warquest_db_escape($email).'",';
 	$query .= '"'.date("Y-m-d H:i:s").'", 0, 0, "'.date("Y-m-d H:i:s").'", "'.date("Y-m-d H:i:s").'", "", "", "", "", 0)';
 			
@@ -1019,7 +1019,7 @@ function warquest_db_member_update($member) {
 	$query .= 'prev_login = "'.$member->prev_login.'", ';
 	$query .= 'ip = "'.$member->ip.'", '; 
 	$query .= 'browser="'.warquest_db_escape($member->browser).'", ';
-	$query .= 'version="'.warquest_db_escape($member->version).'", ';
+	$query .= 'versie="'.warquest_db_escape($member->versie).'", ';
 	$query .= 'platform="'.warquest_db_escape($member->platform).'", ';
 	$query .= 'auto_login='.$member->auto_login.' ';
 	$query .= 'where pid='.$member->pid; 
@@ -1044,7 +1044,7 @@ function warquest_db_member($pid) {
 	
 	$query  = 'select pid, username, email, email_valid, last_login, prev_login, created, ip, browser, ';
 	$query .= 'notification_comment, notification_alliance, ';
-	$query .= 'version, platform, auto_login from member where pid='.$pid;
+	$query .= 'versie, platform, auto_login from member where pid='.$pid;
 	
 	$result = warquest_db_query($query);
 	

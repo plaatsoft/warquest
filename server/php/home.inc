@@ -513,7 +513,7 @@ function warquest_new_version_check() {
 	
 		if ($member->platform=="Windows") {
 			
-			if ($config["windows_client_version"] != $member->version) {
+			if ($config["windows_client_version"] != $member->versie) {
 			
 				$message  = t('HOME_NEW_WINDOWS_VERSION',$config["windows_client_version"]).'<br/>';	
 				$message .= t('HOME_CLICK_TEXT', '<a href="'.$config["windows_client_url"].'">'.t('HOME_CLICK_HERE').'</a>');	
@@ -523,7 +523,7 @@ function warquest_new_version_check() {
 		
 		if ($member->platform=="Android") {
 			
-			if ($config["android_client_version"] != $member->version) {
+			if ($config["android_client_version"] != $member->versie) {
 			
 				$message = t('HOME_NEW_ANDROID_VERSION',$config["android_client_version"]);	
 				$page .= warquest_box_icon("info", $message);
