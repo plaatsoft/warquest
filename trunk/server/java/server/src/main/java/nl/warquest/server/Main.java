@@ -50,7 +50,5 @@ public class Main {
 		  System.out.println( "PID:" + pid);
 		  			 
 		  entityManager.close();
-      }
-	  
-	  
+      }	  
 }
