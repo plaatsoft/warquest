@@ -613,7 +613,7 @@ function warquest_cron_add_lottery() {
 	/* input */
 	global $config;
 	
-	$expire_date = mktime(23, 23, 59, date("m"), date("d")+5, date("Y"));
+	$expire_date = mktime(23, 23, 59, date("m"), date("d")+4, date("Y"));
 
 	$planet = rand(1,$config["max_planets"]);
 
