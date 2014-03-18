@@ -13,8 +13,7 @@ import nl.warquest.database.dao.MemberDao;
 
 public class Main {
 
-	private static EntityManagerFactory entityManagerFactory;
-	
+	private static EntityManagerFactory entityManagerFactory;	
 	private static EntityManager entityManager;
 	
 	  public static void main(String args[]) {

@@ -1,5 +1,5 @@
 package nl.warquest.database.home;
-// Generated Mar 18, 2014 8:01:56 PM by Hibernate Tools 3.2.2.GA
+// Generated 18-mrt-2014 21:03:52 by Hibernate Tools 3.2.2.GA
 
 
 import javax.ejb.Stateless;

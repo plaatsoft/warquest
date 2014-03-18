@@ -1,7 +1,7 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
-	<groupId>nl.plaatsoft.warquest</groupId>
+	<groupId>nl.warquest.server</groupId>
 	<artifactId>server</artifactId>
 	<version>0.1</version>
 	<name>Server</name>
@@ -25,7 +25,7 @@
 		<dependency>
 			<groupId>org.slf4j</groupId>
 			<artifactId>slf4j-log4j12</artifactId>
-			<version>1.5.2</version>
+			<version>1.6.2</version>
 		</dependency>
 
 		<dependency>
@@ -68,13 +68,37 @@
 
 	<build>
 		<plugins>
+			
+			
+			 <plugin>
+            <artifactId>maven-assembly-plugin</artifactId>
+            <executions>
+                <execution>
+                        <phase>package</phase>
+                        <goals>
+                        <goal>single</goal>
+                        </goals>
+                </execution>
+            </executions>
+        <configuration>
+                <archive>
+                        <manifest>
+                                <mainClass>nl.warquest.server.Loader</mainClass>
+                        </manifest>
+                    </archive>
+                <descriptorRefs>
+                        <descriptorRef>jar-with-dependencies</descriptorRef>
+                </descriptorRefs>
+                </configuration>
+                </plugin>
+			
 			<plugin>
+			
 				<groupId>org.codehaus.mojo</groupId>
 				<artifactId>hibernate3-maven-plugin</artifactId>
 				<version>2.2</version>
 				<executions>
 					<execution>
-
 						<id>hbm2cfgxml</id>
 						<phase>generate-resources</phase>
 						<goals>

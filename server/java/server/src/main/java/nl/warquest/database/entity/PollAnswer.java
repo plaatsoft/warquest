@@ -1,9 +1,11 @@
 package nl.warquest.database.entity;
-// Generated Mar 18, 2014 8:01:37 PM by Hibernate Tools 3.2.2.GA
+// Generated 18-mrt-2014 21:03:36 by Hibernate Tools 3.2.2.GA
 
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import static javax.persistence.GenerationType.IDENTITY;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
@@ -17,27 +19,26 @@ import javax.persistence.Table;
 public class PollAnswer  implements java.io.Serializable {
 
 
-     private int answerId;
+     private Integer answerId;
      private int pollId;
      private String answer;
 
     public PollAnswer() {
     }
 
-    public PollAnswer(int answerId, int pollId, String answer) {
-       this.answerId = answerId;
+    public PollAnswer(int pollId, String answer) {
        this.pollId = pollId;
        this.answer = answer;
     }
    
-     @Id 
+     @Id @GeneratedValue(strategy=IDENTITY)
     
     @Column(name="answer_id", nullable=false)
-    public int getAnswerId() {
+    public Integer getAnswerId() {
         return this.answerId;
     }
     
-    public void setAnswerId(int answerId) {
+    public void setAnswerId(Integer answerId) {
         this.answerId = answerId;
     }
     

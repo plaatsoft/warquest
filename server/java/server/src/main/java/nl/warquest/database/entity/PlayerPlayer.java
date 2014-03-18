@@ -1,5 +1,5 @@
 package nl.warquest.database.entity;
-// Generated Mar 18, 2014 8:01:37 PM by Hibernate Tools 3.2.2.GA
+// Generated 18-mrt-2014 21:03:36 by Hibernate Tools 3.2.2.GA
 
 
 import java.util.Date;

@@ -1,12 +1,12 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
-<!-- Generated Mar 18, 2014 8:01:52 PM by Hibernate Tools 3.2.2.GA -->
+<!-- Generated 18-mrt-2014 21:03:49 by Hibernate Tools 3.2.2.GA -->
 <hibernate-mapping>
     <class name="nl.warquest.database.entity.PollAnswer" table="poll_answer" catalog="warquest">
-        <id name="answerId" type="int">
+        <id name="answerId" type="java.lang.Integer">
             <column name="answer_id" />
-            <generator class="assigned" />
+            <generator class="identity" />
         </id>
         <property name="pollId" type="int">
             <column name="poll_id" not-null="true" />
