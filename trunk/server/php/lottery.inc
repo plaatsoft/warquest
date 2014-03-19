@@ -196,7 +196,7 @@ function warquest_lottery_form() {
 			} else {
 			
 				$page .= '<td width="250">';		
-				$query4  = 'select pid from player_lottery where lottery_id='.$data->lottery_id.' limit 0,1 ';
+				$query4  = 'select pid from player_lottery where lottery_id='.$data->lottery_id.' and winner=1 limit 0,1 ';
 				$result4 = warquest_db_query($query4);
 				$data4 = warquest_db_fetch_object($result4);
 				
