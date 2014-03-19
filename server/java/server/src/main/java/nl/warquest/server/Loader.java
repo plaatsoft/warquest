@@ -69,6 +69,9 @@ public class Loader extends AbstractHandler {
 		Server server = new Server(8082);
 		server.setHandler(new Loader());
 		 
+		entityManagerFactory = Persistence.createEntityManagerFactory( "warquest" );
+	    entityManager = entityManagerFactory.createEntityManager();	    
+	    
 		server.start();
 		server.join();
 	}
