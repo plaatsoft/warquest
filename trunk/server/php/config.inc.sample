@@ -130,7 +130,6 @@ $config['max_cooldown_period']		= 8 * 60 * 60;
 $config["max_invite_period"]			= 2;
 $config["max_sector_damage"]		   = 10;
 $config["max_money_win"]            = 1500000000;
-$config["max_casio_groups"] 			= 3;
 $config["max_health_reduction"]		= 10;
 $config["max_energy_reduction"]		= 20;
 $config["max_ammo_reduction"]			= 10;
@@ -145,6 +144,7 @@ $config["restore_warning_level"]    = 90;
 $config["casino_unlock_level_1"]    = 10;
 $config["casino_unlock_level_2"]    = 15;
 $config["casino_unlock_level_3"]    = 20;
+$config["casino_unlock_level_4"]    = 25;
 
 /*
 ** ---------------------------------------------------------------- 

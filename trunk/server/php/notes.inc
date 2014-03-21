@@ -17,10 +17,12 @@
 */
 
 $notes[67] = '
-<div class="subparagraph2">16-03-2014</div>
+<div class="subparagraph2">20-03-2014</div>
 <i>Game Server v6.7</i>
 <ul>
-<li>Added basic Money->Lottery feature.</li>
+<li>Coming soon - Poker casino game.</li>
+<li>Added javascript based message notification.</li>
+<li>Added Money->Lottery feature.</li>
 <li>Improve buildings page layout.</li>
 <li>Adapted facebook like and friend invite gold bonus.</li>
 <li>Improve unit/building/mission toolkit popup message.</li>

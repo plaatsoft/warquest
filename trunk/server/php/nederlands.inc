@@ -1489,8 +1489,8 @@ $lang['CASINO_NO_MONEY'] = 'Niet genoeg geld!';
 $lang['CASINO_WIN'] = 'Winnende getal was %s. Je won %s dollar.';
 $lang['CASINO_LOST'] = 'Winnende getal was %s. Je verloor %s dollar.';
 
-$lang['CASINO_NOTE1'] = 'Tip: Wiel van Geluk. Selecteer je geluksnummer en spel. Als je wint krijg je 10 keer de inzet.';
-$lang['CASINO_NOTE2'] = 'Tip: Slot Machine. Doe een inzet en spel. Als je wint krijg je X keer de inzet.';
+$lang['CASINO_WHEEL_NOTE'] = 'Tip: Wiel van Geluk. Selecteer je geluksnummer en spel. Als je wint krijg je 10 keer de inzet.';
+$lang['CASINO_SLOT_NOTE'] = 'Tip: Slot Machine. Doe een inzet en spel. Als je wint krijg je X keer de inzet.';
 
 $lang['CASINO_UNLOCK'] = '%s is ontgrendeld in nivo %s';
 
@@ -1716,7 +1716,6 @@ $lang['HELP_BACKGROUND_TITLE'] = 'Achtergrond';
 $lang['HELP_BACKGROUND'] = 'WarQuest is gemaakt door <a target="new" href="http://www.plaatsoft.nl">PlaatSoft</a>. Het origenele spel idee is gebaseerd op enkele andere spellen welke beschikbaar zijn in de Apple appstore. De belangrijkste reden om opnieuw dit type spel te bouwen is een betere gebruikersinterface te ontwikkelen zodat het spel gespeeld kan worden op de een volgende typen apparaten: Smart phones (Apple, Nokia en Black Berry), tables (Apple), Spel computer (Nintendo) en notebooks (Intel en AMD base).';
 $lang['HELP_CREDITS_TITLE'] = 'Dankbetuigingen';
 $lang['HELP_BROWSERS_TITLE'] = 'Ondersteunde browsers'; 
-$lang['HELP_HARDWARE_TITLE'] = 'Ondersteunde hardware'; 
 $lang['HELP_DISCLAIMER_TITLE'] = 'Disclaimer'; 
 $lang['HELP_DISCLAIMER'] = 'Dit spel wordt zonder enige garantie geleverd. De autheur kan nergens aansprakelijk worden voor gesteld.<br/>';
 

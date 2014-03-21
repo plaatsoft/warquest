@@ -2330,10 +2330,12 @@ $lang['CASINO_TITLE'] = 'CASINO' ;
 $lang['CASINO_1'] = 'Wheel';
 $lang['CASINO_2'] = 'SlotMachine';
 $lang['CASINO_3'] = 'TicTacToe';
+$lang['CASINO_4'] = 'Poker'; 
 
 $lang['CASINO_TITLE_1'] = 'Wheel Of Fortune';
 $lang['CASINO_TITLE_2'] = 'Slot Machine';
 $lang['CASINO_TITLE_3'] = 'Tic Tac Toe';
+$lang['CASINO_TITLE_4'] = 'Poker'; 
 
 $lang['CASINO_MONEY'] = 'Money';
 $lang['CASINO_NUMBER'] = 'Lucky number';
@@ -2345,23 +2347,21 @@ $lang['CASINO_NO_BET'] = 'Enter bet amount!';
 $lang['CASINO_NO_LUCKY_NUMBER'] = 'Enter lucky number!';
 $lang['CASINO_BET_TO_LARGE'] = 'Bet too large! Maximum bet is %s dollars.'; 
 $lang['CASINO_NO_MONEY'] = 'Not enough money!'; 
-
 $lang['CASINO_WIN'] = 'Winning number was %s. You won %s  dollars.';
 $lang['CASINO_LOST'] = 'Winning number was %s. You lost %s dollars.';
-
-$lang['CASINO_NOTE1'] = 'Note: Enter your bet and lucky number and press the play button. If you are lucky you win 10 times your bet.';
-$lang['CASINO_NOTE2'] = 'Note: Enter your bet and press the play button. Maybe your bet will pay out.';
-$lang['CASINO_NOTE3'] = 'Note: Enter your bet and play tic-tac-toe. If you win, you win 2 times your bet.';
-
 $lang['CASINO_UNLOCK'] = '%s is unlocked at level %s';
+
+$lang['CASINO_WHEEL_NOTE'] = 'Note: Enter your bet and lucky number and press the play button. If you are lucky you win 10 times your bet.';
 
 $lang['CASINO_SLOTMACHINE_WIN'] = 'You won %s times your bet, %s dollars.';
 $lang['CASINO_SLOTMACHINE_LOST'] = 'You lost %s dollars.';
 $lang['CASINO_SLOTMACHINE_HELP'] = 'The following slot machine combinations will pay out';
+$lang['CASINO_SLOT_NOTE'] = 'Note: Enter your bet and press the play button. Maybe your bet will pay out.';
 
 $lang['CASINO_TICTACTOE_WIN'] = 'You won %s times your bet, %s dollars.';
 $lang['CASINO_TICTACTOE_DRAW'] = 'Draw. You won %s time your bet, %s dollars.';
 $lang['CASINO_TICTACTOE_LOST'] = 'You lost %s dollars.';
+$lang['CASINO_TICTACTOE_NOTE'] = 'Note: Enter your bet and play tic-tac-toe. If you win, you win 2 times your bet.';
 
 /*
 ** ------------------
@@ -2770,10 +2770,9 @@ a trusted name in secure online transactions.';
 
 $lang['HELP_ABOUT_SUBTITLE'] = 'About';
 $lang['HELP_BACKGROUND_TITLE'] = 'Background';
-$lang['HELP_BACKGROUND'] = 'WarQuest is created by <a target="new" href="http://www.plaatsoft.nl">PlaatSoft</a>. Original game idea is based on some other games available in the Apple appstore. The main reason to recreate this kind of game is to create a better game play and user interface which can be controlled on the following devices: smart phones (Apple, Android, Nokia and BlackBerry), tablets(Samsung and Apple), Game consoles (Nintendo) and all kinds of notebooks (Intel / AMD base).';
+$lang['HELP_BACKGROUND'] = 'WarQuest is created by <a target="new" href="http://www.plaatsoft.nl">PlaatSoft</a>. Original game idea is based on some other games available in the Apple appstore. The main reason to recreate this kind of game is to create a better game play and user interface which can be controlled on the following devices: smart phones, tablets and all kinds of personal computers.';
 $lang['HELP_CREDITS_TITLE'] = 'Credits';
 $lang['HELP_BROWSERS_TITLE'] = 'Supported Browsers'; 
-$lang['HELP_HARDWARE_TITLE'] = 'Supported Hardware'; 
 $lang['HELP_DISCLAIMER_TITLE'] = 'Disclaimer'; 
 $lang['HELP_DISCLAIMER'] = 'The program is provided AS IT IS with NO WARRANTY OF ANY KIND, INCLUDING THE WARRANTY OF DESIGN, MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE.<br/>';
 
@@ -3349,10 +3348,6 @@ $lang['LOTTERY_TITLE'] = 'Lottery';
 $lang['LOTTERY_UNLOCKED'] = 'Lottery feature is unlocked at level %s.';
 $lang['LOTTERY_NOTE'] = 'Make a bet to make a chance on winning the lottery. After the lottery timer expire the winner is random selected and receive the price(s). How more bets you make, how higher the chance you win!';
 $lang['LOTTERY_NOT_AVAILABLE'] = 'No lotteries available on this moment. Come back later!';
-$lang['LOTTERY_INVALID'] = 'Invalid lottery selected';
-$lang['LOTTERY_EXPIRED'] = 'Lottery is expired!';
-$lang['LOTTERY_NO_GOLD'] = 'You do not have enough gold to set a bet!';
-$lang['LOTTERY_BET_SET'] = 'You bet is processed for lottery %s and %s is withdraw from your in-game wallet!'; 
 
 $lang['LOTTERY_BET_COST'] = 'Bet Cost';
 $lang['LOTTERY_EXPIRE'] = 'Lottery Expire';
@@ -3361,7 +3356,18 @@ $lang['LOTTERY_CHANCE'] = 'Win Chance';
 $lang['LOTTERY_DATE'] = 'Lottery Date';
 $lang['LOTTERY_PRICE'] = 'Price';
 
+$lang['LOTTERY_INVALID'] = 'Invalid lottery selected';
+$lang['LOTTERY_EXPIRED'] = 'Lottery is expired!';
+$lang['LOTTERY_NO_GOLD'] = 'You do not have enough gold to set a bet!';
+$lang['LOTTERY_BET_SET'] = 'You bet is processed for lottery %s and %s is withdraw from your in-game wallet!'; 
 $lang['LOTTERY_WON'] = ' CONGRATULATION! You won lottery %s. The price is added to your account.';	
+
+$lang['CASINO_POKER_HELP_TITLE'] = 'Poker Help'; 
+$lang['CASINO_POKER_HELP'] = 'The following poker card combinations will pay out:';
+$lang['CASINO_POKER_NOTE'] = 'Note: Enter your bet and press the play button. Maybe your bet will pay out.';
+
+$lang['CASINO_POKER_WIN'] = 'You won %s %s times your bet %s dollars.';
+$lang['CASINO_POKER_LOST'] = 'You lost %s dollars.';
 
 /*
 ** ------------------

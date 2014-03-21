@@ -1,16 +1,13 @@
 /* All copyrights reserved (c) 2008-2014 PlaatSoft */
 
-var newsMid;
-var newsEid;
+var mailMid;
+var mailEid;
+var mailId;
 
-function newsInit(mid, eid) {
-	this.newsMid = mid;
-	this.newsEid = eid;
-}
-
-function newsURL() {
+function mailURL() {
 	var url = location.href;  
 	var baseURL = url.substring(0, url.indexOf('/', 14));
+
 
 	if (baseURL.indexOf('http://127.0.0.1') != -1) {
 
@@ -28,24 +25,38 @@ function newsURL() {
 	}
 }
 
-function newsCall() {
+function mailInit(mid, eid, id) {
+
+	this.mailMid = mid;
+	this.mailEid = eid;
+	this.mailId = id;
+	
+	setTimeout(mailRefresh, 30000);
+}
+
+function mailNotification() {
 
 	if (window.XMLHttpRequest) {
 		// code for IE7+, Firefox, Chrome, Opera, Safari
 		xmlhttp=new XMLHttpRequest();
 	} else {
 		// code for IE6, IE5
-		xmlhttp=new ActiveXObject('Microsoft.XMLHTTP');
+		xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
 	}
-	
+			
 	xmlhttp.onreadystatechange=function() {
 		if (xmlhttp.readyState==4 && xmlhttp.status==200) {
-		
-			document.getElementById("breakingnews").innerHTML += xmlhttp.responseText;
+					
+			document.getElementById("mail").innerHTML = xmlhttp.responseText;
 		}
 	}
 	
-	xmlhttp.open('POST',  newsURL() ,true);
-	xmlhttp.setRequestHeader('Content-type','application/x-www-form-urlencoded');
-	xmlhttp.send('mid='+newsMid+'&eid='+newsEid);
+	xmlhttp.open("POST", mailURL() ,true);
+	xmlhttp.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+	xmlhttp.send("mid="+mailMid+"&eid="+mailEid+"&id="+mailId);
+}
+
+function mailRefresh() {
+	mailNotification();
+   setTimeout(mailRefresh, 30000);
 }
