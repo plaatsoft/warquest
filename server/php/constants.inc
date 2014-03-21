@@ -18,18 +18,6 @@
 
 /*
 ** ------------------
-** WEB SERVICES
-** ------------------
-*/
-
-define('EVENT_GET_SECTOR', 	   5001);
-define('EVENT_GET_CLAN', 	      5002);
-define('EVENT_FB_LIKE', 	      5003);
-define('EVENT_GET_PLAYER', 	   5004);
-define('EVENT_GET_HEADLINES',    5005);
-
-/*
-** ------------------
 ** BONUS
 ** ------------------
 */
@@ -117,6 +105,12 @@ define('PAGE_BANK',          		1701);
 define('PAGE_STOCK_EXCHANGE',		1702);
 define('PAGE_CASINO',         	1703);
 define('PAGE_LOTTERY',           1704);
+define('PAGE_CASINO_WHEEL',		1705);
+define('PAGE_CASINO_SLOT',			1706);
+define('PAGE_CASINO_SLOT_HELP',	1707);
+define('PAGE_CASINO_TICTACTOE',	1708);
+define('PAGE_CASINO_POKER',		1709);
+define('PAGE_CASINO_POKER_HELP',	1710);
 
 /* Alliance */
 define('PAGE_ALLIANCE',        	1801);
@@ -242,7 +236,9 @@ define('EVENT_STOCK_BUY',                3610);
 define('EVENT_STOCK_SELL',               3611);
 define('EVENT_STOCK_ADD',                3612);
 define('EVENT_STOCK_REMOVE',             3613);
-define('EVENT_LOTTERY_BET',              3614);
+define('EVENT_LOTTERY_BET',         	  3614);
+define('EVENT_CASINO_POKER_PLAY',        3615);
+define('EVENT_CASINO_POKER_RESULT',      3616);
 
 /* alliance */
 define('EVENT_ALLIANCE_INVITE',          3701);
@@ -307,6 +303,19 @@ define('EVENT_SWITCH_PLANET',				  4001);
 
 /* others (WARNING external used) */
 define('EVENT_VALID_EMAIL',              4002);
+
+/*
+** ------------------
+** WEB SERVICES
+** ------------------
+*/
+
+define('EVENT_GET_SECTOR', 	           5001);
+define('EVENT_GET_CLAN', 	              5002);
+define('EVENT_FB_LIKE', 	              5003);
+define('EVENT_GET_PLAYER', 	           5004);
+define('EVENT_GET_HEADLINES',            5005);
+define('EVENT_GET_MAIL_NOTIFICATION',    5006);
 
 /*
 ** ------------------

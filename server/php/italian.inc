@@ -1883,8 +1883,8 @@ $lang['CASINO_NO_MONEY'] = 'Non hai abbastanza soldi!';
 $lang['CASINO_WIN'] = 'Il numero vincitore era %s. Hai vinto %s dollari.';
 $lang['CASINO_LOST'] = 'Il numero vincitore era %s. Hai perso %s dollari.';
 
-$lang['CASINO_NOTE1'] = 'Nota: Inserisci la tua scommessa e il tuo numero fortunato e premi il pulsante Gioca. Se sei fortunato, vinci 10 volte la tua scommessa.';
-$lang['CASINO_NOTE2'] = 'Nota: Inserisci la tua scommessa e premi il pulsante Gioca. Forse la tua scommessa pagherà.';
+$lang['CASINO_WHEEL_NOTE'] = 'Nota: Inserisci la tua scommessa e il tuo numero fortunato e premi il pulsante Gioca. Se sei fortunato, vinci 10 volte la tua scommessa.';
+$lang['CASINO_SLOT_NOTE'] = 'Nota: Inserisci la tua scommessa e premi il pulsante Gioca. Forse la tua scommessa pagherà.';
 
 $lang['CASINO_UNLOCK'] = '%s è sbloccato al livello %s';
 
@@ -2216,7 +2216,6 @@ $lang['HELP_BACKGROUND_TITLE'] = 'Sfondo';
 $lang['HELP_BACKGROUND'] = 'WarQuest è stato creato da <a target="new" href="http://www.plaatsoft.nl">PlaatSoft</a>. Idea original del gioco è basata su alcuni altri giochi disponibili nell\'appstore di Apple. Il motivo principale per ricreare questo tipo di di gioco è di creare un game play migliore e un interfaccia utente controllabili sui seguenti terminali: smartphone (Apple, Android, Nokia e BlackBerry), tablet(Samsung e Apple), Console (Nintendo) e tutti i tipi di notebook (Intel / AMD ecc...).';
 $lang['HELP_CREDITS_TITLE'] = 'Crediti';
 $lang['HELP_BROWSERS_TITLE'] = 'Browser supportati'; 
-$lang['HELP_HARDWARE_TITLE'] = 'Hardware supportato'; 
 $lang['HELP_DISCLAIMER_TITLE'] = 'Disclaimer'; 
 $lang['HELP_DISCLAIMER'] = 'Il programma viene prodotto COSì COM\'è  e SENZA ALCUNA GARANZIA, INCLUSA LA GARANZIA DELLA VENDIBILITà DEL DESIGN E FORMA PER UN MOTIVO PARTICOLARE.<br/>';
 

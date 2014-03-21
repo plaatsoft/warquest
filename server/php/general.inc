@@ -2792,9 +2792,11 @@ function warquest_box_icon($title, $content, $link="") {
 function warquest_ui_header() {
    
 	/* input */
-	global $config;
 	global $mid;
    global $sid;
+	global $ssid;
+
+	global $config;	
 	global $browser;
 	global $player;
 	global $session;
@@ -2898,6 +2900,13 @@ function warquest_ui_header() {
 	/* Add JavaScripts */
 	$page .= '<script language="JavaScript" src="'.$config["content_url"].'js/link3.js" type="text/javascript"></script>';
 	
+	if (isset($player->pid) && ($player->comment_notification==0)) {
+		$page .= '<script language="JavaScript" src="'.$config["content_url"].'js/mail2.js" type="text/javascript"></script>';
+		$page .= '<script language="JavaScript">';
+		$page .= 'mailInit('.MENU_SERVICE.','.EVENT_GET_MAIL_NOTIFICATION.','.$player->pid.');';
+		$page .= '</script>';
+	}
+		
 	if ($mid!=0) {
 		$page .= '<script language="JavaScript" src="'.$config["content_url"].'js/money3.js" type="text/javascript"></script>';
 		$page .= '<script language="JavaScript" src="'.$config["content_url"].'js/health2.js" type="text/javascript"></script>';
@@ -2911,8 +2920,12 @@ function warquest_ui_header() {
 		$page .= '<script language="JavaScript" src="'.$config["content_url"].'js/jquery-ui.js" type="text/javascript"></script>';	
 	}
 	
-	if (($mid==MENU_MONEY) && ($sid==PAGE_CASINO)) {
+	if (($mid==MENU_MONEY) && ($sid==PAGE_CASINO) && ($ssid==PAGE_CASINO_TICTACTOE)) {
 		$page .= '<script language="JavaScript" src="'.$config["content_url"].'js/tictactoe.js"></script>';
+	}
+	
+	if (($mid==MENU_MONEY) && ($sid==PAGE_CASINO) && ($ssid==PAGE_CASINO_POKER)) {
+		$page .= '<script language="JavaScript" src="'.$config["content_url"].'js/poker.js"></script>';
 	}
 	
 	/* Add HTML Title */	
@@ -3026,9 +3039,11 @@ function warquest_ui_banner() {
 	/* third line */	
 	$page .= '<tr>';	
 	$page .= '<td valign="top">';
+	$page .= '<span id="mail">';
 	if ($player->comment_notification>0) {
 		$page .= warquest_link('mid='.MENU_HOME.'&sid='.PAGE_MESSAGES, warquest_image("other/email.gif").' ','mail');
 	}
+	$page .= '</span>';
 	
 	if ($player->chat_notification>0) {
 		$page .= warquest_link('mid='.MENU_FORUMS.'&sid='.PAGE_CHAT.'&oid='.$player->chat_notification, warquest_image('other/chat.gif').' ','chat');

@@ -906,11 +906,6 @@ $lang['CASINO_NO_MONEY'] = 'Nicht genug Geld!';
 $lang['CASINO_WIN'] = 'Glücksnummer war %s. Du gewinnst %s  Dollar.';
 $lang['CASINO_LOST'] = 'Glücksnummer war %s. Du verlierst %s Dollar.';
 
-$lang['CASINO_NOTE1'] = 'Note: Enter your bet and lucky number and press the play button. If you are lucky you win 10 times your bet.';
-$lang['CASINO_NOTE2'] = 'Note: Enter your bet and press the play button. Maybe your bet will pay out.';
-
-$lang['CASINO_UNLOCK'] = '%s is unlocked at level %s';
-
 $lang['CASINO_SLOTMACHINE_WIN'] = 'Du gewinnst das %sfache deines Wetteinsatzes. Du erhälst %s Dollar.';
 $lang['CASINO_SLOTMACHINE_LOST'] = 'Du verlierst %s Dollar.';
 $lang['CASINO_SLOTMACHINE_HELP'] = 'The following slot machine combinations will pay out';

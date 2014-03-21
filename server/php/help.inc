@@ -55,17 +55,7 @@ function warquest_help_about_form() {
 	$page .= '- Opera 11.x and higher<br/>';
 	$page .= '- Google Chrome 10.x and higher<br/>';
 	$page .= '<br/>';	
-	
-	$page .= '<span class="subparagraph2">'.t('HELP_HARDWARE_TITLE').'</span><br/>';
-	$page .= '- Android smart phones (HTC Desire S, etc.)<br/>';
-	$page .= '- Firefox OS smart phones<br/>';
-	$page .= '- Nokia smart phones (Nokia 5800 XpressMusic, etc.)<br/>';
-	$page .= '- Apple iPhone (All versions)<br/>';
-	$page .= '- Apple iPod touch (All versions)<br/>';
-	$page .= '- Apple iPad (All versions)<br/>';
-	$page .= '- BlackBerry smart phones (Bold, etc.)<br/>';
-	$page .= '- Classic Notebook and Desktops<br/><br/>';
-			
+
 	$page .= '<span class="subparagraph2">'.t('HELP_DISCLAIMER_TITLE').'</span><br/>';
 	$page .= t('HELP_DISCLAIMER');
 
@@ -907,6 +897,10 @@ function warquest_help_levels_feature($lid) {
 	
 	if ($lid==$config["casino_unlock_level_3"]) {
 		$page .= warquest_casino_image(3, 55, 40);	
+	}
+	
+	if ($lid==$config["casino_unlock_level_4"]) {
+		$page .= warquest_casino_image(4, 55, 40);	
 	}
 	
 	if (strlen($page)==0) {

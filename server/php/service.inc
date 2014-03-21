@@ -208,6 +208,25 @@ function warquest_get_headlines() {
 	echo $tmp;
 }
 
+/* 
+ * Get mail notification
+ */
+function warquest_get_mail_notifcation() {
+
+	/* input */
+	global $player;
+	global $id;
+	
+	$player = warquest_db_player($id);
+	
+	
+	if ($player->comment_notification>0) {
+	
+		$link = warquest_link('mid='.MENU_HOME.'&sid='.PAGE_MESSAGES, warquest_image("other/email.gif").' ','mail');
+		echo $link;
+	}
+}
+
 /*
 ** ---------
 ** HANDLER
@@ -239,6 +258,10 @@ function warquest_service() {
 			
 		case EVENT_GET_HEADLINES:
 			warquest_get_headlines();
+			break;
+			
+		case EVENT_GET_MAIL_NOTIFICATION:
+			warquest_get_mail_notifcation();
 			break;
 	}
 	
