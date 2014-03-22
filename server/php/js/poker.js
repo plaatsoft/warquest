@@ -1,36 +1,229 @@
 /* All copyrights reserved (c) 2008-2014 PlaatSoft */
 
-var cardWidth=90;   // CARD WIDTH IN PIXELS, THE CARD HEIGHT WILL BE 2X THIS VALUE.
-var cardBGC="#0066AE";  // BACKGROUND COLOR OF CARD WHEN "FLIPPED" TO HIDE THE CARD.
-
-// USE THE ARRAY BELOW TO CHANGE THE BET MULTIPIERS IF DESIRED.
-var multipliers=[1,2,3,7,10,15,20,30,60];
-
-// THE POSITIONS OF THE NUMBERS ABOVE CORRESPOND TO THE POSITIONS OF THE WIN TYPE IN THE LIST BELOW.
-// [ ONE PAIR , TWO PAIR , THREE PAIR , STRAIGHT , FLUSH , FULL HOUSE , FOUR OF A KIND , STRAIGHT FLUSH , ROYAL STRIGHT FLUSH ]
-
-var suits=[0,'&clubs;','&spades;','&hearts;','&diams;'];
-var nums=['A','2','3','4','5','6','7','8','9','10','J','Q','K','A'];
-var cNum=[0,0,0,0,0,0];
-var cSuit=[0,0,0,0,0,0];
-var deck=new Array();
-var replaceBusy=true;
-var buttonBusy=false;
-var isBegin=true;
-var toRepl=[0,1,1,1,1,1];
-var cards;
-var tmpn;
-var cards=new Array();
-var arrows=new Array();
-var textStyle="font-family:verdana; font-size:8pt; color:black";
-var wamount;
-var start=false;
-
+var suits=['clubs','spades','hearts','diamonds'];
+var nums=['2','3','4','5','6','7','8','9','10','J','Q','K','A'];
+var deck = new Array();
+var cards = new Array();
+var gamePhase = 1;
 var bet;
 var key;
 var token;
 
-function simpleHttpRequest(result, multiply) {
+function swapeCard(i) {
+	
+	if (gamePhase == 2) {
+	
+		cards[i][2]=!cards[i][2];
+		
+		drawCards();
+	}
+}
+
+function getCard(c) {
+
+	do {
+		nr = Math.floor(Math.random()*52);
+	} while (deck[nr][3]==true);
+		
+	deck[nr][3]=true;
+	cards[c]=deck[nr];
+}
+
+function initCards(bet, key, token) {
+
+	var i=0;
+	var nr;		
+
+	for (var s=0; s<suits.length; s++) {
+	
+		for (var n=0; n<nums.length; n++) {
+	
+			var part = new Array();
+			
+			part[0] = suits[s]; /* Card Suit */
+			part[1] = nums[n];	/* Card Type */
+			part[2] = false;		/* Card backside */
+			part[3] = false;		/* Card selected */
+			
+			deck[i++] = part;
+		}	
+	}
+
+	for (var c=0; c<5; c++) {			
+		getCard(c);
+	}	
+	
+	this.bet = bet;
+	this.key = key;
+	this.token = token;
+	
+	drawCards();
+}
+
+function statemachineCards(c) {
+	
+	console.log("game phase = "+gamePhase);
+	
+	if ((gamePhase==2) && (cards[c][2]==false)) {
+		getCard(c);
+	}
+	
+	cards[c][2]=true;
+	drawCards();
+	
+	if (c < (cards.length-1)) {
+		setTimeout('statemachineCards('+(c+1)+')',100);		
+		
+	} else {	
+		gamePhase++;
+		
+		if (gamePhase==3) {
+			resultCards();
+		}
+	}
+}
+
+function drawCards() {
+
+	for (var c=0; c<cards.length; c++) {
+	
+		if (cards[c][2]==true) {
+			document.getElementById("card"+c).src=Poker.getCardData(131, cards[c][0],cards[c][1]);			
+		} else {
+			document.getElementById("card"+c).src=Poker.getBackData(131, '#2E319C', '#7A7BB8');
+		}
+	}
+}
+
+function resultCards() {
+
+	var result = 0;
+	var index1;
+	var index2;
+
+	var cards2 = cards.slice(0);
+
+	/* Sort cards before compare */
+	cards.sort(function (a, b) {
+    if (nums.indexOf(a[1]) > nums.indexOf(b[1]))
+      return 1;
+    if (nums.indexOf(a[1]) < nums.indexOf(b[1]))
+      return -1;
+    // a must be equal to b
+    return 0;});
+	 
+	/* Pair */
+	if( (cards[0][1]==cards[1][1]) ||
+		 (cards[1][1]==cards[2][1]) ||
+		 (cards[2][1]==cards[3][1]) ||
+		 (cards[3][1]==cards[4][1])) {
+		
+		console.log("Pair");
+		result = 1;
+	}
+	
+	/* Two Pairs */	
+	if( ((cards[0][1]==cards[1][1]) && (cards[2][1]==cards[3][1])) ||
+		 ((cards[1][1]==cards[2][1]) && (cards[3][1]==cards[4][1])) ) {
+		
+		console.log("Two Pair");
+		result = 2;
+	}
+	
+	/* Three of a kind */	
+	if( ((cards[0][1]==cards[1][1]) && (cards[1][1]==cards[2][1])) ||
+		 ((cards[1][1]==cards[2][1]) && (cards[2][1]==cards[3][1])) ||
+		 ((cards[2][1]==cards[3][1]) && (cards[3][1]==cards[4][1])) ) {
+	
+		console.log("Three of a kind");
+		result = 3;
+	}
+	
+	/* Straight */	
+	index2 = nums.indexOf(cards[0][1]);
+	for(var c=1; c<5; c++) {
+		if (nums.indexOf(cards[c][1])==(index2+1)) {
+			index2 = nums.indexOf(cards[c][1]);
+			if (c==4) {		
+
+				console.log("Straight");
+				result = 4;
+			}
+		}
+	}
+	
+	/* Flush */	
+	index1 = suits.indexOf(cards[0][0]);
+	for(var c=1; c<5; c++) {	
+		if (suits.indexOf(cards[c][0])==index1) {
+			if (c==4) {		
+				console.log("Flush");		
+				result = 5;
+			}
+		} else {		
+			break;
+		}
+	}
+	
+	/* Full house */	
+	if( ((cards[0][1]==cards[1][1]) && (cards[1][1]==cards[2][1]) && (cards[3][1]==cards[4][1])) ||
+		 ((cards[0][1]==cards[1][1]) && (cards[2][1]==cards[3][1]) && (cards[3][1]==cards[4][1])) ) {
+	
+		console.log("Full house");		
+		result = 6;
+	}
+		
+	/* Four of a kind */	
+	if( ((cards[0][1]==cards[1][1]) && (cards[1][1]==cards[2][1]) && (cards[2][1]==cards[3][1])) ||
+		 ((cards[1][1]==cards[2][1]) && (cards[2][1]==cards[3][1]) && (cards[3][1]==cards[4][1])) ) {
+	
+		console.log("Four of a kind");
+		result = 7;
+	}
+	
+	/* Straight Flush */	
+	index1 = suits.indexOf(cards[0][0]);
+	index2 = nums.indexOf(cards[0][1]);	
+	for(var c=1; c<5; c++) {
+		if ((suits.indexOf(cards[c][0])==index1) && (nums.indexOf(cards[c][1])==(index2+1))) {
+			index2 = nums.indexOf(cards[c][1]);
+			if (c==4) {		
+
+				console.log("Straight Flush");	
+				result = 8;
+			}
+		}
+		else {		
+			break;
+		}
+	}
+	
+	/* Royal Flush */	
+	index1 = suits.indexOf(cards[0][0]);
+	index2 = nums.indexOf(cards[0][1]);	
+	if (index2==8) {
+		for(var c=1; c<5; c++) {
+			if ((suits.indexOf(cards[c][0])==index1) && (nums.indexOf(cards[c][1])==(index2+1))) {
+				index2 = nums.indexOf(cards[c][1]);
+				if (c==4) {			
+				
+					console.log("Royal Flush");
+					result = 9;
+				}
+			}
+			else {		
+				break;
+			}
+		}
+	}
+	
+	console.log("result = " +result);
+	
+	cardRequest(result, cards2);
+	return result;
+}
+
+function cardRequest(result, cards2) {
  
 	var form = document.forms['warquest'];
 
@@ -57,271 +250,19 @@ function simpleHttpRequest(result, multiply) {
 	newInput4.setAttribute('name','result');
 	newInput4.setAttribute('value', result);
 	form.appendChild(newInput4);	
-	
-	var newInput5 = document.createElement('input');
-	newInput5.setAttribute('type','hidden');
-	newInput5.setAttribute('name','multiply');
-	newInput5.setAttribute('value', multiply);
-	form.appendChild(newInput5);	
-	
-	/*tmp = ""
-	for( var i= 1; i<6; i++ ) {
 
-		tmp += cSuite[i];
-	}
-		
 	var newInput5 = document.createElement('input');
 	newInput5.setAttribute('type','hidden');
 	newInput5.setAttribute('name','cards');
-	newInput5.setAttribute('value', tmp);
-	form.appendChild(newInput5);*/
+	newInput5.setAttribute('value', JSON.stringify(cards2));
+	form.appendChild(newInput5);	
 	
 	form.submit();	
 }
 
-// BUILD AND SHUFFLE THE DECK.
-function buildShuffle() {
-
-	for(i=1;i<6;i++) {
-		cards[i].innerHTML="";
-		cards[i].style.backgroundColor=cardBGC;
-		arrows[i].on=false;
-	}
-
-	isBegin=true;
-	var x,y,xd,yd;
-	var A=new Array();
+function showCards(cards) {
 	
-	for(s=1;s<=4;s++) {
-		for(c=1;c<=13;c++) {
-			A[s*13-13+c]=[s,c];
-		}
-	}
+	this.cards = JSON.parse(cards);
 	
-	for(i=0;i<=300;i++) {
-		x=Math.floor(Math.random()*52+1);
-		xd=A[x];
-		y=Math.floor(Math.random()*52+1);
-		yd=A[y];
-		A[y]=xd;
-		A[x]=yd;
-	}
-	deck=A;
-	replaceBusy=true;
-	buttonBusy=true;
-	replaceCards();
-}
-
-// TOGGLES THE CHECKBOX UNDER THE CARD WHEN CLICKED.
-function changeCard(n) {
-	if(!replaceBusy){
-		arrows[n].on=!arrows[n].on;
-		arrows[n].innerHTML=(arrows[n].on)?"&Delta;":"&nbsp;";
-	}
-}
-
-// REPLACES THE CARDS CHECKED.
-function replaceCards() {
-	for(i=1;i<6;i++){
-		if(arrows[i].on || isBegin) toRepl[i]=1;
-	}
-	revert(1);
-}
-
-// REVERTS THE CARDS TO "FACE DOWN" BEFORE PUTTING NEW ONES UP.
-function revert(i) {
-	if(i<6) {
-		if(toRepl[i]==1) {
-			cards[i].innerHTML="";
-			cards[i].style.backgroundColor=cardBGC;
-			setTimeout('revert('+(i+1)+')',100);
-		} else revert(i+1);
-	} else {
-		if(isBegin) {
-			setTimeout('subReplace(1)',200);
-		}
-		else setTimeout('subReplace(1)',200);
-	}
-}
-
-//SUB-FUNCTION TO REPLACE THE CARDS TO ACHIEVE THE "FLIPPING" DELAY.
-function subReplace(i) {
-	if(i>5) {
-		if(isBegin) {
-			isBegin=false;
-			buttonBusy=false;
-			replaceBusy=false;
-		} else {
-			testCards();
-		}
-	} else {
-	
-		if(toRepl[i]==1) {
-			cSuit[i]=deck[deck.length-1][0];
-			cNum[i]=deck[deck.length-1][1];
-			cards[i].style.backgroundColor="white";
-			var sts=deck[deck.length-1][0];
-			cards[i].innerHTML='<span style="font-family:arial; font-size:'+(cardWidth-10)+'px; font-weight:bold; color:'+((sts==1||sts==2)?'black':'red')+'">'+nums[deck[deck.length-1][1]]+'</span><br><span style="font-family:arial; font-size:'+(cardWidth-2)+'px; color:'+((sts==1||sts==2)?'black':'red')+'">'+suits[sts]+'</span>';
-			deck.length=deck.length-1;
-		
-			arrows[i].on=false;
-			toRepl[i]=0;
-			setTimeout('subReplace('+(i+1)+')',200);
-		} else {
-			subReplace(i+1);
-		}
-	}
-}
-
-// CHANGES THE BUTTON LOOK AND ACTION WHEN CLICKED.
-function testStatus() {
-	
-	if(!buttonBusy) {
-		buttonBusy=true;
-		if(isBegin) {
-		
-			replaceBusy=true;
-			buildShuffle();
-			
-		} else {
-		
-			replaceBusy=true;
-			replaceCards();
-		}
-	}
-}
-
-// CALLS THE FUNCTION TO TEST THE CARDS AND UPDATES MONEY, STATUS, ETC.
-function testCards() {
-	isBegin=true;
-	buttonBusy=true;
-	replaceBusy=true;
-	var txt = testCombos();
-	
-	simpleHttpRequest(txt, wamount);
-	
-	buttonBusy=false;
-}
-
-// GET ELEMENT REFERENCES
-function getEl(s){
-	return document.getElementById(s);
-}
-
-// SUB-FUNCTION FOR THE "SORT()" METHOD
-function sortnumbs(a,b){
-	return a-b;
-}
-
-// TESTS THE FOR "FLUSH" CONDITION ON A SORTED DECK.
-function testflush(){
-	return ( (cSuit[1]==cSuit[2])&&(cSuit[1]==cSuit[3])&&(cSuit[1]==cSuit[4])&&(cSuit[1]==cSuit[5]) );
-}
-
-// TESTS FOR "ROYAL STRAIGHT" CONDITION ON A SORTED DECK (USED WITH THE testflush() FUNCTION).
-function testface(){
-	return ( ((cNum[1]>=10)||(cNum[1]==1))&&((cNum[2]>=10)||(cNum[2]==1))&&((cNum[3]>=10)||(cNum[3]==1))&&((cNum[4]>=10)||(cNum[4]==1))&&((cNum[5]>=10)||(cNum[5]==1)) )
-}
-
-// TESTS FOR "STRAIGHT" CONDITION ON A SORTED DECK.
-function teststraight(){
-	var x=( (tmpn[1]+4==tmpn[5]) && (tmpn[2]+3==tmpn[5]) && (tmpn[3]+2==tmpn[5]) && (tmpn[4]+1==tmpn[5]) );
-	for(i=1;i<=5;i++){
-		if(tmpn[i]==1)tmpn[i]=14;
-	}
-	tmpn=new Array();
-	tmpn[0]=0;
-	for(i=1;i<=5;i++)tmpn[i]=cNum[i];
-	tmpn.sort(sortnumbs);
-	var y=( (tmpn[1]+4==tmpn[5]) && (tmpn[2]+3==tmpn[5]) && (tmpn[3]+2==tmpn[5]) && (tmpn[4]+1==tmpn[5]) );
-	return x||y;
-}
-
-// FUNCTION TO TEST ALL CARD POSSIBILITIES
-function testCombos(){
-	tmpn=new Array();
-	tmpn[0]=0;
-	for(i=1;i<=5;i++)tmpn[i]=cNum[i];
-	tmpn.sort(sortnumbs);
-	var wtype='Nothing';
-	
-	wamount=0;
-	if( ((tmpn[1]==tmpn[2])&&(tmpn[1]>=10))||((tmpn[2]==tmpn[3])&&(tmpn[2]>=10))||((tmpn[3]==tmpn[4])&&(tmpn[3]>=10))||((tmpn[4]==tmpn[5])&&(tmpn[4]>=10)) ){
-		wtype='a Pair';
-		wamount=multipliers[0];
-	}
-	if( ((tmpn[1]==tmpn[2])&&(tmpn[3]==tmpn[4]))||((tmpn[1]==tmpn[2])&&(tmpn[4]==tmpn[5]))||((tmpn[2]==tmpn[3])&&(tmpn[4]==tmpn[5])) ){
-		wtype='Two Pair';
-		wamount=multipliers[1];
-	}
-	if( ((tmpn[1]==tmpn[2])&&(tmpn[1]==tmpn[3]))||((tmpn[2]==tmpn[3])&&(tmpn[2]==tmpn[4]))||((tmpn[3]==tmpn[4])&&(tmpn[3]==tmpn[5])) ){
-		wtype='3 of a Kind';
-		wamount=multipliers[2];
-	}
-	if( teststraight() ){
-		wtype='a Straight';
-		wamount=multipliers[3];
-	}
-	if( testflush() ){
-		wtype='a Flush';
-		wamount=multipliers[4];
-	}
-	if( ((tmpn[1]==tmpn[2])&&(tmpn[3]==tmpn[4])&&(tmpn[3]==tmpn[5])&&(tmpn[1]!=tmpn[3]))||((tmpn[4]==tmpn[5])&&(tmpn[1]==tmpn[2])&&(tmpn[1]==tmpn[3])&&(tmpn[4]!=tmpn[1])) ){
-		wtype='a Full House';
-		wamount=multipliers[5];
-	}
-	if( ((tmpn[1]==tmpn[2])&&(tmpn[1]==tmpn[3])&&(tmpn[1]==tmpn[4]))||((tmpn[2]==tmpn[3])&&(tmpn[2]==tmpn[4])&&(tmpn[2]==tmpn[5])) ){
-		wtype='4 of a Kind';
-		wamount=multipliers[6];
-	}	
-	// STRAIGHT FLUSH
-	if(testflush() && teststraight()){
-		wtype='a Straight Flush';
-		wamount=multipliers[7];
-	}
-	// ROYAL STRAIGHT FLUSH
-	if(teststraight() && testface() && testflush()){
-		wtype='a Royal Straight Flush';
-		wamount=multipliers[8];
-	}
-	return wtype;
-}
-
-function initPoker( bet, key, token ) {
-
-	this.bet = bet;
-	this.key = key;
-	this.token = token;
-	
-	for(i=1;i<6;i++) {
-		cards[i]=getEl('c'+i);
-		cards[i].innerHTML='';
-	}
-	
-	for(i=1;i<6;i++) {
-		arrows[i]=getEl('b'+i);
-		arrows[i].innerHTML='';
-		arrows[i].on=false;
-	}
-	
-	if (start) {
-		testStatus();	
-	}
-}
-
-function showRresultPoker($type) {
-
-	for(i=1;i<6;i++) {
-		cards[i]=getEl('c'+i);
-		cards[i].innerHTML='<span style="font-family:arial; font-size:'+(cardWidth-10)+'px; font-weight:bold; color:'+((sts==1||sts==2)?'black':'red')+'">'+nums[deck[deck.length-1][1]]+'</span><br><span style="font-family:arial; font-size:'+(cardWidth-2)+'px; color:'+((sts==1||sts==2)?'black':'red')+'">'+suits[type[i]]+'</span>';
-	}
-	
-	for(i=1;i<6;i++) {
-		arrows[i].innerHTML='';
-		arrows[i].on=false;
-	} 
-}
-
-function startPoker() {
-	start=true;
+	drawCards();	
 }

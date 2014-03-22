@@ -34,6 +34,11 @@ $result = warquest_post('result', 0);
 $multiply = warquest_post('multiply', 0);
 $board = warquest_post('board', "");	
 
+/* Cards contain json information, so warquest_post can not be used */
+if ( isset($_POST['cards']) ) {
+	$cards = $_POST['cards'];
+}
+
 $a00 = warquest_post('a00', 'appletop.src');	
 $a01 = warquest_post('a01', 'banana.src');	
 $a02 = warquest_post('a02', 'pearbtm.src');	
@@ -934,7 +939,6 @@ function warquest_casino_tictactoe() {
 ** ------------
 */
 
-
 function warquest_casino_poker_result_do() {
 
 	/* input */
@@ -947,17 +951,24 @@ function warquest_casino_poker_result_do() {
 	global $player;
 	global $output;
 	
+	$multiply = array(0,1,2,3,7,10,15,20,30,60);
+	
 	if ($key != $player->request-1) {
 	
 		$message = t('SYSTEM_HACK_DETECTED');
 		$output->popup .= warquest_box_icon("warning", $message);	
 		
-	} else if ($multiply>0) {
+	} else if ($result>9) {
 	
-		$money = $bet * $multiply;
+		$message = t('SYSTEM_HACK_DETECTED');
+		$output->popup .= warquest_box_icon("warning", $message);	
+			
+	} else if ($result>0) {
+			
+		$money = $bet * $multiply[$result];
 		$player->money += $money;
 				
-		$message = t('CASINO_POKER_WIN', $result, health_format(2), money_format1($money)); 
+		$message = t('CASINO_POKER_WIN', t('CASE_POKER_RESULT_'.$result), health_format($multiply[$result]), money_format1($money)); 
 		$output->popup .= warquest_box_icon("info", $message);	
 		warquest_info($message);
 		
@@ -1016,11 +1027,7 @@ function warquest_casino_poker_play_do() {
 		$player->money -= $bet;	
 		$player->casino++;
 		
-		warquest_sound("start.mp3");
-		
-		$page .= '<script language="JavaScript">'; 
-		$page .= 'startPoker();';
-		$page .= '</script>';
+		warquest_sound("start.mp3");		
 	}
 }
 
@@ -1033,6 +1040,8 @@ function warquest_casino_poker_help() {
 	/* output */
 	global $page;
 	global $output;
+	
+	$multiply = array(0,1,2,3,7,10,15,20,30,60);
 	
 	$output->title = t('CASINO_POKER_HELP_TITLE');
 		
@@ -1049,57 +1058,22 @@ function warquest_casino_poker_help() {
 	$page .= '<thead>';
 	
 	$page .= '<tr>';
-	$page .= '<td width="300"></td>';
-	$page .= '<td width="200"></td>';
-	$page .= '<tr>';
+	$page .= '<th width="160">Name</td>';
+	$page .= '<th width="80">Multiple</td>';
+	$page .= '<th width="240">Description</td>';
+	$page .= '<tr>';	
 	
 	$page .= '<thead>';
 	$page .= '<tbody>';
 	
-	$page .= '<tr>';
-	$page .= '<td>Royal Straight Flush</td>';
-	$page .= '<td>60x</td>';
-	$page .= '<tr>';
+	for ($i=1; $i<10; $i++) {
 	
-	$page .= '<tr>';
-	$page .= '<td>Straight Flush</td>';
-	$page .= '<td>30x</td>';
-	$page .= '<tr>';
-	
-	$page .= '<tr>';
-	$page .= '<td>Four of a Kind</td>';
-	$page .= '<td>20x</td>';
-	$page .= '<tr>';
-	
-	$page .= '<tr>';
-	$page .= '<td>Full House</td>';
-	$page .= '<td>15x</td>';
-	$page .= '<tr>';
-	
-	$page .= '<tr>';
-	$page .= '<td>Flush</td>';
-	$page .= '<td>10x</td>';
-	$page .= '<tr>';
-	
-	$page .= '<tr>';
-	$page .= '<td>Straight</td>';
-	$page .= '<td>7x</td>';
-	$page .= '<tr>';
-	
-	$page .= '<tr>';
-	$page .= '<td>Three of a Kind</td>';
-	$page .= '<td>3x</td>';
-	$page .= '<tr>';
-	
-	$page .= '<tr>';
-	$page .= '<td>Two Pair</td>';
-	$page .= '<td>2x</td>';
-	$page .= '<tr>';
-	
-	$page .= '<tr>';
-	$page .= '<td>One Pair (Joker or better)</td>';
-	$page .= '<td>1x</td>';
-	$page .= '<tr>';
+		$page .= '<tr>';
+		$page .= '<td>'.warquest_image('casino/poker'.($i).'.jpg' ,'width="130" height="80"').'</td>';
+		$page .= '<td>'.$multiply[$i].'x</td>';
+		$page .= '<td>'.t('CASE_POKER_RESULT_'.$i.'_NOTE').'</td>';		
+		$page .= '<tr>';
+	}
 	
 	$page .= '</tbody>';
 	$page .= '</table>';
@@ -1126,9 +1100,8 @@ function warquest_casino_poker() {
 	global $config;
 	
 	global $bet;
-	global $result;
 	global $key;
-	global $board;
+	global $cards;
 	
 	/* output */
 	global $page; 
@@ -1168,7 +1141,7 @@ function warquest_casino_poker() {
 		if ($eid!=EVENT_CASINO_POKER_PLAY) {
 			$page .= warquest_link('mid='.$mid.'&sid='.$sid.'&ssid='.$ssid.'&eid='.EVENT_CASINO_POKER_PLAY, t('CASINO_PLAY'), 'play');
 		} else {
-			$page .= '<a href="javascript:testStatus()">'.t('CASINO_PLAY').'</a>';
+			$page .= '<a href="javascript:statemachineCards(0)">'.t('CASINO_PLAY').'</a>';
 		}
 		$page .= "</td>";
 		
@@ -1190,30 +1163,30 @@ function warquest_casino_poker() {
 		
 		$page .= '<div class="box" >';	
 		
-		$page .= '<table>';
-		$page .= '</tr>';
-		$page .= '<tr align="center" height="210">';
-		for($i=1; $i<6; $i++) {
-			$page .= '<td width="100">';
-			$page .= '<div id="c'.$i.'" style="border-style:solid; border-width:black; border-width:1px; background-color:#0066AE; cursor:default; width:90px; height:180px; text-align:center;" onmousedown="changeCard('.$i.')">';
-			$page .= '</div>';
-			$page .= '</td>';
-		}
-		$page .= '</tr>';
-		$page .= '<tr>';
-		for($i=1; $i<6; $i++) {
-			$page .= '<td width="100" align="center">';
-			$page .= '<div id="b'.$i.'" style="width:15px; height:25px; font-family:arial; font-size:18px; font-weight:bold; color:orange;">';
-			$page .= '</div>';
-			$page .= '</td>';
-		}
-		$page .= '</tr>';
-		$page .='</table>';
+		$page .= '<img id="card0" onclick="swapeCard(0)" />';
+		$page .= '<img id="card1" onclick="swapeCard(1)" />';
+		$page .= '<img id="card2" onclick="swapeCard(2)" />';
+		$page .= '<img id="card3" onclick="swapeCard(3)" />';
+		$page .= '<img id="card4" onclick="swapeCard(4)" />';
 	
-		$page .= '<script language="javascript">';
-		$page .= 'initPoker('.$bet.','.$player->request.',\''.warquest_token('mid='.$mid.'&sid='.$sid.'&ssid='.$ssid.'&eid='.EVENT_CASINO_POKER_RESULT).'\');';
-		$page .= '</script>';	
-		$page .= '</div>';	
+		if ($eid!=EVENT_CASINO_POKER_RESULT) {
+			$page .= '<script language="javascript">';
+			$page .= 'initCards('.$bet.','.$player->request.',\''.warquest_token('mid='.$mid.'&sid='.$sid.'&ssid='.$ssid.'&eid='.EVENT_CASINO_POKER_RESULT).'\');';
+			$page .= '</script>';	
+			$page .= '</div>';	
+		}
+		
+		if ($eid==EVENT_CASINO_POKER_PLAY) {
+			$page .= '<script language="JavaScript">'; 
+			$page .= 'statemachineCards(0);';
+			$page .= '</script>';
+		}
+		
+		if ($eid==EVENT_CASINO_POKER_RESULT) {
+			$page .= '<script language="JavaScript">'; 
+			$page .= "showCards('".$cards."')";
+			$page .= '</script>';
+		}		
 	}
 	
 	$page .= '<div class="note">';

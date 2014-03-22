@@ -2925,6 +2925,7 @@ function warquest_ui_header() {
 	}
 	
 	if (($mid==MENU_MONEY) && ($sid==PAGE_CASINO) && ($ssid==PAGE_CASINO_POKER)) {
+		$page .= '<script language="JavaScript" src="'.$config["content_url"].'js/poker.min.js"></script>';
 		$page .= '<script language="JavaScript" src="'.$config["content_url"].'js/poker.js"></script>';
 	}
 	
