@@ -478,7 +478,7 @@ function warquest_submenu_casino() {
 	$menu .= warquest_ui_submenu($mid, $sid, PAGE_CASINO_WHEEL, t('CASINO_1'), $ssid);
 	$menu .= warquest_ui_submenu($mid, $sid, PAGE_CASINO_SLOT, t('CASINO_2'), $ssid);
 	$menu .= warquest_ui_submenu($mid, $sid, PAGE_CASINO_TICTACTOE, t('CASINO_3'), $ssid);
-	//$menu .= warquest_ui_submenu($mid, $sid, PAGE_CASINO_POKER, t('CASINO_4'), $ssid);
+	$menu .= warquest_ui_submenu($mid, $sid, PAGE_CASINO_POKER, t('CASINO_4'), $ssid);
 	
 	$menu .= '</ul>';
 	$menu .= '</div>';
