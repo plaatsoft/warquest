@@ -256,8 +256,8 @@ function warquest_casino_wheel() {
 		
 		$page .= '<div class="box">';
 		
-		$page .= '<canvas id="canvas" width="500" height="500"></canvas>';
-		$page .= '<script language="JavaScript" src="'.$config["content_url"].'js/wheel5.js"></script>';
+		$page .= '<canvas id="canvas" width="500" height="420"></canvas>';
+		$page .= '<script language="JavaScript" src="'.$config["content_url"].'js/wheel6.js"></script>';
 		
 		$page .= '<script language="JavaScript">'; 
 		

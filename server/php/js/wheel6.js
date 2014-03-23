@@ -33,7 +33,7 @@ function drawWheel() {
     var insideRadius = 15;
    
     ctx = canvas.getContext("2d");
-    ctx.clearRect(0,0,500,500);
+    ctx.clearRect(0,0,400,400);
       
     ctx.strokeStyle = "black";
     ctx.lineWidth = 2;
@@ -45,8 +45,8 @@ function drawWheel() {
       ctx.fillStyle = colors[i];
      
       ctx.beginPath();
-      ctx.arc(250, 250, outsideRadius, angle, angle + arc, false);
-      ctx.arc(250, 250, insideRadius, angle + arc, angle, true);
+      ctx.arc(250, 210, outsideRadius, angle, angle + arc, false);
+      ctx.arc(250, 210, insideRadius, angle + arc, angle, true);
       ctx.stroke();
       ctx.fill();
      
@@ -57,7 +57,7 @@ function drawWheel() {
       ctx.shadowColor   = "rgb(220,220,220)";
       ctx.fillStyle = "black";
       ctx.translate(250 + Math.cos(angle + arc / 2) * textRadius,
-                    250 + Math.sin(angle + arc / 2) * textRadius);
+                    210 + Math.sin(angle + arc / 2) * textRadius);
       ctx.rotate(angle + arc / 2 + Math.PI / 2);
       var text = restaraunts[i];
       ctx.fillText(text, -ctx.measureText(text).width / 2, 0);
@@ -67,14 +67,14 @@ function drawWheel() {
     //Arrow
     ctx.fillStyle = "white";
     ctx.beginPath();
-    ctx.moveTo(250 - 4, 250 - (outsideRadius + 5));
-    ctx.lineTo(250 + 4, 250 - (outsideRadius + 5));
-    ctx.lineTo(250 + 4, 250 - (outsideRadius - 5));
-    ctx.lineTo(250 + 9, 250 - (outsideRadius - 5));
-    ctx.lineTo(250 + 0, 250 - (outsideRadius - 13));
-    ctx.lineTo(250 - 9, 250 - (outsideRadius - 5));
-    ctx.lineTo(250 - 4, 250 - (outsideRadius - 5));
-    ctx.lineTo(250 - 4, 250 - (outsideRadius + 5));
+    ctx.moveTo(250 - 4, 210 - (outsideRadius + 5));
+    ctx.lineTo(250 + 4, 210 - (outsideRadius + 5));
+    ctx.lineTo(250 + 4, 210 - (outsideRadius - 5));
+    ctx.lineTo(250 + 9, 210 - (outsideRadius - 5));
+    ctx.lineTo(250 + 0, 210 - (outsideRadius - 13));
+    ctx.lineTo(250 - 9, 210 - (outsideRadius - 5));
+    ctx.lineTo(250 - 4, 210 - (outsideRadius - 5));
+    ctx.lineTo(250 - 4, 210 - (outsideRadius + 5));
     ctx.fill();
   }
 }
