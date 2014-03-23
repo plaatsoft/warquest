@@ -195,11 +195,12 @@ $lang['BOX_INFO'] = 'INFO';
 $lang['BOX_WARN'] = 'WARNING';
 $lang['BOX_ERROR'] = 'ERROR';
 
-$lang['GENERAL_NEXT_LEVEL'] = 'Brilliant! You have reached the next level! You receive %s skill points and %s dollars. Your health, energy and ammo are restored. ';
-$lang['GENERAL_BATTLE_LEVEL'] = 'Brilliant! You have won %s battles and received %s extra skill point(s) and %s dollars.';
-$lang['GENERAL_MISSION_LEVEL'] = 'Brilliant! You have completed %s missions. You receive %s extra skill point(s) and %s dollars.';
-$lang['GENERAL_BOUNTY_LEVEL'] = 'Great! You have set %s bounties. You receive %s extra skill point(s) and %s dollars.';
-$lang['GENERAL_REBEL_LEVEL'] = 'Great! You started %s rebellions. You receive %s extra skill point(s) and %s dollars.';
+$lang['GENERAL_NEXT_LEVEL'] = 'Brilliant! You have reached the next level, receive %s skill points and %s dollars. Your health, energy and ammo are restored. ';
+$lang['GENERAL_BATTLE_LEVEL'] = 'Brilliant! You have won %s battles, receive %s extra skill point(s) and %s dollars.';
+$lang['GENERAL_MISSION_LEVEL'] = 'Brilliant! You have completed %s missions, receive %s extra skill point(s) and %s dollars.';
+$lang['GENERAL_BOUNTY_LEVEL'] = 'Great! You have set %s bounties, receive %s extra skill point(s) and %s dollars.';
+$lang['GENERAL_REBEL_LEVEL'] = 'Great! You started %s rebellions, receive %s extra skill point(s) and %s dollars.';
+
 $lang['GENERAL_BATTLE_AWARD_WON'] = 'fights won';
 $lang['GENERAL_MISSION_AWARD_WON'] = 'missions completed';
 $lang['GENERAL_BOUNTY_AWARD_WON'] = 'bounties set';
