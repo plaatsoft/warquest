@@ -119,8 +119,6 @@ function warquest_lottery_form() {
 	/* output */
 	global $page; 
 	global $output;
-
-	warquest_set_default_mission($ssid);	
 	
 	$lid = 30;
 	$limit = 5;
