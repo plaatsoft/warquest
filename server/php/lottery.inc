@@ -41,6 +41,7 @@ function warquest_lottery_bet_do() {
 	/* input */
 	global $mid;
 	global $sid;
+	global $ssid;
 	global $player;
 	global $id;
 	global $amount;
@@ -83,7 +84,7 @@ function warquest_lottery_bet_do() {
 		warquest_gold_use($lottery->bet * $amount);
 		
 		/* Show popup message */
-		$link = warquest_link('mid='.$mid.'&sid='.$sid.'&id='.$lottery->lottery_id.'&eid='.EVENT_LOTTERY_BET, t('LINK_BET_AGAIN'));		
+		$link = warquest_link('mid='.$mid.'&sid='.$sid.'&ssid='.$ssid.'&id='.$lottery->lottery_id.'&eid='.EVENT_LOTTERY_BET, t('LINK_BET_AGAIN'));		
 		$link .= '<br/><br/>'.t('GENERAL_AMOUNT').'<br/>';
 		
 		$max=1;
@@ -108,6 +109,7 @@ function warquest_lottery_form() {
 	/* input */
 	global $mid;
 	global $sid;
+	global $ssid;
 	global $ssid;
 	
 	global $player;
@@ -171,7 +173,7 @@ function warquest_lottery_form() {
 		
 			if ($active>0) {	
 				$page .= '<div class="right2">';
-				$page .= warquest_link('mid='.$mid.'&sid='.$sid.'&id='.$data->lottery_id.'&eid='.EVENT_LOTTERY_BET, t('LINK_BET'));
+				$page .= warquest_link('mid='.$mid.'&sid='.$sid.'&ssid='.$ssid.'&id='.$data->lottery_id.'&eid='.EVENT_LOTTERY_BET, t('LINK_BET'));
 				$page .= '</div>';
 			}
 						
@@ -314,11 +316,12 @@ function warquest_lottery_form() {
 		}		
 	}
 	
-	if ($player->lid>0) {
-		$page .= '<div class="note">';
-		$page .= t('LOTTERY_NOTE');
-		$page .='</div>';
-	}
+	$page .= '<div class="spacer"></div>';
+	$page .= '<span class="casino">'.t('CASINO_WARNING').' </span>';
+	$page .= '<span class="note">';
+	$page .= t('LOTTERY_NOTE');
+	$page .='</span>';
+	
 }
 
 /*
@@ -334,7 +337,7 @@ function warquest_lottery() {
 
 	/* input */
 	global $eid;
-	global $sid;
+	global $ssid;
 	  	
 	/* Event handler */
 	switch ($eid ) {
@@ -344,9 +347,9 @@ function warquest_lottery() {
 			break;
 	}				
 	
-	switch($sid) {
+	switch($ssid) {
 		
-		case PAGE_LOTTERY: 
+		case PAGE_CASINO_LOTTERY: 
 			warquest_lottery_form();
 			break;
 	}	

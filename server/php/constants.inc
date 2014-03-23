@@ -104,7 +104,7 @@ define('PAGE_BUILDING_PLAYER', 	1601);
 define('PAGE_BANK',          		1701);
 define('PAGE_STOCK_EXCHANGE',		1702);
 define('PAGE_CASINO',         	1703);
-define('PAGE_LOTTERY',           1704);
+define('PAGE_CASINO_LOTTERY',    1704);
 define('PAGE_CASINO_WHEEL',		1705);
 define('PAGE_CASINO_SLOT',			1706);
 define('PAGE_CASINO_SLOT_HELP',	1707);
