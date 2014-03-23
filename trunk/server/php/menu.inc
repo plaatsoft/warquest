@@ -387,9 +387,8 @@ function warquest_menu_money() {
 		
 	$menu .= warquest_ui_menu($mid, PAGE_BANK, 1, t('LINK_BANK'), $sid);
 	$menu .= warquest_ui_menu($mid, PAGE_STOCK_EXCHANGE, 1, t('LINK_STOCKEXCHANGE'), $sid);
-	$menu .= warquest_ui_menu($mid, PAGE_CASINO, PAGE_CASINO_WHEEL, t('LINK_CASINO'), $sid);
-	$menu .= warquest_ui_menu($mid, PAGE_LOTTERY, 1, t('LINK_LOTTERY'), $sid);
-	
+	$menu .= warquest_ui_menu($mid, PAGE_CASINO, PAGE_CASINO_LOTTERY, t('LINK_CASINO'), $sid);
+		
 	$menu .= '</ul>';
 	$menu .= '</div>';
 	
@@ -475,11 +474,12 @@ function warquest_submenu_casino() {
 	$menu  = '<div class="menu right2">';
 	$menu .= '<ul>';
 	
+	$menu .= warquest_ui_submenu($mid, $sid, PAGE_CASINO_LOTTERY, t('LINK_LOTTERY'), $ssid);	
 	$menu .= warquest_ui_submenu($mid, $sid, PAGE_CASINO_WHEEL, t('CASINO_1'), $ssid);
 	$menu .= warquest_ui_submenu($mid, $sid, PAGE_CASINO_SLOT, t('CASINO_2'), $ssid);
 	$menu .= warquest_ui_submenu($mid, $sid, PAGE_CASINO_TICTACTOE, t('CASINO_3'), $ssid);
 	$menu .= warquest_ui_submenu($mid, $sid, PAGE_CASINO_POKER, t('CASINO_4'), $ssid);
-	
+			
 	$menu .= '</ul>';
 	$menu .= '</div>';
 

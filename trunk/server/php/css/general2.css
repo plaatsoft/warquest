@@ -527,3 +527,8 @@ a:hover {
 .shop {
 	font-size: 1.4em;
 }
+
+.casino {
+	font-size: 0.95em;
+	color: rgb(255,50,0);
+}

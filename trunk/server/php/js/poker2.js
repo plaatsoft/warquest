@@ -9,26 +9,6 @@ var bet;
 var key;
 var token;
 
-function swapeCard(i) {
-	
-	if (gamePhase == 2) {
-	
-		cards[i][2]=!cards[i][2];
-		
-		drawCards();
-	}
-}
-
-function getCard(c) {
-
-	do {
-		nr = Math.floor(Math.random()*52);
-	} while (deck[nr][3]==true);
-		
-	deck[nr][3]=true;
-	cards[c]=deck[nr];
-}
-
 function initCards(bet, key, token) {
 
 	var i=0;
@@ -60,10 +40,28 @@ function initCards(bet, key, token) {
 	drawCards();
 }
 
-function statemachineCards(c) {
+function swapeCard(i) {
 	
-	console.log("game phase = "+gamePhase);
+	if (gamePhase == 2) {
 	
+		cards[i][2]=!cards[i][2];
+		
+		drawCards();
+	}
+}
+
+function getCard(c) {
+
+	do {
+		nr = Math.floor(Math.random()*52);
+	} while (deck[nr][3]==true);
+		
+	deck[nr][3]=true;
+	cards[c]=deck[nr];
+}
+
+function playCards(c) {
+		
 	if ((gamePhase==2) && (cards[c][2]==false)) {
 		getCard(c);
 	}
@@ -71,26 +69,14 @@ function statemachineCards(c) {
 	cards[c][2]=true;
 	drawCards();
 	
-	if (c < (cards.length-1)) {
-		setTimeout('statemachineCards('+(c+1)+')',100);		
+	if (c<4) {
+		setTimeout('playCards('+(c+1)+')',100);		
 		
 	} else {	
 		gamePhase++;
 		
 		if (gamePhase==3) {
 			resultCards();
-		}
-	}
-}
-
-function drawCards() {
-
-	for (var c=0; c<cards.length; c++) {
-	
-		if (cards[c][2]==true) {
-			document.getElementById("card"+c).src=Poker.getCardData(131, cards[c][0],cards[c][1]);			
-		} else {
-			document.getElementById("card"+c).src=Poker.getBackData(131, '#2E319C', '#7A7BB8');
 		}
 	}
 }
@@ -109,7 +95,6 @@ function resultCards() {
       return 1;
     if (nums.indexOf(a[1]) < nums.indexOf(b[1]))
       return -1;
-    // a must be equal to b
     return 0;});
 	 
 	/* Pair */
@@ -118,16 +103,14 @@ function resultCards() {
 		 (cards[2][1]==cards[3][1]) ||
 		 (cards[3][1]==cards[4][1])) {
 		
-		console.log("Pair");
 		result = 1;
 	}
 	
 	/* Two Pairs */	
 	if( ((cards[0][1]==cards[1][1]) && (cards[2][1]==cards[3][1])) ||
-		 ((cards[0][1]==cards[1][1]) && (cards[3][1]==cards[3][1])) ||
+		 ((cards[0][1]==cards[1][1]) && (cards[3][1]==cards[4][1])) ||
 		 ((cards[1][1]==cards[2][1]) && (cards[3][1]==cards[4][1])) ) {
 		
-		console.log("Two Pair");
 		result = 2;
 	}
 	
@@ -136,7 +119,6 @@ function resultCards() {
 		 ((cards[1][1]==cards[2][1]) && (cards[2][1]==cards[3][1])) ||
 		 ((cards[2][1]==cards[3][1]) && (cards[3][1]==cards[4][1])) ) {
 	
-		console.log("Three of a kind");
 		result = 3;
 	}
 	
@@ -147,7 +129,6 @@ function resultCards() {
 			index2 = nums.indexOf(cards[c][1]);
 			if (c==4) {		
 
-				console.log("Straight");
 				result = 4;
 			} 
 		} else {		
@@ -160,7 +141,7 @@ function resultCards() {
 	for(var c=1; c<5; c++) {	
 		if (suits.indexOf(cards[c][0])==index1) {
 			if (c==4) {		
-				console.log("Flush");		
+			
 				result = 5;
 			}
 		} else {		
@@ -172,7 +153,6 @@ function resultCards() {
 	if( ((cards[0][1]==cards[1][1]) && (cards[1][1]==cards[2][1]) && (cards[3][1]==cards[4][1])) ||
 		 ((cards[0][1]==cards[1][1]) && (cards[2][1]==cards[3][1]) && (cards[3][1]==cards[4][1])) ) {
 	
-		console.log("Full house");		
 		result = 6;
 	}
 		
@@ -180,7 +160,6 @@ function resultCards() {
 	if( ((cards[0][1]==cards[1][1]) && (cards[1][1]==cards[2][1]) && (cards[2][1]==cards[3][1])) ||
 		 ((cards[1][1]==cards[2][1]) && (cards[2][1]==cards[3][1]) && (cards[3][1]==cards[4][1])) ) {
 	
-		console.log("Four of a kind");
 		result = 7;
 	}
 	
@@ -190,9 +169,8 @@ function resultCards() {
 	for(var c=1; c<5; c++) {
 		if ((suits.indexOf(cards[c][0])==index1) && (nums.indexOf(cards[c][1])==(index2+1))) {
 			index2 = nums.indexOf(cards[c][1]);
-			if (c==4) {		
-
-				console.log("Straight Flush");	
+			if (c==4) {	
+	
 				result = 8;
 			}
 		}
@@ -210,7 +188,6 @@ function resultCards() {
 				index2 = nums.indexOf(cards[c][1]);
 				if (c==4) {			
 				
-					console.log("Royal Flush");
 					result = 9;
 				}
 			}
@@ -220,14 +197,7 @@ function resultCards() {
 		}
 	}
 	
-	console.log("result = " +result);
-	
-	cardRequest(result, cards2);
-	return result;
-}
-
-function cardRequest(result, cards2) {
- 
+	/* Send result to server */
 	var form = document.forms['warquest'];
 
 	var newInput1 = document.createElement('input');
@@ -261,6 +231,18 @@ function cardRequest(result, cards2) {
 	form.appendChild(newInput5);	
 	
 	form.submit();	
+}
+
+function drawCards() {
+
+	for (var c=0; c<cards.length; c++) {
+	
+		if (cards[c][2]==true) {
+			document.getElementById("card"+c).src=Poker.getCardData(131, cards[c][0],cards[c][1]);			
+		} else {
+			document.getElementById("card"+c).src=Poker.getBackData(131, '#2E319C', '#7A7BB8');
+		}
+	}
 }
 
 function showCards(cards) {

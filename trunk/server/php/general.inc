@@ -2835,7 +2835,7 @@ function warquest_ui_header() {
 	}
  
 	$page .= '<link href="'.$config["content_url"].'images/favicon.ico" rel="shortcut icon" type="image/x-icon" />'; 
-	$page .= '<link href="'.$config["content_url"].'css/general9.css" rel="stylesheet" type="text/css" />';
+	$page .= '<link href="'.$config["content_url"].'css/general2.css" rel="stylesheet" type="text/css" />';
 	
 	if (($mid==MENU_MONEY) && ($sid==PAGE_STOCK_EXCHANGE)) {	
 		$page .= '<link href="'.$config["content_url"].'css/jquery.css" rel="stylesheet" type="text/css" />';
@@ -2926,7 +2926,7 @@ function warquest_ui_header() {
 	
 	if (($mid==MENU_MONEY) && ($sid==PAGE_CASINO) && ($ssid==PAGE_CASINO_POKER)) {
 		$page .= '<script language="JavaScript" src="'.$config["content_url"].'js/poker.min.js"></script>';
-		$page .= '<script language="JavaScript" src="'.$config["content_url"].'js/poker.js"></script>';
+		$page .= '<script language="JavaScript" src="'.$config["content_url"].'js/poker2.js"></script>';
 	}
 	
 	/* Add HTML Title */	

@@ -227,18 +227,24 @@ function warquest_casino_wheel() {
 		$page .= '<table>';	
 	
 		$page .= '<tr>';
-		$page .= '<td width="320">';
-		$page .= t('CASINO_NUMBER').":<br/>";
-		
+		$page .= '<td width="200">';
+		$page .= t('CASINO_NUMBER').":<br/>";		
 		$page .= warquest_lucky_number_selected($number);
+		$page .= '</td>';	
 		
-		$page .= '<br/>';	
-	
+		$page .= '<td width="140">';				
 		$page .= t('CASINO_BET').":<br/>";
 		$page .= '<input type="text" id="bet" name="bet" size="10" maxlength="7" type="text" value="'.$bet.'" onkeydown="if (event.keyCode == 13) return false" > ';
 		$page .= warquest_link('mid='.$mid.'&sid='.$sid.'&ssid='.$ssid.'&eid='.EVENT_CASINO_WHEEL_PLAY, t('CASINO_PLAY'), 'play');
 		$page .= "</td>";
 		$page .= "</tr>";
+		
+		$page .= '<tr>';		
+		$page .= '<td colspan="2">';	
+		$page .= '<br/><span class="casino">'.t('CASINO_WARNING').'</span>';	
+		$page .= '</td>';	
+		$page .= '</tr>';
+		
 		
 		$page .= '</table>';
 		
@@ -643,6 +649,12 @@ function warquest_casino_slotmachine() {
 		$page .= '</td>';
 		$page .= "</tr>";
 		
+		$page .= '<tr>';		
+		$page .= '<td colspan="2">';	
+		$page .= '<br/><span class="casino">'.t('CASINO_WARNING').'</span>';	
+		$page .= '</td>';	
+		$page .= '</tr>';
+		
 		$page .= '</table>';
 		$page .= '</td>';
 		$page .= "</tr>";
@@ -886,6 +898,12 @@ function warquest_casino_tictactoe() {
 		$page .= "</td>";
 		$page .= "</tr>";
 						
+		$page .= '<tr>';		
+		$page .= '<td colspan="2">';	
+		$page .= '<br/><span class="casino">'.t('CASINO_WARNING').'</span>';	
+		$page .= '</td>';	
+		$page .= '</tr>';	
+		
 		$page .= '</table>';
 		
 		$page .= '</td>';	
@@ -968,7 +986,7 @@ function warquest_casino_poker_result_do() {
 		$money = $bet * $multiply[$result];
 		$player->money += $money;
 				
-		$message = t('CASINO_POKER_WIN', '<span class="health">'.t('CASE_POKER_RESULT_'.$result).'</span>', health_format($multiply[$result]), money_format1($money)); 
+		$message = t('CASINO_POKER_WIN', '<span class="health">'.t('CASINO_POKER_RESULT_'.$result).'</span>', health_format($multiply[$result]), money_format1($money)); 
 		$output->popup .= warquest_box_icon("info", $message);	
 		warquest_info($message);
 		
@@ -1058,9 +1076,9 @@ function warquest_casino_poker_help() {
 	$page .= '<thead>';
 	
 	$page .= '<tr>';
-	$page .= '<th width="160">Name</td>';
-	$page .= '<th width="80">Multiple</td>';
-	$page .= '<th width="250">Description</td>';
+	$page .= '<th width="160">'.t('CASINO_COMBINATION').'</td>';
+	$page .= '<th width="80">'.t('CASINO_MULTIPLY').'</td>';
+	$page .= '<th width="250">'.t('CASINO_DESCRIPTION').'</td>';
 	$page .= '<tr>';	
 	
 	$page .= '<thead>';
@@ -1070,8 +1088,8 @@ function warquest_casino_poker_help() {
 	
 		$page .= '<tr>';
 		$page .= '<td>'.warquest_image('casino/poker'.($i).'.jpg' ,'width="130" height="80"').'</td>';
-		$page .= '<td>'.$multiply[$i].'x</td>';
-		$page .= '<td>'.t('CASE_POKER_RESULT_'.$i.'_NOTE').'</td>';		
+		$page .= '<td>'.level_format($multiply[$i]).'x</td>';
+		$page .= '<td>'.t('CASINO_POKER_RESULT_'.$i.'_NOTE').'</td>';		
 		$page .= '<tr>';
 	}
 	
@@ -1141,7 +1159,7 @@ function warquest_casino_poker() {
 		if ($eid!=EVENT_CASINO_POKER_PLAY) {
 			$page .= warquest_link('mid='.$mid.'&sid='.$sid.'&ssid='.$ssid.'&eid='.EVENT_CASINO_POKER_PLAY, t('CASINO_PLAY'), 'play');
 		} else {
-			$page .= '<a href="javascript:statemachineCards(0)">'.t('LINK_DEAL').'</a>';
+			$page .= '<a href="javascript:playCards(0)">'.t('LINK_DEAL').'</a>';
 		}
 		$page .= "</td>";
 		
@@ -1151,13 +1169,19 @@ function warquest_casino_poker() {
 		$page .= '</td>';
 		$page .= "</tr>";
 		
-		$page .= "</tr>";
+		$page .= '<tr>';		
+		$page .= '<td colspan="2">';	
+		$page .= '<br/><span class="casino">'.t('CASINO_WARNING').'</span>';	
+		$page .= '</td>';	
+		$page .= '</tr>';	
 						
 		$page .= '</table>';
 		
 		$page .= '</td>';	
 		$page .= '</tr>';
 		$page .= '</table>';
+		
+		
 		
 		$page .= '</div>';
 		
@@ -1179,7 +1203,7 @@ function warquest_casino_poker() {
 		
 		if ($eid==EVENT_CASINO_POKER_PLAY) {
 			$page .= '<script language="JavaScript">'; 
-			$page .= 'statemachineCards(0);';
+			$page .= 'playCards(0);';
 			$page .= '</script>';
 		}
 		
@@ -1251,6 +1275,10 @@ function warquest_casino() {
 	/* Page handler */
 	switch ($ssid) {
 	
+		case PAGE_CASINO_LOTTERY:
+					warquest_lottery();
+					break;
+					
 		case PAGE_CASINO_WHEEL: 	
 					warquest_casino_wheel();
 					break;

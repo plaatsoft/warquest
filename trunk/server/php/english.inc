@@ -3366,29 +3366,35 @@ $lang['LOTTERY_WON'] = ' CONGRATULATION! You won lottery %s. The price is added 
 
 $lang['CASINO_POKER_HELP_TITLE'] = 'Poker Help'; 
 $lang['CASINO_POKER_HELP'] = 'The following poker card combinations will pay out:';
-$lang['CASINO_POKER_NOTE'] = 'Note: Enter your bet and press the play button. After the cards are draw, select the cards with must be replaced. The press the deal button and the watch the final result. Winning combinations are payout directly. Click help for more information about winning combinations.';
+$lang['CASINO_POKER_NOTE'] = 'Note: Enter your bet and press the play button. After the cards are draw, select the cards with must be replaced. The press the deal button and watch the final result. Winning combinations are payout directly. Click help for more information.';
 
 $lang['CASINO_POKER_WIN'] = 'You have %s and won %s times your bet, %s dollars.';
 $lang['CASINO_POKER_LOST'] = 'You lost %s dollars.';
 
-$lang['CASE_POKER_RESULT_1'] = 'a Pair';
-$lang['CASE_POKER_RESULT_1_NOTE'] = 'Two cards if the same rank.';
-$lang['CASE_POKER_RESULT_2'] = 'Two Pairs';
-$lang['CASE_POKER_RESULT_2_NOTE'] = 'Two seperate pairs.';
-$lang['CASE_POKER_RESULT_3'] = 'Three of a kind';
-$lang['CASE_POKER_RESULT_3_NOTE'] = 'Three cards of the same rank.';
-$lang['CASE_POKER_RESULT_4'] = 'Straight';
-$lang['CASE_POKER_RESULT_4_NOTE'] = 'Five cards in sequence, but not in the same suit.';
-$lang['CASE_POKER_RESULT_5'] = 'Flush';
-$lang['CASE_POKER_RESULT_5_NOTE'] = 'Any five cards of the same suit, but not in sequence.';
-$lang['CASE_POKER_RESULT_6'] = 'Full House';
-$lang['CASE_POKER_RESULT_6_NOTE'] = 'Three of a kind combined with a pair.';
-$lang['CASE_POKER_RESULT_7'] = 'Four of a kind';
-$lang['CASE_POKER_RESULT_7_NOTE'] = 'All four cards of the same rank.';
-$lang['CASE_POKER_RESULT_8'] = 'Straight Flush';
-$lang['CASE_POKER_RESULT_8_NOTE'] = 'Any five card sequence in the same suit.';
-$lang['CASE_POKER_RESULT_9'] = 'Royal Flush';
-$lang['CASE_POKER_RESULT_9_NOTE'] = 'Ace, King, Queen, Joker and 10 all of the same suit.';
+$lang['CASINO_COMBINATION'] = 'Combination';
+$lang['CASINO_MULTIPLY'] = 'Multiply';
+$lang['CASINO_DESCRIPTION'] = 'Description';
+
+$lang['CASINO_POKER_RESULT_1'] = 'a Pair';
+$lang['CASINO_POKER_RESULT_1_NOTE'] = 'Two cards if the same rank.';
+$lang['CASINO_POKER_RESULT_2'] = 'Two Pairs';
+$lang['CASINO_POKER_RESULT_2_NOTE'] = 'Two seperate pairs.';
+$lang['CASINO_POKER_RESULT_3'] = 'Three of a kind';
+$lang['CASINO_POKER_RESULT_3_NOTE'] = 'Three cards of the same rank.';
+$lang['CASINO_POKER_RESULT_4'] = 'Straight';
+$lang['CASINO_POKER_RESULT_4_NOTE'] = 'Five cards in sequence, but not in the same suit.';
+$lang['CASINO_POKER_RESULT_5'] = 'Flush';
+$lang['CASINO_POKER_RESULT_5_NOTE'] = 'Any five cards of the same suit, but not in sequence.';
+$lang['CASINO_POKER_RESULT_6'] = 'Full House';
+$lang['CASINO_POKER_RESULT_6_NOTE'] = 'Three of a kind combined with a pair.';
+$lang['CASINO_POKER_RESULT_7'] = 'Four of a kind';
+$lang['CASINO_POKER_RESULT_7_NOTE'] = 'All four cards of the same rank.';
+$lang['CASINO_POKER_RESULT_8'] = 'Straight Flush';
+$lang['CASINO_POKER_RESULT_8_NOTE'] = 'Any five card sequence in the same suit.';
+$lang['CASINO_POKER_RESULT_9'] = 'Royal Flush';
+$lang['CASINO_POKER_RESULT_9_NOTE'] = 'Ace, King, Queen, Joker and 10 all of the same suit.';
+
+$lang['CASINO_WARNING'] = 'Minimum age for playing this casino game is 18 years!';
 
 /*
 ** ------------------

@@ -17,15 +17,16 @@
 */
 
 $notes[67] = '
-<div class="subparagraph2">22-03-2014</div>
+<div class="subparagraph2">23-03-2014</div>
 <i>Game Server v6.7</i>
 <ul>
-<li>Added Money->Casino->Poker feature.</li>
+<li>Added Money->Casino->Poker mini game.</li>
+<li>Added Money->Casino->Lottery mini game.</li>
+<li>Added minimal age warning to casino games.</li>
 <li>Added javascript based message notification.</li>
-<li>Added Money->Lottery feature.</li>
 <li>Improve buildings page layout.</li>
 <li>Adapted facebook like and friend invite gold bonus.</li>
-<li>Improve unit/building/mission toolkit popup message.</li>
+<li>Improve unit/building/mission popup message.</li>
 </ul>
 </br>
 
@@ -286,7 +287,7 @@ $notes[58] = '
 <li>Update Help -> Instruction page.</li>
 <li>Update Player -> Profile page.</li>
 </ul>
-<li>Added third casino game: Tic Tac Toe.</li>
+<li>Added casino - TicTacToe mini game.</li>
 <li>Added sound effects to casino games.</li>
 <li>Added email check to activate mail notifications.</li>
 <li>Improve WarQuest email layout. Now completly HTML based.</li>
@@ -761,7 +762,7 @@ $notes[39] = '
 <li>Added star background with firework animation.</li>
 <li>Improve change username and/or password functionality.</li>
 <li>Added optional units condition (UC) & buildings condition (BC) in banner.</li>
-<li>Added slotmachine with help page to casino.</li>
+<li>Added casino slotmachine mini game.</li>
 <li>Disabled christmas banner on Home page.</li>
 <li>Improve mail notification in banner.</li>
 <li>Added unit & building repair notification.</li>
@@ -1110,7 +1111,7 @@ $notes[29] = '
 </ul>
 <li>Refactor some source code for better performance.</li>
 <li>Added hourly cost information to unit popup.</li>
-<li>Disable Poker, Roulette and BlackJack casino games.</li>
+<li>Disable casino mini games.</li>
 </ul>
 <br/>
 
@@ -1251,7 +1252,7 @@ $notes[24] = '
 <div class="subparagraph2">02-09-2011</div>
 <i>Game Server v2.4</i>
 <ul>
-<li>Added Wheel of Fortune casino game.</li>
+<li>Added casino Wheel of Fortune mini game.</li>
 <li>Added basic casino functionality. More is coming soon!</li>
 <li>Move Logout button to home submenu.</li>
 <li>Added more awards with more bonus expercience points.</li>
@@ -1661,7 +1662,7 @@ $notes[5] = '
 <li>Increase daily money bonus.</li>
 <li>Improve home page layout.</li>
 <li>Show defense buildings during fights.</li>
-<li>Create unique game name "War Quest".</li>
+<li>Create unique game name "WarQuest".</li>
 <li>Added battle new flag in main menu.</li>
 <li>Improve next level message.</li>
 <li>Added insigne image to home page.</li>
