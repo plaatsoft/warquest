@@ -496,44 +496,6 @@ function warquest_lastest_forum_post() {
 }
 
 /** 
- * New client version item on home page 
- */
-function warquest_new_version_check() {
-	
-	/* input */
-	global $player;
-	global $config;
-		
-	/* output */
-	global $page;
-	
-	$member = warquest_db_member($player->pid);
-		
-	if ($member->browser=="WarQuest") {
-	
-		if ($member->platform=="Windows") {
-			
-			if ($config["windows_client_version"] != $member->versie) {
-			
-				$message  = t('HOME_NEW_WINDOWS_VERSION',$config["windows_client_version"]).'<br/>';	
-				$message .= t('HOME_CLICK_TEXT', '<a href="'.$config["windows_client_url"].'">'.t('HOME_CLICK_HERE').'</a>');	
-				$page .= warquest_box_icon("info", $message);			
-			}
-		}
-		
-		if ($member->platform=="Android") {
-			
-			if ($config["android_client_version"] != $member->versie) {
-			
-				$message = t('HOME_NEW_ANDROID_VERSION',$config["android_client_version"]);	
-				$page .= warquest_box_icon("info", $message);
-				
-			}
-		}
-	}
-}
-
-/** 
  * Holiday item on home page 
  */
 function warquest_holiday_message() {
@@ -988,7 +950,6 @@ function warquest_home() {
 	 
 		case PAGE_OVERVIEW: 	
 					warquest_rebel_check($player);
-					warquest_new_version_check();
 					warquest_daily_bonus();
 					warquest_nextlevel($player);
 					warquest_battle_award_won($player);

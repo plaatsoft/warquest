@@ -446,7 +446,7 @@ function warquest_show_attack_army($data2, $ugid) {
 		
 		$message .= '<br/>';
 		$message .= t('BATTLE_DEFENSE_FORCE', 
-			$data2->name, 
+			player_format($data2->pid, $data2->name, $data2->country), 
 			strtolower(t('GENERAL_PLANET_'.$player->planet)),
 			strtolower(t('UNIT_GROUP_'.$ugid)),
 			warquest_link('mid='.$mid.'&sid='.PAGE_DEFENCE.'&oid='.$data2->pid.'&uid='.$unit_group->type, 
@@ -504,7 +504,7 @@ function warquest_show_attack_army($data2, $ugid) {
 	
 		if ($count>0) {
 			$message .= '<br/>';
-			$message .= t('BATTLE_DEFENSE_BASE', $data2->name.' '.strtolower(t('GENERAL_PLANET_'.$player->planet)));
+			$message .= t('BATTLE_DEFENSE_BASE', player_format($data2->pid, $data2->name, $data2->country).' '.strtolower(t('GENERAL_PLANET_'.$player->planet)));
 			$message .= '<br/>';
 			$message .= '<table>';
 			$message .= '<tr>';	
