@@ -43,11 +43,6 @@ $config["default_background"]			= 1;
 /* Server version */
 $config["applVersion"]					= 'Version 6.6';
 
-/* Client version settings */
-$config["windows_client_version"]	= '1.4';
-$config["windows_client_url"] 		= 'http://www.plaatsoft.nl/download/41/';
-$config["android_client_version"]	= '2.6';
-
 /* Gold features */
 $config["gold_dollar_ratio"]			= 500;
 $config["gold_trade_feature1"]		= 50;
