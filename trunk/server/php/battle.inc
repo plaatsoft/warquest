@@ -2114,8 +2114,6 @@ function warquest_battle_clan_war_form() {
 	
 		$message = t('BATTLE_CLAN_WAR_UNLOCKED', t('GENERAL_PLANET_'.$player->planet), 100);
 		$page .= warquest_box_icon('locked', $message);
-
-		$page .= warquest_box("", $message);
 		
 	} else if (($player->planet==PLANET_MARS) && ($player->lid<150)) {
 			
