@@ -124,6 +124,7 @@ function resultCards() {
 	
 	/* Two Pairs */	
 	if( ((cards[0][1]==cards[1][1]) && (cards[2][1]==cards[3][1])) ||
+		 ((cards[0][1]==cards[1][1]) && (cards[3][1]==cards[3][1])) ||
 		 ((cards[1][1]==cards[2][1]) && (cards[3][1]==cards[4][1])) ) {
 		
 		console.log("Two Pair");
@@ -148,7 +149,9 @@ function resultCards() {
 
 				console.log("Straight");
 				result = 4;
-			}
+			} 
+		} else {		
+			break;
 		}
 	}
 	
