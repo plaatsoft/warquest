@@ -121,7 +121,7 @@ function warquest_lottery_form() {
 	global $output;
 	
 	$lid = 30;
-	$limit = 5;
+	$limit = 3;
 	
 	$output->title = t('LOTTERY_TITLE');
 	

@@ -521,28 +521,90 @@ function warquest_admin_info() {
 					
 	$page .= '<div class="subparagraph">Technical Info</div>';
 	
-	$page .= '<div class="box">';
-		
-	$page .= 'PHP version = '.phpversion();
-	$page .= '<br/>';
+	$page .= '<div class="box rows">';
 	
-	$page .= 'display_errors = '.ini_get('display_errors');
-	$page .= '<br/>';
+	$page .= '<table>';
+	
+	$page .= '<tr>';
+	$page .= '<th width="150">Parameter';
+	$page .= '</th>';
+	$page .= '<th width="350">Value';
+	$page .= '</th>';
+	$page .= '<tr>';
+	
+	$page .= '<tr>';
+	$page .= '<td>';
+	$page .= 'PHP version';
+	$page .= '</td>';
+	$page .= '<td>';
+	$page .= phpversion();
+	$page .= '</td>';
+	$page .= '</tr>';
+	
+	$page .= '<tr>';
+	$page .= '<td>';
+	$page .= 'display_errors';
+	$page .= '</td>';
+	$page .= '<td>';
+	$page .= ini_get('display_errors');
+	$page .= '</td>';
+	$page .= '</tr>';
 			
-	$page .= 'post_max_size = '.ini_get('post_max_size');
-	$page .= '<br/>';
+	$page .= '<tr>';
+	$page .= '<td>';
+	$page .= 'post_max_size';
+	$page .= '</td>';
+	$page .= '<td>';
+	$page .= ini_get('post_max_size');
+	$page .= '</td>';
+	$page .= '</tr>';
 	
-	$page .= 'Server IP = '.gethostbyname($_SERVER['SERVER_NAME']);
-	$page .= '<br/>';
+	$page .= '<tr>';
+	$page .= '<td>';
+	$page .= 'Server IP address';
+	$page .= '</td>';
+	$page .= '<td>';
+	$page .= gethostbyname($_SERVER['SERVER_NAME']);
+	$page .= '</td>';
+	$page .= '</tr>';
 
-	$page .= 'Server URL = '.$_SERVER['HTTP_HOST'];
-	$page .= '<br/>';
+	$page .= '<tr>';
+	$page .= '<td>';
+	$page .= 'Server URL';
+	$page .= '</td>';
+	$page .= '<td>';
+	$page .= $_SERVER['HTTP_HOST'];
+	$page .= '</td>';
+	$page .= '</tr>';
 	
-	$page .= 'Server Software = '.$_SERVER['SERVER_SOFTWARE'];
-	$page .= '<br/>';
+	$page .= '<tr>';
+	$page .= '<td>';
+	$page .= 'Server Software';
+	$page .= '</td>';
+	$page .= '<td>';
+	$page .= $_SERVER['SERVER_SOFTWARE'];
+	$page .= '</td>';
+	$page .= '</tr>';
 	
-	$page .= 'Client IP addres = '.$_SERVER['REMOTE_ADDR'];
-	$page .= '<br/>';
+	$page .= '<tr>';
+	$page .= '<td>';
+	$page .= 'Client IP addres';
+	$page .= '</td>';
+	$page .= '<td>';
+	$page .= $_SERVER['REMOTE_ADDR'];
+	$page .= '</td>';
+	$page .= '</tr>';
+	
+	$page .= '<tr>';
+	$page .= '<td>';
+	$page .= 'Memory Limit ';
+	$page .= '</td>';
+	$page .= '<td>';
+	$page .= ini_get('memory_limit');
+	$page .= '</td>';
+	$page .= '</tr>';
+	
+	$page .= '</table>';
 	
 	$page .= '</div>';
 }

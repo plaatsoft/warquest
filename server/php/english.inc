@@ -2352,17 +2352,17 @@ $lang['CASINO_WIN'] = 'Winning number was %s. You won %s  dollars.';
 $lang['CASINO_LOST'] = 'Winning number was %s. You lost %s dollars.';
 $lang['CASINO_UNLOCK'] = '%s is unlocked at level %s';
 
-$lang['CASINO_WHEEL_NOTE'] = 'Note: Enter your bet and lucky number and press the play button. If you are lucky you win 10 times your bet.';
+$lang['CASINO_WHEEL_NOTE'] = 'Enter your bet and lucky number and press the play button. If you are lucky you win 10 times your bet.';
 
 $lang['CASINO_SLOTMACHINE_WIN'] = 'You won %s times your bet, %s dollars.';
 $lang['CASINO_SLOTMACHINE_LOST'] = 'You lost %s dollars.';
 $lang['CASINO_SLOTMACHINE_HELP'] = 'The following slot machine combinations will pay out';
-$lang['CASINO_SLOT_NOTE'] = 'Note: Enter your bet and press the play button. Maybe your bet will pay out.';
+$lang['CASINO_SLOT_NOTE'] = 'Enter your bet and press the play button. When the bars stop, select bars with must be hold and press Play button again. Winning combinations are pay out directly. See your more information the help page.';
 
 $lang['CASINO_TICTACTOE_WIN'] = 'You won %s times your bet, %s dollars.';
 $lang['CASINO_TICTACTOE_DRAW'] = 'Draw. You won %s time your bet, %s dollars.';
 $lang['CASINO_TICTACTOE_LOST'] = 'You lost %s dollars.';
-$lang['CASINO_TICTACTOE_NOTE'] = 'Note: Enter your bet and play tic-tac-toe. If you win, you win 2 times your bet.';
+$lang['CASINO_TICTACTOE_NOTE'] = 'Enter your bet and play tic-tac-toe. If you win, you win 2 times your bet.';
 
 /*
 ** ------------------
@@ -3348,7 +3348,7 @@ $lang['LINK_DEAL'] = 'Deal';
 
 $lang['LOTTERY_TITLE'] = 'Lottery';
 $lang['LOTTERY_UNLOCKED'] = 'Lottery feature is unlocked at level %s.';
-$lang['LOTTERY_NOTE'] = 'Make a bet to make a chance on winning the lottery. After the lottery timer expire the winner is random selected and receive the price(s). How more bets you make, how higher the chance you win!';
+$lang['LOTTERY_NOTE'] = 'Make a bet to make a chance on winning the lottery. After the lottery timer expire the winner is random selected and receive the price and a notification. How more bets you make, how higher the chance you win!';
 $lang['LOTTERY_NOT_AVAILABLE'] = 'No lotteries available on this moment. Come back later!';
 
 $lang['LOTTERY_BET_COST'] = 'Bet Cost';
@@ -3366,7 +3366,7 @@ $lang['LOTTERY_WON'] = ' CONGRATULATION! You won lottery %s. The price is added 
 
 $lang['CASINO_POKER_HELP_TITLE'] = 'Poker Help'; 
 $lang['CASINO_POKER_HELP'] = 'The following poker card combinations will pay out:';
-$lang['CASINO_POKER_NOTE'] = 'Note: Enter your bet and press the play button. After the cards are draw, select the cards with must be replaced. The press the deal button and watch the final result. Winning combinations are payout directly. Click help for more information.';
+$lang['CASINO_POKER_NOTE'] = 'Enter your bet and press the play button. After the cards are draw, select the cards with must be replaced. The press the deal button and watch the final result. Winning combinations are payout directly. Click help for more information.';
 
 $lang['CASINO_POKER_WIN'] = 'You have %s and won %s times your bet, %s dollars.';
 $lang['CASINO_POKER_LOST'] = 'You lost %s dollars.';

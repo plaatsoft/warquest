@@ -3151,13 +3151,13 @@ function warquest_ui_footer($renderTime, $queries) {
 					   break;
 		}
 	}
-	
+
 	$page .= '<div class="copyright">';
 	$page .= '<center>';
 	$page .= '<i>';
 	$page .= t('COPYRIGHT');
 	$page .= '<br/>';
-	$page .= '['.$renderTime.' ms - '.$queries.' queries]';
+	$page .= '['.$renderTime.' ms - '.$queries.' queries - '.memory_format(memory_get_peak_usage(true)).']';
 	$page .= '</i>';
 	$page .= '</center>';
 	$page .= '</div>';
@@ -3388,6 +3388,11 @@ function loot_format($value) {
 function number_format2($value) {
    
 	return number_format($value,0,",",".");
+}
+
+function memory_format($size) {
+    $unit=array('b','kb','mb','gb','tb','pb');
+    return @round($size/pow(1024,($i=floor(log($size,1024)))),2).' '.$unit[$i];
 }
 
 /**

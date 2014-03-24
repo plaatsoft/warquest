@@ -27,6 +27,7 @@ $notes[67] = '
 <li>Improve buildings page layout.</li>
 <li>Adapted facebook like and friend invite gold bonus.</li>
 <li>Improve unit/building/mission popup message.</li>
+<li>Added session memory usage to footer.</li>
 </ul>
 </br>
 

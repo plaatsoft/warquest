@@ -238,14 +238,7 @@ function warquest_casino_wheel() {
 		$page .= warquest_link('mid='.$mid.'&sid='.$sid.'&ssid='.$ssid.'&eid='.EVENT_CASINO_WHEEL_PLAY, t('CASINO_PLAY'), 'play');
 		$page .= "</td>";
 		$page .= "</tr>";
-		
-		$page .= '<tr>';		
-		$page .= '<td colspan="2">';	
-		$page .= '<br/><span class="casino">'.t('CASINO_WARNING').'</span>';	
-		$page .= '</td>';	
-		$page .= '</tr>';
-		
-		
+				
 		$page .= '</table>';
 		
 		$page .= '</td>';	
@@ -278,9 +271,11 @@ function warquest_casino_wheel() {
 		$page .= '</div>';	
 	}
 	
-	$page .= '<div class="note">';
+	$page .= '<div class="spacer"></div>';
+	$page .= '<span class="casino">'.t('CASINO_WARNING').' </span>';
+	$page .= '<span class="note">';
 	$page .= t('CASINO_WHEEL_NOTE');
-	$page .= '</div>';
+	$page .= '</span>';
 }
 	
 
@@ -389,7 +384,8 @@ function warquest_casino_slotmachine_help() {
 		
 	$page .= '<div class="box">';
 	
-	$page .= t('CASINO_SLOTMACHINE_HELP');
+	$page .= t('CASINO_SLOTMACHINE_HELP').':';
+	$page .= '<br/><br/>';
 		
 	$page .= '<table>';
 	
@@ -573,6 +569,13 @@ function warquest_casino_slotmachine_help() {
 	$page .= '</table>';
 	
 	$page .= '</div>';
+	
+	$page .= '<div class="spacer"></div>';
+	$page .= '<span class="casino">'.t('CASINO_WARNING').' </span>';
+	$page .= '<span class="note">';
+	$page .= t('CASINO_SLOT_NOTE');
+	$page .= '</span>';
+	
 }
 
 function warquest_casino_slotmachine() {
@@ -649,12 +652,6 @@ function warquest_casino_slotmachine() {
 		$page .= '</td>';
 		$page .= "</tr>";
 		
-		$page .= '<tr>';		
-		$page .= '<td colspan="2">';	
-		$page .= '<br/><span class="casino">'.t('CASINO_WARNING').'</span>';	
-		$page .= '</td>';	
-		$page .= '</tr>';
-		
 		$page .= '</table>';
 		$page .= '</td>';
 		$page .= "</tr>";
@@ -725,9 +722,11 @@ function warquest_casino_slotmachine() {
 		$page .= '</script>'; 
 	}
 	
-	$page .= '<div class="note">';
+	$page .= '<div class="spacer"></div>';
+	$page .= '<span class="casino">'.t('CASINO_WARNING').' </span>';
+	$page .= '<span class="note">';
 	$page .= t('CASINO_SLOT_NOTE');
-	$page .= '</div>';
+	$page .= '</span>';
 }
 
 /*
@@ -897,12 +896,6 @@ function warquest_casino_tictactoe() {
 			
 		$page .= "</td>";
 		$page .= "</tr>";
-						
-		$page .= '<tr>';		
-		$page .= '<td colspan="2">';	
-		$page .= '<br/><span class="casino">'.t('CASINO_WARNING').'</span>';	
-		$page .= '</td>';	
-		$page .= '</tr>';	
 		
 		$page .= '</table>';
 		
@@ -945,9 +938,11 @@ function warquest_casino_tictactoe() {
 		$page .= '</div>';	
 	}
 	
-	$page .= '<div class="note">';
+	$page .= '<div class="spacer"></div>';
+	$page .= '<span class="casino">'.t('CASINO_WARNING').' </span>';
+	$page .= '<span class="note">';
 	$page .= t('CASINO_TICTACTOE_NOTE');
-	$page .= '</div>';
+	$page .= '</span>';
 }
 
 
@@ -1098,9 +1093,11 @@ function warquest_casino_poker_help() {
 	
 	$page .= '</div>';
 	
-	$page .= '<div class="note">';
+	$page .= '<div class="spacer"></div>';
+	$page .= '<span class="casino">'.t('CASINO_WARNING').' </span>';
+	$page .= '<span class="note">';
 	$page .= t('CASINO_POKER_NOTE');
-	$page .= '</div>';
+	$page .= '</span>';
 }
 
 /** 
@@ -1168,13 +1165,7 @@ function warquest_casino_poker() {
 		$page .= warquest_link('mid='.$mid.'&sid='.$sid.'&ssid='.PAGE_CASINO_POKER_HELP, t('LINK_HELP'), 'help4');
 		$page .= '</td>';
 		$page .= "</tr>";
-		
-		$page .= '<tr>';		
-		$page .= '<td colspan="2">';	
-		$page .= '<br/><span class="casino">'.t('CASINO_WARNING').'</span>';	
-		$page .= '</td>';	
-		$page .= '</tr>';	
-						
+
 		$page .= '</table>';
 		
 		$page .= '</td>';	
@@ -1214,9 +1205,11 @@ function warquest_casino_poker() {
 		}		
 	}
 	
-	$page .= '<div class="note">';
+	$page .= '<div class="spacer"></div>';
+	$page .= '<span class="casino">'.t('CASINO_WARNING').' </span>';
+	$page .= '<span class="note">';
 	$page .= t('CASINO_POKER_NOTE');
-	$page .= '</div>';
+	$page .= '</span>';
 }
 
 
