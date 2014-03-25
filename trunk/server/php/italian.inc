@@ -1798,10 +1798,6 @@ $lang['MONEY_TITLE'] = 'SOLDI';
 ** ------------------
 */
 
-$lang['BANK_GROUP_1'] = 'Nazionale';
-$lang['BANK_GROUP_2'] = 'Trasquera';
-$lang['BANK_GROUP_3'] = 'SwissCore';
-
 $lang['BANK_TITLE'] = 'BANCHE';
 $lang['BANK_NOTE'] = 'Nota: C\'è una percentuale di %s% per qualunque deposito. La banca paga %s% di interessi giornalieri. ';
 $lang['BANK_WARNING'] = 'Attenzione: Unità Intel o Esploratori di altri giocatori possono rubare soldi da questa banca.';

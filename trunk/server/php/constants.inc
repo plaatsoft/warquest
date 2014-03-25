@@ -102,7 +102,17 @@ define('PAGE_BUILDING_PLAYER', 	1601);
 
 /* Money */
 define('PAGE_BANK',          		1701);
+define('PAGE_BANK_NATIONAL', 		1711);
+define('PAGE_BANK_UNION',			1712);
+define('PAGE_BANK_SWISSCORE',  	1713);
+define('PAGE_BANK_CLAN',     		1714);
+
 define('PAGE_STOCK_EXCHANGE',		1702);
+define('PAGE_STOCK_NASDAQ',		1715);
+define('PAGE_STOCK_DOWJONES',		1716);
+define('PAGE_STOCK_AEX',			1717);
+define('PAGE_STOCK_PERSONAL',		1718);
+
 define('PAGE_CASINO',         	1703);
 define('PAGE_CASINO_LOTTERY',    1704);
 define('PAGE_CASINO_WHEEL',		1705);
@@ -114,9 +124,9 @@ define('PAGE_CASINO_POKER_HELP',	1710);
 
 /* Alliance */
 define('PAGE_ALLIANCE',        	1801);
-define('PAGE_PENDING',        	1802);
-define('PAGE_INVITE',        		1803);
-define('PAGE_ACCEPTED',      		1804);
+define('PAGE_ALLIANCE_PENDING',  1802);
+define('PAGE_ALLIANCE_INVITE',  	1803);
+define('PAGE_ALLIANCE_ACCEPTED', 1804);
 
 define('PAGE_CLAN',           	1811); 
 define('PAGE_CLAN_PROFILE',     	1812);

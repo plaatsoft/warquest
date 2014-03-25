@@ -1403,10 +1403,6 @@ $lang['MONEY_TITLE'] = 'GELD';
 ** ------------------
 */
 
-$lang['BANK_GROUP_1'] = 'National';
-$lang['BANK_GROUP_2'] = 'Trasquera';
-$lang['BANK_GROUP_3'] = 'SwissCore';
-
 $lang['BANK_TITLE'] = 'BANKEN';
 $lang['BANK_NOTE'] = 'Opmerkingen: Elke inleg kost %s% transactie kosten. De bank betaald %s% rente elke dag.';
 $lang['BANK_WARNING'] = 'Waarschuwing: Spionage eenheden kunnen geld stelen van deze bank.';

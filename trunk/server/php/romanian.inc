@@ -1401,10 +1401,6 @@ $lang['BUILDINGS_NO_BUILDINGS'] = 'Nici o cladire disponibila!';
 
 $lang['MONEY_TITLE'] = 'Bani';
 
-$lang['BANK_GROUP_1'] = 'National';
-$lang['BANK_GROUP_2'] = 'Trasquera';
-$lang['BANK_GROUP_3'] = 'SwissCore';
-
 $lang['BANK_TITLE'] = 'BANKS';
 $lang['BANK_NOTE'] = 'Note: Ai %s% taxa pentru orice depozit . banca plateste %s% dobanda in fiecare zi. ';
 $lang['BANK_WARNING'] = 'ATENTIUNE: Inteligentii sau Exploratorii de la alti jucatori pot fura bani din aceasta banca.';

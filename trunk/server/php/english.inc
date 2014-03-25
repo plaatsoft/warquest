@@ -590,7 +590,7 @@ $lang['HOME_NO_MESSAGES'] = 'No player messages available at the moment!';
 
 $lang['PLAYER_SKILL_SUBTITLE1']  = 'Skill Points';
 $lang['PLAYER_SKILL_SUBTITLE2']  = 'Skill Points [%s available]';
-$lang['PLAYER_SKILL_NOTE']  = 'Note: Use skill points to increase attack, defence, health, energy or ammo skills.';
+$lang['PLAYER_SKILL_NOTE']  = 'Use skill points to increase attack, defence, health, energy or ammo skills.';
 $lang['PLAYER_SKILLS']  = 'Skills'; 
 $lang['PLAYER_CURRENT'] = 'Current'; 
 $lang['PLAYER_ATTACK']  = 'Attack';
@@ -617,7 +617,7 @@ $lang['PLAYER_SKILL_REJECTED2']  = '%s skill have reach minimal level.';
 */
 
 $lang['TRADE_TITLE'] = 'Trade';
-$lang['TRADE_NOTE']  = 'Note: Purchased gold (see help - donate page) can be exchanged in to skill points, cash money or can be used to improve your health, energy or ammo restore timer.';
+$lang['TRADE_NOTE']  = 'Purchased gold (see help - donate page) can be exchanged in to skill points, cash money or can be used to improve your health, energy or ammo restore timer.';
 
 $lang['HOME_TRADE_CONDITION'] = 'Current';
 $lang['HOME_TRADE_MINIMAL'] = 'Minimal';
@@ -1262,7 +1262,7 @@ $lang['MISSION_487'] = 'Crater Aristoteles';
 
 $lang['MISSION_TITLE'] = 'MISSIONS';
 
-$lang['MISSION_NOTE'] = 'Note: Play missions to gain money and experience points to reach the next level. When a mission is 100% completed you will gain double money. If you conquered 100% the %s continent your hourly income will increase with %s dollars.';
+$lang['MISSION_NOTE'] = 'Play missions to gain money and experience points to reach the next level. When a mission is 100% completed you will gain double money. If you conquered 100% the %s continent your hourly income will increase with %s dollars.';
 
 $lang['MISSION_ALLIANCE_SIZE'] = 'alliance size';
 $lang['MISSION_GAIN'] = 'Gain';
@@ -1327,8 +1327,8 @@ $lang['BATTLE_BOUNTY_UNLOCKED'] = '%s bounty hunting is unlocked at level %s.';
 $lang['BATTLE_ALLY_NO_ATTACK'] = '<b>%s</b> is an ally. You cannot attack allies.';
 $lang['BATTLE_SURRENDER'] = 'Temporarely surrender';
 
-$lang['BATTLE_NOTE1'] = 'Note: Fight other players to gain money and experience points to reach the next level.';
-$lang['BATTLE_NOTE2'] = 'Note: Hunt other players to collect their bounty and gain experience points to reach the next level.';
+$lang['BATTLE_NOTE1'] = 'Fight other players to gain money and experience points to reach the next level.';
+$lang['BATTLE_NOTE2'] = 'Hunt other players to collect their bounty and gain experience points to reach the next level.';
 
 $lang['BATTLE_FORCE_TYPE'] = 'Force:';
 $lang['BATTLE_ENEMIES'] = 'Enemies';
@@ -1763,31 +1763,31 @@ $lang['UNIT_2802'] = 'Male';
 
 $lang['UNIT_TITLE'] = 'UNITS';
 
-$lang['UNIT_NOTE_1'] = 'Note: Buy soldier units to enable missions.';
-$lang['UNIT_NOTE_2'] = 'Note: Buy calvary units to improve your calvary force strength. Battle, win and steal money from your opponent\'s cash account.';
-$lang['UNIT_NOTE_3'] = 'Note: Buy navy units to improve your naval force strength. Battle, win and steal money from your opponent\'s cash account.';
-$lang['UNIT_NOTE_4'] = 'Note: Buy airfoce units to improve your airforce strength. Battle, win and steal money from your opponent\'s cash account.';
-$lang['UNIT_NOTE_6'] = 'Note: Buy intel units to improve  your intel force strength. Battle, win to start rebellions on Earth regions and steal money from your opponent\'s Trasquera or SwissCore bank account.';
+$lang['UNIT_NOTE_1'] = 'Buy soldier units to enable missions.';
+$lang['UNIT_NOTE_2'] = 'Buy calvary units to improve your calvary force strength. Battle, win and steal money from your opponent\'s cash account.';
+$lang['UNIT_NOTE_3'] = 'Buy navy units to improve your naval force strength. Battle, win and steal money from your opponent\'s cash account.';
+$lang['UNIT_NOTE_4'] = 'Buy airfoce units to improve your airforce strength. Battle, win and steal money from your opponent\'s cash account.';
+$lang['UNIT_NOTE_6'] = 'Buy intel units to improve  your intel force strength. Battle, win to start rebellions on Earth regions and steal money from your opponent\'s Trasquera or SwissCore bank account.';
 
-$lang['UNIT_NOTE_8'] = 'Note: Buy moon drone units to improve your drone force strength. Battle, win and steal money from your opponent\'s cash account.';
-$lang['UNIT_NOTE_7'] = 'Note: Buy moon warrior units to improve your warrior force strength. Battle, win and steal money from your opponent\'s cash account.';
-$lang['UNIT_NOTE_9'] = 'Note: Buy moon spacecraft units to improve your spacecraft force strength. Battle, win and steal money from your opponent\'s cash account.';
-$lang['UNIT_NOTE_12'] = 'Note: Buy moon explore units to improve your explorer force strength. Battle, win to start rebellions and steal money from your opponent\'s Trasquera or SwissCore bank account.';
+$lang['UNIT_NOTE_8'] = 'Buy moon drone units to improve your drone force strength. Battle, win and steal money from your opponent\'s cash account.';
+$lang['UNIT_NOTE_7'] = 'Buy moon warrior units to improve your warrior force strength. Battle, win and steal money from your opponent\'s cash account.';
+$lang['UNIT_NOTE_9'] = 'Buy moon spacecraft units to improve your spacecraft force strength. Battle, win and steal money from your opponent\'s cash account.';
+$lang['UNIT_NOTE_12'] = 'Buy moon explore units to improve your explorer force strength. Battle, win to start rebellions and steal money from your opponent\'s Trasquera or SwissCore bank account.';
 
-$lang['UNIT_NOTE_13'] = 'Note: Buy mars drone units to improve your drone force strength. Battle, win and steal money from your opponent\'s cash account.';
-$lang['UNIT_NOTE_14'] = 'Note: Buy mars warrior units to improve your warrior force strenght. Battle, win and steal money from your opponent\'s cash account.';
-$lang['UNIT_NOTE_15'] = 'Note: Buy mars spacecraft units to improve your spacecraft force strength. Battle, win and steal money from your opponent\'s cash account.';
-$lang['UNIT_NOTE_16'] = 'Note: Buy mars explore units to improve your explorers force strength. Battle, win to start rebellions and steal some money from your opponent\'s Trasquera or SwissCore bank account.';
+$lang['UNIT_NOTE_13'] = 'Buy mars drone units to improve your drone force strength. Battle, win and steal money from your opponent\'s cash account.';
+$lang['UNIT_NOTE_14'] = 'Buy mars warrior units to improve your warrior force strenght. Battle, win and steal money from your opponent\'s cash account.';
+$lang['UNIT_NOTE_15'] = 'Buy mars spacecraft units to improve your spacecraft force strength. Battle, win and steal money from your opponent\'s cash account.';
+$lang['UNIT_NOTE_16'] = 'Buy mars explore units to improve your explorers force strength. Battle, win to start rebellions and steal some money from your opponent\'s Trasquera or SwissCore bank account.';
 
-$lang['UNIT_NOTE_19'] = 'Note: Buy mercury drone units to improve your drone force strength. Battle, win and steal money from your opponent\'s cash account.';
-$lang['UNIT_NOTE_20'] = 'Note: Buy mercury warrior units to improve your warrior force strenght. Battle, win and steal money from your opponent\'s cash account.';
-$lang['UNIT_NOTE_21'] = 'Note: Buy mercury spacecraft units to improve your spacecraft force strength. Battle, win and steal money from your opponent\'s cash account.';
-$lang['UNIT_NOTE_22'] = 'Note: Buy mercury explore units to improve your explorers force strength. Batlle, win to start rebellions and steal some money from your opponent\'s Trasquera or SwissCore bank account.';
+$lang['UNIT_NOTE_19'] = 'Buy mercury drone units to improve your drone force strength. Battle, win and steal money from your opponent\'s cash account.';
+$lang['UNIT_NOTE_20'] = 'Buy mercury warrior units to improve your warrior force strenght. Battle, win and steal money from your opponent\'s cash account.';
+$lang['UNIT_NOTE_21'] = 'Buy mercury spacecraft units to improve your spacecraft force strength. Battle, win and steal money from your opponent\'s cash account.';
+$lang['UNIT_NOTE_22'] = 'Buy mercury explore units to improve your explorers force strength. Batlle, win to start rebellions and steal some money from your opponent\'s Trasquera or SwissCore bank account.';
 
-$lang['UNIT_NOTE_25'] = 'Note: Buy neptune drone units to improve your drone force strength. Battle, win and steal money from your opponent\'s cash account.';
-$lang['UNIT_NOTE_26'] = 'Note: Buy neptune warrior units to improve your warrior force strenght. Battle, win and steal money from your opponent\'s cash account.';
-$lang['UNIT_NOTE_27'] = 'Note: Buy neptune spacecraft units to improve your spacecraft force strength. Battle, win and steal money from your opponent\'s cash account.';
-$lang['UNIT_NOTE_28'] = 'Note: Buy neptune explore units to improve your explorers force strength. Batlle, win to start rebellions and steal some money from your opponent\'s Trasquera or SwissCore bank account.';
+$lang['UNIT_NOTE_25'] = 'Buy neptune drone units to improve your drone force strength. Battle, win and steal money from your opponent\'s cash account.';
+$lang['UNIT_NOTE_26'] = 'Buy neptune warrior units to improve your warrior force strenght. Battle, win and steal money from your opponent\'s cash account.';
+$lang['UNIT_NOTE_27'] = 'Buy neptune spacecraft units to improve your spacecraft force strength. Battle, win and steal money from your opponent\'s cash account.';
+$lang['UNIT_NOTE_28'] = 'Buy neptune explore units to improve your explorers force strength. Batlle, win to start rebellions and steal some money from your opponent\'s Trasquera or SwissCore bank account.';
 
 
 $lang['UNIT_DISBAND'] = 'You disbanded %s %s for %s. Still %s deployed.';
@@ -2197,35 +2197,35 @@ $lang['BUILDING_2505'] = 'Base repair Centre';
 */
 
 $lang['BUILDING_TITLE'] = 'BUILDINGS';
-$lang['BUILDING_NOTE1'] = 'Note: Income buildings provide higher hourly income. Each building contains citizens which increase hourly cost.';
-$lang['BUILDING_NOTE2'] = 'Note: Defence buildings provide higher defence against attacks. Each building contains citizens which increase hourly cost.';
-$lang['BUILDING_NOTE3'] = 'Note: Energy buildings provide faster energy recovery. Each building contains citizens which increase hourly cost.';
-$lang['BUILDING_NOTE4'] = 'Note: Discount buildings provide price discount on building purchase. Each building contains citizens which increase hourly cost.';
-$lang['BUILDING_NOTE5'] = 'Note: Maintenance buildings provide faster unit repair wich results in less unit loss during battles. Each building contains citizens which increase hourly cost.';
+$lang['BUILDING_NOTE1'] = 'Income buildings provide higher hourly income. Each building contains citizens which increase hourly cost.';
+$lang['BUILDING_NOTE2'] = 'Defence buildings provide higher defence against attacks. Each building contains citizens which increase hourly cost.';
+$lang['BUILDING_NOTE3'] = 'Energy buildings provide faster energy recovery. Each building contains citizens which increase hourly cost.';
+$lang['BUILDING_NOTE4'] = 'Discount buildings provide price discount on building purchase. Each building contains citizens which increase hourly cost.';
+$lang['BUILDING_NOTE5'] = 'Maintenance buildings provide faster unit repair wich results in less unit loss during battles. Each building contains citizens which increase hourly cost.';
 
-$lang['BUILDING_NOTE6'] = 'Note: Income buildings provide higher income for your moon base.';
-$lang['BUILDING_NOTE7'] = 'Note: Defence buildings provide higher defence against attacks on your moon base.';
-$lang['BUILDING_NOTE8'] = 'Note: Energy buildings provide faster energy recovery for your moon base.';
-$lang['BUILDING_NOTE9'] = 'Note: Discount buildings provide price discount on moon building purchase.';
-$lang['BUILDING_NOTE10'] = 'Note: Maintenance buildings provide faster moon unit repair wich results in less unit loss during battles.';
+$lang['BUILDING_NOTE6'] = 'Income buildings provide higher income for your moon base.';
+$lang['BUILDING_NOTE7'] = 'Defence buildings provide higher defence against attacks on your moon base.';
+$lang['BUILDING_NOTE8'] = 'Energy buildings provide faster energy recovery for your moon base.';
+$lang['BUILDING_NOTE9'] = 'Discount buildings provide price discount on moon building purchase.';
+$lang['BUILDING_NOTE10'] = 'Maintenance buildings provide faster moon unit repair wich results in less unit loss during battles.';
 
-$lang['BUILDING_NOTE11'] = 'Note: Income buildings provide higher income for your mars base.';
-$lang['BUILDING_NOTE12'] = 'Note: Defence buildings provide higher defence against attacks on your mars base.';
-$lang['BUILDING_NOTE13'] = 'Note: Energy buildings provide faster energy recovery for your mars base.';
-$lang['BUILDING_NOTE14'] = 'Note: Discount buildings provide price discount on mars building purchase.';
-$lang['BUILDING_NOTE15'] = 'Note: Maintenance buildings provide faster mars unit repair wich results in less unit loss during battles.';
+$lang['BUILDING_NOTE11'] = 'Income buildings provide higher income for your mars base.';
+$lang['BUILDING_NOTE12'] = 'Defence buildings provide higher defence against attacks on your mars base.';
+$lang['BUILDING_NOTE13'] = 'Energy buildings provide faster energy recovery for your mars base.';
+$lang['BUILDING_NOTE14'] = 'Discount buildings provide price discount on mars building purchase.';
+$lang['BUILDING_NOTE15'] = 'Maintenance buildings provide faster mars unit repair wich results in less unit loss during battles.';
 
-$lang['BUILDING_NOTE16'] = 'Note: Income buildings provide higher income for your mercury base.';
-$lang['BUILDING_NOTE17'] = 'Note: Defence buildings provide higher defence against attacks on your mercury base.';
-$lang['BUILDING_NOTE18'] = 'Note: Energy buildings provide faster energy recovery for your mercury base.';
-$lang['BUILDING_NOTE19'] = 'Note: Discount buildings provide price discount on your mercury building purchase.';
-$lang['BUILDING_NOTE20'] = 'Note: Maintenance buildings provide faster mercury unit repair wich results in less unit loss during battles.';
+$lang['BUILDING_NOTE16'] = 'Income buildings provide higher income for your mercury base.';
+$lang['BUILDING_NOTE17'] = 'Defence buildings provide higher defence against attacks on your mercury base.';
+$lang['BUILDING_NOTE18'] = 'Energy buildings provide faster energy recovery for your mercury base.';
+$lang['BUILDING_NOTE19'] = 'Discount buildings provide price discount on your mercury building purchase.';
+$lang['BUILDING_NOTE20'] = 'Maintenance buildings provide faster mercury unit repair wich results in less unit loss during battles.';
 
-$lang['BUILDING_NOTE21'] = 'Note: Income buildings provide higher income for your neptune base.';
-$lang['BUILDING_NOTE22'] = 'Note: Defence buildings provide higher defence against attacks on your neptune base.';
-$lang['BUILDING_NOTE23'] = 'Note: Energy buildings provide faster energy recovery for your neptune base.';
-$lang['BUILDING_NOTE24'] = 'Note: Discount buildings provide price discount on your neptune building purchase.';
-$lang['BUILDING_NOTE25'] = 'Note: Maintenance buildings provide faster neptune unit repair wich results in less unit loss during battles.';
+$lang['BUILDING_NOTE21'] = 'Income buildings provide higher income for your neptune base.';
+$lang['BUILDING_NOTE22'] = 'Defence buildings provide higher defence against attacks on your neptune base.';
+$lang['BUILDING_NOTE23'] = 'Energy buildings provide faster energy recovery for your neptune base.';
+$lang['BUILDING_NOTE24'] = 'Discount buildings provide price discount on your neptune building purchase.';
+$lang['BUILDING_NOTE25'] = 'Maintenance buildings provide faster neptune unit repair wich results in less unit loss during battles.';
 
 $lang['BUILDING_SELL'] = 'You sold %s %s for %s. Still %s deployed.';
 $lang['BUILDING_LOW_UPKEEP'] = 'Not enough hourly income to sell %s %s for %s.';
@@ -2255,12 +2255,12 @@ $lang['BUILDINGS_NO_BUILDINGS'] = 'No buildings available yet!';
 $lang['MONEY_TITLE'] = 'MONEY';
 
 $lang['BANK_GROUP_1'] = 'National';
-$lang['BANK_GROUP_2'] = 'Trasquera';
+$lang['BANK_GROUP_2'] = 'Union';
 $lang['BANK_GROUP_3'] = 'SwissCore';
-$lang['BANK_GROUP_4'] = 'clan';
+$lang['BANK_GROUP_4'] = 'Clan';
 
 $lang['BANK_TITLE'] = 'BANKS';
-$lang['BANK_NOTE'] = 'Note: There is a %s% fee for any deposit. The bank pays %s% daily interest. ';
+$lang['BANK_NOTE'] = 'There is a %s% fee for any deposit. The bank pays %s% daily interest. ';
 $lang['BANK_WARNING'] = 'Warning: Intel or Explorer units from other players can steal money from this bank.';
 
 $lang['BANK_TRANSACTION_TYPE_0'] = 'You withdrew';
@@ -2276,7 +2276,7 @@ $lang['BANK_TRANSACTION_TYPE_9'] = 'Clan defence fee';
 $lang['BANK_TRANSACTION_TYPE_10'] = 'deposited';
 $lang['BANK_TRANSACTION_TYPE_11'] = '%s bonus ';
 
-$lang['BANK_TRANSACTION_LOG'] = 'Transaction Log';
+$lang['BANK_TRANSACTION_LOG'] = 'Transactions';
 
 $lang['BANK_WITHDRAW']= 'Withdrawn %s dollar from %s bank';
 $lang['BANK_WITHDRAW_FAILED'] = '%s dollars not available on bank account!';
@@ -2303,11 +2303,11 @@ $lang['STOCK_PRICE'] = 'Stock price %s [%s]';
 $lang['STOCK_PROFIT'] = 'Stock profit %s [%s]';
 $lang['STOCK_NOT_OWNED'] = 'You do not own %s %s stocks.';
 $lang['STOCK_SELL'] = 'You sold %s %s stocks for %s dollars. You paid %s dollar transaction fee. Still %s owned.';
-$lang['STOCK_NOTE'] = 'Note: You can buy or sell stocks to make profit. Stock prices are based on realtime information from Yahoo! financial service. There is a %s% handle fee on each sale transaction.';
+$lang['STOCK_NOTE'] = 'You can buy or sell stocks to make profit. Stock prices are based on realtime information from Yahoo! financial service. There is a %s% handle fee on each sale transaction.';
 $lang['STOCK_PRICE_TO_LOW'] = 'Stock price to low. Trading blocked!';
 
 $lang['STOCK_SYMBOL'] = 'Stock symbol'; 
-$lang['STOCK_SYMBOL_INFO'] = 'Note: Enter Yahoo! financial stock symbol to customize this list.'; 
+$lang['STOCK_SYMBOL_INFO'] = 'Enter Yahoo! financial stock symbol to customize this list.'; 
 
 $lang['STOCK_ADD'] = 'Add stock';
 $lang['STOCK_SYMBOL_ADDED'] = 'You added (%s) to your personal stock list.';
@@ -2390,9 +2390,9 @@ $lang['ALLIANCE_ACCEPT'] = 'Accept %s as ally!';
 $lang['ALLIANCE_ALLY'] = 'Ally';
 $lang['ALLIANCE_MAXIMUM'] = 'Maximum amount of %s invited/accepted allies reached for this level.'; 
 $lang['ALLIANCE_LOCKED'] = 'Alliance features are unlocked at level 1';
-$lang['ALLIANCE_NOTE'] = 'Note: With every approved ally you can command 6 more units during fights. Keep in mind that you cannot attack allies.';
+$lang['ALLIANCE_NOTE'] = 'With every approved ally you can command 6 more units during fights. Keep in mind that you cannot attack allies.';
 
-$lang['ALLIANCE_INVITE_NOTE'] = 'Note: Invite a player for an alliance. If the other player accepts or rejects the alliance you will receive a notification by email (option in settings). Maximum amount of accepted + invited allies for this level is %s.';
+$lang['ALLIANCE_INVITE_NOTE'] = 'Invite a player for an alliance. If the other player accepts or rejects the alliance you will receive a notification by email (option in settings). Maximum amount of accepted + invited allies for this level is %s.';
 
 $lang['ALLIANCE_COMMENT_TITLE'] = 'Message';
 $lang['ALLIANCE_COMMENT_TEXT1'] = 'Create message (max. 400 characters) for all players';
@@ -2402,16 +2402,16 @@ $lang['ALLIANCE_COMMENT_ALL'] = 'Message is stored and available for all players
 $lang['ALLIANCE_COMMENT_PLAYER'] = 'Message is sent to %s';
 
 $lang['LEADERBORD_BEST_PLAYER'] = 'Top Players';
-$lang['LEADERBORD_BEST_PLAYER_NOTE'] = 'Note: Leaderboard shows the player ranking.';
+$lang['LEADERBORD_BEST_PLAYER_NOTE'] = 'Leaderboard shows the player ranking.';
 
 $lang['LEADERBORD_BEST_COUNTRY'] = 'Top Countries';
-$lang['LEADERBORD_BEST_COUNTRY_NOTE'] = 'Note: Leaderboard shows the country ranking.';
+$lang['LEADERBORD_BEST_COUNTRY_NOTE'] = 'Leaderboard shows the country ranking.';
 
 $lang['LEADERBORD_PLAYER_COUNTRY'] = 'Top Players of %s';
-$lang['LEADERBORD_PLAYER_COUNTRY_NOTE'] = 'Note: Leaderboard shows the player ranking of the selected country.';
+$lang['LEADERBORD_PLAYER_COUNTRY_NOTE'] = 'Leaderboard shows the player ranking of the selected country.';
 
 $lang['LEADERBOARD_CLAN'] = 'Top Clans';
-$lang['LEADERBOARD_CLAN_NOTE'] = 'Note: Leaderboard shows the clan ranking.';
+$lang['LEADERBOARD_CLAN_NOTE'] = 'Leaderboard shows the clan ranking.';
 
 /*
 ** ------------------
@@ -2421,7 +2421,7 @@ $lang['LEADERBOARD_CLAN_NOTE'] = 'Note: Leaderboard shows the clan ranking.';
 
 $lang['FORUM_TITLE'] = 'FORUMS'; 
 $lang['FORUM_TITLE2'] = 'Forums';
-$lang['FORUM_NOTE'] = 'Note: Select a forum to see all posted topics. I\'ve seen some people cursing or use other bad words in the forums. I doesn\'t want that kind of language on here! Thanks. And remember, no bad words! ';
+$lang['FORUM_NOTE'] = 'Select a forum to see all posted topics. I\'ve seen some people cursing or use other bad words in the forums. I doesn\'t want that kind of language on here! Thanks. And remember, no bad words! ';
 
 $lang['FORUM_1'] = 'Announcements'; 
 $lang['FORUM_NOTE_1'] = 'General announcements';
@@ -2444,7 +2444,7 @@ $lang['TOPIC_CREATED'] = 'Topic is created';
 $lang['TOPIC_UPDATED'] = 'Topic is updated';
 $lang['TOPIC_DELETED'] = 'Topic is deleted';
 $lang['TOPIC_NO_TOPICS'] = 'At the moment no topic(s) found.';
-$lang['TOPIC_NOTE'] = 'Note: Select a topic to read/write posted messages or create a new topic.'; 
+$lang['TOPIC_NOTE'] = 'Select a topic to read/write posted messages or create a new topic.'; 
 $lang['TOPIC_CREATED_BY'] = '(Created by %s)';
 
 /*
@@ -2473,10 +2473,10 @@ $lang['POLL_WARNING'] = 'Select one of the possible vote options!';
 */
 
 $lang['CHATROOM_TITLE'] = 'Chatroom';
-$lang['CHATROOM_NOTE'] = 'Note: Start a chat session by selecting an online player!';
+$lang['CHATROOM_NOTE'] = 'Start a chat session by selecting an online player!';
 $lang['CHATROOM_LAST_ACTIVE'] = 'Last Active';
 $lang['CHATROOM_CHAT'] = 'Chat';
-$lang['CHAT_NOTE'] = 'Note: Enter a message to start the chat!';
+$lang['CHAT_NOTE'] = 'Enter a message to start the chat!';
 
 $lang['CHAT_TITLE'] = 'Chat';
 
@@ -2722,7 +2722,7 @@ $lang['HELP_LEVEL_FEATURES'] = 'Feature unlock scheme';
 */
 
 $lang['HELP_STATS_TITLE'] = 'Statistics';
-$lang['HELP_STATS_NOTE'] = 'Note: On this page realtime WarQuest statistics are shown.';
+$lang['HELP_STATS_NOTE'] = 'On this page realtime WarQuest statistics are shown.';
 $lang['HELP_STATS_PLAYERS'] = 'New players';
 $lang['HELP_STATS_ONLINE'] = 'Players online';
 $lang['HELP_STATS_FIGHTS'] = 'Player fights';
@@ -3122,6 +3122,7 @@ $lang['LINK_JOIN'] = 'Join';
 $lang['LINK_LEAVE'] = 'Leave';
 
 $lang['CLAN_TITLE'] = 'Clans';
+$lang['CLAN_PROFILE_TITLE'] = 'Clan Profile [%s]';
 $lang['CLAN_NOTE'] = 'Create or join a clan to enter clan wars. Each player can only be part of one clan.';
 $lang['CLAN_ADD'] = 'Add Clan';
 $lang['CLAN_CREATE'] = 'New clan name';
@@ -3140,11 +3141,10 @@ $lang['CLAN_CREATED'] = 'Clan [%s] created!';
 $lang['CLAN_NO_SKILL_POINT'] = 'You need 1 skill point to create a new clan.';
 
 $lang['CLAN_PROFILE'] = 'Clan Profile [%s]';
-$lang['CLAN_MEMBER_LIST'] = 'Clan Members [%s]';
-$lang['CLAN_BANK'] = 'Clan Bank [%s]';
+$lang['CLAN_MEMBER_LIST'] = 'Members';
+$lang['CLAN_BANK'] = 'Clan Bank';
 
-$lang['CLAN_SLOGAN'] = 'Clan Slogan [%s]';
-$lang['CLAN_SLOGAN_NOTE'] = 'Enter or update then clan slogan!';
+$lang['CLAN_SLOGAN_NOTE'] = 'Enter or update clan slogan:';
 $lang['CLAN_SLOGAN_SAVED'] = 'Clan slogan is saved';
 $lang['CLAN_SLOGAN_TOO_SHORT'] = 'Clan slogan is to short';
 $lang['CLAN_SLOGAN_TOO_LONG'] = 'Clan slogan is to long. Maximum 200 characters allowed.';
@@ -3154,7 +3154,7 @@ $lang['BATTLE_CLAN_WAR_TITLE'] = 'Clan War';
 $lang['BATTLE_CLAN_WAR'] = 'Clan-War';
 $lang['BATTLE_SECTOR_ALL_CONQUERED'] = 'Sector already conquered!';
 $lang['BATTLE_NO_CLAN'] = 'You are not part of a clan. Attack aborted!';
-$lang['BATTLE_NOTE_CLAN_WAR'] = 'Note: Select a planet sector which you want to conquer. To take over a planet sector your clan must destroy its defence. Sector defence damage percentage is showed on the map.'; 
+$lang['BATTLE_NOTE_CLAN_WAR'] = 'Select a planet sector which you want to conquer. To take over a planet sector your clan must destroy its defence. Sector defence damage percentage is showed on the map.'; 
 
 $lang['BATTLE_CLAN_WON'] = 'Your %s clan %s attacked the %s clan. You won the battle, taking %s damage, gain %s experience points and won %s dollars. ';
 $lang['BATTLE_CLAN_SECTOR_DAMAGE'] = 'Sector defence is %s % damaged.';
@@ -3224,7 +3224,7 @@ $lang['CLAN_DEFENSE'] = 'Defence';
 $lang['CLAN_ATTACK_SKILLS'] = 'Clan attack skills';
 $lang['CLAN_DEFENSE_SKILLS'] = 'Clan defence skills';
 
-$lang['CLAN_SKILLS'] = 'Clan Skills [%s]';
+$lang['CLAN_SKILLS'] = 'Skills';
 $lang['CLAN_ATTACK_TIP']  = 'Increase your clan attack skill to do more damage and win more clan fights. Each clan fight %s will be withdraw from the clan bank.';
 $lang['CLAN_DEFENSE_TIP'] = 'Increase your clan defence skill to improve resistance during clan attacks. Each clan fight %s will be withdraw from the clan bank.';
 
@@ -3233,8 +3233,11 @@ $lang['CLAN_MINIMAL_SKILL'] = 'Clan skill has reached minimum value!';
 $lang['CLAN_SKILL_DECREASED'] = 'Clan skill is decreased to %s';
 $lang['CLAN_SKILL_INCREASED'] = 'Clan skill is increased to %s';
 
-$lang['CLAN_PROFILE_NOTE'] = 'Clan members can deposit money on the clan bank to improve clan skills. The clan commander can manage clan slogan, skills and members. If the clan bank does not contain enough money to fund the clan skills the feature is disabled during clan fights.';
+$lang['CLAN_PROFILE_NOTE'] = 'The clan commander can manage clan slogan, skills and members. If the clan bank does not contain enough money to fund the clan skills the feature is disabled during clan fights.';
 $lang['CLAN_SKILL_ENABLED'] = '* Clan attack and/or defence skills active!';
+
+$lang['CLAN_BANK_NO_CLAN'] = 'You are not part of a clan!';
+$lang['CLAN_BANK_NOTE'] = 'Clan members can deposit money on the clan bank to improve clan skills. If the clan bank does not contain enough money to fund the clan skills the feature is disabled during clan fights.';
 
 $lang['LINK_PROMOTION'] = 'Promotion';
 $lang['PROMOTION_TITLE'] = ' Promotion';
@@ -3253,8 +3256,8 @@ $lang['PROMOTION_MAX_INVITE'] = 'Maximum amount of invites sent, request aborted
 ** ------------------
 */
 
-$lang['CLAN_BANK_NOTE'] = 'There is a %s% fee for any deposit. The clan bank daily service charge is %s%. Maximum allowed daily deposit is 10 times your hourly income.';
-$lang['CLAN_BANK_TRANSACTION'] = 'Clan Bank Transactions [%s]';
+$lang['CLAN_BANK_INFO'] = 'There is a %s% fee for any deposit. The clan bank daily service charge is %s%. Maximum allowed daily deposit is 10 times your hourly income.';
+$lang['CLAN_BANK_TRANSACTION'] = 'Transactions';
 
 $lang['GENERAL_PREMIUM_MEMBERSHIP'] = 'Premium membership';
 
@@ -3297,7 +3300,7 @@ $lang['EMAIL_DOMAIN_INVALID'] = 'Email is invalid (domain name unknown)!';
 
 $lang['CLAN_BANK_NO_LOG'] = 'No clan bank transaction yet';
 
-$lang['CLAN_STATISTICS'] = 'Clan Statistics [%s]';
+$lang['CLAN_STATISTICS'] = 'Statistics';
 $lang['CLAN_FIGHTS_LOST'] = 'Fights lost';
 $lang['CLAN_FIGHTS_WON']  = 'Fights won';
 $lang['CLAN_MISSIONS_COMPLETED'] = 'Missions completed';
@@ -3309,9 +3312,9 @@ $lang['MISSION_PLAYER_TITLE'] = 'Player Missions';
 $lang['MISSION_CLAN_TITLE'] = 'Clan Missions';
 
 $lang['MISSION_CLAN_UNLOCK'] = 'Clan missions are unlocked at level %s.';
-$lang['MISSION_NO_CLAN'] = 'You are not part of a clan. Clan missions not possible!';
+$lang['MISSION_NO_CLAN'] = 'You are not part of a clan!';
 
-$lang['MISSION_CLAN_NOTE'] = 'Note: Play clan missions to gain money and experience points. If your clan conquered all %s continents your clan receives %s dollar bonus.';
+$lang['MISSION_CLAN_NOTE'] = 'Play clan missions to gain money and experience points. If your clan conquered all %s continents your clan receives %s dollar bonus.';
 
 $lang['MISSION_CLAN_PLANET_COMPLETE'] = 'Excellent! You conquered all %s continents. Your clan received %s bonus.<br/></br/>All missions are now cleared, so try again!';
 
@@ -3323,17 +3326,17 @@ $lang['MISSION_CLAN_PLANET_COMPLETE'] = 'Excellent! You conquered all %s contine
 
 $lang['LINK_CLAN_COMMENT'] = 'Clan';
 
-$lang['CLAN_COMMENT_TITLE'] = 'Clan messages';
+$lang['CLAN_COMMENT_TITLE'] = 'Clan Messages';
 $lang['CLAN_COMMENT_TEXT'] = 'Create message (max. 400 characters) for %s clan players';
 $lang['CLAN_COMMENT_ALL'] = 'Message is stored and available for all %s clan players.';
-$lang['CLAN_COMMENT_NO_CLAN'] = 'You are not part of a clan. No clan messages possible!';
+$lang['CLAN_COMMENT_NO_CLAN'] = 'You are not part of a clan!';
 
 $lang['CLAN_LOCKED'] = 'Clan features are unlocked at level %s.';
 $lang['TRADE_LOCKED'] = 'Trade features are unlocked at level %s.';
 $lang['STOCK_EXCHANGE_LOCKED'] = 'Stock exchange features are unlocked at level %s.';
 $lang['PROMOTION_LOCKED'] = 'Promotion features are unlocked at level %s.';
 
-$lang['RESTORE_NOTE']  = 'Note: You can restore health, energy, ammo with cash to reach the next level faster. You can also repair damaged units and/or buildings.';
+$lang['RESTORE_NOTE']  = 'You can restore health, energy, ammo with cash to reach the next level faster. You can also repair damaged units and/or buildings.';
 
 /*
 ** ------------------
@@ -3395,6 +3398,8 @@ $lang['CASINO_POKER_RESULT_9'] = 'Royal Flush';
 $lang['CASINO_POKER_RESULT_9_NOTE'] = 'Ace, King, Queen, Joker and 10 all of the same suit.';
 
 $lang['CASINO_WARNING'] = 'Minimum age for playing this casino game is 18 years!';
+
+$lang['BANK_NO_LOG'] = 'No bank transaction yet';
 
 /*
 ** ------------------

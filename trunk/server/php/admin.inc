@@ -190,7 +190,7 @@ function warquest_admin_member_do() {
 	$page .= '</div>';	
 	
 	$page .= '<div class="note">';
-	$page .= 'Note: Report show all or filter members.';
+	$page .= 'Report show all or filter members.';
    $page .= '</div>';
 }
 
@@ -833,7 +833,7 @@ function warquest_admin_level_zoom_form() {
 	$page .= '</div>';	
 	
 	$page .= '<div class="note">';
-	$page .= 'Note: Show all players of selected level.';
+	$page .= 'Show all players of selected level.';
    $page .= '</div>';
 }
 
@@ -945,7 +945,7 @@ function warquest_admin_level_form() {
 	$page .= '</div>';	
 	
 	$page .= '<div class="note">';
-	$page .= 'Note: Report show amount of players per level.';
+	$page .= 'Report show amount of players per level.';
    $page .= '</div>';
 }
 
@@ -1052,7 +1052,7 @@ function warquest_admin_messages_form() {
 		$page .= '</div>';
 	}
 	$page .= '<div class="note">';
-	$page .= 'Note: Show last 50 messages of players.';
+	$page .= 'Show last 50 messages of players.';
 	$page .= '</div>';
 }
 
@@ -1851,7 +1851,7 @@ function warquest_admin_page_views() {
 	$page .= '</div>';	
 	
 	$page .= '<div class="note">';
-	$page .= 'Note: All page views.';
+	$page .= 'All page views.';
    $page .= '</div>';
 }
 
