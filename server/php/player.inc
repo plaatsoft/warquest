@@ -1671,7 +1671,7 @@ function warquest_profile($id) {
 			  ($player->holiday_date < date("Y-m-d H:i:s", time())) &&
 			  (warquest_db_ally($player->pid, $id)==0) ) {
 			
-			$page .= warquest_link('mid='.MENU_PLAYERS.'&sid='.PAGE_ALLIANCE.'&ssid='.PAGE_INVITE.'&eid='.EVENT_ALLIANCE_INVITE.'&oid='.$id, t('LINK_INVITE'), "invite").' ';
+			$page .= warquest_link('mid='.MENU_PLAYERS.'&sid='.PAGE_ALLIANCE_INVITE.'&ssid='.PAGE_INVITE.'&eid='.EVENT_ALLIANCE_INVITE.'&oid='.$id, t('LINK_INVITE'), "invite").' ';
 		}
 	
 		if (($player->lid>=9) && 

@@ -861,10 +861,6 @@ $lang['MONEY_TITLE'] = 'MONEY';
 ** ------------------
 */
 
-$lang['BANK_GROUP_1'] = 'National';
-$lang['BANK_GROUP_2'] = 'Trasquera';
-$lang['BANK_GROUP_3'] = 'SwissCore';
-
 $lang['BANK_TITLE'] = 'BANKS';
 $lang['BANK_NOTE'] = 'Tipp: There is a %s% Gebühr für jede Einzahlung. Die Bank zahlt dir %s% tägliche Zinsen. ';
 $lang['BANK_WARNING'] = 'Achtung: Nachrichtendienst und Kundschafter von anderen Spielern können Geld stehlen von dieser Bank.';

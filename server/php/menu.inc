@@ -57,10 +57,10 @@ function warquest_mainmenu() {
 		$menu .= warquest_ui_menu(MENU_BATTLE, PAGE_ENEMIES, 0, t('LINK_BATTLE'), $mid);
 		$menu .= warquest_ui_menu(MENU_UNITS, PAGE_UNIT_PLAYER, $data2->ugid, t('LINK_UNITS'), $mid);			
 		$menu .= warquest_ui_menu(MENU_BUILDINGS, $data3->bgid, 0, t('LINK_BUILDINGS'), $mid);
-		$menu .= warquest_ui_menu(MENU_MONEY, PAGE_BANK, 1, t('LINK_MONEY'), $mid);
+		$menu .= warquest_ui_menu(MENU_MONEY, PAGE_BANK, PAGE_BANK_NATIONAL, t('LINK_MONEY'), $mid);
 	}
 		
-	$menu .= warquest_ui_menu(MENU_PLAYERS, PAGE_ALLIANCE, PAGE_INVITE, t('LINK_PLAYERS'), $mid, $recruit);		
+	$menu .= warquest_ui_menu(MENU_PLAYERS, PAGE_ALLIANCE, PAGE_ALLIANCE_INVITE, t('LINK_PLAYERS'), $mid, $recruit);		
 	$menu .= warquest_ui_menu(MENU_FORUMS, PAGE_FORUM, 0, t('LINK_FORUM'), $mid, $player->clan_notification);
 	$menu .= warquest_ui_menu(MENU_HELP, PAGE_INSTRUCTIONS, 0, t('LINK_HELP'), $mid);
 
@@ -385,8 +385,8 @@ function warquest_menu_money() {
 	$menu  = '<div class="menu">';
 	$menu .= '<ul>';
 		
-	$menu .= warquest_ui_menu($mid, PAGE_BANK, 1, t('LINK_BANK'), $sid);
-	$menu .= warquest_ui_menu($mid, PAGE_STOCK_EXCHANGE, 1, t('LINK_STOCKEXCHANGE'), $sid);
+	$menu .= warquest_ui_menu($mid, PAGE_BANK, PAGE_BANK_NATIONAL, t('LINK_BANK'), $sid);
+	$menu .= warquest_ui_menu($mid, PAGE_STOCK_EXCHANGE, PAGE_STOCK_NASDAQ, t('LINK_STOCKEXCHANGE'), $sid);
 	$menu .= warquest_ui_menu($mid, PAGE_CASINO, PAGE_CASINO_LOTTERY, t('LINK_CASINO'), $sid);
 		
 	$menu .= '</ul>';
@@ -417,19 +417,14 @@ function warquest_submenu_bank() {
 	global $mid;
 	global $sid;
 	global $ssid;
-	global $config;
-	
-	/* Get bank group types */
-	$query = 'select bgid from bank_group order by bgid';
-	$result = warquest_db_query($query);	
 	
 	$menu  = '<div class="menu right2">';
 	$menu .= '<ul>';
 	
-	while ($data = warquest_db_fetch_object($result)) {
-	
-		$menu .= warquest_ui_submenu($mid, $sid, $data->bgid, t('BANK_GROUP_'.$data->bgid), $ssid);
-	}
+	$menu .= warquest_ui_submenu($mid, $sid, PAGE_BANK_NATIONAL, t('BANK_GROUP_1'), $ssid);
+	$menu .= warquest_ui_submenu($mid, $sid, PAGE_BANK_UNION, t('BANK_GROUP_2'), $ssid);
+	$menu .= warquest_ui_submenu($mid, $sid, PAGE_BANK_SWISSCORE, t('BANK_GROUP_3'), $ssid);
+	$menu .= warquest_ui_submenu($mid, $sid, PAGE_BANK_CLAN, t('BANK_GROUP_4'), $ssid);
 	
 	$menu .= '</ul>';
 	$menu .= '</div>';
@@ -443,20 +438,15 @@ function warquest_submenu_stock_exchange() {
 	global $mid;
 	global $sid;
 	global $ssid;
-	global $config;
 	
 	$menu  = '<div class="menu right2">';
 	$menu .= '<ul>';
 	
-	/* Get stock group types */
-	$query = 'select sgid from stock_group order by sgid';
-	$result = warquest_db_query($query);			
-			
-	while ($data = warquest_db_fetch_object($result)) {
+	$menu .= warquest_ui_submenu($mid, $sid, PAGE_STOCK_NASDAQ, t('STOCK_GROUP_1'), $ssid);
+	$menu .= warquest_ui_submenu($mid, $sid, PAGE_STOCK_DOWJONES, t('STOCK_GROUP_2'), $ssid);
+	$menu .= warquest_ui_submenu($mid, $sid, PAGE_STOCK_AEX, t('STOCK_GROUP_3'), $ssid);
+	$menu .= warquest_ui_submenu($mid, $sid, PAGE_STOCK_PERSONAL, t('STOCK_GROUP_4'), $ssid);
 		
-		$menu .= warquest_ui_submenu($mid, $sid, $data->sgid, t('STOCK_GROUP_'.$data->sgid), $ssid);
-	}
-	
 	$menu .= '</ul>';
 	$menu .= '</div>';
 	
@@ -501,7 +491,7 @@ function warquest_menu_players() {
 	$menu = '<div class="menu">';
 	$menu .= '<ul>';
 	
-	$menu .= warquest_ui_menu($mid, PAGE_ALLIANCE, PAGE_INVITE, t('LINK_ALLIANCE'), $sid);
+	$menu .= warquest_ui_menu($mid, PAGE_ALLIANCE, PAGE_ALLIANCE_INVITE, t('LINK_ALLIANCE'), $sid);
 	$menu .= warquest_ui_menu($mid, PAGE_CLAN, 0, t('LINK_CLANS'), $sid);	
 	$menu .= warquest_ui_menu($mid, PAGE_LEADERBOARD, PAGE_BEST_PLAYER, t('LINK_LEADERBOARD'), $sid);
 	$menu .= warquest_ui_menu($mid, PAGE_PROMOTION, 0, t('LINK_PROMOTION'), $sid);
@@ -542,9 +532,9 @@ function warquest_submenu_alliance() {
 	$menu = '<div class="menu right2">';
 	$menu .= '<ul>';
 	
-	$menu .= warquest_ui_submenu($mid, $sid, PAGE_INVITE, t('LINK_INVITE'), $ssid);
-	$menu .= warquest_ui_submenu($mid, $sid, PAGE_PENDING, t('LINK_PENDING'), $ssid, $recruit);	
-	$menu .= warquest_ui_submenu($mid, $sid, PAGE_ACCEPTED, t('LINK_APPROVED'), $ssid);
+	$menu .= warquest_ui_submenu($mid, $sid, PAGE_ALLIANCE_INVITE, t('LINK_INVITE'), $ssid);
+	$menu .= warquest_ui_submenu($mid, $sid, PAGE_ALLIANCE_PENDING, t('LINK_PENDING'), $ssid, $recruit);	
+	$menu .= warquest_ui_submenu($mid, $sid, PAGE_ALLIANCE_ACCEPTED, t('LINK_APPROVED'), $ssid);
 	
 	$menu .= '</ul>';
 	$menu .= '</div>';

@@ -20,6 +20,9 @@ $notes[67] = '
 <div class="subparagraph2">23-03-2014</div>
 <i>Game Server v6.7</i>
 <ul>
+<li>Added Money->Bank->Clan page.</li>
+<li>Adapted Players->Clan page.</li>
+<li>Adapted Players->Clan Profile page.</li>
 <li>Added Money->Casino->Poker mini game.</li>
 <li>Added Money->Casino->Lottery mini game.</li>
 <li>Added minimal age warning to casino games.</li>

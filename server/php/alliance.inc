@@ -785,15 +785,15 @@ function warquest_alliance() {
 	/* Page handler */
 	switch ($ssid) {
 
-		case PAGE_INVITE: 
+		case PAGE_ALLIANCE_INVITE: 
 					warquest_alliance_invite_form();
 					break;
 					
-		case PAGE_PENDING: 
+		case PAGE_ALLIANCE_PENDING: 
 					warquest_alliance_pending_form();
 					break;
 
-		case PAGE_ACCEPTED: 
+		case PAGE_ALLIANCE_ACCEPTED: 
 					warquest_alliance_accepted_form();
 					break;	
 	}				  

@@ -1867,10 +1867,6 @@ $lang['BUILDING_REQUIRED'] = 'Requiere';
 
 $lang['MONEY_TITLE'] = 'DINERO';
 
-$lang['BANK_GROUP_1'] = 'Nacional';
-$lang['BANK_GROUP_2'] = 'Trasquera';
-$lang['BANK_GROUP_3'] = 'SwissCore';
-
 $lang['BANK_TITLE'] = 'BANCOS';
 $lang['BANK_NOTE'] = 'Nota: Hay una comisión de %s% por cualquier depósito. El banco paga %s% interés diario. ';
 $lang['BANK_WARNING'] = 'Advertencia: Unidades de Inteligencia o Exploradores de otros jugadores pueden robar el dinero de este banco.';
