@@ -24,8 +24,52 @@
 
 $clan = warquest_post('clan', '');
 $slogan = warquest_post('slogan', '');
-$deposit = warquest_post('deposit', '0');
-$amount = warquest_post('amount', 0);
+$amount = warquest_post('amount', 1);
+$role = warquest_post('role', CLAN_ROLE_SOLDIER);
+
+/*
+** --------------
+** CLAN UTILS
+** --------------
+*/
+
+/**
+ * Show radiobox with all possible clan roles 
+ */
+function warquest_clan_role($role, $readonly=1) {
+
+	/* input */
+	global $mid;
+	global $sid;
+	global $cid;
+	global $oid;
+	
+	$tmp = "";
+	
+	if ($readonly==1) {
+	
+		$tmp .= t("CLAN_ROLE_".$role);
+		
+	} else {
+	
+		$tmp .= '<select id="role" name="role" onchange="javascript:link(\''.
+								warquest_token('mid='.$mid.'&sid='.$sid.'&cid='.$cid.'&oid='.$oid.'&eid='.EVENT_CLAN_MEMBER_SAVE).'\');" />';
+										
+		$values = array(2, 3);
+
+		$count = 0;
+		foreach ($values as $value) {
+	
+			$tmp .= '<option value="'.$value.'"';
+			if ($role==$value) {
+				$tmp .= ' selected="selected"';
+			}
+			$tmp .= '/>'.t("CLAN_ROLE_".$value).' ';	
+		}		
+		$tmp .= '</select>';
+	}
+	return $tmp;
+}
 
 /*
 ** --------------
@@ -87,17 +131,18 @@ function warquest_clan_accept_do() {
 	global $output;	
 	
 	$clan = warquest_db_clan($cid);
-	$player_clan = warquest_db_player_clan($other->pid);
+	$player_clan = warquest_db_player_clan($player->pid);
+	$other_clan = warquest_db_player_clan($other->pid);
 	
-	if ($clan->pid!=$player->pid) {
+	if ($player_clan->role!=CLAN_ROLE_COMMANDER) {
 	
 		$message = t('CLAN_NO_ALLOWED', $clan->name);
 		$output->popup .= warquest_box_icon("warning", $message);
 		
-	} else if ($player_clan->approved==0) {
+	} else if ($other_clan->approved==0) {
 		
-		$player_clan->approved=1;			
-		warquest_db_player_clan_update($player_clan);
+		$other_clan->approved=1;			
+		warquest_db_player_clan_update($other_clan);
 		
 		/* Update player netto income */		
 		warquest_netto_income($other);
@@ -156,7 +201,6 @@ function warquest_clan_join_do() {
 
 	/* input */
 	global $player;
-	global $other;
 	global $cid;
 		
 	/* output */
@@ -171,17 +215,30 @@ function warquest_clan_join_do() {
 		$output->popup .= warquest_box_icon("warning", $message);
 		
 	} else {
-	
-		warquest_db_player_clan_insert($player->pid, $cid, 0);
-	
-		/* Send mail to commander of clan */
-		warquest_clan_join_mail($other->pid, $player->name);
-				
-		$message = $player->name.' wants to join your clan!';		
-		warquest_db_comment_insert(0, 0, $player->pid, $other->pid, $message);
-		$other->comment_notification++;
 		
-		$message = t('CLAN_JOINED', $clan->name, player_format($other->pid, $other->name, $other->country, 1));	
+		$commander = warquest_db_player_clan_commander($cid);
+
+		if ( !isset($commander->pid) ) {		
+		
+			/* No commander so make new player direct commander */
+			warquest_db_player_clan_insert($player->pid, $cid, 1, CLAN_ROLE_COMMANDER);		
+
+			$message = t('CLAN_JOINED2', $clan->name);
+			
+		} else {		
+		
+			warquest_db_player_clan_insert($player->pid, $cid, 0, CLAN_ROLE_SOLDIER);
+
+			/* Send mail to commander of clan */
+			warquest_clan_join_mail($commander->pid, $player->name);
+					
+			$message = $player->name.' wants to join your clan!';		
+			warquest_db_comment_insert(0, 0, $player->pid, $commander->pid, $message);
+			$commander->comment_notification++;	
+			warquest_db_player_update($commander);
+
+			$message = t('CLAN_JOINED', $clan->name, player_format($commander->pid, $commander->name, $commander->country, 1));	
+		}
 		$output->popup .= warquest_box_icon("info", $message);	
 	}
 }
@@ -200,8 +257,9 @@ function warquest_clan_slogan_do() {
 	global $output;	
 	
 	$clan = warquest_db_clan($cid);
+	$player_clan = warquest_db_player_clan($player->pid);
 	 
-	if ($clan->pid!=$player->pid) {
+	if ($player_clan->role!=CLAN_ROLE_COMMANDER) {
 	
 		$message = t('CLAN_NO_ALLOWED', $clan->name);
 		$output->popup .= warquest_box_icon("warning", $message);
@@ -268,7 +326,7 @@ function warquest_clan_create_do() {
 	
 		$cid = warquest_db_clan_insert($player->pid, $clan);
 		
-		warquest_db_player_clan_insert($player->pid, $cid, 1);
+		warquest_db_player_clan_insert($player->pid, $cid, 1, CLAN_ROLE_COMMANDER);
 		
 		$skill->skill_points--;
 		warquest_db_skill_update($skill);
@@ -300,35 +358,27 @@ function warquest_clan_skill_increase_do() {
 
 	$clan = warquest_db_clan($cid);
 	
-	if ($clan->pid!=$player->pid) {
-	
-		$message = t('CLAN_NO_ALLOWED', $clan->name);
-		$output->popup .= warquest_box_icon("warning", $message);
+	switch ($id) {
 		
-	} else {
-	
-		switch ($id) {
-		
-			case 1: 	$clan->attack += $amount;
-						$max = $clan->attack;
-						break;
+		case 1: 	$clan->attack += $amount;
+					$max = $clan->attack;
+					break;
 						
-			case 2: 	$clan->defense += $amount;
-						$max = $clan->defense;
-						break;
-		}
-		
-		warquest_db_clan_update($clan);
-		
-		$message = t('CLAN_SKILL_INCREASED', number_format(($max * $config['init_clan_skill_step']),0,",","."));
-		
-		$link = warquest_link('mid='.$mid.'&sid='.$sid.'&cid='.$cid.'&eid='.$eid.'&id='.$id, t('LINK_INCREASE'), "increase");		
-		$link .= '<br/><br/>'.t('GENERAL_AMOUNT').'<br/>';		
-		$link .= warquest_amount_selected(1000000);
-		$link .= '<br/><br/>';
-		
-		$output->popup .= warquest_box_icon("info", $message, $link);		
+		case 2: 	$clan->defense += $amount;
+					$max = $clan->defense;
+					break;
 	}
+		
+	warquest_db_clan_update($clan);
+		
+	$message = t('CLAN_SKILL_INCREASED', number_format(($max * $config['init_clan_skill_step']),0,",","."));
+		
+	$link = warquest_link('mid='.$mid.'&sid='.$sid.'&cid='.$cid.'&eid='.$eid.'&id='.$id, t('LINK_INCREASE'), "increase");		
+	$link .= '<br/><br/>'.t('GENERAL_AMOUNT').'<br/>';		
+	$link .= warquest_amount_selected(1000000);
+	$link .= '<br/><br/>';
+		
+	$output->popup .= warquest_box_icon("info", $message, $link);		
 }
 
 /**
@@ -352,12 +402,7 @@ function warquest_clan_skill_decrease_do() {
 
 	$clan = warquest_db_clan($cid);
 
-	if ($clan->pid!=$player->pid) {
-	
-		$message = t('CLAN_NO_ALLOWED', $clan->name);
-		$output->popup .= warquest_box_icon("warning", $message);
-	
-	} else if (($id==1) & ($clan->attack < $amount)) {
+	if (($id==1) & ($clan->attack < $amount)) {
 	
 		$message = t('CLAN_MINIMAL_SKILL');
 		$output->popup .= warquest_box_icon("warning", $message);
@@ -396,6 +441,73 @@ function warquest_clan_skill_decrease_do() {
 }
 
 
+function warquest_clan_member_edit_do() {
+
+	/* input	*/
+	global $mid;
+	global $sid;
+	global $cid;
+	
+	global $player;	
+	global $other;		
+	global $config;
+	
+	/* input	*/
+	global $output;
+	
+	$clan = warquest_db_clan($cid);
+	$player_clan = warquest_db_player_clan($other->pid);
+	
+	if ($player_clan->approved==0) {	
+	
+		$message = 'Accept '.player_format($other->pid, $other->name, $other->country, 1).' membership ';
+		$message .= warquest_link('mid='.$mid.'&sid='.PAGE_CLAN_PROFILE.'&cid='.$clan->cid.'&oid='.$other->pid.'&eid='.EVENT_CLAN_ACCEPT, t('LINK_YES'));												
+		$message .= ' or ';
+		$message .= warquest_link('mid='.$mid.'&sid='.PAGE_CLAN_PROFILE.'&cid='.$clan->cid.'&oid='.$other->pid.'&eid='.EVENT_CLAN_DROP, t('LINK_NO'));							
+		
+	} else {
+		
+		$message = 'Change '.player_format($other->pid, $other->name, $other->country, 1).' clan membership role ';
+		$message .= warquest_clan_role($player_clan->role, false);
+		$message .= '<br/>or ';	
+		$message .= warquest_link('mid='.$mid.'&sid='.PAGE_CLAN_PROFILE.'&cid='.$clan->cid.'&oid='.$other->pid.'&eid='.EVENT_CLAN_DROP, t('LINK_DROP'));
+		$message .= ' membership.';		
+	}
+		
+	$output->popup .= warquest_box_icon("info", $message);
+}
+
+function warquest_clan_member_save_do() {
+
+	/* input	*/
+	global $cid;	
+	global $role;	
+	global $other;		
+		
+	/* input	*/
+	global $output;
+		
+	$player_clan = warquest_db_player_clan($other->pid);
+	
+	if (!isset($player_clan->cid) || ($player_clan->cid!=$cid)) {
+		
+		$message = t('CLAN_NOT_PART');		
+		$output->popup .= warquest_box_icon("warning", $message);
+	
+	} else {
+	
+		$player_clan->role=$role;
+		warquest_db_player_clan_update($player_clan);
+	
+		$message = t('CLAN_ROLE_CHANGED',
+						player_format($other->pid, $other->name, $other->country, 1),
+						warquest_clan_role($role)
+					);
+						
+		$output->popup .= warquest_box_icon("info", $message);
+	}
+}
+
 /*
 ** --------------
 ** CLAN UI
@@ -403,9 +515,126 @@ function warquest_clan_skill_decrease_do() {
 */
 
 /** 
- * Clan profile skill part
+ * Clan profile member part
  */
-function warquest_clan_skills_part($clan) {
+function warquest_clan_member_part($clan, $player_clan) {
+
+	/* input	*/
+	global $mid;
+	global $sid;
+	
+	global $player;	
+	global $config;
+	
+	/* output */
+	global $page;
+	
+	$page .= '<div class="subparagraph">';
+	$page .= t('CLAN_MEMBER_LIST');
+	$page .= '</div>';
+	
+	$query  = 'select a.joined, a.approved, a.role, b.pid, b.name, b.country, b.lid, b.experience ';
+	$query .= 'from player_clan a, player b where a.pid=b.pid and a.cid='.$clan->cid.' ';
+	$query .= 'order by a.role, b.lid desc';
+
+	$result = warquest_db_query($query);	 	
+	$size = warquest_db_num_rows($result);
+	
+	if ($size == 0) {
+	
+		$message = t('CLAN_NO_MEMBERS');
+		$page .= warquest_box_icon('info', $message);
+	
+	} else {
+			
+		$page .= '<div class="box rows">';
+		
+		$page .= '<table>';
+		
+		$page .= '<tr>';
+		
+		$page .= '<th width="30">';
+		$page .= t('GENERAL_NR');
+		$page .= '</th>';
+		
+		$page .= '<th width="150">';
+		$page .= t('GENERAL_NAME');
+		$page .= '</th>';
+		
+		$page .= '<th width="50">';
+		$page .= t('GENERAL_LEVEL');
+		$page .= '</th>';
+		
+		$page .= '<th width="100">';
+		$page .= t('GENERAL_ROLE');
+		$page .= '</th>';
+		
+		$page .= '<th width="80">';
+		$page .= t('GENERAL_APPROVED');
+		$page .= '</th>';
+
+		$page .= '<th width="80">';
+		$page .= t('GENERAL_JOINED');
+		$page .= '</th>';
+				
+		$page .= '<th width="50">';
+		$page .= '</th>';
+		
+		$page .= '</tr>';
+		
+		$count = 1;
+		while ($data=warquest_db_fetch_object($result)) {
+		
+			$page .= '<tr>';
+			
+			$page .= '<td>';
+			$page .= $count++;
+			$page .= '</td>';
+			
+			$page .= '<td>';
+			$page .= player_format($data->pid, $data->name, $data->country, 1);
+			$page .= '</td>';
+					
+			$page .= '<td>';
+			$page .= $data->lid;
+			$page .= '</td>';
+						
+			$page .= '<td>';
+			$page .= warquest_clan_role($data->role);
+			$page .= '</td>';
+			
+			$page .= '<td>';
+			if ($data->approved==0) {
+				$page .= t('GENERAL_NO');
+			} else {
+				$page .= t('GENERAL_YES');
+			}
+			$page .= '</td>';
+			
+			$page .= '<td>';
+			$page .= warquest_ui_ago($data->joined);
+			$page .= '</td>';
+				
+			$page .= '<td>';
+			if (isset($player_clan->pid) && ($player_clan->role==CLAN_ROLE_COMMANDER) && ($data->pid!=$player->pid)) {					
+				$page .= warquest_link('mid='.$mid.'&sid='.PAGE_CLAN_PROFILE.'&cid='.$clan->cid.'&oid='.$data->pid.'&eid='.EVENT_CLAN_MEMBER_EDIT, t('LINK_EDIT'));							
+			}
+			$page .= '</td>';
+	
+			$page .= '</tr>';
+		}
+		
+		$page .= '</table>';
+		
+		$page .= '</div>';
+	}
+}
+
+
+/** 
+ * Clan skill part
+ */
+function warquest_clan_skills_part($clan, $player_clan) {
 
 	/* input	*/
 	global $mid;
@@ -443,13 +672,13 @@ function warquest_clan_skills_part($clan) {
 	$page .= '</td>';
 		
 	$page .= '<td width="100">';
-	if ($clan->pid==$player->pid) {
+	if (isset($player_clan->pid) && ($clan->cid==$player_clan->cid) && (($player_clan->role==CLAN_ROLE_COMMANDER) || ($player_clan->role==CLAN_ROLE_DEPUTY))) {
 		$page .= warquest_link('mid='.$mid.'&sid='.$sid.'&cid='.$clan->cid.'&eid='.EVENT_CLAN_SKILL_INCREASE.'&id=1', t('LINK_INCREASE'), "increase1");
 	}
 	$page .= '</td>';
 		
 	$page .= '<td width="65" align="right">';
-	if ($clan->pid==$player->pid) {
+	if (isset($player_clan->pid) && ($clan->cid==$player_clan->cid) && (($player_clan->role==CLAN_ROLE_COMMANDER) || ($player_clan->role==CLAN_ROLE_DEPUTY))) {
 		$page .= warquest_link('mid='.$mid.'&sid='.$sid.'&cid='.$clan->cid.'&eid='.EVENT_CLAN_SKILL_DECREASE.'&id=1',t('LINK_DECREASE'), "decrease1");
 	}
 	$page .= '</td>';
@@ -484,13 +713,13 @@ function warquest_clan_skills_part($clan) {
 	$page .='</td>';
 	
 	$page .= '<td>';
-	if ($clan->pid==$player->pid) {
+	if (isset($player_clan->pid) && ($clan->cid==$player_clan->cid) && (($player_clan->role==CLAN_ROLE_COMMANDER) || ($player_clan->role==CLAN_ROLE_DEPUTY))) {
 		$page .= warquest_link('mid='.$mid.'&sid='.$sid.'&cid='.$clan->cid.'&eid='.EVENT_CLAN_SKILL_INCREASE.'&id=2', t('LINK_INCREASE'), "increase2");
 	}
 	$page .= '</td>';
 	
 	$page .= '<td>';
-	if ($clan->pid==$player->pid) {
+	if (isset($player_clan->pid) && ($clan->cid==$player_clan->cid) && (($player_clan->role==CLAN_ROLE_COMMANDER) || ($player_clan->role==CLAN_ROLE_DEPUTY))) {
 		$page .= warquest_link('mid='.$mid.'&sid='.$sid.'&cid='.$clan->cid.'&eid='.EVENT_CLAN_SKILL_DECREASE.'&id=2',t('LINK_DECREASE'), "decrease2");
 	}
 	$page .= '</td>';
@@ -510,124 +739,11 @@ function warquest_clan_skills_part($clan) {
 	$page .= '</div>';
 }
 
-/** 
- * Clan profile member part
- */
-function warquest_clan_member_part($clan) {
-
-	/* input	*/
-	global $mid;
-	global $sid;
-	
-	global $player;	
-	global $config;
-	
-	/* output */
-	global $page;
-	
-	$page .= '<div class="subparagraph">';
-	$page .= t('CLAN_MEMBER_LIST');
-	$page .= '</div>';
-	
-	$query  = 'select a.joined, a.approved, b.pid, b.name, b.country, b.lid, b.experience ';
-	$query .= 'from player_clan a, player b where a.pid=b.pid and a.cid='.$clan->cid.' ';
-	$query .= 'order by b.lid desc';
-
-	$result = warquest_db_query($query);	 	
-	$size = warquest_db_num_rows($result);
-	
-	if ($size == 0) {
-	
-		$message = t('CLAN_NO_MEMBERS');
-		$page .= warquest_box_icon('info', $message);
-	
-	} else {
-			
-		$page .= '<div class="box rows">';
-		
-		$page .= '<table>';
-		
-		$page .= '<tr>';
-		
-		$page .= '<th width="30">';
-		$page .= t('GENERAL_NR');
-		$page .= '</th>';
-		
-		$page .= '<th width="150">';
-		$page .= t('GENERAL_NAME');
-		$page .= '</th>';
-		
-		$page .= '<th width="50">';
-		$page .= t('GENERAL_LEVEL');
-		$page .= '</th>';
-		
-		$page .= '<th width="80">';
-		$page .= t('GENERAL_APPROVED');
-		$page .= '</th>';
-
-		$page .= '<th width="80">';
-		$page .= t('GENERAL_JOINED');
-		$page .= '</th>';
-				
-		$page .= '<th width="100">';
-		$page .= '</th>';
-		
-		$page .= '</tr>';
-		
-		$count = 1;
-		while ($data=warquest_db_fetch_object($result)) {
-		
-			$page .= '<tr>';
-			
-			$page .= '<td>';
-			$page .= $count++;
-			$page .= '</td>';
-			
-			$page .= '<td>';
-			$page .= player_format($data->pid, $data->name, $data->country, 1);
-			$page .= '</td>';
-					
-			$page .= '<td>';
-			$page .= $data->lid;
-			$page .= '</td>';
-			
-			$page .= '<td>';
-			if ($data->approved==0) {
-				$page .= t('GENERAL_NO');
-			} else {
-				$page .= t('GENERAL_YES');
-			}
-			$page .= '</td>';
-			
-			$page .= '<td>';
-			$page .= warquest_ui_ago($data->joined);
-			$page .= '</td>';
-				
-			$page .= '<td>';
-			if ($clan->pid == $player->pid) {	
-			
-				if ($data->approved==0) {			
-					$page .= warquest_link('mid='.$mid.'&sid='.PAGE_CLAN_PROFILE.'&cid='.$clan->cid.'&oid='.$data->pid.'&eid='.EVENT_CLAN_ACCEPT, t('LINK_ACCEPT'));							
-					$page .= '&nbsp;&nbsp';
-				}
-					
-				$page .= warquest_link('mid='.$mid.'&sid='.PAGE_CLAN_PROFILE.'&cid='.$clan->cid.'&oid='.$data->pid.'&eid='.EVENT_CLAN_DROP, t('LINK_DROP'));							
-			}
-			$page .= '</td>';
-	
-			$page .= '</tr>';
-		}
-		
-		$page .= '</table>';
-		
-		$page .= '</div>';
-	}
-}
 
 /** 
  * Clan profile slogan part
  */
-function warquest_clan_slogan_part($clan) {
+function warquest_clan_slogan_part($clan, $player_clan) {
 
 	/* input	*/
 	global $mid;
@@ -638,8 +754,8 @@ function warquest_clan_slogan_part($clan) {
 	
 	/* output */
 	global $page;
-	
-	if ($clan->pid==$player->pid) {	
+		
+	if (isset($player_clan->pid) && ($clan->cid==$player_clan->cid) && ($player_clan->role==CLAN_ROLE_COMMANDER)) {
 		
 		$page .= '<div class="box">';
 		$page .= t('CLAN_SLOGAN_NOTE');
@@ -743,10 +859,10 @@ function warquest_clan_profile_form() {
 	
 	$page .= '<div class="subparagraph">'.t('CLAN_PROFILE_TITLE', $clan->name).'</div>';
 	
-	warquest_clan_slogan_part($clan);
+	warquest_clan_slogan_part($clan, $player_clan);
 	warquest_clan_statistics_part($clan);
-	warquest_clan_member_part($clan);
-	warquest_clan_skills_part($clan);
+	warquest_clan_member_part($clan, $player_clan);
+	warquest_clan_skills_part($clan, $player_clan);
 
 	$page .= '<div class="note">';
 	$page .= t('CLAN_PROFILE_NOTE');
@@ -779,8 +895,8 @@ function warquest_clan_form() {
 	$page .= '<div class="subparagraph">';
 	$page .= t('CLAN_TITLE');
 	$page .= '</div>';
-	
-	if ($player->lid >= $lid) {
+		
+	if ( ($player->lid>=$lid) && (!isset($player_clan->pid)) ) {
 	
 		$page .= '<div class="box">';
 		$page .= t('CLAN_CREATE').':';	
@@ -799,11 +915,8 @@ function warquest_clan_form() {
 	$result = warquest_db_query($query);	
 	$total = warquest_db_num_rows($result);
 	
-	$query  = 'select a.cid, a.name, a.created, a.last_activity, a.pid, ';
-	$query .= '(select name from player where pid=a.pid) as name2, ';
-	$query .= '(select country from player where pid=a.pid) as country2, ';
-	$query .= '(select count(*) from player_clan where approved=1 and cid=a.cid) as size, ';
-	$query .= '(select count(*) from player_clan d where d.cid=a.cid and d.pid='.$player->pid.') as joined ';
+	$query  = 'select a.cid, a.name, a.pid, a.last_activity, ';
+	$query .= '(select count(*) from player_clan where approved=1 and cid=a.cid) as size ';
 	$query .= 'from clan a order by a.last_activity desc ';
 	$query .= 'limit '.$offset.','.$limit;
 	
@@ -853,6 +966,8 @@ function warquest_clan_form() {
 		
 		while ($data = warquest_db_fetch_object($result)) {
 		
+			$commander = warquest_db_player_clan_commander($data->cid);
+	
 			$page .= '<tr>';
 
 			$page .= '<td>';
@@ -869,17 +984,19 @@ function warquest_clan_form() {
 			$page .= '</td>';
 		
 			$page .= '<td>';
-			$page .= player_format($data->pid, $data->name2, $data->country2, 1);
+			if ( isset($commander->pid) ) {
+				$page .= player_format($commander->pid, $commander->name, $commander->country, 1);
+			}
 			$page .= '</td>';
 			
 			$page .= '<td>';
 
-			if (isset($player_clan->cid)) {		
+			if ( isset($player_clan->cid) ) {
 				if ($data->cid == $player_clan->cid) {
-					$page .= warquest_link('mid='.$mid.'&sid='.PAGE_CLAN.'&cid='.$data->cid.'&eid='.EVENT_CLAN_LEAVE, t('LINK_LEAVE').' ');			
+					$page .= warquest_link('mid='.$mid.'&sid='.$sid.'&cid='.$data->cid.'&eid='.EVENT_CLAN_LEAVE, t('LINK_LEAVE'));	
 				}
 			} else {
-				$page .= warquest_link('mid='.$mid.'&sid='.PAGE_CLAN.'&cid='.$data->cid.'&oid='.$data->pid.'&eid='.EVENT_CLAN_JOIN, t('LINK_JOIN').' ');				
+				$page .= warquest_link('mid='.$mid.'&sid='.$sid.'&cid='.$data->cid.'&eid='.EVENT_CLAN_JOIN, t('LINK_JOIN'));				
 			} 
 			$page .= '</td>';
 			
@@ -943,6 +1060,14 @@ function warquest_clan() {
 			
 		case EVENT_CLAN_SKILL_DECREASE:
 			warquest_clan_skill_decrease_do();
+			break;
+
+		case EVENT_CLAN_MEMBER_EDIT:
+			warquest_clan_member_edit_do();
+			break;
+			
+		case EVENT_CLAN_MEMBER_SAVE:
+			warquest_clan_member_save_do();
 			break;
 	}
 	

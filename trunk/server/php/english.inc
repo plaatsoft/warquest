@@ -3128,6 +3128,7 @@ $lang['CLAN_ADD'] = 'Add Clan';
 $lang['CLAN_CREATE'] = 'New clan name';
 $lang['CLAN_LEAVE'] = 'You left then %s clan';
 $lang['CLAN_JOINED'] = 'You sent a request to join the %s clan. Commander %s has to approve your request so be patient!';
+$lang['CLAN_JOINED2'] = 'You are the commander of the %s clan again!';
 $lang['CLAN_DROP'] = 'You dropped %s from your %s clan!';
 $lang['CLAN_NOT_PART'] = 'Player not part of then clan!';
 $lang['CLAN_ALL_PART'] = 'You already joined a clan!';
@@ -3400,6 +3401,18 @@ $lang['CASINO_POKER_RESULT_9_NOTE'] = 'Ace, King, Queen, Joker and 10 all of the
 $lang['CASINO_WARNING'] = 'Minimum age for playing this casino game is 18 years!';
 
 $lang['BANK_NO_LOG'] = 'No bank transaction yet';
+
+$lang['GENERAL_ROLE'] = 'Role';
+
+$lang['CLAN_ROLE_0'] = '?';
+$lang['CLAN_ROLE_1'] = 'Commander';
+$lang['CLAN_ROLE_2'] = 'Deputy';
+$lang['CLAN_ROLE_3'] = 'Soldier';
+
+$lang['CLAN_ROLE_CHANGED'] = 'Role of clan member %s is changed to %s.';
+
+$lang['LINK_YES'] = 'Yes';
+$lang['LINK_NO'] = 'No';
 
 /*
 ** ------------------

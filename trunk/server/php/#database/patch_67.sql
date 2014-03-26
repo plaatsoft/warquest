@@ -26,7 +26,6 @@ INSERT INTO lottery (lottery_id, expire_date, bet, money, gold, uid, uid_amount,
 (4, '2014-03-19 23:59:59', 4, 0, 800,         2709, 20, 2106, 10, 0),
 (5, '2014-03-18 23:59:59', 5, 30000000000, 0, 2010, 15, 1610, 5, 0);
 
-
 CREATE TABLE IF NOT EXISTS `player_lottery` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `pid` int(11) NOT NULL,
@@ -40,3 +39,12 @@ INSERT INTO  cron (cid, note, last_run) VALUES (13, 'Lottery job', '2014-03-03 0
 
 -- Rename action because version is a reserved word in java hibernate framework.
 ALTER TABLE `member` CHANGE `version` `versie` VARCHAR( 20 ) CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL ;
+
+-- Remove not used columns
+TABLE `player` DROP `ads`;
+TABLE `skill` DROP `trade_points`;
+ALTER TABLE `player_clan` ADD `role` INT NOT NULL AFTER `approved`;
+ALTER TABLE player_clan ADD PRIMARY KEY(pid, cid);
+
+UPDATE player_clan SET role=3;
+update player_clan a, clan b set role=1 where a.pid=b.pid;

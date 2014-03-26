@@ -17,9 +17,15 @@
 */
 
 $notes[67] = '
-<div class="subparagraph2">23-03-2014</div>
+<div class="subparagraph2">25-03-2014</div>
 <i>Game Server v6.7</i>
 <ul>
+<li>Added Clan membership role feature:</li>
+<ul>
+<li>Role Commander: Full clan rights!</li>
+<li>Role Deputy: Normal + clan change skills rights!</li>
+<li>Role Soldier: Normal clan rights!</li>
+</ul>
 <li>Added Money->Bank->Clan page.</li>
 <li>Adapted Players->Clan page.</li>
 <li>Adapted Players->Clan Profile page.</li>
