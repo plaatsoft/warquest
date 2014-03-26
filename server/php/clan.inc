@@ -616,7 +616,7 @@ function warquest_clan_member_part($clan, $player_clan) {
 			$page .= '</td>';
 				
 			$page .= '<td>';
-			if (isset($player_clan->pid) && ($player_clan->role==CLAN_ROLE_COMMANDER) && ($data->pid!=$player->pid)) {					
+			if (isset($player_clan->pid) && ($clan->cid==$player_clan->cid) && ($player_clan->role==CLAN_ROLE_COMMANDER) && ($data->pid!=$player->pid)) {					
 				$page .= warquest_link('mid='.$mid.'&sid='.PAGE_CLAN_PROFILE.'&cid='.$clan->cid.'&oid='.$data->pid.'&eid='.EVENT_CLAN_MEMBER_EDIT, t('LINK_EDIT'));							
 			}
 			$page .= '</td>';
