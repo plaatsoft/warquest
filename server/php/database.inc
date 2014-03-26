@@ -2070,12 +2070,12 @@ function warquest_db_clan_mission_delete($cid, $mid) {
  * Insert player_clan
  * @unitTest
  */
-function warquest_db_player_clan_insert($pid, $cid, $approved) {
+function warquest_db_player_clan_insert($pid, $cid, $approved, $role) {
 
 	$now = date('Y-m-d H:i:s');
 
-	$query  = 'insert into player_clan (pid, cid, joined, approved) values (';
-	$query .= $pid.','.$cid.',"'.$now.'",'.$approved.')';	
+	$query  = 'insert into player_clan (pid, cid, joined, approved, role) values (';
+	$query .= $pid.','.$cid.',"'.$now.'",'.$approved.','.$role.')';	
 	
 	return warquest_db_query($query);
 }
@@ -2090,7 +2090,8 @@ function warquest_db_player_clan_update($data) {
 
 	$query  = 'update player_clan set '; 
 	$query .= 'approved = '.$data->approved.', ';
-	$query .= 'joined = "'.$now.'" ';	
+	$query .= 'joined = "'.$now.'", ';	
+	$query .= 'role = "'.$data->role.'" ';	
 	$query .= 'where pid='.$data->pid.' and cid='.$data->cid; 
 	
 	return warquest_db_query($query);
@@ -2102,7 +2103,7 @@ function warquest_db_player_clan_update($data) {
  */
 function warquest_db_player_clan($pid) {
 
-	$query  = 'select pid, cid, joined, approved from player_clan where pid ='.$pid;
+	$query  = 'select pid, cid, joined, approved, role from player_clan where pid ='.$pid;
 
 	$result = warquest_db_query($query);
 	
@@ -2118,6 +2119,25 @@ function warquest_db_player_clan_delete($pid, $cid) {
 	$query  = 'delete from player_clan where pid='.$pid.' and cid='.$cid;
 	
 	return warquest_db_query($query); 
+}
+
+/**
+ * Get commander of selected clan
+ */
+function warquest_db_player_clan_commander($cid) {
+
+	$player="";
+	
+	$query  = 'select pid from player_clan where role='.CLAN_ROLE_COMMANDER.' and cid='.$cid;
+
+	$result = warquest_db_query($query);	 
+	$data = warquest_db_fetch_object($result);
+
+	if ( isset($data->pid) ) {	
+		$player = warquest_db_player($data->pid);
+	}
+	
+	return $player;
 }
 
 /*

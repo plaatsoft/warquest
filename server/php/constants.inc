@@ -18,6 +18,15 @@
 
 /*
 ** ------------------
+** CLAN ROLES
+** ------------------
+*/
+define('CLAN_ROLE_COMMANDER',		1);
+define('CLAN_ROLE_DEPUTY',			2);
+define('CLAN_ROLE_SOLDIER',		3);
+
+/*
+** ------------------
 ** BONUS
 ** ------------------
 */
@@ -250,7 +259,7 @@ define('EVENT_LOTTERY_BET',         	  3614);
 define('EVENT_CASINO_POKER_PLAY',        3615);
 define('EVENT_CASINO_POKER_RESULT',      3616);
 
-/* alliance */
+/* player */
 define('EVENT_ALLIANCE_INVITE',          3701);
 define('EVENT_ALLIANCE_ACCEPT',          3702);
 define('EVENT_ALLIANCE_REJECT',          3703);
@@ -266,6 +275,8 @@ define('EVENT_CLAN_SKILL_INCREASE' ,     3712);
 define('EVENT_CLAN_SKILL_DECREASE' ,     3713);
 define('EVENT_PROMOTION_INVITE',			  3714);
 define('EVENT_ALLIANCE_SEARCH',		 	  3715);
+define('EVENT_CLAN_MEMBER_EDIT',         3716);
+define('EVENT_CLAN_MEMBER_SAVE',         3717);
 
 /* forum */
 define('EVENT_FORUM_COMMENT_SAVE', 	     3801);
