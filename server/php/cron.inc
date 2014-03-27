@@ -88,84 +88,6 @@ function warquest_cron_clear_inactive_sectors($info=0) {
 }
 
 /**
- * Cron remove inactive clan player from clan job 
- */
-function warquest_cron_remove_inactive_clan_member($info=0) {
-
-	/* input */
-	global $config;
-	
-	/* output */
-	global $output;
-	
-	$old1 = mktime(date("H"), date("i"), date("s"), date("m"), date("d")-$config["max_clan_member_inactive"], date("Y"));
-	$old2 = mktime(date("H"), date("i"), date("s"), date("m"), date("d")-$config["max_clan_inactive"], date("Y"));
-	
-	/* Get inactive clan member(s) */
-	$query1  = 'select a.pid, b.cid from player a, player_clan b where a.pid=b.pid and a.request_date<"'.date("Y-m-d H:i:s", $old1).'" ';	
-	$result1 = warquest_db_query($query1);	
-	
-	$count1 = 0;
-	while ($data1 = warquest_db_fetch_object($result1)) {
-
-		$count1++;
-	
-		warquest_db_player_clan_delete($data1->pid, $data1->cid);
-			
-		$player = warquest_db_player($data1->pid);
-		warquest_netto_income($player);	
-		warquest_db_player_update($player);
-	}
-	
-	/* Get inactive clan(s) */
-	$query2  = 'select cid from clan where last_activity<"'.date("Y-m-d H:i:s", $old2).'" ';	
-	$result2 = warquest_db_query($query2);	
-	
-	$count2 = 0;
-	while ($data2 = warquest_db_fetch_object($result2)) {
-		
-		$count2++;	
-
-		/* Update clan member(s) */
-		$query3  = 'select cid, pid from player_clan where cid='.$data2->cid;	
-		$result3 = warquest_db_query($query3);	
-	
-		while ($data3 = warquest_db_fetch_object($result3)) {
-
-			warquest_db_player_clan_delete($data3->pid, $data3->cid);
-			
-			$player = warquest_db_player($data3->pid);
-			warquest_netto_income($player);	
-			warquest_db_player_update($player);		
-		}		
-			
-		/* Update sector(s) */
-		$query4 = 'select sid, damage, cid from sector where cid='.$data2->cid;
-		$result4 = warquest_db_query($query4);	
-	
-		while ($data4 = warquest_db_fetch_object($result4)) {
-		
-			$data4->cid=0;
-			$data4->damage=0;
-			
-			warquest_db_sector_update($data4);
-		}
-		
-		/* Remove clan */
-		warquest_db_clan_delete($data2->cid);		
-	}
-
-	$message1 = $count1.' inactive clan member(s) removed!<br/>';
-	$message2 = $count2.' inactive clan(s) removed!<br/>';
-
-	if ($info==1) {
-		$output->popup .= warquest_box_icon("info", $message1.' '.$message2);
-	} 
-	warquest_info($message1);
-	warquest_info($message2);
-}
-
-/**
  * Cron backup job 
  */
 function warquest_cron_backup($info=0) {
@@ -817,14 +739,7 @@ function warquest_cron() {
 				warquest_cron_backup();				
 				warquest_info('CRON JOB ['.$data->cid.'] make backup - job end.');
 				break;
-				
-			case 9:
-				warquest_info('CRON JOB ['.$data->cid.'] remove inactive clan players - job start.');
-				warquest_db_cron_update($data->cid);
-				warquest_cron_remove_inactive_clan_member();
-				warquest_info('CRON JOB ['.$data->cid.'] remove inactive clan players - job end.');
-				break;
-				
+								
 			case 10:
 				warquest_info('CRON JOB ['.$data->cid.'] clear inactive sectors - job start.');
 				warquest_db_cron_update($data->cid);

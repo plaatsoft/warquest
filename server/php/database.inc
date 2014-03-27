@@ -1963,8 +1963,6 @@ function warquest_db_clan($cid) {
  * @unitTest
  */
 function warquest_db_clan_update($data) {
-
-	$now = date('Y-m-d H:i:s');
 	
 	$query  = 'update clan set '; 
 	$query .= 'name = "'.warquest_db_escape($data->name).'", ';
@@ -1974,7 +1972,7 @@ function warquest_db_clan_update($data) {
 	$query .= 'money = '.$data->money.', ';	
 	$query .= 'attack = '.$data->attack.', ';	
 	$query .= 'defense = '.$data->defense.', ';	
-	$query .= 'last_activity = "'.$now.'", ';	
+	$query .= 'last_activity = "'.$data->last_activity.'", ';	
 	$query .= 'slogan = "'.warquest_db_escape($data->slogan).'" ';		
 	$query .= 'where cid='.$data->cid; 
 	
@@ -2073,7 +2071,7 @@ function warquest_db_clan_mission_delete($cid, $mid) {
 function warquest_db_player_clan_insert($pid, $cid, $approved, $role) {
 
 	$now = date('Y-m-d H:i:s');
-
+	
 	$query  = 'insert into player_clan (pid, cid, joined, approved, role) values (';
 	$query .= $pid.','.$cid.',"'.$now.'",'.$approved.','.$role.')';	
 	
@@ -2086,11 +2084,9 @@ function warquest_db_player_clan_insert($pid, $cid, $approved, $role) {
  */
 function warquest_db_player_clan_update($data) {
 
-	$now = date('Y-m-d H:i:s');
-
 	$query  = 'update player_clan set '; 
 	$query .= 'approved = '.$data->approved.', ';
-	$query .= 'joined = "'.$now.'", ';	
+	$query .= 'joined = "'.$data->joined.'", ';	
 	$query .= 'role = "'.$data->role.'" ';	
 	$query .= 'where pid='.$data->pid.' and cid='.$data->cid; 
 	
