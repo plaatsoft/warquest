@@ -787,9 +787,10 @@ function warquest_forum_form() {
 	
 	$page .=	'<div class="box">';	
 	$page .=	'<b>'.t('GENERAL_TOPIC').'</b>: ';
-	$page .=	'<input name="search" type="text" id="search" size="52" maxlength="45" value="'.$search.'" onkeydown="if (event.keyCode == 13) return false" >';
-	$page .= ' ';
+	$page .=	'<input name="search" type="text" id="search" size="40" maxlength="30" value="'.$search.'" onkeydown="if (event.keyCode == 13) return false" >';
+	$page .=	'<div class="right2">';
 	$page .= warquest_link('mid='.$mid.'&sid='.PAGE_TOPIC,t('LINK_SEARCH'),'search-0');
+	$page .=	'</div>';
 	$page .=	'</div>';
 		
 	$page .= '<div class="box rows">';

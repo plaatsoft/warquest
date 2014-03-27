@@ -1609,11 +1609,13 @@ function warquest_clan_war_battle_do() {
 		
 		/* Update attack clan stats */				
 		$player_clan->won++;
+		$player_clan->last_activity = date('Y-m-d H:i:s');
 		warquest_db_clan_update($player_clan);
 	
 		/* Update defend clan stats, if possible */
 		if (isset($other_clan->cid)) {
 			$other_clan->lost++;
+			$other_clan->last_activity = date('Y-m-d H:i:s');
 			warquest_db_clan_update($other_clan);
 		}
 		
@@ -1695,11 +1697,13 @@ function warquest_clan_war_battle_do() {
 
 		/* Update attack clan stats */
 		$player_clan->lost++;
+		$player_clan->last_activity = date('Y-m-d H:i:s');
 		warquest_db_clan_update($player_clan);
 		
 		/* Update defend clan stats */
 		if (isset($other_clan->won)) {
 			$other_clan->won++;
+			$other_clan->last_activity = date('Y-m-d H:i:s');
 			warquest_db_clan_update($other_clan);
 		}
 		

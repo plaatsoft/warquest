@@ -51,15 +51,18 @@ function warquest_mission_clan_planet_complet() {
 	$result = warquest_db_query($query);	
 	$data = warquest_db_fetch_object($result);
 					
-	if ($data->progress>=7200) 
-	{
+	if ($data->progress>=7200) {
+	
 		/* update clan money */
 		$bonus = $player->planet * $player->planet * $player->planet * 2000000000000;		
 		
 		$clan = warquest_db_clan($player_clan->cid);		
-		$clan->money += $bonus;
-		warquest_db_clan_update($clan);
 		
+		$clan->money += $bonus;
+		$clan->last_activity = date('Y-m-d H:i:s');
+		
+		warquest_db_clan_update($clan);
+				
 		warquest_db_clan_bank_insert($clan->cid, $player->planet, $bonus, $clan->money, 11);		
 	
 		/* Log system event */					
@@ -573,6 +576,7 @@ function warquest_mission_clan_do() {
 		/* update clan statistics */
 		$clan = warquest_db_clan($player_clan->cid);
 		$clan->mission++;
+		$clan->last_activity = date('Y-m-d H:i:s');
 		warquest_db_clan_update($clan);
 		
 		/* Check if all clan missions of a planet are complete */

@@ -59,7 +59,6 @@ $notes[66] = '
 <li>Added doAlliance method to WarQuest WebService interface.</li>
 <li>Improve doMission method of WarQuest WebService interface.</li>
 <li>Disable account reset functionality.</li>
-<li>Disable automatic clan (member) inactive remove.</li>
 <li>Added trade, restore features to unlock schema.</li>
 <li>Enable as default scheme "transparent" for new players.</li>
 </ul></br>
@@ -219,12 +218,7 @@ $notes[61] = '
 <div class="subparagraph2">11-12-2013</div>
 <i>Game Server v6.1</i>
 <ul>
-<li>Clan Wars improvements:</li>
-<ul>
-<li>Added hourly income to each conquered sectors.</li>
-<li>An inactive clan member is removed from a clan after '.$config["max_clan_member_inactive"].' days.</li>
-<li>An inactive clan is removed after '.$config["max_clan_inactive"].' days.</li>
-</ul>
+<li>Added clan war hourly income to each conquered sectors.</li>
 <li>Added dynamic screen size css to support Firefox OS.</li>
 <li>Added FireFoxOS marketplace button on login page.</li>
 <li>Added gift shop to Help-Donate page.</li>

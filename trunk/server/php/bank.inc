@@ -230,10 +230,15 @@ function warquest_clan_deposit_do() {
 		warquest_db_clan_bank_insert($clan->cid, $player->pid, $deposit, $clan->money, 10);		
 		
 		$fee = $deposit * ($config["init_clan_bank_deposit"]/100);
+		
 		$clan->money -= $fee;
+		$clan->last_activity = date('Y-m-d H:i:s');
+		warquest_db_clan_update($clan);
+		
 		warquest_db_clan_bank_insert($clan->cid, $player->pid, ($fee*-1), $clan->money, 2);
 		
-		warquest_db_clan_update($clan);
+		
+		
 				
 		$player->money -= $deposit;
 		

@@ -41,10 +41,13 @@ INSERT INTO  cron (cid, note, last_run) VALUES (13, 'Lottery job', '2014-03-03 0
 ALTER TABLE `member` CHANGE `version` `versie` VARCHAR( 20 ) CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL ;
 
 -- Remove not used columns
-TABLE `player` DROP `ads`;
-TABLE `skill` DROP `trade_points`;
-ALTER TABLE `player_clan` ADD `role` INT NOT NULL AFTER `approved`;
+ALTER TABLE player DROP ads;
+ALTER TABLE skill DROP trade_points;
+ALTER TABLE player_clan ADD role INT NOT NULL AFTER approved;
 ALTER TABLE player_clan ADD PRIMARY KEY(pid, cid);
 
 UPDATE player_clan SET role=3;
 update player_clan a, clan b set role=1 where a.pid=b.pid;
+
+-- Remove not used cron job
+DELETE FROM cron WHERE cid=9;

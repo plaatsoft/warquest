@@ -142,6 +142,7 @@ function warquest_clan_accept_do() {
 	} else if ($other_clan->approved==0) {
 		
 		$other_clan->approved=1;			
+		$other_clan->joined = date('Y-m-d H:i:s');		
 		warquest_db_player_clan_update($other_clan);
 		
 		/* Update player netto income */		
