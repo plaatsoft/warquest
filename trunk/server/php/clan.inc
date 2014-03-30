@@ -972,7 +972,8 @@ function warquest_clan_form() {
 			$page .= '<tr>';
 
 			$page .= '<td>';
-			$page .= warquest_image("other/clan.jpg", 'width="32" height="22"').' ';
+			$page .= warquest_clan_image($data->cid);
+			//$page .= warquest_image("other/clan.jpg", 'width="32" height="22"').' ';
 			$page .= warquest_link('mid='.$mid.'&sid='.PAGE_CLAN_PROFILE.'&cid='.$data->cid, $data->name);
 			$page .= '</td>';
 			

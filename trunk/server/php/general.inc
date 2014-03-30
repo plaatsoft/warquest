@@ -3699,6 +3699,20 @@ function warquest_bank_image($id, $width=90, $height=65) {
 	return $image;
 }
 
+/**
+ * Get clan image
+ */
+function warquest_clan_image($id, $width=64, $height=64) {
+
+	/* input */
+	global $config;
+			
+	$image = '<img src="'.$config["content_url"].'images/clan/'.$id.'.png" ';
+	$image .= 'width="'.$width.'" height="'.$height.'" />';
+			
+	return $image;
+}
+
 
 /**
  * Get mission image
