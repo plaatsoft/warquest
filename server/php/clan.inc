@@ -755,7 +755,9 @@ function warquest_clan_slogan_part($clan, $player_clan) {
 	
 	/* output */
 	global $page;
-		
+	
+	$page .= '<div class="subparagraph">'.t('CLAN_SLOGAN_TITLE').'</div>';
+	
 	if (isset($player_clan->pid) && ($clan->cid==$player_clan->cid) && ($player_clan->role==CLAN_ROLE_COMMANDER)) {
 		
 		$page .= '<div class="box">';
@@ -791,6 +793,37 @@ function warquest_clan_slogan_part($clan, $player_clan) {
 	} 
 }
 
+function warquest_clan_general($clan) {
+
+	/* output */
+	global $page;
+	
+	$page .= '<div class="box">';
+	
+	$query  = 'select pid from player_clan where cid='.$clan->cid;	
+	$result = warquest_db_query($query);	 	
+	$size = warquest_db_num_rows($result);
+	
+	$page .= '<table>';
+	
+	$page .= '<tr>';
+	$page .= '<td width="170">'.t('PLAYER_CLAN_NAME').':</td>';
+	$page .= '<td width="140" >'.$clan->name.'</td>';
+	
+	$page .= '<td width="190" rowspan="4" align="right">';	
+	$page .= warquest_clan_image($clan->cid, 38, 38);
+	$page .= '</td>';	
+	$page .= '</tr>';
+	
+	$page .= '<tr>';
+	$page .= '<td>'.t('CLAN_SIZE').':</td>';
+	$page .= '<td >'.$size.'</td>';	
+	$page .= '</tr>';
+	
+	$page .= '</table>';
+	$page .= '</div>'; 
+}
+
 /** 
  * Clan profile statistics part
  */
@@ -803,10 +836,6 @@ function warquest_clan_statistics_part($clan) {
 	/* output */
 	global $page;
 	
-	$query  = 'select pid from player_clan where cid='.$clan->cid;	
-	$result = warquest_db_query($query);	 	
-	$size = warquest_db_num_rows($result);
-	
 	$page .= '<div class="subparagraph">'.t('CLAN_STATISTICS').'</div>';
 	  	
 	$page .= '<div class="box">';
@@ -815,9 +844,9 @@ function warquest_clan_statistics_part($clan) {
 	
 	$page .= '<tr>';
 	$page .= '<td width="170">'.t('CLAN_FIGHTS_WON').':</td>';
-	$page .= '<td   width="85">'.number_format($clan->won,0,",",".").'</td>';
+	$page .= '<td width="85">'.number_format($clan->won,0,",",".").'</td>';
 	$page .= '<td width="170">'.t('CLAN_FIGHTS_LOST').':</td>';
-	$page .= '<td  width="80">'.number_format($clan->lost,0,",",".").'</td>';
+	$page .= '<td width="80">'.number_format($clan->lost,0,",",".").'</td>';
 	$page .= '</tr>';
 		
 	$page .= '<tr>';
@@ -832,8 +861,6 @@ function warquest_clan_statistics_part($clan) {
 	$page .= '</tr>';
 	
 	$page .= '<tr>';
-	$page .= '<td>'.t('CLAN_SIZE').':</td>';
-	$page .= '<td >'.$size.'</td>';
 	$page .= '<td>'.t('CLAN_LAST_ACTIVE').':</td>';
 	$page .= '<td >'.warquest_ui_ago($clan->last_activity).'</td>';
 	$page .= '</tr>';
@@ -858,8 +885,9 @@ function warquest_clan_profile_form() {
 	
 	$output->title = t('CLAN_PROFILE', $clan->name);
 	
-	$page .= '<div class="subparagraph">'.t('CLAN_PROFILE_TITLE', $clan->name).'</div>';
+	$page .= '<div class="subparagraph">'.t('CLAN_PROFILE_TITLE').'</div>';
 	
+	warquest_clan_general($clan);
 	warquest_clan_slogan_part($clan, $player_clan);
 	warquest_clan_statistics_part($clan);
 	warquest_clan_member_part($clan, $player_clan);
@@ -886,7 +914,7 @@ function warquest_clan_form() {
 	global $output;
 	
 	$lid = 15;
-	$limit = 25;
+	$limit = 15;
 	
 	$output->title = t('CLAN_TITLE');
 
@@ -972,8 +1000,7 @@ function warquest_clan_form() {
 			$page .= '<tr>';
 
 			$page .= '<td>';
-			$page .= warquest_clan_image($data->cid);
-			//$page .= warquest_image("other/clan.jpg", 'width="32" height="22"').' ';
+			$page .= warquest_clan_image($data->cid).' ';
 			$page .= warquest_link('mid='.$mid.'&sid='.PAGE_CLAN_PROFILE.'&cid='.$data->cid, $data->name);
 			$page .= '</td>';
 			

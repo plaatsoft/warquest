@@ -3702,7 +3702,7 @@ function warquest_bank_image($id, $width=90, $height=65) {
 /**
  * Get clan image
  */
-function warquest_clan_image($id, $width=64, $height=64) {
+function warquest_clan_image($id, $width=32, $height=32) {
 
 	/* input */
 	global $config;
