@@ -17,9 +17,10 @@
 */
 
 $notes[67] = '
-<div class="subparagraph2">25-03-2014</div>
+<div class="subparagraph2">30-03-2014</div>
 <i>Game Server v6.7</i>
 <ul>
+<li>Added Clan Logo.</li>
 <li>Added Clan membership role feature:</li>
 <ul>
 <li>Role Commander: Full clan rights!</li>

@@ -3122,7 +3122,7 @@ $lang['LINK_JOIN'] = 'Join';
 $lang['LINK_LEAVE'] = 'Leave';
 
 $lang['CLAN_TITLE'] = 'Clans';
-$lang['CLAN_PROFILE_TITLE'] = 'Clan Profile [%s]';
+$lang['CLAN_PROFILE_TITLE'] = 'Profile';
 $lang['CLAN_NOTE'] = 'Create or join a clan to enter clan wars. Each player can only be part of one clan.';
 $lang['CLAN_ADD'] = 'Add Clan';
 $lang['CLAN_CREATE'] = 'New clan name';
@@ -3145,6 +3145,7 @@ $lang['CLAN_PROFILE'] = 'Clan Profile [%s]';
 $lang['CLAN_MEMBER_LIST'] = 'Members';
 $lang['CLAN_BANK'] = 'Clan Bank';
 
+$lang['CLAN_SLOGAN_TITLE'] = 'Slogan';
 $lang['CLAN_SLOGAN_NOTE'] = 'Enter or update clan slogan:';
 $lang['CLAN_SLOGAN_SAVED'] = 'Clan slogan is saved';
 $lang['CLAN_SLOGAN_TOO_SHORT'] = 'Clan slogan is to short';
@@ -3306,7 +3307,7 @@ $lang['CLAN_FIGHTS_LOST'] = 'Fights lost';
 $lang['CLAN_FIGHTS_WON']  = 'Fights won';
 $lang['CLAN_MISSIONS_COMPLETED'] = 'Missions completed';
 $lang['CLAN_WON_LOST_RATIO']  = 'Won/Lost ratio';
-$lang['CLAN_SIZE']  = 'Clan size';
+$lang['CLAN_SIZE']  = 'Size';
 $lang['CLAN_LAST_ACTIVE']  = 'Last active (ago)';
 
 $lang['MISSION_PLAYER_TITLE'] = 'Player Missions';
