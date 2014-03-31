@@ -44,6 +44,7 @@ function warquest_players() {
 					
 		case PAGE_CLAN:  
 		case PAGE_CLAN_PROFILE:  
+		case PAGE_CLAN_SETTINGS:  
 					warquest_clan();
 					break;
 					
