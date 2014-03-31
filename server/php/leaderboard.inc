@@ -53,7 +53,7 @@ function warquest_best_clan_form() {
 	$result = warquest_db_query($query);	
 	$total = warquest_db_num_rows($result);
 	
-	$query  = 'select a.cid, a.name, a.created, a.won, a.lost, a.mission, ';
+	$query  = 'select a.cid, a.name, a.created, a.won, a.lost, a.mission, a.logo, ';
 	$query .= '(select count(*) from player_clan where approved=1 and cid=a.cid) as size ';
 	$query .= 'from clan a ';
 	
@@ -135,7 +135,7 @@ function warquest_best_clan_form() {
 			$page .= '</td>';
 			
 			$page .= '<td>';
-			$page .= warquest_clan_image($data->cid).' ';
+			$page .= warquest_clan_image($data->logo).' ';
 			$page .= warquest_link('mid='.$mid.'&sid='.PAGE_CLAN_PROFILE.'&cid='.$data->cid, $data->name);
 			$page .= '</td>';
 								

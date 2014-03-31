@@ -1930,8 +1930,8 @@ function warquest_db_clan_insert($pid, $name) {
 
 	$now = date('Y-m-d H:i:s');
 	
-	$query  = 'insert into clan (name, pid, created, last_activity) values ("';
-	$query .= warquest_db_escape($name).'",'.$pid.',"'.$now.'","'.$now.'")';	
+	$query  = 'insert into clan (name, pid, created, last_activity, logo) values ("';
+	$query .= warquest_db_escape($name).'",'.$pid.',"'.$now.'","'.$now.'",1)';	
 		
 	warquest_db_query($query);
 	
@@ -1949,7 +1949,7 @@ function warquest_db_clan_insert($pid, $name) {
 function warquest_db_clan($cid) {
 
 	$query  = 'select cid, name, created, last_activity, pid, won, lost, money, ';
-	$query .= 'attack, defense, slogan, mission, logo from clan where cid='.$cid;	
+	$query .= 'attack, defense, slogan, mission, logo, min_level from clan where cid='.$cid;	
 	
 	$result = warquest_db_query($query);
 	
@@ -1973,8 +1973,9 @@ function warquest_db_clan_update($data) {
 	$query .= 'attack = '.$data->attack.', ';	
 	$query .= 'defense = '.$data->defense.', ';	
 	$query .= 'slogan = "'.warquest_db_escape($data->slogan).'", ';	
-	$query .= 'mission = '.$data->mission.', ';		
-	$query .= 'logo = '.$data->logo.' ';		
+	$query .= 'mission = '.$data->mission.', ';			
+	$query .= 'logo = '.$data->logo.', ';	
+	$query .= 'min_level = '.$data->min_level.' ';		
 	$query .= 'where cid='.$data->cid; 
 	
 	return warquest_db_query($query);  
