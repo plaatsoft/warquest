@@ -3104,7 +3104,7 @@ $lang['USER_EMAIL_CONFIRM_NEEDED'] = 'Please confirm your email address by click
 $lang['USER_EMAIL_HERE'] = 'here';
 $lang['USER_EMAIL_VALID'] = 'Your email address is validated. Thank you!';
 
-$lang['PLAYER_CLAN_NAME'] = 'Clan';
+$lang['GENERAL_CLAN_NAME'] = 'Clan Name';
 
 $lang['GENERAL_NAME'] = 'Name';
 $lang['GENERAL_STRENGTH'] = 'Strength';
@@ -3146,7 +3146,7 @@ $lang['CLAN_MEMBER_LIST'] = 'Members';
 $lang['CLAN_BANK'] = 'Clan Bank';
 
 $lang['CLAN_SLOGAN_TITLE'] = 'Slogan';
-$lang['CLAN_SLOGAN_SAVED'] = 'Clan slogan is saved';
+$lang['CLAN_SETTINGS_SAVED'] = 'Clan settings saved!';
 $lang['CLAN_SLOGAN_TOO_SHORT'] = 'Clan slogan is to short';
 $lang['CLAN_SLOGAN_TOO_LONG'] = 'Clan slogan is to long. Maximum 200 characters allowed.';
 
@@ -3306,7 +3306,7 @@ $lang['CLAN_FIGHTS_LOST'] = 'Fights lost';
 $lang['CLAN_FIGHTS_WON']  = 'Fights won';
 $lang['CLAN_MISSIONS_COMPLETED'] = 'Missions completed';
 $lang['CLAN_WON_LOST_RATIO']  = 'Won/Lost ratio';
-$lang['CLAN_SIZE']  = 'Size';
+$lang['CLAN_SIZE']  = 'Clan Size';
 $lang['CLAN_LAST_ACTIVE']  = 'Last active (ago)';
 
 $lang['MISSION_PLAYER_TITLE'] = 'Player Missions';
@@ -3420,13 +3420,17 @@ $lang['LINK_NO'] = 'No';
 ** ------------------
 */
 
-$lang['GENERAL_CREATOR'] = 'Creator';
-
 $lang['CLAN_SETTINGS_TITLE'] = 'Clan Settings';
-
 $lang['CLAN_SETTINGS_NOTE'] = 'On this page you can adapt clan settings!';
 
+$lang['GENERAL_CREATOR'] = 'Creator';
 $lang['GENERAL_LOGO'] = 'Logo';
+$lang['GENERAL_MIN_LEVEL'] = 'Minimal Join Level';
+$lang['GENERAL_CLAN_CREATED'] = 'Created';
+
+$lang['CLAN_MIN_LEVEL_INVALID'] = 'Minimal join level value invalid!';
+$lang['CLAN_MIN_LEVEL_TOO_LOW'] = 'Minimal join level too low!';
+$lang['CLAN_MIN_LEVEL_TOO_HIGH'] = 'Minimal join level too high!';
 
 /*
 ** ------------------

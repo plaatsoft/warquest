@@ -1621,7 +1621,7 @@ function warquest_profile($id) {
 	$data2 = warquest_db_fetch_object($result2);
 	
 	$page .= '<tr>';
-	$page .= '<td>'.t('PLAYER_CLAN_NAME').':</td>';
+	$page .= '<td>'.t('GENERAL_CLAN_NAME').':</td>';
 	$page .= '<td >';
 	if (isset($data2->cid)) {
 		$page .= warquest_link('mid='.MENU_PLAYERS.'&sid='.PAGE_CLAN_PROFILE.'&cid='.$data2->cid, $data2->name);

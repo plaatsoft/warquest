@@ -271,17 +271,17 @@ define('EVENT_CLAN_JOIN',                3706);
 define('EVENT_CLAN_LEAVE',               3707);
 define('EVENT_CLAN_DROP',                3708);
 define('EVENT_CLAN_ACCEPT',              3709);
-define('EVENT_CLAN_SLOGAN',              3710);
+define('EVENT_CLAN_SAVE',         		  3710);
 define('EVENT_CLAN_DEPOSIT',             3711);
 define('EVENT_CLAN_SKILL_INCREASE' ,     3712);
 define('EVENT_CLAN_SKILL_DECREASE' ,     3713);
+define('EVENT_CLAN_MEMBER_EDIT',         3716);
+define('EVENT_CLAN_MEMBER_SAVE',         3717);
+define('EVENT_CLAN_LOGO_NEXT',			  3719);
+define('EVENT_CLAN_LOGO_PREV',			  3720);
 
 define('EVENT_PROMOTION_INVITE',			  3714);
 define('EVENT_ALLIANCE_SEARCH',		 	  3715);
-
-define('EVENT_CLAN_MEMBER_EDIT',         3716);
-define('EVENT_CLAN_MEMBER_SAVE',         3717);
-define('EVENT_CLAN_SAVE',         		  3718);
 
 /* forum */
 define('EVENT_FORUM_COMMENT_SAVE', 	     3801);
