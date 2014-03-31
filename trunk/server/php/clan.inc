@@ -811,13 +811,18 @@ function warquest_clan_general($clan) {
 	$page .= '<td width="140" >'.$clan->name.'</td>';
 	
 	$page .= '<td width="190" rowspan="4" align="right">';	
-	$page .= warquest_clan_image($clan->cid, 38, 38);
+	$page .= warquest_clan_image($clan->cid, 54, 54);
 	$page .= '</td>';	
 	$page .= '</tr>';
 	
 	$page .= '<tr>';
 	$page .= '<td>'.t('CLAN_SIZE').':</td>';
 	$page .= '<td >'.$size.'</td>';	
+	$page .= '</tr>';
+	
+	$page .= '<tr>';
+	$page .= '<td>'.t('GENERAL_CREATED').':</td>';
+	$page .= '<td >'.warquest_ui_ago($clan->created).'</td>';	
 	$page .= '</tr>';
 	
 	$page .= '</table>';
@@ -888,8 +893,8 @@ function warquest_clan_profile_form() {
 	$page .= '<div class="subparagraph">'.t('CLAN_PROFILE_TITLE').'</div>';
 	
 	warquest_clan_general($clan);
-	warquest_clan_slogan_part($clan, $player_clan);
 	warquest_clan_statistics_part($clan);
+	warquest_clan_slogan_part($clan, $player_clan);	
 	warquest_clan_member_part($clan, $player_clan);
 	warquest_clan_skills_part($clan, $player_clan);
 

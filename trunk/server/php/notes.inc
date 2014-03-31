@@ -16,8 +16,21 @@
 **  All copyrights reserved (c) 2008-2014 PlaatSoft
 */
 
-$notes[67] = '
+$notes[68] = '
 <div class="subparagraph2">30-03-2014</div>
+<i>Game Server v6.7</i>
+<ul>
+<li>Added Clan Logo.</li>
+</ul>
+</br>
+
+<i>General</i>
+<ul>
+<li>Please visit www.gravatar.com to upload a player image.</li>
+</ul>';
+
+$notes[67] = '
+<div class="subparagraph2">25-03-2014</div>
 <i>Game Server v6.7</i>
 <ul>
 <li>Added Clan Logo.</li>
@@ -38,12 +51,6 @@ $notes[67] = '
 <li>Adapted facebook like and friend invite gold bonus.</li>
 <li>Improve unit/building/mission popup message.</li>
 <li>Added session memory usage to footer.</li>
-</ul>
-</br>
-
-<i>General</i>
-<ul>
-<li>Please visit www.gravatar.com to upload a player image.</li>
 </ul>';
 
 $notes[66] = '

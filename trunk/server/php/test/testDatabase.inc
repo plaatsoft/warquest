@@ -51,6 +51,7 @@ class TestDatabase extends PHPUnit_Framework_TestCase {
 		warquest_db_multi_query( file_get_contents('../#database/patch_65.sql', true) );
 		warquest_db_multi_query( file_get_contents('../#database/patch_66.sql', true) );
 		warquest_db_multi_query( file_get_contents('../#database/patch_67.sql', true) );
+		warquest_db_multi_query( file_get_contents('../#database/patch_68.sql', true) );
 		
 		$result = warquest_db_close();
 		$this->assertEquals($result, 1);	
