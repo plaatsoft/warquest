@@ -3146,7 +3146,6 @@ $lang['CLAN_MEMBER_LIST'] = 'Members';
 $lang['CLAN_BANK'] = 'Clan Bank';
 
 $lang['CLAN_SLOGAN_TITLE'] = 'Slogan';
-$lang['CLAN_SLOGAN_NOTE'] = 'Enter or update clan slogan:';
 $lang['CLAN_SLOGAN_SAVED'] = 'Clan slogan is saved';
 $lang['CLAN_SLOGAN_TOO_SHORT'] = 'Clan slogan is to short';
 $lang['CLAN_SLOGAN_TOO_LONG'] = 'Clan slogan is to long. Maximum 200 characters allowed.';
@@ -3414,6 +3413,20 @@ $lang['CLAN_ROLE_CHANGED'] = 'Role of clan member %s is changed to %s.';
 
 $lang['LINK_YES'] = 'Yes';
 $lang['LINK_NO'] = 'No';
+
+/*
+** ------------------
+** Added v6.8
+** ------------------
+*/
+
+$lang['GENERAL_CREATOR'] = 'Creator';
+
+$lang['CLAN_SETTINGS_TITLE'] = 'Clan Settings';
+
+$lang['CLAN_SETTINGS_NOTE'] = 'On this page you can adapt clan settings!';
+
+$lang['GENERAL_LOGO'] = 'Logo';
 
 /*
 ** ------------------

@@ -131,7 +131,7 @@ define('PAGE_CASINO_TICTACTOE',	1708);
 define('PAGE_CASINO_POKER',		1709);
 define('PAGE_CASINO_POKER_HELP',	1710);
 
-/* Alliance */
+/* Players */
 define('PAGE_ALLIANCE',        	1801);
 define('PAGE_ALLIANCE_PENDING',  1802);
 define('PAGE_ALLIANCE_INVITE',  	1803);
@@ -139,6 +139,7 @@ define('PAGE_ALLIANCE_ACCEPTED', 1804);
 
 define('PAGE_CLAN',           	1811); 
 define('PAGE_CLAN_PROFILE',     	1812);
+define('PAGE_CLAN_SETTINGS', 	  	1813);
 
 define('PAGE_LEADERBOARD',    	1821);
 define('PAGE_BEST_PLAYER',    	1822);
@@ -264,6 +265,7 @@ define('EVENT_ALLIANCE_INVITE',          3701);
 define('EVENT_ALLIANCE_ACCEPT',          3702);
 define('EVENT_ALLIANCE_REJECT',          3703);
 define('EVENT_ALLIANCE_DROP',            3704);
+
 define('EVENT_CLAN_CREATE',              3705);
 define('EVENT_CLAN_JOIN',                3706);
 define('EVENT_CLAN_LEAVE',               3707);
@@ -273,10 +275,13 @@ define('EVENT_CLAN_SLOGAN',              3710);
 define('EVENT_CLAN_DEPOSIT',             3711);
 define('EVENT_CLAN_SKILL_INCREASE' ,     3712);
 define('EVENT_CLAN_SKILL_DECREASE' ,     3713);
+
 define('EVENT_PROMOTION_INVITE',			  3714);
 define('EVENT_ALLIANCE_SEARCH',		 	  3715);
+
 define('EVENT_CLAN_MEMBER_EDIT',         3716);
 define('EVENT_CLAN_MEMBER_SAVE',         3717);
+define('EVENT_CLAN_SAVE',         		  3718);
 
 /* forum */
 define('EVENT_FORUM_COMMENT_SAVE', 	     3801);
