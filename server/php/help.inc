@@ -903,6 +903,10 @@ function warquest_help_levels_feature($lid) {
 		$page .= warquest_casino_image(4, 55, 40);	
 	}
 	
+	if ($lid==$config["casino_unlock_level_5"]) {
+		$page .= warquest_casino_image(5, 55, 40);	
+	}
+	
 	if (strlen($page)==0) {
 		
 		$page .= warquest_image("other/box.png", ' width="55" height="40" ');	

@@ -1109,11 +1109,6 @@ function warquest_battle_do($planet, $ugid) {
 		$message = t('BATTLE_NO_UNITS_AVAILABLE');
 		$output->popup .= warquest_box_icon("warning", $message);
 		
-	} else if ($player->lid==0) {
-			
-		$message = t('BATTLE_UNLOCKED', t('GENERAL_PLANET_1'), 1).' '.t('BATTLE_FIRST_MISSION');
-		$output->popup .= warquest_box_icon("locked", $message);
-		
 	} else if ($player->ammo<=0) {
 	
 		$message = t('BATTLE_AMMO_LOW');

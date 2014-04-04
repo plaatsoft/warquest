@@ -120,7 +120,6 @@ function warquest_lottery_form() {
 	global $page; 
 	global $output;
 	
-	$lid = 30;
 	$limit = 3;
 	
 	$output->title = t('LOTTERY_TITLE');
@@ -129,9 +128,9 @@ function warquest_lottery_form() {
 	$page .= t('LOTTERY_TITLE');		
 	$page .= '</div>';
 	
-	if ($player->lid < $lid) {
+	if ($player->lid < $config["casino_unlock_level_5"]) {
 	
-		$message = t('LOTTERY_UNLOCKED', $lid);
+		$message = t('LOTTERY_UNLOCKED', $config["casino_unlock_level_5"]);
 		$page .= warquest_box_icon('locked', $message);
 	
 	} else {
