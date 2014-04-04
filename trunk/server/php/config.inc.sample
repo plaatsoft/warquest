@@ -68,7 +68,7 @@ $config["from_email"]					= 'info@warquest.nl';
 $config["next_level_sp_bonus"]		= 3;
 $config["continent_conquer_bonus"]  = 7000000;
 
-$config["init_level"]					= 0;
+$config["init_level"]					= 1;
 $config["init_attack_max"]				= 1;
 $config["init_defense_max"]			= 1;
 $config["init_health_min"]				= 27;
@@ -138,6 +138,7 @@ $config["casino_unlock_level_1"]    = 10;
 $config["casino_unlock_level_2"]    = 15;
 $config["casino_unlock_level_3"]    = 20;
 $config["casino_unlock_level_4"]    = 25;
+$config["casino_unlock_level_5"]    = 30;
 
 /*
 ** ---------------------------------------------------------------- 

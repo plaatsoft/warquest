@@ -300,9 +300,9 @@ $lang['GENERAL_PLANET_5'] = 'Neptune';
 
 $lang['TIP_GENERAL']  = 'TIP';
 $lang['TIP_0'] = 'Play the training mission to collect experience points and reach the next level.';
-$lang['TIP_1'] = 'Buy some units and start battle training to collect experience points.';
+$lang['TIP_1'] = 'Buy some units and start a battle to collect experience points.';
 $lang['TIP_2'] = 'Trade in received skill points (Home -> Skills) to improve your soldier abilities.';
-$lang['TIP_3'] = 'Enter your email address to receive message and alliance notifications!';
+$lang['TIP_3'] = 'At anytime other players can attack you, so keep your defence updated.';
 $lang['TIP_4'] = 'Buy some income buildings to generate hourly income.';
 $lang['TIP_5'] = 'Buy some defense buildings to improve your defense strength.';
 $lang['TIP_6'] = 'Make alliance with ohter players to improve your attack/defense strength.';
@@ -437,8 +437,7 @@ $lang['HOME_INTRO_TITLE'] = 'Introduction';
 $lang['HOME_INTRO_MISSIONS'] = 'Start the game by playing %s ';
 $lang['HOME_INTRO_BATTLES'] = 'and fight %s. ';
 $lang['HOME_INTRO_UNITS'] = 'When you gain money and experience points you can buy more advanced %s ';
-$lang['HOME_INTRO_BUILDINGS'] = ' and %s to get stronger. ';
-$lang['HOME_INTRO_ENEMY'] = ' At anytime other players can attack you, so keep your defence updated.';
+$lang['HOME_INTRO_BUILDINGS'] = ' and %s to get stronger. At anytime other players can attack you, so keep your defence updated.';
 
 $lang['HOME_NEW_ANDROID_VERSION'] = 'New app version v%s is available at the Android Market.<br/>Please upgrade!';
 $lang['HOME_NEW_WINDOWS_VERSION'] = 'New WarQuest client v%s is available!';
@@ -447,7 +446,7 @@ $lang['HOME_CLICK_TEXT'] = 'Click %s to start download.';
 $lang['HOME_EMAIL_MISSING'] = 'Please confirm your email address to enable password recovery and to receive important WarQuest notifications.';
 $lang['HOME_DAILY_BONUS'] = 'You found %s dollar at an enemy location!';
 
-$lang['HOME_WELCOME'] = 'Welcome';
+$lang['HOME_WELCOME'] = 'Welcome %s %s.';
 $lang['HOME_LAST_LOGIN'] = 'Last visit was <b>%s</b> ago.';
 $lang['HOME_AWARDS'] = 'Awards';
 $lang['HOME_BATTLE_AWARDS_TEXT'] = 'You\'ve earned the following battle award(s):';
@@ -460,8 +459,8 @@ $lang['HOME_MAP_NOTE'] = 'Each continent consist out of regions which can be con
 
 $lang['HOME_TRAVEL_TO'] = 'Travel to';
 
-$lang['HOME_INTRO_PLACE1'] = 'You are on <b>%s</b> place on the overall leaderboard '; 
-$lang['HOME_INTRO_PLACE2'] = 'and <b>%s</b> place on the <b>%s</b> leaderboard. '; 
+$lang['HOME_INTRO_PLACE1'] = 'You are on %s place on the overall leaderboard '; 
+$lang['HOME_INTRO_PLACE2'] = 'and %s place on the <b>%s</b> leaderboard. '; 
 $lang['HOME_PLAYERS_ONLINE'] = 'Last 24 hours %s players were online.';
 
 $lang['HOME_HOLIDAY'] = 'Holiday';
@@ -1322,7 +1321,6 @@ $lang['BATTLE_ATTACK_FORCE'] = 'Your %s attack %s (%s attack strength):';
 $lang['BATTLE_MORE'] = 'more';
 $lang['BATTLE_NO_PLAYER_AVAILABLE'] = 'At the moment no player is available to battle.';
 $lang['BATTLE_UNLOCKED'] = '%s battle is unlocked at level %s.';
-$lang['BATTLE_FIRST_MISSION'] = 'Complete the training mission first.';
 $lang['BATTLE_BOUNTY_UNLOCKED'] = '%s bounty hunting is unlocked at level %s.';
 $lang['BATTLE_ALLY_NO_ATTACK'] = '<b>%s</b> is an ally. You cannot attack allies.';
 $lang['BATTLE_SURRENDER'] = 'Temporarely surrender';
@@ -2332,11 +2330,13 @@ $lang['CASINO_1'] = 'Wheel';
 $lang['CASINO_2'] = 'SlotMachine';
 $lang['CASINO_3'] = 'TicTacToe';
 $lang['CASINO_4'] = 'Poker'; 
+$lang['CASINO_5'] = 'Lottery'; 
 
 $lang['CASINO_TITLE_1'] = 'Wheel Of Fortune';
 $lang['CASINO_TITLE_2'] = 'Slot Machine';
 $lang['CASINO_TITLE_3'] = 'Tic Tac Toe';
 $lang['CASINO_TITLE_4'] = 'Poker'; 
+$lang['CASINO_TITLE_5'] = 'Lottery';
 
 $lang['CASINO_MONEY'] = 'Money';
 $lang['CASINO_NUMBER'] = 'Lucky number';

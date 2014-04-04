@@ -370,6 +370,7 @@ if ( $output->format=="html" ) {
 		echo warquest_ui_banner();
 
 		/* Show main menu */
+		$skill = warquest_db_skill($player->pid);
 		echo warquest_mainmenu();
 		
 		/* Show popup message */	

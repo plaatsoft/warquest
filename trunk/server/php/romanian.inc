@@ -412,7 +412,6 @@ $lang['HOME_INTRO_MISSIONS'] = 'incepe jocul %s ';
 $lang['HOME_INTRO_BATTLES'] = 'si lupte %s. ';
 $lang['HOME_INTRO_UNITS'] = ' cand castigi bani si experienta poti cumpara mai multe %s ';
 $lang['HOME_INTRO_BUILDINGS'] = ' si %s pentru a deveni mai puternic. ';
-$lang['HOME_INTRO_ENEMY'] = ' in orice moment alti jucatori te pot ataca asa ca ingrijeste-te de aparare.';
 
 $lang['HOME_NEW_ANDROID_VERSION'] = 'o noua versiune a aplicatiei v%s este disponibila pe piata android .<br/>Please upgrade!';
 $lang['HOME_NEW_WINDOWS_VERSION'] = 'un nou client WarQuest este disponibil!';
@@ -421,7 +420,7 @@ $lang['HOME_CLICK_TEXT'] = 'Click %s pentru a incepe downloadul.';
 $lang['HOME_EMAIL_MISSING'] = 'te rugam intro adresa de mail ca sa primesti mesaje de la ceilalti jucatori si pentru a-ti recupera parola.';
 $lang['HOME_DAILY_BONUS'] = 'ai gasit %s dollar la o locatie inamica!';
 
-$lang['HOME_WELCOME'] = 'Bine ai venit';
+$lang['HOME_WELCOME'] = 'Bine ai venit %s %s.';
 $lang['HOME_LAST_LOGIN'] = 'Ultima vizita a fost acum <b>%s</b>.';
 $lang['HOME_AWARDS'] = 'premii';
 $lang['HOME_BATTLE_AWARDS_TEXT'] = 'ai castiga urmatorul premiu de lupta:';
@@ -433,8 +432,8 @@ $lang['HOME_MAP_NOTE'] = ' fiecare continent contine 3 regiuni care pot fi cucer
 
 $lang['HOME_TRAVEL_TO'] = 'calatoreste pe';
 
-$lang['HOME_INTRO_PLACE1'] = 'esti pe locul <b>%s</b> general '; 
-$lang['HOME_INTRO_PLACE2'] = 'si locul <b>%s</b> din <b>%s</b> .'; 
+$lang['HOME_INTRO_PLACE1'] = 'esti pe locul %s general '; 
+$lang['HOME_INTRO_PLACE2'] = 'si locul %s din <b>%s</b> .'; 
 $lang['HOME_PLAYERS_ONLINE'] = 'in ultimele 24hs %s jucatori au fost on-line.';
 
 $lang['HOME_HOLIDAY'] = 'vacanta';
@@ -1219,7 +1218,6 @@ $lang['BATTLE_ATTACK_FORCE'] = 'Your %s attack %s (%s attack strength)';
 $lang['BATTLE_MORE'] = 'mai mult';
 $lang['BATTLE_NO_PLAYER_AVAILABLE'] = 'In acest moment nici un jucator nu este disponibil pentru lupta.';
 $lang['BATTLE_UNLOCKED'] = '%s lupta este deblocata la nivelul %s.';
-$lang['BATTLE_FIRST_MISSION'] = 'Completeaza misiunea de antrenament pentru inceput.';
 $lang['BATTLE_BOUNTY_UNLOCKED'] = '%s vanatoarea de recompense este disponibila la nivelul %s.';
 $lang['BATTLE_ALLY_NO_ATTACK'] = '<b>%s</b> iti este aliat. Nu iti poti ataca aliatii.';
 $lang['BATTLE_SURRENDER'] = 'S-a predat temporar';

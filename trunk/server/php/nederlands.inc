@@ -353,7 +353,6 @@ $lang['HOME_INTRO_MISSIONS'] = 'Start het spel door %s te spelen. Hierdoor worde
 $lang['HOME_INTRO_BATTLES'] = 'Met deze eenheden kan je gaan %s tegen andere spelers. ';
 $lang['HOME_INTRO_UNITS'] = 'Met het gewonnen geld kan je betere %s ';
 $lang['HOME_INTRO_BUILDINGS'] = ' en %s kopen zodat je aanval sterkte verhoogt wordt. ';
-$lang['HOME_INTRO_ENEMY'] = 'Op ieder moment kunnen andere spelers je aanvallen dus houd ook je verdedigings sterkte op niveau.';
 
 $lang['HOME_NEW_ANDROID_VERSION'] = 'Nieuwe app versie v%s is beschikbaar op de Android Market!';
 $lang['HOME_NEW_WINDOWS_VERSION'] = 'Nieuwe WarQuest client v%s is beschikbaar!';
@@ -363,7 +362,7 @@ $lang['HOME_CLICK_TEXT'] = 'Klik %s om de download te starten.';
 $lang['HOME_EMAIL_MISSING'] = 'Een valide email adres ontbreekt!';
 $lang['HOME_DAILY_BONUS'] = 'Je hebt %s dollar gevonden op een vijandelijke locatie!';
 
-$lang['HOME_WELCOME'] = 'Welkom';
+$lang['HOME_WELCOME'] = 'Welkom %s %s.';
 $lang['HOME_LAST_LOGIN'] = 'Laatste bezoek was <b>%s</b> geleden.';
 $lang['HOME_AWARDS'] = 'Ontvangen Onderscheidingen:';
 $lang['HOME_MAP_TITLE'] = 'Continenten';
@@ -373,8 +372,8 @@ $lang['HOME_TRAVEL_TO'] = 'Reis naar';
 
 $lang['HOME_OVERVIEW_TITLE'] = 'Overzicht';
 
-$lang['HOME_INTRO_PLACE1'] = 'Je staat op de <b>%s</b> plaats van alle spelers '; 
-$lang['HOME_INTRO_PLACE2'] = 'en op de <b>%s</b> plaats van <b>%s</b>.'; 
+$lang['HOME_INTRO_PLACE1'] = 'Je staat op de %s plaats van alle spelers '; 
+$lang['HOME_INTRO_PLACE2'] = 'en op de %s plaats van <b>%s</b>.'; 
 $lang['HOME_PLAYERS_ONLINE'] = '%s speler zijn de laatste 24 uur actie geweest.';
 
 /*
@@ -940,7 +939,6 @@ $lang['BATTLE_ATTACK_FORCE'] = 'Je %s aanvals %s (%s aanvalskracht):';
 $lang['BATTLE_MORE'] = 'meer';
 $lang['BATTLE_NO_PLAYER_AVAILABLE'] = 'In dit nivo zijn er geen spelers beschikbaar om tegen te vechten.';
 $lang['BATTLE_UNLOCKED'] = '%s vechten is ontgrendeld in nivo %s.';
-$lang['BATTLE_FIRST_MISSION'] = 'Je moet eerst de training missie afronden.';
 $lang['BATTLE_BOUNTY_UNLOCKED'] = '%s premiejagen is ontgrendeld in nivo %s.';
 $lang['BATTLE_SURRENDER'] = 'Tijdelijk opgegeven';
 

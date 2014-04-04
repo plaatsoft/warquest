@@ -419,7 +419,7 @@ $lang['HOME_CLICK_TEXT'] = 'Click %s para iniciar descarga.';
 $lang['HOME_EMAIL_MISSING'] = 'Por favor, proporcione su dirección de correo electrónico para recibir mensajes de jugadores por correo y para la recuperación de la contraseña.';
 $lang['HOME_DAILY_BONUS'] = 'Encontraste %s dólares en una ubicación del enemigo!';
 
-$lang['HOME_WELCOME'] = 'Bienvenido';
+$lang['HOME_WELCOME'] = 'Bienvenido %s %s.';
 $lang['HOME_LAST_LOGIN'] = 'La última visita fue hace <b>%s</b>.';
 $lang['HOME_AWARDS'] = 'Condecoraciones';
 $lang['HOME_BATTLE_AWARDS_TEXT'] = 'Usted ha ganado las siguientes condecoraciones de batalla:';
@@ -431,8 +431,8 @@ $lang['HOME_MAP_NOTE'] = 'Cada continente consiste de tres regiones que pueden s
 
 $lang['HOME_TRAVEL_TO'] = 'Viajar a';
 
-$lang['HOME_INTRO_PLACE1'] = 'Usted ocupa el <b>%s</b> lugar en la clasificación general '; 
-$lang['HOME_INTRO_PLACE2'] = 'y el <b>%s</b> lugar de la clasificacion de <b>%s</b>. '; 
+$lang['HOME_INTRO_PLACE1'] = 'Usted ocupa el %s lugar en la clasificación general '; 
+$lang['HOME_INTRO_PLACE2'] = 'y el %s lugar de la clasificacion de <b>%s</b>. '; 
 $lang['HOME_PLAYERS_ONLINE'] = 'Las ultimas 24 h %s jugadores estuvieron conectados.';
 
 $lang['HOME_HOLIDAY'] = 'Vacaciones';
@@ -1143,7 +1143,6 @@ $lang['BATTLE_ATTACK_FORCE'] = 'Tu %s ataque %s (%s fuerza de ataque)';
 $lang['BATTLE_MORE'] = 'más';
 $lang['BATTLE_NO_PLAYER_AVAILABLE'] = 'En estos momentos ningún jugador(es) están disponibles para combatir.';
 $lang['BATTLE_UNLOCKED'] = '%s opción Batalla se desbloquea en el nivel %s.';
-$lang['BATTLE_FIRST_MISSION'] = 'Complete la misión de entrenamiento primero.';
 $lang['BATTLE_BOUNTY_UNLOCKED'] = '%s la opción Caza Recompensas se desbloquea en el nivel %s.';
 $lang['BATTLE_ALLY_NO_ATTACK'] = '<b>%s</b> es un aliado. No puede atacar a sus aliados.';
 $lang['BATTLE_SURRENDER'] = 'Rendición temporal';

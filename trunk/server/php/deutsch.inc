@@ -331,7 +331,6 @@ $lang['HOME_INTRO_MISSIONS'] = 'Beginne das Spiel indem du %s ';
 $lang['HOME_INTRO_BATTLES'] = 'und kämpfe %s. ';
 $lang['HOME_INTRO_UNITS'] = 'Wenn du ausreichend Erfahrung und Geld gesammelt, hast kannst du bessere %s ';
 $lang['HOME_INTRO_BUILDINGS'] = ' und %s um mächtiger zu werden. ';
-$lang['HOME_INTRO_ENEMY'] = 'Zu jeder Zeit können andere Spiele dich angreifen. Desshalb ist es ratsam die Verteidigung nicht ausser Acht zu lassen.';
 
 $lang['HOME_NEW_ANDROID_VERSION'] = 'Neue App Version v%s ist im Android Market verfügbar.<br/>Bitte Upgraden!';
 $lang['HOME_NEW_WINDOWS_VERSION'] = 'Neuer WarQuest client v%s ist verfügbar!';
@@ -339,7 +338,7 @@ $lang['HOME_CLICK_HERE'] = 'hier';
 $lang['HOME_CLICK_TEXT'] = 'Klick %s um den Download zu starten.';
 $lang['HOME_DAILY_BONUS'] = 'Du hast %s Dollar bei einem feindlichen Stützpunkt gefunden!';
 
-$lang['HOME_WELCOME'] = 'Willkommen';
+$lang['HOME_WELCOME'] = 'Willkommen %s %s.';
 $lang['HOME_LAST_LOGIN'] = 'Letzter Besuch  ist <b>%s</b> her.';
 $lang['HOME_AWARDS'] = 'Auszeichnungen';
 $lang['HOME_BATTLE_AWARDS_TEXT'] = 'Folgende Auszeichnungen hast du im Kampf verdient:';
@@ -351,8 +350,8 @@ $lang['HOME_MAP_NOTE'] = 'Jede Mission muss dreimal absolviert, werden um den Ko
 
 $lang['HOME_TRAVEL_TO'] = 'Reise zu';
 
-$lang['HOME_INTRO_PLACE1'] = 'Du bist auf dem <b>%s</b> Platz in der allgemeinen Rangliste '; 
-$lang['HOME_INTRO_PLACE2'] = 'und auf dem <b>%s</b> Platz auf der <b>%s</b> Rangliste. '; 
+$lang['HOME_INTRO_PLACE1'] = 'Du bist auf dem %s Platz in der allgemeinen Rangliste '; 
+$lang['HOME_INTRO_PLACE2'] = 'und auf dem %s Platz auf der <b>%s</b> Rangliste. '; 
 $lang['HOME_PLAYERS_ONLINE'] = 'In den letzten 24 Stunden waren %s Spieler online.';
 
 

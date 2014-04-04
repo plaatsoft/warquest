@@ -17,11 +17,14 @@
 */
 
 $notes[68] = '
-<div class="subparagraph2">30-03-2014</div>
-<i>Game Server v6.7</i>
+<div class="subparagraph2">03-04-2014</div>
+<i>Game Server v6.8</i>
 <ul>
+<li>Improve Home page layout for new and existing players.</li>
+<li>Improve buildings page and casino menu layout.</li>
 <li>Added Clan->Clan Profile->Clan Settings page.</li>
 <li>Now Clan name, logo, minimum level can be changed.</li>
+<li>Bugfix: New skillpoint(s) notification is not working correct!</li>
 </ul>
 </br>
 

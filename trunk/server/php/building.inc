@@ -112,9 +112,9 @@ function warquest_building_buy_do() {
 		$message .= '</td>';
 		$message .= '<td>';
 		if ($totalPrice>0) {
-			$message .= t('BUILDING_NO_FUNDS', $amount, t('BUILDING_'.$uid), dollar_format($totalPrice));
+			$message .= t('BUILDING_NO_FUNDS', deploy_format($amount), t('BUILDING_'.$uid), dollar_format($totalPrice));
 		} else {
-			$message .= t('BUILDING_NO_FUNDS', $amount, t('BUILDING_'.$uid), gold_format($totalGold));
+			$message .= t('BUILDING_NO_FUNDS', deploy_format($amount), t('BUILDING_'.$uid), gold_format($totalGold));
 		}
 		$message .= '</td>';
 		$message .= '</tr>';
@@ -132,9 +132,9 @@ function warquest_building_buy_do() {
 		$message .= '</td>';
 		$message .= '<td>';
 		if ($totalPrice>0) {
-			$message .= t('BUILDING_LOW_UPKEEP2' ,$amount, t('BUILDING_'.$uid), dollar_format($totalPrice));
+			$message .= t('BUILDING_LOW_UPKEEP2', deploy_format($amount), t('BUILDING_'.$uid), dollar_format($totalPrice));
 		} else {
-			$message .= t('BUILDING_LOW_UPKEEP2' ,$amount, t('BUILDING_'.$uid), gold_format($totalGold));
+			$message .= t('BUILDING_LOW_UPKEEP2', deploy_format($amount), t('BUILDING_'.$uid), gold_format($totalGold));
 		}
 		$message .= '</td>';
 		$message .= '</tr>';
@@ -180,9 +180,9 @@ function warquest_building_buy_do() {
 		$message .= '</td>';
 		$message .= '<td>';
 		if ($totalPrice > 0 ) {
-			$message .= t('BUILDING_BUY', $amount, t('BUILDING_'.$uid), dollar_format($totalPrice), deploy_format($amountOld + $amount));
+			$message .= t('BUILDING_BUY', deploy_format($amount), t('BUILDING_'.$uid), dollar_format($totalPrice), deploy_format($amountOld + $amount));
 		} else {
-			$message .= t('BUILDING_BUY', $amount, t('BUILDING_'.$uid), gold_format($totalGold), deploy_format($amountOld + $amount));
+			$message .= t('BUILDING_BUY', deploy_format($amount), t('BUILDING_'.$uid), gold_format($totalGold), deploy_format($amountOld + $amount));
 		}
 		$message .= '</td>';
 		$message .= '</tr>';
@@ -458,22 +458,15 @@ function warquest_building_form() {
 	
 			$page .= '<tr>';	
 			
-			$page .= '<td valign="top" width="220">';						 		
-			$page .= warquest_building_image($data2, 0, 0, 210, 160);			
+			$page .= '<td valign="top" width="210">';						 		
+			$page .= warquest_building_image($data2, 0, 0, 200, 150);			
 			$page .= '</td>';
 	
-			$page .= '<td valign="top" width="280">';
+			$page .= '<td valign="top" width="210">';
 			
-			$page .= '<table>';
-			
-			$page .= '<tr>';		
-			$page .= '<td colspan="2">';
 			$page .= '<span class="subparagraph">'.t('BUILDING_'.$data2->bid).'</span>'; 	
 			$page .= '<div class="spacer"></div>';	
-			$page .= '</td>';	
-			$page .= '</tr>';	
-			
-			$page .= '<td valign="top" width="200">';		
+	
 			$page .= '<b>'.t('BUILDING_GAIN').':</b><br/>';
 	
 			if ($data2->income>0) {
@@ -513,23 +506,33 @@ function warquest_building_form() {
 		
 				$count4++; 
 		
-				$page .= '<td >';
+				$page .= '<td>';
 				$page .= warquest_unit_image($data4, $count4, 1, 45, 32);	
 				$page .= '<br/><center>'.number_format2($data4->amount).'x</center>';
 				$page .= '</td>';
 			}
 	
-			$page .= '</tr>';
+			$page .= '</tr>';		
 			$page .= '</table>';	
 		
 			$page .= '</td>';
 		
 			$page .= '<td valign="top" width="80">';
 								
-			$page .= '<b>';
-			$page .= t('BUILDING_PRICE').':</b><br/>';
-				
-			/* Calculate price */
+			$page .= warquest_link('mid='.$mid.'&sid='.$sid.'&ssid='.$ssid.'&uid='.$data2->bid.'&eid='.EVENT_BUILDING_BUY, t('LINK_BUY'),"buy-".$count3);
+			
+			/* Prevent buy with discount, sell without discount */
+			if ($building_group->sell==1) {
+				$page .= '<span class="right2">';
+				$page .= warquest_link('mid='.$mid.'&sid='.$sid.'&ssid='.$ssid.'&uid='.$data2->bid.'&eid='.EVENT_BUILDING_SELL, t('LINK_SELL'), "sell-".$count3);
+				$page .= '</span>';
+			}	
+			
+			$page .= '<div class="spacer"></div>';
+			
+			/* Calculate price */			
+			$page .= '<b>'.t('BUILDING_PRICE').':</b><br/>';
+			
 			if ($data2->price>0) {
 				$price = $data2->price;
 				$price = warquest_rente($price ,$data2->amount, $discount);		
@@ -538,25 +541,14 @@ function warquest_building_form() {
 				$page .= gold_format($data2->gold);
 			}
 			
-			$page .= '<div class="spacer"></div>';	
+			$page .= '<div class="spacer"></div>';
+			
 			$page .= '<b>';
 			$page .= t('BUILDING_DEPLOYED').':</b><br/>'.deploy_format($data2->amount);
-	
-			$page .= '<div class="spacer"></div>';	
-			$page .= warquest_link('mid='.$mid.'&sid='.$sid.'&ssid='.$ssid.'&uid='.$data2->bid.'&eid='.EVENT_BUILDING_BUY, t('LINK_BUY'),"buy-".$count3);
-			
-			/* Prevent buy with discount, sell without discount */
-			if ($building_group->sell==1) {
-				$page .= '<span class="right2">';
-				$page .= warquest_link('mid='.$mid.'&sid='.$sid.'&ssid='.$ssid.'&uid='.$data2->bid.'&eid='.EVENT_BUILDING_SELL, t('LINK_SELL'), "sell-".$count3);
-				$page .= '</span>';
-			}		  
-			
+
 			$page .= '</td>';
 	
-			$page .= '</tr>';
-			$page .= '</tr>';		
-			$page .= '</table>';		
+			$page .= '</tr>';	
 	
 			if ($count3!=$count2) {
 				$page .= '<tr>';
@@ -576,13 +568,14 @@ function warquest_building_form() {
 		
 			$count3++;
 			
-			$page .= '<tr>';	
-			$page .= '<td>'; 			
+			$page .= '<tr>';
+	
+			$page .= '<td width="210">'; 			
 			$page .= warquest_image("other/unlock.png", ' width="100" height="80" ');	
 			$page .= warquest_image("other/unlock.png", ' width="100" height="80" ');	
 			$page .= '</td>'; 
 	
-			$page .= '<td>';
+			$page .= '<td width="210">';
 			$page .= '<span class="subparagraph">'.t('BUILDING_'.$data5->bid).'</span>';
 			$page .= '<div class="spacer"></div>';	
 				
@@ -593,7 +586,7 @@ function warquest_building_form() {
 			}
 						
 			if ($data5->defense>0) {
-				$page .= t('UNIT_GROUP_'.$data5->ugid).' '.t('GENERAL_DEFENSE').': +'.$data5->defense;
+				$page .= t('UNIT_GROUP_'.$data5->ugid).' '.t('GENERAL_DEFENSE').': +'.strength_format($data5->defense);
 			}
 		
 			if ($data5->energy>0)  {
@@ -607,11 +600,12 @@ function warquest_building_form() {
 			if ($data5->maintenance>0) {
 				$page .= t('GENERAL_MAINTENANCE').': +'.maintenance_format($data5->maintenance).'%';	
 			}		
-		
-			$page .= '<div class="spacer"></div>';	
-			$page .= '<b>'.t('BUILDING_REQUIRED').':</b><br/>';		
+			$page .= '</td>';
+			
+			$page .= '<td width="80">';
 			$page .= t('GENERAL_UNLOCK', $data5->lid);
 			$page .= '</td>';
+			
 			$page .= '</tr>';		
 		}
 

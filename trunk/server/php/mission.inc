@@ -849,9 +849,7 @@ function warquest_mission_clan_form() {
 	/* output */
 	global $page; 
 	global $output;
-	
-	$lid=15;
-	
+		
 	warquest_set_default_mission($ssid);	
 		
 	$player_clan = warquest_db_player_clan($player->pid);
@@ -864,12 +862,7 @@ function warquest_mission_clan_form() {
 	$page .= '</div>';
 	
 	/* Validate */
-	if ($player->lid < $lid) {
-	
-		$message = t('MISSION_CLAN_UNLOCK', $lid);
-		$page .= warquest_box_icon('locked', $message);
-	
-	} else if ( !isset($player_clan->cid) || ($player_clan->approved==0)) { 
+	if ( !isset($player_clan->cid) || ($player_clan->approved==0)) { 
 	
 		$message = t('MISSION_NO_CLAN');
 		$page .= warquest_box_icon("warning", $message);
@@ -1044,163 +1037,147 @@ function warquest_mission_player_form() {
 	$page .= '<div class="subparagraph">';
 	$page .= t('MISSION_PLAYER_TITLE');		
 	$page .= '</div>';
-	
-	/* Validate */
-	if ($player->lid==1) {
-	
-		$message = t('MISSION_UNLOCKED');
-	
-		$link = warquest_link('mid='.MENU_BATTLE.'&sid='.PAGE_ENEMIES, t('LINK_BATTLE'), "battle1");
-
-		$page .= warquest_box_icon('info', $message, $link);
-	
-	} else {
-					
-		/* Show all unlocked player missions */
-		$query  = "select a.mid, a.loot, a.min_price, a.max_price, a.energy, ";
-		$query .= "a.experience, a.alliance, ifnull(b.progress, 0) as progress, ";
-		$query .= "ifnull(b.part, 0) as part, ifnull(b.part2, 0) as part2 from mission a ";
-		$query .= "left join player_mission b on a.mid=b.mid and b.pid=".$player->pid." ";
-		$query .= 'where a.mgid='.$ssid.' and a.lid<='.$player->lid.' ';  
-		$query .= 'order by a.lid asc';
-	
-		$result = warquest_db_query($query);
-
-		$line=0;
-		while ( $data=warquest_db_fetch_object($result) ) {
-	
-			$line++;
-		
-			$page .= '<div class="box" id="'.$data->mid.'">';
-			$page .= '<table>';
-			$page .= '<tr>';	
-			$page .= '<td colspan="3"><span class="paragraph">'.t('GENERAL_CONQUER').' '.t('MISSION_'.$data->mid).'</span>';
-			if ($data->part!=$data->part2) {
-				$page .= ' <span class="notification">'.t('MISSION_REBEL').'</span>';
-			}
-			$page .= '<br/>';
-			$page .= '<b>'.t('MISSION_GAIN').':</b><br/>';
-			$page .= money_format1($data->min_price).' - ';
-			$page .= dollar_format($data->max_price).'<br/>';
-			$page .= experience_format($data->experience).' '.t('GENERAL_EXPERIENCE').'<br/>';
-			if ($data->loot==1) {
-				$page .= '<span class="loot">'.t('MISSION_CHANCE_LOOT').'</span><br/>';
-			}
-			$page .= '<br/></td>';
-			$page .= '<td  width="100" align="right" valign="top">';		
-			$page .= warquest_image('bar/bar'.warquest_format_progress($data->progress, $data->part).'.png').'<br/>';
-		
-			$max = $config['max_mission_part'];
-			if ($player->lid==0) {
-				$max=1;
-			}
-		
-			$page .= t('MISSION_PART').' '.warquest_format_part($data->part).'/'.$max.'<br/>';
-			$page .= warquest_link('mid='.$mid.'&sid='.$sid.'&ssid='.$ssid.'&eid='.EVENT_MISSION_PLAY.'&id='.$data->mid,t('LINK_PLAY'),'play'.$line);
-			$page .= '</td>';
-		
-			$page .= '</tr>';
-
-			$page .= '<tr>';
-		
-			$page .= '<td valign="top" width="240">';
-			$page .= '<b>'.t('MISSION_REQUIRED').':</b><br/>';
-			$page .= energy_format($data->energy).' '.t('GENERAL_ENERGY').'<br/>';
-			$page .= alliance_format($data->alliance).' '.t('GENERAL_ALLIANCE_SIZE');
-			$page .= '</td>';
-		
-			$query2  = 'select b.uid, b.gold, a.amount, b.attack, b.defense, b.upkeep from mission_unit a, ';
-			$query2 .= 'unit b where b.uid=a.uid and mid='.$data->mid;  
-			$result2 = warquest_db_query($query2); 
-		
-			$count=0;
-			while ($data2 = warquest_db_fetch_object($result2)) {
-		
-				$count++;
-				$page .= '<td align="right" width="100">';   
-				$page .= warquest_unit_image($data2, $line);	
-				$page .= '<br/><center>'.$data2->amount.'x</center>';
-				$page .= '</td>';
-			}
-			
-			/* fill up table */
-			for ($tmp=0; $tmp<(3-$count); $tmp++) {
-				$page .= '<td align="right" width="100">&nbsp;</td>';
-			}
-			$page .= '</tr>';
-		
-			$page .= '</table>';
-			$page .= '</div>';
-		}
-
-		/* Show next lock player mission */	
-		$query  = 'select mid, lid, loot, min_price, max_price, energy, experience, alliance ';
-		$query .= 'from mission where mgid='.$ssid.' and lid>'.$player->lid.' ';
-		$query .= 'order by lid asc limit 0,1';
-		$result = warquest_db_query($query);
- 
-		if ($data=warquest_db_fetch_object($result)) {
-		
-			$line++;
-		
-			$page .= '<div class="box">';
-			$page .= '<table>';
-		
-			$page .= '<tr>';	
-			$page .= '<td colspan="3" >';
-			$page .= '<span class="paragraph">'.t('GENERAL_CONQUER').' '.t('MISSION_'.$data->mid).'</span><br/>';
-		
-			$page .= '<b>'.t('MISSION_GAIN').':</b><br/>';
-			$page .= money_format1($data->min_price).' - ';
-			$page .= dollar_format($data->max_price).'<br/>';
-			$page .= experience_format($data->experience).' '.t('GENERAL_EXPERIENCE').'<br/>';
-			if ($data->loot==1) {
-				$page .= '<span class="loot">'.t('MISSION_CHANCE_LOOT').'</span><br/>';
-			}
-			$page .= '<br/></td>';
 				
-			$page .= '<td  width="100" align="right" valign="top">';
-			$page .= t('GENERAL_UNLOCK', $data->lid);
-			$page .= '</td>';
-		
-			$page .= '</tr>';
+	/* Show all unlocked player missions */
+	$query  = "select a.mid, a.loot, a.min_price, a.max_price, a.energy, ";
+	$query .= "a.experience, a.alliance, ifnull(b.progress, 0) as progress, ";
+	$query .= "ifnull(b.part, 0) as part, ifnull(b.part2, 0) as part2 from mission a ";
+	$query .= "left join player_mission b on a.mid=b.mid and b.pid=".$player->pid." ";
+	$query .= 'where a.mgid='.$ssid.' and a.lid<='.$player->lid.' ';  
+	$query .= 'order by a.lid asc';
 
-			$page .= '<tr>';
+	$result = warquest_db_query($query);
+
+	$line=0;
+	while ( $data=warquest_db_fetch_object($result) ) {
+	
+		$line++;
 		
-			$page .= '<td valign="top" width="240">';
-			$page .= '<b>'.t('MISSION_REQUIRED').':</b><br/>';
-			$page .= energy_format($data->energy).' '.t('GENERAL_ENERGY').'<br/>';
-			$page .= alliance_format($data->alliance).' '.t('GENERAL_ALLIANCE_SIZE');
+		$page .= '<div class="box" id="'.$data->mid.'">';
+		$page .= '<table>';
+		$page .= '<tr>';	
+		$page .= '<td colspan="3"><span class="paragraph">'.t('GENERAL_CONQUER').' '.t('MISSION_'.$data->mid).'</span>';
+		if ($data->part!=$data->part2) {
+			$page .= ' <span class="notification">'.t('MISSION_REBEL').'</span>';
+		}
+		$page .= '<br/>';
+		$page .= '<b>'.t('MISSION_GAIN').':</b><br/>';
+		$page .= money_format1($data->min_price).' - ';
+		$page .= dollar_format($data->max_price).'<br/>';
+		$page .= experience_format($data->experience).' '.t('GENERAL_EXPERIENCE').'<br/>';
+		if ($data->loot==1) {
+			$page .= '<span class="loot">'.t('MISSION_CHANCE_LOOT').'</span><br/>';
+		}
+		$page .= '<br/></td>';
+		$page .= '<td  width="100" align="right" valign="top">';		
+		$page .= warquest_image('bar/bar'.warquest_format_progress($data->progress, $data->part).'.png').'<br/>';
+	
+		$max = $config['max_mission_part'];
+		if ($player->lid==0) {
+			$max=1;
+		}
+	
+		$page .= t('MISSION_PART').' '.warquest_format_part($data->part).'/'.$max.'<br/>';
+		$page .= warquest_link('mid='.$mid.'&sid='.$sid.'&ssid='.$ssid.'&eid='.EVENT_MISSION_PLAY.'&id='.$data->mid,t('LINK_PLAY'),'play'.$line);
+		$page .= '</td>';
+	
+		$page .= '</tr>';
+		$page .= '<tr>';
+	
+		$page .= '<td valign="top" width="240">';
+		$page .= '<b>'.t('MISSION_REQUIRED').':</b><br/>';
+		$page .= energy_format($data->energy).' '.t('GENERAL_ENERGY').'<br/>';
+		$page .= alliance_format($data->alliance).' '.t('GENERAL_ALLIANCE_SIZE');
+		$page .= '</td>';
+		
+		$query2  = 'select b.uid, b.gold, a.amount, b.attack, b.defense, b.upkeep from mission_unit a, ';
+		$query2 .= 'unit b where b.uid=a.uid and mid='.$data->mid;  
+		$result2 = warquest_db_query($query2); 
+	
+		$count=0;
+		while ($data2 = warquest_db_fetch_object($result2)) {
+	
+			$count++;
+			$page .= '<td align="right" width="100">';   
+			$page .= warquest_unit_image($data2, $line);	
+			$page .= '<br/><center>'.$data2->amount.'x</center>';
 			$page .= '</td>';
-		
-			for ($tmp=0; $tmp<3; $tmp++) {
-				$page .= '<td width="100">';
-				$page .= warquest_image('other/unlock.png');
-				$page .= '</td>';
-			}
+		}
 			
-			$page .= '</tr>';	
+		/* fill up table */
+		for ($tmp=0; $tmp<(3-$count); $tmp++) {
+			$page .= '<td align="right" width="100">&nbsp;</td>';
+		}
+		$page .= '</tr>';
+	
+		$page .= '</table>';
+		$page .= '</div>';
+	}
+
+	/* Show next lock player mission */	
+	$query  = 'select mid, lid, loot, min_price, max_price, energy, experience, alliance ';
+	$query .= 'from mission where mgid='.$ssid.' and lid>'.$player->lid.' ';
+	$query .= 'order by lid asc limit 0,1';
+	$result = warquest_db_query($query);
+
+	if ($data=warquest_db_fetch_object($result)) {
+	
+		$line++;
+	
+		$page .= '<div class="box">';
+		$page .= '<table>';
+	
+		$page .= '<tr>';	
+		$page .= '<td colspan="3" >';
+		$page .= '<span class="paragraph">'.t('GENERAL_CONQUER').' '.t('MISSION_'.$data->mid).'</span><br/>';
+	
+		$page .= '<b>'.t('MISSION_GAIN').':</b><br/>';
+		$page .= money_format1($data->min_price).' - ';
+		$page .= dollar_format($data->max_price).'<br/>';
+		$page .= experience_format($data->experience).' '.t('GENERAL_EXPERIENCE').'<br/>';
+		if ($data->loot==1) {
+			$page .= '<span class="loot">'.t('MISSION_CHANCE_LOOT').'</span><br/>';
+		}
+		$page .= '<br/></td>';
+			
+		$page .= '<td  width="100" align="right" valign="top">';
+		$page .= t('GENERAL_UNLOCK', $data->lid);
+		$page .= '</td>';
+	
+		$page .= '</tr>';
+		$page .= '<tr>';
+	
+		$page .= '<td valign="top" width="240">';
+		$page .= '<b>'.t('MISSION_REQUIRED').':</b><br/>';
+		$page .= energy_format($data->energy).' '.t('GENERAL_ENERGY').'<br/>';
+		$page .= alliance_format($data->alliance).' '.t('GENERAL_ALLIANCE_SIZE');
+		$page .= '</td>';
 		
-			$page .= '</table>';
-			$page .= '</div>';
+		for ($tmp=0; $tmp<3; $tmp++) {
+			$page .= '<td width="100">';
+			$page .= warquest_image('other/unlock.png');
+			$page .= '</td>';
 		}
 		
-		$page .= '<script type="text/javascript">';
-		$page .= "window.scrollTo(0, document.getElementById(".$anchor.").offsetTop);";
-		$page .= '</script>';
-		
-		if ($line==0) {
-		
-			$message = t('MISSION_NO_MISSIONS');
-			$page .= warquest_box_icon('info', $message);	
-		}		
+		$page .= '</tr>';	
+	
+		$page .= '</table>';
+		$page .= '</div>';
 	}
 	
-	if ($player->lid>0) {
-		$page .= '<div class="note">';
-		$page .= t('MISSION_NOTE', $output->title, money_format1($ssid * $config["continent_conquer_bonus"]));
-		$page .='</div>';
-	}
+	$page .= '<script type="text/javascript">';
+	$page .= "window.scrollTo(0, document.getElementById(".$anchor.").offsetTop);";
+	$page .= '</script>';
+	
+	if ($line==0) {
+	
+		$message = t('MISSION_NO_MISSIONS');
+		$page .= warquest_box_icon('info', $message);	
+	}		
+	
+	$page .= '<div class="note">';
+	$page .= t('MISSION_NOTE', $output->title, money_format1($ssid * $config["continent_conquer_bonus"]));
+	$page .='</div>';
 }
 
 /*

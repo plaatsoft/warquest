@@ -399,7 +399,6 @@ $lang['HOME_INTRO_MISSIONS'] = 'Inizia il gioco completando %s ';
 $lang['HOME_INTRO_BATTLES'] = 'e lottando %s. ';
 $lang['HOME_INTRO_UNITS'] = 'Quando guadagni soldi e punti esperienza puoi comprare %s più avanzate ';
 $lang['HOME_INTRO_BUILDINGS'] = ' e %s per diventare più forte. ';
-$lang['HOME_INTRO_ENEMY'] = 'In ogni momento altri giocatori possono attaccarti, quindi migliora sempre la tua difesa.';
 
 $lang['HOME_NEW_ANDROID_VERSION'] = 'Nuova versione app v%s è disponibile al Market Android.<br/>Per favore aggiornate il client!';
 $lang['HOME_NEW_WINDOWS_VERSION'] = 'Nuovo client Windows di WarQuest v%s è disponibile!';
@@ -408,7 +407,7 @@ $lang['HOME_CLICK_TEXT'] = 'Clicca %s per iniziare a scaricarlo.';
 $lang['HOME_EMAIL_MISSING'] = 'Per favore inserisci la tua email per ricevere messaggi dai giocatori tramite mail e per il recupero della password.';
 $lang['HOME_DAILY_BONUS'] = 'Hai trovato %s dollari nella zona di un nemico!';
 
-$lang['HOME_WELCOME'] = 'Benvenuto';
+$lang['HOME_WELCOME'] = 'Benvenuto %s %s.';
 $lang['HOME_LAST_LOGIN'] = 'L\'ultima visita è stata <b>%s</b> fa.';
 $lang['HOME_AWARDS'] = 'Premi';
 $lang['HOME_BATTLE_AWARDS_TEXT'] = 'Hai guadagnato i seguenti premi Lotta:';
@@ -418,8 +417,8 @@ $lang['HOME_OVERVIEW_TITLE']= 'Riepilogo';
 $lang['HOME_MAP_TITLE'] = 'Continenti conquistati';
 $lang['HOME_MAP_NOTE'] = 'Ogni continente consiste in tre regioni che possono essere conquistate attraverso le missioni.';
 
-$lang['HOME_INTRO_PLACE1'] = 'Sei al <b>%so</b> posto nella tabella generale dei giocatori '; 
-$lang['HOME_INTRO_PLACE2'] = 'e al <b>%so</b> posto sulla tabella  dell\'<b>%s</b>. '; 
+$lang['HOME_INTRO_PLACE1'] = 'Sei al %so posto nella tabella generale dei giocatori '; 
+$lang['HOME_INTRO_PLACE2'] = 'e al %so posto sulla tabella  dell\'<b>%s</b>. '; 
 $lang['HOME_PLAYERS_ONLINE'] = 'Nelle ultime 24 ore %s giocatori erano online.';
 
 /*
@@ -1071,7 +1070,6 @@ $lang['BATTLE_ATTACK_FORCE'] = 'La potenza d\'attacco del tuo %s %s (potenza att
 $lang['BATTLE_MORE'] = 'più';
 $lang['BATTLE_NO_PLAYER_AVAILABLE'] = 'Al momento non c\'è nessun giocatore disponibile per le lotte.';
 $lang['BATTLE_UNLOCKED'] = '%s la lotta viene sbloccata al livello %s.';
-$lang['BATTLE_FIRST_MISSION'] = 'Completa la missione d\'allenamento prima.';
 $lang['BATTLE_BOUNTY_UNLOCKED'] = '%s la caccia alle taglie viene sbloccata al livello %s.';
 $lang['BATTLE_ALLY_NO_ATTACK'] = '<b>%s</b> è un alleato. Non puoi attaccare gli alleati.';
 $lang['BATTLE_SURRENDER'] = 'Arreso temporaneamente';

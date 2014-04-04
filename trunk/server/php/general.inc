@@ -2972,7 +2972,7 @@ function warquest_ui_banner() {
 	$page .= '<table>';
 	
 	$page .= '<tr>';
-	
+		
 	/* First line */
 	$page .= '<td valign="top" width="185">';
 	$page .= warquest_link_hidden('mid='.MENU_PLAYERS.'&sid='.PAGE_LEADERBOARD.'&ssid='.PAGE_BEST_PLAYER, t('STATUS_CASH')).': ';

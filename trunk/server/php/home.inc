@@ -743,63 +743,11 @@ function warquest_home_welcome() {
 	global $output;
 	
 	$output->title = t('HOME_OVERVIEW_TITLE');
-	
-	$query1 =  'select count(pid) as count, sum(won) as won from player';
-	$result1 = warquest_db_query($query1); 
-	$data1 = warquest_db_fetch_object($result1);
-		
-	$query =  'select distinct(country) from player';
-	$result = warquest_db_query($query); 
-	$count = warquest_db_num_rows($result);
-		
-	$query2 =  'select pid from player where country="'.$player->country.'" and experience>='.$player->experience;
-	$result2 = warquest_db_query($query2);
-	$count2 = warquest_db_num_rows($result2);
-		
-	$query3 =  'select pid from player where experience>='.$player->experience.' and country!="EU"';
-	$result3 = warquest_db_query($query3);
-	$count3 = warquest_db_num_rows($result3);
-	
-	$yesterday = mktime(date("H"), date("i"), date("s"), date("m"), date("d")-1, date("Y"));
-	$query4  = 'select count(pid) as count from member where last_login > "'.date("Y-m-d H:i:s", $yesterday).'" ';		
-	$result4 = warquest_db_query($query4);
-	$data4 =  warquest_db_fetch_object($result4);
-	
-	$query5 =  'select sum(requests) as requests from views';
-	$result5 = warquest_db_query($query5); 
-	$data5 = warquest_db_fetch_object($result5);
 		
 	$page .= '<div class="subparagraph">'.t('HOME_OVERVIEW_TITLE').'</div>';
 	
 	$page .= '<div class="box">';
 
-	$page .= '<div class="right">';
-	$page .= warquest_rank_image($player->lid);
-	$page .= '</div>';
-		
-	$page .= t('HOME_WELCOME').' '.warquest_rank($player->lid).' ';
-	$page .= player_format($player->pid, $player->name, $player->country);
-	$page .= '<br/>';
-	
-	$member = warquest_db_member($player->pid);
-	if ($member->prev_login!=0) {
-		$page .= t('HOME_LAST_LOGIN', warquest_ui_ago($member->prev_login)).'<br/>';
-	}
-	$page .= '<br/>';
-	$page .= t('HOME_INTRO_PLACE1', warquest_place($count3));
-	$page .= t('HOME_INTRO_PLACE2', warquest_place($count2), warquest_landcode($player->country)).'<br/>';
-	
-	if ($player->lid > 5) {
-		$page .= '<br/>';
-		$page .= t('HOME_INTRO_PLAYERS', energy_format($data1->count), country_format($count));
-		$page .= t('HOME_INTRO_FIGHTS', health_format($data1->won));
-		$page .= t('HOME_INTRO_REQUESTS', money_format1($data5->requests));
-		$page .= t('HOME_PLAYERS_ONLINE',energy_format($data4->count));			
-		$page .= '<br/>';
-	}
-		
-	$page .= warquest_view_awards();
-	
 	if ($player->lid <= 5) {
 	
 		$page .= '<br/>';
@@ -812,21 +760,84 @@ function warquest_home_welcome() {
 		$result2 = warquest_db_query($query2);
 		$data2 = warquest_db_fetch_object($result2);
 	
-		$page .= '<span class="subparagraph2">'.t('HOME_INTRO_TITLE').'</span><br/>';
+		$page .= warquest_image('other/commander.jpg', ' align="left" width="160" height="120" ');
+		
+		$page .= t('HOME_WELCOME', warquest_rank($player->lid), player_format($player->pid, $player->name, $player->country));
+		$page .= '<br/><br/>';
+	
 		$page .= t('HOME_INTRO_MISSIONS', warquest_link('mid='.MENU_MISSIONS.'&sid='.PAGE_MISSION_PLAYER.'&ssid='.warquest_get_default_mission($player->planet),t('LINK_MISSIONS'), 'mission1'));
 		$page .= t('HOME_INTRO_BATTLES', warquest_link('mid='.MENU_BATTLE.'&sid='.PAGE_ENEMIES,t('LINK_BATTLES'), 'battle1'));
 		$page .= t('HOME_INTRO_UNITS', warquest_link('mid='.MENU_UNITS.'&sid='.PAGE_UNIT_PLAYER.'&ssid='.$data1->ugid, t('LINK_UNITS'), 'unit1'));
 		$page .= t('HOME_INTRO_BUILDINGS', warquest_link('mid='.MENU_BUILDINGS.'&sid='.$data2->bgid, t('LINK_BUILDINGS'), 'building1'));
-		$page .= t('HOME_INTRO_ENEMY');
+		
 		$page .= '<br/>';			
+		
+	} else {
+	
+		/*$query1 =  'select count(pid) as count, sum(won) as won from player';
+		$result1 = warquest_db_query($query1); 
+		$data1 = warquest_db_fetch_object($result1);*/
+		
+		/*$query =  'select distinct(country) from player';
+		$result = warquest_db_query($query); 
+		$count = warquest_db_num_rows($result);*/
+			
+		$query2 =  'select pid from player where country="'.$player->country.'" and experience>='.$player->experience;
+		$result2 = warquest_db_query($query2);
+		$count2 = warquest_db_num_rows($result2);
+		
+		$query3 =  'select pid from player where experience>='.$player->experience.' and country!="EU"';
+		$result3 = warquest_db_query($query3);
+		$count3 = warquest_db_num_rows($result3);
+	
+		/*$yesterday = mktime(date("H"), date("i"), date("s"), date("m"), date("d")-1, date("Y"));
+		$query4  = 'select count(pid) as count from member where last_login > "'.date("Y-m-d H:i:s", $yesterday).'" ';		
+		$result4 = warquest_db_query($query4);
+		$data4 =  warquest_db_fetch_object($result4);*/
+	
+		/*$query5 =  'select sum(requests) as requests from views';
+		$result5 = warquest_db_query($query5); 
+		$data5 = warquest_db_fetch_object($result5);*/
+	
+		$page .= '<div class="right">';
+		$page .= warquest_rank_image($player->lid);
+		$page .= '</div>';
+	
+		$page .= t('HOME_WELCOME', warquest_rank($player->lid), player_format($player->pid, $player->name, $player->country));
+		
+		$page .= '<br/><br/>';
+	
+		$member = warquest_db_member($player->pid);
+		if ($member->prev_login!=0) {
+			$page .= t('HOME_LAST_LOGIN', warquest_ui_ago($member->prev_login)).'<br/>';
+		}
+		$page .= '<br/>';
+		
+		$page .= t('HOME_INTRO_PLACE1', 
+						warquest_link('mid='.MENU_PLAYERS.'&sid='.PAGE_LEADERBOARD.'&ssid='.PAGE_BEST_PLAYER, warquest_place($count3)));
+		
+		$code = sprintf("%03d%03d",ord($player->country[0]),ord($player->country[1]));
+		$page .= t('HOME_INTRO_PLACE2', 
+						warquest_link('mid='.MENU_PLAYERS.'&sid='.PAGE_LEADERBOARD.'&ssid='.PAGE_BEST_COUNTRY2.'&uid='.$code, warquest_place($count2)), warquest_landcode($player->country));
+		$page .= '<br/>';
+		
+		/*$page .= '<br/>';		
+		$page .= t('HOME_INTRO_PLAYERS', energy_format($data1->count), country_format($count));
+		$page .= t('HOME_INTRO_FIGHTS', health_format($data1->won));
+		$page .= t('HOME_INTRO_REQUESTS', money_format1($data5->requests));
+		$page .= t('HOME_PLAYERS_ONLINE',energy_format($data4->count));			
+		$page .= '<br/>';*/
 	}
 		
+	$page .= warquest_view_awards();
+	
 	if ($player->lid > 4) {
 		$page .= warquest_poll_teaser();	
 	}
 
 	/* Show tip */
 	$page .= warquest_ui_tip();	
+	$page .= '<div class="spacer"></div>';	
 	
 	$page .= '</div>';	
 }
