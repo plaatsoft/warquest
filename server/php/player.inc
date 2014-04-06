@@ -1894,7 +1894,7 @@ function warquest_profile($id) {
 		if (isset($other->pid)) {
 			$page .= number_format($data->bank1, 0,",",".");
 		} else {
-			$page .= warquest_link('mid='.MENU_MONEY.'&sid='.PAGE_BANK.'&ssid=1', number_format($data->bank1, 0,",","."), "bank1");
+			$page .= warquest_link('mid='.MENU_MONEY.'&sid='.PAGE_BANK.'&ssid='.PAGE_BANK_NATIONAL, number_format($data->bank1, 0,",","."), "bank1");
 		}
 		$page .= ' '.t('GENERAL_DOLLAR').'</td>';
 		$page .= '</tr>';
@@ -1905,7 +1905,7 @@ function warquest_profile($id) {
 		if (isset($other->pid)) {
 			$page .= number_format($data->bank2, 0,",",".");
 		} else {
-			$page .= warquest_link('mid='.MENU_MONEY.'&sid='.PAGE_BANK.'&ssid=2', number_format($data->bank2, 0,",","."), "bank2");
+			$page .= warquest_link('mid='.MENU_MONEY.'&sid='.PAGE_BANK.'&ssid='.PAGE_BANK_UNION, number_format($data->bank2, 0,",","."), "bank2");
 		}
 		$page .= ' '.t('GENERAL_DOLLAR').'</td>';
 		$page .= '</tr>';
@@ -1916,7 +1916,7 @@ function warquest_profile($id) {
 		if (isset($other->pid)) {
 			$page .= number_format($data->bank3, 0,",",".");
 		} else {
-			$page .= warquest_link('mid='.MENU_MONEY.'&sid='.PAGE_BANK.'&ssid=3', number_format($data->bank3, 0,",","."), "bank3");
+			$page .= warquest_link('mid='.MENU_MONEY.'&sid='.PAGE_BANK.'&ssid='.PAGE_BANK_SWISSCORE, number_format($data->bank3, 0,",","."), "bank3");
 		}
 		$page .= ' '.t('GENERAL_DOLLAR').'</td>';
 		$page .= '</tr>';
