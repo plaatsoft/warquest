@@ -26,6 +26,8 @@ function warquest_create_title($title) {
 
 	/* input */
 	global $mid;
+	global $tid;
+	global $fid;
 	global $sid;
 	global $ssid;
 	global $oid;
