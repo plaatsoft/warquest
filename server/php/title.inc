@@ -91,7 +91,10 @@ function warquest_create_title($title) {
 					}
 	
 					break;
-										
+				
+				CASE MENU_FORUMS: 
+					$tmp .= '&sid='.$sid.'&ssid='.$ssid.'&tid='.$tid.'&fid='.$fid;
+					
 				default: 
 					$tmp .= '&sid='.$sid.'&ssid='.$ssid;
 					break;
