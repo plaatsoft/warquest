@@ -199,10 +199,18 @@ function warquest_lottery_form() {
 				$result4 = warquest_db_query($query4);
 				$data4 = warquest_db_fetch_object($result4);
 				
-				$other = warquest_db_player($data4->pid);
-				$page .= t('LOTTERY_WINNER_IS').': ';
-				$page .= player_format($other->pid, $other->name, $other->country);	
-				$page .= '</td>';
+				if (isset($data4->pid)) {
+				
+					$other = warquest_db_player($data4->pid);
+					$page .= t('LOTTERY_WINNER_IS').': ';
+					$page .= player_format($other->pid, $other->name, $other->country);	
+					$page .= '</td>';
+					
+				} else {
+				
+					$page .= '';	
+					$page .= '</td>';
+				}
 			}
 			
 			if ($data->done==0) {		
