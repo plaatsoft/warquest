@@ -621,6 +621,11 @@ function warquest_cron_update_lottery($info=0) {
 		$result2 = warquest_db_query($query2);			
 		$data2 = warquest_db_fetch_object($result2);
 
+		/* Update lottery as done */
+		$lottery = warquest_db_lottery($data1->lottery_id);		
+		$lottery->done=1;				
+		warquest_db_lottery_update($lottery);
+		
 		/* Winner found */
 		if (isset($data2->pid)) {
 					
@@ -658,12 +663,6 @@ function warquest_cron_update_lottery($info=0) {
 			/* Create new lottery */			
 			$message .= warquest_cron_add_lottery();
 		}
-		
-		/* Update lottery as done */
-		$lottery = warquest_db_lottery($data1->lottery_id);		
-		$lottery->done=1;				
-		warquest_db_lottery_update($lottery);
-			
 	}
 	
 	if (strlen($message)==0) {
