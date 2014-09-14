@@ -539,7 +539,7 @@ function warquest_cron_add_lottery() {
 	$result = warquest_db_query($query);	
 	$count = warquest_db_num_rows($result);
 	
-	if ($count<=3) {
+	if ($count<3) {
 	
 		$expire_date = mktime(23, 59, 59, date("m"), date("d")+2, date("Y"));
 	
