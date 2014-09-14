@@ -535,51 +535,62 @@ function warquest_cron_add_lottery() {
 	/* input */
 	global $config;
 	
-	$expire_date = mktime(23, 59, 59, date("m"), date("d")+2, date("Y"));
-
-	$planet = rand(1,$config["max_planets"]);
-
-	$bet = rand(2,6);
+	$query  = 'select lottery_id from lottery where done=0';	
+	$result = warquest_db_query($query);	
+	$count = warquest_db_num_rows($result);
 	
-	$value = 0;
-	$query1  = 'select count(lottery_id) as total from lottery';	
-	$result1 = warquest_db_query($query1);	
-	$data1 = warquest_db_fetch_object($result1);
-	if ( isset($data1->total) ) {
-		$value = $data1->total;
-	}
-
-	$money = 0;
-	$gold = 0;	
-	if (($value % 2)==1) {			
+	if ($count<=3) {
 	
-		$gold = rand(500,1000);
+		$expire_date = mktime(23, 59, 59, date("m"), date("d")+2, date("Y"));
+	
+		$planet = rand(1,$config["max_planets"]);
+
+		$bet = rand(2,6);
+	
+		$value = 0;
+		$query1  = 'select count(lottery_id) as total from lottery';	
+		$result1 = warquest_db_query($query1);	
+		$data1 = warquest_db_fetch_object($result1);
+		if ( isset($data1->total) ) {
+			$value = $data1->total;
+		}
+
+		$money = 0;
+		$gold = 0;	
+		if (($value % 2)==1) {			
+		
+			$gold = rand(500,1000);
+		
+		} else {
+		
+			$money = rand(10,40);
+			$money *= 1000000000;
+		}
+						
+		/* Select random gold unit */
+		$query3  = 'select uid from unit where gold>0 and ugid in (select ugid from unit_group where planet='.$planet.') ';
+		$query3 .= 'order by rand() limit 0, 1';		
+		$result3 = warquest_db_query($query3);			
+		$data3 = warquest_db_fetch_object($result3);
+				
+		$uid_amount = rand(10,20);
+				
+		/* Select random income or defence gold building */
+		$query4  = 'select bid from building where gold>0 and bgid in (select bgid from building_group where type=1 and planet='.$planet.') ';
+		$query4 .= 'order by rand() limit 0, 1';		
+		$result4 = warquest_db_query($query4);			
+		$data4 = warquest_db_fetch_object($result4);
+				
+		$bid_amount = rand(10,20);
+		
+		$id = warquest_db_lottery_insert($expire_date, $bet, $money, $gold, $data3->uid, $uid_amount, $data4->bid, $bid_amount);			
+				
+		$message = 'Lottery '.$id.' added!<br/>';
 		
 	} else {
-	
-		$money = rand(10,40);
-		$money *= 1000000000;
+		
+		$message = 'More then 3 open lotteries, add lottery skipped!';
 	}
-					
-	/* Select random gold unit */
-	$query3  = 'select uid from unit where gold>0 and ugid in (select ugid from unit_group where planet='.$planet.') ';
-	$query3 .= 'order by rand() limit 0, 1';		
-	$result3 = warquest_db_query($query3);			
-	$data3 = warquest_db_fetch_object($result3);
-			
-	$uid_amount = rand(10,20);
-			
-	/* Select random income or defence gold building */
-	$query4  = 'select bid from building where gold>0 and bgid in (select bgid from building_group where type=1 and planet='.$planet.') ';
-	$query4 .= 'order by rand() limit 0, 1';		
-	$result4 = warquest_db_query($query4);			
-	$data4 = warquest_db_fetch_object($result4);
-			
-	$bid_amount = rand(10,20);
-	
-	$id = warquest_db_lottery_insert($expire_date, $bet, $money, $gold, $data3->uid, $uid_amount, $data4->bid, $bid_amount);			
-			
-	$message = 'Lottery '.$id.' added!<br/>';
 	
 	return $message;
 }
@@ -602,6 +613,7 @@ function warquest_cron_update_lottery($info=0) {
 	
 	$query1  = 'select lottery_id from lottery where expire_date <= "'.$now.'" and done=0';	
 	$result1 = warquest_db_query($query1);	
+	echo $query1;
 	
 	if ($data1 = warquest_db_fetch_object($result1)) {
 		
