@@ -20,7 +20,7 @@
                 		<sourceRoot>${project.build.directory}/generated/cxf</sourceRoot>
                 		<wsdlOptions>
                     		<wsdlOption>
-                        		<wsdl>http://www.warquest.nl/service?wsdl</wsdl>
+                        		<wsdl>http://www.warquest.nl/service/warquest.wsdl</wsdl>
                     		</wsdlOption>
                 		</wsdlOptions>
             		</configuration>
