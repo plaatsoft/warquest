@@ -173,7 +173,7 @@ $lang['AGO_MINS'] = 'minute';
 $lang['AGO_SEC'] = ' secunda';
 $lang['AGO_SECS'] = ' secunde';
 
-$lang['COPYRIGHT'] = 'Copyright © 2008-2014 - toate drepturile rezervate - <a target="new" href="http://www.plaatsoft.nl">PlaatSoft</a>';
+$lang['COPYRIGHT'] = 'Copyright © 2008-2016 - toate drepturile rezervate - <a target="new" href="http://www.plaatsoft.nl">PlaatSoft</a>';
 
 $lang['STATUS_CASH'] = 'bani';
 $lang['STATUS_EXP'] = 'Exp.';
