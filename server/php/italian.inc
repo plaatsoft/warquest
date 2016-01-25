@@ -2,18 +2,18 @@
 
 /* 
 **  ========
-**  WARQUEST
+**  WarQuest
 **  ========
 **
-**  Creato da wplaat
+**  Created by wplaat
 **
-**  Per avere più informazioni visita il seguente indirizzo.
-**  Indirizzo : www.plaatsoft.nl 
+**  For more information visit the following website.
+**  Website : www.plaatsoft.nl 
 **
-**  Oppure manda una email al seguente indirizzo e-mail.
+**  Or send an email to the following address.
 **  Email   : info@plaatsoft.nl
 **
-**  All copyrights reserved (c) 2008-2014 PlaatSoft
+**  All copyrights reserved (c) 2008-2016 PlaatSoft
 */
 
 /*

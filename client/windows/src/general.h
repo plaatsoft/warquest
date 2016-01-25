@@ -32,7 +32,6 @@
 
 /**
  * @mainpage WarQuestClient documentation
- * @image html WarQuestClient.png
  * Welcome to the WarQuestClient documentation.
  *
  * @section Introduction

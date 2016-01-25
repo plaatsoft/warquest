@@ -1,4 +1,18 @@
-/* All copyrights reserved (c) 2008-2014 PlaatSoft */
+/* 
+**  ========
+**  WarQuest
+**  ========
+**
+**  Created by wplaat
+**
+**  For more information visit the following website.
+**  Website : www.plaatsoft.nl 
+**
+**  Or send an email to the following address.
+**  Email   : info@plaatsoft.nl
+**
+**  All copyrights reserved (c) 2008-2016 PlaatSoft
+*/
 
 var colors = ["#B8D430", "#3AB745", "#029990", "#3501CB",
              "#2E2C75", "#673A7E", "#CC0071", "#F80120",

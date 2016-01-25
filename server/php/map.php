@@ -2,7 +2,7 @@
 
 /* 
 **  ========
-**  WARQUEST
+**  WarQuest
 **  ========
 **
 **  Created by wplaat
@@ -13,7 +13,7 @@
 **  Or send an email to the following address.
 **  Email   : info@plaatsoft.nl
 **
-**  All copyrights reserved (c) 2008-2014 PlaatSoft
+**  All copyrights reserved (c) 2008-2016 PlaatSoft
 */
 
 include "constants.inc";

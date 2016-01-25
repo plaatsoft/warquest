@@ -2,7 +2,7 @@
 
 /* 
 **  ========
-**  WARQUEST
+**  WarQuest
 **  ========
 **
 **  Created by wplaat
@@ -13,8 +13,24 @@
 **  Or send an email to the following address.
 **  Email   : info@plaatsoft.nl
 **
-**  All copyrights reserved (c) 2008-2014 PlaatSoft
+**  All copyrights reserved (c) 2008-2016 PlaatSoft
 */
+
+$notes[69] = '
+<div class="subparagraph2">01-01-2016</div>
+<i>Game Server v6.9</i>
+<ul>
+<li>Update copyright footer.</li>
+<li>Update copyright banner in source code.</li>
+<li>Move source code from Google Code to GIT Hub repository.</li>
+<li>Bugfix: Paypal dialog is now default english.</li>
+</ul>
+</br>
+
+<i>General</i>
+<ul>
+<li>Please visit www.gravatar.com to upload a player image.</li>
+</ul>';
 
 $notes[68] = '
 <div class="subparagraph2">03-04-2014</div>
