@@ -394,7 +394,7 @@ $lang['LOGIN_EMAIL'] = 'Email';
 $lang['LOGIN_NICKNAME']  = 'Nickname';
 
 $lang['LOGIN_MAINTENANCE_TITLE'] = 'Server Maintenance';
-$lang['LOGIN_MAINTENANCE'] = 'At the moment, we are undergoing server maintenance. Please come back in 30 minutes. Thank you!';
+$lang['LOGIN_MAINTENANCE'] = 'At the moment, we are upgrading the warquest server this will take some time. Please come back later. Thank you!';
 
 $lang['LOGIN_LOGOUT'] = 'You are now logged off!'; 
 $lang['LOGIN_FAILED'] = 'Wrong username and/or password!';

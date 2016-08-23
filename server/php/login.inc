@@ -1014,7 +1014,7 @@ function warquest_login() {
 					}
 					break;				
 	}
-				
+		
 	/* Page handler */
 	switch ($sid) {
 					

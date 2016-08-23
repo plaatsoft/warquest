@@ -36,11 +36,11 @@
 function warquest_db_connect($dbhost, $dbuser, $dbpass, $dbname) {
 
 	global $output;
+	global $handle;
 
 	if (MYSQL == 1) {
 	
-		$handle = mysql_connect($dbhost, $dbuser, $dbpass);
-		mysql_select_db($dbname);
+		$handle = mysqli_connect($dbhost, $dbuser, $dbpass, $dbname);	
 		
 	} else {
 	
@@ -65,9 +65,11 @@ function warquest_db_connect($dbhost, $dbuser, $dbpass, $dbname) {
  */
 function warquest_db_close() {
 
-	if (MYSQL == 1) {
+	global $handle;
 
-		$result = mysql_close();
+	if (MYSQL == 1) {
+	
+		mysqli_close($handle);
 
 	} else {
 	
@@ -85,7 +87,7 @@ function warquest_db_error() {
 
 	if (MYSQL == 1) {
 	
-		$error = mysql_error();
+		$error = mysqli_connect_error();
 		
 	} else {
 	
@@ -132,6 +134,7 @@ function warquest_db_query($query) {
 			
 	global $query_count;
 	global $output;
+	global $handle;
 	
 	$query_count++;
 		
@@ -139,7 +142,7 @@ function warquest_db_query($query) {
 	
 	if (MYSQL == 1) {
 	
-		$result = mysql_query($query);
+		$result = mysqli_query($handle, $query);
 		
 	} else {
 	
@@ -166,7 +169,7 @@ function warquest_db_fetch_object($result) {
 	
 	if (MYSQL == 1) {
 	
-		$data = @mysql_fetch_object($result);	
+		$data = $result->fetch_object();
 		
 	} else {
 	
@@ -182,9 +185,11 @@ function warquest_db_fetch_object($result) {
  */
 function warquest_db_escape($value) {
 	
+	global $db;
+			
 	if (MYSQL == 1) {
 	
-		$value = mysql_real_escape_string($value);
+		$value = mysqli_real_escape_string($db, $data);
 		
 	} else {
 	
@@ -202,7 +207,7 @@ function warquest_db_num_rows($value) {
 	
 	if (MYSQL == 1) {
 	
-		$value = mysql_num_rows($value);
+		$value = mysqli_num_rows($value);
 		
 	} else {
 	
