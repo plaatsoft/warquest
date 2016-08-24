@@ -88,7 +88,7 @@ if (strlen($token)>0) {
 	foreach ($tokens as $item) {
 		$items = preg_split ("/=/", $item);
 		if (is_numeric($items[1])) {
-			@$$items[0] = $items[1];	
+			${$items[0]} = $items[1];	
 			
 			if (DEBUG) {
 				echo $items[0].'='.$items[1].' ';

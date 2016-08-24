@@ -185,11 +185,11 @@ function warquest_db_fetch_object($result) {
  */
 function warquest_db_escape($value) {
 	
-	global $db;
+	global $handle;
 			
 	if (MYSQL == 1) {
 	
-		$value = mysqli_real_escape_string($db, $data);
+		$value = mysqli_real_escape_string($handle, $value);
 		
 	} else {
 	
