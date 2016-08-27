@@ -16,6 +16,22 @@
 **  All copyrights reserved (c) 2008-2016 PlaatSoft
 */
 
+$notes[70] = '
+<div class="subparagraph2">26-08-2016</div>
+<i>Game Server v7.0</i>
+<ul>
+<li>Update source code to be completable with PHP7</li>
+<li>Update database layer to be support latest mysql engine</li>
+<li>Removed all old forum posts.</li>
+</li>
+</ul>
+</br>
+
+<i>General</i>
+<ul>
+<li>Please visit www.gravatar.com to upload a player image.</li>
+</ul>';
+
 $notes[69] = '
 <div class="subparagraph2">01-01-2016</div>
 <i>Game Server v6.9</i>
@@ -25,12 +41,7 @@ $notes[69] = '
 <li>Move source code from Google Code to GIT Hub repository.</li>
 <li>Bugfix: Paypal dialog is now default english.</li>
 </ul>
-</br>
-
-<i>General</i>
-<ul>
-<li>Please visit www.gravatar.com to upload a player image.</li>
-</ul>';
+</br>';
 
 $notes[68] = '
 <div class="subparagraph2">03-04-2014</div>
