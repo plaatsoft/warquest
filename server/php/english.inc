@@ -13,7 +13,7 @@
 **  Or send an email to the following address.
 **  Email   : info@plaatsoft.nl
 **
-**  All copyrights reserved (c) 2008-2016 PlaatSoft
+**  All copyrights reserved (c) 1996-2016 PlaatSoft
 */
 
 /*
@@ -182,7 +182,7 @@ $lang['AGO_MINS']  = ' mins';
 $lang['AGO_SEC']   = ' sec';
 $lang['AGO_SECS']  = ' secs';
 	
-$lang['COPYRIGHT'] = 'Copyright © 2008-2016 - All Rights Reserved - <a target="new" href="http://www.plaatsoft.nl">PlaatSoft</a>';
+$lang['COPYRIGHT'] = 'Copyright © 1996-2016 - All Rights Reserved - <a target="new" href="https://www.plaatsoft.nl">PlaatSoft</a>';
 $lang['STATUS_CASH']  = 'Cash';
 $lang['STATUS_EXP']  = 'Exp.';
 $lang['STATUS_LEVEL']  = 'Level';

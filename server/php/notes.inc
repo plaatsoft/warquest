@@ -13,8 +13,21 @@
 **  Or send an email to the following address.
 **  Email   : info@plaatsoft.nl
 **
-**  All copyrights reserved (c) 2008-2016 PlaatSoft
+**  All copyrights reserved (c) 1996-2018 PlaatSoft
 */
+
+$notes[71] = '
+<div class="subparagraph2">25-11-2018</div>
+<i>Game Server v7.1</i>
+<ul>
+<li>Upgrade copyright banner</li>
+</ul>
+</br>
+
+<i>General</i>
+<ul>
+<li>Please visit www.gravatar.com to upload a player image.</li>
+</ul>';
 
 $notes[70] = '
 <div class="subparagraph2">26-08-2016</div>
@@ -23,14 +36,8 @@ $notes[70] = '
 <li>Update source code to be completable with PHP7</li>
 <li>Update database layer to be support latest mysql engine</li>
 <li>Removed all old forum posts.</li>
-</li>
 </ul>
-</br>
-
-<i>General</i>
-<ul>
-<li>Please visit www.gravatar.com to upload a player image.</li>
-</ul>';
+</br>';
 
 $notes[69] = '
 <div class="subparagraph2">01-01-2016</div>
