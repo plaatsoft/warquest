@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  android:orientation="vertical"
+  android:layout_width="match_parent"
+  android:layout_height="match_parent" android:weightSum="1">
+ 
+ 	<TextView android:layout_height="wrap_content" android:textAppearance="?android:attr/textAppearanceMedium" android:layout_width="wrap_content" android:text=" " android:id="@+id/textView4"></TextView>
+    <TextView android:layout_height="wrap_content" android:layout_width="wrap_content" android:text="@string/about_app_name" android:id="@+id/textView1" android:textAppearance="?android:attr/textAppearanceLarge" android:layout_gravity="center"></TextView>
+    <TextView android:layout_height="wrap_content"  android:text="@string/about_app_version" android:id="@+id/textView2" android:layout_gravity="center" android:layout_width="wrap_content"></TextView>
+    <TextView android:layout_height="wrap_content" android:id="@+id/checkedTextView2" android:text="@string/about_app_release" android:layout_width="wrap_content" android:layout_gravity="center"></TextView>
+    <TextView android:layout_height="wrap_content" android:textAppearance="?android:attr/textAppearanceMedium" android:layout_width="wrap_content" android:text=" " android:id="@+id/textView4"></TextView>
+    
+    <CheckedTextView
+        android:id="@+id/checkedTextView1"
+        android:layout_width="304dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:text="@string/about_info" >
+     </CheckedTextView>
+        
+    <TextView android:layout_height="wrap_content" android:textAppearance="?android:attr/textAppearanceMedium" android:layout_width="wrap_content" android:text=" " android:id="@+id/textView4"></TextView>
+    <ImageView android:layout_height="wrap_content" android:src="@drawable/plaatsoft" android:layout_width="match_parent" android:id="@+id/imageView1"></ImageView>
+    <TextView android:textAppearance="?android:attr/textAppearanceMedium" android:text=" " android:id="@+id/textView4" android:layout_width="50dp" android:layout_height="wrap_content"></TextView>
+    <TextView android:layout_height="wrap_content" android:textAppearance="?android:attr/textAppearanceMedium" android:layout_width="wrap_content" android:text="@string/about_copyright" android:id="@+id/textView4" android:layout_gravity="center"></TextView>
+    <TextView android:layout_height="wrap_content" android:textAppearance="?android:attr/textAppearanceMedium" android:layout_width="wrap_content" android:text="@string/about_company" android:id="@+id/textView4" android:layout_gravity="center"></TextView>
+    <TextView android:layout_height="wrap_content" android:textAppearance="?android:attr/textAppearanceMedium" android:layout_width="wrap_content" android:text=" " android:id="@+id/textView4"></TextView>
+    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:id="@+id/checkedTextView3" android:text="@string/about_warquest_url" android:layout_gravity="center"></TextView>
+    
+</LinearLayout>
+
