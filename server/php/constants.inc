@@ -13,8 +13,10 @@
 **  Or send an email to the following address.
 **  Email   : info@plaatsoft.nl
 **
-**  All copyrights reserved (c) 1996-2016 PlaatSoft
+**  All copyrights reserved (c) PlaatSoft
 */
+
+define ('MAX_VALUE', 9223372036854775000);
 
 /*
 ** ------------------
@@ -23,7 +25,7 @@
 */
 define('CLAN_ROLE_COMMANDER',		1);
 define('CLAN_ROLE_DEPUTY',			2);
-define('CLAN_ROLE_SOLDIER',		3);
+define('CLAN_ROLE_SOLDIER',			3);
 
 /*
 ** ------------------
@@ -32,7 +34,7 @@ define('CLAN_ROLE_SOLDIER',		3);
 */
 
 define('BONUS_EARTH',				1);
-define('BONUS_MOON',					2);
+define('BONUS_MOON',				2);
 define('BONUS_MARS',   				3);
 define('BONUS_MERCURY',				4);
 define('BONUS_NEPTUNE',				5);
@@ -47,8 +49,8 @@ define('BONUS_FACEBOOK_LIKE',		10);
 define('PLANET_EARTH',        	1);
 define('PLANET_MOON',         	2);
 define('PLANET_MARS',         	3);
-define('PLANET_MERCURY',			4);
-define('PLANET_NEPTUNE', 	    	5);
+define('PLANET_MERCURY',		4);
+define('PLANET_NEPTUNE', 	    5);
 
 /*
 ** ------------------
@@ -64,12 +66,12 @@ define('MENU_BATTLE',         	1003);
 define('MENU_UNITS',          	1004);
 define('MENU_BUILDINGS',      	1005);
 define('MENU_MONEY',          	1006);
-define('MENU_PLAYERS',      		1007);
+define('MENU_PLAYERS',      	1007);
 define('MENU_FORUMS',         	1008);
 define('MENU_HELP',           	1009);
 define('MENU_ADMIN',          	1010);
-define('MENU_SERVICE',          	1011);
-define('MENU_WEB_SERVICE',      	1012);
+define('MENU_SERVICE',          1011);
+define('MENU_WEB_SERVICE',      1012);
 
 /*
 ** ------------------
@@ -78,9 +80,9 @@ define('MENU_WEB_SERVICE',      	1012);
 */
 
 /* Login */
-define('PAGE_LOGIN',         		1101);
-define('PAGE_REGISTER',      		1102);
-define('PAGE_RECOVER',       		1103);
+define('PAGE_LOGIN',         	1101);
+define('PAGE_REGISTER',      	1102);
+define('PAGE_RECOVER',       	1103);
 define('PAGE_FACEBOOK',       	1104);
 
 /* Home */
@@ -110,22 +112,22 @@ define('PAGE_UNIT_LIBRARY',    	1502);
 define('PAGE_BUILDING_PLAYER', 	1601);
 
 /* Money */
-define('PAGE_BANK',          		1701);
-define('PAGE_BANK_NATIONAL', 		1711);
-define('PAGE_BANK_UNION',			1712);
+define('PAGE_BANK',          	1701);
+define('PAGE_BANK_NATIONAL', 	1711);
+define('PAGE_BANK_UNION',		1712);
 define('PAGE_BANK_SWISSCORE',  	1713);
-define('PAGE_BANK_CLAN',     		1714);
+define('PAGE_BANK_CLAN',     	1714);
 
-define('PAGE_STOCK_EXCHANGE',		1702);
+define('PAGE_STOCK_EXCHANGE',	1702);
 define('PAGE_STOCK_NASDAQ',		1715);
-define('PAGE_STOCK_DOWJONES',		1716);
-define('PAGE_STOCK_AEX',			1717);
-define('PAGE_STOCK_PERSONAL',		1718);
+define('PAGE_STOCK_DOWJONES',	1716);
+define('PAGE_STOCK_AEX',		1717);
+define('PAGE_STOCK_PERSONAL',	1718);
 
 define('PAGE_CASINO',         	1703);
-define('PAGE_CASINO_LOTTERY',    1704);
+define('PAGE_CASINO_LOTTERY',   1704);
 define('PAGE_CASINO_WHEEL',		1705);
-define('PAGE_CASINO_SLOT',			1706);
+define('PAGE_CASINO_SLOT',		1706);
 define('PAGE_CASINO_SLOT_HELP',	1707);
 define('PAGE_CASINO_TICTACTOE',	1708);
 define('PAGE_CASINO_POKER',		1709);
@@ -203,10 +205,10 @@ define('PAGE_TOTAL_INCOME',    	2211);
 */
 
 /* login (WARNING external used) */
-define('EVENT_NONE',   		     			  0);
-define('EVENT_LOGIN',    				     1);
-define('EVENT_REGISTER',        			  2);
-define('EVENT_RECOVER',        			  3);
+define('EVENT_NONE',   		     		 0);
+define('EVENT_LOGIN',    				 1);
+define('EVENT_REGISTER',        		 2);
+define('EVENT_RECOVER',        			 3);
 define('EVENT_LOGOUT',                   4);
 define('EVENT_REGISTER_SPECIAL',         5);
  
@@ -271,17 +273,17 @@ define('EVENT_CLAN_JOIN',                3706);
 define('EVENT_CLAN_LEAVE',               3707);
 define('EVENT_CLAN_DROP',                3708);
 define('EVENT_CLAN_ACCEPT',              3709);
-define('EVENT_CLAN_SAVE',         		  3710);
+define('EVENT_CLAN_SAVE',         		 3710);
 define('EVENT_CLAN_DEPOSIT',             3711);
 define('EVENT_CLAN_SKILL_INCREASE' ,     3712);
 define('EVENT_CLAN_SKILL_DECREASE' ,     3713);
 define('EVENT_CLAN_MEMBER_EDIT',         3716);
 define('EVENT_CLAN_MEMBER_SAVE',         3717);
-define('EVENT_CLAN_LOGO_NEXT',			  3719);
-define('EVENT_CLAN_LOGO_PREV',			  3720);
+define('EVENT_CLAN_LOGO_NEXT',			 3719);
+define('EVENT_CLAN_LOGO_PREV',			 3720);
 
-define('EVENT_PROMOTION_INVITE',			  3714);
-define('EVENT_ALLIANCE_SEARCH',		 	  3715);
+define('EVENT_PROMOTION_INVITE',		 3714);
+define('EVENT_ALLIANCE_SEARCH',		 	 3715);
 
 /* forum */
 define('EVENT_FORUM_COMMENT_SAVE', 	     3801);
@@ -289,43 +291,43 @@ define('EVENT_FORUM_COMMENT_DELETE',     3802);
 define('EVENT_FORUM_TOPIC_SAVE', 	     3803);
 define('EVENT_FORUM_TOPIC_DELETE', 	     3804);
 define('EVENT_FORUM_CHAT_UPDATE', 	     3805);
-define('EVENT_FORUM_POLL_VOTE', 	        3806);
+define('EVENT_FORUM_POLL_VOTE', 	     3806);
 define('EVENT_FORUM_POLL_UNVOTE', 	     3807);
 
 /* help */
 
 /* admin */
 define('EVENT_ADMIN_DELETE_MSG',  	     3901);
-define('EVENT_ADMIN_COPY',  	           3902);
-define('EVENT_ADMIN_DELETE_PLAYER',  	  3903);
-define('EVENT_ADMIN_UPDATE_TIMERS',  	  3904);
-define('EVENT_ADMIN_UPDATE_MONEY',  	  3905);
+define('EVENT_ADMIN_COPY',  	         3902);
+define('EVENT_ADMIN_DELETE_PLAYER',  	 3903);
+define('EVENT_ADMIN_UPDATE_TIMERS',  	 3904);
+define('EVENT_ADMIN_UPDATE_MONEY',  	 3905);
 define('EVENT_ADMIN_NEWS_SAVE',  	     3906);
 define('EVENT_ADMIN_NEWS_DELETE',  	     3907);
-define('EVENT_ADMIN_UPDATE_STAFF',  	  3908);
+define('EVENT_ADMIN_UPDATE_STAFF',  	 3908);
 define('EVENT_ADMIN_HACK_ACCOUNT',       3909);
 define('EVENT_ADMIN_BANK_INTEREST',      3910);
 define('EVENT_ADMIN_CLAN_BANK_INTEREST', 3911);
 define('EVENT_ADMIN_CLEAN_BANK_LOG',     3912);
 define('EVENT_ADMIN_CLEAN_CLAN_BANK_LOG',3913);
 define('EVENT_ADMIN_UPDATE_INVITATIONS', 3914);
-define('EVENT_ADMIN_UPDATE_AWARDS',  	  3915);
-define('EVENT_ADMIN_UPDATE_LEVELS',  	  3916);
+define('EVENT_ADMIN_UPDATE_AWARDS',  	 3915);
+define('EVENT_ADMIN_UPDATE_LEVELS',  	 3916);
 define('EVENT_ADMIN_CLEAN_BATTLE_LOG',   3917);
-define('EVENT_ADMIN_UPDATE_ROBOTS',  	  3918);
+define('EVENT_ADMIN_UPDATE_ROBOTS',  	 3918);
 define('EVENT_ADMIN_OPTIMIZE_DATABASE',  3919);
-define('EVENT_ADMIN_UPDATE_INCOME',  	  3920);
-define('EVENT_ADMIN_UPDATE_CLAN',		  3921);
+define('EVENT_ADMIN_UPDATE_INCOME',  	 3920);
+define('EVENT_ADMIN_UPDATE_CLAN',		 3921);
 define('EVENT_ADMIN_SAVE_TWEET',  	     3922);
 define('EVENT_ADMIN_BACKUP_DATABASE',    3923);
 define('EVENT_ADMIN_INACTIVE_SECTOR',    3924);
-define('EVENT_ADMIN_EDIT',  	           3925);
+define('EVENT_ADMIN_EDIT',  	         3925);
 define('EVENT_ADMIN_UPDATE_BOTS',        3926); 
 define('EVENT_ADMIN_UPDATE_LOTTERY',     3927); 
 
 /* others (internal used) */
 define('EVENT_PLAYER_PDF_REPORT', 	     4000);
-define('EVENT_SWITCH_PLANET',				  4001);
+define('EVENT_SWITCH_PLANET',			 4001);
 
 /* others (WARNING external used) */
 define('EVENT_VALID_EMAIL',              4002);
@@ -336,12 +338,12 @@ define('EVENT_VALID_EMAIL',              4002);
 ** ------------------
 */
 
-define('EVENT_GET_SECTOR', 	           5001);
-define('EVENT_GET_CLAN', 	              5002);
-define('EVENT_FB_LIKE', 	              5003);
-define('EVENT_GET_PLAYER', 	           5004);
-define('EVENT_GET_HEADLINES',            5005);
-define('EVENT_GET_MAIL_NOTIFICATION',    5006);
+define('EVENT_GET_SECTOR', 	           	5001);
+define('EVENT_GET_CLAN', 	            5002);
+define('EVENT_FB_LIKE', 	            5003);
+define('EVENT_GET_PLAYER', 	           	5004);
+define('EVENT_GET_HEADLINES',           5005);
+define('EVENT_GET_MAIL_NOTIFICATION',   5006);
 
 /*
 ** ------------------
@@ -349,7 +351,7 @@ define('EVENT_GET_MAIL_NOTIFICATION',    5006);
 ** ------------------
 */
 
-define('PATTERN_BOUNTY',     				0);
+define('PATTERN_BOUNTY',     			0);
 define('PATTERN_SOUND',       			1);
 define('PATTERN_ADS',         			2);
 define('PATTERN_CONDITION',   			3);

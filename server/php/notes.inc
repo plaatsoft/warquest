@@ -13,10 +13,17 @@
 **  Or send an email to the following address.
 **  Email   : info@plaatsoft.nl
 **
-**  All copyrights reserved (c) 1996-2018 PlaatSoft
+**  All copyrights reserved (c) PlaatSoft
 */
 
 $notes[71] = '
+<div class="subparagraph2">18-05-2020</div>
+<i>Game Server v7.2</i>
+<ul>
+<li>Fix bigint max value written to database.</li>
+</ul>
+</br>
+
 <div class="subparagraph2">25-11-2018</div>
 <i>Game Server v7.1</i>
 <ul>

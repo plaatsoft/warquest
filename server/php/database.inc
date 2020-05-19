@@ -13,7 +13,7 @@
 **  Or send an email to the following address.
 **  Email   : info@plaatsoft.nl
 **
-**  All copyrights reserved (c) 1996-2016 PlaatSoft
+**  All copyrights reserved (c) PlaatSoft
 */
 
 /*
@@ -1105,7 +1105,7 @@ function warquest_db_player_insert($name, $pid) {
 
 	/* input */
 	global $config;
-	
+		
 	/* Create user account */
 	$query  = 'insert into player (';
 	$query .= 'pid, name, language, ';
@@ -1154,6 +1154,22 @@ function warquest_db_player_insert($name, $pid) {
  */
 function warquest_db_player_update($player) {
 	
+	if ($player->money > MAX_VALUE) {
+		$player->money=MAX_VALUE;
+	}
+	
+	if ($player->bank1 > MAX_VALUE) {
+		$player->bank1=MAX_VALUE;
+	}
+	
+	if ($player->bank2 > MAX_VALUE) {
+		$player->bank2=MAX_VALUE;
+	}
+	
+	if ($player->bank3 > MAX_VALUE) {
+		$player->bank3=MAX_VALUE;
+	}
+
 	$query  = 'update player set '; 
 	$query .= 'name="'.warquest_db_escape($player->name).'", ';
 	$query .= 'twitter="'.warquest_db_escape($player->twitter).'", ';
@@ -1166,7 +1182,7 @@ function warquest_db_player_update($player) {
 	$query .= 'ammo='.$player->ammo.', ';
 	$query .= 'ammo_date="'.$player->ammo_date.'", ';
 	$query .= 'ammo_step='.$player->ammo_step.', ';
-	$query .= 'money='.$player->money.', ';
+	$query .= 'money='.number_format($player->money,0,'.', '').', ';
 	$query .= 'money_step='.$player->money_step.', ';
 	$query .= 'money_date="'.$player->money_date.'", ';
 	$query .= 'gold='.$player->gold.', ';
@@ -1180,9 +1196,9 @@ function warquest_db_player_update($player) {
 	$query .= 'mission_level='.$player->mission_level.', ';
 	$query .= 'alliance='.$player->alliance.', ';
 	$query .= 'invite='.$player->invite.', ';
-	$query .= 'bank1='.$player->bank1.', ';
-	$query .= 'bank2='.$player->bank2.', ';
-	$query .= 'bank3='.$player->bank3.', ';
+	$query .= 'bank1='.number_format($player->bank1,0,'.', '').', ';
+	$query .= 'bank2='.number_format($player->bank2,0,'.', '').', ';
+	$query .= 'bank3='.number_format($player->bank3,0,'.', '').', ';
 	$query .= 'damage_units='.$player->damage_units.', ';
 	$query .= 'damage_buildings='.$player->damage_buildings.', ';
 	$query .= 'last_battle="'.$player->last_battle.'", ';
@@ -1381,7 +1397,7 @@ function warquest_db_bank_insert($pid1, $pid2, $bgid, $amount, $balance, $action
 	$now = date('Y-m-d H:i:s');
 	
 	$query  = 'insert into bank (pid1, pid2, bgid, amount, date, balance, action) ';
-	$query .= 'values ('.$pid1.','.$pid2.','.$bgid.','.$amount.',"'.$now.'",'.$balance.','.$action.')';
+	$query .= 'values ('.$pid1.','.$pid2.','.$bgid.','.$amount.',"'.$now.'",'.number_format($balance,0,'.', '').','.$action.')';
 	
 	warquest_db_query($query);  
 	
