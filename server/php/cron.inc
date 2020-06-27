@@ -659,15 +659,15 @@ function warquest_cron_update_lottery($info=0) {
 			warquest_user_log($player, $comment);
 	
 			$message .= 'Lottery '.$lottery->lottery_id.' finished. The winner is '.$player->name.' ['.$player->pid.']<br/>';
-			
-			/* Create new lottery */			
-			$message .= warquest_cron_add_lottery();
 		}
 	}
 	
 	if (strlen($message)==0) {
-		$message .= 'No lotteries expired!';
+		$message .= 'No lotteries expired! ';
 	}
+	
+	/* Create new lottery */			
+	$message .= warquest_cron_add_lottery();
 	
 	if ($info==1) {
 		$output->popup .= warquest_box_icon("info", $message);
