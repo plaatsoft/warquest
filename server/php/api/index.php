@@ -112,6 +112,14 @@ Router::any('/api', function () {
     ];
 });
 
+// Check API key
+if (request('key') != $config['api_key']) {
+    Router::handleResponse([
+        'success' => false,
+        'message' => 'Wrong API key'
+    ]);
+}
+
 // Login and get player information
 Router::any('/api/auth/login', function () {
     // Get the member id by username and password

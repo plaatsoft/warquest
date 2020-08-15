@@ -39,6 +39,7 @@ $config['backup_period']   		  			= 30;
 $config["webservices"]						= 1;
 $config["adminPid"]							= 18;
 $config["default_background"]				= 1;
+$config["api_key"]							= "";
 
 /* Server version */
 $config["applVersion"]						= 'Version 7.3';

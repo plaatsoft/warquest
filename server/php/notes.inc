@@ -29,7 +29,7 @@ $notes[73] = '
 <li>Add new Google Play Store download link</li>
 <li>Fixed some small layout issues</li>
 <li>Add theme Modern (Tablet / Desktop)</li>
-<li>Fixed the announcements when using an Add Blocker</li>
+<li>Fixed the announcements when using an ad blocker</li>
 <li>Fixed gravatar http image loading bug on Android</li>
 <li>Update all http links to https and fixed all old domain names</li>
 <li>Added simple JSON REST API that the renewed WarQuest Android App uses</li>
