@@ -1200,7 +1200,7 @@ $notes[28] = '
 <li>Html requests on login page are now counted.</li>
 <li>Bug fix: Robot does not attack player without ammo anymore.</li>
 <li>Disabled html redirect on warquest.plaatsoft.nl domain.</li>
-<li>Introduce info@warquest.nl email contact address for questions.</li>
+<li>Introduce <a href="mailto:warquest@plaatsoft.nl">warquest@plaatsoft.nl</a> email contact address for questions.</li>
 </ul>
 <br>
 

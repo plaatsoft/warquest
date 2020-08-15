@@ -64,7 +64,7 @@ $config['gold_bonus_facebook_like'] 		= 200;
 */
 
 $config["applName"]							= 'WarQuest';
-$config["from_email"]						= 'info@warquest.nl';
+$config["from_email"]						= 'warquest@plaatsoft.nl';
 
 $config["next_level_sp_bonus"]				= 3;
 $config["continent_conquer_bonus"] 			= 7000000;

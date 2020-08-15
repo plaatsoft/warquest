@@ -117,9 +117,9 @@ class RSSFeed {
 		$output .= "\r\n";
 		$output .= '<generator>WarQuest</generator>';
 		$output .= "\r\n";
-		$output .= '<managingEditor>info@warquest.nl</managingEditor>';
+		$output .= '<managingEditor>warquest@plaatsoft.nl</managingEditor>';
 		$output .= "\r\n";
-		$output .= '<webMaster>info@warquest.nl</webMaster>';
+		$output .= '<webMaster>warquest@plaatsoft.nl</webMaster>';
 		$output .= "\r\n";
 		$output .= "\r\n";
 
