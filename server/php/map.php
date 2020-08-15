@@ -1,6 +1,6 @@
 <?php
 
-/* 
+/*
 **  ========
 **  WarQuest
 **  ========
@@ -8,7 +8,7 @@
 **  Created by wplaat
 **
 **  For more information visit the following website.
-**  Website : www.plaatsoft.nl 
+**  Website : www.plaatsoft.nl
 **
 **  Or send an email to the following address.
 **  Email   : info@plaatsoft.nl
@@ -20,37 +20,37 @@ include "constants.inc";
 include "config.inc";
 include "general.inc";
 
-/* 
+/*
 ** -------
 ** General
 ** -------
 */
 
 function process_data($data, $image) {
-	
+
 	$white = imagecolorallocatealpha($image, 0xff, 0xff, 0xff, 20);
-	
+
 	if (strlen($data)>0) {
 
 		$codes = preg_split('/,/',$data);
 		foreach($codes as $code) {
 
 			@list($x, $y, $name, $owner, $damage) = preg_split('/-/',$code);
-			
+
 			$yoffset=4;
 			$xoffset=6;
 			if (($y % 2)==0) {
 				$xoffset+=44;
 			}
-								
-			$color = 0;	
+
+			$color = 0;
 			if ($owner==1) {
 				/* Own area */
 				$color = ImageColorAllocatealpha($image, 255, 0, 0, 60);
 			} else if ($owner==2) {
 				/* Enemy area */
-				$color = ImageColorAllocatealpha($image, 0, 255, 0, 60);	
-			} else if ($owner==3) {		
+				$color = ImageColorAllocatealpha($image, 0, 255, 0, 60);
+			} else if ($owner==3) {
 				/* Selectable area */
 				$color = ImageColorAllocatealpha($image, 255, 165, 0, 60);
 			}
@@ -58,27 +58,27 @@ function process_data($data, $image) {
 			if ($color>0) {
 				fillPologon($image, $color, $x, $y);
 			}
-			
+
 			if (strlen($name)>0) {
-				if ($damage>0) {	
+				if ($damage>0) {
 					$yoffset-=3;
 				}
 				imagefttext($image, 7, 0, 20+($x*88)+$xoffset, 20+($y*18)+$yoffset, $white, 'ttf/font.ttf', $name);
 			}
-							
+
 			if ($damage>0) {
 				if (strlen($name)>0) {
 					$yoffset+=12;
 				}
-				imagefttext($image, 7, 0, 27+($x*88)+$xoffset, 20+($y*18)+$yoffset, $white, 'ttf/font.ttf', $damage.'%');	
+				imagefttext($image, 7, 0, 27+($x*88)+$xoffset, 20+($y*18)+$yoffset, $white, 'ttf/font.ttf', $damage.'%');
 			}
 		}
 	}
 }
 
-/* 
+/*
 ** ------
-** Output 
+** Output
 ** ------
 */
 
@@ -97,22 +97,22 @@ if (isset($_GET['data'])) {
 	$image = ImageCreateFromPNG('images/planet/map'.$planet.'a.png');
 	AddPologonRaster($image);
 	process_data($data, $image);
-			
+
 	header('Content-type: image/gif');
 	imagegif($image);
 	imagedestroy($image);
-	
+
 } else {
 
 	/* Create client side - HTML5 canvas map */
-	
+
 	$page  = '<html>';
 	$page .= '<head>';
 	$page .= '</head>';
-	$page .= '<body>'; 
+	$page .= '<body>';
 	$page .= '<canvas id="myCanvas" width="483" height="300" >HTML5 canvas features are not supported!</canvas>';
-	$page .= '<script language="JavaScript" src="js/map3.js"></script>';
-	$page .= '<script language="JavaScript">';
+	$page .= '<script src="js/map3.js"></script>';
+	$page .= '<script>';
 	$page .= 'initMap('.$planet.','.MENU_SERVICE.');';
 	$page .= '</script>';
 	$page .= '</body>';
@@ -120,11 +120,3 @@ if (isset($_GET['data'])) {
 
 	echo $page;
 }
-	
-/* 
-** --------------------------
-** The End
-** --------------------------
-*/
-
-?>

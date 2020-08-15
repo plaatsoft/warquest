@@ -1,0 +1,5 @@
+backup/*.sql
+graph/*.png
+log/*.log
+user/*.log
+config.inc

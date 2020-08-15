@@ -1,6 +1,6 @@
 <?php
 
-/* 
+/*
 **  ========
 **  WarQuest
 **  ========
@@ -8,7 +8,7 @@
 **  Created by wplaat
 **
 **  For more information visit the following website.
-**  Website : www.plaatsoft.nl 
+**  Website : www.plaatsoft.nl
 **
 **  Or send an email to the following address.
 **  Email   : info@plaatsoft.nl
@@ -21,7 +21,7 @@
 ** (1) Every line has the following syntax $lang['<KEY>'] = '<DESCRIPTION>';
 **     Only change the <DESCRIPTION> part. Leave the rest unchanged.
 ** (2) The <DESCRIPTION> part contain %s tags. DO NOT REMOVE THEN.
-**     The %s are realtime replace with game parameters. 
+**     The %s are realtime replace with game parameters.
 **     For example: 'Restore for %s dollars' will be on screen 'Restore for 100 dollars'
 ** (3) The LINK keys contain the menu items of the game. Choose as short as possible words.
 ** (4) Leave HTML tags unchanged, for example <b>, </b>, etc....
@@ -34,7 +34,7 @@
 ** Language: Spanish
 ** ------------------
 */
- 
+
 /*
 ** ------------------
 ** LINKS
@@ -42,12 +42,12 @@
 */
 
 /* Login */
-$lang['LINK_LOGIN']  = 'Acceso'; 
-$lang['LINK_REGISTER'] = 'Registro'; 
-$lang['LINK_RECOVER'] = 'RecuperaciÛn'; 
-$lang['LINK_MANUAL'] = 'Manual'; 
+$lang['LINK_LOGIN']  = 'Acceso';
+$lang['LINK_REGISTER'] = 'Registro';
+$lang['LINK_RECOVER'] = 'Recuperaci√≥n';
+$lang['LINK_MANUAL'] = 'Manual';
 $lang['LINK_FACEBOOK'] = 'Facebook';
-$lang['LINK_RSS']  = 'RSS'; 
+$lang['LINK_RSS']  = 'RSS';
 
 /* General */
 $lang['LINK_HOME'] = 'Inicio';
@@ -64,7 +64,7 @@ $lang['LINK_ADMIN'] = 'Admin';
 $lang['LINK_FIRST']  = 'Primera';
 $lang['LINK_PREVIOUS'] = 'Anterior';
 $lang['LINK_NEXT'] = 'Siguiente';
-$lang['LINK_LAST'] = '⁄ltima';
+$lang['LINK_LAST'] = '√öltima';
 
 /* Home */
 $lang['LINK_RESTORE'] = 'Restaurar';
@@ -78,7 +78,7 @@ $lang['LINK_DELETE'] = 'Borrar';
 $lang['LINK_SETTINGS'] = 'Ajustes';
 $lang['LINK_NEWS'] = 'Noticias';
 $lang['LINK_COMMENTS'] = 'Mensajes';
-$lang['LINK_STATISTICS'] = 'EstadÌsticas';
+$lang['LINK_STATISTICS'] = 'Estad√≠sticas';
 $lang['LINK_LOGOUT'] = 'Salir';
 $lang['LINK_EDIT'] = 'Editar';
 $lang['LINK_SAVE'] = 'Guardar';
@@ -88,7 +88,7 @@ $lang['LINK_SKILLS'] = 'Habilidades';
 $lang['LINK_RECRUIT']  = 'Invitar';
 $lang['LINK_INCREASE'] = 'Aumentar';
 $lang['LINK_DECREASE'] = 'Reducir';
-$lang['LINK_RESTORE_NOW']  = 'Restaurar por %s dÛlares';
+$lang['LINK_RESTORE_NOW']  = 'Restaurar por %s d√≥lares';
 $lang['LINK_CHANGE'] = 'Cambio';
 $lang['LINK_REPORT'] = 'Informe';
 $lang['LINK_BOUNTY'] = 'Recompensa';
@@ -112,7 +112,7 @@ $lang['LINK_DISBAND_AGAIN']= 'Volver a licenciar';
 /* Building */
 $lang['LINK_INCOME'] = 'Ingresos';
 $lang['LINK_DEFENSE'] = 'Defensa';
-$lang['LINK_ENERGY'] = 'EnergÌa';
+$lang['LINK_ENERGY'] = 'Energ√≠a';
 $lang['LINK_BUY'] = 'Comprar';
 $lang['LINK_BUY_AGAIN'] = 'Volver a comprar';
 $lang['LINK_SELL'] = 'Vender';
@@ -133,7 +133,7 @@ $lang['LINK_PENDING'] = 'Pendientes';
 $lang['LINK_APPROVED'] = 'Aceptados';
 $lang['LINK_COMMENT']  = 'Mensaje';
 $lang['LINK_BEST_PLAYER']  = 'Jugadores';
-$lang['LINK_BEST_COUNTRY'] = 'PaÌses';
+$lang['LINK_BEST_COUNTRY'] = 'Pa√≠ses';
 $lang['LINK_DROP'] = 'Descartar';
 $lang['LINK_ACCEPT'] = 'Aceptar';
 $lang['LINK_REJECT'] = 'Rechazar';
@@ -148,49 +148,49 @@ $lang['LINK_SEARCH']  = 'Buscar';
 
 /* Help */
 $lang['LINK_GENERAL']  = 'Instrucciones';
-$lang['LINK_NOTES']  = 'Notas de la versiÛn';
+$lang['LINK_NOTES']  = 'Notas de la versi√≥n';
 $lang['LINK_RANKS']  = 'Rangos';
 $lang['LINK_AWARDS'] = 'Condecoraciones';
 $lang['LINK_LEVELS']  = 'Niveles';
-$lang['LINK_STATS']  = 'EstadÌsticas';
+$lang['LINK_STATS']  = 'Estad√≠sticas';
 $lang['LINK_DONATE']  = 'Donaciones';
 $lang['LINK_ABOUT']  = 'Credits';
 
 /*
 ** ------------------
-** GENERAL 
+** GENERAL
 ** ------------------
 */
 
-$lang['SYSTEM_HACK_DETECTED'] = 'Por favor no utilizar botÛn de recarga, adelante o antr·s!';
+$lang['SYSTEM_HACK_DETECTED'] = 'Por favor no utilizar bot√≥n de recarga, adelante o antr√°s!';
 
-$lang['AGO_DAY']   = ' dÌa';	
-$lang['AGO_DAYS']  = ' dÌas';
+$lang['AGO_DAY']   = ' d√≠a';
+$lang['AGO_DAYS']  = ' d√≠as';
 $lang['AGO_HOUR']  = ' hora';
 $lang['AGO_HOURS'] = ' horas';
 $lang['AGO_MIN']   = ' min';
 $lang['AGO_MINS']  = ' mins';
 $lang['AGO_SEC']   = ' seg';
 $lang['AGO_SECS']  = ' segs';
-	
-$lang['COPYRIGHT'] = 'Copyright © 2008-2016 - Todos los derechos reservados - <a target="new" href="http://www.plaatsoft.nl">PlaatSoft</a>';
+
+$lang['COPYRIGHT'] = 'Copyright ¬© 2008-' . date('Y') . ' - Todos los derechos reservados - <a target="_blank" href="https://www.plaatsoft.nl">PlaatSoft</a>';
 
 $lang['STATUS_CASH']  = 'Dinero';
 $lang['STATUS_EXP']  = 'Exp.';
 $lang['STATUS_LEVEL']  = 'Nivel';
 $lang['STATUS_HEALTH'] = 'Salud';
-$lang['STATUS_ENERGY'] = 'EnergÌa';
-$lang['STATUS_AMMO'] = 'MuniciÛn';
-$lang['STATUS_ALLIANCE_SIZE'] = 'N˙m.Aliados';
+$lang['STATUS_ENERGY'] = 'Energ√≠a';
+$lang['STATUS_AMMO'] = 'Munici√≥n';
+$lang['STATUS_ALLIANCE_SIZE'] = 'N√∫m.Aliados';
 
 $lang['BOX_INFO'] = 'INFO';
 $lang['BOX_WARN'] = 'ADVERTENCIA';
 $lang['BOX_ERROR'] = 'ERROR';
 
-$lang['GENERAL_NEXT_LEVEL'] = 'Brillante! Has alcanzado el siguiente nivel! Has recibido %s puntos de Habilidades y %s dÛlares. Tu salud, energÌa y municiÛn se han restaurado. ';
-$lang['GENERAL_BATTLE_LEVEL'] = 'Brillante! Has ganado %s batallas y recibes %s punto(s) extra de Habilidades y %s dÛlares';
-$lang['GENERAL_BOUNTY_LEVEL'] = 'Genial! Has ofrecido %s recompensas y recibes %s punto(s) extra de Habilidades y %s dÛlares.';
-$lang['GENERAL_REBEL_LEVEL'] = 'Genial! Has provocado %s rebeliones y recibes %s punto(s) extra de Habilidades y %s dÛlares.';
+$lang['GENERAL_NEXT_LEVEL'] = 'Brillante! Has alcanzado el siguiente nivel! Has recibido %s puntos de Habilidades y %s d√≥lares. Tu salud, energ√≠a y munici√≥n se han restaurado. ';
+$lang['GENERAL_BATTLE_LEVEL'] = 'Brillante! Has ganado %s batallas y recibes %s punto(s) extra de Habilidades y %s d√≥lares';
+$lang['GENERAL_BOUNTY_LEVEL'] = 'Genial! Has ofrecido %s recompensas y recibes %s punto(s) extra de Habilidades y %s d√≥lares.';
+$lang['GENERAL_REBEL_LEVEL'] = 'Genial! Has provocado %s rebeliones y recibes %s punto(s) extra de Habilidades y %s d√≥lares.';
 $lang['GENERAL_BATTLE_AWARD_WON'] = 'Combates ganados';
 $lang['GENERAL_BOUNTY_AWARD_WON'] = 'recompensas ofrecidas';
 $lang['GENERAL_REBEL_AWARD_WON'] = 'rebeliones provocadas';
@@ -201,10 +201,10 @@ $lang['GENERAL_RECEIVED_AWARD'] = 'Condecoraciones recibidas:';
 $lang['GENERAL_ATTACK'] = 'ataque';
 $lang['GENERAL_DEFENSE'] = 'defensa';
 $lang['GENERAL_INCOME']  = 'ingresos';
-$lang['GENERAL_ENERGY']  = 'energÌa';
+$lang['GENERAL_ENERGY']  = 'energ√≠a';
 $lang['GENERAL_EXPERIENCE']  = 'experiencia';
-$lang['GENERAL_DOLLAR']  = 'dÛlares';
-$lang['GENERAL_ALLIANCE_SIZE'] = 'n˙mero aliados';
+$lang['GENERAL_DOLLAR']  = 'd√≥lares';
+$lang['GENERAL_ALLIANCE_SIZE'] = 'n√∫mero aliados';
 $lang['GENERAL_EXPERIENCE_POINTS'] = 'puntos experiencia';
 $lang['GENERAL_UPKEEP'] = 'Coste por hora';
 $lang['GENERAL_BANK']  = 'Banco';
@@ -217,46 +217,46 @@ $lang['GENERAL_WON'] = 'Ganados';
 $lang['GENERAL_LOST']  = 'Perdidos';
 $lang['GENERAL_AMOUNT'] = 'Cantidad';
 $lang['GENERAL_DATE'] = 'Fecha';
-$lang['GENERAL_TRANSACTION'] = 'TransacciÛn';
+$lang['GENERAL_TRANSACTION'] = 'Transacci√≥n';
 $lang['GENERAL_BALANCE'] = 'Saldo';
 $lang['GENERAL_APPROVED'] = 'Aprobado';
 $lang['GENERAL_EMAIL'] = 'Email';
 $lang['GENERAL_TOP']	= 'Top';
 $lang['GENERAL_EXP'] = 'Experiencia';
-$lang['GENERAL_COUNTRY'] = 'PaÌs';
+$lang['GENERAL_COUNTRY'] = 'Pa√≠s';
 $lang['GENERAL_PLAYERS'] = 'Jugadores';
 $lang['GENERAL_WONS']  = 'Ganados';
 $lang['GENERAL_LOSTS'] = 'Perdidos';
 $lang['GENERAL_NO'] = 'No';
-$lang['GENERAL_YES'] = 'SÌ';
+$lang['GENERAL_YES'] = 'S√≠';
 $lang['GENERAL_AGO'] = 'Hace';
 $lang['GENERAL_MESSAGE'] = 'Mensaje';
-$lang['GENERAL_ACTION'] = 'AcciÛn';
-$lang['GENERAL_NUMBER'] = 'N˙m.';
+$lang['GENERAL_ACTION'] = 'Acci√≥n';
+$lang['GENERAL_NUMBER'] = 'N√∫m.';
 $lang['GENERAL_DISCOUNT'] = 'Descuento edificios';
 $lang['GENERAL_REQUESTS'] = 'Solicitudes';
 $lang['GENERAL_EP'] = 'Puntos Habilidad';
-$lang['GENERAL_AWARD'] = 'CondecoraciÛn';
+$lang['GENERAL_AWARD'] = 'Condecoraci√≥n';
 $lang['GENERAL_LANGUAGE'] = 'Idioma';
 
 $lang['GENERAL_NEW_UNIT'] = 'NUEVA UNIDAD';
 $lang['GENERAL_NEW_BUILDING'] = 'NUEVO EDIFICIO';
-$lang['GENERAL_NEW_MISSION'] = 'NUEVA MISI”N';
+$lang['GENERAL_NEW_MISSION'] = 'NUEVA MISI√ìN';
 $lang['GENERAL_GAIN'] = 'conseguir';
 
 $lang['GENERAL_BOUNTY'] = 'Recompensa';
 $lang['GENERAL_INTELLIGENCE'] = 'Inteligencia';
-$lang['GENERAL_SPIES'] = 'espÌas';
+$lang['GENERAL_SPIES'] = 'esp√≠as';
 $lang['GENERAL_MAINTENANCE'] = 'Mantenimiento unidades';
 
-$lang['GENERAL_CNTRY'] = 'PaÌs';
-$lang['GENERAL_TOPICS'] = 'temas'; 
+$lang['GENERAL_CNTRY'] = 'Pa√≠s';
+$lang['GENERAL_TOPICS'] = 'temas';
 $lang['GENERAL_FORUM'] = 'Forum';
 $lang['GENERAL_MESSAGES'] = 'mensajes';
-$lang['GENERAL_LAST_MESSAGE'] = '⁄ltimo Mensaje';
+$lang['GENERAL_LAST_MESSAGE'] = '√öltimo Mensaje';
 $lang['GENERAL_FORUM_MODERATED'] = '(Moderado por %s)';
 $lang['GENERAL_NOT_MODERATED'] = '(Sin Moderador)';
-$lang['GENERAL_BY'] = 'atr·s';
+$lang['GENERAL_BY'] = 'atr√°s';
 $lang['GENERAL_TOPIC'] = 'Tema';
 $lang['GENERAL_LOCKED'] = 'Bloqueado';
 $lang['GENERAL_WORLDMAP'] = 'Mapa Mundial';
@@ -264,8 +264,8 @@ $lang['GENERAL_PLAATSOFT'] = 'PlaatSoft';
 $lang['GENERAL_CONQUER'] = 'Conquistar';
 
 $lang['GENERAL_ST'] = '%er';
-$lang['GENERAL_ND'] = '%∫';
-$lang['GENERAL_TH'] = '%∫';
+$lang['GENERAL_ND'] = '%¬∫';
+$lang['GENERAL_TH'] = '%¬∫';
 
 $lang['GENERAL_CONTINENT'] = 'Continente';
 $lang['GENERAL_CONQUERED'] = 'Conquistado';
@@ -287,64 +287,64 @@ $lang['GENERAL_PLANET_4'] = 'Mercury';
 */
 
 $lang['TIP_GENERAL']  = 'CONSEJOS';
-$lang['TIP_0'] = 'Juege la misiÛn de entrenamiento para acumular puntos de experiencia y llegar al siguiente nivel.';
+$lang['TIP_0'] = 'Juege la misi√≥n de entrenamiento para acumular puntos de experiencia y llegar al siguiente nivel.';
 $lang['TIP_1'] = 'Compre algunas unidades de combate y empiece a entrenar para acumular puntos de experiencia.';
 $lang['TIP_2'] = 'Comercie con los puntos de Habilidad recibidos (Inicio -> Habilidades) para mejorar sus Habilidades de soldado.';
-$lang['TIP_3'] = 'Introduzca su direcciÛn de correo electrÛnico para recibir notificaciones de mensajes y de alianzas!';
+$lang['TIP_3'] = 'Introduzca su direcci√≥n de correo electr√≥nico para recibir notificaciones de mensajes y de alianzas!';
 $lang['TIP_4'] = 'Compre algunos edificios de ingresos para obtener ingresos cada hora.';
 $lang['TIP_5'] = 'Compre algunos edificios de defensa para mejorar su fuerza defensiva.';
 $lang['TIP_6'] = 'Haga alianzas con los jugadores para mejorar su fuerza de ataque / defensa.';
 $lang['TIP_7'] = 'Guarde el dinero en efectivo en el Banco Nacional para mantenerlo a salvo de otros jugadores.';
 $lang['TIP_8'] = 'Acumule puntos de experiencia adicionales al votar en las encuestas disponibles!';
 $lang['TIP_9'] = 'Establezca recompensas sobre otros jugadores para recibir premios por recompensas.';
-$lang['TIP_10'] = 'Visite el Casino para jugar a la Rueda de la Fortuna y ganar m·s dinero.';
-$lang['TIP_11'] = 'Compre edificios de energÌa para recuperar energÌa con mayor rapidez.';
-$lang['TIP_12'] = 'Compre unidades de Inteligencia para espiar a otros jugadores y comenzar la rebeliÛn en sus continentes.';
+$lang['TIP_10'] = 'Visite el Casino para jugar a la Rueda de la Fortuna y ganar m√°s dinero.';
+$lang['TIP_11'] = 'Compre edificios de energ√≠a para recuperar energ√≠a con mayor rapidez.';
+$lang['TIP_12'] = 'Compre unidades de Inteligencia para espiar a otros jugadores y comenzar la rebeli√≥n en sus continentes.';
 $lang['TIP_13'] = 'Guarde el dinero en efectivo en el banco Trasquera para percibir intereses diarios.';
 $lang['TIP_14'] = 'Visite el foro. Las nuevas ideas para el juego son bienvenidas!';
-$lang['TIP_15'] = 'Eche un vistazo a la secciÛn de Ayuda para m·s informaciÛn.';
-$lang['TIP_16'] = 'Compra / venta de acciones para conseguir m·s ganancias (Dinero -> Bolsa)';
+$lang['TIP_15'] = 'Eche un vistazo a la secci√≥n de Ayuda para m√°s informaci√≥n.';
+$lang['TIP_16'] = 'Compra / venta de acciones para conseguir m√°s ganancias (Dinero -> Bolsa)';
 $lang['TIP_17'] = 'Guarde el dinero en efectivo en el banco SwissCore para percibir intereses diarios.';
 $lang['TIP_18'] = 'Complete todas las misiones del continente para recibir puntos extra de habilidad.';
-$lang['TIP_19'] = 'ReparaciÛn de unidades (Inicio -> Restaurar) para evitar la pÈrdida de unidades';
-$lang['TIP_20'] = 'Visite el Casino para jugar en la m·quina tragamonedas y ganar m·s dinero.';
-$lang['TIP_21'] = 'ReparaciÛn de los edificios (Inicio -> Restaurar) para evitar la pÈrdida de edificios';
-$lang['TIP_22'] = 'Siga jugando y conviÈrtase en el mejor jugador de su paÌs!';
+$lang['TIP_19'] = 'Reparaci√≥n de unidades (Inicio -> Restaurar) para evitar la p√©rdida de unidades';
+$lang['TIP_20'] = 'Visite el Casino para jugar en la m√°quina tragamonedas y ganar m√°s dinero.';
+$lang['TIP_21'] = 'Reparaci√≥n de los edificios (Inicio -> Restaurar) para evitar la p√©rdida de edificios';
+$lang['TIP_22'] = 'Siga jugando y convi√©rtase en el mejor jugador de su pa√≠s!';
 
-$lang['TIP_90'] = 'Est· a sÛlo 10 niveles de iniciar su propia colonia lunar.';
-$lang['TIP_91'] = 'Est· a sÛlo 9 niveles de iniciar su propia colonia lunar.';
-$lang['TIP_92'] = 'Est· a sÛlo 8 niveles de iniciar su propia colonia lunar.';
-$lang['TIP_93'] = 'Est· a sÛlo 7 niveles de iniciar su propia colonia lunar.';
-$lang['TIP_94'] = 'Est· a sÛlo 6 niveles de iniciar su propia colonia lunar.';
-$lang['TIP_95'] = 'Est· a sÛlo 5 niveles de iniciar su propia colonia lunar.';
-$lang['TIP_96'] = 'Est· a sÛlo 4 niveles de iniciar su propia colonia lunar.';
-$lang['TIP_97'] = 'Est· a sÛlo 3 niveles de iniciar su propia colonia lunar.';
-$lang['TIP_98'] = 'Est· a sÛlo 2 niveles de iniciar su propia colonia lunar.';
-$lang['TIP_99'] = 'Est· a sÛlo 1 nivel de iniciar su propia colonia lunar.';
+$lang['TIP_90'] = 'Est√° a s√≥lo 10 niveles de iniciar su propia colonia lunar.';
+$lang['TIP_91'] = 'Est√° a s√≥lo 9 niveles de iniciar su propia colonia lunar.';
+$lang['TIP_92'] = 'Est√° a s√≥lo 8 niveles de iniciar su propia colonia lunar.';
+$lang['TIP_93'] = 'Est√° a s√≥lo 7 niveles de iniciar su propia colonia lunar.';
+$lang['TIP_94'] = 'Est√° a s√≥lo 6 niveles de iniciar su propia colonia lunar.';
+$lang['TIP_95'] = 'Est√° a s√≥lo 5 niveles de iniciar su propia colonia lunar.';
+$lang['TIP_96'] = 'Est√° a s√≥lo 4 niveles de iniciar su propia colonia lunar.';
+$lang['TIP_97'] = 'Est√° a s√≥lo 3 niveles de iniciar su propia colonia lunar.';
+$lang['TIP_98'] = 'Est√° a s√≥lo 2 niveles de iniciar su propia colonia lunar.';
+$lang['TIP_99'] = 'Est√° a s√≥lo 1 nivel de iniciar su propia colonia lunar.';
 $lang['TIP_100'] = 'Comience su propia colonia lunar!';
 
-$lang['TIP_140'] = 'Est· a sÛlo 10 niveles de iniciar su propia colonia en Marte.';
-$lang['TIP_141'] = 'Est· a sÛlo 9 niveles de iniciar su propia colonia en Marte.';
-$lang['TIP_142'] = 'Est· a sÛlo 8 niveles de iniciar su propia colonia en Marte.';
-$lang['TIP_143'] = 'Est· a sÛlo 7 niveles de iniciar su propia colonia en Marte.';
-$lang['TIP_144'] = 'Est· a sÛlo 6 niveles de iniciar su propia colonia en Marte.';
-$lang['TIP_145'] = 'Est· a sÛlo 5 niveles de iniciar su propia colonia en Marte.';
-$lang['TIP_146'] = 'Est· a sÛlo 4 niveles de iniciar su propia colonia en Marte.';
-$lang['TIP_147'] = 'Est· a sÛlo 3 niveles de iniciar su propia colonia en Marte.';
-$lang['TIP_148'] = 'Est· a sÛlo 2 niveles de iniciar su propia colonia en Marte.';
-$lang['TIP_149'] = 'Est· a sÛlo 1 nivel de iniciar su propia colonia en Marte.';
+$lang['TIP_140'] = 'Est√° a s√≥lo 10 niveles de iniciar su propia colonia en Marte.';
+$lang['TIP_141'] = 'Est√° a s√≥lo 9 niveles de iniciar su propia colonia en Marte.';
+$lang['TIP_142'] = 'Est√° a s√≥lo 8 niveles de iniciar su propia colonia en Marte.';
+$lang['TIP_143'] = 'Est√° a s√≥lo 7 niveles de iniciar su propia colonia en Marte.';
+$lang['TIP_144'] = 'Est√° a s√≥lo 6 niveles de iniciar su propia colonia en Marte.';
+$lang['TIP_145'] = 'Est√° a s√≥lo 5 niveles de iniciar su propia colonia en Marte.';
+$lang['TIP_146'] = 'Est√° a s√≥lo 4 niveles de iniciar su propia colonia en Marte.';
+$lang['TIP_147'] = 'Est√° a s√≥lo 3 niveles de iniciar su propia colonia en Marte.';
+$lang['TIP_148'] = 'Est√° a s√≥lo 2 niveles de iniciar su propia colonia en Marte.';
+$lang['TIP_149'] = 'Est√° a s√≥lo 1 nivel de iniciar su propia colonia en Marte.';
 $lang['TIP_150'] = 'Comience su propia colonia en Marte!';
 
-$lang['TIP_190'] = 'Est· a sÛlo 10 niveles de iniciar su propia colonia en el mercury.';
-$lang['TIP_191'] = 'Est· a sÛlo 9 niveles de iniciar su propia colonia en el mercury.';
-$lang['TIP_192'] = 'Est· a sÛlo 8 niveles de iniciar su propia colonia en el mercury.';
-$lang['TIP_193'] = 'Est· a sÛlo 7 niveles de iniciar su propia colonia en el mercury.';
-$lang['TIP_194'] = 'Est· a sÛlo 6 niveles de iniciar su propia colonia en el mercury.';
-$lang['TIP_195'] = 'Est· a sÛlo 5 niveles de iniciar su propia colonia en el mercury.';
-$lang['TIP_196'] = 'Est· a sÛlo 4 niveles de iniciar su propia colonia en el mercury.';
-$lang['TIP_197'] = 'Est· a sÛlo 3 niveles de iniciar su propia colonia en el mercury.';
-$lang['TIP_198'] = 'Est· a sÛlo 2 niveles de iniciar su propia colonia en el mercury.';
-$lang['TIP_199'] = 'Est· a sÛlo 1 nivel de iniciar su propia colonia en el mercury.';
+$lang['TIP_190'] = 'Est√° a s√≥lo 10 niveles de iniciar su propia colonia en el mercury.';
+$lang['TIP_191'] = 'Est√° a s√≥lo 9 niveles de iniciar su propia colonia en el mercury.';
+$lang['TIP_192'] = 'Est√° a s√≥lo 8 niveles de iniciar su propia colonia en el mercury.';
+$lang['TIP_193'] = 'Est√° a s√≥lo 7 niveles de iniciar su propia colonia en el mercury.';
+$lang['TIP_194'] = 'Est√° a s√≥lo 6 niveles de iniciar su propia colonia en el mercury.';
+$lang['TIP_195'] = 'Est√° a s√≥lo 5 niveles de iniciar su propia colonia en el mercury.';
+$lang['TIP_196'] = 'Est√° a s√≥lo 4 niveles de iniciar su propia colonia en el mercury.';
+$lang['TIP_197'] = 'Est√° a s√≥lo 3 niveles de iniciar su propia colonia en el mercury.';
+$lang['TIP_198'] = 'Est√° a s√≥lo 2 niveles de iniciar su propia colonia en el mercury.';
+$lang['TIP_199'] = 'Est√° a s√≥lo 1 nivel de iniciar su propia colonia en el mercury.';
 $lang['TIP_200'] = 'Comience su propia colonia en el mercury!';
 
 /*
@@ -355,15 +355,15 @@ $lang['TIP_200'] = 'Comience su propia colonia en el mercury!';
 
 $lang['LOGIN_MEMBER_TITLE'] = 'Registro usuario';
 $lang['LOGIN_REGISTER_TITLE'] = 'Registro libre';
-$lang['LOGIN_RECOVER_TITLE'] = 'RecuperaciÛn de contraseÒa';
+$lang['LOGIN_RECOVER_TITLE'] = 'Recuperaci√≥n de contrase√±a';
 $lang['LOGIN_MANUAL_TITLE'] = 'Manual';
 
 $lang['LOGIN_PLAYERS'] = 'jugadores';
 $lang['LOGIN_REQUESTS'] = 'solicitudes';
-$lang['LOGIN_COUNTRIES'] = 'paÌses';
+$lang['LOGIN_COUNTRIES'] = 'pa√≠ses';
 $lang['LOGIN_ONLINE'] = 'jugadores online';
 
-$lang['LOGIN_PASSWORD'] = 'ContraseÒa';
+$lang['LOGIN_PASSWORD'] = 'Contrase√±a';
 $lang['LOGIN_USERNAME'] = 'Nombre usuario';
 $lang['LOGIN_EMAIL'] = 'Email';
 $lang['LOGIN_NICKNAME']  = 'Apodo';
@@ -371,23 +371,23 @@ $lang['LOGIN_NICKNAME']  = 'Apodo';
 $lang['LOGIN_MAINTENANCE_TITLE'] = 'Mantenimiento del servidor';
 $lang['LOGIN_MAINTENANCE'] = 'En estos momentos estamos realizando mantenimiento del servidor. Por favor, vuelva a intentarlo en 30 minutos. Gracias!';
 
-$lang['LOGIN_LOGOUT'] = 'Ahora est· desconectado!'; 
-$lang['LOGIN_FAILED'] = 'Nombre de usuario y / o contraseÒa incorrecto!';
+$lang['LOGIN_LOGOUT'] = 'Ahora est√° desconectado!';
+$lang['LOGIN_FAILED'] = 'Nombre de usuario y / o contrase√±a incorrecto!';
 $lang['LOGIN_REGISTER_OK'] = 'Cuenta de usuario %s esta creada!';
-$lang['LOGIN_PASSWORD_TO_SHORT'] = 'La contraseÒa debe tener como mÌnimo 6 caracteres!';
+$lang['LOGIN_PASSWORD_TO_SHORT'] = 'La contrase√±a debe tener como m√≠nimo 6 caracteres!';
 $lang['LOGIN_USERNAME_TO_SHORT'] = 'El nombre de usuario debe tener al menos 4 caracteres!';
 $lang['LOGIN_USERNAME_EXIST'] = 'El nombre de usuario %s ya existe!';
-$lang['LOGIN_EMAIL_EXIST'] = 'El email ya est· registrado!';
-$lang['LOGIN_NICKNAME_EXIST'] = 'El apodo %s ya est· en uso!';
+$lang['LOGIN_EMAIL_EXIST'] = 'El email ya est√° registrado!';
+$lang['LOGIN_NICKNAME_EXIST'] = 'El apodo %s ya est√° en uso!';
 $lang['LOGIN_NICKNAME_NEEDED'] = 'Debe introducir el Apodo!';
-$lang['LOGIN_NEW_PASSWORD_SEND'] = 'La nueva contraseÒa se ha enviado a su correo electrÛnico!';
+$lang['LOGIN_NEW_PASSWORD_SEND'] = 'La nueva contrase√±a se ha enviado a su correo electr√≥nico!';
 $lang['LOGIN_EMAIL_UNKNOWN'] = 'email desconocido!';
-$lang['LOGIN_BEST_VIEWED'] = 'WarQuest est· optimizado para los siguientes sistemas de mÛvil: "Apple iOS/iPad, Nokia Symbian, 
-BlackBerry OS, Android OS" y los navegadores de Internet: "Internet Explorer, Mozilla Firefox, Apple Safari, Opera, Google Chrome". 
+$lang['LOGIN_BEST_VIEWED'] = 'WarQuest est√° optimizado para los siguientes sistemas de m√≥vil: "Apple iOS/iPad, Nokia Symbian,
+BlackBerry OS, Android OS" y los navegadores de Internet: "Internet Explorer, Mozilla Firefox, Apple Safari, Opera, Google Chrome".
 Este juego se ve mejor con un navegador configurado a un ancho de 500px. ';
 
-$lang['LOGIN_NEW_CLIENT_TITLE'] = 'Nueva versiÛn WarQuest disponible!';
-$lang['LOGIN_NEW_CLIENT'] = 'Usted est· utilizando una versiÛn Warquest de windows antigua. Por favor, visite www.plaatsoft.nl para obtener la versiÛn m·s reciente.';
+$lang['LOGIN_NEW_CLIENT_TITLE'] = 'Nueva versi√≥n WarQuest disponible!';
+$lang['LOGIN_NEW_CLIENT'] = 'Usted est√° utilizando una versi√≥n Warquest de windows antigua. Por favor, visite www.plaatsoft.nl para obtener la versi√≥n m√°s reciente.';
 
 /*
 ** ------------------
@@ -397,46 +397,46 @@ $lang['LOGIN_NEW_CLIENT'] = 'Usted est· utilizando una versiÛn Warquest de windo
 
 $lang['HOME_TITLE'] = 'INICIO';
 
-$lang['HOME_FLASH_NEWS_TITLE'] = 'Noticias de ˙ltima hora';
+$lang['HOME_FLASH_NEWS_TITLE'] = 'Noticias de √∫ltima hora';
 
-$lang['HOME_LASTEST_FORUM_ITEM'] = '⁄ltimo mensaje en el foro';
+$lang['HOME_LASTEST_FORUM_ITEM'] = '√öltimo mensaje en el foro';
 
-$lang['HOME_INTRO_PLAYERS'] = 'En este momento %s jugadores de %s paÌses est·n activos, ';
+$lang['HOME_INTRO_PLAYERS'] = 'En este momento %s jugadores de %s pa√≠ses est√°n activos, ';
 $lang['HOME_INTRO_FIGHTS'] = '%s combates han tenido lugar ';
 $lang['HOME_INTRO_REQUESTS'] = '%s conexiones se gestionaron en el servidor. ';
-		
-$lang['HOME_INTRO_TITLE'] = 'IntroducciÛn';
+
+$lang['HOME_INTRO_TITLE'] = 'Introducci√≥n';
 $lang['HOME_INTRO_MISSIONS'] = 'Inicia el juego para jugar %s ';
 $lang['HOME_INTRO_BATTLES'] = 'y combate %s. ';
 $lang['HOME_INTRO_UNITS'] = 'Cuando usted gana dinero y puntos de experiencia puede comprar mejores %s ';
 $lang['HOME_INTRO_BUILDINGS'] = ' y %s para ser mas poderoso. ';
-$lang['HOME_INTRO_ENEMY'] = ' En cualquier momento otros jugadores pueden atacarte, asÌ que mantenga actualizada su defensa.';
+$lang['HOME_INTRO_ENEMY'] = ' En cualquier momento otros jugadores pueden atacarte, as√≠ que mantenga actualizada su defensa.';
 
-$lang['HOME_NEW_ANDROID_VERSION'] = 'Nueva versiÛn de aplicaciÛn v%s disponible en Android Market.<br/>Actualiza por favor!';
-$lang['HOME_NEW_WINDOWS_VERSION'] = 'Nueva versiÛn de windows Warquest v%s disponible!';
-$lang['HOME_CLICK_HERE'] = 'aquÌ';
+$lang['HOME_NEW_ANDROID_VERSION'] = 'Nueva versi√≥n de aplicaci√≥n v%s disponible en Android Market.<br>Actualiza por favor!';
+$lang['HOME_NEW_WINDOWS_VERSION'] = 'Nueva versi√≥n de windows Warquest v%s disponible!';
+$lang['HOME_CLICK_HERE'] = 'aqu√≠';
 $lang['HOME_CLICK_TEXT'] = 'Click %s para iniciar descarga.';
-$lang['HOME_EMAIL_MISSING'] = 'Por favor, proporcione su direcciÛn de correo electrÛnico para recibir mensajes de jugadores por correo y para la recuperaciÛn de la contraseÒa.';
-$lang['HOME_DAILY_BONUS'] = 'Encontraste %s dÛlares en una ubicaciÛn del enemigo!';
+$lang['HOME_EMAIL_MISSING'] = 'Por favor, proporcione su direcci√≥n de correo electr√≥nico para recibir mensajes de jugadores por correo y para la recuperaci√≥n de la contrase√±a.';
+$lang['HOME_DAILY_BONUS'] = 'Encontraste %s d√≥lares en una ubicaci√≥n del enemigo!';
 
 $lang['HOME_WELCOME'] = 'Bienvenido %s %s.';
-$lang['HOME_LAST_LOGIN'] = 'La ˙ltima visita fue hace <b>%s</b>.';
+$lang['HOME_LAST_LOGIN'] = 'La √∫ltima visita fue hace <b>%s</b>.';
 $lang['HOME_AWARDS'] = 'Condecoraciones';
 $lang['HOME_BATTLE_AWARDS_TEXT'] = 'Usted ha ganado las siguientes condecoraciones de batalla:';
 $lang['HOME_BOUNTY_AWARDS_TEXT'] = 'Usted ha ganado las siguientes condecoraciones por recompensas:';
 $lang['HOME_REBEL_AWARDS_TEXT'] = 'Usted ha ganado las siguientes condecoraciones por rebeliones:';
 $lang['HOME_OVERVIEW_TITLE']= 'Resumen';
 $lang['HOME_MAP_TITLE'] = 'Continentes conquistados';
-$lang['HOME_MAP_NOTE'] = 'Cada continente consiste de tres regiones que pueden ser conquistadas a travÈs de las misiones.';
+$lang['HOME_MAP_NOTE'] = 'Cada continente consiste de tres regiones que pueden ser conquistadas a trav√©s de las misiones.';
 
 $lang['HOME_TRAVEL_TO'] = 'Viajar a';
 
-$lang['HOME_INTRO_PLACE1'] = 'Usted ocupa el %s lugar en la clasificaciÛn general '; 
-$lang['HOME_INTRO_PLACE2'] = 'y el %s lugar de la clasificacion de <b>%s</b>. '; 
+$lang['HOME_INTRO_PLACE1'] = 'Usted ocupa el %s lugar en la clasificaci√≥n general ';
+$lang['HOME_INTRO_PLACE2'] = 'y el %s lugar de la clasificacion de <b>%s</b>. ';
 $lang['HOME_PLAYERS_ONLINE'] = 'Las ultimas 24 h %s jugadores estuvieron conectados.';
 
 $lang['HOME_HOLIDAY'] = 'Vacaciones';
-$lang['HOME_HOLIDAY_PERIOD_ACTIVE'] = 'Periodo de vacaciones activado por %s. Las misiones, batallas, unidades, edificios y opciones del dinero est·n bloqueadas durante este perÌodo!';
+$lang['HOME_HOLIDAY_PERIOD_ACTIVE'] = 'Periodo de vacaciones activado por %s. Las misiones, batallas, unidades, edificios y opciones del dinero est√°n bloqueadas durante este per√≠odo!';
 
 /*
 ** ------------------
@@ -448,7 +448,7 @@ $lang['PLAYER_TITLE'] = 'JUGADOR';
 $lang['PLAYER_WIN_LOST_RATE'] = 'Ratio Victorias/Derrotas';
 $lang['PLAYER_BUILDINGS'] = 'Edificios';
 $lang['PLAYER_CASH_FLOW'] = 'Flujo de fondos';
-$lang['PLAYER_ALLIANCE_SIZE'] = 'N˙mero de aliados';
+$lang['PLAYER_ALLIANCE_SIZE'] = 'N√∫mero de aliados';
 $lang['PLAYER_EXP_POINTS']  = 'Puntos Experiencia';
 $lang['PLAYER_SERVER_REQUEST']  = 'Conexiones servidor';
 $lang['PLAYER_MISSION_COMPLETED'] = 'Misiones completadadas';
@@ -462,15 +462,15 @@ $lang['PLAYER_BOUNTY_SET'] = 'Recompensas ofrecidas';
 $lang['PLAYER_REBELLION_RISE'] = 'Rebeliones provocadas';
 $lang['PLAYER_UNIT_COST']  = 'Coste/hora de unidades';
 $lang['PLAYER_NETTO_INCOME']  = 'Ingreso neto';
-$lang['PLAYER_STATISTICS']  = 'EstadÌsticas'; 
+$lang['PLAYER_STATISTICS']  = 'Estad√≠sticas';
 $lang['PLAYER_DISCOUNT_MAINTENANCE']  = 'Descuento y Mantenimiento';
-$lang['PLAYER_NAME']  = 'Nombre'; 
+$lang['PLAYER_NAME']  = 'Nombre';
 $lang['PLAYER_ID']  = 'Id';
-$lang['PLAYER_RANK']  = 'Rango'; 
-$lang['PLAYER_OVERVIEW']  = 'Perfil'; 
+$lang['PLAYER_RANK']  = 'Rango';
+$lang['PLAYER_OVERVIEW']  = 'Perfil';
 $lang['PLAYER_DISCOUNT_RATE'] = 'Descuento edificios';
 $lang['PLAYER_MAINTENANCE_RATE'] = 'Mantenimiento unidades';
-$lang['PLAYER_LAST_LOGIN'] = '⁄ltima sesiÛn (hace)';
+$lang['PLAYER_LAST_LOGIN'] = '√öltima sesi√≥n (hace)';
 $lang['PLAYER_CREATED'] = 'Creado (hace)';
 $lang['PLAYER_CASINO_PLAYED']  = 'Jugadas de Casino';
 $lang['PLAYER_ADS_SHOWED']  = 'Anuncios mostrados';
@@ -482,15 +482,15 @@ $lang['PLAYER_BANK'] = 'Banco';
 
 $lang['PLAYER_PLATFORM_BROWSER'] = 'Plataforma & Navegador';
 $lang['PLAYER_BROWSER'] = 'Navegador';
-$lang['PLAYER_BROWSER_VERSION'] = 'VersiÛn';
+$lang['PLAYER_BROWSER_VERSION'] = 'Versi√≥n';
 $lang['PLAYER_PLATFORM'] = 'Plataforma';
 
-$lang['PLAYER_LAST_TWEET'] = '⁄ltimo Tweet';
+$lang['PLAYER_LAST_TWEET'] = '√öltimo Tweet';
 
 $lang['PLAYER_ATTACK_FORCE'] = 'Resumen (%s Ataque %s)';
 $lang['PLAYER_DEFENSE_FORCE'] = 'Resumen (%s Defensa %s)';
-$lang['PLAYER_ATTACK_TEXT'] = '%s tienes actualmente <b>%s</b> aliados y puedes dirigir m·x. <b>%s</b> unidades. El ataque de %s dispone de las siguientes unidades:';
-$lang['PLAYER_DEFENSE_TEXT'] = '%s tienes actualmente <b>%s</b> aliados y puedes dirigir m·x. <b>%s</b> unidades. La defensa de %s dispone de las siguientes unidades:';
+$lang['PLAYER_ATTACK_TEXT'] = '%s tienes actualmente <b>%s</b> aliados y puedes dirigir m√°x. <b>%s</b> unidades. El ataque de %s dispone de las siguientes unidades:';
+$lang['PLAYER_DEFENSE_TEXT'] = '%s tienes actualmente <b>%s</b> aliados y puedes dirigir m√°x. <b>%s</b> unidades. La defensa de %s dispone de las siguientes unidades:';
 $lang['PLAYER_UNIT'] = 'Unidad';
 $lang['PLAYER_AMOUNT'] = 'Cantidad';
 $lang['PLAYER_STRENGTH'] = 'Fuerza';
@@ -498,7 +498,7 @@ $lang['PLAYER_ATTACK_SKILLS'] = 'Jugador habilidades de ataque';
 $lang['PLAYER_DEFENSE_SKILLS'] = 'Jugador habilidades de defensa';
 $lang['PLAYER_SUB_TOTAL'] = 'Sub. total';
 $lang['PLAYER_TOTAL'] = 'Total';
-$lang['PLAYER_FORCE'] = 'Fuerza de Ataque & Defensa'; 
+$lang['PLAYER_FORCE'] = 'Fuerza de Ataque & Defensa';
 $lang['PLAYER_DEPLOYED'] = 'Disponibles';
 
 $lang['PLAYER_BUILDING'] = 'Edificio';
@@ -536,13 +536,13 @@ $lang['HOME_BATTLE_TITLE'] = 'Noticias';
 $lang['HOME_BATTLE_ATTACK_BY'] = 'Fuiste atacado por %s de %s.';
 $lang['HOME_BATTLE_YOU_WON'] = 'Tu <b>VENCISTE</b>. ';
 $lang['HOME_BATTLE_YOU_LOST'] = 'TU <b>HAS PERDIDO</b>. ';
-$lang['HOME_BATTLE_YOU_EXP'] = 'Usted gan” %s de experiencia ';
-$lang['HOME_BATTLE_TOOK_DAMAGE'] = 'y causo %s de daÒos.';
-$lang['HOME_BATTLE_TAKING_DAMAGE'] = 'y recibi” %s de daÒos.';
+$lang['HOME_BATTLE_YOU_EXP'] = 'Usted gan√ì %s de experiencia ';
+$lang['HOME_BATTLE_TOOK_DAMAGE'] = 'y causo %s de da√±os.';
+$lang['HOME_BATTLE_TAKING_DAMAGE'] = 'y recibi√ì %s de da√±os.';
 $lang['HOME_BATTLE_YOU_MONEY'] = 'Perdiendo %s dolares ';
-$lang['HOME_BATTLE_NO_NEWS'] = 'No hay noticias de batalla disponibles en este momento!'; 
+$lang['HOME_BATTLE_NO_NEWS'] = 'No hay noticias de batalla disponibles en este momento!';
 
-$lang['HOME_BOUNTY_NEWS'] = '%s ha ofrecido %s d”lares por tu cabeza! Si eres derrotado perder·s %s puntos de experiencia.';
+$lang['HOME_BOUNTY_NEWS'] = '%s ha ofrecido %s d√ìlares por tu cabeza! Si eres derrotado perder√°s %s puntos de experiencia.';
 
 /*
 ** ------------------
@@ -552,7 +552,7 @@ $lang['HOME_BOUNTY_NEWS'] = '%s ha ofrecido %s d”lares por tu cabeza! Si eres de
 
 $lang['HOME_MESSAGES_TITLE']= 'Mensajes';
 $lang['HOME_MESSAGE_DELETED'] = 'Mensaje borrado!';
-$lang['HOME_NO_MESSAGES'] = 'No hay mensajes de otros jugadores disponibles en este momento!'; 
+$lang['HOME_NO_MESSAGES'] = 'No hay mensajes de otros jugadores disponibles en este momento!';
 
 /*
 ** ------------------
@@ -562,20 +562,20 @@ $lang['HOME_NO_MESSAGES'] = 'No hay mensajes de otros jugadores disponibles en e
 
 $lang['PLAYER_SKILL_SUBTITLE1']  = 'Puntos de Habilidad';
 $lang['PLAYER_SKILL_SUBTITLE2']  = 'Puntos de Habilidad [%s disponibles]';
-$lang['PLAYER_SKILL_NOTE']  = 'Nota: Use los puntos de habilidades para aumentar el ataque, defensa, salud, energÌa o municiÛn.';
-$lang['PLAYER_SKILLS']  = 'habilidades'; 
-$lang['PLAYER_CURRENT'] = 'Actual'; 
+$lang['PLAYER_SKILL_NOTE']  = 'Nota: Use los puntos de habilidades para aumentar el ataque, defensa, salud, energ√≠a o munici√≥n.';
+$lang['PLAYER_SKILLS']  = 'habilidades';
+$lang['PLAYER_CURRENT'] = 'Actual';
 $lang['PLAYER_ATTACK']  = 'ATAQUE';
 $lang['PLAYER_DEFENSE'] = 'DEFENSA';
-$lang['PLAYER_HEALTH']  = 'SALUD'; 
-$lang['PLAYER_ENERGY']  = 'ENERGÕA'; 
-$lang['PLAYER_AMMO']  = 'MUNICI”N'; 
+$lang['PLAYER_HEALTH']  = 'SALUD';
+$lang['PLAYER_ENERGY']  = 'ENERG√çA';
+$lang['PLAYER_AMMO']  = 'MUNICI√ìN';
 
 
 $lang['PLAYER_SKILL_ACCEPTED1']  = '%s habilidad aumentada.';
 $lang['PLAYER_SKILL_REJECTED1']  = 'Necesita %s punto(s) de habilidad para cambiar esta habilidad.';
 $lang['PLAYER_SKILL_ACCEPTED2']  = '%s habilidad reducida.';
-$lang['PLAYER_SKILL_REJECTED2']  = '%s habilidad ha alcanzado el nivel mÌnimo.';
+$lang['PLAYER_SKILL_REJECTED2']  = '%s habilidad ha alcanzado el nivel m√≠nimo.';
 
 /*
 ** ------------------
@@ -584,33 +584,33 @@ $lang['PLAYER_SKILL_REJECTED2']  = '%s habilidad ha alcanzado el nivel mÌnimo.';
 */
 
 $lang['TRADE_TITLE'] = 'Puntos de comercio';
-$lang['TRADE_NOTE']  = 'Nota: los puntos de comercio adquiridos (ver ayuda - P·gina de donaciones) se pueden cambiar por puntos de habilidad, dinero en efectivo o se pueden utilizar para mejorar el tiempo de recuperaciÛn de su salud, energÌa o municiÛn.';
+$lang['TRADE_NOTE']  = 'Nota: los puntos de comercio adquiridos (ver ayuda - P√°gina de donaciones) se pueden cambiar por puntos de habilidad, dinero en efectivo o se pueden utilizar para mejorar el tiempo de recuperaci√≥n de su salud, energ√≠a o munici√≥n.';
 
 $lang['HOME_TRADE_CONDITION'] = 'Actual';
-$lang['HOME_TRADE_MINIMAL'] = 'MÌnimo';
+$lang['HOME_TRADE_MINIMAL'] = 'M√≠nimo';
 
 $lang['HOME_TRADE1'] = 'Temporizador Salud';
-$lang['HOME_TRADE1_NOTE'] = 'Disminuya el temporizador de salud para que su salud se restaure m·s r·pido. Se necesita un punto de comercio para disminuir el temporizador de salud en 5 segundos.';
+$lang['HOME_TRADE1_NOTE'] = 'Disminuya el temporizador de salud para que su salud se restaure m√°s r√°pido. Se necesita un punto de comercio para disminuir el temporizador de salud en 5 segundos.';
 
-$lang['HOME_TRADE2'] = 'Temporizador EnergÌa';
-$lang['HOME_TRADE2_NOTE'] = 'Disminuya el temporizador de energÌa para que su energÌa se restaure m·s r·pido. Se necesita punto de comercio para disminuir el temporizador de energÌa en 5 segundos.';
+$lang['HOME_TRADE2'] = 'Temporizador Energ√≠a';
+$lang['HOME_TRADE2_NOTE'] = 'Disminuya el temporizador de energ√≠a para que su energ√≠a se restaure m√°s r√°pido. Se necesita punto de comercio para disminuir el temporizador de energ√≠a en 5 segundos.';
 
-$lang['HOME_TRADE3'] = 'Temporizador MuniciÛn';
-$lang['HOME_TRADE3_NOTE'] = 'Disminuya el temporizador de municiÛn para que su municiÛn se restaure m·s r·pido. Se necesita un punto de comercio para disminuir el temporizador de municion en 5 segundos.';
+$lang['HOME_TRADE3'] = 'Temporizador Munici√≥n';
+$lang['HOME_TRADE3_NOTE'] = 'Disminuya el temporizador de munici√≥n para que su munici√≥n se restaure m√°s r√°pido. Se necesita un punto de comercio para disminuir el temporizador de municion en 5 segundos.';
 
 $lang['HOME_TRADE4'] = 'Dinero';
-$lang['HOME_TRADE4_NOTE'] = 'Consiga dinero en efectivo para comprar nuevas unidades, edificios, etc. Se necesita un punto de comercio para aumentar su dinero en efectivo con %s dÛlares.';
+$lang['HOME_TRADE4_NOTE'] = 'Consiga dinero en efectivo para comprar nuevas unidades, edificios, etc. Se necesita un punto de comercio para aumentar su dinero en efectivo con %s d√≥lares.';
 
 $lang['HOME_TRADE5'] = 'Punto Habilidad';
-$lang['HOME_TRADE5_NOTE'] = 'Consiga puntos de habilidad para mejorar su ataque, defensa, salud, energÌa o municiÛn. Se necesita un punto de comercio para obtener 2 puntos de habilidad.';
+$lang['HOME_TRADE5_NOTE'] = 'Consiga puntos de habilidad para mejorar su ataque, defensa, salud, energ√≠a o munici√≥n. Se necesita un punto de comercio para obtener 2 puntos de habilidad.';
 
 $lang['HOME_TRADE_SKILL_POINTS'] = 'punto(s) habilidad';
 $lang['HOME_TRADE_IN'] = 'Comerciar';
-$lang['HOME_MAX_REACHED'] = 'M·ximo alcanzado';
+$lang['HOME_MAX_REACHED'] = 'M√°ximo alcanzado';
 
-$lang['HOME_TRADE_HEALTH_TIMER_TO_LARGE'] = 'El temporizador de Salud ha alcanzado el valor mÌnimo.';
-$lang['HOME_TRADE_ENERGY_TIMER_TO_LARGE'] = 'El temporizador de Energia ha alcanzado el valor mÌnimo.';
-$lang['HOME_TRADE_AMMO_TIMER_TO_LARGE'] = 'El temporizador de Municion ha alcanzado el valor mÌnimo.';
+$lang['HOME_TRADE_HEALTH_TIMER_TO_LARGE'] = 'El temporizador de Salud ha alcanzado el valor m√≠nimo.';
+$lang['HOME_TRADE_ENERGY_TIMER_TO_LARGE'] = 'El temporizador de Energia ha alcanzado el valor m√≠nimo.';
+$lang['HOME_TRADE_AMMO_TIMER_TO_LARGE'] = 'El temporizador de Municion ha alcanzado el valor m√≠nimo.';
 
 /*
 ** ------------------
@@ -622,52 +622,52 @@ $lang['RESTORE_TITLE'] = 'Restaurar & Reparar';
 $lang['RESTORE_LOCKED'] = 'Restaurar & Reparar se desbloquea en el nivel %s.';
 $lang['PLAYER_RESTORE_PRICE'] = 'Precio por Restaurar';
 $lang['PLAYER_RESTORE_PRICE_PER_DAY'] = 'Precio de restaurar diario';
-$lang['PLAYER_REPAIR_PRICE'] = 'Precio de ReparaciÛn';
-$lang['PLAYER_RESTORED_FAILED'] = 'No dispones de %s dÛlares para ejecutar esta acciÛn.';
+$lang['PLAYER_REPAIR_PRICE'] = 'Precio de Reparaci√≥n';
+$lang['PLAYER_RESTORED_FAILED'] = 'No dispones de %s d√≥lares para ejecutar esta acci√≥n.';
 
 $lang['PLAYER_HEALTH_TITLE'] = 'Restaurar Salud';
-$lang['PLAYER_HEALTH_NOTE'] = 'Pague el hospital para restaurar la salud de su ejÈrcito por completo. Restaurar sÛlo puede utilizarse una vez cada 5 minutos. La Salud tambiÈn se restaura por sÌ misma con el paso del tiempo.';	
+$lang['PLAYER_HEALTH_NOTE'] = 'Pague el hospital para restaurar la salud de su ej√©rcito por completo. Restaurar s√≥lo puede utilizarse una vez cada 5 minutos. La Salud tambi√©n se restaura por s√≠ misma con el paso del tiempo.';
 $lang['PLAYER_HEALTH_CONDITION'] = 'Estado de salud';
-$lang['PLAYER_HEALTH_RESTORED'] = 'Salud restaurada por %s dÛlares.';
+$lang['PLAYER_HEALTH_RESTORED'] = 'Salud restaurada por %s d√≥lares.';
 $lang['PLAYER_HEALTH_CONFIRM'] = 'Realmente desea restaurar la salud?';
 
-$lang['PLAYER_ENERGY_TITLE'] = 'Restaurar energÌa';
-$lang['PLAYER_ENERGY_NOTE'] = 'Pague a la empresa petrolera para restaurar la energÌa de su ejÈrcito por completo. Restaurar sÛlo puede utilizarse una vez cada 24 horas. La energÌa tambiÈn se restaura por sÌ misma con el paso del tiempo. ';	
-$lang['PLAYER_ENERGY_CONDITION'] = 'Estado de energÌa';
-$lang['PLAYER_ENERGY_RESTORED'] = 'EnergÌa restaurada por %s dÛlares.';
-$lang['PLAYER_ENERGY_CONFIRM'] = 'Realmente desea restaurar la energÌa?';
+$lang['PLAYER_ENERGY_TITLE'] = 'Restaurar energ√≠a';
+$lang['PLAYER_ENERGY_NOTE'] = 'Pague a la empresa petrolera para restaurar la energ√≠a de su ej√©rcito por completo. Restaurar s√≥lo puede utilizarse una vez cada 24 horas. La energ√≠a tambi√©n se restaura por s√≠ misma con el paso del tiempo. ';
+$lang['PLAYER_ENERGY_CONDITION'] = 'Estado de energ√≠a';
+$lang['PLAYER_ENERGY_RESTORED'] = 'Energ√≠a restaurada por %s d√≥lares.';
+$lang['PLAYER_ENERGY_CONFIRM'] = 'Realmente desea restaurar la energ√≠a?';
 
-$lang['PLAYER_AMMO_TITLE'] = 'Restaurar municiÛn';
-$lang['PLAYER_AMMO_NOTE'] = 'Pague a la f·brica de armas para restaurar la municiÛn de su ejÈrcito por completo. Restaurar sÛlo puede utilizarse una vez cada 24 horas. La municiÛn tambiÈn se restaura por sÌ misma con el paso del tiempo.';	
-$lang['PLAYER_AMMO_CONDITION'] = 'Estado de municiÛn';
-$lang['PLAYER_AMMO_RESTORED'] = 'MuniciÛn restaurada por %s dÛlares.';
-$lang['PLAYER_AMMO_CONFIRM'] = 'Realmente desea restaurar municiÛn?';
+$lang['PLAYER_AMMO_TITLE'] = 'Restaurar munici√≥n';
+$lang['PLAYER_AMMO_NOTE'] = 'Pague a la f√°brica de armas para restaurar la munici√≥n de su ej√©rcito por completo. Restaurar s√≥lo puede utilizarse una vez cada 24 horas. La munici√≥n tambi√©n se restaura por s√≠ misma con el paso del tiempo.';
+$lang['PLAYER_AMMO_CONDITION'] = 'Estado de munici√≥n';
+$lang['PLAYER_AMMO_RESTORED'] = 'Munici√≥n restaurada por %s d√≥lares.';
+$lang['PLAYER_AMMO_CONFIRM'] = 'Realmente desea restaurar munici√≥n?';
 
 $lang['PLAYER_CEASE_FIRE_TITLE'] = 'Periodo de alto el fuego';
-$lang['PLAYER_CEASE_FIRE_NOTE'] = 'Pague dinero para iniciar un perÌodo de alto el fuego. Durante este perÌodo, otros jugadores no pueden atacarle, ni se puede atacar a otros.';	
-$lang['PLAYER_CEASE_FIRE_ACTIVATED'] = 'Periodo de alto el fuego activado por %s dÛlares.';
-$lang['PLAYER_CEASE_FIRE_CONFIRM'] = 'Est· seguro que desea activar el perÌodo de alto el fuego?';
+$lang['PLAYER_CEASE_FIRE_NOTE'] = 'Pague dinero para iniciar un per√≠odo de alto el fuego. Durante este per√≠odo, otros jugadores no pueden atacarle, ni se puede atacar a otros.';
+$lang['PLAYER_CEASE_FIRE_ACTIVATED'] = 'Periodo de alto el fuego activado por %s d√≥lares.';
+$lang['PLAYER_CEASE_FIRE_CONFIRM'] = 'Est√° seguro que desea activar el per√≠odo de alto el fuego?';
 $lang['PLAYER_HOLIDAY_TITLE'] = 'Vacaciones';
-$lang['PLAYER_HOLIDAY_NOTE'] = 'Rel·jese activando un perÌodo de vacaciones. Durante este perÌodo, su cuenta est· congelada (las opciones de misiones, batalla, unidades y edificios estar·n bloqueadas) y los otros jugadores no le pueden atacar.';	
-$lang['PLAYER_HOLIDAY_ACTIVATED'] = 'Vacaciones activadas por %s dÛlares.';
-$lang['PLAYER_HOLIDAY_CONFIRM'] = 'Est· seguro que desea activar un perÌodo de vacaciones?';
+$lang['PLAYER_HOLIDAY_NOTE'] = 'Rel√°jese activando un per√≠odo de vacaciones. Durante este per√≠odo, su cuenta est√° congelada (las opciones de misiones, batalla, unidades y edificios estar√°n bloqueadas) y los otros jugadores no le pueden atacar.';
+$lang['PLAYER_HOLIDAY_ACTIVATED'] = 'Vacaciones activadas por %s d√≥lares.';
+$lang['PLAYER_HOLIDAY_CONFIRM'] = 'Est√° seguro que desea activar un per√≠odo de vacaciones?';
 
 $lang['PLAYER_UNITS_TITLE'] = 'Reparar unidades';
-$lang['PLAYER_UNITS_NOTE'] = 'Repare las unidades de su ejÈrcito. Si el estado de las unidades llega a 0% algunas unidades ser·n destruidas y las unidades restantes se reparan de forma autom·tica.';	
+$lang['PLAYER_UNITS_NOTE'] = 'Repare las unidades de su ej√©rcito. Si el estado de las unidades llega a 0% algunas unidades ser√°n destruidas y las unidades restantes se reparan de forma autom√°tica.';
 $lang['PLAYER_UNITS_CONDITION'] = 'Estado unidades (EU)';
-$lang['PLAYER_UNITS_REPAIRED'] = 'Sus unidades son reparadas por %s dÛlares.';
+$lang['PLAYER_UNITS_REPAIRED'] = 'Sus unidades son reparadas por %s d√≥lares.';
 $lang['PLAYER_UNITS_CONFIRM'] = 'Realmente desea reparar sus unidades?';
 
 $lang['PLAYER_BUILDINGS_TITLE'] = 'Reparar edificios';
-$lang['PLAYER_BUILDINGS_NOTE'] = 'Repare los edificios de la base. Si el estado de lod edificios llega a 0%, algunos de los edificios ser·n destruidos y los edificios restantes se reparan de forma autom·tica.';	
+$lang['PLAYER_BUILDINGS_NOTE'] = 'Repare los edificios de la base. Si el estado de lod edificios llega a 0%, algunos de los edificios ser√°n destruidos y los edificios restantes se reparan de forma autom√°tica.';
 $lang['PLAYER_BUILDINGS_CONDITION'] = 'Estado Edificios (EE)';
-$lang['PLAYER_BUILDINGS_REPAIRED'] = 'Sus edificios son reparados por %s dÛlares.';
+$lang['PLAYER_BUILDINGS_REPAIRED'] = 'Sus edificios son reparados por %s d√≥lares.';
 $lang['PLAYER_BUILDINGS_CONFIRM'] = 'Realmente desea reparar sus edificios?';
 
 $lang['PLAYER_REBELLION_TITLE'] = 'Restaurar la Paz';
-$lang['PLAYER_REBELLION_NOTE'] = 'Pague a Inteligencia para terminar con las rebeliones en sus regiones conquistadas recientemente. Si el estado de rebeliÛn alcanza un 100% algunas regiones se perder·n debido a los rebeldes y deber·n ser reconquistadas.';	
+$lang['PLAYER_REBELLION_NOTE'] = 'Pague a Inteligencia para terminar con las rebeliones en sus regiones conquistadas recientemente. Si el estado de rebeli√≥n alcanza un 100% algunas regiones se perder√°n debido a los rebeldes y deber√°n ser reconquistadas.';
 $lang['PLAYER_REBELLION_CONDITION'] = 'Estado de Rebelion (ER)';
-$lang['PLAYER_REBELLION_RESTORED'] = 'Termina con la rebeliÛn por %s dÛlares.';
+$lang['PLAYER_REBELLION_RESTORED'] = 'Termina con la rebeli√≥n por %s d√≥lares.';
 $lang['PLAYER_REBELLION_CONFIRM'] = 'Realmente desea restaurar la paz?';
 
 /*
@@ -676,9 +676,9 @@ $lang['PLAYER_REBELLION_CONFIRM'] = 'Realmente desea restaurar la paz?';
 ** ------------------
 */
 
-$lang['SETTING_TITLE'] = 'ConfiguraciÛn';
-$lang['SETTING_GENERAL1'] = 'ConfiguraciÛn general 1';
-$lang['SETTING_GENERAL2'] = 'ConfiguraciÛn general 2';
+$lang['SETTING_TITLE'] = 'Configuraci√≥n';
+$lang['SETTING_GENERAL1'] = 'Configuraci√≥n general 1';
+$lang['SETTING_GENERAL2'] = 'Configuraci√≥n general 2';
 
 $lang['SETTING_NICKNAME'] = 'Apodo WarQuest';
 $lang['SETTING_TWITTER'] = 'Cuenta Twitter';
@@ -687,16 +687,16 @@ $lang['SETTING_BACKGROUND'] = "Fondo";
 $lang['SETTING_SOUND'] = 'Activar sonido (Experimental)';
 $lang['SETTING_BOUNTY'] = 'Activar aviso emergente de recompensa';
 $lang['SETTING_RESTORE'] = 'Activar aviso emergente de restaurar & reparar';
-$lang['SETTING_CONDITION'] = 'Activar cartel de informaciÛn unidad / edificio / rebeliones';
-$lang['SETTING_FORUM_SORT'] = 'Activar el ˙ltimo mensaje del foro en la p·gina principal de visiÛn general';
-$lang['SETTING_SORT1'] = 'Activar ver mensaje m·s reciente en la parte superior en los foros';
-$lang['SETTING_SORT2'] = 'Activar ver el jugador m·s antiguo con el que ha combatido en la parte superior de la lista de batallas';
+$lang['SETTING_CONDITION'] = 'Activar cartel de informaci√≥n unidad / edificio / rebeliones';
+$lang['SETTING_FORUM_SORT'] = 'Activar el √∫ltimo mensaje del foro en la p√°gina principal de visi√≥n general';
+$lang['SETTING_SORT1'] = 'Activar ver mensaje m√°s reciente en la parte superior en los foros';
+$lang['SETTING_SORT2'] = 'Activar ver el jugador m√°s antiguo con el que ha combatido en la parte superior de la lista de batallas';
 $lang['SETTING_NO_BOT_NEWS'] = 'Desactivar noticias de batalla y notificaciones de los robots';
 $lang['SETTING_ALLIES_IN_BATTLE_LIST'] = 'Habilitar ver aliados, en las listas de enemigos / caza recompensas';
 
-$lang['PLAYER_LANG_ENGLISH'] = 'InglÈs';
-$lang['PLAYER_LANG_DUTCH'] = 'HolandÈs';
-$lang['PLAYER_LANG_GERMAN'] = 'Alem·n';
+$lang['PLAYER_LANG_ENGLISH'] = 'Ingl√©s';
+$lang['PLAYER_LANG_DUTCH'] = 'Holand√©s';
+$lang['PLAYER_LANG_GERMAN'] = 'Alem√°n';
 $lang['PLAYER_LANG_ITALIAN'] = 'Italiano';
 
 $lang['BACKGROUND_0'] = 'Negro';
@@ -705,40 +705,40 @@ $lang['BACKGROUND_2'] = 'Transparent';
 $lang['BACKGROUND_3'] = 'Aurora roja';
 $lang['BACKGROUND_4'] = 'Seda azul';
 $lang['BACKGROUND_5'] = 'Pirata';
-$lang['BACKGROUND_6'] = 'Cl·sico';
+$lang['BACKGROUND_6'] = 'Cl√°sico';
 $lang['BACKGROUND_7'] = 'Navidad';
 $lang['BACKGROUND_8'] = 'Fuegos artificiales';
 
-$lang['PLAYER_GENERAL_CHANGED'] = 'ConfiguraciÛn general cambiada!';
-$lang['PLAYER_NICKNAME_EXIST'] = 'El Apodo ya est· en uso!';
+$lang['PLAYER_GENERAL_CHANGED'] = 'Configuraci√≥n general cambiada!';
+$lang['PLAYER_NICKNAME_EXIST'] = 'El Apodo ya est√° en uso!';
 $lang['PLAYER_NICKNAME_TO_SHORT'] = 'El Apodo debe tener al menos 4 caracteres!';
 
-$lang['PLAYER_CHANGE_EMAIL'] = 'ConfiguraciÛn email';
-$lang['PLAYER_NEW_EMAIL'] = 'DirecciÛn email';
-$lang['PLAYER_NOTIFICATION_ALLIANCE'] = 'NotificaciÛn de alianzas por email';
-$lang['PLAYER_NOTIFICATION_COMMENT'] = 'NotificaciÛn de mensajes por email';
-$lang['PLAYER_EMAIL_CHANGED'] = 'ConfiguraciÛn de email cambiada';
-$lang['PLAYER_EMAIL_EXIST'] = 'La direcciÛn de correo electrÛnico ya est· registrada!';
-$lang['EMAIL_INVALID'] = 'DirecciÛn de correo electrÛnico no v·lida (formato inv·lido)!';
+$lang['PLAYER_CHANGE_EMAIL'] = 'Configuraci√≥n email';
+$lang['PLAYER_NEW_EMAIL'] = 'Direcci√≥n email';
+$lang['PLAYER_NOTIFICATION_ALLIANCE'] = 'Notificaci√≥n de alianzas por email';
+$lang['PLAYER_NOTIFICATION_COMMENT'] = 'Notificaci√≥n de mensajes por email';
+$lang['PLAYER_EMAIL_CHANGED'] = 'Configuraci√≥n de email cambiada';
+$lang['PLAYER_EMAIL_EXIST'] = 'La direcci√≥n de correo electr√≥nico ya est√° registrada!';
+$lang['EMAIL_INVALID'] = 'Direcci√≥n de correo electr√≥nico no v√°lida (formato inv√°lido)!';
 
 $lang['PLAYER_LOGIN_SETTINGS'] = 'Ajustes de acceso';
 $lang['PLAYER_USERNAME'] = 'Nombre usuario';
 $lang['PLAYER_USERNAME_TO_SHORT'] = 'El nombre de usuario debe tener al menos 4 caracteres!';
 $lang['PLAYER_USERNAME_ALREADY_EXIST'] = 'El nombre de usuario ya existe!';
-$lang['PLAYER_USERNAME_CHANGED'] = 'Nombre Usuario cambiado. No te olvides de cambiarlo en la aplicaciÛn WarQuest Android y versiÛn de Windows, de otro modo el inicio de sesiÛn autom·tico no funcionar·!';
-$lang['PLAYER_CURRENT_PASSWORD'] = 'ContraseÒa actual';		
-$lang['PLAYER_NEW_PASSWORD'] = 'Nueva contraseÒa';
-$lang['PLAYER_PASSWORD_CHANGED'] = 'ContraseÒa cambiada. No te olvides de cambiarla en la aplicaciÛn WarQuest Android y versiÛn de Windows, de otro modo el inicio de sesiÛn autom·tico no funcionar·!';
-$lang['PLAYER_PASSWORD_NO_MATCH'] = 'La contraseÒa actual no coincide!';
-$lang['PLAYER_PASSWORD_TO_SHORT'] = 'La nueva contraseÒa debe tener al menos 6 caracteres de largo!';
-$lang['PLAYER_LOGIN_NOTE'] = 'ADVERTENCIA: El inicio de sesiÛn autom·tico sÛlo funciona cuando se establece el mismo nombre de usuario y contraseÒaen en la aplicaciÛn WarQuest Android y versiÛn de Windows!'; 
+$lang['PLAYER_USERNAME_CHANGED'] = 'Nombre Usuario cambiado. No te olvides de cambiarlo en la aplicaci√≥n WarQuest Android y versi√≥n de Windows, de otro modo el inicio de sesi√≥n autom√°tico no funcionar√°!';
+$lang['PLAYER_CURRENT_PASSWORD'] = 'Contrase√±a actual';
+$lang['PLAYER_NEW_PASSWORD'] = 'Nueva contrase√±a';
+$lang['PLAYER_PASSWORD_CHANGED'] = 'Contrase√±a cambiada. No te olvides de cambiarla en la aplicaci√≥n WarQuest Android y versi√≥n de Windows, de otro modo el inicio de sesi√≥n autom√°tico no funcionar√°!';
+$lang['PLAYER_PASSWORD_NO_MATCH'] = 'La contrase√±a actual no coincide!';
+$lang['PLAYER_PASSWORD_TO_SHORT'] = 'La nueva contrase√±a debe tener al menos 6 caracteres de largo!';
+$lang['PLAYER_LOGIN_NOTE'] = 'ADVERTENCIA: El inicio de sesi√≥n autom√°tico s√≥lo funciona cuando se establece el mismo nombre de usuario y contrase√±aen en la aplicaci√≥n WarQuest Android y versi√≥n de Windows!';
 
 $lang['SETTING_ACCOUNT_RESET_TITLE'] = 'Reset de la cuenta';
-$lang['SETTING_YES'] = 'SÌ';
-$lang['SETTING_SURE'] = 'Reset de la cuenta, est· seguro?';
+$lang['SETTING_YES'] = 'S√≠';
+$lang['SETTING_SURE'] = 'Reset de la cuenta, est√° seguro?';
 $lang['SETTING_ACCOUNT_RESET'] = 'Activar un reset de cuenta? ';
-$lang['SETTING_NO_REVERSE'] = 'Esta acciÛn de restablecimiento (Reset) no se puede deshacer!)';
-$lang['SETTING_ACCOUNT_RESET_NOTE'] = 'ADVERTENCIA: Si su cuenta se resetea todos los datos de su cuenta se vuelven a poner al estado de comenzar. Esto significa que TODO se eliminar· (unidades, edificios, alianzas, misiones, etc.)'; 
+$lang['SETTING_NO_REVERSE'] = 'Esta acci√≥n de restablecimiento (Reset) no se puede deshacer!)';
+$lang['SETTING_ACCOUNT_RESET_NOTE'] = 'ADVERTENCIA: Si su cuenta se resetea todos los datos de su cuenta se vuelven a poner al estado de comenzar. Esto significa que TODO se eliminar√° (unidades, edificios, alianzas, misiones, etc.)';
 $lang['SETTING_ACCOUNT_RESETTED'] = 'Cuenta de jugador %s ha sido reseteada!';
 
 /*
@@ -751,73 +751,73 @@ $lang['SETTING_ACCOUNT_RESETTED'] = 'Cuenta de jugador %s ha sido reseteada!';
 $lang['MISSION_GROUP_0'] = 'Entrenamiento';
 
 /* Earth */
-$lang['MISSION_0'] = 'MisiÛn entrenamiento';
-$lang['MISSION_1'] = 'RegiÛn Gran BretaÒa';
+$lang['MISSION_0'] = 'Misi√≥n entrenamiento';
+$lang['MISSION_1'] = 'Regi√≥n Gran Breta√±a';
 $lang['MISSION_2'] = 'Benelux';
-$lang['MISSION_3'] = 'RegiÛn Francia';
+$lang['MISSION_3'] = 'Regi√≥n Francia';
 $lang['MISSION_4'] = 'Europa Central';
 $lang['MISSION_5'] = 'Escandinavia';
 $lang['MISSION_6'] = 'Europa del este';
-$lang['MISSION_7'] = 'RegiÛn EspaÒa';
+$lang['MISSION_7'] = 'Regi√≥n Espa√±a';
 $lang['MISSION_8'] = 'Europa del sur';
 
 $lang['MISSION_10'] = 'Groenlandia';
-$lang['MISSION_11'] = 'Canad·';
+$lang['MISSION_11'] = 'Canad√°';
 $lang['MISSION_12'] = 'Estados Unidos';
-$lang['MISSION_13'] = 'MÈjico';
-$lang['MISSION_14'] = 'RegiÛn Guatemala';
-$lang['MISSION_15'] = 'RegiÛn Nicaragua';
-$lang['MISSION_16'] = 'RegiÛn Cuba';
-$lang['MISSION_17'] = 'RegiÛn Caribe';
+$lang['MISSION_13'] = 'M√©jico';
+$lang['MISSION_14'] = 'Regi√≥n Guatemala';
+$lang['MISSION_15'] = 'Regi√≥n Nicaragua';
+$lang['MISSION_16'] = 'Regi√≥n Cuba';
+$lang['MISSION_17'] = 'Regi√≥n Caribe';
 
-$lang['MISSION_20'] = 'AmÈrica Central';
-$lang['MISSION_21'] = 'RegiÛn Ecuador';
-$lang['MISSION_22'] = 'RegiÛn Bolivia';
-$lang['MISSION_23'] = 'RegiÛn Paraguay';
-$lang['MISSION_24'] = 'RegiÛn Chile';
-$lang['MISSION_25'] = 'RegiÛn Argentina';
-$lang['MISSION_26'] = 'RegiÛn Uruguay';
-$lang['MISSION_27'] = 'RegiÛn Brasil';
+$lang['MISSION_20'] = 'Am√©rica Central';
+$lang['MISSION_21'] = 'Regi√≥n Ecuador';
+$lang['MISSION_22'] = 'Regi√≥n Bolivia';
+$lang['MISSION_23'] = 'Regi√≥n Paraguay';
+$lang['MISSION_24'] = 'Regi√≥n Chile';
+$lang['MISSION_25'] = 'Regi√≥n Argentina';
+$lang['MISSION_26'] = 'Regi√≥n Uruguay';
+$lang['MISSION_27'] = 'Regi√≥n Brasil';
 
-$lang['MISSION_30'] = 'RegiÛn Argelia';
-$lang['MISSION_31'] = 'RegiÛn Egipto';
-$lang['MISSION_32'] = 'RegiÛn ¡frica Oeste';
-$lang['MISSION_33'] = 'RegiÛn ¡frica Central';
-$lang['MISSION_34'] = 'RegiÛn ¡frica Este';
-$lang['MISSION_35'] = 'RegiÛn Mozambique';
-$lang['MISSION_36'] = 'RegiÛn Zimbabue';
-$lang['MISSION_37'] = 'RegiÛn ¡frica Sur';
+$lang['MISSION_30'] = 'Regi√≥n Argelia';
+$lang['MISSION_31'] = 'Regi√≥n Egipto';
+$lang['MISSION_32'] = 'Regi√≥n √Åfrica Oeste';
+$lang['MISSION_33'] = 'Regi√≥n √Åfrica Central';
+$lang['MISSION_34'] = 'Regi√≥n √Åfrica Este';
+$lang['MISSION_35'] = 'Regi√≥n Mozambique';
+$lang['MISSION_36'] = 'Regi√≥n Zimbabue';
+$lang['MISSION_37'] = 'Regi√≥n √Åfrica Sur';
 
-$lang['MISSION_40'] = 'RegiÛn Rusia';
-$lang['MISSION_41'] = 'RegiÛn Mongolia';
-$lang['MISSION_42'] = 'RegiÛn Kazajst·n';
-$lang['MISSION_43'] = 'RegiÛn Uzbekist·n';
-$lang['MISSION_44'] = 'RegiÛn Tayikist·n';
-$lang['MISSION_45'] = 'RegiÛn Turkmenist·n';
-$lang['MISSION_46'] = 'RegiÛn Georgia';
-$lang['MISSION_47'] = 'RegiÛn Armenia';
+$lang['MISSION_40'] = 'Regi√≥n Rusia';
+$lang['MISSION_41'] = 'Regi√≥n Mongolia';
+$lang['MISSION_42'] = 'Regi√≥n Kazajst√°n';
+$lang['MISSION_43'] = 'Regi√≥n Uzbekist√°n';
+$lang['MISSION_44'] = 'Regi√≥n Tayikist√°n';
+$lang['MISSION_45'] = 'Regi√≥n Turkmenist√°n';
+$lang['MISSION_46'] = 'Regi√≥n Georgia';
+$lang['MISSION_47'] = 'Regi√≥n Armenia';
 
-$lang['MISSION_50'] = 'Ir·n';
-$lang['MISSION_51'] = 'Afganist·n';
-$lang['MISSION_52'] = 'Pakist·n';
+$lang['MISSION_50'] = 'Ir√°n';
+$lang['MISSION_51'] = 'Afganist√°n';
+$lang['MISSION_52'] = 'Pakist√°n';
 $lang['MISSION_53'] = 'India';
 $lang['MISSION_54'] = 'Nepal';
-$lang['MISSION_55'] = 'RegiÛn Bangladesh';
-$lang['MISSION_56'] = 'RegiÛn Tailandia';
-$lang['MISSION_57'] = 'RegiÛn Laos';
+$lang['MISSION_55'] = 'Regi√≥n Bangladesh';
+$lang['MISSION_56'] = 'Regi√≥n Tailandia';
+$lang['MISSION_57'] = 'Regi√≥n Laos';
 
 $lang['MISSION_60'] = 'China';
 $lang['MISSION_61'] = 'Corea del Norte';
 $lang['MISSION_62'] = 'Corea del Sur';
-$lang['MISSION_63'] = 'JapÛn';
+$lang['MISSION_63'] = 'Jap√≥n';
 $lang['MISSION_64'] = 'Taiwan';
-$lang['MISSION_65'] = 'RegiÛn Camboya';
-$lang['MISSION_66'] = 'RegiÛn Vietnam';
+$lang['MISSION_65'] = 'Regi√≥n Camboya';
+$lang['MISSION_66'] = 'Regi√≥n Vietnam';
 $lang['MISSION_67'] = 'Malasia';
 
 $lang['MISSION_70'] = 'Indonesia Oeste';
 $lang['MISSION_71'] = 'Indonesia Este';
-$lang['MISSION_72'] = 'RegiÛn Filipinas';
+$lang['MISSION_72'] = 'Regi√≥n Filipinas';
 $lang['MISSION_73'] = 'Papua Nueva Guinea';
 $lang['MISSION_74'] = 'Timor';
 $lang['MISSION_75'] = 'Australia Norte';
@@ -828,8 +828,8 @@ $lang['MISSION_80'] = 'Siria';
 $lang['MISSION_81'] = 'Irak';
 $lang['MISSION_82'] = 'Arabia Saudi';
 $lang['MISSION_83'] = 'Kuwait';
-$lang['MISSION_84'] = 'RegiÛn Yemen';
-$lang['MISSION_85'] = 'RegiÛn Oman';
+$lang['MISSION_84'] = 'Regi√≥n Yemen';
+$lang['MISSION_85'] = 'Regi√≥n Oman';
 $lang['MISSION_86'] = 'Jordania';
 $lang['MISSION_87'] = 'Israel';
 
@@ -1086,39 +1086,39 @@ $lang['MISSION_387'] = 'Crater Caespitosa';
 */
 
 $lang['MISSION_TITLE'] = 'MISIONES';
-$lang['MISSION_NOTE'] = 'Nota: Juegue las misiones para ganar dinero, puntos de experiencia y poder alcanzar el siguiente nivel. Cuando una misiÛn est· 100% completada usted gana dinero doble. Si ha completado el 100% del continente %s , el ingreso por hora se incrementar· con %s dÛlares.';
+$lang['MISSION_NOTE'] = 'Nota: Juegue las misiones para ganar dinero, puntos de experiencia y poder alcanzar el siguiente nivel. Cuando una misi√≥n est√° 100% completada usted gana dinero doble. Si ha completado el 100% del continente %s , el ingreso por hora se incrementar√° con %s d√≥lares.';
 
-$lang['MISSION_ALLIANCE_SIZE'] = 'n˙mero aliados';
+$lang['MISSION_ALLIANCE_SIZE'] = 'n√∫mero aliados';
 $lang['MISSION_GAIN'] = 'Ventajas';
 $lang['MISSION_PART'] = 'Parte';
 $lang['MISSION_REQUIRED'] = 'Requerido';
 $lang['MISSION_UNLOCK'] = 'Desbloqueado en nivel %s';
-$lang['MISSION_CHANCE_LOOT'] = 'Posibilidad de botÌn';
+$lang['MISSION_CHANCE_LOOT'] = 'Posibilidad de bot√≠n';
 
 $lang['MISSION_YOU_USED'] = 'Utilizaste';
 $lang['MISSION_YOU_GAIN'] = 'Conseguiste';
-$lang['MISSION_DOLLAR_AND'] = ' dÛlares y ';
-$lang['MISSION_ABORTED'] = 'MisiÛn abortada!';
-$lang['MISSION_NO_ENERGY'] = 'Usted no tiene la energÌa suficiente para completar la misiÛn. Espere unos minutos para que su energÌa se recupere.';
-$lang['MISSION_LOW_ALLIANCE'] = 'T˙ n˙mero de aliados es demasiado reducido para jugar esta misiÛn.';
-$lang['MISSION_MISSING_UNITS'] = 'Usted no tiene la cantidad correcta de unidades para completar la misiÛn. Unidad(es) que necesitas: ';
-$lang['MISSION_MISSING_UNITS_PRICE'] = 'El precio total de compra de unidad(es) es %s dÛlares. El coste por hora se subir· %s dÛlares.';
-$lang['MISSION_UNITS_LOST'] = 'Durante la misiÛn ha perdido la unidad(es) siguiente(s)';
-$lang['MISSION_LOOT_WON'] = 'Ha ganado el botÌn siguiente';
+$lang['MISSION_DOLLAR_AND'] = ' d√≥lares y ';
+$lang['MISSION_ABORTED'] = 'Misi√≥n abortada!';
+$lang['MISSION_NO_ENERGY'] = 'Usted no tiene la energ√≠a suficiente para completar la misi√≥n. Espere unos minutos para que su energ√≠a se recupere.';
+$lang['MISSION_LOW_ALLIANCE'] = 'T√∫ n√∫mero de aliados es demasiado reducido para jugar esta misi√≥n.';
+$lang['MISSION_MISSING_UNITS'] = 'Usted no tiene la cantidad correcta de unidades para completar la misi√≥n. Unidad(es) que necesitas: ';
+$lang['MISSION_MISSING_UNITS_PRICE'] = 'El precio total de compra de unidad(es) es %s d√≥lares. El coste por hora se subir√° %s d√≥lares.';
+$lang['MISSION_UNITS_LOST'] = 'Durante la misi√≥n ha perdido la unidad(es) siguiente(s)';
+$lang['MISSION_LOOT_WON'] = 'Ha ganado el bot√≠n siguiente';
 $lang['MISSION_UNLOCKED'] = 'Ahora hay que continuar con la batalla de entrenamiento.';
 
 $lang['MISSION_CONTINTENT_READY1'] = 'Brillante! Usted ha completado la parte %s de %s del continente %s ! ';
 $lang['MISSION_CONTINTENT_READY2'] = 'Ha recibido %s puntos extra de Habilidades. ';
-$lang['MISSION_CONTINTENT_READY3'] = 'Ha terminado todas las partes. Contin˙e con el siguiente continente!';
+$lang['MISSION_CONTINTENT_READY3'] = 'Ha terminado todas las partes. Contin√∫e con el siguiente continente!';
 $lang['MISSION_CONTINTENT_READY4'] = 'Continuar con la parte %s del continente!';
-$lang['MISSION_COMPLETE_TEXT'] = 'Usted conquistÛ los siguientes continentes hasta ahora!';
+$lang['MISSION_COMPLETE_TEXT'] = 'Usted conquist√≥ los siguientes continentes hasta ahora!';
 
 $lang['MISSION_REBEL'] = 'Rebelion';
 
-$lang['MISSION_COMPLETE_PLANET_1'] = 'Excelente! Has completado todas las misiones de la Tierra. Has recibido 100 millones de dÛlares de bonificaciÛn.';
-$lang['MISSION_COMPLETE_PLANET_2'] = 'Excelente! Has completado todas las misiones a la Luna. Has recibido 500 millones de dÛlares de bonificaciÛn.';
-$lang['MISSION_COMPLETE_PLANET_3'] = 'Excelente! Has completado todas las misiones de Marte. Has recibido 999 mil millones de dÛlares de bonificaciÛn.';
-$lang['MISSION_COMPLETE_PLANET_4'] = 'Excelente! Has completado todas las misiones de mercury. Has recibido 50 puntos de comercio como bonificaciÛn.';
+$lang['MISSION_COMPLETE_PLANET_1'] = 'Excelente! Has completado todas las misiones de la Tierra. Has recibido 100 millones de d√≥lares de bonificaci√≥n.';
+$lang['MISSION_COMPLETE_PLANET_2'] = 'Excelente! Has completado todas las misiones a la Luna. Has recibido 500 millones de d√≥lares de bonificaci√≥n.';
+$lang['MISSION_COMPLETE_PLANET_3'] = 'Excelente! Has completado todas las misiones de Marte. Has recibido 999 mil millones de d√≥lares de bonificaci√≥n.';
+$lang['MISSION_COMPLETE_PLANET_4'] = 'Excelente! Has completado todas las misiones de mercury. Has recibido 50 puntos de comercio como bonificaci√≥n.';
 
 /*
 ** ------------------
@@ -1130,45 +1130,45 @@ $lang['BATTLE_TITLE'] = 'BATALLA';
 $lang['BATTLE_GENERAL_TITLE'] = 'Batalla';
 $lang['BATTLE_BOUNTY_TITLE'] = 'Caza recompensas';
 
-$lang['BATTLE_LOST'] = 'Tu %s atacÛ %s. Has perdido la batalla, sufriendo %s de daÒos y causando %s a %s.';
-$lang['BATTLE_WON'] = 'Tu %s atacÛ %s. Ganaste la batalla, sufriendo %s de daÒos y causando %s a %s. Capturaste %s dÛlares y acumulaste %s puntos de experiencia.';
+$lang['BATTLE_LOST'] = 'Tu %s atac√≥ %s. Has perdido la batalla, sufriendo %s de da√±os y causando %s a %s.';
+$lang['BATTLE_WON'] = 'Tu %s atac√≥ %s. Ganaste la batalla, sufriendo %s de da√±os y causando %s a %s. Capturaste %s d√≥lares y acumulaste %s puntos de experiencia.';
 $lang['BATTLE_DEFENDER_HEALTH_LOW'] = '%s se rinde temporalmente porque su salud es demasiado baja!';
-$lang['BATTLE_ATTACKER_HEALTH_LOW'] = 'Su salud es demasiado baja para combatir!. Visita el hospital para la recuperaciÛn inmediata o espera tiempo para la recuperaciÛn de salud.';
-$lang['BATTLE_AMMO_LOW'] = 'Se ha quedado sin municiÛn! Espere unos minutos para que su municiÛn se recargue o utilice puntos de habilidad para mejorar la habilidad de municiÛn.';
-$lang['BATTLE_UNITS_LOST'] = 'Durante la batalla perdiÛ la(s) unidad(es) siguiente(s):';
-$lang['BATTLE_BUILDINGS_LOST'] = 'Durante la batalla perdiÛ el edificio(s) siguiente(s):';
-$lang['BATTLE_DEFENSE_FORCE'] = '%s %s defensa %s (%s fuerza de defensa):'; 
-$lang['BATTLE_DEFENSE_BASE'] = '%s defensas de la base:'; 
+$lang['BATTLE_ATTACKER_HEALTH_LOW'] = 'Su salud es demasiado baja para combatir!. Visita el hospital para la recuperaci√≥n inmediata o espera tiempo para la recuperaci√≥n de salud.';
+$lang['BATTLE_AMMO_LOW'] = 'Se ha quedado sin munici√≥n! Espere unos minutos para que su munici√≥n se recargue o utilice puntos de habilidad para mejorar la habilidad de munici√≥n.';
+$lang['BATTLE_UNITS_LOST'] = 'Durante la batalla perdi√≥ la(s) unidad(es) siguiente(s):';
+$lang['BATTLE_BUILDINGS_LOST'] = 'Durante la batalla perdi√≥ el edificio(s) siguiente(s):';
+$lang['BATTLE_DEFENSE_FORCE'] = '%s %s defensa %s (%s fuerza de defensa):';
+$lang['BATTLE_DEFENSE_BASE'] = '%s defensas de la base:';
 $lang['BATTLE_ATTACK_FORCE'] = 'Tu %s ataque %s (%s fuerza de ataque)';
-$lang['BATTLE_MORE'] = 'm·s';
-$lang['BATTLE_NO_PLAYER_AVAILABLE'] = 'En estos momentos ning˙n jugador(es) est·n disponibles para combatir.';
-$lang['BATTLE_UNLOCKED'] = '%s opciÛn Batalla se desbloquea en el nivel %s.';
-$lang['BATTLE_BOUNTY_UNLOCKED'] = '%s la opciÛn Caza Recompensas se desbloquea en el nivel %s.';
+$lang['BATTLE_MORE'] = 'm√°s';
+$lang['BATTLE_NO_PLAYER_AVAILABLE'] = 'En estos momentos ning√∫n jugador(es) est√°n disponibles para combatir.';
+$lang['BATTLE_UNLOCKED'] = '%s opci√≥n Batalla se desbloquea en el nivel %s.';
+$lang['BATTLE_BOUNTY_UNLOCKED'] = '%s la opci√≥n Caza Recompensas se desbloquea en el nivel %s.';
 $lang['BATTLE_ALLY_NO_ATTACK'] = '<b>%s</b> es un aliado. No puede atacar a sus aliados.';
-$lang['BATTLE_SURRENDER'] = 'RendiciÛn temporal';
+$lang['BATTLE_SURRENDER'] = 'Rendici√≥n temporal';
 
 $lang['BATTLE_NOTE1'] = 'Nota: Luche con otros jugadores para ganar dinero y puntos de experiencia y para alcanzar el siguiente nivel.';
-$lang['BATTLE_NOTE2'] = 'Note: Cace recompensas sobre otros jugadores para recoger el botÌn y ganar puntos de experiencia para alcanzar el siguiente nivel.';
+$lang['BATTLE_NOTE2'] = 'Note: Cace recompensas sobre otros jugadores para recoger el bot√≠n y ganar puntos de experiencia para alcanzar el siguiente nivel.';
 
 $lang['BATTLE_FORCE_TYPE'] = 'Fuerza:';
 $lang['BATTLE_ENEMIES'] = 'Enemigos';
 $lang['BATTLE_BOUNTY'] = 'Caza-Recompensas';
-$lang['BATTLE_NO_BOUNTY_PLAYERS'] = 'Por el momento no hay ning˙n jugador(es) con recompensas disponibles para combatir.';
-$lang['BATTLE_BOUNTY_BONUS'] = 'Recibida bonificaciÛn de recompensa adicional de %s dÛlares.'; 
-$lang['BATTLE_HOSPITAL_BONUS'] = '%s se rinde temporalmente. Usted recibe un bonus de %s dÛlares!'; 
-$lang['BATTLE_BOUNTY_LOST'] = 'Fuiste atacado por %s de %s.PERDISTE. Perdiendo %s dÛlares, sufriendo %s de daÒos y perdiendo %s puntos de experiencia.';
-$lang['BATTLE_BOUNTY_CONFIRM'] = 'Quiere ofrecer una recompensa de %s dÛlares?';
+$lang['BATTLE_NO_BOUNTY_PLAYERS'] = 'Por el momento no hay ning√∫n jugador(es) con recompensas disponibles para combatir.';
+$lang['BATTLE_BOUNTY_BONUS'] = 'Recibida bonificaci√≥n de recompensa adicional de %s d√≥lares.';
+$lang['BATTLE_HOSPITAL_BONUS'] = '%s se rinde temporalmente. Usted recibe un bonus de %s d√≥lares!';
+$lang['BATTLE_BOUNTY_LOST'] = 'Fuiste atacado por %s de %s.PERDISTE. Perdiendo %s d√≥lares, sufriendo %s de da√±os y perdiendo %s puntos de experiencia.';
+$lang['BATTLE_BOUNTY_CONFIRM'] = 'Quiere ofrecer una recompensa de %s d√≥lares?';
 
-$lang['BATTLE_CEASE_FIRE_PERIOD'] = 'El Periodo de Alto el Fuego est· activo! No es posible la lucha. %s';
+$lang['BATTLE_CEASE_FIRE_PERIOD'] = 'El Periodo de Alto el Fuego est√° activo! No es posible la lucha. %s';
 $lang['BATTLE_AND'] = 'and';
-$lang['BATTLE_REBEL_UPDATE1'] = 'Bien hecho, ha iniciado la rebeliÛn de %s en la regiÛn(es) %s. Debajo puede ver la situaciÛn actual.';
-$lang['BATTLE_REBEL_UPDATE2'] = 'Bien hecho, ha aumentado las posibilidades de rebeliÛn para %s al %s%.';
-$lang['BATTLE_REBEL_UPDATE3'] = 'Es una pena, ninguna regiÛn est· disponible para iniciar una rebeliÛn!';
+$lang['BATTLE_REBEL_UPDATE1'] = 'Bien hecho, ha iniciado la rebeli√≥n de %s en la regi√≥n(es) %s. Debajo puede ver la situaci√≥n actual.';
+$lang['BATTLE_REBEL_UPDATE2'] = 'Bien hecho, ha aumentado las posibilidades de rebeli√≥n para %s al %s%.';
+$lang['BATTLE_REBEL_UPDATE3'] = 'Es una pena, ninguna regi√≥n est√° disponible para iniciar una rebeli√≥n!';
 
-$lang['BATTLE_NO_BOUNTY_MONEY'] = 'No dispone de %s de dÛlares para establecer una recompensa por la cabeza de %s .';
-$lang['BATTLE_BOUNTY_SET'] = 'Has ofrecido %s dÛlares por la cabeza de %s . Cuando %s sea derrotado, perder· %s puntos de experiencia.'; 
+$lang['BATTLE_NO_BOUNTY_MONEY'] = 'No dispone de %s de d√≥lares para establecer una recompensa por la cabeza de %s .';
+$lang['BATTLE_BOUNTY_SET'] = 'Has ofrecido %s d√≥lares por la cabeza de %s . Cuando %s sea derrotado, perder√° %s puntos de experiencia.';
 
-$lang['BATTLE_RANGE'] = 'Los jugadores desde el nivel %s hasta el %s est·n a tu alcance en Batalla.';
+$lang['BATTLE_RANGE'] = 'Los jugadores desde el nivel %s hasta el %s est√°n a tu alcance en Batalla.';
 
 /*
 ** ------------------
@@ -1177,10 +1177,10 @@ $lang['BATTLE_RANGE'] = 'Los jugadores desde el nivel %s hasta el %s est·n a tu 
 */
 
 /* Earth */
-$lang['UNIT_GROUP_1']  = 'EjÈrcito';
-$lang['UNIT_GROUP_2']  = 'CaballerÌa';
+$lang['UNIT_GROUP_1']  = 'Ej√©rcito';
+$lang['UNIT_GROUP_2']  = 'Caballer√≠a';
 $lang['UNIT_GROUP_3']  = 'Armada';
-$lang['UNIT_GROUP_4']  = 'Fuerza aÈrea';
+$lang['UNIT_GROUP_4']  = 'Fuerza a√©rea';
 $lang['UNIT_GROUP_5']  = 'Ciudadanos';
 $lang['UNIT_GROUP_6']  = 'Inteligencia';
 
@@ -1189,7 +1189,7 @@ $lang['UNIT_GROUP_7']  = 'Guerreros';
 $lang['UNIT_GROUP_8']  = 'Robots';
 $lang['UNIT_GROUP_9']  = 'Naves';
 $lang['UNIT_GROUP_10'] = 'Ciudadanos';
-$lang['UNIT_GROUP_11'] = 'EjÈrcito';
+$lang['UNIT_GROUP_11'] = 'Ej√©rcito';
 $lang['UNIT_GROUP_12'] = 'Exploradores';
 
 /* Mars */
@@ -1198,7 +1198,7 @@ $lang['UNIT_GROUP_14']  = 'Guerreros';
 $lang['UNIT_GROUP_15']  = 'Naves';
 $lang['UNIT_GROUP_16']  = 'Explorers';
 $lang['UNIT_GROUP_17'] 	= 'Ciudadanos';
-$lang['UNIT_GROUP_18'] 	= 'EjÈrcito';
+$lang['UNIT_GROUP_18'] 	= 'Ej√©rcito';
 
 /* mercury */
 $lang['UNIT_GROUP_19']  = 'Robots';
@@ -1206,37 +1206,37 @@ $lang['UNIT_GROUP_20']  = 'Guerreros';
 $lang['UNIT_GROUP_21']  = 'Naves-espaciales';
 $lang['UNIT_GROUP_22']  = 'Exploradores';
 $lang['UNIT_GROUP_23'] 	= 'Ciudadanos';
-$lang['UNIT_GROUP_24'] 	= 'EjÈrcito';
+$lang['UNIT_GROUP_24'] 	= 'Ej√©rcito';
 
 /* Calvary (Earth) - Group 2 */
 $lang['UNIT_1'] = 'Mini-artillero';
-$lang['UNIT_101'] = 'VehÌculo militar';
+$lang['UNIT_101'] = 'Veh√≠culo militar';
 $lang['UNIT_102'] = 'Humvee';
-$lang['UNIT_103'] = 'CamiÛn';
-$lang['UNIT_104'] = 'ArtillerÌa ligera';
-$lang['UNIT_105'] = 'Transporte de caballerÌa ligero';
+$lang['UNIT_103'] = 'Cami√≥n';
+$lang['UNIT_104'] = 'Artiller√≠a ligera';
+$lang['UNIT_105'] = 'Transporte de caballer√≠a ligero';
 $lang['UNIT_106'] = 'MGM-51 Shillelagh';
-$lang['UNIT_107'] = 'Transporte de caballerÌa';
-$lang['UNIT_108'] = 'VehÌculo de asalto';
+$lang['UNIT_107'] = 'Transporte de caballer√≠a';
+$lang['UNIT_108'] = 'Veh√≠culo de asalto';
 $lang['UNIT_109'] = 'Lanzacohetes SSM';
 $lang['UNIT_110'] = 'Aerodeslizador ligero';
 $lang['UNIT_111'] = 'Tanque M1 Abrams';
 $lang['UNIT_112'] = 'Transporte blindado';
-$lang['UNIT_113'] = 'VehÌculo Antiemboscadas';
+$lang['UNIT_113'] = 'Veh√≠culo Antiemboscadas';
 $lang['UNIT_114'] = 'Lanzacohetes Pesado';
 $lang['UNIT_115'] = 'Tanque Leopard 1A1';
-$lang['UNIT_116'] = 'VehÌculo HG-544';
+$lang['UNIT_116'] = 'Veh√≠culo HG-544';
 $lang['UNIT_117'] = 'Transporte de orugas';
 $lang['UNIT_118'] = 'Tanque ligero';
 $lang['UNIT_119'] = 'Tanque Hellfire';
 $lang['UNIT_120'] = 'Tanque Pesado';
-$lang['UNIT_121'] = 'ArtillerÌa autotransportada';
-$lang['UNIT_122'] = 'ArtillerÌa autotransportada pesada';
+$lang['UNIT_121'] = 'Artiller√≠a autotransportada';
+$lang['UNIT_122'] = 'Artiller√≠a autotransportada pesada';
 $lang['UNIT_123'] = 'Tanque Chaparral';
-$lang['UNIT_124'] = 'ArtillerÌa M198 Howitzer';
-$lang['UNIT_125'] = 'ArtillerÌa Pesada';
+$lang['UNIT_124'] = 'Artiller√≠a M198 Howitzer';
+$lang['UNIT_125'] = 'Artiller√≠a Pesada';
 $lang['UNIT_126'] = 'Lanza misiles';
-$lang['UNIT_127'] = 'AntiaÈreo mÛvil';
+$lang['UNIT_127'] = 'Antia√©reo m√≥vil';
 
 /* Navy (Earth) - Group 3 */
 $lang['UNIT_201'] = 'Lancha';
@@ -1246,7 +1246,7 @@ $lang['UNIT_204'] = 'Buque cisterna';
 $lang['UNIT_205'] = 'Destructor ligero';
 $lang['UNIT_206'] = 'M80 Stiletto';
 $lang['UNIT_207'] = 'Submarino';
-$lang['UNIT_208'] = 'Porta helicÛpteros';
+$lang['UNIT_208'] = 'Porta helic√≥pteros';
 $lang['UNIT_209'] = 'Acorazado';
 $lang['UNIT_210'] = 'Buque Houbei Missile';
 $lang['UNIT_211'] = 'Fragata Horizon';
@@ -1270,14 +1270,14 @@ $lang['UNIT_228'] = 'Crucero Nuclear';
 
 /* Airforce (Earth) - Group 4 */
 $lang['UNIT_301'] = 'Cessna 172';
-$lang['UNIT_302'] = 'AviÛn de transporte C-17';
-$lang['UNIT_303'] = 'CaÒonero V-22A Osprey';
+$lang['UNIT_302'] = 'Avi√≥n de transporte C-17';
+$lang['UNIT_303'] = 'Ca√±onero V-22A Osprey';
 $lang['UNIT_304'] = 'Harrier AV-8B';
-$lang['UNIT_305'] = 'HelicÛptero Comanche';
-$lang['UNIT_306'] = 'HelicÛptero Havoc';
+$lang['UNIT_305'] = 'Helic√≥ptero Comanche';
+$lang['UNIT_306'] = 'Helic√≥ptero Havoc';
 $lang['UNIT_307'] = 'Saab JA37 Viggen';
 $lang['UNIT_308'] = 'SR-71 Blackbird';
-$lang['UNIT_309'] = 'HelicÛptero Apache';
+$lang['UNIT_309'] = 'Helic√≥ptero Apache';
 $lang['UNIT_310'] = 'Bombardero B-2 Spirit';
 $lang['UNIT_311'] = 'F-18 Super Hornet';
 $lang['UNIT_313'] = 'F-15 Silent Eagle';
@@ -1294,8 +1294,8 @@ $lang['UNIT_325'] = 'F-22 Raptor';
 $lang['UNIT_326'] = 'Misil Trident II';
 
 /* Citizens (Earth) - Group 5 */
-$lang['UNIT_401'] = 'Ingeniero de ConstrucciÛn';
-$lang['UNIT_402'] = 'Ingeniero Mec·nico';
+$lang['UNIT_401'] = 'Ingeniero de Construcci√≥n';
+$lang['UNIT_402'] = 'Ingeniero Mec√°nico';
 $lang['UNIT_403'] = 'Ingeniero de laboratorio';
 $lang['UNIT_404'] = 'Gerente';
 $lang['UNIT_405'] = 'Doctor';
@@ -1303,18 +1303,18 @@ $lang['UNIT_406'] = 'Cocinero';
 $lang['UNIT_407'] = 'Guardia de seguridad';
 
 /* Intel (Earth) - Group 6 */
-$lang['UNIT_501'] = 'C·mara de vigilancia';
+$lang['UNIT_501'] = 'C√°mara de vigilancia';
 $lang['UNIT_502'] = 'Inteligencia de la Marina';
-$lang['UNIT_503'] = 'MiniaviÛn teledirigido';
-$lang['UNIT_504'] = 'Robot espÌa G343';
-$lang['UNIT_505'] = 'VehÌculo A3 Crusader';
-$lang['UNIT_506'] = 'Barco pesquero espÌa';
+$lang['UNIT_503'] = 'Miniavi√≥n teledirigido';
+$lang['UNIT_504'] = 'Robot esp√≠a G343';
+$lang['UNIT_505'] = 'Veh√≠culo A3 Crusader';
+$lang['UNIT_506'] = 'Barco pesquero esp√≠a';
 $lang['UNIT_507'] = 'Hawk Eye';
 $lang['UNIT_508'] = 'UK-80 AWACS';
 $lang['UNIT_509'] = 'Buque AS-102 Stealth';
 $lang['UNIT_510'] = 'US-101 Predator';
-$lang['UNIT_511'] = 'AviÛn no tripulado Heron';
-$lang['UNIT_512'] = 'SatÈlite HG101';
+$lang['UNIT_511'] = 'Avi√≥n no tripulado Heron';
+$lang['UNIT_512'] = 'Sat√©lite HG101';
 
 
 /* Warriors (Moon) - Group 7 */
@@ -1335,9 +1335,9 @@ $lang['UNIT_800'] = 'Basic Rover I';
 $lang['UNIT_801'] = 'Transporte lunar II';
 $lang['UNIT_802'] = 'Explorador lunar III';
 $lang['UNIT_803'] = 'Moon Havostar IV';
-$lang['UNIT_804'] = 'Laboratorio mÛvil V';
+$lang['UNIT_804'] = 'Laboratorio m√≥vil V';
 $lang['UNIT_805'] = 'Transporte VI';
-$lang['UNIT_805'] = 'Gr˙a espacial VII';
+$lang['UNIT_805'] = 'Gr√∫a espacial VII';
 $lang['UNIT_806'] = 'Buggy lunar VIII';
 $lang['UNIT_807'] = 'Transportador de combustible IX';
 $lang['UNIT_808'] = 'Explorador de combustible X';
@@ -1346,7 +1346,7 @@ $lang['UNIT_810'] = 'Transporte XII';
 
 /* Spacecrafts (Moon) - Group 9 */
 $lang['UNIT_900'] = 'Crucero lunar';
-$lang['UNIT_901'] = 'HalcÛn Milenario';
+$lang['UNIT_901'] = 'Halc√≥n Milenario';
 $lang['UNIT_902'] = 'Ebon Hawk';
 $lang['UNIT_903'] = 'Transporte Robot';
 $lang['UNIT_904'] = 'Slave I';
@@ -1369,18 +1369,18 @@ $lang['UNIT_1001'] = 'Mujer';
 $lang['UNIT_1002'] = 'Hombre';
 
 /* Explorers (Moon) - Group 12 */
-$lang['UNIT_1200'] = 'SatÈlite de exploraciÛn';
-$lang['UNIT_1201'] = 'Nave de exploraciÛn';
+$lang['UNIT_1200'] = 'Sat√©lite de exploraci√≥n';
+$lang['UNIT_1201'] = 'Nave de exploraci√≥n';
 $lang['UNIT_1202'] = 'Radar de corto alcance';
 $lang['UNIT_1203'] = 'Explorador de Espacio Profundo';
 $lang['UNIT_1204'] = 'Explorador de planetas';
 $lang['UNIT_1205'] = 'Elevador Espacial';
 $lang['UNIT_1206'] = 'Astronauta explorador';
 $lang['UNIT_1207'] = 'Radar de largo alcance';
-$lang['UNIT_1208'] = 'EstaciÛn del espacio profundo';
+$lang['UNIT_1208'] = 'Estaci√≥n del espacio profundo';
 $lang['UNIT_1209'] = 'Explorador Velocidad Luz';
 $lang['UNIT_1210'] = 'Destructor Planetario';
-$lang['UNIT_1211'] = 'Explorador Gal·ctico';
+$lang['UNIT_1211'] = 'Explorador Gal√°ctico';
 
 
 /* Drones (Mars) - Group 13 */
@@ -1499,25 +1499,25 @@ $lang['UNIT_2302'] = 'Hombre';
 $lang['UNIT_TITLE'] = 'UNIDADES';
 
 $lang['UNIT_NOTE_1'] = 'Nota: Compre unidades de soldados para realizar las misiones.';
-$lang['UNIT_NOTE_2'] = 'Nota: Compre unidades de CaballerÌa para mejorar su fuerza terrestre. Combate, vence y roba el dinero de tu oponente en sus cuentas de efectivo.';
+$lang['UNIT_NOTE_2'] = 'Nota: Compre unidades de Caballer√≠a para mejorar su fuerza terrestre. Combate, vence y roba el dinero de tu oponente en sus cuentas de efectivo.';
 $lang['UNIT_NOTE_3'] = 'Nota: Compre unidades de la Armada para mejorar su fuerza naval. Combate, vence y roba el dinero de tu oponente en sus cuentas de efectivo.';
-$lang['UNIT_NOTE_4'] = 'Nota: Compre unidades aÈreas para mejorar su fuerza aÈrea. Combate, vence y roba el dinero de tu oponente en sus cuentas de dinero en efectivo.';
-$lang['UNIT_NOTE_6'] = 'Nota: Compre unidades de Inteligencia para mejorar su fuerza de espionaje. Combate, vence e inicia rebeliones en las regiones de la Tierra adem·s de robar el dinero de tu oponente en las cuentas bancarias de Trasquera o SwissCore.';
+$lang['UNIT_NOTE_4'] = 'Nota: Compre unidades a√©reas para mejorar su fuerza a√©rea. Combate, vence y roba el dinero de tu oponente en sus cuentas de dinero en efectivo.';
+$lang['UNIT_NOTE_6'] = 'Nota: Compre unidades de Inteligencia para mejorar su fuerza de espionaje. Combate, vence e inicia rebeliones en las regiones de la Tierra adem√°s de robar el dinero de tu oponente en las cuentas bancarias de Trasquera o SwissCore.';
 
 $lang['UNIT_NOTE_8'] = 'Nota: compre unidades Robot de la Luna para mejorar su fuerza robots. Combate, vence y roba el dinero de tu oponente en sus cuentas de efectivo.';
 $lang['UNIT_NOTE_7'] = 'Nota: Compre unidades de Guerreros de la Luna para mejorar su fuerza de guerreros. Combate, vence y roba el dinero de tu oponente en sus cuentas de efectivo.';
 $lang['UNIT_NOTE_9'] = 'Nota: Compre unidades de Naves espaciales de la Luna para mejorar su fuerza aeroespacial. Combate, vence y roba el dinero de tu oponente en sus cuentas de efectivo.';
-$lang['UNIT_NOTE_12'] = 'Nota: Compre unidades de Exploradores para mejorar su fuerza de exploraciÛn. Combate, vence e inicia rebeliones en la Luna adem·s de robar el dinero de tu oponente en las cuentas bancarias de Trasquera o SwissCore.';
+$lang['UNIT_NOTE_12'] = 'Nota: Compre unidades de Exploradores para mejorar su fuerza de exploraci√≥n. Combate, vence e inicia rebeliones en la Luna adem√°s de robar el dinero de tu oponente en las cuentas bancarias de Trasquera o SwissCore.';
 
 $lang['UNIT_NOTE_13'] = 'Nota: compre unidades Robot de Marte para mejorar su fuerza robots. Combate, vence y roba el dinero de tu oponente de sus cuentas de efectivo.';
 $lang['UNIT_NOTE_14'] = 'Nota: Compre unidades de Guerreros de Marte para mejorar su fuerza de guerreros. Combate, vence y roba el dinero de tu oponente de sus cuentas de efectivo.';
 $lang['UNIT_NOTE_15'] = 'Nota: Compre unidades de Naves espaciales de Marte para mejorar su fuerza aeroespacial. Combate, vence y roba el dinero de tu oponente de sus cuentas de efectivo.';
-$lang['UNIT_NOTE_16'] = 'Nota: Compre unidades de Exploradores para mejorar su fuerza de exploraciÛn. Combate, vence e inicia rebeliones en la Luna adem·s de robar el dinero de tu oponente en las cuentas bancarias de Trasquera o SwissCore.';
+$lang['UNIT_NOTE_16'] = 'Nota: Compre unidades de Exploradores para mejorar su fuerza de exploraci√≥n. Combate, vence e inicia rebeliones en la Luna adem√°s de robar el dinero de tu oponente en las cuentas bancarias de Trasquera o SwissCore.';
 
 $lang['UNIT_NOTE_19'] = 'Nota: compre unidades Robot para el mercury y mejore su fuerza robots. Combate, vence y roba el dinero de tu oponente de sus cuentas de efectivo.';
 $lang['UNIT_NOTE_20'] = 'Nota: Compre unidades de Guerreros para el mercury y mejore su fuerza de guerreros. Combate, vence y roba el dinero de tu oponente de sus cuentas de efectivo.';
 $lang['UNIT_NOTE_21'] = 'Nota: Compre unidades de Naves espaciales para el mercury y mejore su fuerza aeroespacial. Combate, vence y roba el dinero de tu oponente de sus cuentas de efectivo.';
-$lang['UNIT_NOTE_22'] = 'Nota: Compre unidades de Exploradores para el mercury y mejore su fuerza de exploraciÛn. Combate, vence e inicia rebeliones en la Luna adem·s de robar el dinero de tu oponente en las cuentas bancarias de Trasquera o SwissCore.';
+$lang['UNIT_NOTE_22'] = 'Nota: Compre unidades de Exploradores para el mercury y mejore su fuerza de exploraci√≥n. Combate, vence e inicia rebeliones en la Luna adem√°s de robar el dinero de tu oponente en las cuentas bancarias de Trasquera o SwissCore.';
 
 $lang['UNIT_DISBAND'] = 'Ha licenciado %s %s por %s. Actualmente %s alistados.';
 $lang['UNIT_DISBAND_FAILED'] = 'No dispone de %s %s. Actualmente %s alistados.';
@@ -1525,7 +1525,7 @@ $lang['UNIT_DISBAND_FAILED'] = 'No dispone de %s %s. Actualmente %s alistados.';
 $lang['UNIT_DEPLOY'] = 'Ha reclutado %s %s por %s. Ahora %s alistados.';
 $lang['UNIT_NO_UPKEEP'] = 'No hay suficientes ingresos por hora para financiar %s %s.';
 $lang['UNIT_NO_MONEY'] = 'No tiene suficiente dinero para comprar %s %s por %s.';
-$lang['UNIT_MAX'] = 'No m·s de %s %s(s) permitidos!';
+$lang['UNIT_MAX'] = 'No m√°s de %s %s(s) permitidos!';
 
 /*
 ** ------------------
@@ -1536,45 +1536,45 @@ $lang['UNIT_MAX'] = 'No m·s de %s %s(s) permitidos!';
 /* Earth Buildings */
 $lang['BUILDING_GROUP_1']  = 'Ingreso';
 $lang['BUILDING_GROUP_2']  = 'Defensa';
-$lang['BUILDING_GROUP_3']  = 'EnergÌa';
+$lang['BUILDING_GROUP_3']  = 'Energ√≠a';
 $lang['BUILDING_GROUP_4']  = 'Descuento';
 $lang['BUILDING_GROUP_5']  = 'Mantenimiento';
 
 /* Moon Buildings */
 $lang['BUILDING_GROUP_6']  = 'Ingreso';
 $lang['BUILDING_GROUP_7']  = 'Defensa';
-$lang['BUILDING_GROUP_8']  = 'EnergÌa';
+$lang['BUILDING_GROUP_8']  = 'Energ√≠a';
 $lang['BUILDING_GROUP_9']  = 'Descuento';
 $lang['BUILDING_GROUP_10'] = 'Mantenimiento';
 
 /* Mars Buildings */
 $lang['BUILDING_GROUP_11'] = 'Ingreso';
 $lang['BUILDING_GROUP_12'] = 'Defensa';
-$lang['BUILDING_GROUP_13'] = 'EnergÌa';
+$lang['BUILDING_GROUP_13'] = 'Energ√≠a';
 $lang['BUILDING_GROUP_14'] = 'Descuento';
 $lang['BUILDING_GROUP_15'] = 'Mantenimiento';
 
 /* mercury Buildings */
 $lang['BUILDING_GROUP_16'] = 'Ingreso';
 $lang['BUILDING_GROUP_17'] = 'Defensa';
-$lang['BUILDING_GROUP_18'] = 'EnergÌa';
+$lang['BUILDING_GROUP_18'] = 'Energ√≠a';
 $lang['BUILDING_GROUP_19'] = 'Descuento';
 $lang['BUILDING_GROUP_20'] = 'Mantenimiento';
 
 /* Income (Earth) - Group 1 */
-$lang['BUILDING_1']  = 'AlmacÈn de suministros';
-$lang['BUILDING_3']  = 'RefinerÌa';
-$lang['BUILDING_6']  = 'F·brica de armas';
+$lang['BUILDING_1']  = 'Almac√©n de suministros';
+$lang['BUILDING_3']  = 'Refiner√≠a';
+$lang['BUILDING_6']  = 'F√°brica de armas';
 $lang['BUILDING_8']  = 'Centro de comunicaciones';
-$lang['BUILDING_24'] = 'FactorÌa Bio-cientÌfica';
-$lang['BUILDING_12'] = 'Plataforma petrolÌfera';
-$lang['BUILDING_14'] = 'Laboratorio de investigaciÛn militar';
-$lang['BUILDING_16'] = 'InstalaciÛn de pruebas nucleares';
+$lang['BUILDING_24'] = 'Factor√≠a Bio-cient√≠fica';
+$lang['BUILDING_12'] = 'Plataforma petrol√≠fera';
+$lang['BUILDING_14'] = 'Laboratorio de investigaci√≥n militar';
+$lang['BUILDING_16'] = 'Instalaci√≥n de pruebas nucleares';
 $lang['BUILDING_25'] = 'Planta de tratamiento de agua';
-$lang['BUILDING_17'] = 'Red de satÈlites solares';
+$lang['BUILDING_17'] = 'Red de sat√©lites solares';
 
 /* Defence (Earth) - Group 2 */
-$lang['BUILDING_2']  = 'B˙nker';
+$lang['BUILDING_2']  = 'B√∫nker';
 $lang['BUILDING_21'] = 'Minas marinas';
 $lang['BUILDING_51'] = 'Embajada';
 $lang['BUILDING_22'] = 'Lanza torpedos';
@@ -1584,21 +1584,21 @@ $lang['BUILDING_53'] = 'Centro de control de Drones';
 $lang['BUILDING_54'] = 'Guerra ciberespacial';
 
 /* Energy (Earth) - Group 3 */
-$lang['BUILDING_4']  = 'Unidad energÌa solar';
-$lang['BUILDING_10'] = 'Generador mÛvil';
-$lang['BUILDING_13'] = 'InstalaciÛn de gas';
-$lang['BUILDING_18'] = 'Parque eÛlico';
-$lang['BUILDING_19'] = 'Torre petrolÌfera';
-$lang['BUILDING_26'] = 'Parque energÌa solar';
-$lang['BUILDING_27'] = 'Parque eÛlico offshore';
-$lang['BUILDING_28'] = 'InstalaciÛn energÌa geotÈrmica';
-$lang['BUILDING_35'] = 'Represa hidroelÈctrica';
+$lang['BUILDING_4']  = 'Unidad energ√≠a solar';
+$lang['BUILDING_10'] = 'Generador m√≥vil';
+$lang['BUILDING_13'] = 'Instalaci√≥n de gas';
+$lang['BUILDING_18'] = 'Parque e√≥lico';
+$lang['BUILDING_19'] = 'Torre petrol√≠fera';
+$lang['BUILDING_26'] = 'Parque energ√≠a solar';
+$lang['BUILDING_27'] = 'Parque e√≥lico offshore';
+$lang['BUILDING_28'] = 'Instalaci√≥n energ√≠a geot√©rmica';
+$lang['BUILDING_35'] = 'Represa hidroel√©ctrica';
 $lang['BUILDING_39'] = 'Planta nuclear';
 
 /* Discount (Earth) - Group 4 */
-$lang['BUILDING_29'] = 'Equipamiento logÌstico';
-$lang['BUILDING_40'] = 'DepÛsito de suministros';
-$lang['BUILDING_37'] = 'Hospital mÛvil';
+$lang['BUILDING_29'] = 'Equipamiento log√≠stico';
+$lang['BUILDING_40'] = 'Dep√≥sito de suministros';
+$lang['BUILDING_37'] = 'Hospital m√≥vil';
 $lang['BUILDING_38'] = 'Centro de mando';
 $lang['BUILDING_30'] = 'Campo de entrenamiento';
 $lang['BUILDING_31'] = 'Academia militar';
@@ -1610,9 +1610,9 @@ $lang['BUILDING_36'] = 'Oficina presidencial';
 /* Maintenance (Earth) - Group 5 */
 $lang['BUILDING_41'] = 'Mantenimiento de carreteras';
 $lang['BUILDING_42'] = 'Mantenimiento de puentes';
-$lang['BUILDING_43'] = 'Taller de vehÌculos';
-$lang['BUILDING_44'] = 'Hangar de helicÛpteros';
-$lang['BUILDING_45'] = 'Garaje de vehÌculos';
+$lang['BUILDING_43'] = 'Taller de veh√≠culos';
+$lang['BUILDING_44'] = 'Hangar de helic√≥pteros';
+$lang['BUILDING_45'] = 'Garaje de veh√≠culos';
 $lang['BUILDING_46'] = 'Muelle de la Marina';
 $lang['BUILDING_47'] = 'Mantenimiento de edificios';
 $lang['BUILDING_48'] = 'Muelle de submarinos';
@@ -1621,47 +1621,47 @@ $lang['BUILDING_50'] = 'Hangar de aeronaves';
 
 /* Income (Moon) - Group 6 */
 $lang['BUILDING_600'] = 'Base Central';
-$lang['BUILDING_601'] = 'Centro InvestigaciÛn & ExploraciÛn';
+$lang['BUILDING_601'] = 'Centro Investigaci√≥n & Exploraci√≥n';
 $lang['BUILDING_602'] = 'Alojamientos del personal';
-$lang['BUILDING_603'] = 'FactorÌa de oxÌgeno';
-$lang['BUILDING_604'] = 'FactorÌa de agua';
+$lang['BUILDING_603'] = 'Factor√≠a de ox√≠geno';
+$lang['BUILDING_604'] = 'Factor√≠a de agua';
 $lang['BUILDING_605'] = 'Centro de comunicaciones';
 $lang['BUILDING_606'] = 'Invernadero';
-$lang['BUILDING_607'] = 'FactorÌa de construcciÛn';
-$lang['BUILDING_608'] = 'Centro de extracciÛn metales';
+$lang['BUILDING_607'] = 'Factor√≠a de construcci√≥n';
+$lang['BUILDING_608'] = 'Centro de extracci√≥n metales';
 $lang['BUILDING_609'] = 'Centro de lanzamiento de naves';
 $lang['BUILDING_610'] = 'Hospital lunar';
-$lang['BUILDING_611'] = 'Centro de terraformaciÛn';
+$lang['BUILDING_611'] = 'Centro de terraformaci√≥n';
 
 /* Defence (Moon) - Group 7 */
-$lang['BUILDING_700'] = 'InvestigaciÛn de defensa';
-$lang['BUILDING_701'] = 'F·brica de robots';
+$lang['BUILDING_700'] = 'Investigaci√≥n de defensa';
+$lang['BUILDING_701'] = 'F√°brica de robots';
 $lang['BUILDING_702'] = 'Misiles de corto alcance';
-$lang['BUILDING_703'] = 'F·brica de Guerreros';
+$lang['BUILDING_703'] = 'F√°brica de Guerreros';
 $lang['BUILDING_704'] = 'Sistema de alarma';
-$lang['BUILDING_705'] = 'L·ser de largo alcance';
-$lang['BUILDING_706'] = 'F·brica de naves espaciales';
-$lang['BUILDING_707'] = 'Escudo de energÌa';
+$lang['BUILDING_705'] = 'L√°ser de largo alcance';
+$lang['BUILDING_706'] = 'F√°brica de naves espaciales';
+$lang['BUILDING_707'] = 'Escudo de energ√≠a';
 $lang['BUILDING_708'] = 'Lanzador de misiles nucleares';
-$lang['BUILDING_709'] = 'F·brica de armas de electrochoque';
-$lang['BUILDING_710'] = 'F·brica de armas FotÛnicas';
-$lang['BUILDING_711'] = 'Defensa androide mÛvil';
+$lang['BUILDING_709'] = 'F√°brica de armas de electrochoque';
+$lang['BUILDING_710'] = 'F√°brica de armas Fot√≥nicas';
+$lang['BUILDING_711'] = 'Defensa androide m√≥vil';
 $lang['BUILDING_712'] = 'Escudo de defensa de la colonia';
-$lang['BUILDING_713'] = 'F·brica subterr·nea';
+$lang['BUILDING_713'] = 'F√°brica subterr√°nea';
 $lang['BUILDING_714'] = 'Nave espacial de lanzamiento';
 
 /* Energy (Moon) - Group 8 */
-$lang['BUILDING_800'] = 'Centro de investigaciÛn de gases';
-$lang['BUILDING_801'] = 'Centro de investigaciÛn petrolero';
+$lang['BUILDING_800'] = 'Centro de investigaci√≥n de gases';
+$lang['BUILDING_801'] = 'Centro de investigaci√≥n petrolero';
 $lang['BUILDING_802'] = 'Extractores de gas';
-$lang['BUILDING_803'] = 'Extractores de petrÛleo';
-$lang['BUILDING_804'] = 'InstalaciÛn de energÌa solar';
-$lang['BUILDING_805'] = 'InstalaciÛn de gas';
-$lang['BUILDING_806'] = 'Centro de Ûrbita solar';
-$lang['BUILDING_807'] = 'InstalaciÛn energÌa nuclear';
-$lang['BUILDING_808'] = 'Super-instalaciÛn energÌa solar';
+$lang['BUILDING_803'] = 'Extractores de petr√≥leo';
+$lang['BUILDING_804'] = 'Instalaci√≥n de energ√≠a solar';
+$lang['BUILDING_805'] = 'Instalaci√≥n de gas';
+$lang['BUILDING_806'] = 'Centro de √≥rbita solar';
+$lang['BUILDING_807'] = 'Instalaci√≥n energ√≠a nuclear';
+$lang['BUILDING_808'] = 'Super-instalaci√≥n energ√≠a solar';
 $lang['BUILDING_809'] = 'Mini colonia espacial';
-$lang['BUILDING_810'] = 'Sistema explotaciÛn solar';
+$lang['BUILDING_810'] = 'Sistema explotaci√≥n solar';
 $lang['BUILDING_811'] = 'Colonia Espacial';
 
 /* Discount (Moon) - Group 9 */
@@ -1669,7 +1669,7 @@ $lang['BUILDING_900'] = 'Rascacielos';
 $lang['BUILDING_901'] = 'Puente';
 $lang['BUILDING_902'] = 'Colonia';
 $lang['BUILDING_903'] = 'Central';
-$lang['BUILDING_904'] = 'Base volc·nica';
+$lang['BUILDING_904'] = 'Base volc√°nica';
 $lang['BUILDING_905'] = 'Ciudad';
 $lang['BUILDING_906'] = 'Campo entrenamiento';
 $lang['BUILDING_907'] = 'Lanzadores de misiles';
@@ -1679,136 +1679,136 @@ $lang['BUILDING_910'] = 'Instalaciones de ocio';
 $lang['BUILDING_911'] = 'Centro de mando';
 
 /* Maintenance (Moon) - Group 10 */
-$lang['BUILDING_1000'] = 'Centro de diseÒo';
-$lang['BUILDING_1001'] = 'ReparaciÛn de robots';
-$lang['BUILDING_1002'] = 'ReparaciÛn de misiles';
-$lang['BUILDING_1003'] = 'ReparaciÛn unidades exploraciÛn';
-$lang['BUILDING_1004'] = 'ReparaciÛn de vehÌculos';
-$lang['BUILDING_1005'] = 'ReparaciÛn de guerreros';
-$lang['BUILDING_1006'] = 'ReparaciÛn de infraestructuras';
-$lang['BUILDING_1007'] = 'ReparaciÛn de unidades';
-$lang['BUILDING_1008'] = 'ReparaciÛn de energÌa';
-$lang['BUILDING_1009'] = 'ReparaciÛn robotizada';
+$lang['BUILDING_1000'] = 'Centro de dise√±o';
+$lang['BUILDING_1001'] = 'Reparaci√≥n de robots';
+$lang['BUILDING_1002'] = 'Reparaci√≥n de misiles';
+$lang['BUILDING_1003'] = 'Reparaci√≥n unidades exploraci√≥n';
+$lang['BUILDING_1004'] = 'Reparaci√≥n de veh√≠culos';
+$lang['BUILDING_1005'] = 'Reparaci√≥n de guerreros';
+$lang['BUILDING_1006'] = 'Reparaci√≥n de infraestructuras';
+$lang['BUILDING_1007'] = 'Reparaci√≥n de unidades';
+$lang['BUILDING_1008'] = 'Reparaci√≥n de energ√≠a';
+$lang['BUILDING_1009'] = 'Reparaci√≥n robotizada';
 
 /* Income (Mars) - Group 11 */
 $lang['BUILDING_1100'] = 'Base central';
-$lang['BUILDING_1101'] = 'Centro de investigaciÛn';
-$lang['BUILDING_1102'] = 'FactorÌa de oxÌgeno';
+$lang['BUILDING_1101'] = 'Centro de investigaci√≥n';
+$lang['BUILDING_1102'] = 'Factor√≠a de ox√≠geno';
 $lang['BUILDING_1103'] = 'Alojamientos del personal';
-$lang['BUILDING_1104'] = 'FactorÌa de agua';
-$lang['BUILDING_1105'] = 'Centro de extracciÛn metales';
-$lang['BUILDING_1106'] = 'Centro de comunicaciÛn';
+$lang['BUILDING_1104'] = 'Factor√≠a de agua';
+$lang['BUILDING_1105'] = 'Centro de extracci√≥n metales';
+$lang['BUILDING_1106'] = 'Centro de comunicaci√≥n';
 $lang['BUILDING_1107'] = 'Centro conversor';
 $lang['BUILDING_1108'] = 'Invernadero';
 $lang['BUILDING_1109'] = 'Hotel';
 
 /* Defense (Mars) - Group 12 */
-$lang['BUILDING_1200'] = 'centro de investigaciÛn';
-$lang['BUILDING_1201'] = 'F·brica de armas';
+$lang['BUILDING_1200'] = 'centro de investigaci√≥n';
+$lang['BUILDING_1201'] = 'F√°brica de armas';
 $lang['BUILDING_1202'] = 'Misil de corto alcance';
-$lang['BUILDING_1203'] = 'F·brica de guerreros';
+$lang['BUILDING_1203'] = 'F√°brica de guerreros';
 $lang['BUILDING_1204'] = 'Sistema de alarma';
-$lang['BUILDING_1205'] = 'F·brica de naves espaciales';
+$lang['BUILDING_1205'] = 'F√°brica de naves espaciales';
 $lang['BUILDING_1206'] = 'Lanzadera de largo alcance';
-$lang['BUILDING_1207'] = 'F·brica de Exploradores';
-$lang['BUILDING_1208'] = 'F·brica de robots';
-$lang['BUILDING_1209'] = 'F·brica de Guerreros II';
-$lang['BUILDING_1210'] = 'Unidad detecciÛn alienÌgenas';
+$lang['BUILDING_1207'] = 'F√°brica de Exploradores';
+$lang['BUILDING_1208'] = 'F√°brica de robots';
+$lang['BUILDING_1209'] = 'F√°brica de Guerreros II';
+$lang['BUILDING_1210'] = 'Unidad detecci√≥n alien√≠genas';
 
 /* Energy (Mars) - Group 13 */
-$lang['BUILDING_1300'] = 'Centro InvestigaciÛn de EnergÌa';
-$lang['BUILDING_1301'] = 'InstalaciÛn de gas';
-$lang['BUILDING_1302'] = 'Centro investigaciÛn petrolera';
-$lang['BUILDING_1303'] = 'Extractores de petrÛleo';
-$lang['BUILDING_1304'] = 'InstalaciÛn energÌa solar';
+$lang['BUILDING_1300'] = 'Centro Investigaci√≥n de Energ√≠a';
+$lang['BUILDING_1301'] = 'Instalaci√≥n de gas';
+$lang['BUILDING_1302'] = 'Centro investigaci√≥n petrolera';
+$lang['BUILDING_1303'] = 'Extractores de petr√≥leo';
+$lang['BUILDING_1304'] = 'Instalaci√≥n energ√≠a solar';
 $lang['BUILDING_1305'] = 'Extractores de gas';
 $lang['BUILDING_1306'] = 'Centro minero';
-$lang['BUILDING_1307'] = 'InstalaciÛn energÌa nuclear';
-$lang['BUILDING_1308'] = 'Super-centro de Ûrbita solar';
+$lang['BUILDING_1307'] = 'Instalaci√≥n energ√≠a nuclear';
+$lang['BUILDING_1308'] = 'Super-centro de √≥rbita solar';
 $lang['BUILDING_1309'] = 'Colonia marciana';
 
 /* Discount (Mars) - Group 14 */
-$lang['BUILDING_1400'] = 'Centro de formaciÛn';
-$lang['BUILDING_1401'] = 'Centro de terraformaciÛn';
+$lang['BUILDING_1400'] = 'Centro de formaci√≥n';
+$lang['BUILDING_1401'] = 'Centro de terraformaci√≥n';
 $lang['BUILDING_1402'] = 'Colonia';
 $lang['BUILDING_1403'] = 'Central';
-$lang['BUILDING_1404'] = 'DepÛsito de suministros';
-$lang['BUILDING_1405'] = 'Unidad de construcciÛn';
+$lang['BUILDING_1404'] = 'Dep√≥sito de suministros';
+$lang['BUILDING_1405'] = 'Unidad de construcci√≥n';
 $lang['BUILDING_1406'] = 'Campo de entrenamiento';
 $lang['BUILDING_1407'] = 'Oficina presidencial';
 $lang['BUILDING_1408'] = 'Centro de mando';
 
 /* Maintenance (Mars) - Group 15 */
-$lang['BUILDING_1500'] = 'Centro de diseÒo';
-$lang['BUILDING_1501'] = 'ReparaciÛn de robots';
-$lang['BUILDING_1502'] = 'ReparaciÛn de misiles';
-$lang['BUILDING_1503'] = 'ReparaciÛn de Exploradores';
-$lang['BUILDING_1504'] = 'ReparaciÛn de vehÌculos';
-$lang['BUILDING_1505'] = 'ReparaciÛn de guerreros';
-$lang['BUILDING_1506'] = 'ReparaciÛn de infraestructuras';
-$lang['BUILDING_1507'] = 'ReparaciÛn de unidades';
-$lang['BUILDING_1508'] = 'ReparaciÛn de energÌa';
-$lang['BUILDING_1509'] = 'ReparaciÛn robotizada';
+$lang['BUILDING_1500'] = 'Centro de dise√±o';
+$lang['BUILDING_1501'] = 'Reparaci√≥n de robots';
+$lang['BUILDING_1502'] = 'Reparaci√≥n de misiles';
+$lang['BUILDING_1503'] = 'Reparaci√≥n de Exploradores';
+$lang['BUILDING_1504'] = 'Reparaci√≥n de veh√≠culos';
+$lang['BUILDING_1505'] = 'Reparaci√≥n de guerreros';
+$lang['BUILDING_1506'] = 'Reparaci√≥n de infraestructuras';
+$lang['BUILDING_1507'] = 'Reparaci√≥n de unidades';
+$lang['BUILDING_1508'] = 'Reparaci√≥n de energ√≠a';
+$lang['BUILDING_1509'] = 'Reparaci√≥n robotizada';
 
 /* Income (mercury) - Group 16 */
 $lang['BUILDING_1600'] = 'Base central';
-$lang['BUILDING_1601'] = 'Centor de investigaciÛn';
-$lang['BUILDING_1602'] = 'FactorÌa de oxÌgeno';
+$lang['BUILDING_1601'] = 'Centor de investigaci√≥n';
+$lang['BUILDING_1602'] = 'Factor√≠a de ox√≠geno';
 $lang['BUILDING_1603'] = 'Alojamientos del personal';
-$lang['BUILDING_1604'] = 'FactorÌa de agua';
-$lang['BUILDING_1605'] = 'Centro de extracciÛn metales';
+$lang['BUILDING_1604'] = 'Factor√≠a de agua';
+$lang['BUILDING_1605'] = 'Centro de extracci√≥n metales';
 $lang['BUILDING_1606'] = 'Centro de comunicaciones';
 $lang['BUILDING_1607'] = 'Centro conversor';
 $lang['BUILDING_1608'] = 'Invernadero';
 $lang['BUILDING_1609'] = 'Hotel';
 
 /* Defense (mercury) - Group 17 */
-$lang['BUILDING_1700'] = 'Centro de investigaciÛn';
-$lang['BUILDING_1701'] = 'F·brica de armas';
+$lang['BUILDING_1700'] = 'Centro de investigaci√≥n';
+$lang['BUILDING_1701'] = 'F√°brica de armas';
 $lang['BUILDING_1702'] = 'Misil de corto alcance';
-$lang['BUILDING_1703'] = 'F·brica de guerreros';
+$lang['BUILDING_1703'] = 'F√°brica de guerreros';
 $lang['BUILDING_1704'] = 'Sistema de alarma';
-$lang['BUILDING_1705'] = 'F·brica de naves espaciales';
+$lang['BUILDING_1705'] = 'F√°brica de naves espaciales';
 $lang['BUILDING_1706'] = 'Lanzadera de largo alcance';
-$lang['BUILDING_1707'] = 'F·brica de Exploradores';
-$lang['BUILDING_1708'] = 'F·brica de robots';
-$lang['BUILDING_1709'] = 'F·brica de guerreros II';
+$lang['BUILDING_1707'] = 'F√°brica de Exploradores';
+$lang['BUILDING_1708'] = 'F√°brica de robots';
+$lang['BUILDING_1709'] = 'F√°brica de guerreros II';
 
 /* Energy (mercury) - Group 18 */
-$lang['BUILDING_1800'] = 'Centro InvestigaciÛn de EnergÌa';
-$lang['BUILDING_1801'] = 'InstalaciÛn de gas';
-$lang['BUILDING_1802'] = 'Centro de investigaciÛn petrolera';
-$lang['BUILDING_1803'] = 'Extractores de petrÛleo';
-$lang['BUILDING_1804'] = 'InstalaciÛn de energÌa solar';
+$lang['BUILDING_1800'] = 'Centro Investigaci√≥n de Energ√≠a';
+$lang['BUILDING_1801'] = 'Instalaci√≥n de gas';
+$lang['BUILDING_1802'] = 'Centro de investigaci√≥n petrolera';
+$lang['BUILDING_1803'] = 'Extractores de petr√≥leo';
+$lang['BUILDING_1804'] = 'Instalaci√≥n de energ√≠a solar';
 $lang['BUILDING_1805'] = 'Extractores de gas';
 $lang['BUILDING_1806'] = 'Centro minero';
-$lang['BUILDING_1807'] = 'InstalaciÛn de energÌa nuclear';
-$lang['BUILDING_1808'] = 'Super-centro de Ûrbita solar';
+$lang['BUILDING_1807'] = 'Instalaci√≥n de energ√≠a nuclear';
+$lang['BUILDING_1808'] = 'Super-centro de √≥rbita solar';
 $lang['BUILDING_1809'] = 'Colonia mercury';
 
 /* Discount (mercury) - Group 19 */
-$lang['BUILDING_1900'] = 'Centro de formaciÛn';
-$lang['BUILDING_1901'] = 'Centro de terraformaciÛn';
+$lang['BUILDING_1900'] = 'Centro de formaci√≥n';
+$lang['BUILDING_1901'] = 'Centro de terraformaci√≥n';
 $lang['BUILDING_1902'] = 'Alojamientos del personal militar';
 $lang['BUILDING_1903'] = 'Cuartel militar';
-$lang['BUILDING_1904'] = 'DepÛsito de suministros';
-$lang['BUILDING_1905'] = 'Centro de construcciÛn';
+$lang['BUILDING_1904'] = 'Dep√≥sito de suministros';
+$lang['BUILDING_1905'] = 'Centro de construcci√≥n';
 $lang['BUILDING_1906'] = 'Campo de entrenamiento';
 $lang['BUILDING_1907'] = 'Oficina presidencial';
 $lang['BUILDING_1908'] = 'Colonia';
-$lang['BUILDING_1909'] = 'InstalaciÛn de ocio';
+$lang['BUILDING_1909'] = 'Instalaci√≥n de ocio';
 
 /* Maintenance (mercury) - Group 20 */
-$lang['BUILDING_2000'] = 'Centro de diseÒo';
-$lang['BUILDING_2001'] = 'ReparaciÛn de robots';
-$lang['BUILDING_2002'] = 'ReparaciÛn de misiles';
-$lang['BUILDING_2003'] = 'ReparaciÛn de Exploradores';
-$lang['BUILDING_2004'] = 'ReparaciÛn de vehÌculos';
-$lang['BUILDING_2005'] = 'ReparaciÛn de guerreros';
-$lang['BUILDING_2006'] = 'ReparaciÛn de infraestructuras';
-$lang['BUILDING_2007'] = 'ReparaciÛn de unidades';
-$lang['BUILDING_2008'] = 'ReparaciÛn de energÌa';
-$lang['BUILDING_2009'] = 'ReparaciÛn robotizada';
+$lang['BUILDING_2000'] = 'Centro de dise√±o';
+$lang['BUILDING_2001'] = 'Reparaci√≥n de robots';
+$lang['BUILDING_2002'] = 'Reparaci√≥n de misiles';
+$lang['BUILDING_2003'] = 'Reparaci√≥n de Exploradores';
+$lang['BUILDING_2004'] = 'Reparaci√≥n de veh√≠culos';
+$lang['BUILDING_2005'] = 'Reparaci√≥n de guerreros';
+$lang['BUILDING_2006'] = 'Reparaci√≥n de infraestructuras';
+$lang['BUILDING_2007'] = 'Reparaci√≥n de unidades';
+$lang['BUILDING_2008'] = 'Reparaci√≥n de energ√≠a';
+$lang['BUILDING_2009'] = 'Reparaci√≥n robotizada';
 
 /*
 ** ------------------
@@ -1819,72 +1819,72 @@ $lang['BUILDING_2009'] = 'ReparaciÛn robotizada';
 $lang['BUILDING_TITLE'] = 'EDIFICIOS';
 $lang['BUILDING_NOTE1'] = 'Nota: los edificios de Ingresos proporcionan un mayor ingreso por hora. Cada edificio contiene ciudadanos que aumentan el coste por hora.';
 $lang['BUILDING_NOTE2'] = 'Nota: los edificios de Defensa proporcionan mayor defensa contra los ataques. Cada edificio contiene ciudadanos que aumentan el coste por hora.';
-$lang['BUILDING_NOTE3'] = 'Nota: los edificios de EnergÌa proporcionan una recuperaciÛn m·s r·pida de la energÌa. Cada edificio contiene ciudadanos que aumentan el coste por hora.';
+$lang['BUILDING_NOTE3'] = 'Nota: los edificios de Energ√≠a proporcionan una recuperaci√≥n m√°s r√°pida de la energ√≠a. Cada edificio contiene ciudadanos que aumentan el coste por hora.';
 $lang['BUILDING_NOTE4'] = 'Nota: los edificios de Descuento ofrecen descuento en el precio de compra de los edificios. Cada edificio contiene ciudadanos que aumentan el coste por hora.';
-$lang['BUILDING_NOTE5'] = 'Nota: los edificios de Mantenimiento proporcionan reparaciÛn m·s r·pida de las unidades resultando en una menor pÈrdida de unidades durante las batallas. Cada edificio contiene ciudadanos que aumentan el coste por hora.';
+$lang['BUILDING_NOTE5'] = 'Nota: los edificios de Mantenimiento proporcionan reparaci√≥n m√°s r√°pida de las unidades resultando en una menor p√©rdida de unidades durante las batallas. Cada edificio contiene ciudadanos que aumentan el coste por hora.';
 
 $lang['BUILDING_NOTE6'] = 'Nota: Los edificios de Ingresos proporcionan mayores ingresos para su base lunar.';
 $lang['BUILDING_NOTE7'] = 'Nota: Los edificios de Defensa proporcionan una mayor defensa para los ataques contra a su base lunar.';
-$lang['BUILDING_NOTE8'] = 'Nota: Los edificios de EnergÌa proporcionan una recuperaciÛn m·s r·pida de energÌa para su base lunar.';
+$lang['BUILDING_NOTE8'] = 'Nota: Los edificios de Energ√≠a proporcionan una recuperaci√≥n m√°s r√°pida de energ√≠a para su base lunar.';
 $lang['BUILDING_NOTE9'] = 'Nota: los edificios de Descuento ofrecen precio de descuento en la compra de edificios lunares.';
-$lang['BUILDING_NOTE10'] = 'Nota: los edificios de Mantenimiento proporcionan reparaciÛn m·s r·pida de las unidades resultando en una menor pÈrdida de unidades durante las batallas.';
+$lang['BUILDING_NOTE10'] = 'Nota: los edificios de Mantenimiento proporcionan reparaci√≥n m√°s r√°pida de las unidades resultando en una menor p√©rdida de unidades durante las batallas.';
 
 $lang['BUILDING_NOTE11'] = 'Nota: los edificios de Ingresos proporcionan mayores ingresos para su base de Marte.';
 $lang['BUILDING_NOTE12'] = 'Nota: los edificios de Defensa proporcionan una mayor defensa para los ataques contra su base de Marte.';
-$lang['BUILDING_NOTE13'] = 'Nota: los edificios de EnergÌa proporciona una recuperaciÛn m·s r·pida de energÌa para su base de Marte.';
+$lang['BUILDING_NOTE13'] = 'Nota: los edificios de Energ√≠a proporciona una recuperaci√≥n m√°s r√°pida de energ√≠a para su base de Marte.';
 $lang['BUILDING_NOTE14'] = 'Nota: los edificios de Descuento ofrecen descuento en el precio de compra de edificios en Marte.';
-$lang['BUILDING_NOTE15'] = 'Nota: los edificios de Mantenimiento proporcionan reparaciÛn m·s r·pida de las unidades resultando en una menor pÈrdida de unidades durante las batallas.';
+$lang['BUILDING_NOTE15'] = 'Nota: los edificios de Mantenimiento proporcionan reparaci√≥n m√°s r√°pida de las unidades resultando en una menor p√©rdida de unidades durante las batallas.';
 
 $lang['BUILDING_NOTE16'] = 'Nota: Los edificios de Ingresos proporcionan mayores ingresos para su base del mercury.';
 $lang['BUILDING_NOTE17'] = 'Nota: Los edificios de Defensa proporcionan una mayor defensa para los ataques contra su base del mercury.';
-$lang['BUILDING_NOTE18'] = 'Nota: Los edificios de EnergÌa proporcionan una recuperaciÛn m·s r·pida de energÌa para su base del mercury.';
+$lang['BUILDING_NOTE18'] = 'Nota: Los edificios de Energ√≠a proporcionan una recuperaci√≥n m√°s r√°pida de energ√≠a para su base del mercury.';
 $lang['BUILDING_NOTE19'] = 'Nota: Los edificios de Descuento ofrecen precio de descuento en su compra de edificios en el mercury.';
-$lang['BUILDING_NOTE20'] = 'Nota: los edificios de Mantenimiento proporcionan reparaciÛn m·s r·pida de las unidades resultando en una menor pÈrdida de unidades durante las batallas.';
+$lang['BUILDING_NOTE20'] = 'Nota: los edificios de Mantenimiento proporcionan reparaci√≥n m√°s r√°pida de las unidades resultando en una menor p√©rdida de unidades durante las batallas.';
 
-$lang['BUILDING_SELL'] = 'Ha vendido %s %s por %s. TodavÌa %s disponibles.';
+$lang['BUILDING_SELL'] = 'Ha vendido %s %s por %s. Todav√≠a %s disponibles.';
 $lang['BUILDING_LOW_UPKEEP'] = 'No tiene suficiente ingreso por hora para vender %s %s por %s.';
 $lang['BUILDING_NOT_OWNED'] = 'No dispone de %s %s.';
 
-$lang['BUILDING_BUY'] = 'Usted comprÛ %s %s por %s. Ahora %s disponibles.';
-$lang['BUILDING_MAX'] = 'No m·s de %s %s(s) permitidos!';
-$lang['BUILDING_NO_FUNDS'] = 'No tiene suficiente dinero para comprar %s %s por %s.'; 
+$lang['BUILDING_BUY'] = 'Usted compr√≥ %s %s por %s. Ahora %s disponibles.';
+$lang['BUILDING_MAX'] = 'No m√°s de %s %s(s) permitidos!';
+$lang['BUILDING_NO_FUNDS'] = 'No tiene suficiente dinero para comprar %s %s por %s.';
 $lang['BUILDING_LOW_UPKEEP2'] = 'No tiene suficiente ingreso por hora para comprar %s %s por %s.';
 
 $lang['BUILDING_UPKEEP'] = 'Coste por hora';
 $lang['BUILDING_PRICE'] = 'Precio';
 $lang['BUILDING_DEPLOYED'] = 'Disponibles';
 $lang['BUILDING_GAIN'] = 'Ventajas';
-$lang['BUILDING_ENERGY'] = 'EnergÌa';
+$lang['BUILDING_ENERGY'] = 'Energ√≠a';
 $lang['BUILDING_INCOME'] = 'Ingreso';
 $lang['BUILDING_REQUIRED'] = 'Requiere';
 
 /*
 ** ------------------
-** MONEY - BANKS 
+** MONEY - BANKS
 ** ------------------
 */
 
 $lang['MONEY_TITLE'] = 'DINERO';
 
 $lang['BANK_TITLE'] = 'BANCOS';
-$lang['BANK_NOTE'] = 'Nota: Hay una comisiÛn de %s% por cualquier depÛsito. El banco paga %s% interÈs diario. ';
+$lang['BANK_NOTE'] = 'Nota: Hay una comisi√≥n de %s% por cualquier dep√≥sito. El banco paga %s% inter√©s diario. ';
 $lang['BANK_WARNING'] = 'Advertencia: Unidades de Inteligencia o Exploradores de otros jugadores pueden robar el dinero de este banco.';
 
-$lang['BANK_TRANSACTION_TYPE_0'] = 'RetirÛ';
-$lang['BANK_TRANSACTION_TYPE_1'] = 'IngresÛ';
-$lang['BANK_TRANSACTION_TYPE_2'] = 'ComisiÛn de gestiÛn';
-$lang['BANK_TRANSACTION_TYPE_3'] = 'Restaurar cuenta';		
-$lang['BANK_TRANSACTION_TYPE_4'] = 'InterÈs';	
-$lang['BANK_TRANSACTION_TYPE_5'] = 'Robo de espÌas';
+$lang['BANK_TRANSACTION_TYPE_0'] = 'Retir√≥';
+$lang['BANK_TRANSACTION_TYPE_1'] = 'Ingres√≥';
+$lang['BANK_TRANSACTION_TYPE_2'] = 'Comisi√≥n de gesti√≥n';
+$lang['BANK_TRANSACTION_TYPE_3'] = 'Restaurar cuenta';
+$lang['BANK_TRANSACTION_TYPE_4'] = 'Inter√©s';
+$lang['BANK_TRANSACTION_TYPE_5'] = 'Robo de esp√≠as';
 $lang['BANK_TRANSACTION_TYPE_6'] = 'Bonus ';
 
 $lang['BANK_TRANSACTION_LOG'] = 'Registro de transacciones';
 
-$lang['BANK_WITHDRAW']= 'Retirados %s dÛlares del %s banco';
-$lang['BANK_WITHDRAW_FAILED'] = '%s dÛlares no est·n disponibles en la cuenta bancaria!';
+$lang['BANK_WITHDRAW']= 'Retirados %s d√≥lares del %s banco';
+$lang['BANK_WITHDRAW_FAILED'] = '%s d√≥lares no est√°n disponibles en la cuenta bancaria!';
 
-$lang['BANK_DEPOSIT'] = 'Ingresados %s dÛlares en el %s banco.';
-$lang['BANK_DEPOSIT_FAILED'] = 'No dispone de %s dÛlares.';
+$lang['BANK_DEPOSIT'] = 'Ingresados %s d√≥lares en el %s banco.';
+$lang['BANK_DEPOSIT_FAILED'] = 'No dispone de %s d√≥lares.';
 
 /*
 ** ------------------
@@ -1898,27 +1898,27 @@ $lang['STOCK_GROUP_3'] = 'AEX';
 $lang['STOCK_GROUP_4'] = 'Personal';
 
 $lang['STOCK_TITLE'] = 'BOLSA DE VALORES';
-$lang['STOCK_BROKER_ERROR'] = 'La conexiÛn con el broker ha fallado. No es posible operar en este momento. Por favor, intÈntelo de nuevo m·s tarde.';
-$lang['STOCK_BUY'] = 'ComprÛ %s %s acciones por %s dÛlares. Actualmente %s disponibles.';
-$lang['STOCK_NO_MONEY'] = 'No tiene suficiente dinero para comprar %s %s acciones por %s dÛlares.';
-$lang['STOCK_PRICE'] = 'CotizaciÛn %s [%s]';
+$lang['STOCK_BROKER_ERROR'] = 'La conexi√≥n con el broker ha fallado. No es posible operar en este momento. Por favor, int√©ntelo de nuevo m√°s tarde.';
+$lang['STOCK_BUY'] = 'Compr√≥ %s %s acciones por %s d√≥lares. Actualmente %s disponibles.';
+$lang['STOCK_NO_MONEY'] = 'No tiene suficiente dinero para comprar %s %s acciones por %s d√≥lares.';
+$lang['STOCK_PRICE'] = 'Cotizaci√≥n %s [%s]';
 $lang['STOCK_PROFIT'] = 'Beneficio de acciones %s [%s]';
 $lang['STOCK_NOT_OWNED'] = 'No dispone de %s %s acciones.';
-$lang['STOCK_SELL'] = 'VendiÛ %s %s acciones por %s dÛlares. PagÛ %s dÛlares de comisiÛn de gestiÛn. Actualmente %s disponibles.';
-$lang['STOCK_NOTE'] = 'Nota: Usted puede comprar o vender acciones para obtener beneficios. El precio de las acciones se basan en informaciÛn en tiempo real del servicio financiero de Yahoo!. Hay %s% de comisiÛn por cada operaciÛn de venta.';
-$lang['STOCK_PRICE_TO_LOW'] = 'CotizaciÛn de las acciones demasiado bajo. Operaciones bloqueadas!';
+$lang['STOCK_SELL'] = 'Vendi√≥ %s %s acciones por %s d√≥lares. Pag√≥ %s d√≥lares de comisi√≥n de gesti√≥n. Actualmente %s disponibles.';
+$lang['STOCK_NOTE'] = 'Nota: Usted puede comprar o vender acciones para obtener beneficios. El precio de las acciones se basan en informaci√≥n en tiempo real del servicio financiero de Yahoo!. Hay %s% de comisi√≥n por cada operaci√≥n de venta.';
+$lang['STOCK_PRICE_TO_LOW'] = 'Cotizaci√≥n de las acciones demasiado bajo. Operaciones bloqueadas!';
 
-$lang['STOCK_SYMBOL'] = 'SÌmbolo del valor'; 
-$lang['STOCK_SYMBOL_INFO'] = 'Nota: Entre en sÌmbolos de valores financieros en Yahoo! para personalizar esta lista.'; 
+$lang['STOCK_SYMBOL'] = 'S√≠mbolo del valor';
+$lang['STOCK_SYMBOL_INFO'] = 'Nota: Entre en s√≠mbolos de valores financieros en Yahoo! para personalizar esta lista.';
 
-$lang['STOCK_ADD'] = 'AÒadir valor';
-$lang['STOCK_SYMBOL_ADDED'] = 'AÒadiÛ (%s) a su lista personal de valores.';
-$lang['STOCK_NO_SYMBOLS' ] = 'Usted no ha aÒadido valores burs·tiles a su lista personal!';
-$lang['STOCK_SYMBOL_NOT_FOUND'] = 'SÌmbolo del valor (%s) no existe!';
-$lang['STOCK_SYMBOL_AVAILABLE'] = 'SÌmbolo del valor (%s) est· disponible en la lista personal.';
+$lang['STOCK_ADD'] = 'A√±adir valor';
+$lang['STOCK_SYMBOL_ADDED'] = 'A√±adi√≥ (%s) a su lista personal de valores.';
+$lang['STOCK_NO_SYMBOLS' ] = 'Usted no ha a√±adido valores burs√°tiles a su lista personal!';
+$lang['STOCK_SYMBOL_NOT_FOUND'] = 'S√≠mbolo del valor (%s) no existe!';
+$lang['STOCK_SYMBOL_AVAILABLE'] = 'S√≠mbolo del valor (%s) est√° disponible en la lista personal.';
 
 $lang['STOCK_REMOVE'] = 'Eliminar valor';
-$lang['STOCK_SYMBOL_REMOVED'] = 'SÌmbolo del valor eliminado!';
+$lang['STOCK_SYMBOL_REMOVED'] = 'S√≠mbolo del valor eliminado!';
 
 $lang['GENERAL_STOCKS'] = 'Valores';
 
@@ -1931,30 +1931,30 @@ $lang['GENERAL_STOCKS'] = 'Valores';
 $lang['CASINO_TITLE'] = 'CASINO' ;
 
 $lang['CASINO_1'] = 'Rueda de la Fortuna';
-$lang['CASINO_2'] = 'M·quina tragamonedas';
+$lang['CASINO_2'] = 'M√°quina tragamonedas';
 
 $lang['CASINO_MONEY'] = 'Dinero';
-$lang['CASINO_NUMBER'] = 'N˙mero de la suerte';
+$lang['CASINO_NUMBER'] = 'N√∫mero de la suerte';
 $lang['CASINO_BET'] = 'Apuesta';
 $lang['CASINO_PLAY'] = 'Jugar';
 $lang['CASINO_ROLL'] = 'Rodar';
 
 $lang['CASINO_NO_BET'] = 'Introduzca cantidad de la apuesta!';
-$lang['CASINO_NO_LUCKY_NUMBER'] = 'Introducir n˙mero de la suerte!';
-$lang['CASINO_BET_TO_LARGE'] = 'Apuesta demasiado grande! La apuesta m·xima es de %s dÛlares.'; 
-$lang['CASINO_NO_MONEY'] = 'No hay dinero suficiente!'; 
+$lang['CASINO_NO_LUCKY_NUMBER'] = 'Introducir n√∫mero de la suerte!';
+$lang['CASINO_BET_TO_LARGE'] = 'Apuesta demasiado grande! La apuesta m√°xima es de %s d√≥lares.';
+$lang['CASINO_NO_MONEY'] = 'No hay dinero suficiente!';
 
-$lang['CASINO_WIN'] = 'El n˙mero ganador fue %s. GanÛ %s dÛlares.';
-$lang['CASINO_LOST'] = 'El n˙mero ganador fue %s. PerdiÛ %s dÛlares..';
+$lang['CASINO_WIN'] = 'El n√∫mero ganador fue %s. Gan√≥ %s d√≥lares.';
+$lang['CASINO_LOST'] = 'El n√∫mero ganador fue %s. Perdi√≥ %s d√≥lares..';
 
-$lang['CASINO_WHEEL_NOTE'] = 'Nota: Introduzca su apuesta y n˙mero de la suerte y pulse el botÛn de jugar. Si tienes suerte, puede ganar 10 veces su apuesta.';
-$lang['CASINO_SLOT_NOTE'] = 'Nota: Introduzca su apuesta y pulse el botÛn de jugar. Tal vez su apuesta gane.';
+$lang['CASINO_WHEEL_NOTE'] = 'Nota: Introduzca su apuesta y n√∫mero de la suerte y pulse el bot√≥n de jugar. Si tienes suerte, puede ganar 10 veces su apuesta.';
+$lang['CASINO_SLOT_NOTE'] = 'Nota: Introduzca su apuesta y pulse el bot√≥n de jugar. Tal vez su apuesta gane.';
 
 $lang['CASINO_UNLOCK'] = '%s se desbloquea en el nivel %s';
 
-$lang['CASINO_SLOTMACHINE_WIN'] = 'GanÛ %s veces su apuesta. Ha ganado %s dÛlares.';
-$lang['CASINO_SLOTMACHINE_LOST'] = 'PerdiÛ %s dÛlares.';
-$lang['CASINO_SLOTMACHINE_HELP'] = 'Se pagar·n las siguientes combinaciones de m·quina tragamonedas';
+$lang['CASINO_SLOTMACHINE_WIN'] = 'Gan√≥ %s veces su apuesta. Ha ganado %s d√≥lares.';
+$lang['CASINO_SLOTMACHINE_LOST'] = 'Perdi√≥ %s d√≥lares.';
+$lang['CASINO_SLOTMACHINE_HELP'] = 'Se pagar√°n las siguientes combinaciones de m√°quina tragamonedas';
 
 /*
 ** ------------------
@@ -1970,67 +1970,67 @@ $lang['ALLIANCE_ACCEPT_TITLE2'] = 'Aceptados [%s aceptados]';
 
 $lang['ALLIANCE_INVITE_TITLE'] = 'Invitar';
 
-$lang['ALLIANCE_NO_PENDING'] = 'No hay invitaciones pendientes!'; 
-$lang['ALLIANCE_INVITATION'] = 'InvitaciÛn de aliado enviada a %s!'; 
+$lang['ALLIANCE_NO_PENDING'] = 'No hay invitaciones pendientes!';
+$lang['ALLIANCE_INVITATION'] = 'Invitaci√≥n de aliado enviada a %s!';
 $lang['ALLIANCE_REJECT'] = 'Rechazar %s como aliado!';
 $lang['ALLIANCE_DROP'] = 'Descartar %s como aliado!';
 $lang['ALLIANCE_ACCEPT'] = 'Aceptar %s como aliado!';
 $lang['ALLIANCE_ALLY'] = 'Aliado';
-$lang['ALLIANCE_MAXIMUM'] = 'N˙mero m·ximo de %s aliados alcanzado en este nivel.'; 
+$lang['ALLIANCE_MAXIMUM'] = 'N√∫mero m√°ximo de %s aliados alcanzado en este nivel.';
 $lang['ALLIANCE_LOCKED'] = 'Las invitaciones de alianzas se desbloquean en el nivel 1';
-$lang['ALLIANCE_NOTE'] = 'Nota: Por cada aliado aceptado puede dirigir 6 unidades m·s durante los combates. Tenga en cuenta que no se puede atacar a los aliados.';
+$lang['ALLIANCE_NOTE'] = 'Nota: Por cada aliado aceptado puede dirigir 6 unidades m√°s durante los combates. Tenga en cuenta que no se puede atacar a los aliados.';
 
-$lang['ALLIANCE_INVITE_NOTE'] = 'Nota: Invite a un jugador como aliado. Si el otro jugador acepta o rechaza la alianza, usted recibir· una notificaciÛn por correo electrÛnico (ver opciÛn en configuraciÛn). La cantidad m·xima de aceptados + aliados invitados para este nivel es %s.';
-$lang['ALLIANCE_ALREADY_INVITED'] = 'Ya se habÌa enviado invitaciÛn al email!';
+$lang['ALLIANCE_INVITE_NOTE'] = 'Nota: Invite a un jugador como aliado. Si el otro jugador acepta o rechaza la alianza, usted recibir√° una notificaci√≥n por correo electr√≥nico (ver opci√≥n en configuraci√≥n). La cantidad m√°xima de aceptados + aliados invitados para este nivel es %s.';
+$lang['ALLIANCE_ALREADY_INVITED'] = 'Ya se hab√≠a enviado invitaci√≥n al email!';
 
 $lang['ALLIANCE_COMMENT_TITLE'] = 'Mensaje';
-$lang['ALLIANCE_COMMENT_TEXT1'] = 'Crear mensaje (m·x. 400 caracteres) para todos los jugadores';
-$lang['ALLIANCE_COMMENT_TEXT2'] = 'Crear mensaje (m·x. 400 caracteres) para %s';
+$lang['ALLIANCE_COMMENT_TEXT1'] = 'Crear mensaje (m√°x. 400 caracteres) para todos los jugadores';
+$lang['ALLIANCE_COMMENT_TEXT2'] = 'Crear mensaje (m√°x. 400 caracteres) para %s';
 $lang['ALLIANCE_PLAYER_NEWS'] = 'Mensajes';
 $lang['ALLIANCE_COMMENT_ALL'] = 'Mensaje almacenado y disponible para todos los jugadores.';
 $lang['ALLIANCE_COMMENT_PLAYER'] = 'Mensaje enviado a %s';
 
-$lang['LEADERBORD_BEST_PLAYER'] = 'ClasificaciÛn (Mejores jugadores)';
-$lang['LEADERBORD_BEST_PLAYER_NOTE'] = 'Nota: La clasificaciÛn muestra los mejores jugadores humanos. Los jugadores WarQuest robot (ciberespacio) no se muestran!';
+$lang['LEADERBORD_BEST_PLAYER'] = 'Clasificaci√≥n (Mejores jugadores)';
+$lang['LEADERBORD_BEST_PLAYER_NOTE'] = 'Nota: La clasificaci√≥n muestra los mejores jugadores humanos. Los jugadores WarQuest robot (ciberespacio) no se muestran!';
 
-$lang['LEADERBORD_BEST_COUNTRY'] = 'ClasificaciÛn (Mejores paÌses)';
-$lang['LEADERBORD_BEST_COUNTRY_NOTE'] = 'Nota: La clasificaciÛn muestra los mejores paÌses reales.';
+$lang['LEADERBORD_BEST_COUNTRY'] = 'Clasificaci√≥n (Mejores pa√≠ses)';
+$lang['LEADERBORD_BEST_COUNTRY_NOTE'] = 'Nota: La clasificaci√≥n muestra los mejores pa√≠ses reales.';
 
-$lang['LEADERBORD_PLAYER_COUNTRY'] = 'ClasificaciÛn (Mejor jugador de %s)';
-$lang['LEADERBORD_PLAYER_COUNTRY_NOTE'] = 'Nota: La clasificaciÛn muestra los mejores jugadores del paÌs seleccionado.';
+$lang['LEADERBORD_PLAYER_COUNTRY'] = 'Clasificaci√≥n (Mejor jugador de %s)';
+$lang['LEADERBORD_PLAYER_COUNTRY_NOTE'] = 'Nota: La clasificaci√≥n muestra los mejores jugadores del pa√≠s seleccionado.';
 
 /*
 ** ------------------
-** FORUM 
+** FORUM
 ** ------------------
 */
 
-$lang['FORUM_TITLE'] = 'FORUMS'; 
+$lang['FORUM_TITLE'] = 'FORUMS';
 $lang['FORUM_TITLE2'] = 'Forums';
-$lang['FORUM_NOTE'] = 'Nota: Seleccione un foro para ver todos los temas publicados. He visto a algunas personas insultar o usar un lenguaje malsonante en los foros. No quemos ese tipo de lenguaje aquÌ! Gracias. Y recuerde, sin palabrotas! ';
+$lang['FORUM_NOTE'] = 'Nota: Seleccione un foro para ver todos los temas publicados. He visto a algunas personas insultar o usar un lenguaje malsonante en los foros. No quemos ese tipo de lenguaje aqu√≠! Gracias. Y recuerde, sin palabrotas! ';
 
-$lang['FORUM_1'] = 'Anuncios'; 
+$lang['FORUM_1'] = 'Anuncios';
 $lang['FORUM_NOTE_1'] = 'Anuncios generales';
-$lang['FORUM_2'] = 'Informe de errores'; 
-$lang['FORUM_NOTE_2'] = 'QuÈ va mal en esta versiÛn?';
-$lang['FORUM_3'] = 'Solicitud de nuevas funciones'; 
-$lang['FORUM_NOTE_3'] = 'QuÈ te gustarÌa aÒadir en la prÛxima versiÛn?';
-$lang['FORUM_4'] = 'Ayuda'; 
-$lang['FORUM_NOTE_4'] = 'QuÈ cosas no est·n claras en WarQuest?';
-$lang['FORUM_5'] = 'Otros'; 
+$lang['FORUM_2'] = 'Informe de errores';
+$lang['FORUM_NOTE_2'] = 'Qu√© va mal en esta versi√≥n?';
+$lang['FORUM_3'] = 'Solicitud de nuevas funciones';
+$lang['FORUM_NOTE_3'] = 'Qu√© te gustar√≠a a√±adir en la pr√≥xima versi√≥n?';
+$lang['FORUM_4'] = 'Ayuda';
+$lang['FORUM_NOTE_4'] = 'Qu√© cosas no est√°n claras en WarQuest?';
+$lang['FORUM_5'] = 'Otros';
 $lang['FORUM_NOTE_5'] = 'Cualquier otro debate';
-$lang['FORUM_6'] = 'Comunidades por paÌses'; 
+$lang['FORUM_6'] = 'Comunidades por pa√≠ses';
 $lang['FORUM_NOTE_6'] = 'Debates en idiomas locales';
 
-$lang['FORUM_SEARCH_TOKEN'] = 'La palabra de b˙squeda debe tener al menos 3 caracteres de largo.';
+$lang['FORUM_SEARCH_TOKEN'] = 'La palabra de b√∫squeda debe tener al menos 3 caracteres de largo.';
 
-$lang['TOPIC_TITLE'] = 'Temas'; 
-$lang['TOPIC_CREATED_INPUT'] = 'Crear un nuevo tema (m·ximo 80 caracteres)';
+$lang['TOPIC_TITLE'] = 'Temas';
+$lang['TOPIC_CREATED_INPUT'] = 'Crear un nuevo tema (m√°ximo 80 caracteres)';
 $lang['TOPIC_CREATED'] = 'Tema creado';
 $lang['TOPIC_UPDATED'] = 'Tema actualizado';
 $lang['TOPIC_DELETED'] = 'Tema borrado';
 $lang['TOPIC_NO_TOPICS'] = 'Por el momento no hay tema(s) encontrado(s).';
-$lang['TOPIC_NOTE'] = 'Nota: Seleccione un tema para leer / escribir mensajes o crear un nuevo tema.'; 
+$lang['TOPIC_NOTE'] = 'Nota: Seleccione un tema para leer / escribir mensajes o crear un nuevo tema.';
 $lang['TOPIC_CREATED_BY'] = '(Creado por %s)';
 
 /*
@@ -2059,8 +2059,8 @@ $lang['POLL_WARNING'] = 'Seleccione una de las opciones de voto posibles!';
 */
 
 $lang['CHATROOM_TITLE'] = 'Sala de Chat';
-$lang['CHATROOM_NOTE'] = 'Nota: Iniciar una sesiÛn de chat seleccionando un jugador en lÌnea!';
-$lang['CHATROOM_LAST_ACTIVE'] = '⁄ltima vez activo';
+$lang['CHATROOM_NOTE'] = 'Nota: Iniciar una sesi√≥n de chat seleccionando un jugador en l√≠nea!';
+$lang['CHATROOM_LAST_ACTIVE'] = '√öltima vez activo';
 $lang['CHATROOM_CHAT'] = 'Chat';
 $lang['CHAT_NOTE'] = 'Nota: Introduzca un mensaje para iniciar el chat!';
 
@@ -2076,180 +2076,180 @@ $lang['HELP_TITLE'] = 'AYUDA';
 
 $lang['HELP_GENERAL_SUBTITLE'] = 'Instrucciones';
 
-$lang['HELP_INTRO_TITLE'] = 'IntroducciÛn';
-$lang['HELP_INTRO'] =	'WarQuest es un juego multijugador en lÌnea gratuito que ofrece una zona de guerra con miles de jugadores reales. WarQuest le lleva al 
-aÒo 2020. El mundo est· en guerra. El objetivo del juego es la defensa de tu paÌs y conquistar otros 
-paÌses. Compra armas y unidades de producciÛn, juega las misiones, lucha, haz aliados y conviÈrtete en el mejor 
-jugador de tu paÌs.';
+$lang['HELP_INTRO_TITLE'] = 'Introducci√≥n';
+$lang['HELP_INTRO'] =	'WarQuest es un juego multijugador en l√≠nea gratuito que ofrece una zona de guerra con miles de jugadores reales. WarQuest le lleva al
+a√±o 2020. El mundo est√° en guerra. El objetivo del juego es la defensa de tu pa√≠s y conquistar otros
+pa√≠ses. Compra armas y unidades de producci√≥n, juega las misiones, lucha, haz aliados y convi√©rtete en el mejor
+jugador de tu pa√≠s.';
 
 $lang['HELP_EXP_TITLE'] = 'Experiencia / Nivel';
-$lang['HELP_EXP'] = 'Juega a las misiones y combate para ganar puntos de experiencia. Cuando acumules 
-suficientes puntos de experiencia podr·s alcanzar el siguiente nivel. Cuando un nivel se ha completado la 
-la energÌa, la salud y la municiÛn se restauran instant·neamente.';
+$lang['HELP_EXP'] = 'Juega a las misiones y combate para ganar puntos de experiencia. Cuando acumules
+suficientes puntos de experiencia podr√°s alcanzar el siguiente nivel. Cuando un nivel se ha completado la
+la energ√≠a, la salud y la munici√≥n se restauran instant√°neamente.';
 
 $lang['HELP_HEALTH_TITLE'] = 'Salud';
-$lang['HELP_HEALTH'] = 'Su salud se reduce en cada batalla, pero se restaura autom·ticamente con el tiempo 
-TambiÈn puede visitar el hospital (Inicio -> Restaurar) y pagar para recuperarla al instante.';
+$lang['HELP_HEALTH'] = 'Su salud se reduce en cada batalla, pero se restaura autom√°ticamente con el tiempo
+Tambi√©n puede visitar el hospital (Inicio -> Restaurar) y pagar para recuperarla al instante.';
 
-$lang['HELP_ENERGY_TITLE'] = 'EnergÌa'; 
-$lang['HELP_ENERGY'] = 'Su nivel de energÌa disminuye cada vez que juega una misiÛn, pero se restituye
-autom·ticamente con el tiempo. Compre edificios de energÌa para restaurar la energÌa con mayor rapidez. TambiÈn puede 
+$lang['HELP_ENERGY_TITLE'] = 'Energ√≠a';
+$lang['HELP_ENERGY'] = 'Su nivel de energ√≠a disminuye cada vez que juega una misi√≥n, pero se restituye
+autom√°ticamente con el tiempo. Compre edificios de energ√≠a para restaurar la energ√≠a con mayor rapidez. Tambi√©n puede
 restaurarla de la misma manera que se restaura la salud.';
 
-$lang['HELP_AMMO_TITLE'] = 'MuniciÛn'; 
-$lang['HELP_AMMO'] =	'Cada batalla cuesta municiÛn. La municiÛn se restablece autom·ticamente con el 
-tiempo. TambiÈn puede restaurarla de la misma manera que puede restaurar la salud.';
+$lang['HELP_AMMO_TITLE'] = 'Munici√≥n';
+$lang['HELP_AMMO'] =	'Cada batalla cuesta munici√≥n. La munici√≥n se restablece autom√°ticamente con el
+tiempo. Tambi√©n puede restaurarla de la misma manera que puede restaurar la salud.';
 
 $lang['HELP_MISSION_TITLE'] = 'Misiones';
-$lang['HELP_MISSION'] = 'Juega las misiones para ganar dinero y puntos de experiencia para alcanzar el siguiente nivel. 
-Si una misiÛn est· 100% completada ganar· el doble de la cantidad de dinero. Si un continente es conquistado 
-usted recibe un bonus de ingreso por hora.<br/><br/>
+$lang['HELP_MISSION'] = 'Juega las misiones para ganar dinero y puntos de experiencia para alcanzar el siguiente nivel.
+Si una misi√≥n est√° 100% completada ganar√° el doble de la cantidad de dinero. Si un continente es conquistado
+usted recibe un bonus de ingreso por hora.<br><br>
 
-La prima adicional que se da cuando todas las misiones del planeta se han completado es la siguiente:<br/>
-TIERRA: 100 millones de dÛlares<br/>
-LUNA: 500 millones de dÛlares<br/>
-MARTE: 999 miles de millones de dÛlares<br/>
+La prima adicional que se da cuando todas las misiones del planeta se han completado es la siguiente:<br>
+TIERRA: 100 millones de d√≥lares<br>
+LUNA: 500 millones de d√≥lares<br>
+MARTE: 999 miles de millones de d√≥lares<br>
 mercury: 50 puntos de comercio';
 
 $lang['HELP_BATTLE_TITLE'] = 'Batalla';
-$lang['HELP_BATTLE'] =	'Lucha contra otros jugadores para ganar dinero, puntos de experiencia y llegar al siguiente 
-nivel. En los combates las unidades y los edificios de la base pueden ser daÒados o incluso destruidos.';
+$lang['HELP_BATTLE'] =	'Lucha contra otros jugadores para ganar dinero, puntos de experiencia y llegar al siguiente
+nivel. En los combates las unidades y los edificios de la base pueden ser da√±ados o incluso destruidos.';
 
 $lang['HELP_UNITS_TITLE'] = 'Unidades';
-$lang['HELP_UNITS'] =  'Durante los ataques sus mejores unidades son autom·ticamente seleccionadas. El tamaÒo (cantidad 
-de unidades operativas) de su ejÈrcito est· relacionado con el n˙mero de aliados aceptados. Comienzas
-con un aliado que le permite comandar 6 unidades. Cada aliado aceptado le permite comandar seis unidades m·s.
-Usted puede comprar m·s, pero sÛlo se utilizar·n las 6 mejores x el n˙mero de aliados que tenga.';
+$lang['HELP_UNITS'] =  'Durante los ataques sus mejores unidades son autom√°ticamente seleccionadas. El tama√±o (cantidad
+de unidades operativas) de su ej√©rcito est√° relacionado con el n√∫mero de aliados aceptados. Comienzas
+con un aliado que le permite comandar 6 unidades. Cada aliado aceptado le permite comandar seis unidades m√°s.
+Usted puede comprar m√°s, pero s√≥lo se utilizar√°n las 6 mejores x el n√∫mero de aliados que tenga.';
 
 $lang['HELP_BUILDINGS_TITLE'] = 'Edificios';
-$lang['HELP_BUILDINGS'] = 'Durante el juego los edificios proporcionan ingresos, una mayor defensa, recuperaciÛn m·s r·pida de energÌa, 
-descuentos y / o mejor mantenimiento de las unidades. Cada compra de edificios incrementar· el precio para la prÛxima
+$lang['HELP_BUILDINGS'] = 'Durante el juego los edificios proporcionan ingresos, una mayor defensa, recuperaci√≥n m√°s r√°pida de energ√≠a,
+descuentos y / o mejor mantenimiento de las unidades. Cada compra de edificios incrementar√° el precio para la pr√≥xima
 compra. Cada uno de los edificios contiene ciudadanos que tienen coste por hora.';
 
 $lang['HELP_BANKS_TITLE'] = 'Bancos';
-$lang['HELP_BANKS'] = 'Cada banco le cobrar· una comisiÛn de depÛsito. El dinero que se almacena en el banco Nacional 
-est· a salvo de otros jugadores, pero ofrece un interÈs mÌnimo diario. El dinero almacenado en los bancos Trasquera o SwissCore 
-dan mayor interÈs diario, pero las unidades de Inteligencia (en la Tierra) o en de Exploradores (Luna / Marte) de otros jugadores pueden robarle el dinero.';
+$lang['HELP_BANKS'] = 'Cada banco le cobrar√° una comisi√≥n de dep√≥sito. El dinero que se almacena en el banco Nacional
+est√° a salvo de otros jugadores, pero ofrece un inter√©s m√≠nimo diario. El dinero almacenado en los bancos Trasquera o SwissCore
+dan mayor inter√©s diario, pero las unidades de Inteligencia (en la Tierra) o en de Exploradores (Luna / Marte) de otros jugadores pueden robarle el dinero.';
 
-$lang['HELP_ALLIANCE_TITLE'] = 'Alianzas'; 
-$lang['HELP_ALLIANCE'] = 'Cada aliado aceptado le permite comandar 6 unidades adicionales (de las que posea) 
-durante las batallas. Aumente el n˙mero de aliados para hacerse m·s fuerte! Tenga en cuenta que no se puede atacar a los aliados.';
+$lang['HELP_ALLIANCE_TITLE'] = 'Alianzas';
+$lang['HELP_ALLIANCE'] = 'Cada aliado aceptado le permite comandar 6 unidades adicionales (de las que posea)
+durante las batallas. Aumente el n√∫mero de aliados para hacerse m√°s fuerte! Tenga en cuenta que no se puede atacar a los aliados.';
 
 $lang['HELP_SKILL_POINTS_TITLE'] = 'Puntos de Habilidades';
-$lang['HELP_SKILL_POINTS'] = 'Durante el juego se pueden recibir puntos de Habilidad. Utilice esos puntos para 
-aumentar el ataque, defensa, salud, energÌa y / o habilidades de municiÛn. Mejorar la municiÛn cuesta 2 puntos de habilidad, 
-los otros le cuestan sÛlo 1 punto de habilidad. TambiÈn puede negociar 2 a 1 sus puntos de habilidad para cambiar sus habilidades.';
+$lang['HELP_SKILL_POINTS'] = 'Durante el juego se pueden recibir puntos de Habilidad. Utilice esos puntos para
+aumentar el ataque, defensa, salud, energ√≠a y / o habilidades de munici√≥n. Mejorar la munici√≥n cuesta 2 puntos de habilidad,
+los otros le cuestan s√≥lo 1 punto de habilidad. Tambi√©n puede negociar 2 a 1 sus puntos de habilidad para cambiar sus habilidades.';
 
 $lang['HELP_TRADE_POINTS_TITLE'] = 'Puntos de Comercio';
-$lang['HELP_TRADE_POINTS']  = 'Los puntos de comercio pueden ser adquiridos al donar algunos dÛlares reales. Ayuda -> DonaciÛn. 
-La compra de puntos de Comercio se pueden cambiar por puntos de habilidad, dinero en efectivo o se pueden utilizar para mejorar su 
-temporizador de recuperaciÛn de salud, energÌa o municiÛn.';
+$lang['HELP_TRADE_POINTS']  = 'Los puntos de comercio pueden ser adquiridos al donar algunos d√≥lares reales. Ayuda -> Donaci√≥n.
+La compra de puntos de Comercio se pueden cambiar por puntos de habilidad, dinero en efectivo o se pueden utilizar para mejorar su
+temporizador de recuperaci√≥n de salud, energ√≠a o munici√≥n.';
 
-$lang['HELP_TACTICS_TITLE'] = 'T·cticas';
-$lang['HELP_TACTICS'] = 'Una cosa a tener en cuenta es que las unidades utilizadas en las misiones tambiÈn son objeto de 
-pÈrdidas como bajas. Es importante tener en cuenta que el coste de reemplazar las unidades m·s caras
-que utiliza en una misiÛn puede exceder del dinero obtenido en la propia misiÛn. En general, si su objetivo
-es maximizar el dinero de las misiones, entonces, cÈntrese en el valor del dinero / energÌa de las misiones. 
-Si su objetivo es maximizar los puntos de experiencia, entonces cÈntrese en el valor Exp / EnergÌa de las 
-misiones.<br/><br/>
+$lang['HELP_TACTICS_TITLE'] = 'T√°cticas';
+$lang['HELP_TACTICS'] = 'Una cosa a tener en cuenta es que las unidades utilizadas en las misiones tambi√©n son objeto de
+p√©rdidas como bajas. Es importante tener en cuenta que el coste de reemplazar las unidades m√°s caras
+que utiliza en una misi√≥n puede exceder del dinero obtenido en la propia misi√≥n. En general, si su objetivo
+es maximizar el dinero de las misiones, entonces, c√©ntrese en el valor del dinero / energ√≠a de las misiones.
+Si su objetivo es maximizar los puntos de experiencia, entonces c√©ntrese en el valor Exp / Energ√≠a de las
+misiones.<br><br>
 
-Una vez que llegue a los niveles m·s altos, el juego autom·ticamente aumenta el rango de los enemigos que pueden
-atacarle. Cuando esto ocurre, usted debe aumentar el n˙mero m·ximo de aliados y el n˙mero de aliados
-aceptados.<br/><br/>
+Una vez que llegue a los niveles m√°s altos, el juego autom√°ticamente aumenta el rango de los enemigos que pueden
+atacarle. Cuando esto ocurre, usted debe aumentar el n√∫mero m√°ximo de aliados y el n√∫mero de aliados
+aceptados.<br><br>
 
-Los edificios de Defensa son una compra ideal, ya que aumentan su puntuaciÛn de defensa cuando es atacado.
-Yo recomiendo comprar tantos como pueda permitirse, ya que esto le permitir· dedicar el resto de su dinero
-a las unidades de ataque sin tener que preocuparse por sus puntos de defensa.<br/><br/>
+Los edificios de Defensa son una compra ideal, ya que aumentan su puntuaci√≥n de defensa cuando es atacado.
+Yo recomiendo comprar tantos como pueda permitirse, ya que esto le permitir√° dedicar el resto de su dinero
+a las unidades de ataque sin tener que preocuparse por sus puntos de defensa.<br><br>
 
-En WarQuest, los edificios de defensa hacen muy difÌcil atacar con Èxito a algunos oponentes. 
-Aunque se recomienda poner puntos a la defensa, yo recomiendo tener la mayor cantidad de puntos 
-posible en el ataque. Puede compensar la disminuciÛn de puntos de habilidad de defensa con edificios de 
-defensa.<br/><br/>
+En WarQuest, los edificios de defensa hacen muy dif√≠cil atacar con √©xito a algunos oponentes.
+Aunque se recomienda poner puntos a la defensa, yo recomiendo tener la mayor cantidad de puntos
+posible en el ataque. Puede compensar la disminuci√≥n de puntos de habilidad de defensa con edificios de
+defensa.<br><br>
 
-Al decidir quÈ unidades comprar, es necesario considerar cuidadosamente los costes de las unidades por hora y su fuerza 
-de defensa y ataque. Suponiendo que usted puede permitirse el lujo de comprar la unidad, el coste no deberÌa ser un factor en su 
-decisiÛn ya que se paga una vez. La reducciÛn de ingresos debida al coste por hora
-de las unidades hace que no tenga sentido comprar siempre las mejores unidades disponibles. Si usted est· ganando la mayorÌa de
-sus batallas con sus unidades actuales, entonces puede tener m·s sentido estratÈgico no aumentar su
-coste por hora y permitir ingresos para construir a un ritmo m·s r·pido.';
+Al decidir qu√© unidades comprar, es necesario considerar cuidadosamente los costes de las unidades por hora y su fuerza
+de defensa y ataque. Suponiendo que usted puede permitirse el lujo de comprar la unidad, el coste no deber√≠a ser un factor en su
+decisi√≥n ya que se paga una vez. La reducci√≥n de ingresos debida al coste por hora
+de las unidades hace que no tenga sentido comprar siempre las mejores unidades disponibles. Si usted est√° ganando la mayor√≠a de
+sus batallas con sus unidades actuales, entonces puede tener m√°s sentido estrat√©gico no aumentar su
+coste por hora y permitir ingresos para construir a un ritmo m√°s r√°pido.';
 
 $lang['HELP_GRAVATAR_TITLE'] = 'Gravatar';
-$lang['HELP_GRAVATAR'] = 'WarQuest soporta el servicio de im·genes Gravatar (www.gravatar.com). Gravatar es un
-imagen que te acompaÒa de un sitio a otro y aparece al lado de tu apodo (nickname).';
+$lang['HELP_GRAVATAR'] = 'WarQuest soporta el servicio de im√°genes Gravatar (www.gravatar.com). Gravatar es un
+imagen que te acompa√±a de un sitio a otro y aparece al lado de tu apodo (nickname).';
 
 $lang['HELP_BOUNTY_TITLE'] = 'Caza recompensas';
-$lang['HELP_BOUNTY'] = 'Puede ofrecer recompensa por la cabeza de sus enemigos. El precio de la recompensa est· relacionado con el 
-nivel de su oponente. DespuÈs de establecer la recompensa otros jugadores pueden atacar al oponente (Batalla -> Caza recompensas).
-Si el oponente es derrotado perder· algunos puntos de experiencia y el dinero de la recompensa se transfiere al 
+$lang['HELP_BOUNTY'] = 'Puede ofrecer recompensa por la cabeza de sus enemigos. El precio de la recompensa est√° relacionado con el
+nivel de su oponente. Despu√©s de establecer la recompensa otros jugadores pueden atacar al oponente (Batalla -> Caza recompensas).
+Si el oponente es derrotado perder√° algunos puntos de experiencia y el dinero de la recompensa se transfiere al
 vencedor.';
 
 $lang['HELP_UNITS_CONDITION_TITLE'] = 'Estado Unidades (EU)';
-$lang['HELP_UNITS_CONDITION'] = 'Este valor da informaciÛn sobre el estado actual de las unidades. 
-Si el estado cae por debajo de 0%, perder· algunas unidades. Para evitar la pÈrdida de unidades se puede visitar 
-(Inicio -> Restaurar) para reparar sus unidades operativas.'; 
+$lang['HELP_UNITS_CONDITION'] = 'Este valor da informaci√≥n sobre el estado actual de las unidades.
+Si el estado cae por debajo de 0%, perder√° algunas unidades. Para evitar la p√©rdida de unidades se puede visitar
+(Inicio -> Restaurar) para reparar sus unidades operativas.';
 
 $lang['HELP_BUILDINGS_CONDITION_TITLE'] = 'Estado Edificios (EE)';
-$lang['HELP_BUILDINGS_CONDITION'] = 'Este valor da informaciÛn acerca del estado de sus edificios en  
-la Base. Si el estado cae por debajo de 0%, perder· algunos edificios. Para evitar su pÈrdida 
-se puede visitar (Inicio -> Restaurar) para reparar su Base.'; 
+$lang['HELP_BUILDINGS_CONDITION'] = 'Este valor da informaci√≥n acerca del estado de sus edificios en
+la Base. Si el estado cae por debajo de 0%, perder√° algunos edificios. Para evitar su p√©rdida
+se puede visitar (Inicio -> Restaurar) para reparar su Base.';
 
 $lang['HELP_FORUM_TITLE'] = 'Forum';
-$lang['HELP_FORUM'] = 'Para obtener m·s informaciÛn y chatear con otros jugadores por favor visite el Forum
+$lang['HELP_FORUM'] = 'Para obtener m√°s informaci√≥n y chatear con otros jugadores por favor visite el Forum
 Warquest.';
 
 $lang['HELP_WORLDMAP_TITLE'] = 'Mapa';
 $lang['HELP_WORLDMAP'] = 'Cada mapa de planeta (Tierra / Luna / Marte) contiene 72 regiones que pueden ser conquistadas jugando las
-misiones. Las regiones puede tener uno de los siguientes colores: <br/>
-- "Verde" Region 0% conquistada<br/>
-- "Amarillo" Region 33% conquistada.<br/>
-- "Purpura" Region 66% conquistada.<br/>
-- "Naranja" Region 100% conquistada.<br/>
-- "Rojo" RebeliÛn en la regiÛn. La regiÛn debe ser reconquistada.';
+misiones. Las regiones puede tener uno de los siguientes colores: <br>
+- "Verde" Region 0% conquistada<br>
+- "Amarillo" Region 33% conquistada.<br>
+- "Purpura" Region 66% conquistada.<br>
+- "Naranja" Region 100% conquistada.<br>
+- "Rojo" Rebeli√≥n en la regi√≥n. La regi√≥n debe ser reconquistada.';
 
-$lang['HELP_SHORTCUTS_TITLE'] = 'Accesos directos del men˙';
-$lang['HELP_SHORTCUTS'] = 'Los siguientes accesos directos ocultos est·n disponibles en la pestaÒa de
-navegaciÛn r·pida:<br/>
-- Click "Dinero" para ir a la p·gina de clasificaciÛn del jugador.<br/>
-- Click "Exp." para ir a la p·gina de clasificaciÛn de paÌses.<br/>
-- Click "Nivel" para ir a la p·gina de encuestas.<br/>
-- Click "Salud" para ir a la p·gina de Restaurar.<br/>
-- Click "EnergÌa" para ir a la p·gina de perfil del jugador.<br/>
-- Click "MuniciÛn" Para ir a la p·gina de puntos de Habilidades.';
+$lang['HELP_SHORTCUTS_TITLE'] = 'Accesos directos del men√∫';
+$lang['HELP_SHORTCUTS'] = 'Los siguientes accesos directos ocultos est√°n disponibles en la pesta√±a de
+navegaci√≥n r√°pida:<br>
+- Click "Dinero" para ir a la p√°gina de clasificaci√≥n del jugador.<br>
+- Click "Exp." para ir a la p√°gina de clasificaci√≥n de pa√≠ses.<br>
+- Click "Nivel" para ir a la p√°gina de encuestas.<br>
+- Click "Salud" para ir a la p√°gina de Restaurar.<br>
+- Click "Energ√≠a" para ir a la p√°gina de perfil del jugador.<br>
+- Click "Munici√≥n" Para ir a la p√°gina de puntos de Habilidades.';
 
 $lang['HELP_ATTACK_FORCE_TITLE'] = 'Fuerza de ataque';
-$lang['HELP_ATTACK_FORCE'] = 'Antes de la batalla se puede seleccionar una de las fuerzas de ataque siguientes:<br/><br/>
-TIERRA<br/>
-- "EjÈrcito" Lo mejor de la CavallerÌa, la Armada y las unidades aÈreas.<br/>
-- "CavallerÌa" SÛlo las unidades terrestres de CavallerÌa.<br/>
-- "Armada" Solo las unidades de la Marina.<br/>
-- "Fuerza aÈrea" SÛlo las unidades de aviones de la tierra.<br/>
-- "Inteligencia" SÛlo las unidades de inteligencia de la tierra.<br/><br/>
-LUNA<br/>
-- "EjÈrcito" Las mejores unidades de Robots, Guerreros y naves espaciales de la Luna.<br/>
-- "Robots" SÛlo unidades Robot de la Luna.<br/>
-- "Guerreros" SÛlo unidades Guerreros de la Luna.<br/>
-- "Naves Espaciales " SÛlo naves espaciales de la Luna.<br/>
-- "Exploradores" SÛlo unidades de Exploradores de la Luna.<br/><br/>
-MARTE<br/>
-- "EjÈrcito" Las mejores unidades de Robots, Guerreros y naves espaciales de Marte.<br/>
-- "Robots" SÛlo unidades Robot de Marte.<br/>
-- "Guerreros" SÛlo unidades Guerreros de Marte.<br/>
-- "Naves Espaciales " SÛlo naves espaciales de Marte.<br/>
-- "Exploradores" SÛlo unidades de Exploradores de Marte.<br/><br/>
-mercury<br/>
-- "EjÈrcito" Las mejores unidades de Robots, Guerreros y naves espaciales del mercury.<br/>
-- "Robots" SÛlo unidades Robot del mercury.<br/>
-- "Guerreros" SÛlo unidades Guerreros del mercury.<br/>
-- "Naves Espaciales " SÛlo naves espaciales del mercury.<br/>
-- "Exploradores" SÛlo unidades de Exploradores del mercury.
+$lang['HELP_ATTACK_FORCE'] = 'Antes de la batalla se puede seleccionar una de las fuerzas de ataque siguientes:<br><br>
+TIERRA<br>
+- "Ej√©rcito" Lo mejor de la Cavaller√≠a, la Armada y las unidades a√©reas.<br>
+- "Cavaller√≠a" S√≥lo las unidades terrestres de Cavaller√≠a.<br>
+- "Armada" Solo las unidades de la Marina.<br>
+- "Fuerza a√©rea" S√≥lo las unidades de aviones de la tierra.<br>
+- "Inteligencia" S√≥lo las unidades de inteligencia de la tierra.<br><br>
+LUNA<br>
+- "Ej√©rcito" Las mejores unidades de Robots, Guerreros y naves espaciales de la Luna.<br>
+- "Robots" S√≥lo unidades Robot de la Luna.<br>
+- "Guerreros" S√≥lo unidades Guerreros de la Luna.<br>
+- "Naves Espaciales " S√≥lo naves espaciales de la Luna.<br>
+- "Exploradores" S√≥lo unidades de Exploradores de la Luna.<br><br>
+MARTE<br>
+- "Ej√©rcito" Las mejores unidades de Robots, Guerreros y naves espaciales de Marte.<br>
+- "Robots" S√≥lo unidades Robot de Marte.<br>
+- "Guerreros" S√≥lo unidades Guerreros de Marte.<br>
+- "Naves Espaciales " S√≥lo naves espaciales de Marte.<br>
+- "Exploradores" S√≥lo unidades de Exploradores de Marte.<br><br>
+mercury<br>
+- "Ej√©rcito" Las mejores unidades de Robots, Guerreros y naves espaciales del mercury.<br>
+- "Robots" S√≥lo unidades Robot del mercury.<br>
+- "Guerreros" S√≥lo unidades Guerreros del mercury.<br>
+- "Naves Espaciales " S√≥lo naves espaciales del mercury.<br>
+- "Exploradores" S√≥lo unidades de Exploradores del mercury.
 ';
 
-$lang['HELP_REBELLION_CONDITION_TITLE'] = 'Estado de RebeliÛn (ER)';
-$lang['HELP_REBELLION_CONDITION'] = 'Este valor da informaciÛn sobre su estado actual de rebeliÛn.
-La rebeliÛn de una RegiÛn se activa por parte de ataques de la Inteligencia (la Tierra) o exploradores (Luna / Marte) de sus enemigos. Si el
-estado alcanza el 100%, algunas de sus regiones conquistadas iniciar·n una rebeliÛn. Para evitar la rebeliÛn,
-visite (Inicio -> Restaurar) para poner fin a la rebeliÛn. Cada rebeliÛn detiene el ingreso por hora del continente donde estÈ
-la regiÛn. Restablezca el control en la regiÛn rebelde jugando la misiÛn correspondiente.';
+$lang['HELP_REBELLION_CONDITION_TITLE'] = 'Estado de Rebeli√≥n (ER)';
+$lang['HELP_REBELLION_CONDITION'] = 'Este valor da informaci√≥n sobre su estado actual de rebeli√≥n.
+La rebeli√≥n de una Regi√≥n se activa por parte de ataques de la Inteligencia (la Tierra) o exploradores (Luna / Marte) de sus enemigos. Si el
+estado alcanza el 100%, algunas de sus regiones conquistadas iniciar√°n una rebeli√≥n. Para evitar la rebeli√≥n,
+visite (Inicio -> Restaurar) para poner fin a la rebeli√≥n. Cada rebeli√≥n detiene el ingreso por hora del continente donde est√©
+la regi√≥n. Restablezca el control en la regi√≥n rebelde jugando la misi√≥n correspondiente.';
 
 /*
 ** ------------------
@@ -2257,8 +2257,8 @@ la regiÛn. Restablezca el control en la regiÛn rebelde jugando la misiÛn corresp
 ** ------------------
 */
 
-$lang['HELP_NOTES_SUBTITLE1'] = 'Notas de la versiÛn';
-$lang['HELP_NOTES_SUBTITLE2'] = 'Notas de la versiÛn (English only)';
+$lang['HELP_NOTES_SUBTITLE1'] = 'Notas de la versi√≥n';
+$lang['HELP_NOTES_SUBTITLE2'] = 'Notas de la versi√≥n (English only)';
 
 /*
 ** ------------------
@@ -2267,7 +2267,7 @@ $lang['HELP_NOTES_SUBTITLE2'] = 'Notas de la versiÛn (English only)';
 */
 
 $lang['HELP_RANKS_SUBTITLE'] = 'Rangos';
-$lang['HELP_RANKS'] = 'Est·n disponibles los siguientes rangos militares:';
+$lang['HELP_RANKS'] = 'Est√°n disponibles los siguientes rangos militares:';
 
 /*
 ** ------------------
@@ -2284,10 +2284,10 @@ $lang['HELP_AWARDS_SUBTITLE'] = 'Condecoraciones';
 */
 
 $lang['HELP_LEVEL_SUBTITLE'] = 'Niveles';
-$lang['HELP_LEVEL'] = 'Los siguientes niveles est·n disponibles:';
+$lang['HELP_LEVEL'] = 'Los siguientes niveles est√°n disponibles:';
 $lang['HELP_LEVEL_UNIT_LOST'] = 'Unidad perdida';
 $lang['HELP_LEVEL_EXPERIENCE'] = 'Experiencia';
-$lang['HELP_LEVEL_FEATURES'] = 'Esquema de desbloqueo de caracterÌsticas';
+$lang['HELP_LEVEL_FEATURES'] = 'Esquema de desbloqueo de caracter√≠sticas';
 
 /*
 ** ------------------
@@ -2295,8 +2295,8 @@ $lang['HELP_LEVEL_FEATURES'] = 'Esquema de desbloqueo de caracterÌsticas';
 ** ------------------
 */
 
-$lang['HELP_STATS_TITLE'] = 'EstadÌsticas';
-$lang['HELP_STATS_NOTE'] = 'Nota: En esta p·gina se muestran las estaÌsticas de WarQuest en tiempo real.';
+$lang['HELP_STATS_TITLE'] = 'Estad√≠sticas';
+$lang['HELP_STATS_NOTE'] = 'Nota: En esta p√°gina se muestran las esta√≠sticas de WarQuest en tiempo real.';
 $lang['HELP_STATS_PLAYERS'] = 'Nuevos jugadores';
 $lang['HELP_STATS_ONLINE'] = 'Jugadores conectados';
 $lang['HELP_STATS_FIGHTS'] = 'Batallas entre jugadores';
@@ -2310,17 +2310,17 @@ $lang['HELP_STATS_REQUESTS'] = 'Conexiones al Servidor';
 ** ------------------
 */
 
-$lang['HELP_DONATE_TITLE1'] = 'DonaciÛn';
+$lang['HELP_DONATE_TITLE1'] = 'Donaci√≥n';
 
 $lang['HELP_SUBTITLE_DONATE1'] = 'General';
-$lang['HELP_DONATE1'] = 'El software de WarQuest se puede utilizar de forma gratuita, pero si usted desea expresar 
-su agradecimiento por el tiempo y los recursos que el autor ha dedicado a desarrollar y mantener la aplicaciÛn 
-lo largo de los aÒos, y tambiÈn ayudar a reducir los costes de funcionamiento del servidor web, aceptamos y apreciamos 
+$lang['HELP_DONATE1'] = 'El software de WarQuest se puede utilizar de forma gratuita, pero si usted desea expresar
+su agradecimiento por el tiempo y los recursos que el autor ha dedicado a desarrollar y mantener la aplicaci√≥n
+lo largo de los a√±os, y tambi√©n ayudar a reducir los costes de funcionamiento del servidor web, aceptamos y apreciamos
 sus donaciones.';
 
 $lang['HELP_SUBTITLE_DONATE3'] = 'PayPal';
-$lang['HELP_DONATE3'] = 'Para hacer una donaciÛn en lÌnea con tarjeta de crÈdito, o cuenta de PayPal, haga clic 
-abajo e introduzca la cantidad que usted desea aportar. Su tarjeta de crÈdito ser· procesada por PayPal, 
+$lang['HELP_DONATE3'] = 'Para hacer una donaci√≥n en l√≠nea con tarjeta de cr√©dito, o cuenta de PayPal, haga clic
+abajo e introduzca la cantidad que usted desea aportar. Su tarjeta de cr√©dito ser√° procesada por PayPal,
 una entidad de confianza en las transacciones online. Muchas gracias por su apoyo.';
 
 /*
@@ -2331,17 +2331,17 @@ una entidad de confianza en las transacciones online. Muchas gracias por su apoy
 
 $lang['HELP_ABOUT_SUBTITLE'] = 'Acerca de';
 $lang['HELP_BACKGROUND_TITLE'] = 'Antecedentes';
-$lang['HELP_BACKGROUND'] = 'WarQuest es creado por <a target="new" href="http://www.plaatsoft.nl">PlaatSoft</a>. La idea original del juego se basa en algunos otros juegos disponibles en la AppStore de Apple. La razÛn principal para volver a crear este tipo de juego es crear un juego mejor y una interfaz de usuario que puede ser controlada en los siguientes dispositivos: telÈfonos inteligentes (Apple, Android, Nokia y BlackBerry), tabletas (Samsung y Apple), consolas de juego (Nintendo) y todo tipo de port·tiles (Intel / AMD de base).';
-$lang['HELP_CREDITS_TITLE'] = 'CrÈditos';
-$lang['HELP_BROWSERS_TITLE'] = 'Navegadores compatibles'; 
-$lang['HELP_DISCLAIMER_TITLE'] = 'Nota legal'; 
-$lang['HELP_DISCLAIMER'] = 'El programa se proporciona TAL CUAL, SIN GARANTÕA DE NING⁄N TIPO, ESTO ES: SIN GARANTÕA DE DISE—O, COMERCIALIZACI”N O APTITUD PARA UN PROP”SITO PARTICULAR.<br/>';
+$lang['HELP_BACKGROUND'] = 'WarQuest es creado por <a target="_blank" href="https://www.plaatsoft.nl">PlaatSoft</a>. La idea original del juego se basa en algunos otros juegos disponibles en la AppStore de Apple. La raz√≥n principal para volver a crear este tipo de juego es crear un juego mejor y una interfaz de usuario que puede ser controlada en los siguientes dispositivos: tel√©fonos inteligentes (Apple, Android, Nokia y BlackBerry), tabletas (Samsung y Apple), consolas de juego (Nintendo) y todo tipo de port√°tiles (Intel / AMD de base).';
+$lang['HELP_CREDITS_TITLE'] = 'Cr√©ditos';
+$lang['HELP_BROWSERS_TITLE'] = 'Navegadores compatibles';
+$lang['HELP_DISCLAIMER_TITLE'] = 'Nota legal';
+$lang['HELP_DISCLAIMER'] = 'El programa se proporciona TAL CUAL, SIN GARANT√çA DE NING√öN TIPO, ESTO ES: SIN GARANT√çA DE DISE√ëO, COMERCIALIZACI√ìN O APTITUD PARA UN PROP√ìSITO PARTICULAR.<br>';
 
-$lang['HELP_CREDITS_TITLE'] = 'CrÈditos';
-$lang['HELP_CREDITS'] = 'Muchas gracias a las siguientes personas y organizaciones que ayudaron a la creaciÛn de este juego.';
+$lang['HELP_CREDITS_TITLE'] = 'Cr√©ditos';
+$lang['HELP_CREDITS'] = 'Muchas gracias a las siguientes personas y organizaciones que ayudaron a la creaci√≥n de este juego.';
 $lang['HELP_CREDITS_ARCHITECT'] = 'Arquitecto';
 $lang['HELP_CREDITS_DEVELOPERS'] = 'Desarrollador';
-$lang['HELP_CREDITS_GRAPHICS'] = 'Gr·ficos & InformaciÛn';
+$lang['HELP_CREDITS_GRAPHICS'] = 'Gr√°ficos & Informaci√≥n';
 $lang['HELP_CREDITS_TRANSLATORS'] = 'Traductores';
 $lang['HELP_CREDITS_TESTERS'] = 'Testeadores';
 $lang['HELP_CREDITS_OTHER'] = 'Otros';
@@ -2363,19 +2363,19 @@ $lang['RANK_7'] = "Sargento Primero";
 $lang['RANK_8'] = "Brigada";
 $lang['RANK_9'] = "Subteniente";
 $lang['RANK_10'] = "Suboficial Mayor";
-$lang['RANK_11'] = "Cadete 1∫ C.";
-$lang['RANK_12'] = "Cadete 2∫ C.";
-$lang['RANK_13'] = "AlfÈrez";
+$lang['RANK_11'] = "Cadete 1¬∫ C.";
+$lang['RANK_12'] = "Cadete 2¬∫ C.";
+$lang['RANK_13'] = "Alf√©rez";
 $lang['RANK_14'] = "Teniente";
-$lang['RANK_15'] = "Capit·n";
+$lang['RANK_15'] = "Capit√°n";
 $lang['RANK_16'] = "Comandante";
 $lang['RANK_17'] = "Teniente Coronel";
 $lang['RANK_18'] = "Coronel";
 $lang['RANK_19'] = "General de Brigada";
-$lang['RANK_20'] = "General de DivisiÛn";
+$lang['RANK_20'] = "General de Divisi√≥n";
 $lang['RANK_21'] = "Teniente General";
-$lang['RANK_22'] = "General de EjÈrcito";
-$lang['RANK_23'] = "Capit·n General";
+$lang['RANK_22'] = "General de Ej√©rcito";
+$lang['RANK_23'] = "Capit√°n General";
 
 /*
 ** ------------------
@@ -2386,48 +2386,48 @@ $lang['RANK_23'] = "Capit·n General";
 $landcode = array();
 
 $landcode['ad'] = "Andorra";
-$landcode['ae'] = "Emiratos ¡rabes";
-$landcode['af'] = "Afganist·n";
+$landcode['ae'] = "Emiratos √Årabes";
+$landcode['af'] = "Afganist√°n";
 $landcode['ag'] = "Antigua y Barbuda";
 $landcode['ai'] = "Anguila";
 $landcode['al'] = "Albania";
 $landcode['am'] = "Armenia";
 $landcode['an'] = "Antillas Holandesas";
 $landcode['ao'] = "Angola";
-$landcode['aq'] = "Ant·rtida";
+$landcode['aq'] = "Ant√°rtida";
 $landcode['ar'] = "Argentina";
 $landcode['as'] = "Samoa Americana";
 $landcode['at'] = "Austria";
 $landcode['au'] = "Australia";
 $landcode['aw'] = "Aruba";
 $landcode['ax'] = "Islas Aland";
-$landcode['az'] = "Azerbaiy·n";
-		
+$landcode['az'] = "Azerbaiy√°n";
+
 $landcode['ba'] = "Bosnia y Herzegovina";
 $landcode['bb'] = "Barbados";
 $landcode['bd'] = "Bangladesh";
-$landcode['be'] = "BÈlgica";
+$landcode['be'] = "B√©lgica";
 $landcode['bf'] = "Burkina Faso";
 $landcode['bg'] = "Bulgaria";
 $landcode['bh'] = "Bahrein";
 $landcode['bi'] = "Burundi";
 $landcode['bj'] = "Benin";
 $landcode['bm'] = "Bermuda";
-$landcode['bn'] = "Brunei Darussalam";	
-$landcode['bl'] = "San BartolomÈ";
+$landcode['bn'] = "Brunei Darussalam";
+$landcode['bl'] = "San Bartolom√©";
 $landcode['bn'] = "Brunei";
 $landcode['bo'] = "Bolivia";
 $landcode['br'] = "Brasil";
 $landcode['bs'] = "Bahamas";
-$landcode['bt'] = "But·n";
+$landcode['bt'] = "But√°n";
 $landcode['bv'] = "Isla Bouvet";
 $landcode['bw'] = "Botswana";
-$landcode['by'] = "Belar˙s";
+$landcode['by'] = "Belar√∫s";
 $landcode['bz'] = "Belice";
-	
-$landcode['ca'] = "Canad·";
+
+$landcode['ca'] = "Canad√°";
 $landcode['cc'] = "Islas Cocos";
-$landcode['cf'] = "Rep˙blica Centroafricana";
+$landcode['cf'] = "Rep√∫blica Centroafricana";
 $landcode['cg'] = "Congo";
 $landcode['ch'] = "Suiza";
 $landcode['ci'] = "Costa de Marfil";
@@ -2442,32 +2442,32 @@ $landcode['cu'] = "Cuba";
 $landcode['cv'] = "Cavo Verde";
 $landcode['cx'] = "Isla de Navidad";
 $landcode['cy'] = "Chipre";
-$landcode['cz'] = "Rep˙blica Checa";
-	
+$landcode['cz'] = "Rep√∫blica Checa";
+
 $landcode['de'] = "Alemania";
 $landcode['dj'] = "Yibuti";
 $landcode['dk'] = "Dinamarca";
 $landcode['dm'] = "Dominica";
-$landcode['do'] = "Rep˙blica Dominicana";
+$landcode['do'] = "Rep√∫blica Dominicana";
 $landcode['dz'] = "Argelia";
-	
+
 $landcode['ec'] = "Ecuador";
 $landcode['ee'] = "Estonia";
 $landcode['eg'] = "Egipto";
-$landcode['eh'] = "S·hara Occidental";
+$landcode['eh'] = "S√°hara Occidental";
 $landcode['er'] = "Eritrea";
-$landcode['es'] = "EspaÒa";
-$landcode['et'] = "EtiopÌa";
+$landcode['es'] = "Espa√±a";
+$landcode['et'] = "Etiop√≠a";
 $landcode['eu'] = "Ciberespacio";
-	
+
 $landcode['fi'] = "Finlandia";
 $landcode['fj'] = "Fiyi";
 $landcode['fk'] = "Islas Malvinas";
 $landcode['fm'] = "Micronesia";
 $landcode['fo'] = "Islas Feroe";
 $landcode['fr'] = "Francia";
-	
-$landcode['ga'] = "GabÛn";
+
+$landcode['ga'] = "Gab√≥n";
 $landcode['gb'] = "Reino Unido";
 $landcode['gd'] = "Grenada";
 $landcode['ge'] = "Georgia";
@@ -2485,14 +2485,14 @@ $landcode['gt'] = "Guatemala";
 $landcode['gu'] = "Guam";
 $landcode['gw'] = "Guinea-Bissau";
 $landcode['gy'] = "Guayana";
-	
+
 $landcode['hk'] = "Hong Kong";
 $landcode['hm'] = "Islas Heard y McDonald";
 $landcode['hn'] = "Honduras";
 $landcode['hr'] = "Croacia";
-$landcode['ht'] = "HaitÌ";
-$landcode['hu'] = "HungrÌa";
-	
+$landcode['ht'] = "Hait√≠";
+$landcode['hu'] = "Hungr√≠a";
+
 $landcode['id'] = "Indonesia";
 $landcode['ie'] = "Irlanda";
 $landcode['il'] = "Israel";
@@ -2500,16 +2500,16 @@ $landcode['in'] = "India";
 $landcode['im'] = "Isla de Man";
 $landcode['io'] = "BI Ocean Territory";
 $landcode['iq'] = "Irak";
-$landcode['ir'] = "Ir·n";
+$landcode['ir'] = "Ir√°n";
 $landcode['is'] = "Islandia";
 $landcode['it'] = "Italia";
-	
+
 $landcode['jm'] = "Jamaica";
 $landcode['jo'] = "Jordania";
-$landcode['jp'] = "JapÛn";
-	
+$landcode['jp'] = "Jap√≥n";
+
 $landcode['ke'] = "Kenia";
-$landcode['kg'] = "Kirguist·n";
+$landcode['kg'] = "Kirguist√°n";
 $landcode['kh'] = "Camboya";
 $landcode['ki'] = "Kiribati";
 $landcode['km'] = "Comores";
@@ -2517,11 +2517,11 @@ $landcode['kn'] = "Saint Kitts en Nevis";
 $landcode['kp'] = "Corea del Norte";
 $landcode['kr'] = "Corea del Sur";
 $landcode['kw'] = "Kuwait";
-$landcode['ky'] = "Islas Caim·n";
-$landcode['kz'] = "Kazajst·n";
-	
+$landcode['ky'] = "Islas Caim√°n";
+$landcode['kz'] = "Kazajst√°n";
+
 $landcode['la'] = "Laos";
-$landcode['lb'] = "LÌbano";
+$landcode['lb'] = "L√≠bano";
 $landcode['lc'] = "Santa Lucia";
 $landcode['li'] = "Liechtenstein";
 $landcode['lk'] = "Sri Lanka";
@@ -2531,9 +2531,9 @@ $landcode['lt'] = "Lituania";
 $landcode['lu'] = "Luxemburgo";
 $landcode['lv'] = "Letonia";
 $landcode['ly'] = "Libia";
-	
+
 $landcode['ma'] = "Marruecos";
-$landcode['mc'] = "MÛnaco";
+$landcode['mc'] = "M√≥naco";
 $landcode['md'] = "Moldova";
 $landcode['mg'] = "Madagascar";
 $landcode['mh'] = "Islas Marshall";
@@ -2550,52 +2550,52 @@ $landcode['mt'] = "Malta";
 $landcode['mu'] = "Mauricio";
 $landcode['mv'] = "Maldivas";
 $landcode['mw'] = "Malawi";
-$landcode['mx'] = "MÈjico";
+$landcode['mx'] = "M√©jico";
 $landcode['my'] = "Malasia";
 $landcode['mz'] = "Mozambique";
-	
+
 $landcode['na'] = "Namibia";
 $landcode['nc'] = "Nueva Caledonia";
 $landcode['ne'] = "Nigeria";
 $landcode['nf'] = "Islas Norfolk";
-$landcode['ng'] = "NÌger";
+$landcode['ng'] = "N√≠ger";
 $landcode['ni'] = "Nicaragua";
-$landcode['nl'] = "PaÌses Bajos";
+$landcode['nl'] = "Pa√≠ses Bajos";
 $landcode['no'] = "Noruega";
 $landcode['np'] = "Nepal";
 $landcode['nr'] = "Nauru";
 $landcode['nu'] = "Niue";
 $landcode['nz'] = "Nueva Zelanda";
-	
-$landcode['om'] = "Om·n";
-	
-$landcode['pa'] = "Panam·";
-$landcode['pe'] = "Per˙";
+
+$landcode['om'] = "Om√°n";
+
+$landcode['pa'] = "Panam√°";
+$landcode['pe'] = "Per√∫";
 $landcode['pf'] = "Polinesia francesa";
 $landcode['pg'] = "Papua Nueva Guinea";
 $landcode['ph'] = "Filipinas";
-$landcode['pk'] = "Pakist·n";
+$landcode['pk'] = "Pakist√°n";
 $landcode['pl'] = "Polonia";
-$landcode['pm'] = "San Pedro y MiquelÛn";
+$landcode['pm'] = "San Pedro y Miquel√≥n";
 $landcode['pn'] = "Pitcairn";
 $landcode['pr'] = "Puerto Rico";
 $landcode['ps'] = "Palestina";
 $landcode['pt'] = "Portugal";
 $landcode['pw'] = "Palau";
 $landcode['py'] = "Paraguay";
-	
+
 $landcode['qa'] = "Qatar";
-	
-$landcode['re'] = "ReuniÛn";
+
+$landcode['re'] = "Reuni√≥n";
 $landcode['ro'] = "Rumania";
-$landcode['ru'] = "FederaciÛn de Rusia";
+$landcode['ru'] = "Federaci√≥n de Rusia";
 $landcode['rs'] = "Serbia";
 $landcode['rw'] = "Ruanda";
-	
+
 $landcode['sa'] = "Arabia Saudi";
-$landcode['sb'] = "Islas SalomÛn";
+$landcode['sb'] = "Islas Salom√≥n";
 $landcode['sc'] = "Seychelles";
-$landcode['sd'] = "Sud·n";
+$landcode['sd'] = "Sud√°n";
 $landcode['se'] = "Suecia";
 $landcode['sg'] = "Singapur";
 $landcode['sh'] = "Santa Helena";
@@ -2607,56 +2607,48 @@ $landcode['sm'] = "San Marino";
 $landcode['sn'] = "Senegal";
 $landcode['so'] = "Somalia";
 $landcode['sr'] = "Suriname";
-$landcode['st'] = "Santo TomÈ en PrÌncipe";
+$landcode['st'] = "Santo Tom√© en Pr√≠ncipe";
 $landcode['sv'] = "El Salvador";
 $landcode['sy'] = "Siria";
 $landcode['sz'] = "Suazilandia";
-	
+
 $landcode['tc'] = "Islas Turcas y Caicos";
 $landcode['td'] = "Chad";
 $landcode['tg'] = "Togo";
 $landcode['th'] = "Tailandia";
-$landcode['tj'] = "Tayikist·n";
+$landcode['tj'] = "Tayikist√°n";
 $landcode['tk'] = "Tokelau";
 $landcode['tl'] = "Timor";
-$landcode['tm'] = "Turkmenist·n";
-$landcode['tn'] = "T˙nez";
+$landcode['tm'] = "Turkmenist√°n";
+$landcode['tn'] = "T√∫nez";
 $landcode['to'] = "Tonga";
-$landcode['tr'] = "TurquÌa";
+$landcode['tr'] = "Turqu√≠a";
 $landcode['tt'] = "Trinidad y Tobago";
 $landcode['tv'] = "Tuvalu";
 $landcode['tw'] = "Taiwan";
 $landcode['tz'] = "Tanzania";
-	
+
 $landcode['ua'] = "Ucrania";
 $landcode['ug'] = "Uganda";
 $landcode['um'] = "Islas Menores Estados Unidos";
 $landcode['us'] = "Estados Unidos";
-$landcode['uy'] = "Uruguay";	
-$landcode['uz'] = "Uzbekist·n";
-	
+$landcode['uy'] = "Uruguay";
+$landcode['uz'] = "Uzbekist√°n";
+
 $landcode['va'] = "Ciudad del Vaticano";
 $landcode['vc'] = "San Vicente y las Granadinas";
 $landcode['ve'] = "Venezuela";
-$landcode['vg'] = "Islas VÌrgenes, Brit·nicas";
-$landcode['vi'] = "Islas VÌrgenes, EE.UU.";
+$landcode['vg'] = "Islas V√≠rgenes, Brit√°nicas";
+$landcode['vi'] = "Islas V√≠rgenes, EE.UU.";
 $landcode['vn'] = "Vietnam";
 $landcode['vu'] = "Vanuatu";
-	
+
 $landcode['wf'] = "Wallis and Futuna";
 $landcode['ws'] = "Samoa";
-	
+
 $landcode['ye'] = "Yemen";
 $landcode['yt'] = "Mayotte";
-	
-$landcode['za'] = "Sud·frica";
+
+$landcode['za'] = "Sud√°frica";
 $landcode['zm'] = "Zambia";
 $landcode['zw'] = "Zimbabue";
-	
-/*
-** ------------------
-** THE END
-** ------------------
-*/
-
-?>

@@ -1,4 +1,4 @@
-/* 
+/*
 **  ========
 **  WarQuest
 **  ========
@@ -6,7 +6,7 @@
 **  Created by wplaat
 **
 **  For more information visit the following website.
-**  Website : www.plaatsoft.nl 
+**  Website : www.plaatsoft.nl
 **
 **  Or send an email to the following address.
 **  Email   : info@plaatsoft.nl
@@ -35,18 +35,18 @@ function setTicTacToe(sqr) {
 
 	if( turn == 0 ) {
 
-		owner[sqr] = 1; 
-		turn = 1; 
+		owner[sqr] = 1;
+		turn = 1;
 		moveCount+=2;
-	
+
 		if (moveCount==2) {
 			randomSet();
-			drawboard();	
-			
+			drawboard();
+
 		} else {
-		
-			check();	
-			drawboard();		
+
+			check();
+			drawboard();
 		}
 	}
 }
@@ -60,11 +60,11 @@ function randomSet() {
 			tmp += i;
 		}
 	}
-	
+
 	var rnum = Math.floor(Math.random() * tmp.length);
-	
-	owner[tmp[rnum]]=2;		
-	turn = 0; 
+
+	owner[tmp[rnum]]=2;
+	turn = 0;
 }
 
 
@@ -85,12 +85,12 @@ function enableTicTacToe()
 }
 
 function showTicTacToe(board) {
-	
+
 	for( var i = 1; i < 10; i++ ) {
 
 		owner[i]=board.substr((i-1),1);
 	}
-	
+
 	drawboard();
 	disableTicTacToe();
 }
@@ -100,14 +100,14 @@ function initTicTacToe( bet1, key1, token1 ) {
 	bet = bet1;
 	key = key1;
 	token = token1;
-	
+
   	for( var i = 1; i < 10; i++ ) {
 		owner[i]=0;
 	}
-  
+
 	turn = 0
-	moveCount = 0	
-	
+	moveCount = 0
+
 	enableTicTacToe();
 }
 
@@ -121,82 +121,82 @@ function drawboard() {
 		} else {
 			value = ' ';
 		}
-			
+
 		disabled = false;
 
 		if (owner[i] == 1) {
 			value = 'X';
 			disabled = true;
-			
+
 		} else if (owner[i] == 2) {
 			value = 'O';
 			disabled = true;
-		} 	
-	
+		}
+
 		document.getElementById(sqr[i]).value = value;
 		document.getElementById(sqr[i]).disabled = disabled;
 	}
 }
-	
+
 function youLose() {
-	drawboard();	
+	drawboard();
 	disableTicTacToe();
 	simpleHttpRequest(0);
 }
 
-function youWin() {	
-	drawboard();	
+function youWin() {
+	drawboard();
 	disableTicTacToe();
 	simpleHttpRequest(1);
 }
 
 function youDraw() {
 	drawboard();
-	disableTicTacToe();	
+	disableTicTacToe();
 	simpleHttpRequest(2);
 }
 
 function simpleHttpRequest(result) {
- 
+
 	var form = document.forms['warquest'];
 
 	var newInput1 = document.createElement('input');
 	newInput1.setAttribute('type','hidden');
 	newInput1.setAttribute('name','bet');
 	newInput1.setAttribute('value', bet);
-	form.appendChild(newInput1);		
-		
+	form.appendChild(newInput1);
+
 	var newInput2 = document.createElement('input');
 	newInput2.setAttribute('type','hidden');
 	newInput2.setAttribute('name','key');
 	newInput2.setAttribute('value', key);
-	form.appendChild(newInput2);	
-			
+	form.appendChild(newInput2);
+
 	var newInput3 = document.createElement('input');
 	newInput3.setAttribute('type','hidden');
 	newInput3.setAttribute('name','token');
 	newInput3.setAttribute('value', token);
 	form.appendChild(newInput3);
-	
+
 	var newInput4 = document.createElement('input');
 	newInput4.setAttribute('type','hidden');
 	newInput4.setAttribute('name','result');
 	newInput4.setAttribute('value', result);
-	form.appendChild(newInput4);	
-	
+	form.appendChild(newInput4);
+
 	tmp = ""
 	for( var i = 1; i < 10; i++ ) {
 
 		tmp += owner[i];
 	}
-		
+
 	var newInput5 = document.createElement('input');
 	newInput5.setAttribute('type','hidden');
 	newInput5.setAttribute('name','board');
 	newInput5.setAttribute('value', tmp);
-	form.appendChild(newInput5);	
-	
-	form.submit();	
+	form.appendChild(newInput5);
+
+	form.submit();
 }
 
 
@@ -205,11 +205,11 @@ function check()
   if(owner[1]==1 && owner[2]==1 && owner[3]==1)
   {
     youWin();
-  } 
+  }
   else if(owner[4]==1 && owner[5]==1 && owner[6]==1)
   {
     youWin();
-  } 
+  }
   else if(owner[7]==1 && owner[8]==1 && owner[9]==1)
   {
     youWin();
@@ -242,8 +242,8 @@ function check()
   {
     winCheck()
     check2()
-    drawCheck()  
-  } 
+    drawCheck()
+  }
 }
 
 function check2()
@@ -252,11 +252,11 @@ function check2()
   if(owner[1]==2 && owner[2]==2 && owner[3]==2)
   {
     youLose();
-  } 
+  }
   else if(owner[4]==2 && owner[5]==2 && owner[6]==2)
   {
     youLose();
-  } 
+  }
   else if(owner[7]==2 && owner[8]==2 && owner[9]==2)
   {
     youLose();
@@ -300,127 +300,127 @@ function winCheck()
   check2()
   if(owner[1]==2 && owner[2]==2 && owner[3]==0 && turn==1)
   {
-    owner[3] = 2; 
+    owner[3] = 2;
     turn = 0;
   }
   else if(owner[2]==2 && owner[3]==2 && owner[1]==0 && turn==1)
   {
-    owner[1] = 2; 
+    owner[1] = 2;
     turn = 0;
   }
   else if(owner[4]==2 && owner[5]==2 && owner[6]==0 && turn==1)
   {
-    owner[6] = 2; 
+    owner[6] = 2;
     turn = 0;
   }
   else if(owner[5]==2 && owner[6]==2 && owner[4]==0 && turn==1)
   {
-    owner[4] = 2; 
+    owner[4] = 2;
     turn = 0;
   }
   else if(owner[7]==2 && owner[8]==2 && owner[9]==0 && turn==1)
   {
-    owner[9] = 2; 
+    owner[9] = 2;
     turn = 0;
   }
   else if(owner[8]==2 && owner[9]==2 && owner[7]==0 && turn==1)
   {
-    owner[7] = 2; 
+    owner[7] = 2;
     turn = 0;
   }
   else if(owner[1]==2 && owner[5]==2 && owner[9]==0 && turn==1)
   {
-    owner[9] = 2; 
+    owner[9] = 2;
     turn = 0;
   }
   else if(owner[5]==2 && owner[9]==2 && owner[1]==0 && turn==1)
   {
-    owner[1] = 2; 
+    owner[1] = 2;
     turn = 0;
   }
   else if(owner[3]==2 && owner[5]==2 && owner[7]==0 && turn==1)
   {
-    owner[7] = 2; 
+    owner[7] = 2;
     turn = 0;
   }
   else if(owner[7]==2 && owner[5]==2 && owner[3]==0 && turn==1)
   {
-    owner[3] = 2; 
+    owner[3] = 2;
     turn = 0;
   }
   else if(owner[1]==2 && owner[3]==2 && owner[2]==0 && turn==1)
   {
-    owner[2] = 2; 
+    owner[2] = 2;
     turn = 0;
   }
   else if(owner[4]==2 && owner[6]==2 && owner[5]==0 && turn==1)
   {
-    owner[5] = 2; 
+    owner[5] = 2;
     turn = 0;
   }
   else if(owner[7]==2 && owner[9]==2 && owner[8]==0 && turn==1)
   {
-    owner[8] = 2; 
+    owner[8] = 2;
     turn = 0;
   }
   else if(owner[1]==2 && owner[7]==2 && owner[4]==0 && turn==1)
   {
-    owner[4] = 2; 
+    owner[4] = 2;
     turn = 0;
   }
   else if(owner[2]==2 && owner[8]==2 && owner[5]==0 && turn==1)
   {
-    owner[5] = 2; 
+    owner[5] = 2;
     turn = 0;
   }
   else if(owner[3]==2 && owner[9]==2 && owner[6]==0 && turn==1)
   {
-    owner[6] = 2; 
+    owner[6] = 2;
     turn = 0;
   }
   else if(owner[1]==2 && owner[5]==2 && owner[9]==0 && turn==1)
   {
-    owner[9] = 2; 
+    owner[9] = 2;
     turn = 0;
   }
   else if(owner[4]==2 && owner[7]==2 && owner[1]==0 && turn==1)
   {
-    owner[1] = 2; 
+    owner[1] = 2;
     turn = 0;
   }
   else if(owner[5]==2 && owner[8]==2 && owner[2]==0 && turn==1)
   {
-    owner[2] = 2; 
+    owner[2] = 2;
     turn = 0;
   }
   else if(owner[6]==2 && owner[9]==2 && owner[3]==0 && turn==1)
   {
-    owner[3] = 2; 
+    owner[3] = 2;
     turn = 0;
   }
   else if(owner[1]==2 && owner[4]==2 && owner[7]==0 && turn==1)
   {
-    owner[7] = 2; 
+    owner[7] = 2;
     turn = 0;
   }
   else if(owner[2]==2 && owner[5]==2 && owner[8]==0 && turn==1)
   {
-    owner[8] = 2; 
+    owner[8] = 2;
     turn = 0;
   }
   else if(owner[3]==2 && owner[6]==2 && owner[9]==0 && turn==1)
   {
-    owner[9] = 2; 
+    owner[9] = 2;
     turn = 0;
   }
   else if(owner[1]==2 && owner[9]==2 && owner[5]==0 && turn==1)
   {
-    owner[5] = 2; 
+    owner[5] = 2;
     turn = 0;
   }
   else if(owner[3]==2 && owner[7]==2 && owner[5]==0 && turn==1)
   {
-    owner[5] = 2; 
+    owner[5] = 2;
     turn = 0;
   }
   else
@@ -435,127 +435,127 @@ function computer()
   check2()
   if(owner[3]==1 && owner[6]==1 && owner[9]==0 && turn==1)
   {
-    owner[9] = 2; 
+    owner[9] = 2;
     turn = 0;
-  }  
+  }
   else if(owner[1]==1 && owner[2]==1 && owner[3]==0 && turn==1)
   {
-    owner[3] = 2; 
+    owner[3] = 2;
     turn = 0;
   }
   else if(owner[2]==1 && owner[3]==1 && owner[1]==0 && turn==1)
   {
-    owner[1] = 2; 
+    owner[1] = 2;
     turn = 0;
   }
   else if(owner[4]==1 && owner[5]==1 && owner[6]==0 && turn==1)
   {
-    owner[6] = 2; 
+    owner[6] = 2;
     turn = 0;
   }
   else if(owner[5]==1 && owner[6]==1 && owner[4]==0 && turn==1)
   {
-    owner[4] = 2; 
+    owner[4] = 2;
     turn = 0;
   }
   else if(owner[7]==1 && owner[8]==1 && owner[9]==0 && turn==1)
   {
-    owner[9] = 2; 
+    owner[9] = 2;
     turn = 0;
   }
   else if(owner[8]==1 && owner[9]==1 && owner[7]==0 && turn==1)
   {
-    owner[7] = 2; 
+    owner[7] = 2;
     turn = 0;
   }
   else if(owner[1]==1 && owner[5]==1 && owner[9]==0 && turn==1)
   {
-    owner[9] = 2; 
+    owner[9] = 2;
     turn = 0;
   }
   else if(owner[5]==1 && owner[9]==1 && owner[1]==0 && turn==1)
   {
-    owner[1] = 2; 
+    owner[1] = 2;
     turn = 0;
   }
   else if(owner[3]==1 && owner[5]==1 && owner[7]==0 && turn==1)
   {
-    owner[7] = 2; 
+    owner[7] = 2;
     turn = 0;
   }
   else if(owner[7]==1 && owner[5]==1 && owner[3]==0 && turn==1)
   {
-    owner[3] = 2; 
+    owner[3] = 2;
     turn = 0;
   }
   else if(owner[1]==1 && owner[3]==1 && owner[2]==0 && turn==1)
   {
-    owner[2] = 2; 
+    owner[2] = 2;
     turn = 0;
   }
   else if(owner[4]==1 && owner[6]==1 && owner[5]==0 && turn==1)
   {
-    owner[5] = 2; 
+    owner[5] = 2;
     turn = 0;
   }
   else if(owner[7]==1 && owner[9]==1 && owner[8]==0 && turn==1)
   {
-    owner[8] = 2; 
+    owner[8] = 2;
     turn = 0;
   }
   else if(owner[1]==1 && owner[7]==1 && owner[4]==0 && turn==1)
   {
-    owner[4] = 2; 
+    owner[4] = 2;
     turn = 0;
   }
   else if(owner[2]==1 && owner[8]==1 && owner[5]==0 && turn==1)
   {
-    owner[5] = 2; 
+    owner[5] = 2;
     turn = 0;
   }
   else if(owner[3]==1 && owner[9]==1 && owner[6]==0 && turn==1)
   {
-    owner[6] = 2; 
+    owner[6] = 2;
     turn = 0;
   }
   else if(owner[1]==1 && owner[5]==1 && owner[9]==0 && turn==1)
   {
-    owner[9] = 2; 
+    owner[9] = 2;
     turn = 0;
   }
   else if(owner[4]==1 && owner[7]==1 && owner[1]==0 && turn==1)
   {
-    owner[1] = 2; 
+    owner[1] = 2;
     turn = 0;
   }
   else if(owner[5]==1 && owner[8]==1 && owner[2]==0 && turn==1)
   {
-    owner[2] = 2; 
+    owner[2] = 2;
     turn = 0;
   }
   else if(owner[6]==1 && owner[9]==1 && owner[3]==0 && turn==1)
   {
-    owner[3] = 2; 
+    owner[3] = 2;
     turn = 0;
   }
   else if(owner[1]==1 && owner[4]==1 && owner[7]==0 && turn==1)
   {
-    owner[7] = 2; 
+    owner[7] = 2;
     turn = 0;
   }
   else if(owner[2]==1 && owner[5]==1 && owner[8]==0 && turn==1)
   {
-    owner[8] = 2; 
+    owner[8] = 2;
     turn = 0;
   }
   else if(owner[1]==1 && owner[9]==1 && owner[5]==0 && turn==1)
   {
-    owner[5] = 2; 
+    owner[5] = 2;
     turn = 0;
   }
   else if(owner[3]==1 && owner[7]==1 && owner[5]==0 && turn==1)
   {
-    owner[5] = 2; 
+    owner[5] = 2;
     turn = 0;
   }
   else
@@ -569,47 +569,47 @@ function AI()
 {
   if(owner[5]==0 && turn==1)
   {
-    owner[5] = 2; 
+    owner[5] = 2;
     turn = 0
   }
   else if(owner[1]==0 && turn==1)
   {
-    owner[1] = 2; 
+    owner[1] = 2;
     turn = 0
   }
   else if(owner[9]==0 && turn==1)
   {
-    owner[9] = 2; 
+    owner[9] = 2;
     turn = 0
   }
   else if(owner[6]==0 && turn==1)
   {
-    owner[6] = 2; 
+    owner[6] = 2;
     turn = 0
   }
   else if(owner[2]==0 && turn==1)
   {
-    owner[2] = 2; 
+    owner[2] = 2;
     turn = 0
   }
   else if(owner[8]==0 && turn==1)
   {
-    owner[8] = 2; 
+    owner[8] = 2;
     turn = 0
   }
   else if(owner[3]==0 && turn==1)
   {
-    owner[3] = 2; 
+    owner[3] = 2;
     turn = 0
   }
   else if(owner[7]==0 && turn==1)
   {
-    owner[7] = 2; 
+    owner[7] = 2;
     turn = 0
   }
   else if(owner[4]==0 && turn==1)
   {
-    owner[4] = 2; 
+    owner[4] = 2;
     turn = 0
   }
   check2()

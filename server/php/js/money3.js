@@ -1,4 +1,4 @@
-/* 
+/*
 **  ========
 **  WarQuest
 **  ========
@@ -6,7 +6,7 @@
 **  Created by wplaat
 **
 **  For more information visit the following website.
-**  Website : www.plaatsoft.nl 
+**  Website : www.plaatsoft.nl
 **
 **  Or send an email to the following address.
 **  Email   : info@plaatsoft.nl
@@ -45,29 +45,29 @@ function moneycountdown(){
 
      minuten=Math.floor((timer4)/60);
      seconden=Math.floor(timer4-minuten*60);
- 
+
      if (minuten.toString().length < 2) minuten = "0" + minuten;
      if (seconden.toString().length < 2) seconden = "0" + seconden;
- 
+
      var zichttijd=minuten+":"+seconden;
-	  
-     document.getElementById("moneycountdown").innerHTML=zichttijd; 
-	  document.getElementById("moneyvalue").innerHTML='<span class="money">' + moneyaddcommas(value4).toString() + '</span>'; 
+
+     document.getElementById("moneycountdown").innerHTML=zichttijd;
+	  document.getElementById("moneyvalue").innerHTML='<span class="money">' + moneyaddcommas(value4).toString() + '</span>';
 
      timer4=timer4-1;
-     timerId4=setTimeout("moneycountdown()",1000); 
-     
+     timerId4=setTimeout("moneycountdown()",1000);
+
   }
-  
+
   else {
-	
+
 		value4=value4+step4;
-	  
+
 		timer4=3600;
-		timerId4=setTimeout("moneycountdown()",0); 
-		
-		document.getElementById("moneyvalue").innerHTML='<span class="money">' + moneyaddcommas(value4).toString()  + '</span>'; 
-  } 
+		timerId4=setTimeout("moneycountdown()",0);
+
+		document.getElementById("moneyvalue").innerHTML='<span class="money">' + moneyaddcommas(value4).toString()  + '</span>';
+  }
 }
 
 function moneyStopTimer(){

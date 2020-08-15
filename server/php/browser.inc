@@ -1,6 +1,6 @@
 <?php
 
-/* 
+/*
 **  ========
 **  WarQuest
 **  ========
@@ -8,7 +8,7 @@
 **  Created by wplaat
 **
 **  For more information visit the following website.
-**  Website : www.plaatsoft.nl 
+**  Website : www.plaatsoft.nl
 **
 **  Or send an email to the following address.
 **  Email   : info@plaatsoft.nl
@@ -31,7 +31,7 @@
 		const BROWSER_UNKNOWN = 'unknown';
 		const VERSION_UNKNOWN = 'unknown';
 
-		const BROWSER_OPERA = 'Opera';                          
+		const BROWSER_OPERA = 'Opera';
 		const BROWSER_OPERA_MINI = 'Opera Mini';
 		const BROWSER_WEBTV = 'WebTV';
 		const BROWSER_IE = 'MSIE';
@@ -56,11 +56,11 @@
 		const BROWSER_SLURP = 'Yahoo! Slurp';
 		const BROWSER_W3CVALIDATOR = 'W3C Validator';
 		const BROWSER_BLACKBERRY = 'BlackBerry';
-		const BROWSER_ICECAT = 'IceCat';                      
+		const BROWSER_ICECAT = 'IceCat';
 		const BROWSER_NOKIA_S60 = 'Nokia Browser';
 		const BROWSER_NOKIA = 'Nokia Browser';
 		const BROWSER_MSN = 'MSN Browser';
-		const BROWSER_MSNBOT = 'MSN Bot';        
+		const BROWSER_MSNBOT = 'MSN Bot';
 		const BROWSER_NETSCAPE_NAVIGATOR = 'Netscape';
 		const BROWSER_GALEON = 'Galeon';
 		const BROWSER_NETPOSITIVE = 'NetPositive';
@@ -85,14 +85,14 @@
 		const PLATFORM_SUNOS = 'SunOS';
 		const PLATFORM_OPENSOLARIS = 'OpenSolaris';
 		const PLATFORM_ANDROID = 'Android';
-		
+
 		const OPERATING_SYSTEM_UNKNOWN = 'Unknown';
 
 		public function Browser($version) {
 			$this->reset();
-			
+
 			$this->_client_version = $version;
-			
+
 			$this->determine();
 		}
 
@@ -215,10 +215,10 @@
 		* @return string formatted string with a summary of the browser
 		*/
 		public function __toString() {
-			return "<strong>Browser Name:</strong>{$this->getBrowser()}<br/>\n" .
-			       "<strong>Browser Version:</strong>{$this->getVersion()}<br/>\n" .
-			       "<strong>Browser User Agent String:</strong>{$this->getUserAgent()}<br/>\n" .
-			       "<strong>Platform:</strong>{$this->getPlatform()}<br/>";
+			return "<strong>Browser Name:</strong>{$this->getBrowser()}<br>\n" .
+			       "<strong>Browser Version:</strong>{$this->getVersion()}<br>\n" .
+			       "<strong>Browser User Agent String:</strong>{$this->getUserAgent()}<br>\n" .
+			       "<strong>Platform:</strong>{$this->getPlatform()}<br>";
 		}
 		/**
 		 * Protected routine to calculate and determine what the browser is in use (including platform)
@@ -271,7 +271,7 @@
 
 				/* WebKit base check (post mobile and others) */
 				$this->checkBrowserSafari() ||
-				
+
 				/* everyone else */
 				$this->checkBrowserNetPositive() ||
 				$this->checkBrowserFirebird() ||
@@ -289,13 +289,13 @@
 
 		/**
 		 * Added by WVDP
-		 * Detect Windows WarQuest client with correct version number 
+		 * Detect Windows WarQuest client with correct version number
 		 */
 		protected function checkBrowserWarQuest() {
 			if( stripos($this->_agent,'Safari') !== false && stripos($this->_agent,'Qt') !== false ) {
 				$aresult = explode('/',stristr($this->_agent,'AppleWebKit'));
 				$aversion = explode(' ',$aresult[1]);
-				 
+
 				if ($this->_client_version!="") {
 					$this->setVersion($this->_client_version);
 				} else {
@@ -317,24 +317,24 @@
 	     */
 	   protected function checkBrowserAndroid() {
 		   if( stripos($this->_agent,'Android') !== false ) {
-			 
+
 				$this->setBrowser(self::BROWSER_ANDROID);
 				$this->setMobile(true);
 				$this->setVersion(self::VERSION_UNKNOWN);
-				
+
 				$aresult = explode(' ',stristr($this->_agent,'Android'));
-				
+
 				if( isset($aresult[1]) ) {
 					$aversion = explode(' ',$aresult[1]);
-					
+
 					if ($this->_client_version!="") {
 						$this->setVersion($this->_client_version);
 						$this->setBrowser(self::BROWSER_WARQUEST);
-						
+
 					} else if( isset($aversion[0]) ) {
 						$this->setVersion($aversion[0]);
-					} 
-				}			    
+					}
+				}
 			   return true;
 		    }
 		   return false;
@@ -404,8 +404,8 @@
 				return true;
 			}
 			return false;
-		}	    
-	    
+		}
+
 	    /**
 	     * Determine if the browser is the W3C Validator or not (last updated 1.7)
 	     * @return boolean True if the browser is the W3C Validator otherwise false
@@ -702,7 +702,7 @@
 	    }
 
 	    /**
-	     * Determine if the browser is Ice Cat or not (http://en.wikipedia.org/wiki/GNU_IceCat) (last updated 1.7)
+	     * Determine if the browser is Ice Cat or not (https://en.wikipedia.org/wiki/GNU_IceCat) (last updated 1.7)
 	     * @return boolean True if the browser is Ice Cat otherwise false
 	     */
 	    protected function checkBrowserIceCat() {
@@ -767,6 +767,7 @@
 			}
 			return false;
 		}
+
 	    /**
 	     * Determine if the browser is Mozilla or not (last updated 1.7)
 	     * @return boolean True if the browser is Mozilla otherwise false
@@ -906,12 +907,12 @@
 		    return false;
 	    }
 
-	    
+
 	    /**
 	     * Determine the user's platform (last updated 1.7)
 	     */
 	    protected function checkPlatform() {
-		 			 
+
 		    if( stripos($this->_agent, 'windows') !== false ) {
 			    $this->_platform = self::PLATFORM_WINDOWS;
 		    }
@@ -966,11 +967,3 @@
 
 	    }
     }
-	 
-/*
-** ---------------------------------------------------------------- 
-** THE END
-** ----------------------------------------------------------------
-*/
-
-?>

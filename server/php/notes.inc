@@ -1,6 +1,6 @@
 <?php
 
-/* 
+/*
 **  ========
 **  WarQuest
 **  ========
@@ -8,7 +8,7 @@
 **  Created by wplaat
 **
 **  For more information visit the following website.
-**  Website : www.plaatsoft.nl 
+**  Website : www.plaatsoft.nl
 **
 **  Or send an email to the following address.
 **  Email   : info@plaatsoft.nl
@@ -16,24 +16,38 @@
 **  All copyrights reserved (c) PlaatSoft
 */
 
-$notes[71] = '
-<div class="subparagraph2">18-05-2020</div>
+$notes[73] = '
+<div class="subparagraph2">15-08-2020</div>
+<i>Game Server v7.3</i>
+<ul>
+<li>Fixed bug that prevent registering of new players</li>
+<li>Fixed bug that prevent players of level zero to spend skill points on attack or defence</li>
+<li>Make all language code files UTF-8 complaint</li>
+<li>Update all copyright years to right year (2020)</li>
+<li>Removed some weird black bars in the announcement images</li>
+<li>Removed obsolete store links on the login page</li>
+<li>Add new Google Play Store download link</li>
+<li>Fixed some small layout issues</li>
+<li>Add theme Modern (Tablet / Desktop)</li>
+<li>Fixed the announcements when using an Add Blocker</li>
+<li>Fixed gravatar http image loading bug on Android</li>
+<li>Update all http links to https and fixed all old domain names</li>
+<li>Added simple JSON REST API that the renewed WarQuest Android App uses</li>
+<li>Add bplaat (b.b.b.) to the developers (because he made this update)</li>
+</ul>';
+
+$notes[72] = '
+<div class="subparagraph2">19-05-2020</div>
 <i>Game Server v7.2</i>
 <ul>
 <li>Fix bigint max value written to database.</li>
-</ul>
-</br>
+</ul>';
 
+$notes[71] = '
 <div class="subparagraph2">25-11-2018</div>
 <i>Game Server v7.1</i>
 <ul>
 <li>Upgrade copyright banner</li>
-</ul>
-</br>
-
-<i>General</i>
-<ul>
-<li>Please visit www.gravatar.com to upload a player image.</li>
 </ul>';
 
 $notes[70] = '
@@ -43,8 +57,7 @@ $notes[70] = '
 <li>Update source code to be completable with PHP7</li>
 <li>Update database layer to be support latest mysql engine</li>
 <li>Removed all old forum posts.</li>
-</ul>
-</br>';
+</ul>';
 
 $notes[69] = '
 <div class="subparagraph2">01-01-2016</div>
@@ -54,8 +67,7 @@ $notes[69] = '
 <li>Update copyright banner in source code.</li>
 <li>Move source code from Google Code to GIT Hub repository.</li>
 <li>Bugfix: Paypal dialog is now default english.</li>
-</ul>
-</br>';
+</ul>';
 
 $notes[68] = '
 <div class="subparagraph2">03-04-2014</div>
@@ -66,12 +78,6 @@ $notes[68] = '
 <li>Added Clan->Clan Profile->Clan Settings page.</li>
 <li>Now Clan name, logo, minimum level can be changed.</li>
 <li>Bugfix: New skillpoint(s) notification is not working correct!</li>
-</ul>
-</br>
-
-<i>General</i>
-<ul>
-<li>Please visit www.gravatar.com to upload a player image.</li>
 </ul>';
 
 $notes[67] = '
@@ -113,7 +119,8 @@ $notes[66] = '
 <li>Disable account reset functionality.</li>
 <li>Added trade, restore features to unlock schema.</li>
 <li>Enable as default scheme "transparent" for new players.</li>
-</ul></br>
+</ul>
+<br>
 
 <i>Chrome Client v1.0</i>
 <ul>
@@ -157,7 +164,7 @@ $notes[65] = '
 <li>Improve email address validation.</li>
 </ul>
 </ul>
-<br/>
+<br>
 
 <i>Windows Client v1.6</i>
 <ul>
@@ -190,7 +197,7 @@ $notes[64] = '
 </ul>
 <li>Added basic SOAP web service interface</li>
 <ul>
-<li>URL is http://www.warquest.nl/service?wsdl</li>
+<li>URL is https://warquest.plaatsoft.nl/service?wsdl</li>
 <li>Added getPlayer method</li>
 <li>Added getClan method</li>
 <li>Added getPlanet method</li>
@@ -258,7 +265,7 @@ $notes[62] = '
 <li>Added admin overview clan war map page.</li>
 <li>Enable christmas / new year announcement.</li>
 </ul>
-<br/>
+<br>
 
 <i>FireFoxOS Client v1.1</i>
 <ul>
@@ -283,7 +290,7 @@ $notes[61] = '
 <li>Bug fix: Planet switch on clan list page is now working correct.</li>
 <li>Bug fix: Fixed vote exploit!</li>
 </ul>
-<br/>
+<br>
 
 <i>FireFoxOS Client v1.0</i>
 <ul>
@@ -352,7 +359,7 @@ $notes[58] = '
 <li>Rebalance earth unit & building defense / attack values.</li>
 <li>Bug fix: Create SessionId functionality is now transaction proof.</li>
 </ul>
-<br/>
+<br>
 
 <i>Windows Client v1.5</i>
 <ul>
@@ -419,7 +426,7 @@ $notes[54] = '
 <li>Bug fix: Bots counter attack cash win is limited to max 1.5 billion.</li>
 <li>Bug fix: Mars bonus is now 999 billion.</li>
 </ul>
-<br/>
+<br>
 
 <i>Linux Client v1.0</i>
 <ul>
@@ -434,7 +441,7 @@ $notes[53] = '
 <i>Game Server v5.3</i>
 <ul>
 <li>Activated improved holiday mode.</li>
-<li>Added following option to setting page:<br/>
+<li>Added following option to setting page:<br>
 <ul>
 <li>Enable allies in battle and bounty hunting list.</li>
 <li>Disable battle bot news.</li>
@@ -460,7 +467,7 @@ $notes[52] = '
 <div class="subparagraph2">22-04-2012</div>
 <i>Game Server v5.2</i>
 <ul>
-<li>Now manage warquest wishlist on www.plaatsoft.nl/scrumboard.</li> 
+<li>Now manage warquest wishlist on www.plaatsoft.nl/scrumboard.</li>
 <li>Bank transaction log is now cleared after 30 days.</li>
 <li>Added basic bad words filter to forum.</li>
 <li>Disabled holiday mode because of heavy abuse.</li>
@@ -593,7 +600,7 @@ $notes[47] = '
 <li>Improve technical info page (Admin mode).</li>
 <li>Bug fix: Bounting Hunting range at level 220 is now working fine.</li>
 </ul>
-<br/>
+<br>
 
 <i>Windows Client v1.4</i>
 <ul>
@@ -602,7 +609,7 @@ $notes[47] = '
 <li>The app was build with QtCreator v2.4.1.</li>
 <li>Released app on freewarefiles.com.</li>
 </ul>
-<br/>
+<br>
 
 <i>Symbian Client v1.0</i>
 <ul>
@@ -695,7 +702,7 @@ $notes[44] = '
 <li>Bug fix: Skill points counter in submenu is now working fine again.</li>
 <li>Bug fix: Notification in Main Menu is not working correct.</li>
 </ul>
-<br/>
+<br>
 
 <i>Android Client v2.6</i>
 <ul>
@@ -760,7 +767,7 @@ $notes[41] = '
 <li>Added rebellion chance information to espionage battle page.</li>
 <li>Added breaking news information to login page.</li>
 <li>Added technical environment settings page. (Admin Mode)</li>
-<li>Added worldmap to mission complete message.</li> 
+<li>Added worldmap to mission complete message.</li>
 <li>Espionage rob bank selection improved.</li>
 <li>Bug fix: Create cyberplayer is now working correct.</li>
 <li>Bug fix: Reload casino cheating action.</li>
@@ -799,7 +806,7 @@ $notes[40] = '
 <li>Bug fix: Bounty Hunting battle SQL error fixed.</li>
 <li>Bug fix: Worldmap is now not clickable anymore for level 0.</li>
 </ul>
-<br/>
+<br>
 
 <i>Android Client v2.5</i>
 <ul>
@@ -834,7 +841,7 @@ $notes[38] = '
 <li>Added 9 more battle awards.</li>
 <li>Added confirmation popup functionality:</li>
 <ul>
-<li>Enable popup on the Page-Settings page.</li>	
+<li>Enable popup on the Page-Settings page.</li>
 <li>Added popup to restore & repair actions.</li>
 <li>Added popup to set bounty action.</li>
 </ul>
@@ -858,7 +865,7 @@ $notes[38] = '
 <li>Added christmas background with falling snowflakes animation.</li>
 <li>Bug fix: Army attack & defense strength calculate is now correct.</li>
 </ul>
-<br/>
+<br>
 
 <i>Android Client v2.4</i>
 <ul>
@@ -895,7 +902,7 @@ $notes[37] = '
 <li>Bug fix: Remove some typos in the text across the game.</li>
 <li>Bug fix: Last two awards are now working correct.</li>
 </ul>
-<br/>
+<br>
 
 <i>Android Client v2.3</i>
 <ul>
@@ -929,7 +936,7 @@ $notes[36] = '
 <li>Bug fix: Alliance accepted table offset is maintain during drop action.</li>
 <li>Bug fix: Corrected some small graphical issues in Ms. Internet Explorer.</li>
 </ul>
-<br/>
+<br>
 
 <i>Android Client v2.2</i>
 <ul>
@@ -960,14 +967,14 @@ $notes[35] = '
 <li>Log database errors in audit trail (Admin mode).</li>
 <li>Bug fix: Added word wrap to truncate long comments.</li>
 </ul>
-<br/>
+<br>
 
 <i>Android Client v2.1</i>
 <ul>
 <li>Added back button functionality.</li>
 <li>Released app on Android Market.</li>
 </ul>
-<br/>
+<br>
 
 <i>Windows Client v1.3</i>
 <ul>
@@ -1003,7 +1010,7 @@ $notes[34] = '
 <li>Bug fix: Player with long session (>24h) receive daily bonus again.</li>
 <li>Bug fix: Added TCP/IP web service shorter timeout.</li>
 </ul>
-<br/>
+<br>
 
 <i>Android Client v2.0</i>
 <ul>
@@ -1011,7 +1018,7 @@ $notes[34] = '
 <li>Exit button event cleanups cache and kills app completly.</li>
 <li>Released app on Android Market.</li>
 </ul>
-<br/>
+<br>
 
 <i>Windows Client v1.2</i>
 <ul>
@@ -1053,7 +1060,7 @@ $notes[33] = '
 <li>Bug fix: Robot attack message contain now always correct army type.</li>
 <li>Bug fix: WarQuest client version detection is now working again.</li>
 </ul>
-<br/>
+<br>
 
 <i>Android Client v1.9</i>
 <ul>
@@ -1090,7 +1097,7 @@ $notes[32] = '
 <li>Improve browser overview (Admin mode)</li>
 <li>Bank interest rate is now different for each bank.</li>
 </ul>
-<br/>
+<br>
 
 <i>Android Client v1.8</i>
 <ul>
@@ -1124,11 +1131,11 @@ $notes[31] = '
 <li>Added mission statistics graph (Admin mode).</li>
 <li>Improve breaking news input form (Admin mode).</li>
 </ul>
-<br/>
+<br>
 
 <i>Android Client v1.7</i>
 <ul>
-<li>On exit (submenu button) all cached files are deleted.</li> 
+<li>On exit (submenu button) all cached files are deleted.</li>
 <li>This prevents error pages to be reloaded for the cache.</li>
 <li>Released app on Android Market.</li>
 </ul>';
@@ -1146,7 +1153,7 @@ $notes[30] = '
 <li>Bug fix: Cron is now running every day.</li>
 <li>Bug fix: WarQuest clients can not change there password anymore.</li>
 </ul>
-<br/>
+<br>
 
 <i>Android Client v1.6</i>
 <ul>
@@ -1169,7 +1176,7 @@ $notes[29] = '
 <li>Added hourly cost information to unit popup.</li>
 <li>Disable casino mini games.</li>
 </ul>
-<br/>
+<br>
 
 <i>Android Client v1.4</i>
 <ul>
@@ -1192,20 +1199,20 @@ $notes[28] = '
 <li>Improve php web server response time.</li>
 <li>Html requests on login page are now counted.</li>
 <li>Bug fix: Robot does not attack player without ammo anymore.</li>
-<li>Disabled html redirect on www.warquest.nl domain.</li>
+<li>Disabled html redirect on warquest.plaatsoft.nl domain.</li>
 <li>Introduce info@warquest.nl email contact address for questions.</li>
 </ul>
-<br/>
+<br>
 
 <i>Android Client v1.3</i>
 <ul>
 <li>Added support for Android 2.2 and higher.</li>
 <li>Added no internet connection warning.</li>
 <li>Bug fix: if internet fails during auto sign-on, no account is created anymore.</li>
-<li>App is now using the www.warquest.nl url.</li>
+<li>App is now using the warquest.plaatsoft.nl url.</li>
 <li>Released app on Android Market.</li>
 </ul>
-<br/>
+<br>
 
 <i>Windows Client v1.0</i>
 <ul>
@@ -1222,12 +1229,12 @@ $notes[27] = '
 <ul>
 <li>Added breaking news section to home page.</li>
 <li>Battle player list does not show allies anymore.</li>
-<li>Improve alliance overview 
+<li>Improve alliance overview
 <li><li>Not approved allies are now on top of the list.</li>
 <li>Optimised some pages for Android client.</li>
 <li>Improve release notes layout.</li>
 </ul>
-<br/>
+<br>
 
 <i>Android Client v1.1</i>
 <ul>
@@ -1248,7 +1255,7 @@ $notes[26] = '
 <li>Complete redesign of battle functionality:</li>
 <ul>
 <li>Now you can fight or bounty hunt other players.</li>
-<li>You can set a bounty on someone head on the battle page.</li> 
+<li>You can set a bounty on someone head on the battle page.</li>
 <li>If the player with bounty is defeated, he will lose some experience points.</li>
 <li>Bounty hunting feature is enabled at level 5.</li>
 </ul>
@@ -1264,12 +1271,12 @@ $notes[26] = '
 <li>Enlarge maximum amount of buildings from 450 to 600.</li>
 <li>Added full automatic cron jobs.</li>
 </ul>
-<br/>
+<br>
 
 <i>Android Client v0.1</i>
 <ul>
 <li>Start building android WarQuest app.</li>
-<li>www.warquest.nl site is automatic loaded.</li>
+<li>warquest.plaatsoft.nl site is automatic loaded.</li>
 <li>Full control of game possible.</li>
 </ul>';
 
@@ -1291,7 +1298,7 @@ $notes[25] = '
 <li>Admin player now visible again in leaderboards.</li>
 <li>Enlarge maximum amount of buildings from 350 to 450.
 </ul>
-<br/>
+<br>
 
 <i>Windows Client v0.70</i>
 <ul>
@@ -1316,7 +1323,7 @@ $notes[24] = '
 <li>Improve award help and skill point page.</li>
 <li>Improve worldmap. Sea is now transparant.</li>
 <li>Corrected total request count. Robots actions are not counted anymore.</li>
-<li>Improve some database queries. Now faster page response.</li> 
+<li>Improve some database queries. Now faster page response.</li>
 <li>Added cleanup battle log action. (Admin mode).</li>
 </ul>';
 
@@ -1389,7 +1396,7 @@ $notes[20] = '
 <li>Added player building income detail page.</li>
 <li>Added player unit hourly cost detail page.</li>
 </ul>
-<br/>
+<br>
 
 <i>Windows Client v0.60</i>
 <ul>
@@ -1478,7 +1485,7 @@ $notes[16] = '
 <li>Adapted first 10 level transistions.</li>
 <li>Bug fix: Hourly cost calculation corrected.</li>
 </ul>
-<br/>
+<br>
 
 <i>Windows Client v0.50</i>
 <ul>
@@ -1566,7 +1573,7 @@ $notes[11] = '
 <li>Bug fix: Javascript money calculation corrected!</li>
 <li>Bug fix: Home page improved for Nokia devices.</li>
 </ul>
-<br/>
+<br>
 
 <i>Windows Client v0.40</i>
 <ul>
@@ -1625,7 +1632,7 @@ $notes[8] = '
 <ul>
 <li>Redesign intro page. Better look.</li>
 <li>Make CSS font size better.</li>
-<li>Ordered www.warquest.nl domain.</li> 
+<li>Ordered warquest.plaatsoft.nl domain.</li>
 <li>Added Nokia css style sheet.</li>
 <li>Added admin page, to manage easy users and comments.</li>
 <li>Added ids to html links and buttons for selenium tests.</li>
@@ -1637,11 +1644,11 @@ $notes[8] = '
 <li>Bug fix: Attack player for leaderboard is now working again.</li>
 <li>Bug fix: Emails contain now correct text.</li>
 </ul>
-<br/>
+<br>
 
 <i>Windows Client v0.30</i>
 <ul>
-<li>Update URL to www.warquest.nl.</li>
+<li>Update URL to warquest.plaatsoft.nl.</li>
 <li>Use QT library 4.7.2 as engine.</li>
 <li>The app was build with QtCreator v2.0.1.</li>
 <li>Released app on freewarefiles.com.</li>
@@ -1688,7 +1695,7 @@ $notes[6] = '
 <li>Bug fix: Mission unit lost is now working correct.</li>
 <li>First beta release for the world.</li>
 </ul>
-<br/>
+<br>
 
 <i>Windows Client v0.20</i>
 <ul>
@@ -1726,7 +1733,7 @@ $notes[5] = '
 <li>Update building names and images.</li>
 <li>Bug fix: Level 200 is maximum to reach.</li>
 </ul>
-<br/>
+<br>
 
 <i>Windows Client v0.10</i>
 <ul>
@@ -1838,11 +1845,3 @@ $notes[1] = '
 <li>Added javascript timers.</li>
 <li>Added battle log.</li>
 </ul>';
-
-/*
-** ---------------------------------------------------------------<li>
-** THE END
-** ----------------------------------------------------------------
-*/
-
-?>

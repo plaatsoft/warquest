@@ -1,4 +1,4 @@
-/* 
+/*
 **  ========
 **  WarQuest
 **  ========
@@ -6,7 +6,7 @@
 **  Created by wplaat
 **
 **  For more information visit the following website.
-**  Website : www.plaatsoft.nl 
+**  Website : www.plaatsoft.nl
 **
 **  Or send an email to the following address.
 **  Email   : info@plaatsoft.nl
@@ -23,7 +23,7 @@ var snowminsize=8;
 var snowmaxsize=22;
 
 // Set the snowing-zone
-// Set 1 for all-over-snowing, set 2 for left-side-snowing 
+// Set 1 for all-over-snowing, set 2 for left-side-snowing
 // Set 3 for center-snowing, set 4 for right-side-snowing
 var snowingzone=1;
 
@@ -42,7 +42,7 @@ var ns6=document.getElementById&&!document.all;
 var opera=browserinfos.match(/Opera/);
 var browserok=ie5||ns6||opera;
 
-function randommaker(range){		
+function randommaker(range){
 	rand=Math.floor(range*Math.random());
     return rand
 }
@@ -58,8 +58,8 @@ function initsnow(){
 	}
 	var snowsizerange=snowmaxsize-snowminsize;
 	for (i=0;i<=snowmax;i++){
-		crds[i] = 0;                      
-    	lftrght[i] = Math.random()*15;         
+		crds[i] = 0;
+    	lftrght[i] = Math.random()*15;
     	x_mv[i] = 0.03 + Math.random()/10;
 		snow[i]=document.getElementById("s"+i);
 		snow[i].style.fontFamily=snowtype[randommaker(snowtype.length)];
@@ -84,7 +84,7 @@ function movesnow(){
 		snow[i].posy+=snow[i].sink;
 		snow[i].style.left=snow[i].posx+lftrght[i]*Math.sin(crds[i]);
 		snow[i].style.top=snow[i].posy;
-		
+
 		if (snow[i].posy>=marginbottom-2*snow[i].size || parseInt(snow[i].style.left)>(marginright-3*lftrght[i])){
 			if (snowingzone==1){snow[i].posx=randommaker(marginright-snow[i].size)};
 			if (snowingzone==2){snow[i].posx=randommaker(marginright/2-snow[i].size)};

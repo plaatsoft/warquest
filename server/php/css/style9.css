@@ -1,4 +1,4 @@
-/* 
+/*
 **  ========
 **  WarQuest
 **  ========
@@ -6,7 +6,7 @@
 **  Created by wplaat
 **
 **  For more information visit the following website.
-**  Website : www.plaatsoft.nl 
+**  Website : www.plaatsoft.nl
 **
 **  Or send an email to the following address.
 **  Email   : info@plaatsoft.nl
@@ -18,36 +18,36 @@
 
 /* -- General -- */
 
-body {		
+body {
 	color:  #ccc;
 }
 
 /* -- Box -- */
 
 .box {
-	border: solid 2px; 
-	padding: 2px 8px; 
+	border: solid 2px;
+	padding: 2px 8px;
 	border-color: #212425;
 	border-width: 1px;
 	background-image: -webkit-linear-gradient(top, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0));
 	background-image: -moz-linear-gradient(top, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0));
 	background-image: -o-linear-gradient(top, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0));
 	background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0));
-	text-align: justify;  
+	text-align: justify;
 }
 
 /* --- Paragraph --- */
 
 .paragraph {
 	font-size: 1.6em;
-	padding: 5px 0px 2px 0px; 
+	padding: 5px 0px 2px 0px;
 	color: white;
 }
 
 .subparagraph {
 	font-size: 1.2em;
 	font-weight: bold;
-	padding: 0px 0px 2px 0px; 
+	padding: 0px 0px 2px 0px;
 	color: white;
 }
 
@@ -57,7 +57,7 @@ body {
 	font-size: 0.9em;
 }
 
-.menu ol, ul { 
+.menu ol, ul {
 	list-style: none;
 	margin: 0px;
 	padding: 0px;
@@ -89,14 +89,14 @@ body {
 .notification {
 	position:relative;
 	font-size: 0.9em;
-	border: solid 1px; 
-	padding: 0px 0px; 
-	margin: 0px 0px; 
-	-moz-border-radius: 2px; 
-	-khtml-border-radius: 2px; 
-	-webkit-border-radius: 2px; 
-	border-radius: 4px; 
-	text-align: justify; 
+	border: solid 1px;
+	padding: 0px 0px;
+	margin: 0px 0px;
+	-moz-border-radius: 2px;
+	-khtml-border-radius: 2px;
+	-webkit-border-radius: 2px;
+	border-radius: 4px;
+	text-align: justify;
 	background-color: red;
 }
 
@@ -114,7 +114,7 @@ table {
 
 table th {
 	font-size: 1.0em;
-	font-weight: bold;	
+	font-weight: bold;
 	text-align: left;
 	padding: 2px 0px 2px 0px;
 	background-image: none;
@@ -137,9 +137,9 @@ table tr {
 	background-image: none;
 }
 
-.rows table .bar {  
+.rows table .bar {
 	font-size: 0.3em;
-	border-bottom: solid 0px; 
+	border-bottom: solid 0px;
 	background-image: none;
 }
 
@@ -147,16 +147,16 @@ table tr {
 
 input {
 	margin:2px 0px 2px 0px;
-	font-size:1.0em; 
-	border:solid 1px #ccc; 
-		-moz-border-radius: 2px; 
-	-khtml-border-radius: 2px; 
-	-webkit-border-radius: 2px; 
-	border-radius: 4px; 
+	font-size:1.0em;
+	border:solid 1px #ccc;
+		-moz-border-radius: 2px;
+	-khtml-border-radius: 2px;
+	-webkit-border-radius: 2px;
+	border-radius: 4px;
 }
 
-input:focus { 
-	border:solid 1px #EEA34A; 
+input:focus {
+	border:solid 1px #EEA34A;
 }
 
 /* -- select -- */
@@ -211,7 +211,7 @@ input:focus {
   height: 28px;
   line-height: 14px;
   font-size: 1.0em;
-  color: #EEA34Aa;
+  color: #EEA34A;
   /* Fallback for IE 8 */
   background: #EEA34A;
   /* "transparent" doesn't work with Opera */
@@ -294,6 +294,6 @@ input:focus {
 
 /* -- textarea -- */
 
-textarea:focus { 
-	border:solid 1px #EEA34A; 
+textarea:focus {
+	border:solid 1px #EEA34A;
 }

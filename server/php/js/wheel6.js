@@ -1,4 +1,4 @@
-/* 
+/*
 **  ========
 **  WarQuest
 **  ========
@@ -6,7 +6,7 @@
 **  Created by wplaat
 **
 **  For more information visit the following website.
-**  Website : www.plaatsoft.nl 
+**  Website : www.plaatsoft.nl
 **
 **  Or send an email to the following address.
 **  Email   : info@plaatsoft.nl
@@ -31,39 +31,39 @@ var ctx;
 var startBet;
 var key;
 var token;
-      
+
 function initWheel( bet, angle, key1, token1 ) {
 	startBet = bet;
 	startAngle = angle;
 	key = key1;
 	token = token1;
 }
-   
+
 function drawWheel() {
   var canvas = document.getElementById("canvas");
   if (canvas.getContext) {
     var outsideRadius = 200;
     var textRadius = 160;
     var insideRadius = 15;
-   
+
     ctx = canvas.getContext("2d");
     ctx.clearRect(0,0,400,400);
-      
+
     ctx.strokeStyle = "black";
     ctx.lineWidth = 2;
-   
+
     ctx.font = 'bold 12px Helvetica, Arial';
-   
+
     for(var i = 0; i < 12; i++) {
       var angle = startAngle + i * arc;
       ctx.fillStyle = colors[i];
-     
+
       ctx.beginPath();
       ctx.arc(250, 210, outsideRadius, angle, angle + arc, false);
       ctx.arc(250, 210, insideRadius, angle + arc, angle, true);
       ctx.stroke();
       ctx.fill();
-     
+
       ctx.save();
       ctx.shadowOffsetX = -1;
       ctx.shadowOffsetY = -1;
@@ -77,7 +77,7 @@ function drawWheel() {
       ctx.fillText(text, -ctx.measureText(text).width / 2, 0);
       ctx.restore();
     }
-   
+
     //Arrow
     ctx.fillStyle = "white";
     ctx.beginPath();
@@ -92,7 +92,7 @@ function drawWheel() {
     ctx.fill();
   }
 }
-   
+
 function spinWheel() {
   spinAngleStart = Math.random() * 10 + 10;
   spinTime = 0;
@@ -127,44 +127,44 @@ function stopRotateWheel() {
   ctx.font = 'bold 30px Helvetica, Arial';
   ctx.fillStyle = "white";
   var text = restaraunts[index]
-  ctx.restore(); 
-  
+  ctx.restore();
+
   simpleHttpRequest(text, startAngle, startBet, key);
 }
 
 function simpleHttpRequest(wheel, angle, bet, key) {
- 
+
 	var form = document.forms['warquest'];
 
 	var newInput1 = document.createElement('input');
 	newInput1.setAttribute('type','hidden');
 	newInput1.setAttribute('name','wheel');
 	newInput1.setAttribute('value', wheel);
-	form.appendChild(newInput1);		
-		
+	form.appendChild(newInput1);
+
 	var newInput2 = document.createElement('input');
 	newInput2.setAttribute('type','hidden');
 	newInput2.setAttribute('name','angle');
 	newInput2.setAttribute('value', angle);
-	form.appendChild(newInput2);	
-	
+	form.appendChild(newInput2);
+
 	var newInput3 = document.createElement('input');
 	newInput3.setAttribute('type','hidden');
 	newInput3.setAttribute('name','bet');
 	newInput3.setAttribute('value', bet);
-	form.appendChild(newInput3);	
-	
+	form.appendChild(newInput3);
+
 	var newInput4 = document.createElement('input');
 	newInput4.setAttribute('type','hidden');
 	newInput4.setAttribute('name','token');
 	newInput4.setAttribute('value', token);
-	form.appendChild(newInput4);	
-	
+	form.appendChild(newInput4);
+
 	var newInput5 = document.createElement('input');
 	newInput5.setAttribute('type','hidden');
 	newInput5.setAttribute('name','key');
 	newInput5.setAttribute('value', key);
-	form.appendChild(newInput5);	
-	
-	form.submit();	
+	form.appendChild(newInput5);
+
+	form.submit();
 }

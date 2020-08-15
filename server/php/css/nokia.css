@@ -1,4 +1,4 @@
-/* 
+/*
 **  ========
 **  WarQuest
 **  ========
@@ -6,7 +6,7 @@
 **  Created by wplaat
 **
 **  For more information visit the following website.
-**  Website : www.plaatsoft.nl 
+**  Website : www.plaatsoft.nl
 **
 **  Or send an email to the following address.
 **  Email   : info@plaatsoft.nl
@@ -17,7 +17,7 @@
 @media all and (min-width: 0px) and (max-width: 359px) {
   body {
 	 zoom: 1.0;
-	 -moz-transform: scale(1.0); 
+	 -moz-transform: scale(1.0);
 	 -moz-transform-origin: 0 0;
   }
 }
@@ -25,7 +25,7 @@
 @media all and (min-width: 360px) and (max-width: 479px) {
   body {
 	 zoom: 1.0;
-	 -moz-transform: scale(1.0); 
+	 -moz-transform: scale(1.0);
 	 -moz-transform-origin: 0 0;
   }
 }
@@ -33,7 +33,7 @@
 @media all and (min-width: 480px) and (max-width: 530px) {
   body {
 	 zoom: 1.0;
-	 -moz-transform: scale(1.0); 
+	 -moz-transform: scale(1.0);
 	 -moz-transform-origin: 0 0;
   }
 }
@@ -49,7 +49,7 @@ body {
 button {
 	 padding: 0px;
 	 margin: 0px;
-    border: 0px solid #f00;	 
+    border: 0px solid #f00;
     background: none;
 }
 
@@ -62,9 +62,7 @@ button:hover {
 
 .note {
 	font-size: 1.0em;
-	text-align: justify; 
-	margin: 5px 0px; 
-	width: 100%; 
+	text-align: justify;
+	margin: 5px 0px;
+	width: 100%;
 }
- 
-

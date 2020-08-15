@@ -1,4 +1,4 @@
-/* 
+/*
 **  ========
 **  WarQuest
 **  ========
@@ -6,7 +6,7 @@
 **  Created by wplaat
 **
 **  For more information visit the following website.
-**  Website : www.plaatsoft.nl 
+**  Website : www.plaatsoft.nl
 **
 **  Or send an email to the following address.
 **  Email   : info@plaatsoft.nl
@@ -106,11 +106,11 @@ function Init(a00,a01,a02,a10,a11,a12,a20,a21,a22,bet1, key1, token1) {
 	Held[0]="false";
 	Held[1]="false";
 	Held[2]="false";
-	
+
 	document.getElementById("Hold0").style.display = 'none';
 	document.getElementById("Hold1").style.display = 'none';
 	document.getElementById("Hold2").style.display = 'none';
-	
+
 	Result[0][0] = a00;
 	Result[0][1] = a01;
 	Result[0][2] = a02;
@@ -118,20 +118,20 @@ function Init(a00,a01,a02,a10,a11,a12,a20,a21,a22,bet1, key1, token1) {
 	Result[1][0] = a10;
 	Result[1][1] = a11;
 	Result[1][2] = a12;
-	
+
 	Result[2][0] = a20;
 	Result[2][1] = a21;
 	Result[2][2] = a22;
-	
+
 	HeldCheck=0;
-	
+
 	bet=bet1;
 	key=key1;
 	token=token1;
 }
 
 function Show() {
-	
+
 	document.r0top.src=eval(Result[0][0]);
 	document.r0main.src=eval(Result[0][1]);
 	document.r0btm.src=eval(Result[0][2]);
@@ -139,10 +139,10 @@ function Show() {
 	document.r1top.src=eval(Result[1][0]);
 	document.r1main.src=eval(Result[1][1]);
 	document.r1btm.src=eval(Result[1][2]);
-	
+
 	document.r2top.src=eval(Result[2][0]);
 	document.r2main.src=eval(Result[2][1]);
-	document.r2btm.src=eval(Result[2][2]);		
+	document.r2btm.src=eval(Result[2][2]);
 }
 
 function Go()
@@ -160,7 +160,7 @@ function Go()
 		document.r1main.src=spin.src;
 		document.r1btm.src=spinbtm.src;
 	}
-	
+
 	if (Held[2]=="false") {
 		Line[2]=0;
 		document.r2top.src=spintop.src;
@@ -174,23 +174,23 @@ function Go()
 
 function Spin() {
 
-	if (x1==3) {			
-			
-				
+	if (x1==3) {
+
+
 		if (HeldCheck==1) {
-		
+
 			document.getElementById("Hold0").style.display = 'none';
 			document.getElementById("Hold1").style.display = 'none';
 			document.getElementById("Hold2").style.display = 'none';
-			
+
 			Wincheck();
-			
+
 		} else {
-		
+
 			document.getElementById("Hold0").style.display = 'inline';
 			document.getElementById("Hold1").style.display = 'inline';
 			document.getElementById("Hold2").style.display = 'inline';
-	
+
 			HeldCheck=1;
 		}
 	}
@@ -222,10 +222,10 @@ function Spin() {
 		rt.src=eval(spunreel[topnum]+"top.src");
 		rm.src=eval(spunreel[Line[x1]]+".src");
 		rb.src=eval(spunreel[btmnum]+"btm.src")
-		
+
 		Result[x1][0]=spunreel[topnum]+"top.src";
 		Result[x1][1]=spunreel[Line[x1]]+".src";
-		Result[x1][2]=spunreel[btmnum]+"btm.src";		
+		Result[x1][2]=spunreel[btmnum]+"btm.src";
 	}
 	x1=x1+1;
 	setTimeout('Spin()','150')
@@ -286,96 +286,95 @@ function Wincheck() {
 function Hold(id) {
 
 	if (Held[id]=="false") {
-		document.getElementById("Hold"+id).style.display = 'none';	
-		Held[id]="true";	
+		document.getElementById("Hold"+id).style.display = 'none';
+		Held[id]="true";
 	} else {
-		document.getElementById("Hold"+id).style.display = 'inline';	
-		Held[id]="false";	
+		document.getElementById("Hold"+id).style.display = 'inline';
+		Held[id]="false";
 	}
 }
 
 function simpleHttpRequest(price, bet) {
- 
+
 	var form = document.forms['warquest'];
 
 	var newInput1 = document.createElement('input');
 	newInput1.setAttribute('type','hidden');
 	newInput1.setAttribute('name','price');
 	newInput1.setAttribute('value', price);
-	form.appendChild(newInput1);		
-	
+	form.appendChild(newInput1);
+
 	var newInput2 = document.createElement('input');
 	newInput2.setAttribute('type','hidden');
 	newInput2.setAttribute('name','token');
 	newInput2.setAttribute('value', token);
-	form.appendChild(newInput2);	
+	form.appendChild(newInput2);
 
 	var newInput3 = document.createElement('input');
-	newInput3.setAttribute('type','hidden');	
+	newInput3.setAttribute('type','hidden');
 	newInput3.setAttribute('name','a00');
 	newInput3.setAttribute('value', Result[0][0]);
-	form.appendChild(newInput3);		
+	form.appendChild(newInput3);
 
 	var newInput4 = document.createElement('input');
-	newInput4.setAttribute('type','hidden');	
+	newInput4.setAttribute('type','hidden');
 	newInput4.setAttribute('name','a01');
 	newInput4.setAttribute('value', Result[0][1]);
-	form.appendChild(newInput4);	
+	form.appendChild(newInput4);
 
 	var newInput5 = document.createElement('input');
-	newInput5.setAttribute('type','hidden');	
+	newInput5.setAttribute('type','hidden');
 	newInput5.setAttribute('name','a02');
 	newInput5.setAttribute('value', Result[0][2]);
-	form.appendChild(newInput5);	
-			
+	form.appendChild(newInput5);
+
 	var newInput6 = document.createElement('input');
 	newInput6.setAttribute('type','hidden');
 	newInput6.setAttribute('name','a10');
 	newInput6.setAttribute('value', Result[1][0]);
-	form.appendChild(newInput6);		
-	
+	form.appendChild(newInput6);
+
 	var newInput7 = document.createElement('input');
 	newInput7.setAttribute('type','hidden');
 	newInput7.setAttribute('name','a11');
 	newInput7.setAttribute('value', Result[1][1]);
-	form.appendChild(newInput7);	
-	
+	form.appendChild(newInput7);
+
 	var newInput8 = document.createElement('input');
-	newInput8.setAttribute('type','hidden');	
+	newInput8.setAttribute('type','hidden');
 	newInput8.setAttribute('name','a12');
 	newInput8.setAttribute('value', Result[1][2]);
 	form.appendChild(newInput8);
-	
+
 	var newInput9 = document.createElement('input');
-	newInput9.setAttribute('type','hidden');	
+	newInput9.setAttribute('type','hidden');
 	newInput9.setAttribute('name','a20');
 	newInput9.setAttribute('value', Result[2][0]);
-	form.appendChild(newInput9);		
-	
+	form.appendChild(newInput9);
+
 	var newInput10 = document.createElement('input');
 	newInput10.setAttribute('type','hidden');
 	newInput10.setAttribute('name','a21');
 	newInput10.setAttribute('value', Result[2][1]);
-	form.appendChild(newInput10);	
-	
+	form.appendChild(newInput10);
+
 	var newInput11 = document.createElement('input');
 	newInput11.setAttribute('type','hidden');
 	newInput11.setAttribute('name','a22');
 	newInput11.setAttribute('value', Result[2][2]);
 	form.appendChild(newInput11);
-	
+
 		var newInput12 = document.createElement('input');
 	newInput12.setAttribute('type','hidden');
 	newInput12.setAttribute('name','bet');
 	newInput12.setAttribute('value', bet);
 	form.appendChild(newInput12);
-	
+
 	var newInput13 = document.createElement('input');
 	newInput13.setAttribute('type','hidden');
 	newInput13.setAttribute('name','key');
 	newInput13.setAttribute('value', key);
 	form.appendChild(newInput13);
-	
-	form.submit();	
-}
 
+	form.submit();
+}

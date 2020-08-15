@@ -412,8 +412,7 @@ function MakeFont($fontfile, $afmfile, $enc='cp1252', $patch=array(), $type='Tru
 		//Not embedded font
 		$s.='$file='."'';\n";
 	}
-	$s.="?>\n";
+	$s.="\n";
 	SaveToFile($basename.'.php',$s,'t');
 	echo 'Font definition file generated ('.$basename.'.php'.')<br>';
 }
-?>

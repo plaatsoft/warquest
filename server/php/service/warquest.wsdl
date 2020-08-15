@@ -1,11 +1,11 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
 
-<wsdl:definitions 
-	targetNamespace='http://www.warquest.nl/service/warquest.wsdl'	
-	xmlns:tns='http://www.warquest.nl/service/warquest.wsdl' 
-	xmlns:xsd1='http://www.warquest.nl/service/warquest.xsd'
+<wsdl:definitions
+	targetNamespace='https://warquest.plaatsoft.nl/service/warquest.wsdl'
+	xmlns:tns='https://warquest.plaatsoft.nl/service/warquest.wsdl'
+	xmlns:xsd1='https://warquest.plaatsoft.nl/service/warquest.xsd'
 	xmlns:xsd='http://www.w3.org/2001/XMLSchema'
-	xmlns:soap='http://schemas.xmlsoap.org/wsdl/soap/' 
+	xmlns:soap='http://schemas.xmlsoap.org/wsdl/soap/'
 	xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' >
 
 <wsdl:documentation>
@@ -14,9 +14,9 @@
    Owner: PlaatSoft
 </wsdl:documentation>
 
-<wsdl:import namespace="http://www.warquest.nl/service"
-	location="http://www.warquest.nl/service/warquest.xsd"/>
-			  
+<wsdl:import namespace="https://warquest.plaatsoft.nl/service"
+	location="https://warquest.plaatsoft.nl/service/warquest.xsd"/>
+
 <wsdl:message name='getPlayerRequest'>
 	<wsdl:part name='name' type='xsd:string'/>
 </wsdl:message>
@@ -73,114 +73,114 @@
 </wsdl:message>
 
 <wsdl:portType name='WarQuestPort'>
-	
+
 	<wsdl:documentation>The following methodes can be used to play WarQuest</wsdl:documentation>
-	 
+
 	<wsdl:operation name='getPlayer'>
-		<wsdl:input message='tns:getPlayerRequest'/>	
+		<wsdl:input message='tns:getPlayerRequest'/>
 		<wsdl:output message='tns:getPlayerResponse'/>
    </wsdl:operation>
-	
+
 	<wsdl:operation name='getClan'>
-		<wsdl:input message='tns:getClanRequest'/>	
+		<wsdl:input message='tns:getClanRequest'/>
 		<wsdl:output message='tns:getClanResponse'/>
    </wsdl:operation>
-	
+
 	<wsdl:operation name='getPlanet'>
-		<wsdl:input message='tns:getPlanetRequest'/>	
+		<wsdl:input message='tns:getPlanetRequest'/>
 		<wsdl:output message='tns:getPlanetResponse'/>
    </wsdl:operation>
-	
+
 	<wsdl:operation name='doBattle'>
-		<wsdl:input message='tns:doBattleRequest'/>	
+		<wsdl:input message='tns:doBattleRequest'/>
 		<wsdl:output message='tns:doBattleResponse'/>
    </wsdl:operation>
-	
+
 	<wsdl:operation name='doMission'>
-		<wsdl:input message='tns:doMissionRequest'/>	
+		<wsdl:input message='tns:doMissionRequest'/>
 		<wsdl:output message='tns:doMissionResponse'/>
    </wsdl:operation>
-	
+
 	<wsdl:operation name='doAlliance'>
-		<wsdl:input message='tns:doAllianceRequest'/>	
+		<wsdl:input message='tns:doAllianceRequest'/>
 		<wsdl:output message='tns:doAllianceResponse'/>
    </wsdl:operation>
-	
+
 </wsdl:portType>
 
 <wsdl:binding name='WarQuestBinding' type='tns:WarQuestPort'>
    <soap:binding style='rpc'  transport='http://schemas.xmlsoap.org/soap/http' />
-	
+
    <wsdl:operation name='getPlayer'>
      <soap:operation soapAction='getPlayer' style="rpc"/>
 		<wsdl:input>
-        <soap:body use='literal' namespace="http://www.warquest.nl/service/warquest.wsdl" />
+        <soap:body use='literal' namespace="https://warquest.plaatsoft.nl/service/warquest.wsdl" />
       </wsdl:input>
 		<wsdl:output>
-			<soap:body use='literal' namespace="http://www.warquest.nl/service/warquest.wsdl" />
+			<soap:body use='literal' namespace="https://warquest.plaatsoft.nl/service/warquest.wsdl" />
 		</wsdl:output>
 	</wsdl:operation>
-	
+
 	<wsdl:operation name='getClan'>
      <soap:operation soapAction='getClan' style="rpc"/>
 		<wsdl:input>
-        <soap:body use='literal' namespace="http://www.warquest.nl/service/warquest.wsdl" />
+        <soap:body use='literal' namespace="https://warquest.plaatsoft.nl/service/warquest.wsdl" />
       </wsdl:input>
 		<wsdl:output>
-			<soap:body use='literal' namespace="http://www.warquest.nl/service/warquest.wsdl" />
+			<soap:body use='literal' namespace="https://warquest.plaatsoft.nl/service/warquest.wsdl" />
 		</wsdl:output>
 	</wsdl:operation>
-	
+
 	<wsdl:operation name='getPlanet'>
      <soap:operation soapAction='getPlanet' style="rpc"/>
 		<wsdl:input>
-        <soap:body use='literal' namespace="http://www.warquest.nl/service/warquest.wsdl" />
+        <soap:body use='literal' namespace="https://warquest.plaatsoft.nl/service/warquest.wsdl" />
       </wsdl:input>
 		<wsdl:output>
-			<soap:body use='literal' namespace="http://www.warquest.nl/service/warquest.wsdl" />
+			<soap:body use='literal' namespace="https://warquest.plaatsoft.nl/service/warquest.wsdl" />
 		</wsdl:output>
 	</wsdl:operation>
-	
+
 	<wsdl:operation name='doBattle'>
      <soap:operation soapAction='doBattle' style="rpc"/>
 		<wsdl:input>
-        <soap:body use='literal' namespace="http://www.warquest.nl/service/warquest.wsdl" />
+        <soap:body use='literal' namespace="https://warquest.plaatsoft.nl/service/warquest.wsdl" />
       </wsdl:input>
 		<wsdl:output>
-			<soap:body use='literal' namespace="http://www.warquest.nl/service/warquest.wsdl" />
+			<soap:body use='literal' namespace="https://warquest.plaatsoft.nl/service/warquest.wsdl" />
 		</wsdl:output>
 	</wsdl:operation>
-	
+
 	<wsdl:operation name='doMission'>
      <soap:operation soapAction='doMission' style="rpc"/>
 		<wsdl:input>
-        <soap:body use='literal' namespace="http://www.warquest.nl/service/warquest.wsdl" />
+        <soap:body use='literal' namespace="https://warquest.plaatsoft.nl/service/warquest.wsdl" />
       </wsdl:input>
 		<wsdl:output>
-			<soap:body use='literal' namespace="http://www.warquest.nl/service/warquest.wsdl" />
+			<soap:body use='literal' namespace="https://warquest.plaatsoft.nl/service/warquest.wsdl" />
 		</wsdl:output>
 	</wsdl:operation>
-	
+
 	<wsdl:operation name='doAlliance'>
      <soap:operation soapAction='doAlliance' style="rpc"/>
 		<wsdl:input>
-        <soap:body use='literal' namespace="http://www.warquest.nl/service/warquest.wsdl" />
+        <soap:body use='literal' namespace="https://warquest.plaatsoft.nl/service/warquest.wsdl" />
       </wsdl:input>
 		<wsdl:output>
-			<soap:body use='literal' namespace="http://www.warquest.nl/service/warquest.wsdl" />
+			<soap:body use='literal' namespace="https://warquest.plaatsoft.nl/service/warquest.wsdl" />
 		</wsdl:output>
 	</wsdl:operation>
-	
+
 </wsdl:binding>
 
 <wsdl:service name='WarQuest'>
 
 	<wsdl:documentation>WSDL file for WarQuest</wsdl:documentation>
-	
+
 	<wsdl:port binding='tns:WarQuestBinding' name='WarQuestPort'>
-		<soap:address location='http://www.warquest.nl/service/' />
+		<soap:address location='https://warquest.plaatsoft.nl/service/' />
 	</wsdl:port>
-	
+
 </wsdl:service>
 
 </wsdl:definitions>

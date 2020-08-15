@@ -1,6 +1,6 @@
 <?php
 
-/* 
+/*
 **  ========
 **  WarQuest
 **  ========
@@ -8,7 +8,7 @@
 **  Created by wplaat
 **
 **  For more information visit the following website.
-**  Website : www.plaatsoft.nl 
+**  Website : www.plaatsoft.nl
 **
 **  Or send an email to the following address.
 **  Email   : info@plaatsoft.nl
@@ -21,7 +21,7 @@
 ** (1) Every line has the following syntax $lang['<KEY>'] = '<DESCRIPTION>';
 **     Only change the <DESCRIPTION> part. Leave the rest unchanged.
 ** (2) The <DESCRIPTION> part contain %s tags. DO NOT REMOVE THEN.
-**     The %s are realtime replace with game parameters. 
+**     The %s are realtime replace with game parameters.
 **     For example: 'Restore for %s dollars' will be on screen 'Restore for 100 dollars'
 ** (3) The LINK keys contain the menu items of the game. Choose as short as possible words.
 ** (4) Leave HTML tags unchanged, for example <b>, </b>, etc....
@@ -34,7 +34,7 @@
 ** Language: English
 ** ------------------
 */
- 
+
 /*
 ** ------------------
 ** LINKS
@@ -42,12 +42,12 @@
 */
 
 /* Login */
-$lang['LINK_LOGIN']  = 'Login'; 
-$lang['LINK_REGISTER'] = 'Registration'; 
-$lang['LINK_RECOVER'] = 'Recovery'; 
-$lang['LINK_MANUAL'] = 'Manual'; 
+$lang['LINK_LOGIN']  = 'Login';
+$lang['LINK_REGISTER'] = 'Registration';
+$lang['LINK_RECOVER'] = 'Recovery';
+$lang['LINK_MANUAL'] = 'Manual';
 $lang['LINK_FACEBOOK'] = 'Facebook';
-$lang['LINK_RSS']  = 'RSS'; 
+$lang['LINK_RSS']  = 'RSS';
 
 /* General */
 $lang['LINK_HOME'] = 'Home';
@@ -167,13 +167,13 @@ $lang['LINK_ABOUT']  = 'About';
 
 /*
 ** ------------------
-** GENERAL 
+** GENERAL
 ** ------------------
 */
 
 $lang['SYSTEM_HACK_DETECTED'] = 'Please do not use the reload, prev or next button!';
 
-$lang['AGO_DAY']   = ' day';	
+$lang['AGO_DAY']   = ' day';
 $lang['AGO_DAYS']  = ' days';
 $lang['AGO_HOUR']  = ' hour';
 $lang['AGO_HOURS'] = ' hours';
@@ -181,8 +181,8 @@ $lang['AGO_MIN']   = ' min';
 $lang['AGO_MINS']  = ' mins';
 $lang['AGO_SEC']   = ' sec';
 $lang['AGO_SECS']  = ' secs';
-	
-$lang['COPYRIGHT'] = 'Copyright © 1996-2016 - All Rights Reserved - <a target="new" href="https://www.plaatsoft.nl">PlaatSoft</a>';
+
+$lang['COPYRIGHT'] = 'Copyright Â© 1996-' . date('Y') . ' - All Rights Reserved - <a target="_blank" href="https://www.plaatsoft.nl">PlaatSoft</a>';
 $lang['STATUS_CASH']  = 'Cash';
 $lang['STATUS_EXP']  = 'Exp.';
 $lang['STATUS_LEVEL']  = 'Level';
@@ -261,7 +261,7 @@ $lang['GENERAL_SPIES'] = 'spies';
 $lang['GENERAL_MAINTENANCE'] = 'Unit maintenance';
 
 $lang['GENERAL_CNTRY'] = 'Country';
-$lang['GENERAL_TOPICS'] = 'topics'; 
+$lang['GENERAL_TOPICS'] = 'topics';
 $lang['GENERAL_FORUM'] = 'Forum';
 $lang['GENERAL_MESSAGES'] = 'messages';
 $lang['GENERAL_LAST_MESSAGE'] = 'Last Message';
@@ -396,7 +396,7 @@ $lang['LOGIN_NICKNAME']  = 'Nickname';
 $lang['LOGIN_MAINTENANCE_TITLE'] = 'Server Maintenance';
 $lang['LOGIN_MAINTENANCE'] = 'At the moment, we are upgrading the warquest server this will take some time. Please come back later. Thank you!';
 
-$lang['LOGIN_LOGOUT'] = 'You are now logged off!'; 
+$lang['LOGIN_LOGOUT'] = 'You are now logged off!';
 $lang['LOGIN_FAILED'] = 'Wrong username and/or password!';
 $lang['LOGIN_BANN'] = 'This user account is locked because of cheating!';
 $lang['LOGIN_REGISTER_OK'] = 'User account %s is created!';
@@ -408,7 +408,7 @@ $lang['LOGIN_NICKNAME_EXIST'] = 'Nickname %s already in use!';
 $lang['LOGIN_NICKNAME_NEEDED'] = 'Nickname must be entered!';
 $lang['LOGIN_NEW_PASSWORD_SEND'] = 'New password was sent to your email!';
 $lang['LOGIN_EMAIL_UNKNOWN'] = 'Unknown e-mail!';
-$lang['LOGIN_BEST_VIEWED'] = 'WarQuest is optimized for the following mobile systems: "Apple iOS, BlackBerry OS, Android OS, Symbian OS, Firefox OS" and internet browsers: "Internet Explorer, Mozilla Firefox, Apple Safari, Opera, Google Chrome". 
+$lang['LOGIN_BEST_VIEWED'] = 'WarQuest is optimized for the following mobile systems: "Apple iOS, BlackBerry OS, Android OS, Symbian OS, Firefox OS" and internet browsers: "Internet Explorer, Mozilla Firefox, Apple Safari, Opera, Google Chrome".
 This game is best viewed with browser width set to 500px. ';
 
 $lang['LOGIN_NEW_CLIENT_TITLE'] = 'New WarQuest client available!';
@@ -432,14 +432,14 @@ $lang['HOME_LASTEST_FORUM_ITEM'] = 'Latest Forum Post';
 $lang['HOME_INTRO_PLAYERS'] = 'At the moment %s players from %s countries are active, ';
 $lang['HOME_INTRO_FIGHTS'] = '%s fights took place and ';
 $lang['HOME_INTRO_REQUESTS'] = '%s server requests were handled. ';
-		
+
 $lang['HOME_INTRO_TITLE'] = 'Introduction';
 $lang['HOME_INTRO_MISSIONS'] = 'Start the game by playing %s ';
 $lang['HOME_INTRO_BATTLES'] = 'and fight %s. ';
 $lang['HOME_INTRO_UNITS'] = 'When you gain money and experience points you can buy more advanced %s ';
 $lang['HOME_INTRO_BUILDINGS'] = ' and %s to get stronger. At anytime other players can attack you, so keep your defence updated.';
 
-$lang['HOME_NEW_ANDROID_VERSION'] = 'New app version v%s is available at the Android Market.<br/>Please upgrade!';
+$lang['HOME_NEW_ANDROID_VERSION'] = 'New app version v%s is available at the Android Market.<br>Please upgrade!';
 $lang['HOME_NEW_WINDOWS_VERSION'] = 'New WarQuest client v%s is available!';
 $lang['HOME_CLICK_HERE'] = 'here';
 $lang['HOME_CLICK_TEXT'] = 'Click %s to start download.';
@@ -459,8 +459,8 @@ $lang['HOME_MAP_NOTE'] = 'Each continent consist out of regions which can be con
 
 $lang['HOME_TRAVEL_TO'] = 'Travel to';
 
-$lang['HOME_INTRO_PLACE1'] = 'You are on %s place on the overall leaderboard '; 
-$lang['HOME_INTRO_PLACE2'] = 'and %s place on the <b>%s</b> leaderboard. '; 
+$lang['HOME_INTRO_PLACE1'] = 'You are on %s place on the overall leaderboard ';
+$lang['HOME_INTRO_PLACE2'] = 'and %s place on the <b>%s</b> leaderboard. ';
 $lang['HOME_PLAYERS_ONLINE'] = 'Last 24 hours %s players were online.';
 
 $lang['HOME_HOLIDAY'] = 'Holiday';
@@ -490,12 +490,12 @@ $lang['PLAYER_BOUNTY_SET'] = 'Bounties set';
 $lang['PLAYER_REBELLION_RISE'] = 'Rebellions started';
 $lang['PLAYER_UNIT_COST']  = 'Unit cost';
 $lang['PLAYER_NETTO_INCOME']  = 'Net hourly income';
-$lang['PLAYER_STATISTICS']  = 'Statistics'; 
+$lang['PLAYER_STATISTICS']  = 'Statistics';
 $lang['PLAYER_DISCOUNT_MAINTENANCE']  = 'Discount & Maintenance';
-$lang['PLAYER_NAME']  = 'Name'; 
+$lang['PLAYER_NAME']  = 'Name';
 $lang['PLAYER_ID']  = 'Id';
-$lang['PLAYER_RANK']  = 'Rank'; 
-$lang['PLAYER_OVERVIEW']  = 'Profile'; 
+$lang['PLAYER_RANK']  = 'Rank';
+$lang['PLAYER_OVERVIEW']  = 'Profile';
 $lang['PLAYER_DISCOUNT_RATE'] = 'Building discount';
 $lang['PLAYER_MAINTENANCE_RATE'] = 'Unit maintenance';
 $lang['PLAYER_LAST_LOGIN'] = 'Last active (ago)';
@@ -526,7 +526,7 @@ $lang['PLAYER_ATTACK_SKILLS'] = 'Player attack skills';
 $lang['PLAYER_DEFENSE_SKILLS'] = 'Player defence skills';
 $lang['PLAYER_SUB_TOTAL'] = 'Sub total';
 $lang['PLAYER_TOTAL'] = 'Total';
-$lang['PLAYER_FORCE'] = 'Attack & Defence Strength'; 
+$lang['PLAYER_FORCE'] = 'Attack & Defence Strength';
 $lang['PLAYER_DEPLOYED'] = 'Deployed';
 
 $lang['PLAYER_BUILDING'] = 'Building';
@@ -567,7 +567,7 @@ $lang['HOME_BATTLE_YOU_EXP'] = 'You gained %s experience ';
 $lang['HOME_BATTLE_TOOK_DAMAGE'] = 'and took %s damage.';
 $lang['HOME_BATTLE_TAKING_DAMAGE'] = 'and taking %s damage.';
 $lang['HOME_BATTLE_YOU_MONEY'] = 'Losing %s dollars ';
-$lang['HOME_BATTLE_NO_NEWS'] = 'No battle news available at the moment!'; 
+$lang['HOME_BATTLE_NO_NEWS'] = 'No battle news available at the moment!';
 
 $lang['HOME_BOUNTY_NEWS'] = '%s has set %s dollars on your head. If you get defeated you will lose %s experience points.';
 
@@ -579,7 +579,7 @@ $lang['HOME_BOUNTY_NEWS'] = '%s has set %s dollars on your head. If you get defe
 
 $lang['HOME_MESSAGES_TITLE']= 'Messages';
 $lang['HOME_MESSAGE_DELETED'] = 'Message deleted!';
-$lang['HOME_NO_MESSAGES'] = 'No player messages available at the moment!'; 
+$lang['HOME_NO_MESSAGES'] = 'No player messages available at the moment!';
 
 /*
 ** ------------------
@@ -590,13 +590,13 @@ $lang['HOME_NO_MESSAGES'] = 'No player messages available at the moment!';
 $lang['PLAYER_SKILL_SUBTITLE1']  = 'Skill Points';
 $lang['PLAYER_SKILL_SUBTITLE2']  = 'Skill Points [%s available]';
 $lang['PLAYER_SKILL_NOTE']  = 'Use skill points to increase attack, defence, health, energy or ammo skills.';
-$lang['PLAYER_SKILLS']  = 'Skills'; 
-$lang['PLAYER_CURRENT'] = 'Current'; 
+$lang['PLAYER_SKILLS']  = 'Skills';
+$lang['PLAYER_CURRENT'] = 'Current';
 $lang['PLAYER_ATTACK']  = 'Attack';
 $lang['PLAYER_DEFENSE'] = 'Defence';
-$lang['PLAYER_HEALTH']  = 'Health'; 
-$lang['PLAYER_ENERGY']  = 'Energy'; 
-$lang['PLAYER_AMMO']  = 'Ammo'; 
+$lang['PLAYER_HEALTH']  = 'Health';
+$lang['PLAYER_ENERGY']  = 'Energy';
+$lang['PLAYER_AMMO']  = 'Ammo';
 
 $lang['PLAYER_ATTACK_TIP']  = 'Increase your attack skill to do more damage and win more fights. It takes 1 skill point to increase your attack strength with %s. Decrease your attack skill with %s to get 1 skill point in return.';
 $lang['PLAYER_DEFENSE_TIP'] = 'Increase your defence skill to resist against more attacks. It takes 1 skill point to increase your defense strength with %s. Decrease your defence skill with %s to get 1 skill point in return.';
@@ -659,46 +659,46 @@ $lang['PLAYER_REPAIR_PRICE'] = 'Repair Price';
 $lang['PLAYER_RESTORED_FAILED'] = 'You do not have %s dollars to execute this action.';
 
 $lang['PLAYER_HEALTH_TITLE'] = 'Restore Health';
-$lang['PLAYER_HEALTH_NOTE'] = 'Pay the hospital to restore your army\'s health completely. Restore can only be used once every 5 minutes. Health also restores by itself over time.';	
+$lang['PLAYER_HEALTH_NOTE'] = 'Pay the hospital to restore your army\'s health completely. Restore can only be used once every 5 minutes. Health also restores by itself over time.';
 $lang['PLAYER_HEALTH_CONDITION'] = 'Health condition';
 $lang['PLAYER_HEALTH_RESTORED'] = 'Health restored for %s dollars.';
 $lang['PLAYER_HEALTH_CONFIRM'] = 'Do you really want to restore health?';
 
 $lang['PLAYER_ENERGY_TITLE'] = 'Restore Energy';
-$lang['PLAYER_ENERGY_NOTE'] = 'Pay the oil company to restore your army\'s energy completely. Restore can only be used once every 24 hours. Energy also restores by itself over time. ';	
+$lang['PLAYER_ENERGY_NOTE'] = 'Pay the oil company to restore your army\'s energy completely. Restore can only be used once every 24 hours. Energy also restores by itself over time. ';
 $lang['PLAYER_ENERGY_CONDITION'] = 'Energy condition';
 $lang['PLAYER_ENERGY_RESTORED'] = 'Energy restored for %s dollars.';
 $lang['PLAYER_ENERGY_CONFIRM'] = 'Do you really want to restore energy?';
 
 $lang['PLAYER_AMMO_TITLE'] = 'Restore Ammo';
-$lang['PLAYER_AMMO_NOTE'] = 'Pay the weapon factory to restore your army\'s ammo completely. Restore can only be used once every 24 hours. Ammo also restores by itself over time.';	
+$lang['PLAYER_AMMO_NOTE'] = 'Pay the weapon factory to restore your army\'s ammo completely. Restore can only be used once every 24 hours. Ammo also restores by itself over time.';
 $lang['PLAYER_AMMO_CONDITION'] = 'Ammo condition';
 $lang['PLAYER_AMMO_RESTORED'] = 'Ammo restored for %s dollars.';
 $lang['PLAYER_AMMO_CONFIRM'] = 'Do you really want to restore ammo?';
 
 $lang['PLAYER_CEASE_FIRE_TITLE'] = 'Cease Fire Period';
-$lang['PLAYER_CEASE_FIRE_NOTE'] = 'Pay money to start a cease fire period. During this period other players can\'t attack you, nor you can attack others.';	
+$lang['PLAYER_CEASE_FIRE_NOTE'] = 'Pay money to start a cease fire period. During this period other players can\'t attack you, nor you can attack others.';
 $lang['PLAYER_CEASE_FIRE_ACTIVATED'] = 'Cease fire period activated for %s dollars.';
 $lang['PLAYER_CEASE_FIRE_CONFIRM'] = 'Do you really want to activate cease fire period?';
 $lang['PLAYER_HOLIDAY_TITLE'] = 'Holiday Period';
-$lang['PLAYER_HOLIDAY_NOTE'] = 'Relax by activating a holiday period. During this period your account is frozen (Missions, Battle, Units and Buildings features are locked) and other players can not attack you.';	
+$lang['PLAYER_HOLIDAY_NOTE'] = 'Relax by activating a holiday period. During this period your account is frozen (Missions, Battle, Units and Buildings features are locked) and other players can not attack you.';
 $lang['PLAYER_HOLIDAY_ACTIVATED'] = 'Holiday period activated for %s dollar.';
 $lang['PLAYER_HOLIDAY_CONFIRM'] = 'Do you really want to activate a holiday period?';
 
 $lang['PLAYER_UNITS_TITLE'] = 'Repair Units';
-$lang['PLAYER_UNITS_NOTE'] = 'Repair units of your army. If units condition gets 0% some units will be destroyed and the remaining units are automatically repaired.';	
+$lang['PLAYER_UNITS_NOTE'] = 'Repair units of your army. If units condition gets 0% some units will be destroyed and the remaining units are automatically repaired.';
 $lang['PLAYER_UNITS_CONDITION'] = 'Units Condition (UC)';
 $lang['PLAYER_UNITS_REPAIRED'] = 'Your units are repaired for %s dollars.';
 $lang['PLAYER_UNITS_CONFIRM'] = 'Do you really want to repair your units?';
 
 $lang['PLAYER_BUILDINGS_TITLE'] = 'Repair Buildings';
-$lang['PLAYER_BUILDINGS_NOTE'] = 'Repair buildings of your base. If buildings condition gets 0%, some buildings will be destroyed and the remaining buildings are automatically repaired.';	
+$lang['PLAYER_BUILDINGS_NOTE'] = 'Repair buildings of your base. If buildings condition gets 0%, some buildings will be destroyed and the remaining buildings are automatically repaired.';
 $lang['PLAYER_BUILDINGS_CONDITION'] = 'Buildings Condition (BC)';
 $lang['PLAYER_BUILDINGS_REPAIRED'] = 'Your buildings are repaired for %s dollar.';
 $lang['PLAYER_BUILDINGS_CONFIRM'] = 'Do you really want to repair your buildings?';
 
 $lang['PLAYER_REBELLION_TITLE'] = 'Restore Peace';
-$lang['PLAYER_REBELLION_NOTE'] = 'Pay intelligence to end upcoming rebellions in your conquered regions. If Rebellion Condition gets 100% some regions will be lost to rebels and must be reconquered.';	
+$lang['PLAYER_REBELLION_NOTE'] = 'Pay intelligence to end upcoming rebellions in your conquered regions. If Rebellion Condition gets 100% some regions will be lost to rebels and must be reconquered.';
 $lang['PLAYER_REBELLION_CONDITION'] = 'Rebellion Condition (RC)';
 $lang['PLAYER_REBELLION_RESTORED'] = 'End rebellion for %s dollars.';
 $lang['PLAYER_REBELLION_CONFIRM'] = 'Do you really want to restore peace?';
@@ -743,6 +743,7 @@ $lang['BACKGROUND_5'] = 'Pirate';
 $lang['BACKGROUND_6'] = 'Classic';
 $lang['BACKGROUND_7'] = 'Christmas';
 $lang['BACKGROUND_8'] = 'Fireworks';
+$lang['BACKGROUND_9'] = 'Modern (Tablet / Desktop)';
 
 $lang['PLAYER_GENERAL_CHANGED'] = 'General settings changed!';
 $lang['NICKNAME_EXIST'] = 'Nickname already taken!';
@@ -762,21 +763,21 @@ $lang['PLAYER_USERNAME'] = 'Username';
 $lang['PLAYER_USERNAME_TO_SHORT'] = 'Username must be at least 4 characters long!';
 $lang['PLAYER_USERNAME_ALREADY_EXIST'] = 'Username already exist!';
 $lang['PLAYER_USERNAME_CHANGED'] = 'Username is changed. Do not forget to change this setting in the WarQuest app, otherwise automatic login will not work anymore!';
-$lang['PLAYER_CURRENT_PASSWORD'] = 'Current password';		
+$lang['PLAYER_CURRENT_PASSWORD'] = 'Current password';
 $lang['PLAYER_NEW_PASSWORD'] = 'New password';
 $lang['PLAYER_NEW_PASSWORD_AGAIN'] = 'New password (Again)';
 $lang['PLAYER_PASSWORD_CHANGED'] = 'Password is changed. Do not forget to change this setting in the WarQuest app, otherwise automatic login will not work anymore!';
 $lang['PLAYER_PASSWORD_NO_MATCH'] = 'Current password doesn\'t match!';
 $lang['PLAYER_PASSWORD_TO_SHORT'] = 'The new password must be at least 6 characters long!';
 $lang['PLAYER_NEWS_PASSWORD_NOT_MATCH'] = 'The new passwords do not match!';
-$lang['PLAYER_LOGIN_NOTE'] = 'WARNING: Automatic login only works when the same username and password are set in the WarQuest app!'; 
+$lang['PLAYER_LOGIN_NOTE'] = 'WARNING: Automatic login only works when the same username and password are set in the WarQuest app!';
 
 $lang['SETTING_ACCOUNT_RESET_TITLE'] = 'Account Reset';
 $lang['SETTING_YES'] = 'Yes';
 $lang['SETTING_SURE'] = 'Account reset! Are your really sure?';
 $lang['SETTING_ACCOUNT_RESET'] = 'Activate an account reset? ';
 $lang['SETTING_NO_REVERSE'] = '(This reset action can not be reversed!)';
-$lang['SETTING_ACCOUNT_RESET_NOTE'] = 'WARNING: When your account is resetted all data of your account is put back to the begin state. This means that everything is removed (units, buildings, alliances, missions, etc..)'; 
+$lang['SETTING_ACCOUNT_RESET_NOTE'] = 'WARNING: When your account is resetted all data of your account is put back to the begin state. This means that everything is removed (units, buildings, alliances, missions, etc..)';
 $lang['SETTING_ACCOUNT_RESETTED'] = 'Player %s account is resetted!';
 
 /*
@@ -1315,8 +1316,8 @@ $lang['BATTLE_ATTACKER_HEALTH_LOW'] = 'Your health is too low to battle!. Visit 
 $lang['BATTLE_AMMO_LOW'] = 'You are out of ammo! Wait a few minutes for your ammo to recharge or use skill points to improve ammo skill.';
 $lang['BATTLE_UNITS_LOST'] = 'During the battle you lost the following unit(s):';
 $lang['BATTLE_BUILDINGS_LOST'] = 'During the battle you lost the following building(s):';
-$lang['BATTLE_DEFENSE_FORCE'] = '%s %s defense %s (%s defense strength):'; 
-$lang['BATTLE_DEFENSE_BASE'] = '%s defence base:'; 
+$lang['BATTLE_DEFENSE_FORCE'] = '%s %s defense %s (%s defense strength):';
+$lang['BATTLE_DEFENSE_BASE'] = '%s defence base:';
 $lang['BATTLE_ATTACK_FORCE'] = 'Your %s attack %s (%s attack strength):';
 $lang['BATTLE_MORE'] = 'more';
 $lang['BATTLE_NO_PLAYER_AVAILABLE'] = 'At the moment no player is available to battle.';
@@ -1333,8 +1334,8 @@ $lang['BATTLE_ENEMIES'] = 'Enemies';
 $lang['BATTLE_BOUNTY'] = 'Bounty-Hunting';
 
 $lang['BATTLE_NO_BOUNTY_PLAYERS'] = 'At the moment no player(s) with bounty are available for battles.';
-$lang['BATTLE_BOUNTY_BONUS'] = 'Extra bounty bonus of %s dollars received.'; 
-$lang['BATTLE_HOSPITAL_BONUS'] = '%s surrendered temporarely. You receive %s bonus dollars!'; 
+$lang['BATTLE_BOUNTY_BONUS'] = 'Extra bounty bonus of %s dollars received.';
+$lang['BATTLE_HOSPITAL_BONUS'] = '%s surrendered temporarely. You receive %s bonus dollars!';
 $lang['BATTLE_BOUNTY_LOST'] = 'You were attacked by the %s of %s.You LOST. Losing %s dollar, taking %s damage and losing %s experience points.';
 $lang['BATTLE_BOUNTY_CONFIRM'] = 'Do you want to set a bounty for %s dollars?';
 
@@ -1345,7 +1346,7 @@ $lang['BATTLE_REBEL_UPDATE2'] = 'Well done, you increased their rebellion chance
 $lang['BATTLE_REBEL_UPDATE3'] = 'Too bad, no region available for rebellion!';
 
 $lang['BATTLE_NO_BOUNTY_MONEY'] = 'You do not have %s dollars to set a bounty on %s head.';
-$lang['BATTLE_BOUNTY_SET'] = 'You set %s dollar on %s head and gain 1 experience point. When %s gets defeated, he will lose %s expercience points.'; 
+$lang['BATTLE_BOUNTY_SET'] = 'You set %s dollar on %s head and gain 1 experience point. When %s gets defeated, he will lose %s expercience points.';
 
 $lang['BATTLE_RANGE'] = 'Players from level %s up to %s are in battle range.';
 
@@ -2231,7 +2232,7 @@ $lang['BUILDING_NOT_OWNED'] = 'You do not have %s %s.';
 
 $lang['BUILDING_BUY'] = 'You bought %s %s for %s. Now %s deployed.';
 $lang['BUILDING_MAX'] = 'No more then %s %s(s) allowed!';
-$lang['BUILDING_NO_FUNDS'] = 'Not enough funds to buy %s %s for %s.'; 
+$lang['BUILDING_NO_FUNDS'] = 'Not enough funds to buy %s %s for %s.';
 $lang['BUILDING_LOW_UPKEEP2'] = 'Not enough hourly income to buy %s %s for %s.';
 
 $lang['BUILDING_UPKEEP'] = 'Hourly Cost';
@@ -2246,7 +2247,7 @@ $lang['BUILDINGS_NO_BUILDINGS'] = 'No buildings available yet!';
 
 /*
 ** ------------------
-** MONEY - BANKS 
+** MONEY - BANKS
 ** ------------------
 */
 
@@ -2264,8 +2265,8 @@ $lang['BANK_WARNING'] = 'Warning: Intel or Explorer units from other players can
 $lang['BANK_TRANSACTION_TYPE_0'] = 'You withdrew';
 $lang['BANK_TRANSACTION_TYPE_1'] = 'You deposited';
 $lang['BANK_TRANSACTION_TYPE_2'] = 'Bank handle fee';
-$lang['BANK_TRANSACTION_TYPE_3'] = 'Restore bill';		
-$lang['BANK_TRANSACTION_TYPE_4'] = 'Interest';	
+$lang['BANK_TRANSACTION_TYPE_3'] = 'Restore bill';
+$lang['BANK_TRANSACTION_TYPE_4'] = 'Interest';
 $lang['BANK_TRANSACTION_TYPE_5'] = 'spies steal';
 $lang['BANK_TRANSACTION_TYPE_6'] = 'Bonus ';
 $lang['BANK_TRANSACTION_TYPE_7'] = 'Bank service charge';
@@ -2304,8 +2305,8 @@ $lang['STOCK_SELL'] = 'You sold %s %s stocks for %s dollars. You paid %s dollar 
 $lang['STOCK_NOTE'] = 'You can buy or sell stocks to make profit. Stock prices are based on realtime information from Yahoo! financial service. There is a %s% handle fee on each sale transaction.';
 $lang['STOCK_PRICE_TO_LOW'] = 'Stock price to low. Trading blocked!';
 
-$lang['STOCK_SYMBOL'] = 'Stock symbol'; 
-$lang['STOCK_SYMBOL_INFO'] = 'Enter Yahoo! financial stock symbol to customize this list.'; 
+$lang['STOCK_SYMBOL'] = 'Stock symbol';
+$lang['STOCK_SYMBOL_INFO'] = 'Enter Yahoo! financial stock symbol to customize this list.';
 
 $lang['STOCK_ADD'] = 'Add stock';
 $lang['STOCK_SYMBOL_ADDED'] = 'You added (%s) to your personal stock list.';
@@ -2329,13 +2330,13 @@ $lang['CASINO_TITLE'] = 'CASINO' ;
 $lang['CASINO_1'] = 'Wheel';
 $lang['CASINO_2'] = 'SlotMachine';
 $lang['CASINO_3'] = 'TicTacToe';
-$lang['CASINO_4'] = 'Poker'; 
-$lang['CASINO_5'] = 'Lottery'; 
+$lang['CASINO_4'] = 'Poker';
+$lang['CASINO_5'] = 'Lottery';
 
 $lang['CASINO_TITLE_1'] = 'Wheel Of Fortune';
 $lang['CASINO_TITLE_2'] = 'Slot Machine';
 $lang['CASINO_TITLE_3'] = 'Tic Tac Toe';
-$lang['CASINO_TITLE_4'] = 'Poker'; 
+$lang['CASINO_TITLE_4'] = 'Poker';
 $lang['CASINO_TITLE_5'] = 'Lottery';
 
 $lang['CASINO_MONEY'] = 'Money';
@@ -2346,8 +2347,8 @@ $lang['CASINO_ROLL'] = 'Roll';
 
 $lang['CASINO_NO_BET'] = 'Enter bet amount!';
 $lang['CASINO_NO_LUCKY_NUMBER'] = 'Enter lucky number!';
-$lang['CASINO_BET_TO_LARGE'] = 'Bet too large! Maximum bet is %s dollars.'; 
-$lang['CASINO_NO_MONEY'] = 'Not enough money!'; 
+$lang['CASINO_BET_TO_LARGE'] = 'Bet too large! Maximum bet is %s dollars.';
+$lang['CASINO_NO_MONEY'] = 'Not enough money!';
 $lang['CASINO_WIN'] = 'Winning number was %s. You won %s  dollars.';
 $lang['CASINO_LOST'] = 'Winning number was %s. You lost %s dollars.';
 $lang['CASINO_UNLOCK'] = '%s is unlocked at level %s';
@@ -2382,13 +2383,13 @@ $lang['ALLIANCE_ACCEPT_TITLE2'] = 'Accepted [%s allies]';
 
 $lang['ALLIANCE_INVITE_TITLE'] = 'Invite';
 
-$lang['ALLIANCE_NO_PENDING'] = 'No pending invitations waiting!'; 
-$lang['ALLIANCE_INVITATION'] = 'Ally invitation sent to %s!'; 
+$lang['ALLIANCE_NO_PENDING'] = 'No pending invitations waiting!';
+$lang['ALLIANCE_INVITATION'] = 'Ally invitation sent to %s!';
 $lang['ALLIANCE_REJECT'] = 'Reject %s as ally!';
 $lang['ALLIANCE_DROP'] = 'Drop %s as ally!';
 $lang['ALLIANCE_ACCEPT'] = 'Accept %s as ally!';
 $lang['ALLIANCE_ALLY'] = 'Ally';
-$lang['ALLIANCE_MAXIMUM'] = 'Maximum amount of %s invited/accepted allies reached for this level.'; 
+$lang['ALLIANCE_MAXIMUM'] = 'Maximum amount of %s invited/accepted allies reached for this level.';
 $lang['ALLIANCE_LOCKED'] = 'Alliance features are unlocked at level 1';
 $lang['ALLIANCE_NOTE'] = 'With every approved ally you can command 6 more units during fights. Keep in mind that you cannot attack allies.';
 
@@ -2415,36 +2416,36 @@ $lang['LEADERBOARD_CLAN_NOTE'] = 'Leaderboard shows the clan ranking.';
 
 /*
 ** ------------------
-** FORUM 
+** FORUM
 ** ------------------
 */
 
-$lang['FORUM_TITLE'] = 'FORUMS'; 
+$lang['FORUM_TITLE'] = 'FORUMS';
 $lang['FORUM_TITLE2'] = 'Forums';
 $lang['FORUM_NOTE'] = 'Select a forum to see all posted topics. I\'ve seen some people cursing or use other bad words in the forums. I doesn\'t want that kind of language on here! Thanks. And remember, no bad words! ';
 
-$lang['FORUM_1'] = 'Announcements'; 
+$lang['FORUM_1'] = 'Announcements';
 $lang['FORUM_NOTE_1'] = 'General announcements';
-$lang['FORUM_2'] = 'Bug Reports'; 
+$lang['FORUM_2'] = 'Bug Reports';
 $lang['FORUM_NOTE_2'] = 'What goes wrong in this release?';
-$lang['FORUM_3'] = 'Feature Requests'; 
+$lang['FORUM_3'] = 'Feature Requests';
 $lang['FORUM_NOTE_3'] = 'What do you want in the next release?';
-$lang['FORUM_4'] = 'Help'; 
+$lang['FORUM_4'] = 'Help';
 $lang['FORUM_NOTE_4'] = 'What is not clear in WarQuest?';
-$lang['FORUM_5'] = 'Other'; 
+$lang['FORUM_5'] = 'Other';
 $lang['FORUM_NOTE_5'] = 'Any other discussion?';
-$lang['FORUM_6'] = 'Country Communities'; 
+$lang['FORUM_6'] = 'Country Communities';
 $lang['FORUM_NOTE_6'] = 'Local language discussions?';
 
 $lang['FORUM_SEARCH_TOKEN'] = 'Search token must be atleast 3 character long.';
 
-$lang['TOPIC_TITLE'] = 'Topics'; 
+$lang['TOPIC_TITLE'] = 'Topics';
 $lang['TOPIC_CREATED_INPUT'] = 'Create new topic (max. 80 characters)';
 $lang['TOPIC_CREATED'] = 'Topic is created';
 $lang['TOPIC_UPDATED'] = 'Topic is updated';
 $lang['TOPIC_DELETED'] = 'Topic is deleted';
 $lang['TOPIC_NO_TOPICS'] = 'At the moment no topic(s) found.';
-$lang['TOPIC_NOTE'] = 'Select a topic to read/write posted messages or create a new topic.'; 
+$lang['TOPIC_NOTE'] = 'Select a topic to read/write posted messages or create a new topic.';
 $lang['TOPIC_CREATED_BY'] = '(Created by %s)';
 
 /*
@@ -2491,183 +2492,183 @@ $lang['HELP_TITLE'] = 'HELP';
 $lang['HELP_GENERAL_SUBTITLE'] = 'Instructions';
 
 $lang['HELP_INTRO_TITLE'] = 'Introduction';
-$lang['HELP_INTRO'] =	'WarQuest is a Free Multiplayer Online Game featuring a war zone with thousands of real players. WarQuest takes you to 
-the year 2020. The world is at war. The goal of the game is to defend your country and conquer other 
-countries. Buy weapons and production units, play missions, fight, make allies and become the best 
+$lang['HELP_INTRO'] =	'WarQuest is a Free Multiplayer Online Game featuring a war zone with thousands of real players. WarQuest takes you to
+the year 2020. The world is at war. The goal of the game is to defend your country and conquer other
+countries. Buy weapons and production units, play missions, fight, make allies and become the best
 player of your country.';
 
 $lang['HELP_EXP_TITLE'] = 'Experience / Level';
-$lang['HELP_EXP'] = 'Play missions and fight battles to gain experience points. When you collect 
-enough experience points you will be able to upgrade onto the next level. When a level is completed your 
+$lang['HELP_EXP'] = 'Play missions and fight battles to gain experience points. When you collect
+enough experience points you will be able to upgrade onto the next level. When a level is completed your
 energy, health and ammo will be restored istantly.';
 
 $lang['HELP_HEALTH_TITLE'] = 'Health';
-$lang['HELP_HEALTH'] = 'Your health decreases each battle but will automatically be restored over 
+$lang['HELP_HEALTH'] = 'Your health decreases each battle but will automatically be restored over
 time. You can also visit the hospital (Home -> Restore) and pay to recover istantly.';
 
-$lang['HELP_ENERGY_TITLE'] = 'Energy'; 
-$lang['HELP_ENERGY'] = 'Your energy level decreases each time you play a mission but restores 
-automatically over time. Buying energy buildings will restore your energy faster. You also may 
+$lang['HELP_ENERGY_TITLE'] = 'Energy';
+$lang['HELP_ENERGY'] = 'Your energy level decreases each time you play a mission but restores
+automatically over time. Buying energy buildings will restore your energy faster. You also may
 restore it in the same way you can restore health.';
 
-$lang['HELP_AMMO_TITLE'] = 'Ammo'; 
-$lang['HELP_AMMO'] =	'Each battle costs one ammo. Ammo is automatically restored over 
+$lang['HELP_AMMO_TITLE'] = 'Ammo';
+$lang['HELP_AMMO'] =	'Each battle costs one ammo. Ammo is automatically restored over
 time. You may also restore it in the same way you can restore health.';
 
 $lang['HELP_MISSION_TITLE'] = 'Missions';
-$lang['HELP_MISSION'] = 'Play missions to gain money and experience points to reach the next level. 
-If a mission is 100% completed you will gain twice the amount of money. If a continent is conquered 
-you receive a hourly income bonus.<br/><br/>
+$lang['HELP_MISSION'] = 'Play missions to gain money and experience points to reach the next level.
+If a mission is 100% completed you will gain twice the amount of money. If a continent is conquered
+you receive a hourly income bonus.<br><br>
 
-The following extra bonus is given when all planet missions are completed:<br/>
-EARTH: <span class="money">100</span> Million dollars<br/>
-MOON: <span class="money">500</span> Million dollars<br/>
-MARS: <span class="money">999</span> Billion dollars<br/>
-MERCURY: <span class="gold">2500</span> gold<br/>
+The following extra bonus is given when all planet missions are completed:<br>
+EARTH: <span class="money">100</span> Million dollars<br>
+MOON: <span class="money">500</span> Million dollars<br>
+MARS: <span class="money">999</span> Billion dollars<br>
+MERCURY: <span class="gold">2500</span> gold<br>
 NEPTUNE: <span class="gold">5000</span> gold';
 
 $lang['HELP_BATTLE_TITLE'] = 'Battle';
-$lang['HELP_BATTLE'] =	'Fight other players to gain money and experience points to reach the next 
+$lang['HELP_BATTLE'] =	'Fight other players to gain money and experience points to reach the next
 level. During the fight units and buildings of your base can be damaged or even lost.';
 
 $lang['HELP_UNITS_TITLE'] = 'Units';
-$lang['HELP_UNITS'] =  'During attacks your best units are automatic selected. The size (amount 
-of operational units) of your army is related to your current approved alliance size. You start off 
-with one ally which allows you to command 6 units. Each approved ally allows you to command six more 
+$lang['HELP_UNITS'] =  'During attacks your best units are automatic selected. The size (amount
+of operational units) of your army is related to your current approved alliance size. You start off
+with one ally which allows you to command 6 units. Each approved ally allows you to command six more
 units. You can purchase more but only the best 6 times your alliances size will be used.';
 
 $lang['HELP_BUILDINGS_TITLE'] = 'Buildings';
-$lang['HELP_BUILDINGS'] = 'During the game buildings provide income, higher defence, faster energy, 
-discounts and/or better unit maintenance. Every building purchase will increase the price for a next 
+$lang['HELP_BUILDINGS'] = 'During the game buildings provide income, higher defence, faster energy,
+discounts and/or better unit maintenance. Every building purchase will increase the price for a next
 purchase. Each buildings contains citizens which cost hourly income.';
 
 $lang['HELP_BANKS_TITLE'] = 'Banks';
-$lang['HELP_BANKS'] = 'Each bank will charge a deposit fee. Money which is stored in the National bank 
-is safe from other players but gives a low daily interest. Money stored on the Trasquera or SwissCore 
-bank give higher daily interest but Intel (Earth) or Explorer (Moon/Mars/Mercury/Neptune) units from 
+$lang['HELP_BANKS'] = 'Each bank will charge a deposit fee. Money which is stored in the National bank
+is safe from other players but gives a low daily interest. Money stored on the Trasquera or SwissCore
+bank give higher daily interest but Intel (Earth) or Explorer (Moon/Mars/Mercury/Neptune) units from
 other players can steal money.';
 
-$lang['HELP_ALLIANCE_TITLE'] = 'Alliance'; 
-$lang['HELP_ALLIANCE'] = 'Every approved ally allows you to command 6 additional units (that you own) 
+$lang['HELP_ALLIANCE_TITLE'] = 'Alliance';
+$lang['HELP_ALLIANCE'] = 'Every approved ally allows you to command 6 additional units (that you own)
 during fights. Increase alliance size to get stronger! Keep in mind that you cannot attack allies.';
 
 $lang['HELP_SKILL_POINTS_TITLE'] = 'Skill Points';
-$lang['HELP_SKILL_POINTS'] = 'During the game skill points can be received. Deploy skill points to 
-increase attack, defence, health, energy and/or ammo skills. Ammo skill upgrade costs 2 skill points, 
+$lang['HELP_SKILL_POINTS'] = 'During the game skill points can be received. Deploy skill points to
+increase attack, defence, health, energy and/or ammo skills. Ammo skill upgrade costs 2 skill points,
 others will cost you only 1 skill point. You can also trade in 2:1 skillpoints to change your skills.';
 
 $lang['HELP_GOLD_TITLE'] = 'Gold';
-$lang['HELP_GOLD']  = 'Gold can be purchased by donate some real dollars. See Help -> Donate. 
-Purchase gold can be used to buy premium membership, premium units, premium buildings, can be exchanged 
+$lang['HELP_GOLD']  = 'Gold can be purchased by donate some real dollars. See Help -> Donate.
+Purchase gold can be used to buy premium membership, premium units, premium buildings, can be exchanged
 in to skill points, cash money or can be used to improve your health, energy or ammo restore timer.
-<br/><br/>
-Benefits of premium membership:<br/>
-- Double experience during battles and missions.</br/>
-- Triple money during battles and missions.<br/>
-<br/>
-Benefits of premium buildings:<br/>
-- Higher defence strength then normal buildings<br/>
-- No hourly cost<br/>
+<br><br>
+Benefits of premium membership:<br>
+- Double experience during battles and missions.</br>
+- Triple money during battles and missions.<br>
+<br>
+Benefits of premium buildings:<br>
+- Higher defence strength then normal buildings<br>
+- No hourly cost<br>
 - Immortal during fights<br>
-<br/>
-Benefits of premium units:<br/>
-- Higher attack / defence strength the normal units<br/>
-- 50% lower hourly cost then normal units<br/>
+<br>
+Benefits of premium units:<br>
+- Higher attack / defence strength the normal units<br>
+- 50% lower hourly cost then normal units<br>
 - Immortal during fights';
 
 $lang['HELP_BOUNTY_TITLE'] = 'Bounty Hunting';
-$lang['HELP_BOUNTY'] = 'You can set bounty on your opponents head. The bounty price is related to the 
+$lang['HELP_BOUNTY'] = 'You can set bounty on your opponents head. The bounty price is related to the
 opponent level. After you set the bounty other players can attack the opponent (Battle -> BountyHunting).
-If the opponent is defeated he will lose some experience points and the bounty money is transferred to 
+If the opponent is defeated he will lose some experience points and the bounty money is transferred to
 the winner.';
 
 $lang['HELP_UNITS_CONDITION_TITLE'] = 'Units Condition (UC)';
-$lang['HELP_UNITS_CONDITION'] = 'This value gives information about your current units condition. 
-If the condition gets below 0% you will lose some units. To prevent unit loss you can visit 
-(Home -> Restore) to repair your operational units.'; 
+$lang['HELP_UNITS_CONDITION'] = 'This value gives information about your current units condition.
+If the condition gets below 0% you will lose some units. To prevent unit loss you can visit
+(Home -> Restore) to repair your operational units.';
 
 $lang['HELP_BUILDINGS_CONDITION_TITLE'] = 'Buildings Condition (BC)';
-$lang['HELP_BUILDINGS_CONDITION'] = 'This value gives information about your current base buildings 
-condition. If the condition gets below 0% you will lose some buildings. To prevent building loss 
-you can visit (Home -> Restore) to repair your base.'; 
+$lang['HELP_BUILDINGS_CONDITION'] = 'This value gives information about your current base buildings
+condition. If the condition gets below 0% you will lose some buildings. To prevent building loss
+you can visit (Home -> Restore) to repair your base.';
 
 $lang['HELP_WORLDMAP_TITLE'] = 'Map';
-$lang['HELP_WORLDMAP'] = 'Each planet map contain 72 regions which can be conquered with playing 
-missions. The regions can have one of the following colors: <br/>
-- "Green" Region 0% conquered<br/>
-- "Yellow" Region 33% conquered.<br/>
-- "Purple" Region 66% conquered.<br/>
-- "Orange" Region 100% conquered.<br/>
+$lang['HELP_WORLDMAP'] = 'Each planet map contain 72 regions which can be conquered with playing
+missions. The regions can have one of the following colors: <br>
+- "Green" Region 0% conquered<br>
+- "Yellow" Region 33% conquered.<br>
+- "Purple" Region 66% conquered.<br>
+- "Orange" Region 100% conquered.<br>
 - "Red" Rebellion in region. Region must be reconquered.';
 
 $lang['HELP_SHORTCUTS_TITLE'] = 'Menu shortcuts';
-$lang['HELP_SHORTCUTS'] = 'The following hidden menu shortcuts are available in the banner for 
-faster navigation:<br/>
-- Click "Cash" to go to player leaderboard page.<br/>
-- Click "Exp." to go to country leaderboard page.<br/>
-- Click "Level" to go to the poll page.<br/>
-- Click "Health" to go to restore page.<br/>
-- Click "Energy" to go to player profile page.<br/>
+$lang['HELP_SHORTCUTS'] = 'The following hidden menu shortcuts are available in the banner for
+faster navigation:<br>
+- Click "Cash" to go to player leaderboard page.<br>
+- Click "Exp." to go to country leaderboard page.<br>
+- Click "Level" to go to the poll page.<br>
+- Click "Health" to go to restore page.<br>
+- Click "Energy" to go to player profile page.<br>
 - Click "Ammo" to go to skill points page.';
 
 $lang['HELP_ATTACK_FORCE_TITLE'] = 'Attack force';
-$lang['HELP_ATTACK_FORCE'] = 'Before battle you can select one of the following attack forces:<br/><br/>
-EARTH<br/>
-- "Army" Best of calvary, navy and aircrafs earth units.<br/>
-- "Calvary" Only calvary earth units.<br/>
-- "Navy" Only navy earth units.<br/>
-- "Airforce" Only aircraft earth units.<br/>
-- "Intel" Only intel earth units.<br/>
-<br/>
-MOON / MARS / MERCURY / NEPTUNE<br/>
-- "Army" Best of drone, warrior and spacecraft units.<br/>
-- "Drones" Only drone units.<br/>
-- "Warriors" Only warrior units.<br/>
-- "Spacecrafts " Only spacecraft units.<br/>
+$lang['HELP_ATTACK_FORCE'] = 'Before battle you can select one of the following attack forces:<br><br>
+EARTH<br>
+- "Army" Best of calvary, navy and aircrafs earth units.<br>
+- "Calvary" Only calvary earth units.<br>
+- "Navy" Only navy earth units.<br>
+- "Airforce" Only aircraft earth units.<br>
+- "Intel" Only intel earth units.<br>
+<br>
+MOON / MARS / MERCURY / NEPTUNE<br>
+- "Army" Best of drone, warrior and spacecraft units.<br>
+- "Drones" Only drone units.<br>
+- "Warriors" Only warrior units.<br>
+- "Spacecrafts " Only spacecraft units.<br>
 - "Explorers " Only explorer units.
 ';
 
 $lang['HELP_REBELLION_CONDITION_TITLE'] = 'Rebellion Condition (RC)';
-$lang['HELP_REBELLION_CONDITION'] = 'This value gives information about your current rebellion condition. Region 
-rebellion is triggered by intel (Earth) or explorers (Moon/Mars/Mercury/Neptune) attacks by your opponents. If 
-the condition reaches 100%, some of your conquered regions will be in rebellion. To prevent rebellion, 
-visit (Home -> Restore) to end the rebellion. Each rebellion region results in postponed continent 
+$lang['HELP_REBELLION_CONDITION'] = 'This value gives information about your current rebellion condition. Region
+rebellion is triggered by intel (Earth) or explorers (Moon/Mars/Mercury/Neptune) attacks by your opponents. If
+the condition reaches 100%, some of your conquered regions will be in rebellion. To prevent rebellion,
+visit (Home -> Restore) to end the rebellion. Each rebellion region results in postponed continent
 hourly income. Restore control in the rebel region by playing the related mission.';
 
 $lang['HELP_TACTICS_TITLE'] = 'Tactics';
-$lang['HELP_TACTICS'] = 'One thing to keep in mind is that units used in missions are also subject to 
-loss as casualties. This is important to consider as the cost of replacing some of the higher priced 
-units used in a mission may exceed the money earned from the mission itself. In general, if your goal 
-is to maximize money from missions, then focus on the Money / Energy value of the mission. 
-If your goal is to maximize experience points, then focus on the Exp / Energy value of the 
-missions.<br/><br/>
+$lang['HELP_TACTICS'] = 'One thing to keep in mind is that units used in missions are also subject to
+loss as casualties. This is important to consider as the cost of replacing some of the higher priced
+units used in a mission may exceed the money earned from the mission itself. In general, if your goal
+is to maximize money from missions, then focus on the Money / Energy value of the mission.
+If your goal is to maximize experience points, then focus on the Exp / Energy value of the
+missions.<br><br>
 
-Once you hit the higher levels, the game automatically increases the range of opponents that can 
-attack you. When this occurs, you should increase alliance size or max out the number of members 
-in your alliance.<br/><br/>
+Once you hit the higher levels, the game automatically increases the range of opponents that can
+attack you. When this occurs, you should increase alliance size or max out the number of members
+in your alliance.<br><br>
 
-Defence buildings are an ideal purchase because they add to your defense score whenever you are attacked. 
-I recommend purchasing as many as you can afford since it will allow you to allocate more of your money 
-toward attack units without having to worry about their defence points.<br/><br/>
+Defence buildings are an ideal purchase because they add to your defense score whenever you are attacked.
+I recommend purchasing as many as you can afford since it will allow you to allocate more of your money
+toward attack units without having to worry about their defence points.<br><br>
 
-In WarQuest, defence buildings make some opponents extremely difficult to successfully attack. 
-Although it is still recommended to put points to defence, I recommend putting as many points 
-as possible in to Attack. You can compensate for lower defence skill points with defence 
-buildings.<br/><br/>
+In WarQuest, defence buildings make some opponents extremely difficult to successfully attack.
+Although it is still recommended to put points to defence, I recommend putting as many points
+as possible in to Attack. You can compensate for lower defence skill points with defence
+buildings.<br><br>
 
-When deciding what units to buy, you need to carefully consider the units hour costs, Attack and 
-Defence strength. Assuming you can afford to buy the unit, cost should not be a factor in your 
+When deciding what units to buy, you need to carefully consider the units hour costs, Attack and
+Defence strength. Assuming you can afford to buy the unit, cost should not be a factor in your
 decision since it is only a one time cost. Because of the reduction in income due to hourly
-unit cost, it does not always make sense to buy the best available units. If you are winning most of 
-your fights with your current units, then it may make more strategic sense to not increase your 
+unit cost, it does not always make sense to buy the best available units. If you are winning most of
+your fights with your current units, then it may make more strategic sense to not increase your
 hourly cost and allow your income to build at a faster rate.';
 
 $lang['HELP_FORUM_TITLE'] = 'Forum';
-$lang['HELP_FORUM'] = 'To get more information and chat with other players please visit the Warquest 
+$lang['HELP_FORUM'] = 'To get more information and chat with other players please visit the Warquest
 Forum.';
 
 $lang['HELP_GRAVATAR_TITLE'] = 'Gravatar';
-$lang['HELP_GRAVATAR'] = 'WarQuest supports Gravatar (www.gravatar.com) image service. Gravatar is an 
+$lang['HELP_GRAVATAR'] = 'WarQuest supports Gravatar (www.gravatar.com) image service. Gravatar is an
 image that follows you from site to site appearing beside your (nick)name.';
 
 /*
@@ -2740,27 +2741,27 @@ $lang['HELP_STATS_REQUESTS'] = 'Server requests ';
 $lang['HELP_DONATE_TITLE1'] = 'Donate';
 
 $lang['HELP_SUBTITLE_DONATE1'] = 'General';
-$lang['HELP_DONATE1'] = 'WarQuest software may be used free of charge, but if you wish to express 
-your appreciation for the time and resources the author spent developing and supporting it 
-over the years, and also help reduce the costs of running the web server, we do accept and appreciate 
+$lang['HELP_DONATE1'] = 'WarQuest software may be used free of charge, but if you wish to express
+your appreciation for the time and resources the author spent developing and supporting it
+over the years, and also help reduce the costs of running the web server, we do accept and appreciate
 donations.';
 
 $lang['HELP_SUBTITLE_DONATE2'] = 'Reward';
-$lang['HELP_DONATE2'] = 'Each dollar donated will be rewarded with %s. 
+$lang['HELP_DONATE2'] = 'Each dollar donated will be rewarded with %s.
 Gold is an in-game currency that gives access to various additional options.  With gold in your in-game wallet, you can:
 <ul>
 <li>Buy premium membership</li>
 <li>Buy premium units</li>
 <li>Buy premium buildings</li>
 <li>Buy extra skill points</li>
-<li>Buy extra cash</li> 
+<li>Buy extra cash</li>
 <li>Upgrade health, energy and/or ammo restore timer</li>
 </ul></br>
 The donation is MANUALLY processed so keep in mind that it takes a few hours before the gold is available.';
 
 $lang['HELP_SUBTITLE_DONATE3'] = 'PayPal';
-$lang['HELP_DONATE3'] = 'To make a donation online using your credit card, or PayPal account, click 
-below and enter the amount you would like to contribute. Your credit card will be processed by PayPal, 
+$lang['HELP_DONATE3'] = 'To make a donation online using your credit card, or PayPal account, click
+below and enter the amount you would like to contribute. Your credit card will be processed by PayPal,
 a trusted name in secure online transactions.';
 
 /*
@@ -2771,11 +2772,11 @@ a trusted name in secure online transactions.';
 
 $lang['HELP_ABOUT_SUBTITLE'] = 'About';
 $lang['HELP_BACKGROUND_TITLE'] = 'Background';
-$lang['HELP_BACKGROUND'] = 'WarQuest is created by <a target="new" href="http://www.plaatsoft.nl">PlaatSoft</a>. Original game idea is based on some other games available in the Apple appstore. The main reason to recreate this kind of game is to create a better game play and user interface which can be controlled on the following devices: smart phones, tablets and all kinds of personal computers.';
+$lang['HELP_BACKGROUND'] = 'WarQuest is created by <a target="_blank" href="https://www.plaatsoft.nl">PlaatSoft</a>. Original game idea is based on some other games available in the Apple appstore. The main reason to recreate this kind of game is to create a better game play and user interface which can be controlled on the following devices: smart phones, tablets and all kinds of personal computers.';
 $lang['HELP_CREDITS_TITLE'] = 'Credits';
-$lang['HELP_BROWSERS_TITLE'] = 'Supported Browsers'; 
-$lang['HELP_DISCLAIMER_TITLE'] = 'Disclaimer'; 
-$lang['HELP_DISCLAIMER'] = 'The program is provided AS IT IS with NO WARRANTY OF ANY KIND, INCLUDING THE WARRANTY OF DESIGN, MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE.<br/>';
+$lang['HELP_BROWSERS_TITLE'] = 'Supported Browsers';
+$lang['HELP_DISCLAIMER_TITLE'] = 'Disclaimer';
+$lang['HELP_DISCLAIMER'] = 'The program is provided AS IT IS with NO WARRANTY OF ANY KIND, INCLUDING THE WARRANTY OF DESIGN, MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE.<br>';
 
 $lang['HELP_CREDITS_TITLE'] = 'Credits';
 $lang['HELP_CREDITS'] = 'Many thanks to the following people and organisations who helped creating this game.';
@@ -2842,7 +2843,7 @@ $landcode['au'] = "Australia";
 $landcode['aw'] = "Aruba";
 $landcode['ax'] = "Aland Islands";
 $landcode['az'] = "Azerbaijan";
-		
+
 $landcode['ba'] = "Bosnia and Herzegovina";
 $landcode['bb'] = "Barbados";
 $landcode['bd'] = "Bangladesh";
@@ -2853,7 +2854,7 @@ $landcode['bh'] = "Bahrain";
 $landcode['bi'] = "Burundi";
 $landcode['bj'] = "Benin";
 $landcode['bm'] = "Bermuda";
-$landcode['bn'] = "Brunei Darussalam";	
+$landcode['bn'] = "Brunei Darussalam";
 $landcode['bl'] = "Saint Barthelemy";
 $landcode['bn'] = "Brunei";
 $landcode['bo'] = "Bolivia";
@@ -2864,7 +2865,7 @@ $landcode['bv'] = "Bouvet island";
 $landcode['bw'] = "Botswana";
 $landcode['by'] = "Belarus";
 $landcode['bz'] = "Belize";
-	
+
 $landcode['ca'] = "Canada";
 $landcode['cc'] = "Cocos Islands";
 $landcode['cf'] = "Central African Republic";
@@ -2883,14 +2884,14 @@ $landcode['cv'] = "Cape Verde";
 $landcode['cx'] = "Christmas Island";
 $landcode['cy'] = "Cyprus";
 $landcode['cz'] = "Czech Republic";
-	
+
 $landcode['de'] = "Germany";
 $landcode['dj'] = "Djibouti";
 $landcode['dk'] = "Denmark";
 $landcode['dm'] = "Dominica";
 $landcode['do'] = "Dominican Republic";
 $landcode['dz'] = "Algeria";
-	
+
 $landcode['ec'] = "Ecuador";
 $landcode['ee'] = "Estonia";
 $landcode['eg'] = "Egypt";
@@ -2899,14 +2900,14 @@ $landcode['er'] = "Eritrea";
 $landcode['es'] = "Spain";
 $landcode['et'] = "Ethiopia";
 $landcode['eu'] = "Cyberspace";
-	
+
 $landcode['fi'] = "Finland";
 $landcode['fj'] = "Fiji";
 $landcode['fk'] = "Falkland Islands";
 $landcode['fm'] = "Micronesia";
 $landcode['fo'] = "Faroe Islands";
 $landcode['fr'] = "France";
-	
+
 $landcode['ga'] = "Gabon";
 $landcode['gb'] = "United Kingdom";
 $landcode['gd'] = "Grenada";
@@ -2925,14 +2926,14 @@ $landcode['gt'] = "Guatemala";
 $landcode['gu'] = "Guam";
 $landcode['gw'] = "Guinee-Bissau";
 $landcode['gy'] = "Guyana";
-	
+
 $landcode['hk'] = "Hong Kong";
 $landcode['hm'] = "Heard- en McDonald Islands";
 $landcode['hn'] = "Honduras";
 $landcode['hr'] = "Kroatia";
 $landcode['ht'] = "Haiti";
 $landcode['hu'] = "Hungary";
-	
+
 $landcode['id'] = "Indonesia";
 $landcode['ie'] = "Ireland";
 $landcode['il'] = "Israel";
@@ -2943,11 +2944,11 @@ $landcode['iq'] = "Iraq";
 $landcode['ir'] = "Iran";
 $landcode['is'] = "Iceland";
 $landcode['it'] = "Italy";
-	
+
 $landcode['jm'] = "Jamaica";
 $landcode['jo'] = "Jordan";
 $landcode['jp'] = "Japan";
-	
+
 $landcode['ke'] = "Kenya";
 $landcode['kg'] = "Kyrgyzstan";
 $landcode['kh'] = "Cambodia";
@@ -2959,7 +2960,7 @@ $landcode['kr'] = "South Korea";
 $landcode['kw'] = "Kuwait";
 $landcode['ky'] = "Cayman Islands";
 $landcode['kz'] = "Kazachstan";
-	
+
 $landcode['la'] = "Laos";
 $landcode['lb'] = "Lebanon";
 $landcode['lc'] = "Saint Lucia";
@@ -2971,7 +2972,7 @@ $landcode['lt'] = "Lithuania";
 $landcode['lu'] = "Luxembourg";
 $landcode['lv'] = "Latvia";
 $landcode['ly'] = "Libyan";
-	
+
 $landcode['ma'] = "Morocco";
 $landcode['mc'] = "Monaco";
 $landcode['md'] = "Moldova";
@@ -2993,7 +2994,7 @@ $landcode['mw'] = "Malawi";
 $landcode['mx'] = "Mexico";
 $landcode['my'] = "Malaysia";
 $landcode['mz'] = "Mozambique";
-	
+
 $landcode['na'] = "Namibia";
 $landcode['nc'] = "New Caledonia";
 $landcode['ne'] = "Niger";
@@ -3006,9 +3007,9 @@ $landcode['np'] = "Nepal";
 $landcode['nr'] = "Nauru";
 $landcode['nu'] = "Niue";
 $landcode['nz'] = "New Zealand";
-	
+
 $landcode['om'] = "Oman";
-	
+
 $landcode['pa'] = "Panama";
 $landcode['pe'] = "Peru";
 $landcode['pf'] = "French Polynesia";
@@ -3023,15 +3024,15 @@ $landcode['ps'] = "Palestinian";
 $landcode['pt'] = "Portugal";
 $landcode['pw'] = "Palau";
 $landcode['py'] = "Paraguay";
-	
+
 $landcode['qa'] = "Qatar";
-	
+
 $landcode['re'] = "Reunion";
 $landcode['ro'] = "Romania";
 $landcode['ru'] = "Russian Federation";
 $landcode['rs'] = "Serbia";
 $landcode['rw'] = "Rwanda";
-	
+
 $landcode['sa'] = "Saudi Arabia";
 $landcode['sb'] = "Solomon Islands";
 $landcode['sc'] = "Seychelles";
@@ -3051,7 +3052,7 @@ $landcode['st'] = "Sao Tome en Principe";
 $landcode['sv'] = "El Salvador";
 $landcode['sy'] = "Syria";
 $landcode['sz'] = "Swaziland";
-	
+
 $landcode['tc'] = "Turks and Caicos Islands";
 $landcode['td'] = "Chad";
 $landcode['tg'] = "Togo";
@@ -3067,14 +3068,14 @@ $landcode['tt'] = "Trinidad and Tobago";
 $landcode['tv'] = "Tuvalu";
 $landcode['tw'] = "Taiwan";
 $landcode['tz'] = "Tanzania";
-	
+
 $landcode['ua'] = "Ukraine";
 $landcode['ug'] = "Uganda";
 $landcode['um'] = "United States Minor Outlying Islands";
 $landcode['us'] = "United States";
-$landcode['uy'] = "Uruguay";	
+$landcode['uy'] = "Uruguay";
 $landcode['uz'] = "Uzbekistan";
-	
+
 $landcode['va'] = "Vatican City";
 $landcode['vc'] = "Saint Vincent and the Grenadines";
 $landcode['ve'] = "Venezuela";
@@ -3082,13 +3083,13 @@ $landcode['vg'] = "Virgin Islands; British";
 $landcode['vi'] = "Virgin islands; US";
 $landcode['vn'] = "Vietnam";
 $landcode['vu'] = "Vanuatu";
-	
+
 $landcode['wf'] = "Wallis and Futuna";
 $landcode['ws'] = "Samoa";
-	
+
 $landcode['ye'] = "Yemen";
 $landcode['yt'] = "Mayotte";
-	
+
 $landcode['za'] = "South Africa";
 $landcode['zm'] = "Zambia";
 $landcode['zw'] = "Zimbabwe";
@@ -3099,7 +3100,7 @@ $landcode['zw'] = "Zimbabwe";
 ** ------------------
 */
 
-$lang['USER_EMAIL_CONFIRM_SENT'] = 'Confirmation email sent to %s'; 
+$lang['USER_EMAIL_CONFIRM_SENT'] = 'Confirmation email sent to %s';
 $lang['USER_EMAIL_CONFIRM_NEEDED'] = 'Please confirm your email address by clicking %s!';
 $lang['USER_EMAIL_HERE'] = 'here';
 $lang['USER_EMAIL_VALID'] = 'Your email address is validated. Thank you!';
@@ -3155,7 +3156,7 @@ $lang['BATTLE_CLAN_WAR_TITLE'] = 'Clan War';
 $lang['BATTLE_CLAN_WAR'] = 'Clan-War';
 $lang['BATTLE_SECTOR_ALL_CONQUERED'] = 'Sector already conquered!';
 $lang['BATTLE_NO_CLAN'] = 'You are not part of a clan. Attack aborted!';
-$lang['BATTLE_NOTE_CLAN_WAR'] = 'Select a planet sector which you want to conquer. To take over a planet sector your clan must destroy its defence. Sector defence damage percentage is showed on the map.'; 
+$lang['BATTLE_NOTE_CLAN_WAR'] = 'Select a planet sector which you want to conquer. To take over a planet sector your clan must destroy its defence. Sector defence damage percentage is showed on the map.';
 
 $lang['BATTLE_CLAN_WON'] = 'Your %s clan %s attacked the %s clan. You won the battle, taking %s damage, gain %s experience points and won %s dollars. ';
 $lang['BATTLE_CLAN_SECTOR_DAMAGE'] = 'Sector defence is %s % damaged.';
@@ -3163,11 +3164,11 @@ $lang['BATTLE_CLAN_SECTOR_CONQUER'] = 'Brilliant! You conquered the sector.';
 $lang['BATTLE_CLAN_LOST'] = 'Your %s clan %s attacked the %s clan. You lost the battle, taking %s damage. ';
 
 $lang['BATTLE_CLAN_ATTACK_FORCE'] = 'Your clan %s attack %s (%s attack strength):';
-$lang['BATTLE_CLAN_DEFENSE_FORCE'] = '%s %s clan defense %s (%s defense strength):'; 
-$lang['BATTLE_CLAN_DEFENSE_BASE'] = '%s clan defence base:'; 
+$lang['BATTLE_CLAN_DEFENSE_FORCE'] = '%s %s clan defense %s (%s defense strength):';
+$lang['BATTLE_CLAN_DEFENSE_BASE'] = '%s clan defence base:';
 
 $lang['HELP_CLAN_WAR_TITLE'] = 'Clan War';
-$lang['HELP_CLAN_WAR'] =	'Fight other clans to conquer all planet sectors. To take over a planet sector your clan must win 10 times. 
+$lang['HELP_CLAN_WAR'] =	'Fight other clans to conquer all planet sectors. To take over a planet sector your clan must win 10 times.
 Each conquered sector is rewarded with a bonus. The more sectors you own, the higher the bonus. So WarQuest clan players go for world domination!';
 
 /*
@@ -3181,7 +3182,7 @@ $lang['GIFT_SHOP_NOTE'] = 'The gift shop containing on this moment the above pac
 $lang['GENERAL_USD'] = 'USD';
 
 $lang['GENERAL_GOLD'] = 'gold';
-$lang['PLAYER_GOLD'] = 'Gold'; 
+$lang['PLAYER_GOLD'] = 'Gold';
 
 $lang['HOME_ANNOUNCEMENTS'] = 'Announcements';
 
@@ -3317,7 +3318,7 @@ $lang['MISSION_NO_CLAN'] = 'You are not part of a clan!';
 
 $lang['MISSION_CLAN_NOTE'] = 'Play clan missions to gain money and experience points. If your clan conquered all %s continents your clan receives %s dollar bonus.';
 
-$lang['MISSION_CLAN_PLANET_COMPLETE'] = 'Excellent! You conquered all %s continents. Your clan received %s bonus.<br/></br/>All missions are now cleared, so try again!';
+$lang['MISSION_CLAN_PLANET_COMPLETE'] = 'Excellent! You conquered all %s continents. Your clan received %s bonus.<br></br>All missions are now cleared, so try again!';
 
 /*
 ** ------------------
@@ -3365,10 +3366,10 @@ $lang['LOTTERY_PRICE'] = 'Price';
 $lang['LOTTERY_INVALID'] = 'Invalid lottery selected';
 $lang['LOTTERY_EXPIRED'] = 'Lottery is expired!';
 $lang['LOTTERY_NO_GOLD'] = 'You do not have enough gold to set a bet!';
-$lang['LOTTERY_BET_SET'] = 'You bet is processed for lottery %s and %s is withdraw from your in-game wallet!'; 
-$lang['LOTTERY_WON'] = ' CONGRATULATION! You won lottery %s. The price is added to your account.';	
+$lang['LOTTERY_BET_SET'] = 'You bet is processed for lottery %s and %s is withdraw from your in-game wallet!';
+$lang['LOTTERY_WON'] = ' CONGRATULATION! You won lottery %s. The price is added to your account.';
 
-$lang['CASINO_POKER_HELP_TITLE'] = 'Poker Help'; 
+$lang['CASINO_POKER_HELP_TITLE'] = 'Poker Help';
 $lang['CASINO_POKER_HELP'] = 'The following poker card combinations will pay out:';
 $lang['CASINO_POKER_NOTE'] = 'Enter your bet and press the play button. After the cards are draw, select the cards with must be replaced. The press the deal button and watch the final result. Winning combinations are payout directly. Click help for more information.';
 
@@ -3431,11 +3432,3 @@ $lang['GENERAL_CLAN_CREATED'] = 'Created';
 $lang['CLAN_MIN_LEVEL_INVALID'] = 'Minimal join level value invalid!';
 $lang['CLAN_MIN_LEVEL_TOO_LOW'] = 'Minimal join level too low!';
 $lang['CLAN_MIN_LEVEL_TOO_HIGH'] = 'Minimal join level too high!';
-
-/*
-** ------------------
-** THE END
-** ------------------
-*/
-
-?>

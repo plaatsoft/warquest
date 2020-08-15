@@ -1,6 +1,6 @@
 <?php
 
-/* 
+/*
 **  ========
 **  WarQuest
 **  ========
@@ -8,7 +8,7 @@
 **  Created by wplaat
 **
 **  For more information visit the following website.
-**  Website : www.plaatsoft.nl 
+**  Website : www.plaatsoft.nl
 **
 **  Or send an email to the following address.
 **  Email   : info@plaatsoft.nl
@@ -21,12 +21,12 @@ include "general.inc";
 
 function process_earth_data($data, $image) {
 
-	$border = ImageColorAt($image, 320, 65); 
+	$border = ImageColorAt($image, 320, 65);
 
 	if (strlen($data)>0) {
-	
+
 		$codes = preg_split('/,/',$data);
-		
+
 		foreach($codes as $code) {
 
 			list($country, $progress) = preg_split('/-/',$code);
@@ -35,30 +35,30 @@ function process_earth_data($data, $image) {
 			$color = ImageColorAllocate($image, 0, 255, 0);
 
 			if ($progress==0) {
-				
+
 				/* Red (Rebel state) */
 				$color = ImageColorAllocate($image, 255, 0, 0);
-			
-			} else if (($progress>=100) && ($progress<200)) {		
-			
+
+			} else if (($progress>=100) && ($progress<200)) {
+
 				/* Yellow (33% conquered) */
 				$color = ImageColorAllocate($image, 255, 255, 20);
-		
+
 			} else if (($progress>=200) && ($progress<300)) {
-			
+
 				/* Purple (66% conquered) */
 				$color = ImageColorAllocate($image, 255, 51, 255);
-		
+
 			} else if ($progress==300) {
-			
+
 				/* Orange (100% conquered) */
-				$color = ImageColorAllocate($image, 255, 165, 0);	
-			} 
-			
-	
+				$color = ImageColorAllocate($image, 255, 165, 0);
+			}
+
+
 		switch ($country) {
 
-	/* 
+	/*
 	** --------------------------
 	** Europa (1)
 	** --------------------------
@@ -134,7 +134,7 @@ function process_earth_data($data, $image) {
 		ImageFillToBorder($image, 434, 154, $border, $color);
 		ImageFillToBorder($image, 419, 158, $border, $color);
 		break;
-	
+
 	/* Italia + Greece + Turkye (8) */
 	case 8:
 		ImageFillToBorder($image, 481, 149, $border, $color);
@@ -145,16 +145,16 @@ function process_earth_data($data, $image) {
 		ImageFillToBorder($image, 549, 163, $border, $color);
 		ImageFillToBorder($image, 547, 179, $border, $color);
 		break;
-		
 
-	/* 
+
+	/*
 	** --------------------------
 	** North America (2)
 	** --------------------------
 	*/
 
 	/* Greenland (1)  */
-	case 10:		
+	case 10:
 		ImageFillToBorder($image, 384,35, $border, $color);
 		break;
 
@@ -216,7 +216,7 @@ function process_earth_data($data, $image) {
 		ImageFillToBorder($image, 171, 287, $border, $color);
 		break;
 
-	/* 
+	/*
 	** --------------------------
 	** South America (3)
 	** --------------------------
@@ -267,7 +267,7 @@ function process_earth_data($data, $image) {
 		ImageFillToBorder($image, 288, 385, $border, $color);
 		break;
 
-	/* 
+	/*
 	** --------------------------
 	** Africa (4)
 	** --------------------------
@@ -352,7 +352,7 @@ function process_earth_data($data, $image) {
 		ImageFillToBorder($image, 590, 412, $border, $color);
 		break;
 
-	/* 
+	/*
 	** --------------------------
 	** North Asia (5)
 	** --------------------------
@@ -407,7 +407,7 @@ function process_earth_data($data, $image) {
 		ImageFillToBorder($image, 589, 157, $border, $color);
 		break;
 
-	/* 
+	/*
 	** --------------------------
 	** South Asia (6)
 	** --------------------------
@@ -453,12 +453,12 @@ function process_earth_data($data, $image) {
 		break;
 
 	/* Loa (8) */
-	case 57:		
+	case 57:
 		ImageFillToBorder($image, 775, 246, $border, $color);
 
 		break;
 
-	/* 
+	/*
 	** --------------------------
 	** East Asia (7)
 	** --------------------------
@@ -508,7 +508,7 @@ function process_earth_data($data, $image) {
 		ImageFillToBorder($image, 817, 309, $border, $color);
 		break;
 
-	/* 
+	/*
 	** --------------------------
 	** Oceania (8)
 	** --------------------------
@@ -519,9 +519,9 @@ function process_earth_data($data, $image) {
 		ImageFillToBorder($image, 781, 327, $border, $color);
 		ImageFillToBorder($image, 808, 350, $border, $color);
 		ImageFillToBorder($image, 823, 354, $border, $color);
-		ImageFillToBorder($image, 830, 356, $border, $color);		
+		ImageFillToBorder($image, 830, 356, $border, $color);
 		break;
-	
+
 	/* (2) East Indonesia  */
 	case 71:
 		ImageFillToBorder($image, 818, 323, $border, $color);
@@ -530,11 +530,11 @@ function process_earth_data($data, $image) {
 		ImageFillToBorder($image, 853, 359, $border, $color);
 		ImageFillToBorder($image, 839, 331, $border, $color);
 		ImageFillToBorder($image, 844, 317, $border, $color);
-		ImageFillToBorder($image, 867, 317, $border, $color);		
+		ImageFillToBorder($image, 867, 317, $border, $color);
 		ImageFillToBorder($image, 861, 334, $border, $color);
 		ImageFillToBorder($image, 871, 333, $border, $color);
 		ImageFillToBorder($image, 901, 337, $border, $color);
-				
+
 		break;
 
 	/* (3) Philipines */
@@ -547,49 +547,49 @@ function process_earth_data($data, $image) {
 		ImageFillToBorder($image, 854, 273, $border, $color);
 		ImageFillToBorder($image, 849, 280, $border, $color);
 		ImageFillToBorder($image, 852, 278, $border, $color);
-		ImageFillToBorder($image, 855, 288, $border, $color);		
+		ImageFillToBorder($image, 855, 288, $border, $color);
 		break;
-		
+
 	/* (4) Papua New Guinea */
 	case 73:
 		ImageFillToBorder($image, 919, 343, $border, $color);
 		ImageFillToBorder($image, 941, 344, $border, $color);
 		ImageFillToBorder($image, 949, 336, $border, $color);
 		break;
-	
+
 	/* (5) Timor */
 	case 74:
 		ImageFillToBorder($image, 856, 357, $border, $color);
-		break;	
-		
+		break;
+
 	/* (7) North Australia */
 	case 75:
 		ImageFillToBorder($image, 900, 453, $border, $color);
 		break;
-		
+
 	/* (6) South Australia */
 	case 76:
 		ImageFillToBorder($image, 891, 490, $border, $color);
 		break;
-		
+
 	/* (8) New Zealand */
 	case 77:
 		ImageFillToBorder($image, 984, 477, $border, $color);
 		ImageFillToBorder($image, 955, 498, $border, $color);
 		break;
-				
-	/* 
+
+	/*
 	** --------------------------
 	** Middleast (9)
 	** --------------------------
 	*/
-	
+
 	/* (1) Syrian + Lebonon */
 	case 80:
 		ImageFillToBorder($image, 563, 181, $border, $color);
 		ImageFillToBorder($image, 556, 184, $border, $color);
 		break;
-	
+
 	/* (2) Iraq */
 	case 81:
 		ImageFillToBorder($image, 576, 185, $border, $color);
@@ -599,28 +599,28 @@ function process_earth_data($data, $image) {
 	case 82:
 		ImageFillToBorder($image, 578, 220, $border, $color);
 		break;
-		
+
 	/* (4) Kuwait */
 	case 83:
-		ImageFillToBorder($image, 593, 202, $border, $color);		
+		ImageFillToBorder($image, 593, 202, $border, $color);
 		break;
-	
+
 	/* (5) Yemen */
 	case 84:
 		ImageFillToBorder($image, 602, 256, $border, $color);
-		break;	
-		
+		break;
+
 	/* (6) Oman + Arab Emirates */
 	case 85:
 		ImageFillToBorder($image, 624, 245, $border, $color);
 		ImageFillToBorder($image, 619, 226, $border, $color);
 		break;
-		
+
 	/* (7) Jordan */
 	case 86:
 		ImageFillToBorder($image, 558, 196, $border, $color);
 		break;
-		
+
 	/* (8) Israel */
 	case 87:
 		ImageFillToBorder($image, 552, 197, $border, $color);
@@ -632,44 +632,44 @@ function process_earth_data($data, $image) {
 }
 
 function process_default_data($data, $image) {
-	
+
 	if (strlen($data)>0) {
 
 		$codes = preg_split('/,/',$data);
 		foreach($codes as $code) {
 
 			list($x, $y, $progress) = preg_split('/-/',$code);
-			
+
 			/* Transparent (0% conquered) */
-			$color = ImageColorAllocatealpha($image, 255, 255, 255, 127);		
-			
+			$color = ImageColorAllocatealpha($image, 255, 255, 255, 127);
+
 			if ($progress==0) {
-			
+
 				/* Red (Rebel state) */
-				$color = ImageColorAllocatealpha($image, 255, 0, 0, 80);		
-				
+				$color = ImageColorAllocatealpha($image, 255, 0, 0, 80);
+
 			} else if (($progress>=100) && ($progress<200)) {
-			
+
 				/* Yellow (33% conquered) */
-				$color = ImageColorAllocatealpha($image, 255, 255, 20, 80);		
-				
+				$color = ImageColorAllocatealpha($image, 255, 255, 20, 80);
+
 			} else if (($progress>=200) && ($progress<300)) {
-			
+
 				/* Purple (66% conquered) */
-				$color = ImageColorAllocatealpha($image, 255, 51, 255, 80);		
-				
+				$color = ImageColorAllocatealpha($image, 255, 51, 255, 80);
+
 			} else if ($progress>=300) {
-			
+
 				/* Orange (100% conquered) */
-				$color = ImageColorAllocatealpha($image, 255, 165, 0, 80);	
-			} 
-			
-			fillPologon($image, $color, $x, $y);	 
+				$color = ImageColorAllocatealpha($image, 255, 165, 0, 80);
+			}
+
+			fillPologon($image, $color, $x, $y);
 		}
 	}
 }
 
-/* 
+/*
 ** --------------------------
 ** Output image as PNG
 ** --------------------------
@@ -685,7 +685,7 @@ switch($planet) {
 			process_earth_data($data, $image);
 			break;
 
-	default: 
+	default:
 			$image = ImageCreateFromPNG('images/planet/global'.$planet.'.png');
 			AddPologonRaster($image);
 			process_default_data($data, $image);
@@ -695,11 +695,3 @@ switch($planet) {
 header('Content-type: image/gif');
 imagegif($image);
 imagedestroy($image);
-
-/* 
-** --------------------------
-** The End
-** --------------------------
-*/
-
-?>

@@ -1,4 +1,4 @@
-/* 
+/*
 **  ========
 **  WarQuest
 **  ========
@@ -6,7 +6,7 @@
 **  Created by wplaat
 **
 **  For more information visit the following website.
-**  Website : www.plaatsoft.nl 
+**  Website : www.plaatsoft.nl
 **
 **  Or send an email to the following address.
 **  Email   : info@plaatsoft.nl
@@ -35,35 +35,34 @@ function ammocountdown(){
 
      minuten=Math.floor((timer3)/60);
      seconden=Math.floor(timer3-minuten*60);
- 
+
      if (minuten.toString().length < 2) minuten = "0" + minuten;
      if (seconden.toString().length < 2) seconden = "0" + seconden;
- 
+
 	  var zichttijd="";
 	  if (value3<max3) {
 			zichttijd="+"+step3+" in "+minuten+":"+seconden;
 	  }
-	  
-	  document.getElementById("ammocountdown").innerHTML=zichttijd;  
-	  document.getElementById("ammovalue").innerHTML=value3.toString(); 
-	  
+
+	  document.getElementById("ammocountdown").innerHTML=zichttijd;
+	  document.getElementById("ammovalue").innerHTML=value3.toString();
+
      timer3=timer3-1;
-     timerId3=setTimeout("ammocountdown()",1000); 
-     
+     timerId3=setTimeout("ammocountdown()",1000);
+
   } else {
 
 		if (timer3==0) {
 			value3=value3+step3;
 			if (value3>max3) value3=max3;
-	  
+
 			timer3=cycle3;
-			timerId3=setTimeout("ammocountdown()",0); 
+			timerId3=setTimeout("ammocountdown()",0);
 		}
-		document.getElementById("ammovalue").innerHTML=value3.toString(); 
-  } 
+		document.getElementById("ammovalue").innerHTML=value3.toString();
+  }
 }
 
 function ammoStopTimer() {
 	clearTimeout(timerId3);
 }
-	

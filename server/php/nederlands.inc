@@ -1,6 +1,6 @@
 <?php
 
-/* 
+/*
 **  ========
 **  WarQuest
 **  ========
@@ -8,7 +8,7 @@
 **  Created by wplaat
 **
 **  For more information visit the following website.
-**  Website : www.plaatsoft.nl 
+**  Website : www.plaatsoft.nl
 **
 **  Or send an email to the following address.
 **  Email   : info@plaatsoft.nl
@@ -21,7 +21,7 @@
 ** (1) Every line has the following syntax $lang['<KEY>'] = '<DESCRIPTION>';
 **     Only change the <DESCRIPTION> part. Leave the rest unchanged.
 ** (2) The <DESCRIPTION> part contain %s tags. DO NOT REMOVE THEN.
-**     The %s are realtime replace with game parameters. 
+**     The %s are realtime replace with game parameters.
 **     For example: 'Restore for %s dollar' will be on screen 'Restore for 100 dollar'
 ** (3) The LINK keys contain the menu items of the game. Choose as short as possible words.
 ** (4) Leave HTML tags unchanged, for example <b>, </b>, etc....
@@ -29,7 +29,7 @@
 ** Good luck and have fun!
 */
 
-/* 
+/*
 ** ------------------
 ** Language: Nederlands
 ** ------------------
@@ -42,12 +42,12 @@
 */
 
 /* Login */
-$lang['LINK_LOGIN']  = 'Inloggen'; 
-$lang['LINK_REGISTER'] = 'Registeer'; 
-$lang['LINK_RECOVER'] = 'Herstel'; 
-$lang['LINK_MANUAL'] = 'Handleiding'; 
+$lang['LINK_LOGIN']  = 'Inloggen';
+$lang['LINK_REGISTER'] = 'Registeer';
+$lang['LINK_RECOVER'] = 'Herstel';
+$lang['LINK_MANUAL'] = 'Handleiding';
 $lang['LINK_FACEBOOK'] = 'Facebook';
-$lang['LINK_RSS']  = 'RSS'; 
+$lang['LINK_RSS']  = 'RSS';
 
 /* General */
 $lang['LINK_HOME'] = 'Start';
@@ -163,7 +163,7 @@ $lang['LINK_DONATE']  = 'Donatie';
 
 /*
 ** ------------------
-** GENERAL 
+** GENERAL
 ** ------------------
 */
 
@@ -178,7 +178,7 @@ $lang['AGO_MINS']  = ' min';
 $lang['AGO_SEC']   = ' sec';
 $lang['AGO_SECS']  = ' sec';
 
-$lang['COPYRIGHT'] = 'Copyright © 2008-2016 - Alle rechten voorbehouden - <a target="new" href="http://www.plaatsoft.nl">PlaatSoft</a>';
+$lang['COPYRIGHT'] = 'Copyright © 2008-' . date('Y') . ' - Alle rechten voorbehouden - <a target="_blank" href="https://www.plaatsoft.nl">PlaatSoft</a>';
 
 $lang['STATUS_CASH']  = 'Geld';
 $lang['STATUS_EXP']  = 'Erv.';
@@ -255,7 +255,7 @@ $lang['GENERAL_SPIES'] = 'spionen';
 $lang['GENERAL_MAINTENANCE'] = 'Onderhoud';
 
 $lang['GENERAL_CNTRY'] = 'Land';
-$lang['GENERAL_TOPICS'] = 'onderwerpen'; 
+$lang['GENERAL_TOPICS'] = 'onderwerpen';
 $lang['GENERAL_FORUM'] = 'Forum';
 $lang['GENERAL_MESSAGES'] = 'berichten';
 $lang['GENERAL_LAST_MESSAGE'] = 'Laatste bericht';
@@ -313,7 +313,7 @@ $lang['LOGIN_NICKNAME']  = 'Alias';
 $lang['LOGIN_MAINTENANCE_TITLE'] = 'Server Onderhoud';
 $lang['LOGIN_MAINTENANCE'] = 'Op dit moment vindt er onderhoud plaats. Probeer het over 5 minuten nog eens.';
 
-$lang['LOGIN_LOGOUT'] = 'Je bent nu afgemeld!'; 
+$lang['LOGIN_LOGOUT'] = 'Je bent nu afgemeld!';
 $lang['LOGIN_FAILED'] = 'Ongeldige Gebruikersnaam en/of Wachtwoord!';
 $lang['LOGIN_BANN'] = 'Dit account is geblokkeerd vanwege vals spelen!';
 $lang['LOGIN_REGISTER_OK'] = 'Gebruikers account %s is aangemaakt!';
@@ -325,12 +325,12 @@ $lang['LOGIN_NICKNAME_EXIST'] = 'Alias %s reeds in gebruik!';
 $lang['LOGIN_NICKNAME_NEEDED'] = 'Alias moet worden ingevoerd!';
 $lang['LOGIN_NEW_PASSWORD_SEND'] = 'Nieuw wachtwoord is verstuurd per email!';
 $lang['LOGIN_EMAIL_UNKNOWN'] = 'Email adres is onbekend!';
-$lang['LOGIN_BEST_VIEWED'] = 'WarQuest is geoptimaliseerd voor de volgende mobiele hardware: "Apple iPhone / iPad / iPod, Nokia, 
-BlackBerry, Android" en internet browsers: "Microsoft Internet Explorer, Mozilla Firefox, Apple Safari, Opera, Google Chrome". 
+$lang['LOGIN_BEST_VIEWED'] = 'WarQuest is geoptimaliseerd voor de volgende mobiele hardware: "Apple iPhone / iPad / iPod, Nokia,
+BlackBerry, Android" en internet browsers: "Microsoft Internet Explorer, Mozilla Firefox, Apple Safari, Opera, Google Chrome".
 De weergave van dit spel is optimaal bij 500 pixels browser venster breedte';
 
 $lang['LOGIN_NEW_CLIENT_TITLE'] = 'Nieuwe WarQuest client beschikbaar!';
-$lang['LOGIN_NEW_CLIENT'] = 'Op dit moment gebruik je een oude WarQuest Windows client.<br/>Bezoek www.plaatsoft.nl om de nieuwste versie te downloaden.';
+$lang['LOGIN_NEW_CLIENT'] = 'Op dit moment gebruik je een oude WarQuest Windows client.<br>Bezoek www.plaatsoft.nl om de nieuwste versie te downloaden.';
 
 /*
 ** ------------------
@@ -372,8 +372,8 @@ $lang['HOME_TRAVEL_TO'] = 'Reis naar';
 
 $lang['HOME_OVERVIEW_TITLE'] = 'Overzicht';
 
-$lang['HOME_INTRO_PLACE1'] = 'Je staat op de %s plaats van alle spelers '; 
-$lang['HOME_INTRO_PLACE2'] = 'en op de %s plaats van <b>%s</b>.'; 
+$lang['HOME_INTRO_PLACE1'] = 'Je staat op de %s plaats van alle spelers ';
+$lang['HOME_INTRO_PLACE2'] = 'en op de %s plaats van <b>%s</b>.';
 $lang['HOME_PLAYERS_ONLINE'] = '%s speler zijn de laatste 24 uur actie geweest.';
 
 /*
@@ -400,8 +400,8 @@ $lang['PLAYER_BOUNTY_SET'] = 'Premie uitgedeeld';
 $lang['PLAYER_UNIT_COST']  = 'Unit kosten';
 $lang['PLAYER_CITIZENS_COST']  = 'Burger kosten';
 $lang['PLAYER_NETTO_INCOME']  = 'Netto inkomen';
-$lang['PLAYER_STATISTICS']  = 'Statistieken'; 
-$lang['PLAYER_NAME']  = 'Naam'; 
+$lang['PLAYER_STATISTICS']  = 'Statistieken';
+$lang['PLAYER_NAME']  = 'Naam';
 $lang['PLAYER_ID']  = 'Id';
 $lang['PLAYER_DISCOUNT_RATE'] = 'Gebouw korting';
 $lang['PLAYER_MAINTENANCE_RATE'] = 'Eenheden onderhoud';
@@ -410,8 +410,8 @@ $lang['PLAYER_CREATED'] = 'Eerste inlog';
 $lang['PLAYER_CASINO_PLAYED']  = 'Casino gespeeld';
 $lang['PLAYER_ADS_SHOWED']  = 'Advertenties getoond';
 
-$lang['PLAYER_RANK']  = 'Rang'; 
-$lang['PLAYER_OVERVIEW']  = 'Profiel'; 
+$lang['PLAYER_RANK']  = 'Rang';
+$lang['PLAYER_OVERVIEW']  = 'Profiel';
 $lang['PLAYER_FORCE'] = 'Aanvals- & verdedigingskracht';
 
 $lang['PLAYER_ATTACK_FORCE'] = 'Overzicht (%s Aanvals %s)';
@@ -481,7 +481,7 @@ $lang['HOME_BOUNTY_NEWS'] = '%s heeft %s dollar op jouw hoofd gezet. Als je vers
 
 $lang['HOME_MESSAGES_TITLE']= 'Berichten';
 $lang['HOME_MESSAGE_DELETED'] = 'Bericht verwijderd!';
-$lang['HOME_NO_MESSAGES'] = 'Geen berichten beschikbaar op dit moment!'; 
+$lang['HOME_NO_MESSAGES'] = 'Geen berichten beschikbaar op dit moment!';
 
 /*
 ** ------------------
@@ -492,13 +492,13 @@ $lang['HOME_NO_MESSAGES'] = 'Geen berichten beschikbaar op dit moment!';
 $lang['PLAYER_SKILL_SUBTITLE1']  = 'Vaardigheden';
 $lang['PLAYER_SKILL_SUBTITLE2']  = 'Vaardigheden [%s beschikbaar]';
 $lang['PLAYER_SKILL_NOTE']  = 'Opmerking: Gebruik vaardigheidspunten om Aanval, Verdediging, Gezondheid, Energie en/of Munitie vaardigheden te vergroten.';
-$lang['PLAYER_SKILLS']  = 'Vaardigheden'; 
-$lang['PLAYER_CURRENT'] = 'Huidig'; 
+$lang['PLAYER_SKILLS']  = 'Vaardigheden';
+$lang['PLAYER_CURRENT'] = 'Huidig';
 $lang['PLAYER_ATTACK']  = 'AANVAL';
 $lang['PLAYER_DEFENSE'] = 'VERDEDIGING';
-$lang['PLAYER_HEALTH']  = 'GEZONDHEID'; 
-$lang['PLAYER_ENERGY']  = 'ENERGIE'; 
-$lang['PLAYER_AMMO']  = 'MUNITIE'; 
+$lang['PLAYER_HEALTH']  = 'GEZONDHEID';
+$lang['PLAYER_ENERGY']  = 'ENERGIE';
+$lang['PLAYER_AMMO']  = 'MUNITIE';
 $lang['PLAYER_ATTACK_TIP']  = 'Verhoog je aanvalskracht zodat je vaker wint tijdens een gevecht. Kost 1 ervaringspunt om je aanvalskracht met %s te verhogen. Verlaag je aanvalskracht met %s om 1 ervaringspunt beschikbaar te krijgen.';
 $lang['PLAYER_DEFENSE_TIP'] = 'Verhoog je verdedingskracht zodat je aanvallen beter kunt afslaan. Kost 1 ervaringspunt om je verdedigingsskracht met %s te verhogen. Verlaag je verdedingskracht met %s om 1 ervaringspunt beschikbaar te krijgen.';
 $lang['PLAYER_HEALTH_TIP']  = 'Verhoog je gezondheid zodat je langer kunt vechten. Kost 1 ervaringspunt om je gezondheid met 10 te verhogen. Verlaag je gezondheid met 20 om 1 ervaringspunt beschikbaar te krijgen.';
@@ -523,36 +523,36 @@ $lang['PLAYER_REPAIR_PRICE'] = 'Repareer prijs';
 $lang['PLAYER_RESTORED_FAILED'] = 'Je bezit geen %s dollar om deze actie uit te voeren!';
 
 $lang['PLAYER_HEALTH_TITLE'] = 'Herstel gezondheid';
-$lang['PLAYER_HEALTH_NOTE'] = 'Betaal het ziekenhuis om je gezondheid meteen te herstellen. Herstel kan maar een keer per 10 minuten gebruikt worden. Gezondheid hersteld ook automatisch.';		
+$lang['PLAYER_HEALTH_NOTE'] = 'Betaal het ziekenhuis om je gezondheid meteen te herstellen. Herstel kan maar een keer per 10 minuten gebruikt worden. Gezondheid hersteld ook automatisch.';
 $lang['PLAYER_HEALTH_CONDITION'] = 'Gezondheid conditie';
 $lang['PLAYER_HEALTH_RESTORED'] = 'Gezondheid is hersteld voor %s dollar.';
 $lang['PLAYER_HEALTH_CONFIRM'] = 'Wil je echt je gezondheid herstellen?';
 
 $lang['PLAYER_ENERGY_TITLE'] = 'Herstel energie';
-$lang['PLAYER_ENERGY_NOTE'] = 'Betaal de oliemaatschappij om je energie meteen te herstellen. Herstel kan maar een keer per 24 uur gebruikt worden. Energie hersteld ook automatisch.';	
+$lang['PLAYER_ENERGY_NOTE'] = 'Betaal de oliemaatschappij om je energie meteen te herstellen. Herstel kan maar een keer per 24 uur gebruikt worden. Energie hersteld ook automatisch.';
 $lang['PLAYER_ENERGY_CONDITION'] = 'Energie conditie';
 $lang['PLAYER_ENERGY_RESTORED'] = 'Energie is hersteld voor %s dollar.';
 $lang['PLAYER_ENERGY_CONFIRM'] = 'Wil je echt je energie herstellen?';
 
 $lang['PLAYER_AMMO_TITLE'] = 'Herstel munitie';
-$lang['PLAYER_AMMO_NOTE'] = 'Betaal de wapenleverancier om je munitie meteen te herstellen. Herstel kan maar een keer per 24 uur gebruikt worden. Munitie hersteld ook automatisch.';	
+$lang['PLAYER_AMMO_NOTE'] = 'Betaal de wapenleverancier om je munitie meteen te herstellen. Herstel kan maar een keer per 24 uur gebruikt worden. Munitie hersteld ook automatisch.';
 $lang['PLAYER_AMMO_CONDITION'] = 'Munitie conditie';
 $lang['PLAYER_AMMO_RESTORED'] = 'Munitie is hersteld voor %s dollar.';
 $lang['PLAYER_AMMO_CONFIRM'] = 'Wil je echt je munitie herstellen?';
 
 $lang['PLAYER_CEASE_FIRE_TITLE'] = 'Wapenstilstand';
-$lang['PLAYER_CEASE_FIRE_NOTE'] = 'Herstel door een wapenstilstand te activeren. Tijdens de wapenstilstand kan niemand je aanvallen, maar jij kan ook niemand aanvallen.';	
+$lang['PLAYER_CEASE_FIRE_NOTE'] = 'Herstel door een wapenstilstand te activeren. Tijdens de wapenstilstand kan niemand je aanvallen, maar jij kan ook niemand aanvallen.';
 $lang['PLAYER_CEASE_FIRE_ACTIVATED'] = 'Wapenstilstand geactiveerd voor %s dollar.';
 $lang['PLAYER_CEASE_FIRE_CONFIRM'] = 'Wil je echt een wapenstilstand periode activeren?';
 
 $lang['PLAYER_UNITS_TITLE'] = 'Repareer eenheden';
-$lang['PLAYER_UNITS_NOTE'] = 'Repareer je eenheden van je leger. Als eenheden conditie 0% wordt verlies je een aantal eenheden en de overige eenheden worden automatisch gerepareerd.';	
+$lang['PLAYER_UNITS_NOTE'] = 'Repareer je eenheden van je leger. Als eenheden conditie 0% wordt verlies je een aantal eenheden en de overige eenheden worden automatisch gerepareerd.';
 $lang['PLAYER_UNITS_CONDITION'] = 'Eenheden conditie';
 $lang['PLAYER_UNITS_REPAIRED'] = 'Je eenheden zijn gerepareert voor %s dollar.';
 $lang['PLAYER_UNITS_CONFIRM'] = 'Wil je echt je eenheden repareren?';
 
 $lang['PLAYER_BUILDINGS_TITLE'] = 'Repareer gebouwen';
-$lang['PLAYER_BUILDINGS_NOTE'] = 'Repareer je gebouwen van je basis. Als de conditie 0% wordt verlies je een aantal gebouwen en de overige gebouwen worden automatisch gerepareerd.';	
+$lang['PLAYER_BUILDINGS_NOTE'] = 'Repareer je gebouwen van je basis. Als de conditie 0% wordt verlies je een aantal gebouwen en de overige gebouwen worden automatisch gerepareerd.';
 $lang['PLAYER_BUILDINGS_CONDITION'] = 'Gebouwen conditie';
 $lang['PLAYER_BUILDINGS_REPAIRED'] = 'Je gebouwen zijn gerepareert voor %s dollar.';
 $lang['PLAYER_BUILDINGS_CONFIRM'] = 'Wil je echt je gebouwen repareren?';
@@ -601,12 +601,12 @@ $lang['PLAYER_USERNAME'] = 'Gebruikersnaam';
 $lang['PLAYER_USERNAME_TO_SHORT'] = 'Gebruikersnaam moet minimaal 4 karakters lang zijn!';
 $lang['PLAYER_USERNAME_ALREADY_EXIST'] = 'Gebruikersnaam bestaat al!';
 $lang['PLAYER_USERNAME_CHANGED'] = 'Gebruikersnaam aangepast.';
-$lang['PLAYER_CURRENT_PASSWORD'] = 'Huidige wachtwoord';		
+$lang['PLAYER_CURRENT_PASSWORD'] = 'Huidige wachtwoord';
 $lang['PLAYER_NEW_PASSWORD'] = 'Nieuw wachtwoord';
 $lang['PLAYER_PASSWORD_CHANGED'] = 'Wachtwoord aangepast!';
 $lang['PLAYER_PASSWORD_NO_MATCH'] = 'Huidige wachtwoord komt niet overeen!';
 $lang['PLAYER_PASSWORD_TO_SHORT'] = 'Het nieuwe wachtwoord moet minimaal 6 karakters lang zijn!';
-$lang['PLAYER_LOGIN_NOTE'] = 'BELANGRIJK: Automatische inlog werkt alleen als de zelfde gebruikersnaam en wachtwoord wordt ingesteld in de WarQuest Android en/of Windows client!'; 
+$lang['PLAYER_LOGIN_NOTE'] = 'BELANGRIJK: Automatische inlog werkt alleen als de zelfde gebruikersnaam en wachtwoord wordt ingesteld in de WarQuest Android en/of Windows client!';
 
 $lang['BACKGROUND_0'] = 'Zwart';
 $lang['BACKGROUND_1'] = 'Legergroen';
@@ -880,12 +880,12 @@ $lang['MISSION_285'] = 'Vallis Oddvar';
 $lang['MISSION_286'] = 'Sinus Radborne';
 $lang['MISSION_287'] = 'Crater Ebenezer';
 
-/* 
+/*
 ** ------------------
 ** MISSION PAGE
 ** ------------------
 */
- 
+
 $lang['MISSION_TITLE'] = 'MISSIES';
 $lang['MISSION_NOTE'] = 'Opmerking: Speel missies om geld en ervaringspunten te krijgen en zo het volgende nivo te bereiken. Als een missie 100% voltooid is krijg je 2x zoveel geld. Als je %s 100% veroverd hebt wordt je uur inkomen met %s dollar verhoogd.';
 
@@ -933,8 +933,8 @@ $lang['BATTLE_ATTACKER_HEALTH_LOW'] = 'Je gezondheid is te laag om te vechten!. 
 $lang['BATTLE_AMMO_LOW'] = 'Je hebt geen munitie meer! Wacht een paar minuten op het herladen of wissel vaardigheidspunten in voor meer munitie.';
 $lang['BATTLE_UNITS_LOST'] = 'Tijdens de missie verloor je de volgenden eenheden:';
 $lang['BATTLE_BUILDINGS_LOST'] = 'Tijdens de missie verloor je de volgenden gebouwen:';
-$lang['BATTLE_DEFENSE_FORCE'] = '%s %s verdedigings %s (%s verdedigingskracht):'; 
-$lang['BATTLE_DEFENSE_BASE'] = '%s verdedigings basis:'; 
+$lang['BATTLE_DEFENSE_FORCE'] = '%s %s verdedigings %s (%s verdedigingskracht):';
+$lang['BATTLE_DEFENSE_BASE'] = '%s verdedigings basis:';
 $lang['BATTLE_ATTACK_FORCE'] = 'Je %s aanvals %s (%s aanvalskracht):';
 $lang['BATTLE_MORE'] = 'meer';
 $lang['BATTLE_NO_PLAYER_AVAILABLE'] = 'In dit nivo zijn er geen spelers beschikbaar om tegen te vechten.';
@@ -951,7 +951,7 @@ $lang['BATTLE_FORCE_TYPE'] = '';
 $lang['BATTLE_ENEMIES'] = 'Vijanden';
 $lang['BATTLE_BOUNTY'] = 'Premiejagen';
 $lang['BATTLE_NO_BOUNTY_PLAYERS'] = 'Op dit moment zijn er geen speler(s) met een premie beschikbaar.';
-$lang['BATTLE_BOUNTY_BONUS'] = 'Extra premie van %s dollar ontvangen!'; 
+$lang['BATTLE_BOUNTY_BONUS'] = 'Extra premie van %s dollar ontvangen!';
 $lang['BATTLE_HOSPITAL_BONUS'] = '%s geeft tijdelijk op. Je ontvangt %s dollar bonus!';
 $lang['BATTLE_BOUNTY_LOST'] = 'Je werd aangevallen door de %s van %s. Je <b>verloor</b>. Je verloor %s dollar, %s gezondheid en %s ervaringspunten.';
 $lang['BATTLE_BOUNTY_CONFIRM'] = 'Wil je een premie van %s dollar zetten?';
@@ -960,7 +960,7 @@ $lang['BATTLE_CEASE_FIRE_PERIOD'] = 'Wapenstilstand periode geactiveerd! %s';
 $lang['BATTLE_AND'] = 'en';
 
 $lang['BATTLE_NO_BOUNTY_MONEY'] = 'Je bezit geen %s dollar om als premie op %s hoofd te zetten.';
-$lang['BATTLE_BOUNTY_SET'] = 'Je hebt %s dollar op het hoofd van %s gezet. Als %s wordt verslagen verlies hij %s vaardigheidspunten.'; 
+$lang['BATTLE_BOUNTY_SET'] = 'Je hebt %s dollar op het hoofd van %s gezet. Als %s wordt verslagen verlies hij %s vaardigheidspunten.';
 
 $lang['BATTLE_RANGE'] = 'Spelers van nivo %s to %s kunnen worden aangevallen.';
 
@@ -1376,7 +1376,7 @@ $lang['BUILDING_NOT_OWNED'] = 'Je bezit geen %s %s.';
 
 $lang['BUILDING_BUY'] = 'Je kocht %s %s voor %s. Er zijn er nu %s actief.';
 $lang['BUILDING_MAX'] = 'Niet meer dan %s(s) zijn toegestaan.';
-$lang['BUILDING_NO_FUNDS'] = 'Niet genoeg middelen om %s %s voor %s aan te kopen.'; 
+$lang['BUILDING_NO_FUNDS'] = 'Niet genoeg middelen om %s %s voor %s aan te kopen.';
 $lang['BUILDING_LOW_UPKEEP2'] = 'Niet genoeg netto inkomen om %s %s te kopen voor %.';
 
 $lang['BUILDING_UPKEEP'] = 'Uur prijs';
@@ -1389,7 +1389,7 @@ $lang['BUILDING_REQUIRED'] = 'Nodig';
 
 /*
 ** ------------------
-** MONEY 
+** MONEY
 ** ------------------
 */
 
@@ -1408,8 +1408,8 @@ $lang['BANK_WARNING'] = 'Waarschuwing: Spionage eenheden kunnen geld stelen van 
 $lang['BANK_TRANSACTION_TYPE_0'] = 'Opname';
 $lang['BANK_TRANSACTION_TYPE_1'] = 'Inleg';
 $lang['BANK_TRANSACTION_TYPE_2'] = 'Transactie kosten';
-$lang['BANK_TRANSACTION_TYPE_3'] = 'Herstel rekening';		
-$lang['BANK_TRANSACTION_TYPE_4'] = 'Rente';	
+$lang['BANK_TRANSACTION_TYPE_3'] = 'Herstel rekening';
+$lang['BANK_TRANSACTION_TYPE_4'] = 'Rente';
 $lang['BANK_TRANSACTION_TYPE_5'] = 'spion stal';
 $lang['BANK_TRANSACTION_TYPE_6'] = 'Bonus';
 
@@ -1421,7 +1421,7 @@ $lang['BANK_WITHDRAW_FAILED'] = 'Geen %s dollar op de bank!';
 $lang['BANK_DEPOSIT'] = '%s dollar gestort op %s bank.';
 $lang['BANK_DEPOSIT_FAILED'] = 'Je bezit geen %s dollar.';
 
-/* 
+/*
 ** ------------------
 ** STOCK PAGE
 ** ------------------
@@ -1442,8 +1442,8 @@ $lang['STOCK_SELL'] = 'Je verkocht %s %s aandelen voor %s dollar. Bank transacti
 $lang['STOCK_NOTE'] = 'Opmerking: Je kan aandelen kopen en verkopen zodat je winst kan maken. De aandelen koers wordt realtime gesynchoniseerd met de geselecteerd aandelenbeurs. Elke verkoop transactie kosten %s%.';
 $lang['STOCK_PRICE_TO_LOW'] = 'Stock price to low. Trading blocked!';
 
-$lang['STOCK_SYMBOL'] = 'Stock Symbol'; 
-$lang['STOCK_SYMBOL_INFO'] = 'Note: Enter yahoo financial stock symbol to customize this list.'; 
+$lang['STOCK_SYMBOL'] = 'Stock Symbol';
+$lang['STOCK_SYMBOL_INFO'] = 'Note: Enter yahoo financial stock symbol to customize this list.';
 
 $lang['STOCK_ADD'] = 'Add Stock';
 $lang['STOCK_SYMBOL_ADDED'] = 'You added (%s) to your personal stock list.';
@@ -1477,8 +1477,8 @@ $lang['CASINO_ROLL'] = 'Draai';
 
 $lang['CASINO_NO_BET'] = 'Voer een inzet in!';
 $lang['CASINO_NO_LUCKY_NUMBER'] = 'Voer een geluksgetal in!';
-$lang['CASINO_BET_TO_LARGE'] = 'Inzet te hoog! Maximaal mag je %s dollar inzetten.'; 
-$lang['CASINO_NO_MONEY'] = 'Niet genoeg geld!'; 
+$lang['CASINO_BET_TO_LARGE'] = 'Inzet te hoog! Maximaal mag je %s dollar inzetten.';
+$lang['CASINO_NO_MONEY'] = 'Niet genoeg geld!';
 
 $lang['CASINO_WIN'] = 'Winnende getal was %s. Je won %s dollar.';
 $lang['CASINO_LOST'] = 'Winnende getal was %s. Je verloor %s dollar.';
@@ -1506,13 +1506,13 @@ $lang['ALLIANCE_ACCEPT_TITLE2'] = 'Geaccepteerd [%s allianties]';
 
 $lang['ALLIANCE_INVITE_TITLE'] = 'Uitnodigen';
 
-$lang['ALLIANCE_NO_PENDING'] = 'Op dit moment zijn er geen lopende alliantie uitnodigingen!'; 
-$lang['ALLIANCE_INVITATION'] = 'Alliantie uitnodiging naar %s verstuurd!'; 
+$lang['ALLIANCE_NO_PENDING'] = 'Op dit moment zijn er geen lopende alliantie uitnodigingen!';
+$lang['ALLIANCE_INVITATION'] = 'Alliantie uitnodiging naar %s verstuurd!';
 $lang['ALLIANCE_REJECT'] = 'Alliantie met %s afgewezen!';
 $lang['ALLIANCE_DROP'] = 'Allianctie met %s verbroken!';
 $lang['ALLIANCE_ACCEPT'] = 'Alliantie met %s geaccepteerd!';
 $lang['ALLIANCE_ALLY'] = 'Alliantie';
-$lang['ALLIANCE_MAXIMUM'] = 'Maximum van %s allianties bereikt voor dit level.'; 
+$lang['ALLIANCE_MAXIMUM'] = 'Maximum van %s allianties bereikt voor dit level.';
 $lang['ALLIANCE_LOCKED'] = 'Allianties zijn mogelijk vanaf level 1';
 $lang['ALLIANCE_NOTE'] = 'Opmerking: Voor elke goedgekeurde alliantie kan je 6 extra eenheden inzetten tijdens een gevecht.';
 
@@ -1534,46 +1534,46 @@ $lang['LEADERBORD_BEST_COUNTRY_NOTE'] = 'Opmerking: Dit overzicht laat de beste 
 $lang['LEADERBORD_PLAYER_COUNTRY'] = 'Overzicht (Beste speler van %s)';
 $lang['LEADERBORD_PLAYER_COUNTRY_NOTE'] = 'Opmerking: Dit overzicht laat de beste spelers van het geselecteerde land zien.';
 
-$lang['TOPIC_TITLE'] = 'Onderwerpen'; 
+$lang['TOPIC_TITLE'] = 'Onderwerpen';
 $lang['TOPIC_CREATED_INPUT'] = 'Maak een nieuwe onderwerp (max. 80 karakters)';
 $lang['TOPIC_CREATED'] = 'Onderwerp aangemaakt';
 $lang['TOPIC_UPDATED'] = 'Onderwerp bijgewerkt';
 $lang['TOPIC_DELETED'] = 'Onderwerp verwijderd';
 $lang['TOPIC_NO_TOPICS'] = 'Op dit moment zijn er geen onderwerpen beschikbaar op dit forum.';
-$lang['TOPIC_NOTE'] = 'Tip: Selecteer een onderwerp om opgeslagen berichten te lezen of te schrijven.'; 
+$lang['TOPIC_NOTE'] = 'Tip: Selecteer een onderwerp om opgeslagen berichten te lezen of te schrijven.';
 $lang['TOPIC_CREATED_BY'] = '(Aangemaakt door %s)';
 
 /*
 ** ------------------
-** FORUM 
+** FORUM
 ** ------------------
 */
 
-$lang['FORUM_TITLE'] = 'Forums'; 
+$lang['FORUM_TITLE'] = 'Forums';
 $lang['FORUM_NOTE'] = 'Note: Selecteer een forum om onderliggende onderwerpen te zien.';
 
-$lang['FORUM_1'] = 'Mededelingen'; 
+$lang['FORUM_1'] = 'Mededelingen';
 $lang['FORUM_NOTE_1'] = 'Algemene mededelingen';
-$lang['FORUM_2'] = 'Foutrapporten'; 
+$lang['FORUM_2'] = 'Foutrapporten';
 $lang['FORUM_NOTE_2'] = 'Wat gaat fout in deze versie?';
-$lang['FORUM_3'] = 'Wijzigingsverzoeken'; 
+$lang['FORUM_3'] = 'Wijzigingsverzoeken';
 $lang['FORUM_NOTE_3'] = 'Wat is gewenst in de volgende versie?';
-$lang['FORUM_4'] = 'Help'; 
+$lang['FORUM_4'] = 'Help';
 $lang['FORUM_NOTE_4'] = 'Wat is niet duidelijk in WarQuest?';
-$lang['FORUM_5'] = 'Overige'; 
+$lang['FORUM_5'] = 'Overige';
 $lang['FORUM_NOTE_5'] = 'Overige onderwerpen?';
-$lang['FORUM_6'] = 'Landen Platform'; 
+$lang['FORUM_6'] = 'Landen Platform';
 $lang['FORUM_NOTE_6'] = 'Nationale taal discussies?';
 
 $lang['FORUM_SEARCH_TOKEN'] = 'Search token must be atleast 3 character long.';
 
-$lang['TOPIC_TITLE'] = 'Topics'; 
+$lang['TOPIC_TITLE'] = 'Topics';
 $lang['TOPIC_CREATED_INPUT'] = 'Create new topic (max. 80 characters)';
 $lang['TOPIC_CREATED'] = 'Topic is created';
 $lang['TOPIC_UPDATED'] = 'Topic is updated';
 $lang['TOPIC_DELETED'] = 'Topic is deleted';
 $lang['TOPIC_NO_TOPICS'] = 'On this moment no topic(s) found.';
-$lang['TOPIC_NOTE'] = 'Note: Select a topic to read/write posted messages or create a new topic.'; 
+$lang['TOPIC_NOTE'] = 'Note: Select a topic to read/write posted messages or create a new topic.';
 $lang['TOPIC_CREATED_BY'] = '(Created by %s)';
 
 /*
@@ -1609,7 +1609,7 @@ $lang['CHAT_NOTE'] = 'Note: Enter a message to start the chat!';
 
 $lang['CHAT_TITLE'] = 'Chat';
 
-/* 
+/*
 ** ------------------
 ** HELP - INSTRUCTIONS
 ** ------------------
@@ -1624,9 +1624,9 @@ $lang['HELP_EXP_TITLE'] = 'Ervaring / Nivo';
 $lang['HELP_EXP'] = 'Speel missies en strijd om ervaringspunten te verkrijgen. Als er genoeg ervaringspunten zijn verzameld behaal je het volgende nivo. Wanneer een nivo is voltooid, worden energie, gezondheid en munitie direct volledig hersteld.';
 $lang['HELP_HEALTH_TITLE'] = 'Gezondheid';
 $lang['HELP_HEALTH'] = 'Je gezondheid vermindert bij elk gevecht, maar herstelt automatisch na verloop van tijd. Je kunt ook naar het ziekenhuis om direct te herstellen.';
-$lang['HELP_ENERGY_TITLE'] = 'Energie'; 
+$lang['HELP_ENERGY_TITLE'] = 'Energie';
 $lang['HELP_ENERGY'] = 'Je energie vermindert na elke gespeelde missie, maar herstelt automatisch na verloop van tijd. Koop energie gebouwen om sneller energie te herstellen.';
-$lang['HELP_AMMO_TITLE'] = 'Munitie'; 
+$lang['HELP_AMMO_TITLE'] = 'Munitie';
 $lang['HELP_AMMO'] =	'Elk gevecht kost een munitie. Munitie wordt automatisch hersteld na verloop van tijd.';
 $lang['HELP_MISSION_TITLE'] = 'Missies';
 $lang['HELP_MISSION'] = 'Speel missies om geld en ervaringspunten te krijgen en het volgende nivo te bereiken. Als een missie 100% voltooid is krijg je dubbel zoveel geld.';
@@ -1638,7 +1638,7 @@ $lang['HELP_BUILDINGS_TITLE'] = 'Gebouwen';
 $lang['HELP_BUILDINGS'] = 'Tijdens het spel zorgen gebouwen voor inkomsten, meer verdedigingen / of snellere energie opbouw. Elke aankoop van een gebouw zal de prijs verhogen.';
 $lang['HELP_BANKS_TITLE'] = 'Banken';
 $lang['HELP_BANKS'] = 'Iedere bank berekent stortingskosten. Geld in bewaring bij de National bank is veilig tegen diefstal door andere spelers maar deze bank geeft maar een lage dagelijkse rente. De overige banken geven een zeer hoge dagelijkse rente maar spionen van andere spelers kunnen wel geld stelen.';
-$lang['HELP_ALLIANCE_TITLE'] = 'Alliantie'; 
+$lang['HELP_ALLIANCE_TITLE'] = 'Alliantie';
 $lang['HELP_ALLIANCE'] = 'Met elke goedgekeurd bondgenoot kunt u 6 extra eenheden commanderen tijdens gevechten. Maak dus vrienden om sterker te worden!';
 $lang['HELP_SKILL_POINTS_TITLE'] = 'Vaardigheidspunten';
 $lang['HELP_SKILL_POINTS'] = 'Tijdens het spel kunnen worden vaardigheidspunten verzamelen. Gebruik vaardigheidspunten om aanval, verdediging, gezondheid, energie en/of munitie vaardigheden te verbeteren. Munitie vaardigheid verbeteren kost twee vaardigheidspunten, de overige een vaardigheidspunt.';
@@ -1707,11 +1707,11 @@ $lang['HELP_STATS_REQUESTS'] = 'Server aanvragen';
 
 $lang['HELP_ABOUT_SUBTITLE'] = 'Over';
 $lang['HELP_BACKGROUND_TITLE'] = 'Achtergrond';
-$lang['HELP_BACKGROUND'] = 'WarQuest is gemaakt door <a target="new" href="http://www.plaatsoft.nl">PlaatSoft</a>. Het origenele spel idee is gebaseerd op enkele andere spellen welke beschikbaar zijn in de Apple appstore. De belangrijkste reden om opnieuw dit type spel te bouwen is een betere gebruikersinterface te ontwikkelen zodat het spel gespeeld kan worden op de een volgende typen apparaten: Smart phones (Apple, Nokia en Black Berry), tables (Apple), Spel computer (Nintendo) en notebooks (Intel en AMD base).';
+$lang['HELP_BACKGROUND'] = 'WarQuest is gemaakt door <a target="_blank" href="https://www.plaatsoft.nl">PlaatSoft</a>. Het origenele spel idee is gebaseerd op enkele andere spellen welke beschikbaar zijn in de Apple appstore. De belangrijkste reden om opnieuw dit type spel te bouwen is een betere gebruikersinterface te ontwikkelen zodat het spel gespeeld kan worden op de een volgende typen apparaten: Smart phones (Apple, Nokia en Black Berry), tables (Apple), Spel computer (Nintendo) en notebooks (Intel en AMD base).';
 $lang['HELP_CREDITS_TITLE'] = 'Dankbetuigingen';
-$lang['HELP_BROWSERS_TITLE'] = 'Ondersteunde browsers'; 
-$lang['HELP_DISCLAIMER_TITLE'] = 'Disclaimer'; 
-$lang['HELP_DISCLAIMER'] = 'Dit spel wordt zonder enige garantie geleverd. De autheur kan nergens aansprakelijk worden voor gesteld.<br/>';
+$lang['HELP_BROWSERS_TITLE'] = 'Ondersteunde browsers';
+$lang['HELP_DISCLAIMER_TITLE'] = 'Disclaimer';
+$lang['HELP_DISCLAIMER'] = 'Dit spel wordt zonder enige garantie geleverd. De autheur kan nergens aansprakelijk worden voor gesteld.<br>';
 
 $lang['HELP_CREDITS_TITLE'] = 'Dankbetuiging';
 $lang['HELP_CREDITS'] = 'De volgende mensen en organisatie hebben WarQuest mogelijk gemaakt.';
@@ -1724,7 +1724,7 @@ $lang['HELP_CREDITS_OTHER'] = 'Overige';
 $lang['HELP_CREDITS_OTHER_NOTE'] = 'en natuurlijk de WarQuest spelers voor hun opbouwende reacties zodat het spel verbeterd kon worden. Veel plezier met WarQuest toegewenst!';
 
 
-/* 
+/*
 ** ------------------
 ** RANK DATA
 ** ------------------
@@ -2032,12 +2032,4 @@ $landcode['zw'] = "Zimbabwe";
 */
 
 $lang['GENERAL_GOLD'] = 'goud';
-$lang['PLAYER_GOLD'] = 'Goud'; 
-
-/*
-** ------------------
-** THE END
-** ------------------
-*/
-
-?>
+$lang['PLAYER_GOLD'] = 'Goud';

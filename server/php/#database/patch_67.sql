@@ -42,7 +42,7 @@ ALTER TABLE `member` CHANGE `version` `versie` VARCHAR( 20 ) CHARACTER SET latin
 
 -- Remove not used columns
 ALTER TABLE player DROP ads;
-ALTER TABLE skill DROP trade_points;
+-- ALTER TABLE skill DROP trade_points;
 ALTER TABLE player_clan ADD role INT NOT NULL AFTER approved;
 ALTER TABLE player_clan ADD PRIMARY KEY(pid, cid);
 

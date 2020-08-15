@@ -1,4 +1,4 @@
-/* 
+/*
 **  ========
 **  WarQuest
 **  ========
@@ -6,7 +6,7 @@
 **  Created by wplaat
 **
 **  For more information visit the following website.
-**  Website : www.plaatsoft.nl 
+**  Website : www.plaatsoft.nl
 **
 **  Or send an email to the following address.
 **  Email   : info@plaatsoft.nl
@@ -21,17 +21,15 @@ function link(value)
 	newInput.setAttribute('type','hidden');
 	newInput.setAttribute('name','token');
 	newInput.setAttribute('value',value);
-	form.appendChild(newInput);		
-		
+	form.appendChild(newInput);
+
 	form.submit();
 }
 
-function show_confirm(question, token) 
-{ 
-	if (confirm(question)==true) 
+function show_confirm(question, token)
+{
+	if (confirm(question)==true)
 	{
-		link(token); 
-	} 
+		link(token);
+	}
 }
-
-

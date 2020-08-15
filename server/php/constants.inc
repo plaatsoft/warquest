@@ -1,6 +1,6 @@
 <?php
 
-/* 
+/*
 **  ========
 **  WarQuest
 **  ========
@@ -8,7 +8,7 @@
 **  Created by wplaat
 **
 **  For more information visit the following website.
-**  Website : www.plaatsoft.nl 
+**  Website : www.plaatsoft.nl
 **
 **  Or send an email to the following address.
 **  Email   : info@plaatsoft.nl
@@ -139,7 +139,7 @@ define('PAGE_ALLIANCE_PENDING',  1802);
 define('PAGE_ALLIANCE_INVITE',  	1803);
 define('PAGE_ALLIANCE_ACCEPTED', 1804);
 
-define('PAGE_CLAN',           	1811); 
+define('PAGE_CLAN',           	1811);
 define('PAGE_CLAN_PROFILE',     	1812);
 define('PAGE_CLAN_SETTINGS', 	  	1813);
 
@@ -160,7 +160,7 @@ define('PAGE_POLL_RESULT',    	1905);
 define('PAGE_CHATROOM',       	1906);
 define('PAGE_CHAT',           	1907);
 define('PAGE_CLAN_COMMENT',    	1908);
-		
+
 /* Help */
 define('PAGE_INSTRUCTIONS',   	2001);
 define('PAGE_RELEASENOTES',   	2002);
@@ -170,12 +170,12 @@ define('PAGE_LEVELS',        		2005);
 define('PAGE_STATS',          	2006);
 define('PAGE_DONATE',         	2007);
 define('PAGE_ABOUT',          	2008);
-		
+
 /* Admin */
 define('PAGE_PLAYER_LIST',    	2101);
 define('PAGE_PLAYERS',        	2102);
 define('PAGE_ADMIN_MESSAGES', 	2103);
-define('PAGE_LEVEL',          	2104); 
+define('PAGE_LEVEL',          	2104);
 define('PAGE_LEVEL_ZOOM',    		2105);
 define('PAGE_PLAYER_COPY',    	2106);
 define('PAGE_ACTIONS',        	2107);
@@ -211,7 +211,7 @@ define('EVENT_REGISTER',        		 2);
 define('EVENT_RECOVER',        			 3);
 define('EVENT_LOGOUT',                   4);
 define('EVENT_REGISTER_SPECIAL',         5);
- 
+
 /* home */
 define('EVENT_HOME_COMMENT_EDIT',        3101);
 define('EVENT_HOME_COMMENT_SAVE',        3102);
@@ -322,8 +322,8 @@ define('EVENT_ADMIN_SAVE_TWEET',  	     3922);
 define('EVENT_ADMIN_BACKUP_DATABASE',    3923);
 define('EVENT_ADMIN_INACTIVE_SECTOR',    3924);
 define('EVENT_ADMIN_EDIT',  	         3925);
-define('EVENT_ADMIN_UPDATE_BOTS',        3926); 
-define('EVENT_ADMIN_UPDATE_LOTTERY',     3927); 
+define('EVENT_ADMIN_UPDATE_BOTS',        3926);
+define('EVENT_ADMIN_UPDATE_LOTTERY',     3927);
 
 /* others (internal used) */
 define('EVENT_PLAYER_PDF_REPORT', 	     4000);
@@ -362,11 +362,3 @@ define('PATTERN_SORT2',       			7);
 define('PATTERN_NO_BOT_NEWS', 			8);
 define('PATTERN_ALLY_LIST',   			9);
 define('PATTERN_BAN',         			10);
-
-/*
-** ------------------
-** THE END
-** ------------------
-*/
-
-?>

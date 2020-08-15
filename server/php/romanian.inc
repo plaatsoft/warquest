@@ -1,6 +1,6 @@
 <?php
 
-/* 
+/*
 **  ========
 **  WarQuest
 **  ========
@@ -8,7 +8,7 @@
 **  Created by wplaat
 **
 **  For more information visit the following website.
-**  Website : www.plaatsoft.nl 
+**  Website : www.plaatsoft.nl
 **
 **  Or send an email to the following address.
 **  Email   : info@plaatsoft.nl
@@ -21,7 +21,7 @@
 ** (1) Every line has the following syntax$lang['<KEY>'] = '<DESCRIPTION>';
 **     Only change the <DESCRIPTION> part. Leave the rest unchanged.
 ** (2) The <DESCRIPTION> part contain %s tags. DO NOT REMOVE THEN.
-**     The %s are realtime replace with game parameters. 
+**     The %s are realtime replace with game parameters.
 **     For example: 'Restore for %s dollars' will be on screen 'Restore for 100 dollars'
 ** (3) The LINK keys contain the menu items of the game. Choose as short as possible words.
 ** (4) Leave HTML tags unchanged, for example <b>, </b>, etc....
@@ -44,10 +44,10 @@
  /* Login */
 $lang['LINK_LOGIN'] = 'Logare';
 $lang['LINK_REGISTER'] = 'inregistrare';
-$lang['LINK_RECOVER'] = 'recuperare'; 
-$lang['LINK_MANUAL'] = 'Manual'; 
+$lang['LINK_RECOVER'] = 'recuperare';
+$lang['LINK_MANUAL'] = 'Manual';
 $lang['LINK_FACEBOOK'] = 'Facebook';
-$lang['LINK_RSS'] = 'RSS'; 
+$lang['LINK_RSS'] = 'RSS';
 
  /* General */
 $lang['LINK_HOME'] = 'Acasa';
@@ -62,7 +62,7 @@ $lang['LINK_HELP'] = 'Ajutor';
 $lang['LINK_ADMIN'] = 'Admin';
 
 $lang['LINK_FIRST'] = 'primul';
-$lang['LINK_PREVIOUS'] = 'inapoi'; 
+$lang['LINK_PREVIOUS'] = 'inapoi';
 $lang['LINK_NEXT'] = 'urmator';
 $lang['LINK_LAST'] = 'ultimul';
 
@@ -158,13 +158,13 @@ $lang['LINK_ABOUT'] = 'despre';
 
  /*
  ** ------------------
- ** GENERAL 
+ ** GENERAL
  ** ------------------
  */
 
 $lang['SYSTEM_HACK_DETECTED'] = 'nu folositi refresh,inapoi sau butonul inainte';
 
-$lang['AGO_DAY'] = ' zi'; 
+$lang['AGO_DAY'] = ' zi';
 $lang['AGO_DAYS'] = ' zile';
 $lang['AGO_HOUR'] = ' ora';
 $lang['AGO_HOURS'] = ' ore';
@@ -173,7 +173,7 @@ $lang['AGO_MINS'] = 'minute';
 $lang['AGO_SEC'] = ' secunda';
 $lang['AGO_SECS'] = ' secunde';
 
-$lang['COPYRIGHT'] = 'Copyright © 2008-2016 - toate drepturile rezervate - <a target="new" href="http://www.plaatsoft.nl">PlaatSoft</a>';
+$lang['COPYRIGHT'] = 'Copyright Â© 2008-' . date('Y') . ' - toate drepturile rezervate - <a target="_blank" href="https://www.plaatsoft.nl">PlaatSoft</a>';
 
 $lang['STATUS_CASH'] = 'bani';
 $lang['STATUS_EXP'] = 'Exp.';
@@ -250,7 +250,7 @@ $lang['GENERAL_SPIES'] = 'spion';
 $lang['GENERAL_MAINTENANCE'] = 'intretinere cladire';
 
 $lang['GENERAL_CNTRY'] = 'tara';
-$lang['GENERAL_TOPICS'] = 'topic'; 
+$lang['GENERAL_TOPICS'] = 'topic';
 $lang['GENERAL_FORUM'] = 'Forum';
 $lang['GENERAL_MESSAGES'] = 'mesaj';
 $lang['GENERAL_LAST_MESSAGE'] = 'ultimul mesaj';
@@ -289,19 +289,19 @@ $lang['GENERAL_PLANET_5'] = 'soare';
  */
 
 $lang['TIP_GENERAL'] = 'TIP';
-$lang['TIP_0'] = 'joaca misunea de antrenament ca sa castigi experienta pentru a trece la nivelul urmator'; 
+$lang['TIP_0'] = 'joaca misunea de antrenament ca sa castigi experienta pentru a trece la nivelul urmator';
 $lang['TIP_1'] = 'cumpara cateva trupe si incepe lupta de antrenament pentru a castiga puncte de experienta';
 $lang['TIP_2'] = 'schimbarea iti aduce puncte de aptitudine (Home -> Skills)ca sa iti imbunatatesti aptitudinile de soldat';
 $lang['TIP_3'] = 'introduce adresa de mail ca sa primesti mesaje de la alianta si notificari';
-$lang['TIP_4'] = 'cumpara cateva cladiri care iti aduc bani ca sa generezi'; 
-$lang['TIP_5'] ='cumpara cladiri defensive ca sa iti imbunatatesti apararea'; 
+$lang['TIP_4'] = 'cumpara cateva cladiri care iti aduc bani ca sa generezi';
+$lang['TIP_5'] ='cumpara cladiri defensive ca sa iti imbunatatesti apararea';
 $lang['TIP_6'] = 'fa-ti aliante cu ceilalti jucatori ca sa iti imbunatatesti atacul si apararea';
-$lang['TIP_7'] = 'depoziteaza bani in Banca Nationala ca sa ii tii in siguranta de ceilalti jucatori'; 
-$lang['TIP_8'] = 'colecteaza puncte de experienta suplimentare votand'; 
+$lang['TIP_7'] = 'depoziteaza bani in Banca Nationala ca sa ii tii in siguranta de ceilalti jucatori';
+$lang['TIP_8'] = 'colecteaza puncte de experienta suplimentare votand';
 $lang['TIP_9'] = 'pune sume de bani pe capul celorlalti jucatori ca sa primesti recompense';
 $lang['TIP_10'] = 'viziteaza cazinoul ca sa joci la roata norocului pentru a castiga si mai multi bani';
 $lang['TIP_11'] = 'cumpara cladiri pentru energie pentru a regenera energia mai repede';
-$lang['TIP_12'] = 'cumpara soldati inteligenti ca sa spionezi ceilalti jucatori si pentru a porni rascoala pe continentul lor'; 
+$lang['TIP_12'] = 'cumpara soldati inteligenti ca sa spionezi ceilalti jucatori si pentru a porni rascoala pe continentul lor';
 $lang['TIP_13'] = 'depoziteaza bani in banca Transquera ca sa primesti profit in fiecare zi';
 $lang['TIP_14'] = 'viziteaza forumul.noi idei in joc sunt binevenite';
 $lang['TIP_15'] = 'verifica sectiunea de ajutor pentru mai multe informatii';
@@ -309,7 +309,7 @@ $lang['TIP_16'] = 'cumpara/vinde ca sa faci mai mult profit(Money -> StockExchan
 $lang['TIP_17'] = 'depoziteaza bani banca SwissCore ca sa primesti profit zilnic ';
 $lang['TIP_18'] = 'completeaza toate misiunile de pe continent pentru a primi puncte de experienta suplimentare';
 $lang['TIP_19'] = 'repara armata (acasa -> regenereaza) ca sa previ pierderea unitatilor';
-$lang['TIP_20'] = 'viziteaza cazinoul pentru a juca la sloturi pentru a castiga bani'; 
+$lang['TIP_20'] = 'viziteaza cazinoul pentru a juca la sloturi pentru a castiga bani';
 $lang['TIP_21'] = 'repara cladirile (acasa -> regenereaza) ca sa previ pierderea cladirilor';
 $lang['TIP_22'] = 'continua sa joci si devino cel mai bun jucator al tarii tale';
 
@@ -373,7 +373,7 @@ $lang['LOGIN_NICKNAME'] = 'Nickname';
 $lang['LOGIN_MAINTENANCE_TITLE'] = 'mentenanta server';
 $lang['LOGIN_MAINTENANCE'] = ';in acest moment are loc o mentenanta a serverului.va rugam sa reveniti in 30 minute.multumim';
 
-$lang['LOGIN_LOGOUT'] = 'te-ai delogat!'; 
+$lang['LOGIN_LOGOUT'] = 'te-ai delogat!';
 $lang['LOGIN_FAILED'] = 'username si/sau parola gresite';
 $lang['LOGIN_REGISTER_OK'] = 'contul a fost creat!';
 $lang['LOGIN_PASSWORD_TO_SHORT'] = 'parola trebuie sa aibe cel putin 6 caractere';
@@ -384,7 +384,7 @@ $lang['LOGIN_NICKNAME_EXIST'] = 'Nickname %s deja folosit!';
 $lang['LOGIN_NICKNAME_NEEDED'] = 'Nickname trebuie introdus!';
 $lang['LOGIN_NEW_PASSWORD_SEND'] = 'noua parola a fost trimisa la adresa de mail!';
 $lang['LOGIN_EMAIL_UNKNOWN'] = 'e-mail necunoscut!';
-$lang['LOGIN_BEST_VIEWED'] = 'WarQuest este optimizat pentru urmatoarele sisteme mobile:"Apple iOS/iPad, Nokia Symbian, 
+$lang['LOGIN_BEST_VIEWED'] = 'WarQuest este optimizat pentru urmatoarele sisteme mobile:"Apple iOS/iPad, Nokia Symbian,
  BlackBerry OS, Android OS"si pentru browserele de internet:"Internet Explorer, Mozilla Firefox, Apple Safari, Opera, Google Chrome".
  Acest joc este optimizat pentru browserele setate la 500px';
 
@@ -413,7 +413,7 @@ $lang['HOME_INTRO_BATTLES'] = 'si lupte %s. ';
 $lang['HOME_INTRO_UNITS'] = ' cand castigi bani si experienta poti cumpara mai multe %s ';
 $lang['HOME_INTRO_BUILDINGS'] = ' si %s pentru a deveni mai puternic. ';
 
-$lang['HOME_NEW_ANDROID_VERSION'] = 'o noua versiune a aplicatiei v%s este disponibila pe piata android .<br/>Please upgrade!';
+$lang['HOME_NEW_ANDROID_VERSION'] = 'o noua versiune a aplicatiei v%s este disponibila pe piata android .<br>Please upgrade!';
 $lang['HOME_NEW_WINDOWS_VERSION'] = 'un nou client WarQuest este disponibil!';
 $lang['HOME_CLICK_HERE'] = 'aici';
 $lang['HOME_CLICK_TEXT'] = 'Click %s pentru a incepe downloadul.';
@@ -432,8 +432,8 @@ $lang['HOME_MAP_NOTE'] = ' fiecare continent contine 3 regiuni care pot fi cucer
 
 $lang['HOME_TRAVEL_TO'] = 'calatoreste pe';
 
-$lang['HOME_INTRO_PLACE1'] = 'esti pe locul %s general '; 
-$lang['HOME_INTRO_PLACE2'] = 'si locul %s din <b>%s</b> .'; 
+$lang['HOME_INTRO_PLACE1'] = 'esti pe locul %s general ';
+$lang['HOME_INTRO_PLACE2'] = 'si locul %s din <b>%s</b> .';
 $lang['HOME_PLAYERS_ONLINE'] = 'in ultimele 24hs %s jucatori au fost on-line.';
 
 $lang['HOME_HOLIDAY'] = 'vacanta';
@@ -463,12 +463,12 @@ $lang['PLAYER_BOUNTY_SET'] = 'vanatoare pusa';
 $lang['PLAYER_REBELLION_RISE'] = 'rascoala inceputa';
 $lang['PLAYER_UNIT_COST'] = 'costul unitatilor';
 $lang['PLAYER_NETTO_INCOME'] = 'profit net';
-$lang['PLAYER_STATISTICS'] = 'Statistici'; 
+$lang['PLAYER_STATISTICS'] = 'Statistici';
 $lang['PLAYER_DISCOUNT_MAINTENANCE'] = 'reducere & Mentenanta';
-$lang['PLAYER_NAME'] = 'Nume'; 
+$lang['PLAYER_NAME'] = 'Nume';
 $lang['PLAYER_ID'] = 'Id';
-$lang['PLAYER_RANK'] = 'Loc'; 
-$lang['PLAYER_OVERVIEW'] = 'Profil'; 
+$lang['PLAYER_RANK'] = 'Loc';
+$lang['PLAYER_OVERVIEW'] = 'Profil';
 $lang['PLAYER_DISCOUNT_RATE'] = 'Reducere cladire';
 $lang['PLAYER_MAINTENANCE_RATE'] = 'mentenanta unitatilor';
 $lang['PLAYER_LAST_LOGIN'] = 'ultima data activ (acum)';
@@ -499,7 +499,7 @@ $lang['PLAYER_ATTACK_SKILLS'] = 'Jucator aptitudini de atac';
 $lang['PLAYER_DEFENSE_SKILLS'] = 'Jucator aptiudini de aparare';
 $lang['PLAYER_SUB_TOTAL'] = 'Sub total';
 $lang['PLAYER_TOTAL'] = 'Total';
-$lang['PLAYER_FORCE'] = 'Atac & aparare tarie'; 
+$lang['PLAYER_FORCE'] = 'Atac & aparare tarie';
 $lang['PLAYER_DEPLOYED'] = 'Deployed';
 
 $lang['PLAYER_BUILDING'] = 'cladire';
@@ -523,7 +523,7 @@ $lang['PLAYER_SPY_2'] = 'exploratori';
 $lang['PLAYER_SPY_3'] = 'exploratori';
 $lang['PLAYER_SPY_4'] = 'exploratori';
 $lang['PLAYER_SPY_5'] = 'exploratori';
- 
+
 $lang['PLAYER_ESPIONAGE_UNLOCK1'] = 'deblocat cand puterea %s este %s% mai mare decat a oponentului.';
 $lang['PLAYER_ESPIONAGE_UNLOCK2'] = 'delocat cand %s puterea ta este egaka sau mai mare decat a oponentului.';
 
@@ -541,7 +541,7 @@ $lang['HOME_BATTLE_YOU_EXP'] = 'ai castigat %s experienta ';
 $lang['HOME_BATTLE_TOOK_DAMAGE'] = 'ai produs %s daune.';
 $lang['HOME_BATTLE_TAKING_DAMAGE'] = 'ai primit %s daune.';
 $lang['HOME_BATTLE_YOU_MONEY'] = 'Pierzand %s dolari ';
-$lang['HOME_BATTLE_NO_NEWS'] = 'Nici un raport al bataliilor disponibil in acest moment!'; 
+$lang['HOME_BATTLE_NO_NEWS'] = 'Nici un raport al bataliilor disponibil in acest moment!';
 
 $lang['HOME_BOUNTY_NEWS'] = '%s a pus %s dolari pe capul tau. daca vei fi invins vei pierde %s experienta.';
 
@@ -553,7 +553,7 @@ $lang['HOME_BOUNTY_NEWS'] = '%s a pus %s dolari pe capul tau. daca vei fi invins
 
 $lang['HOME_MESSAGES_TITLE']= 'Mesage';
 $lang['HOME_MESSAGE_DELETED'] = 'Mesaj sters!';
-$lang['HOME_NO_MESSAGES'] = 'nu sunt mesaje de la alti jucatori in acet moment!'; 
+$lang['HOME_NO_MESSAGES'] = 'nu sunt mesaje de la alti jucatori in acet moment!';
 
  /*
  ** ------------------
@@ -564,13 +564,13 @@ $lang['HOME_NO_MESSAGES'] = 'nu sunt mesaje de la alti jucatori in acet moment!'
 $lang['PLAYER_SKILL_SUBTITLE1'] = 'Pncte aptitudine';
 $lang['PLAYER_SKILL_SUBTITLE2'] = 'Puncte aptitudine [%s disponibile]';
 $lang['PLAYER_SKILL_NOTE'] = 'NOTA:foloeste punctele de aptitudine ca sa cresti atacul aparearea viata energia si munitia.';
-$lang['PLAYER_SKILLS'] = 'Aptitudini'; 
-$lang['PLAYER_CURRENT'] = 'Current'; 
+$lang['PLAYER_SKILLS'] = 'Aptitudini';
+$lang['PLAYER_CURRENT'] = 'Current';
 $lang['PLAYER_ATTACK'] = 'ATAC';
 $lang['PLAYER_DEFENSE'] = 'APARARE';
-$lang['PLAYER_HEALTH'] = 'VIATA'; 
-$lang['PLAYER_ENERGY'] = 'ENERGIE'; 
-$lang['PLAYER_AMMO'] = 'MUNITIE'; 
+$lang['PLAYER_HEALTH'] = 'VIATA';
+$lang['PLAYER_ENERGY'] = 'ENERGIE';
+$lang['PLAYER_AMMO'] = 'MUNITIE';
 
 $lang['PLAYER_ATTACK_TIP'] = 'cresteti atacul pentru a face mai multe pagube si pentru a castiga mai multe batalii.Te costa 1 punct de aptitudine ca sa iti maresti atacul cu %s. descreste atacul cu %s ca sa optii un punct de aptitudine in schimb.';
 $lang['PLAYER_DEFENSE_TIP'] = 'cresteti apararea ca sa rezisti impotriva mai multor atacuri.Te costa 1 punct de aptitudine ca sa iti cresti apararea cu %s. Descreste apararea cu %s ca sa optii un punct de aptitudine.';
@@ -632,46 +632,46 @@ $lang['PLAYER_REPAIR_PRICE'] = 'Pretul reparatiei';
 $lang['PLAYER_RESTORED_FAILED'] = 'nu ai %s dolari pentru a executa aceasta actiune.';
 
 $lang['PLAYER_HEALTH_TITLE'] = 'Recuperare viata';
-$lang['PLAYER_HEALTH_NOTE'] = 'Plateste spitalul pentru a-ti recupera viata complet.Viata se poate recupera si singura cu timpul.Recuperarea poate fi folosita doar odata la 5 minuteViata se poate recupera si singura cu timpul.'; 
+$lang['PLAYER_HEALTH_NOTE'] = 'Plateste spitalul pentru a-ti recupera viata complet.Viata se poate recupera si singura cu timpul.Recuperarea poate fi folosita doar odata la 5 minuteViata se poate recupera si singura cu timpul.';
 $lang['PLAYER_HEALTH_CONDITION'] = 'Starea Vietii';
 $lang['PLAYER_HEALTH_RESTORED'] = 'Viata recuperata pentru %s dolari.';
 $lang['PLAYER_HEALTH_CONFIRM'] = 'Chiar vrei sa iti recuperezi viata?';
 
 $lang['PLAYER_ENERGY_TITLE'] = 'Recuperare energie';
-$lang['PLAYER_ENERGY_NOTE'] = 'Plateste compania petroliera ca sa iti recuperezi energia.Energia poate fi regenerata doar 1 data la 24h.Energia se poate regenera cu trecerea timpului'; 
+$lang['PLAYER_ENERGY_NOTE'] = 'Plateste compania petroliera ca sa iti recuperezi energia.Energia poate fi regenerata doar 1 data la 24h.Energia se poate regenera cu trecerea timpului';
 $lang['PLAYER_ENERGY_CONDITION'] = 'Starea Energiei';
 $lang['PLAYER_ENERGY_RESTORED'] = 'Energia regenerata pentru %s dolari.';
-$lang['PLAYER_ENERGY_CONFIRM'] = 'Çhiar vrei sa iti regenerezi Energia?';
+$lang['PLAYER_ENERGY_CONFIRM'] = 'Ã‡hiar vrei sa iti regenerezi Energia?';
 
 $lang['PLAYER_AMMO_TITLE'] = 'Regenerare munitie';
-$lang['PLAYER_AMMO_NOTE'] = 'Plateste fabrica de arme ca sa iti regenereze munitia complet.Recuperarea poate fi folosita doar 1 data la 24h.Munitia se poate regenera cu trecerea timpului.'; 
+$lang['PLAYER_AMMO_NOTE'] = 'Plateste fabrica de arme ca sa iti regenereze munitia complet.Recuperarea poate fi folosita doar 1 data la 24h.Munitia se poate regenera cu trecerea timpului.';
 $lang['PLAYER_AMMO_CONDITION'] = 'Starea Munitiei';
 $lang['PLAYER_AMMO_RESTORED'] = 'Munitia regenerata pentru %s dolari.';
 $lang['PLAYER_AMMO_CONFIRM'] = 'Chiar vrei sa iti recuperezi munitia?';
 
 $lang['PLAYER_CEASE_FIRE_TITLE'] = 'Perioada de Relax';
-$lang['PLAYER_CEASE_FIRE_NOTE'] = 'Plateste bani ca sa activezi perioada de relax.In aceasta periaoda alti jucatori nu te pot ataca,dar nici tu nu poti ataca alti jucatori.'; 
+$lang['PLAYER_CEASE_FIRE_NOTE'] = 'Plateste bani ca sa activezi perioada de relax.In aceasta periaoda alti jucatori nu te pot ataca,dar nici tu nu poti ataca alti jucatori.';
 $lang['PLAYER_CEASE_FIRE_ACTIVATED'] = 'Perioada de relax activata pentru %s dolari.';
 $lang['PLAYER_CEASE_FIRE_CONFIRM'] = 'Chiar vrei sa activezi Perioada de Relax?';
 $lang['PLAYER_HOLIDAY_TITLE'] = 'Perioada Sarbatorilor';
-$lang['PLAYER_HOLIDAY_NOTE'] = 'Stai linistit pe timpul sarbatorilor. pe timpul acestei perioade contul tau este inghetat:Misiunile, Bataliile, Armata si Cladirile sunt blocate iar celilalti jucatori nu te pot ataca.'; 
+$lang['PLAYER_HOLIDAY_NOTE'] = 'Stai linistit pe timpul sarbatorilor. pe timpul acestei perioade contul tau este inghetat:Misiunile, Bataliile, Armata si Cladirile sunt blocate iar celilalti jucatori nu te pot ataca.';
 $lang['PLAYER_HOLIDAY_ACTIVATED'] = 'Perioada sarbatorilor activata pentru %s dolari.';
 $lang['PLAYER_HOLIDAY_CONFIRM'] = 'Chiar vrei sa activezi Perioada de Sarbabori?';
 
 $lang['PLAYER_UNITS_TITLE'] = 'Repara armata';
-$lang['PLAYER_UNITS_NOTE'] = 'Repara armata.Daca unittile tale ajung pe 0% viata atunci unele unitati pot fi distruse iar celelalte unitati vor fi reparate automat.'; 
+$lang['PLAYER_UNITS_NOTE'] = 'Repara armata.Daca unittile tale ajung pe 0% viata atunci unele unitati pot fi distruse iar celelalte unitati vor fi reparate automat.';
 $lang['PLAYER_UNITS_CONDITION'] = 'Starea Armatelor(SA)';
 $lang['PLAYER_UNITS_REPAIRED'] = 'Armatele tale au fost reparate pentru %s dolari.';
 $lang['PLAYER_UNITS_CONFIRM'] = 'Chiar vrei sa iti repari armata?';
 
 $lang['PLAYER_BUILDINGS_TITLE'] = 'Repara Cladirile';
-$lang['PLAYER_BUILDINGS_NOTE'] = 'Repara cladirile bazei tale. Daca cladirile tale ajung cu viata la 0% unele cladiri vor fi distruse iar celelalte cor fi reparate automat.'; 
+$lang['PLAYER_BUILDINGS_NOTE'] = 'Repara cladirile bazei tale. Daca cladirile tale ajung cu viata la 0% unele cladiri vor fi distruse iar celelalte cor fi reparate automat.';
 $lang['PLAYER_BUILDINGS_CONDITION'] = 'Starea Cladirilor (SC)';
 $lang['PLAYER_BUILDINGS_REPAIRED'] = 'Cladirile tale au fost reparate pentru %s dolari.';
 $lang['PLAYER_BUILDINGS_CONFIRM'] = 'Chiar vreisa iti repari cladirile?';
 
 $lang['PLAYER_REBELLION_TITLE'] = 'Restaureaza pacea';
-$lang['PLAYER_REBELLION_NOTE'] = 'Plateste inteligenta ca sa inceteze revoltele din regiunile cucerite de tine.Daca starea revoltei ajunge la 100% unele regiuni vor fi pierdute si trebuie recucerite.'; 
+$lang['PLAYER_REBELLION_NOTE'] = 'Plateste inteligenta ca sa inceteze revoltele din regiunile cucerite de tine.Daca starea revoltei ajunge la 100% unele regiuni vor fi pierdute si trebuie recucerite.';
 $lang['PLAYER_REBELLION_CONDITION'] = 'Starea Revoltelor(SR)';
 $lang['PLAYER_REBELLION_RESTORED'] = 'termina revolta pentru %s dolari.';
 $lang['PLAYER_REBELLION_CONFIRM'] = 'Chiar vrei sa restaurezi pacea?';
@@ -723,12 +723,12 @@ $lang['PLAYER_USERNAME'] = 'Username';
 $lang['PLAYER_USERNAME_TO_SHORT'] = 'Username !';
 $lang['PLAYER_USERNAME_ALREADY_EXIST'] = 'Username-ul exista deja!';
 $lang['PLAYER_USERNAME_CHANGED'] = 'Username-ul este schimbat. nu uita sa-l schimbi si in aplicatia mobila si in clienbtul Windows,altfel logarea automata nu va mai fi posibila!';
-$lang['PLAYER_CURRENT_PASSWORD'] = 'Parola curenta'; 
+$lang['PLAYER_CURRENT_PASSWORD'] = 'Parola curenta';
 $lang['PLAYER_NEW_PASSWORD'] = 'Noua parola';
 $lang['PLAYER_PASSWORD_CHANGED'] = 'Parola este schimbata.nu uita sa o schimbi si in aplicatia mobila si in clentul windows altfel logarea automata nu va mai fi posibila!';
 $lang['PLAYER_PASSWORD_NO_MATCH'] = 'parola curenta nu se potriveste!';
 $lang['PLAYER_PASSWORD_TO_SHORT'] = 'noua parola trebuie sa aiba cel putin 6 caractere!';
-$lang['PLAYER_LOGIN_NOTE'] = 'ATENTIUNE:Loghinul automat merge doar daca ai acelasi username si parola si in aplicatia mobila si in clentul windows!'; 
+$lang['PLAYER_LOGIN_NOTE'] = 'ATENTIUNE:Loghinul automat merge doar daca ai acelasi username si parola si in aplicatia mobila si in clentul windows!';
 
 $lang['SETTING_ACCOUNT_RESET_TITLE'] = 'cont resetat';
 $lang['SETTING_YES'] = 'Da';
@@ -1212,8 +1212,8 @@ $lang['BATTLE_ATTACKER_HEALTH_LOW'] = 'Viata ta este prea mica pentru lupta!. Vi
 $lang['BATTLE_AMMO_LOW'] = 'Nu mai ai munitie! Asteapta cateva minute sa ti se incarce munitia sau foloseste punctel de aptitudine pentru a-i inbunatatii munitia.';
 $lang['BATTLE_UNITS_LOST'] = 'pe timpul luptei ai pierdut urmatoarele unitati:';
 $lang['BATTLE_BUILDINGS_LOST'] = 'Pe timpul luptei ai pierdut urmatoarele cladiri:';
-$lang['BATTLE_DEFENSE_FORCE'] = '%s %s Aparare %s (%s puterea apararii):'; 
-$lang['BATTLE_DEFENSE_BASE'] = '%s Baza de aparare:'; 
+$lang['BATTLE_DEFENSE_FORCE'] = '%s %s Aparare %s (%s puterea apararii):';
+$lang['BATTLE_DEFENSE_BASE'] = '%s Baza de aparare:';
 $lang['BATTLE_ATTACK_FORCE'] = 'Your %s attack %s (%s attack strength)';
 $lang['BATTLE_MORE'] = 'mai mult';
 $lang['BATTLE_NO_PLAYER_AVAILABLE'] = 'In acest moment nici un jucator nu este disponibil pentru lupta.';
@@ -1229,8 +1229,8 @@ $lang['BATTLE_FORCE_TYPE'] = 'Forta:';
 $lang['BATTLE_ENEMIES'] = 'Inamici';
 $lang['BATTLE_BOUNTY'] = 'Recompense puse';
 $lang['BATTLE_NO_BOUNTY_PLAYERS'] = 'in acest moment nici un jucator cu recompensa pusa nu este disponibil.';
-$lang['BATTLE_BOUNTY_BONUS'] = 'Ai primit recompensa de  %s dolari.'; 
-$lang['BATTLE_HOSPITAL_BONUS'] = '%s s-a predat temporar.Primesti  %s dolari bonus!'; 
+$lang['BATTLE_BOUNTY_BONUS'] = 'Ai primit recompensa de  %s dolari.';
+$lang['BATTLE_HOSPITAL_BONUS'] = '%s s-a predat temporar.Primesti  %s dolari bonus!';
 $lang['BATTLE_BOUNTY_LOST'] = 'Ai fost atacat de  %s of %s.Ai pierdut. Pierzi %s dolari, primind %s daune si pierzand %s puncte de experienta.';
 $lang['BATTLE_BOUNTY_CONFIRM'] =' pui o recompensa de %s dolari pe capul lui ?';
 
@@ -1241,7 +1241,7 @@ $lang['BATTLE_REBEL_UPDATE2'] = 'treaba buna, ai crescut sansa de revolta cu %s 
 $lang['BATTLE_REBEL_UPDATE3'] = 'Pacat, nici o regiune disponibila pentru revolta!';
 
 $lang['BATTLE_NO_BOUNTY_MONEY'] = 'nu ai  %s dolari ca sa pui o recompensa pe capul lui  %s.';
-$lang['BATTLE_BOUNTY_SET'] = 'Ai pus %s dolari pe capul lui %s si ai primit un punct de experienta. cand %s va fi invins, va pierde  %s puncte de experienta.'; 
+$lang['BATTLE_BOUNTY_SET'] = 'Ai pus %s dolari pe capul lui %s si ai primit un punct de experienta. cand %s va fi invins, va pierde  %s puncte de experienta.';
 
 $lang['BATTLE_RANGE'] = 'Jucatorii de la lvl %s pana la lvl %s sunt in raza ta de lupta.';
 
@@ -1378,7 +1378,7 @@ $lang['BUILDING_NOT_OWNED'] = 'nu ai %s %s.';
 
 $lang['BUILDING_BUY'] = 'Ai cumparat %s %s pentru %s. ai %s cumparate.';
 $lang['BUILDING_MAX'] = 'nu mai mult de %s %s(s) permise!';
-$lang['BUILDING_NO_FUNDS'] = 'nu ai suficieni bani pentru a cumpara %s %s pentru %s.'; 
+$lang['BUILDING_NO_FUNDS'] = 'nu ai suficieni bani pentru a cumpara %s %s pentru %s.';
 $lang['BUILDING_LOW_UPKEEP2'] = 'nu ai suficient profit pentru a cumpara  %s %s pentru %s.';
 
 $lang['BUILDING_UPKEEP'] = 'Cost pe ora';
@@ -1393,7 +1393,7 @@ $lang['BUILDINGS_NO_BUILDINGS'] = 'Nici o cladire disponibila!';
 
 /*
 ** ------------------
-** MONEY - BANKS 
+** MONEY - BANKS
 ** ------------------
 */
 
@@ -1406,8 +1406,8 @@ $lang['BANK_WARNING'] = 'ATENTIUNE: Inteligentii sau Exploratorii de la alti juc
 $lang['BANK_TRANSACTION_TYPE_0'] = 'Ai retras';
 $lang['BANK_TRANSACTION_TYPE_1'] = 'Ai depozitat';
 $lang['BANK_TRANSACTION_TYPE_2'] = 'Taxa bancii';
-$lang['BANK_TRANSACTION_TYPE_3'] = 'Restore bill';		
-$lang['BANK_TRANSACTION_TYPE_4'] = 'Dobanda';	
+$lang['BANK_TRANSACTION_TYPE_3'] = 'Restore bill';
+$lang['BANK_TRANSACTION_TYPE_4'] = 'Dobanda';
 $lang['BANK_TRANSACTION_TYPE_5'] = 'Spionul a furat';
 $lang['BANK_TRANSACTION_TYPE_6'] = 'Bonus ';
 
@@ -1441,8 +1441,8 @@ $lang['STOCK_SELL'] = 'Ai vandut %s %s actiuni pentru %s dolari. Ai platit %s do
 $lang['STOCK_NOTE'] = 'Nota: POti cumpara sau vinde actiuni pentru a face profit. Pretul actiunii se reactualizeaza in timp real de la Yahoo. Este o taxa de  %s% pentru fiecare tranzactie.';
 $lang['STOCK_PRICE_TO_LOW'] = 'pretul actiunii prea mic. Schimb blocat!';
 
-$lang['STOCK_SYMBOL'] = 'Simbolul actiunii'; 
-$lang['STOCK_SYMBOL_INFO'] = 'Nota: Intra la Yahoo financiar pentru a customiza aceasta lista.'; 
+$lang['STOCK_SYMBOL'] = 'Simbolul actiunii';
+$lang['STOCK_SYMBOL_INFO'] = 'Nota: Intra la Yahoo financiar pentru a customiza aceasta lista.';
 
 $lang['STOCK_ADD'] = 'Adauga actiune';
 $lang['STOCK_SYMBOL_ADDED'] = 'ai adaugat (%s) la lista ta personala de actiuni.';
@@ -1474,8 +1474,8 @@ $lang['CASINO_ROLL'] = 'Invarte';
 
 $lang['CASINO_NO_BET'] = 'Introdu miza!';
 $lang['CASINO_NO_LUCKY_NUMBER'] = 'introdu numarul norocos!';
-$lang['CASINO_BET_TO_LARGE'] = 'Miza prea mare! miza maxima este %s dolari.'; 
-$lang['CASINO_NO_MONEY'] = 'Nu ai suficienti bani!'; 
+$lang['CASINO_BET_TO_LARGE'] = 'Miza prea mare! miza maxima este %s dolari.';
+$lang['CASINO_NO_MONEY'] = 'Nu ai suficienti bani!';
 
 $lang['CASINO_WIN'] = 'numarul castigator este %s. ai castigat %s  dolari.';
 $lang['CASINO_LOST'] = 'numarul castigator este %s. ai pierdut %s dolari.';
@@ -1503,13 +1503,13 @@ $lang['ALLIANCE_ACCEPT_TITLE2'] = 'Accepted [%s acceptati]';
 
 $lang['ALLIANCE_INVITE_TITLE'] = 'Invitati';
 
-$lang['ALLIANCE_NO_PENDING'] = 'nici o alianta in asteptare!'; 
-$lang['ALLIANCE_INVITATION'] = 'invitatia de alianta a fost trimisa lui %s!'; 
+$lang['ALLIANCE_NO_PENDING'] = 'nici o alianta in asteptare!';
+$lang['ALLIANCE_INVITATION'] = 'invitatia de alianta a fost trimisa lui %s!';
 $lang['ALLIANCE_REJECT'] = 'Respinge pe %s ca aliat!';
 $lang['ALLIANCE_DROP'] = 'arunca pe %s ca aliat!';
 $lang['ALLIANCE_ACCEPT'] = 'Accepta pe %s ca aliat!';
 $lang['ALLIANCE_ALLY'] = 'Aliat';
-$lang['ALLIANCE_MAXIMUM'] = 'numarul maxim de aliati %s a fost atins.asteapta sa treci nivelul.'; 
+$lang['ALLIANCE_MAXIMUM'] = 'numarul maxim de aliati %s a fost atins.asteapta sa treci nivelul.';
 $lang['ALLIANCE_LOCKED'] = 'invitatiile de alianter deblocate la nivelul 1';
 $lang['ALLIANCE_NOTE'] = 'Nota:  Cu fiecare alianta aprobata poti comanda cu 6 unitati mai mult pe timpul bataliilor. Tine minte ca nu poti ataca aliatii.';
 
@@ -1532,36 +1532,36 @@ $lang['LEADERBORD_PLAYER_COUNTRY_NOTE'] = 'Nota: Clasamentul arata cei mai buni 
 
 /*
 ** ------------------
-** FORUMUL 
+** FORUMUL
 ** ------------------
 */
 
-$lang['FORUM_TITLE'] = 'FORUM'; 
+$lang['FORUM_TITLE'] = 'FORUM';
 $lang['FORUM_TITLE2'] = 'Forum';
 $lang['FORUM_NOTE'] = 'Nota: Selecteaza un forum ca sa vezi toate postarile. I\'ve seen some people cursing or use other bad words in the forums. I doesn\'t want that kind of language on here! Thanks. And remember, no bad words! ';
 
-$lang['FORUM_1'] = 'Anunturi'; 
+$lang['FORUM_1'] = 'Anunturi';
 $lang['FORUM_NOTE_1'] = 'Anunturi generale';
-$lang['FORUM_2'] = 'Rapoarte de Bug'; 
+$lang['FORUM_2'] = 'Rapoarte de Bug';
 $lang['FORUM_NOTE_2'] = 'ce merge rau in noul up-date?';
-$lang['FORUM_3'] = 'Feature Requests'; 
+$lang['FORUM_3'] = 'Feature Requests';
 $lang['FORUM_NOTE_3'] = 'Ce  vreti in noul up-date?';
-$lang['FORUM_4'] = 'Help'; 
+$lang['FORUM_4'] = 'Help';
 $lang['FORUM_NOTE_4'] = 'ce nu este clar in  WarQuest?';
-$lang['FORUM_5'] = 'Altele'; 
+$lang['FORUM_5'] = 'Altele';
 $lang['FORUM_NOTE_5'] = 'Oricare alte discutii?';
-$lang['FORUM_6'] = 'Comunitatea tarilor'; 
+$lang['FORUM_6'] = 'Comunitatea tarilor';
 $lang['FORUM_NOTE_6'] = 'discutii in limba locala?';
 
 $lang['FORUM_SEARCH_TOKEN'] = 'Cautarea trebuie sa aiba cel putin 3 caractere.';
 
-$lang['TOPIC_TITLE'] = 'Topic'; 
+$lang['TOPIC_TITLE'] = 'Topic';
 $lang['TOPIC_CREATED_INPUT'] = 'Creaza un nou topic (max. 80 caractere)';
 $lang['TOPIC_CREATED'] = 'Topic creat';
 $lang['TOPIC_UPDATED'] = 'Topic relansat';
 $lang['TOPIC_DELETED'] = 'Topic sters';
 $lang['TOPIC_NO_TOPICS'] = 'in acest moment nici un topic deschis.';
-$lang['TOPIC_NOTE'] = 'Nota: alege un topic pentru a citi/scrie sau creaza unul nou.'; 
+$lang['TOPIC_NOTE'] = 'Nota: alege un topic pentru a citi/scrie sau creaza unul nou.';
 $lang['TOPIC_CREATED_BY'] = '(Creat de %s)';
 
 /*
@@ -1617,14 +1617,14 @@ $lang['HELP_EXP'] = ' joaca misiuni si du lupte pentru a castiga experienta. can
  Cand un nivel este complet energia viata si munitia vor reveni la maxim.';
 
 $lang['HELP_HEALTH_TITLE'] = 'Viata';
-$lang['HELP_HEALTH'] = 'Viata ta va scadea cu fiecare batalie dar va reveni automat cu trecerea timpului. 
+$lang['HELP_HEALTH'] = 'Viata ta va scadea cu fiecare batalie dar va reveni automat cu trecerea timpului.
  poti vizita spitalul (ACASA -> Restaureaza) si plati pentru o recuperare rapida.';
 
-$lang['HELP_ENERGY_TITLE'] = 'Energie'; 
-$lang['HELP_ENERGY'] = ' energia ta va scadea cu fiecare misiune jucata dar va reveni automat cu trecerea timpului. Cumparand cladiri de energie va reveni mai repede cu recerea  timpului. 
+$lang['HELP_ENERGY_TITLE'] = 'Energie';
+$lang['HELP_ENERGY'] = ' energia ta va scadea cu fiecare misiune jucata dar va reveni automat cu trecerea timpului. Cumparand cladiri de energie va reveni mai repede cu recerea  timpului.
 O poti incarca totusi la maxim in acelasi fel ca si viata.';
 
-$lang['HELP_AMMO_TITLE'] = 'Munitie'; 
+$lang['HELP_AMMO_TITLE'] = 'Munitie';
 $lang['HELP_AMMO'] =	'Fiecare batalie te costa 1 munitie. munitia este regenerata cu trecerea timpului. O poti incarca totusi la maxim in acelasi fel ca si viata.';
 
 $lang['HELP_BATTLE_TITLE'] = 'LUPTA';
@@ -1636,14 +1636,14 @@ $lang['HELP_UNITS'] =  'In timpul atacului cele mai bune unitati sunt selectate 
 si un aliat. Fiecare aliat iti aduce 6 unitati in plus. iti poti achizitiona mai multe unitati dar numai de 6 ori numarul aliantei tale vor participa.';
 
 $lang['HELP_BUILDINGS_TITLE'] = 'Cladiri';
-$lang['HELP_BUILDINGS'] = 'In timpul jocului cladirile pot aduce profit, o aparare mai mare, energie mai rapida, 
+$lang['HELP_BUILDINGS'] = 'In timpul jocului cladirile pot aduce profit, o aparare mai mare, energie mai rapida,
 discont si o mentenata mai mare. Fiecare cladire cumparata va creste pretul urmatoarei cladiri. Fiecare cladire contine cetateni care vor creste cheltuielile.';
 
 $lang['HELP_BANKS_TITLE'] = 'Banca';
 $lang['HELP_BANKS'] = 'Fiecare banca are o taxa pentru depozit. Banii depusi in banca National sunt in siguranta fata de atacurile celorlalti jucatori dar plateste
 o dobanda destul de mica. Banii depusi in banca Trasquera sau SwissCore au o dobanda mai mare dar pot fi furati de inteligenti sau de exploratorii celorlalti jucatori.';
 
-$lang['HELP_ALLIANCE_TITLE'] = 'Alianta'; 
+$lang['HELP_ALLIANCE_TITLE'] = 'Alianta';
 $lang['HELP_ALLIANCE'] = 'Fiecare alianta aprobata iti creste armata cu 6 unitati. Cresteti alianta ca sa devi mai puternic!
  Tine minte totusi ca nu poti ataca aliati.';
 
@@ -1652,33 +1652,33 @@ $lang['HELP_SKILL_POINTS'] = 'Punctele de aptitudine pot fi primite in timpul jo
 viata,energia sau munitia.Munitia costa 2 puncte de  aptitudine,iar celelalte doar 1. poti de altfel sa schimbi la un procent de 2:1 cresterea unei aptitudini.';
 
 $lang['HELP_TRADE_POINTS_TITLE'] = 'Puncte de Schimb';
-$lang['HELP_TRADE_POINTS']  = 'Punctele de schimb pot fi procurate prin donare de dolari reali. Vezi Ajutor -> Donare. 
+$lang['HELP_TRADE_POINTS']  = 'Punctele de schimb pot fi procurate prin donare de dolari reali. Vezi Ajutor -> Donare.
 Punctele de schimb pot fi schimbate in puncte de aptitudini, bani sau pot fi utiizate pentru a scadea timpul de reincarcare a vietii energiei sau munitiei.';
 
 $lang['HELP_TACTICS_TITLE'] = 'Tactici';
-$lang['HELP_TACTICS'] = 'Un lucru important este ca unitatile cu care joci in misiuni pot fi pierdute in timpul luptei. 
- This is important to consider as the cost of replacing some of the higher priced 
-units used in a mission may exceed the money earned from the mission itself. In general, if your goal 
-is to maximize money from missions, then focus on the Money / Energy value of the mission. 
-If your goal is to maximize experience points, then focus on the Exp / Energy value of the 
-missions.<br/><br/>
+$lang['HELP_TACTICS'] = 'Un lucru important este ca unitatile cu care joci in misiuni pot fi pierdute in timpul luptei.
+ This is important to consider as the cost of replacing some of the higher priced
+units used in a mission may exceed the money earned from the mission itself. In general, if your goal
+is to maximize money from missions, then focus on the Money / Energy value of the mission.
+If your goal is to maximize experience points, then focus on the Exp / Energy value of the
+missions.<br><br>
 
-Odata cu cresterea in nivel jocul creste automat raza la care pot fi vazuti oponentii. 
- Pentru asta trebuie sa faci tot posibilul sa iti cresti alianta si sa incerci sa o ti la maxim.<br/><br/>
+Odata cu cresterea in nivel jocul creste automat raza la care pot fi vazuti oponentii.
+ Pentru asta trebuie sa faci tot posibilul sa iti cresti alianta si sa incerci sa o ti la maxim.<br><br>
 
-Cladirile de aparare sunt ideale pentru ca ele cresc valoarea apararii tale ori de cate ori esti atacat. 
-Este recomandant sa va procurati cat de multe puteti pentru a nu va mai face grija ca veti fi atacati de boti si veti pierde banii.<br/><br/>
+Cladirile de aparare sunt ideale pentru ca ele cresc valoarea apararii tale ori de cate ori esti atacat.
+Este recomandant sa va procurati cat de multe puteti pentru a nu va mai face grija ca veti fi atacati de boti si veti pierde banii.<br><br>
 
-In WarQuest, apararea face ca uni oponenti sa fie foarte foarte greu de infrant. 
+In WarQuest, apararea face ca uni oponenti sa fie foarte foarte greu de infrant.
 este recomandat de asemeni sa folositi si unele puncte de aptitudini pentru aparare,dar cele mai multe trebuie folosite pentru atac pentru ca la aparare se
-mai poate compensa cu,cladirile de aparare .<br/><br/>
+mai poate compensa cu,cladirile de aparare .<br><br>
 
 Cand va hotarati sa cumparati armata sa fiti foarte atent la costul pe ora al fiecarei unitate, atacul si
-apararea acestora. Daca castigi cele mai multe lupte cu armata pe care o ai trebuie sa faci tot posibilul sa nu mai cumperi alte unitati si sa iti 
+apararea acestora. Daca castigi cele mai multe lupte cu armata pe care o ai trebuie sa faci tot posibilul sa nu mai cumperi alte unitati si sa iti
 reorientezi banii catre alte cladiri.';
 
 $lang['HELP_GRAVATAR_TITLE'] = 'avatar';
-$lang['HELP_GRAVATAR'] = 'WarQuest suporta avatar (www.gravatar.com) serviciul de imagine. avatarul este o 
+$lang['HELP_GRAVATAR'] = 'WarQuest suporta avatar (www.gravatar.com) serviciul de imagine. avatarul este o
 imagine care te insoteste alaturi de nik-ul tau.';
 
 $lang['HELP_BOUNTY_TITLE'] = 'Vaneaza recompense';
@@ -1687,61 +1687,61 @@ ceilalti jucatori il pot ataca pe cel pe capul caruia a pus recompensa (Lupta ->
 Daca oponentul este infrant va pierde puncte de experienta iar recompensa este transferaata catre invingator.';
 
 $lang['HELP_UNITS_CONDITION_TITLE'] = 'Starea Unitatilr (SU)';
-$lang['HELP_UNITS_CONDITION'] = 'Aceasta valoare iti arata starea unitatilor tale. 
+$lang['HELP_UNITS_CONDITION'] = 'Aceasta valoare iti arata starea unitatilor tale.
 daca aceasta valoare ajunge la 0% vei pierde cateva unitati. Pentru a preveni pierderea:
-(ACASA -> Restaureaza).'; 
+(ACASA -> Restaureaza).';
 
 $lang['HELP_BUILDINGS_CONDITION_TITLE'] = 'Starea cladirilor (SC)';
 $lang['HELP_BUILDINGS_CONDITION'] = 'Aceasta valoare iti arata starea cladirilor din baza ta.
- daca aceasta valoare ajunge la 0% vei pierde cateva cladiri. Pentru a prezveni pierderea cladirilor: 
- (Acasa -> Restaureaza).'; 
+ daca aceasta valoare ajunge la 0% vei pierde cateva cladiri. Pentru a prezveni pierderea cladirilor:
+ (Acasa -> Restaureaza).';
 
 $lang['HELP_FORUM_TITLE'] = 'Forum';
 $lang['HELP_FORUM'] = 'Pentru a te informa sau pentru a vorbi pe cheat cu alti jucatori viziteaza forumul.';
 
 $lang['HELP_WORLDMAP_TITLE'] = 'Harta';
-$lang['HELP_WORLDMAP'] = 'Fiecare planeta (Pamant / Luna / Marte) contine o harta cu 72 de regiuni care pot fi cucerite 
- jucand misiuni. Regiunile au urmatoarele culori: <br/>
-- "Verde" Regione 0% cucerita<br/>
-- "Galben" Regione 33% cucerita.<br/>
-- "Purple" Regione 66% cucerita.<br/>
-- "Portocaliu" Regione 100% cucerita.<br/>
+$lang['HELP_WORLDMAP'] = 'Fiecare planeta (Pamant / Luna / Marte) contine o harta cu 72 de regiuni care pot fi cucerite
+ jucand misiuni. Regiunile au urmatoarele culori: <br>
+- "Verde" Regione 0% cucerita<br>
+- "Galben" Regione 33% cucerita.<br>
+- "Purple" Regione 66% cucerita.<br>
+- "Portocaliu" Regione 100% cucerita.<br>
 - "Rosu" Revolta in regione. Regiunea trebuie recucerita.';
 
 $lang['HELP_SHORTCUTS_TITLE'] = 'Scurtaturile meniului';
-$lang['HELP_SHORTCUTS'] = 'Urmatoarele scurtaturi disponibile sunt::<br/>
-- Click "Bani" Pentru a merge la cei mai buni jucatori.<br/>
-- Click "Exp." Pentru a merge la cele mai bune tari.<br/>
-- Click "Level" to go to the poll page.<br/>
-- Click "Viata" Pentru a merge la pagina de vindecare.<br/>
-- Click "Energie" Pentru a merge la pagina de profil.<br/>
+$lang['HELP_SHORTCUTS'] = 'Urmatoarele scurtaturi disponibile sunt::<br>
+- Click "Bani" Pentru a merge la cei mai buni jucatori.<br>
+- Click "Exp." Pentru a merge la cele mai bune tari.<br>
+- Click "Level" to go to the poll page.<br>
+- Click "Viata" Pentru a merge la pagina de vindecare.<br>
+- Click "Energie" Pentru a merge la pagina de profil.<br>
 - Click "Munitie" Pentru a merge la pagini de aptitudini.';
 
 $lang['HELP_ATTACK_FORCE_TITLE'] = 'Forta atacului';
-$lang['HELP_ATTACK_FORCE'] = 'Inainte de lupta poti alege una dintre urmatoarele forte de atac:<br/><br/>
-Pamant<br/>
-- "Army" cele mai bune unitati de pe pamant.<br/>
-- "Calverie" doar cavaleria.<br/>
-- "Nave" Only fortele navale.<br/>
-- "Avioane" Only fortele aeriene.<br/>
-- "Inteligenti" doar fortele inteligente.<br/><br/>
-LUNA<br/>
-- "Army" cele mai bune unitati de pe luna.<br/>
-- "Drones" Doar drone.<br/>
-- "Warriors" Doar warrior.<br/>
-- "Nave spatiale" Doar nave spatiale moon units.<br/>
-- "Exploratori " Doar exploratori.<br/><br/>
-MARTE<br/>
-- "Army" cele mai bune unitati de pe marte.<br/>
-- "Drone" doar drone.<br/>
-- "Warriors" doar warrior .<br/>
-- "Spacecrafts " doar nave spatiale mars units.<br/>
-- "Explorers " doar exploratori.<br/><br/>
-MERCURY<br/>
-- "Army" cele mai bune unitati de pe mercury.<br/>
-- "Drones" doar drone s.<br/>
-- "Warriors" doar warrior .<br/>
-- "Spacecrafts " doar nave spatiale.<br/>
+$lang['HELP_ATTACK_FORCE'] = 'Inainte de lupta poti alege una dintre urmatoarele forte de atac:<br><br>
+Pamant<br>
+- "Army" cele mai bune unitati de pe pamant.<br>
+- "Calverie" doar cavaleria.<br>
+- "Nave" Only fortele navale.<br>
+- "Avioane" Only fortele aeriene.<br>
+- "Inteligenti" doar fortele inteligente.<br><br>
+LUNA<br>
+- "Army" cele mai bune unitati de pe luna.<br>
+- "Drones" Doar drone.<br>
+- "Warriors" Doar warrior.<br>
+- "Nave spatiale" Doar nave spatiale moon units.<br>
+- "Exploratori " Doar exploratori.<br><br>
+MARTE<br>
+- "Army" cele mai bune unitati de pe marte.<br>
+- "Drone" doar drone.<br>
+- "Warriors" doar warrior .<br>
+- "Spacecrafts " doar nave spatiale mars units.<br>
+- "Explorers " doar exploratori.<br><br>
+MERCURY<br>
+- "Army" cele mai bune unitati de pe mercury.<br>
+- "Drones" doar drone s.<br>
+- "Warriors" doar warrior .<br>
+- "Spacecrafts " doar nave spatiale.<br>
 - "Explorers " doar exploratori.
 ';
 
@@ -1829,11 +1829,11 @@ cu care vrei sa contribui. Tranzactia va fi procesata de PayPal un nume de incre
 
 $lang['HELP_ABOUT_SUBTITLE'] = 'despre';
 $lang['HELP_BACKGROUND_TITLE'] = 'Background';
-$lang['HELP_BACKGROUND'] = 'WarQuest este creat de <a target="new" href="http://www.plaatsoft.nl">PlaatSoft</a>. Original game idea is based on some other games available in the Apple appstore. The main reason to recreate this kind of game is to create a better game play and user interface which can be controlled on the following devices: smart phones (Apple, Android, Nokia and BlackBerry), tablets(Samsung and Apple), Game consoles (Nintendo) and all kinds of notebooks (Intel / AMD base).';
+$lang['HELP_BACKGROUND'] = 'WarQuest este creat de <a target="_blank" href="https://www.plaatsoft.nl">PlaatSoft</a>. Original game idea is based on some other games available in the Apple appstore. The main reason to recreate this kind of game is to create a better game play and user interface which can be controlled on the following devices: smart phones (Apple, Android, Nokia and BlackBerry), tablets(Samsung and Apple), Game consoles (Nintendo) and all kinds of notebooks (Intel / AMD base).';
 $lang['HELP_CREDITS_TITLE'] = 'Credite';
-$lang['HELP_BROWSERS_TITLE'] = 'Browsere suportate'; 
-$lang['HELP_DISCLAIMER_TITLE'] = 'Disclaimer'; 
-$lang['HELP_DISCLAIMER'] = 'Programul este distribuit fara nici un fel de garantie de nici un fel, INCLUzand designe-ul, MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE.<br/>';
+$lang['HELP_BROWSERS_TITLE'] = 'Browsere suportate';
+$lang['HELP_DISCLAIMER_TITLE'] = 'Disclaimer';
+$lang['HELP_DISCLAIMER'] = 'Programul este distribuit fara nici un fel de garantie de nici un fel, INCLUzand designe-ul, MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE.<br>';
 
 $lang['HELP_CREDITS_TITLE'] = 'Credits';
 $lang['HELP_CREDITS'] = 'Mi de multumiri oamenilor si organizatiilor care au ajutat la crearea acestui joc.';
@@ -1900,7 +1900,7 @@ $landcode['au'] = "Australia";
 $landcode['aw'] = "Aruba";
 $landcode['ax'] = "Aland Islands";
 $landcode['az'] = "Azerbaijan";
-		
+
 $landcode['ba'] = "Bosnia and Herzegovina";
 $landcode['bb'] = "Barbados";
 $landcode['bd'] = "Bangladesh";
@@ -1911,7 +1911,7 @@ $landcode['bh'] = "Bahrain";
 $landcode['bi'] = "Burundi";
 $landcode['bj'] = "Benin";
 $landcode['bm'] = "Bermuda";
-$landcode['bn'] = "Brunei Darussalam";	
+$landcode['bn'] = "Brunei Darussalam";
 $landcode['bl'] = "Saint Barthelemy";
 $landcode['bn'] = "Brunei";
 $landcode['bo'] = "Bolivia";
@@ -1922,7 +1922,7 @@ $landcode['bv'] = "Bouvet island";
 $landcode['bw'] = "Botswana";
 $landcode['by'] = "Belarus";
 $landcode['bz'] = "Belize";
-	
+
 $landcode['ca'] = "Canada";
 $landcode['cc'] = "Cocos Islands";
 $landcode['cf'] = "Central African Republic";
@@ -1941,14 +1941,14 @@ $landcode['cv'] = "Cape Verde";
 $landcode['cx'] = "Christmas Island";
 $landcode['cy'] = "Cyprus";
 $landcode['cz'] = "Czech Republic";
-	
+
 $landcode['de'] = "Germany";
 $landcode['dj'] = "Djibouti";
 $landcode['dk'] = "Denmark";
 $landcode['dm'] = "Dominica";
 $landcode['do'] = "Dominican Republic";
 $landcode['dz'] = "Algeria";
-	
+
 $landcode['ec'] = "Ecuador";
 $landcode['ee'] = "Estonia";
 $landcode['eg'] = "Egypt";
@@ -1957,14 +1957,14 @@ $landcode['er'] = "Eritrea";
 $landcode['es'] = "Spain";
 $landcode['et'] = "Ethiopia";
 $landcode['eu'] = "Cyberspace";
-	
+
 $landcode['fi'] = "Finland";
 $landcode['fj'] = "Fiji";
 $landcode['fk'] = "Falkland Islands";
 $landcode['fm'] = "Micronesia";
 $landcode['fo'] = "Faroe Islands";
 $landcode['fr'] = "France";
-	
+
 $landcode['ga'] = "Gabon";
 $landcode['gb'] = "United Kingdom";
 $landcode['gd'] = "Grenada";
@@ -1983,14 +1983,14 @@ $landcode['gt'] = "Guatemala";
 $landcode['gu'] = "Guam";
 $landcode['gw'] = "Guinee-Bissau";
 $landcode['gy'] = "Guyana";
-	
+
 $landcode['hk'] = "Hong Kong";
 $landcode['hm'] = "Heard- en McDonald Islands";
 $landcode['hn'] = "Honduras";
 $landcode['hr'] = "Kroatia";
 $landcode['ht'] = "Haiti";
 $landcode['hu'] = "Hungary";
-	
+
 $landcode['id'] = "Indonesia";
 $landcode['ie'] = "Ireland";
 $landcode['il'] = "Israel";
@@ -2001,11 +2001,11 @@ $landcode['iq'] = "Iraq";
 $landcode['ir'] = "Iran";
 $landcode['is'] = "Iceland";
 $landcode['it'] = "Italy";
-	
+
 $landcode['jm'] = "Jamaica";
 $landcode['jo'] = "Jordan";
 $landcode['jp'] = "Japan";
-	
+
 $landcode['ke'] = "Kenya";
 $landcode['kg'] = "Kyrgyzstan";
 $landcode['kh'] = "Cambodia";
@@ -2017,7 +2017,7 @@ $landcode['kr'] = "South Korea";
 $landcode['kw'] = "Kuwait";
 $landcode['ky'] = "Cayman Islands";
 $landcode['kz'] = "Kazachstan";
-	
+
 $landcode['la'] = "Laos";
 $landcode['lb'] = "Lebanon";
 $landcode['lc'] = "Saint Lucia";
@@ -2029,7 +2029,7 @@ $landcode['lt'] = "Lithuania";
 $landcode['lu'] = "Luxembourg";
 $landcode['lv'] = "Latvia";
 $landcode['ly'] = "Libyan";
-	
+
 $landcode['ma'] = "Morocco";
 $landcode['mc'] = "Monaco";
 $landcode['md'] = "Moldova";
@@ -2051,7 +2051,7 @@ $landcode['mw'] = "Malawi";
 $landcode['mx'] = "Mexico";
 $landcode['my'] = "Malaysia";
 $landcode['mz'] = "Mozambique";
-	
+
 $landcode['na'] = "Namibia";
 $landcode['nc'] = "New Caledonia";
 $landcode['ne'] = "Niger";
@@ -2064,9 +2064,9 @@ $landcode['np'] = "Nepal";
 $landcode['nr'] = "Nauru";
 $landcode['nu'] = "Niue";
 $landcode['nz'] = "New Zealand";
-	
+
 $landcode['om'] = "Oman";
-	
+
 $landcode['pa'] = "Panama";
 $landcode['pe'] = "Peru";
 $landcode['pf'] = "French Polynesia";
@@ -2081,15 +2081,15 @@ $landcode['ps'] = "Palestinian";
 $landcode['pt'] = "Portugal";
 $landcode['pw'] = "Palau";
 $landcode['py'] = "Paraguay";
-	
+
 $landcode['qa'] = "Qatar";
-	
+
 $landcode['re'] = "Reunion";
 $landcode['ro'] = "Romania";
 $landcode['ru'] = "Russian Federation";
 $landcode['rs'] = "Serbia";
 $landcode['rw'] = "Rwanda";
-	
+
 $landcode['sa'] = "Saudi Arabia";
 $landcode['sb'] = "Solomon Islands";
 $landcode['sc'] = "Seychelles";
@@ -2109,7 +2109,7 @@ $landcode['st'] = "Sao Tome en Principe";
 $landcode['sv'] = "El Salvador";
 $landcode['sy'] = "Syria";
 $landcode['sz'] = "Swaziland";
-	
+
 $landcode['tc'] = "Turks and Caicos Islands";
 $landcode['td'] = "Chad";
 $landcode['tg'] = "Togo";
@@ -2125,14 +2125,14 @@ $landcode['tt'] = "Trinidad and Tobago";
 $landcode['tv'] = "Tuvalu";
 $landcode['tw'] = "Taiwan";
 $landcode['tz'] = "Tanzania";
-	
+
 $landcode['ua'] = "Ukraine";
 $landcode['ug'] = "Uganda";
 $landcode['um'] = "United States Minor Outlying Islands";
 $landcode['us'] = "United States";
-$landcode['uy'] = "Uruguay";	
+$landcode['uy'] = "Uruguay";
 $landcode['uz'] = "Uzbekistan";
-	
+
 $landcode['va'] = "Vatican City";
 $landcode['vc'] = "Saint Vincent and the Grenadines";
 $landcode['ve'] = "Venezuela";
@@ -2140,15 +2140,13 @@ $landcode['vg'] = "Virgin Islands; British";
 $landcode['vi'] = "Virgin islands; US";
 $landcode['vn'] = "Vietnam";
 $landcode['vu'] = "Vanuatu";
-	
+
 $landcode['wf'] = "Wallis and Futuna";
 $landcode['ws'] = "Samoa";
-	
+
 $landcode['ye'] = "Yemen";
 $landcode['yt'] = "Mayotte";
-	
+
 $landcode['za'] = "South Africa";
 $landcode['zm'] = "Zambia";
 $landcode['zw'] = "Zimbabwe";
-	
-?>

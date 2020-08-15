@@ -4,18 +4,18 @@
   "description": "WarQuest is a Free Multiplayer Online Game featuring a war zone with thousands of real players.",
   "launch_path": "/",
   "icons": {
-		"128": "http://www.warquest.nl/images/other/WarQuest-128.png",
-		"120": "http://www.warquest.nl/images/other/WarQuest-120.png",
-		"90": "http://www.warquest.nl/images/other/WarQuest-90.png",
-		"60": "http://www.warquest.nl/images/other/WarQuest-60.png",
-		"48": "http://www.warquest.nl/images/other/WarQuest-48.png",
-		"32": "http://www.warquest.nl/images/other/WarQuest-32.png",
-		"30": "http://www.warquest.nl/images/other/WarQuest-30.png",
-		"16": "http://www.warquest.nl/images/other/WarQuest-16.png"
+		"128": "/images/other/WarQuest-128.png",
+		"120": "/images/other/WarQuest-120.png",
+		"90": "/images/other/WarQuest-90.png",
+		"60": "/images/other/WarQuest-60.png",
+		"48": "/images/other/WarQuest-48.png",
+		"32": "/images/other/WarQuest-32.png",
+		"30": "/images/other/WarQuest-30.png",
+		"16": "/images/other/WarQuest-16.png"
   },
   "developer": {
     "name": "PlaatSoft",
-    "url": "http://www.plaatsoft.nl"
+    "url": "https://www.plaatsoft.nl"
   },
   "default_locale": "en"
 }
