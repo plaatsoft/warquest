@@ -147,8 +147,8 @@ function warquest_login_refresh($offset, $range, $id) {
    $page .= 'function Start'.$id.'() { ';
 	$page .= 'var nr = "'.$config["content_url"].'images/units/unit" + (Math.floor(Math.random() * '.$range.') + '.$offset.') + ".jpg"; ';
    $page .= 'document.getElementById("'.$id.'").src = nr; ';
-   $page .= 'setTimeout("Start'.$id.'('.$offset.')", 2000); ';
    $page .= '} ';
+   $page .= 'setInterval("Start'.$id.'('.$offset.')", 2000); ';
    $page .= 'Start'.$id.'('.$offset.'); ';
    $page .= '</script>';
 }
@@ -812,7 +812,8 @@ function warquest_register_form() {
 	$page .= '<tr>';
 	$page .= '<td>'.t('LOGIN_PASSWORD').':</td>';
 	$page .= '<td><input name="mypassword" type="password" size="18" maxlength="';
-	$page .= $config["max_password_length"].'" value="'.$mypassword.'" id="myzpassword"></td>';
+	$page .= $config["max_password_length"].'" value="'.$mypassword.'" id="mypassword">';
+	$page .= '<div class="passwordStrengthBar"><div id="password-strength-bar"></div></div></td>';
 	$page .= '</tr>';
 
 	$page .= '<tr>';
@@ -827,7 +828,6 @@ function warquest_register_form() {
 
 	$page .= '</div>';
 
-	$page .= '<script src="'.$config["content_url"].'js/jquery.js"></script>';
 	$page .= '<script src="'.$config["content_url"].'js/password.js"></script>';
 	$page .= '<link href="'.$config["content_url"].'css/password.css" rel="stylesheet">';
 }

@@ -913,7 +913,8 @@ function warquest_home_ad() {
 	$page .= '  var filename = "'.$config["content_url"].'images/other/announcement" + count + ".png"; ';
 	$page .= '  document.getElementById("announcement").src = filename; ';
 	$page .= '} ';
-	$page .= 'StartRotation();setInterval(StartRotation, 3000);';
+	$page .= 'setInterval(StartRotation, 3000);';
+	$page .= 'StartRotation();';
 	$page .= '</script>';
 }
 

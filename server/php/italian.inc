@@ -673,8 +673,10 @@ $lang['BACKGROUND_3'] = 'Rosso Aurora';
 $lang['BACKGROUND_4'] = 'Seta Blu';
 $lang['BACKGROUND_5'] = 'Pirata';
 $lang['BACKGROUND_6'] = 'Classico';
-$lang['BACKGROUND_7'] = 'Natalizio';
-$lang['BACKGROUND_8'] = 'Fuochi d\'artificio';
+$lang['BACKGROUND_7'] = 'Neve';
+$lang['BACKGROUND_8'] = 'Stelle';
+$lang['BACKGROUND_9'] = 'Moderno (tablet / desktop)';
+
 
 /*
 ** ------------------

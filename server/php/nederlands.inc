@@ -615,8 +615,9 @@ $lang['BACKGROUND_3'] = 'Rode aurora';
 $lang['BACKGROUND_4'] = 'Zijde blauw';
 $lang['BACKGROUND_5'] = 'Piraat';
 $lang['BACKGROUND_6'] = 'Klassiek';
-$lang['BACKGROUND_7'] = 'Kerst';
-$lang['BACKGROUND_8'] = 'Vuurwerk';
+$lang['BACKGROUND_7'] = 'Sneeuw';
+$lang['BACKGROUND_8'] = 'Sterren';
+$lang['BACKGROUND_9'] = 'Modern (Tablet / Desktop)';
 
 /*
 ** ------------------

@@ -17,6 +17,7 @@
 */
 
 include "config.inc";
+include "constants.inc";
 include "database.inc";
 include "general.inc";
 include "english.inc";
@@ -34,7 +35,7 @@ if (strlen($token)>0) {
 
 	foreach ($tokens as $item) {
 		$items = preg_split ("/=/", $item);
-		$$items[0] = $items[1];
+		${$items[0]} = $items[1];
 	}
 }
 

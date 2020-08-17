@@ -846,31 +846,10 @@ function warquest_landcode($code) {
 /**
  * Translate text label (multi language support)
  */
-function t() {
-
+function t($key, ...$values) {
 	global $lang;
-
-   $numArgs = func_num_args();
-
-   $temp = $lang[func_get_arg(0)];
-
-   $pos = 0;
-   $i = 1;
-
-   while (($pos = strpos($temp, "%s", $pos)) !== false) {
-      if ($i >= $numArgs) {
-         throw new InvalidArgumentException("Not enough arguments passed.");
-		}
-
-      $temp = substr($temp, 0, $pos) . func_get_arg($i) . substr($temp, $pos + 2);
-      $pos += strlen(func_get_arg($i));
-      $i++;
-   }
-
-   return $temp;
+	return sprintf($lang[$key], ...$values);
 }
-
-
 
 function warquest_place($place) {
 
@@ -3127,28 +3106,6 @@ function warquest_ui_footer($renderTime, $queries) {
 
 	$page = '</div>';
 	$page .= '</form>';
-
-	if (isset($player->background)) {
-		switch ($player->background) {
-
-			case 7: $page .= '<script src="js/snow.js"></script>';
-					   break;
-
-			case 8: $page .= '<script src="js/fireworks.js"></script>';
-					   break;
-		}
-	}
-
-	if ( ($config["default_background"]!=1) && (!isset($player->background)) ) {
-		switch ($config["default_background"]) {
-
-			case 7: $page .= '<script src="js/snow.js"></script>';
-					   break;
-
-			case 8: $page .= '<script src="js/fireworks.js"></script>';
-					   break;
-		}
-	}
 
 	$page .= '<div class="copyright">';
 	$page .= '<center>';

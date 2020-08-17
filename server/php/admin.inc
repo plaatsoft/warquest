@@ -436,14 +436,6 @@ function warquest_admin_news() {
 
 	$output->title = 'News';
 
-	$page .= "<script>
-		function limitText(limitField, limitNum) {
-			if (limitField.value.length >= limitNum) {
-				limitField.value = limitField.value.substring(0, limitNum);
-			}
-		}
-		</script>\n";
-
 	$page .= '<div class="subparagraph">'.$output->title.'</div>';
 
 	$page .= '<div class="box">';
@@ -470,8 +462,7 @@ function warquest_admin_news() {
 
 	$page .= '<tr>';
 	$page .= '<td>';
-	$page .= '<textarea style="width:100%" id="content" name="content" rows="5" ';
-	$page .= 'onKeyDown="limitText(this,1000)">'.$content.'</textarea>';
+	$page .= '<textarea style="width:100%" id="content" name="content" rows="5" maxlength="1000">'.$content.'</textarea>';
 	$page .= '</td>';
 	$page .= '</tr>';
 

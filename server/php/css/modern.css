@@ -81,6 +81,7 @@ input[type="radio"] {
 
 textarea {
 	font-size: 0.9em;
+	resize: none;
 }
 
 i {

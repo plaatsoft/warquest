@@ -93,24 +93,24 @@ function warquest_chat_form() {
 	$page .= '</span>';
 	$page .= '</div>';
 
-	$page .= '<script src="'.$config["content_url"].'js/jquery.js"></script>';
-
 	$page .= '<div class="box">';
 	$page .= '<div id="chatbox">';
 	$page .= '</div>';
 
 	$token = warquest_token('pid='.$player->pid.'&oid='.$other->pid);
-	$page .= '
-	<script>
+	$page .= '<script>
 		function update() {
-			$.get("chat-update.php?token='.$token.'", function(data) {
-				$("#chatbox").html(data);
-			});
-			window.setTimeout("update();", 5000);
+			var chatboxElement = document.getElementById("chatbox");
+			var xhr = new XMLHttpRequest();
+			xhr.onload = function () {
+				chatboxElement.innerHTML = xhr.responseText;
+			};
+			xhr.open("GET", "chat-update.php?token='.$token.'", true);
+			xhr.send();
 		}
+		setInterval(update, 2000);
 		update();
-	';
-	$page .= '</script>';
+	</script>';
 
 	$page .= "</div>";
 

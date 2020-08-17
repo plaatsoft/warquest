@@ -741,8 +741,8 @@ $lang['BACKGROUND_3'] = 'Red Aurora';
 $lang['BACKGROUND_4'] = 'Blue Silk';
 $lang['BACKGROUND_5'] = 'Pirate';
 $lang['BACKGROUND_6'] = 'Classic';
-$lang['BACKGROUND_7'] = 'Christmas';
-$lang['BACKGROUND_8'] = 'Fireworks';
+$lang['BACKGROUND_7'] = 'Snow';
+$lang['BACKGROUND_8'] = 'Stars';
 $lang['BACKGROUND_9'] = 'Modern (Tablet / Desktop)';
 
 $lang['PLAYER_GENERAL_CHANGED'] = 'General settings changed!';

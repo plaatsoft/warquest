@@ -575,8 +575,9 @@ $lang['BACKGROUND_3'] = 'Rote Aura';
 $lang['BACKGROUND_4'] = 'Blaue Seide';
 $lang['BACKGROUND_5'] = 'Pirat';
 $lang['BACKGROUND_6'] = 'Klassich';
-$lang['BACKGROUND_7'] = 'Weihnachten';
-$lang['BACKGROUND_8'] = 'Feuerwerk';
+$lang['BACKGROUND_7'] = 'Schnee';
+$lang['BACKGROUND_8'] = 'Sterne';
+$lang['BACKGROUND_9'] = 'Modern (Tablet / Desktop)';
 
 $lang['PLAYER_GENERAL_CHANGED'] = 'Grundeinstellungen geändert!';
 $lang['NICKNAME_EXIST'] = 'Nickname ist schon gewählt!';

@@ -706,8 +706,9 @@ $lang['BACKGROUND_3'] = 'Aurora roja';
 $lang['BACKGROUND_4'] = 'Seda azul';
 $lang['BACKGROUND_5'] = 'Pirata';
 $lang['BACKGROUND_6'] = 'Clásico';
-$lang['BACKGROUND_7'] = 'Navidad';
-$lang['BACKGROUND_8'] = 'Fuegos artificiales';
+$lang['BACKGROUND_7'] = 'Nieve';
+$lang['BACKGROUND_8'] = 'Estrellas';
+$lang['BACKGROUND_9'] = 'Moderno (tableta / escritorio)';
 
 $lang['PLAYER_GENERAL_CHANGED'] = 'Configuración general cambiada!';
 $lang['PLAYER_NICKNAME_EXIST'] = 'El Apodo ya está en uso!';
