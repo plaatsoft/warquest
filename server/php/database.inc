@@ -1953,8 +1953,8 @@ function warquest_db_clan_insert($pid, $name) {
 
 	$now = date('Y-m-d H:i:s');
 
-	$query  = 'insert into clan (name, pid, created, last_activity, logo) values ("';
-	$query .= warquest_db_escape($name).'",'.$pid.',"'.$now.'","'.$now.'",1)';
+	$query  = 'insert into clan (name, pid, created, last_activity, won, lost, money, attack, defense, slogan, mission, logo, min_level)';
+	$query .= 'values ("'.warquest_db_escape($name).'", '.$pid.', "'.$now.'", "'.$now.'", 0, 0, 0, 0, 0, "", 0, 1, 0)';
 
 	warquest_db_query($query);
 
