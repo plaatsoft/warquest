@@ -523,7 +523,7 @@ $lang['PLAYER_SPY_3'] = 'Exploradores';
 $lang['PLAYER_SPY_4'] = 'Exploradores';
 $lang['PLAYER_SPY_5'] = 'Exploradores';
 
-$lang['PLAYER_ESPIONAGE_UNLOCK1'] = 'Desbloqueado cuando tu fuerza de %s sea %s% superior a la de tu oponente.';
+$lang['PLAYER_ESPIONAGE_UNLOCK1'] = 'Desbloqueado cuando tu fuerza de %s sea %s%% superior a la de tu oponente.';
 $lang['PLAYER_ESPIONAGE_UNLOCK2'] = 'Desbloqueado cuando tu fuerza de %s sea igual o superior a la de tu oponente.';
 
 /*
@@ -653,19 +653,19 @@ $lang['PLAYER_HOLIDAY_ACTIVATED'] = 'Vacaciones activadas por %s dólares.';
 $lang['PLAYER_HOLIDAY_CONFIRM'] = 'Está seguro que desea activar un período de vacaciones?';
 
 $lang['PLAYER_UNITS_TITLE'] = 'Reparar unidades';
-$lang['PLAYER_UNITS_NOTE'] = 'Repare las unidades de su ejército. Si el estado de las unidades llega a 0% algunas unidades serán destruidas y las unidades restantes se reparan de forma automática.';
+$lang['PLAYER_UNITS_NOTE'] = 'Repare las unidades de su ejército. Si el estado de las unidades llega a 0%% algunas unidades serán destruidas y las unidades restantes se reparan de forma automática.';
 $lang['PLAYER_UNITS_CONDITION'] = 'Estado unidades (EU)';
 $lang['PLAYER_UNITS_REPAIRED'] = 'Sus unidades son reparadas por %s dólares.';
 $lang['PLAYER_UNITS_CONFIRM'] = 'Realmente desea reparar sus unidades?';
 
 $lang['PLAYER_BUILDINGS_TITLE'] = 'Reparar edificios';
-$lang['PLAYER_BUILDINGS_NOTE'] = 'Repare los edificios de la base. Si el estado de lod edificios llega a 0%, algunos de los edificios serán destruidos y los edificios restantes se reparan de forma automática.';
+$lang['PLAYER_BUILDINGS_NOTE'] = 'Repare los edificios de la base. Si el estado de lod edificios llega a 0%%, algunos de los edificios serán destruidos y los edificios restantes se reparan de forma automática.';
 $lang['PLAYER_BUILDINGS_CONDITION'] = 'Estado Edificios (EE)';
 $lang['PLAYER_BUILDINGS_REPAIRED'] = 'Sus edificios son reparados por %s dólares.';
 $lang['PLAYER_BUILDINGS_CONFIRM'] = 'Realmente desea reparar sus edificios?';
 
 $lang['PLAYER_REBELLION_TITLE'] = 'Restaurar la Paz';
-$lang['PLAYER_REBELLION_NOTE'] = 'Pague a Inteligencia para terminar con las rebeliones en sus regiones conquistadas recientemente. Si el estado de rebelión alcanza un 100% algunas regiones se perderán debido a los rebeldes y deberán ser reconquistadas.';
+$lang['PLAYER_REBELLION_NOTE'] = 'Pague a Inteligencia para terminar con las rebeliones en sus regiones conquistadas recientemente. Si el estado de rebelión alcanza un 100%% algunas regiones se perderán debido a los rebeldes y deberán ser reconquistadas.';
 $lang['PLAYER_REBELLION_CONDITION'] = 'Estado de Rebelion (ER)';
 $lang['PLAYER_REBELLION_RESTORED'] = 'Termina con la rebelión por %s dólares.';
 $lang['PLAYER_REBELLION_CONFIRM'] = 'Realmente desea restaurar la paz?';
@@ -1087,7 +1087,7 @@ $lang['MISSION_387'] = 'Crater Caespitosa';
 */
 
 $lang['MISSION_TITLE'] = 'MISIONES';
-$lang['MISSION_NOTE'] = 'Nota: Juegue las misiones para ganar dinero, puntos de experiencia y poder alcanzar el siguiente nivel. Cuando una misión está 100% completada usted gana dinero doble. Si ha completado el 100% del continente %s , el ingreso por hora se incrementará con %s dólares.';
+$lang['MISSION_NOTE'] = 'Nota: Juegue las misiones para ganar dinero, puntos de experiencia y poder alcanzar el siguiente nivel. Cuando una misión está 100%% completada usted gana dinero doble. Si ha completado el 100%% del continente %s , el ingreso por hora se incrementará con %s dólares.';
 
 $lang['MISSION_ALLIANCE_SIZE'] = 'número aliados';
 $lang['MISSION_GAIN'] = 'Ventajas';
@@ -1163,7 +1163,7 @@ $lang['BATTLE_BOUNTY_CONFIRM'] = 'Quiere ofrecer una recompensa de %s dólares?'
 $lang['BATTLE_CEASE_FIRE_PERIOD'] = 'El Periodo de Alto el Fuego está activo! No es posible la lucha. %s';
 $lang['BATTLE_AND'] = 'and';
 $lang['BATTLE_REBEL_UPDATE1'] = 'Bien hecho, ha iniciado la rebelión de %s en la región(es) %s. Debajo puede ver la situación actual.';
-$lang['BATTLE_REBEL_UPDATE2'] = 'Bien hecho, ha aumentado las posibilidades de rebelión para %s al %s%.';
+$lang['BATTLE_REBEL_UPDATE2'] = 'Bien hecho, ha aumentado las posibilidades de rebelión para %s al %s%%.';
 $lang['BATTLE_REBEL_UPDATE3'] = 'Es una pena, ninguna región está disponible para iniciar una rebelión!';
 
 $lang['BATTLE_NO_BOUNTY_MONEY'] = 'No dispone de %s de dólares para establecer una recompensa por la cabeza de %s .';
@@ -1868,7 +1868,7 @@ $lang['BUILDING_REQUIRED'] = 'Requiere';
 $lang['MONEY_TITLE'] = 'DINERO';
 
 $lang['BANK_TITLE'] = 'BANCOS';
-$lang['BANK_NOTE'] = 'Nota: Hay una comisión de %s% por cualquier depósito. El banco paga %s% interés diario. ';
+$lang['BANK_NOTE'] = 'Nota: Hay una comisión de %s%% por cualquier depósito. El banco paga %s%% interés diario. ';
 $lang['BANK_WARNING'] = 'Advertencia: Unidades de Inteligencia o Exploradores de otros jugadores pueden robar el dinero de este banco.';
 
 $lang['BANK_TRANSACTION_TYPE_0'] = 'Retiró';
@@ -1906,7 +1906,7 @@ $lang['STOCK_PRICE'] = 'Cotización %s [%s]';
 $lang['STOCK_PROFIT'] = 'Beneficio de acciones %s [%s]';
 $lang['STOCK_NOT_OWNED'] = 'No dispone de %s %s acciones.';
 $lang['STOCK_SELL'] = 'Vendió %s %s acciones por %s dólares. Pagó %s dólares de comisión de gestión. Actualmente %s disponibles.';
-$lang['STOCK_NOTE'] = 'Nota: Usted puede comprar o vender acciones para obtener beneficios. El precio de las acciones se basan en información en tiempo real del servicio financiero de Yahoo!. Hay %s% de comisión por cada operación de venta.';
+$lang['STOCK_NOTE'] = 'Nota: Usted puede comprar o vender acciones para obtener beneficios. El precio de las acciones se basan en información en tiempo real del servicio financiero de Yahoo!. Hay %s%% de comisión por cada operación de venta.';
 $lang['STOCK_PRICE_TO_LOW'] = 'Cotización de las acciones demasiado bajo. Operaciones bloqueadas!';
 
 $lang['STOCK_SYMBOL'] = 'Símbolo del valor';
@@ -2103,7 +2103,7 @@ tiempo. También puede restaurarla de la misma manera que puede restaurar la sal
 
 $lang['HELP_MISSION_TITLE'] = 'Misiones';
 $lang['HELP_MISSION'] = 'Juega las misiones para ganar dinero y puntos de experiencia para alcanzar el siguiente nivel.
-Si una misión está 100% completada ganará el doble de la cantidad de dinero. Si un continente es conquistado
+Si una misión está 100%% completada ganará el doble de la cantidad de dinero. Si un continente es conquistado
 usted recibe un bonus de ingreso por hora.<br><br>
 
 La prima adicional que se da cuando todas las misiones del planeta se han completado es la siguiente:<br>
@@ -2186,12 +2186,12 @@ vencedor.';
 
 $lang['HELP_UNITS_CONDITION_TITLE'] = 'Estado Unidades (EU)';
 $lang['HELP_UNITS_CONDITION'] = 'Este valor da información sobre el estado actual de las unidades.
-Si el estado cae por debajo de 0%, perderá algunas unidades. Para evitar la pérdida de unidades se puede visitar
+Si el estado cae por debajo de 0%%, perderá algunas unidades. Para evitar la pérdida de unidades se puede visitar
 (Inicio -> Restaurar) para reparar sus unidades operativas.';
 
 $lang['HELP_BUILDINGS_CONDITION_TITLE'] = 'Estado Edificios (EE)';
 $lang['HELP_BUILDINGS_CONDITION'] = 'Este valor da información acerca del estado de sus edificios en
-la Base. Si el estado cae por debajo de 0%, perderá algunos edificios. Para evitar su pérdida
+la Base. Si el estado cae por debajo de 0%%, perderá algunos edificios. Para evitar su pérdida
 se puede visitar (Inicio -> Restaurar) para reparar su Base.';
 
 $lang['HELP_FORUM_TITLE'] = 'Forum';
@@ -2201,10 +2201,10 @@ Warquest.';
 $lang['HELP_WORLDMAP_TITLE'] = 'Mapa';
 $lang['HELP_WORLDMAP'] = 'Cada mapa de planeta (Tierra / Luna / Marte) contiene 72 regiones que pueden ser conquistadas jugando las
 misiones. Las regiones puede tener uno de los siguientes colores: <br>
-- "Verde" Region 0% conquistada<br>
-- "Amarillo" Region 33% conquistada.<br>
-- "Purpura" Region 66% conquistada.<br>
-- "Naranja" Region 100% conquistada.<br>
+- "Verde" Region 0%% conquistada<br>
+- "Amarillo" Region 33%% conquistada.<br>
+- "Purpura" Region 66%% conquistada.<br>
+- "Naranja" Region 100%% conquistada.<br>
 - "Rojo" Rebelión en la región. La región debe ser reconquistada.';
 
 $lang['HELP_SHORTCUTS_TITLE'] = 'Accesos directos del menú';
@@ -2248,7 +2248,7 @@ mercury<br>
 $lang['HELP_REBELLION_CONDITION_TITLE'] = 'Estado de Rebelión (ER)';
 $lang['HELP_REBELLION_CONDITION'] = 'Este valor da información sobre su estado actual de rebelión.
 La rebelión de una Región se activa por parte de ataques de la Inteligencia (la Tierra) o exploradores (Luna / Marte) de sus enemigos. Si el
-estado alcanza el 100%, algunas de sus regiones conquistadas iniciarán una rebelión. Para evitar la rebelión,
+estado alcanza el 100%%, algunas de sus regiones conquistadas iniciarán una rebelión. Para evitar la rebelión,
 visite (Inicio -> Restaurar) para poner fin a la rebelión. Cada rebelión detiene el ingreso por hora del continente donde esté
 la región. Restablezca el control en la región rebelde jugando la misión correspondiente.';
 

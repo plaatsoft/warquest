@@ -3119,7 +3119,15 @@ function warquest_ui_footer($renderTime, $queries) {
 
 	/* Google analystic */
 	if ($config["webservices"]==1) {
-		$page .= '<script>var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www."); document.write(unescape("%3Cscript src=\'" + gaJsHost + "google-analytics.com/ga.js\' type=\'text/javascript\'%3E%3C/script%3E"));</script><script>try{ var pageTracker = _gat._getTracker("UA-26602300-1"); pageTracker._trackPageview(); } catch(err) {} </script>';
+		$gaid = 'UA-26602300-1';
+
+		$page .= '<script async src="https://www.googletagmanager.com/gtag/js?id=' . $gaid . '"></script>';
+		$page .= '<script>';
+		$page .= 'window.dataLayer = window.dataLayer || [];';
+		$page .= 'function gtag(){dataLayer.push(arguments);}';
+		$page .= 'gtag("js", new Date());';
+		$page .= 'gtag("config","' . $gaid . '")';
+		$page .= '</script>';
 	}
 
 	$page .= "</body>";

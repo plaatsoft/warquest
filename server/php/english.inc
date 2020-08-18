@@ -550,7 +550,7 @@ $lang['PLAYER_SPY_2'] = 'explorers';
 $lang['PLAYER_SPY_3'] = 'explorers';
 $lang['PLAYER_SPY_4'] = 'explorers';
 $lang['PLAYER_SPY_5'] = 'explorers';
-$lang['PLAYER_ESPIONAGE_UNLOCK1'] = 'Unlocked when your %s strength is %s% higher then opponent.';
+$lang['PLAYER_ESPIONAGE_UNLOCK1'] = 'Unlocked when your %s strength is %s%% higher then opponent.';
 $lang['PLAYER_ESPIONAGE_UNLOCK2'] = 'Unlocked when your %s strength is higher then opponent.';
 
 /*
@@ -686,19 +686,19 @@ $lang['PLAYER_HOLIDAY_ACTIVATED'] = 'Holiday period activated for %s dollar.';
 $lang['PLAYER_HOLIDAY_CONFIRM'] = 'Do you really want to activate a holiday period?';
 
 $lang['PLAYER_UNITS_TITLE'] = 'Repair Units';
-$lang['PLAYER_UNITS_NOTE'] = 'Repair units of your army. If units condition gets 0% some units will be destroyed and the remaining units are automatically repaired.';
+$lang['PLAYER_UNITS_NOTE'] = 'Repair units of your army. If units condition gets 0%% some units will be destroyed and the remaining units are automatically repaired.';
 $lang['PLAYER_UNITS_CONDITION'] = 'Units Condition (UC)';
 $lang['PLAYER_UNITS_REPAIRED'] = 'Your units are repaired for %s dollars.';
 $lang['PLAYER_UNITS_CONFIRM'] = 'Do you really want to repair your units?';
 
 $lang['PLAYER_BUILDINGS_TITLE'] = 'Repair Buildings';
-$lang['PLAYER_BUILDINGS_NOTE'] = 'Repair buildings of your base. If buildings condition gets 0%, some buildings will be destroyed and the remaining buildings are automatically repaired.';
+$lang['PLAYER_BUILDINGS_NOTE'] = 'Repair buildings of your base. If buildings condition gets 0%%, some buildings will be destroyed and the remaining buildings are automatically repaired.';
 $lang['PLAYER_BUILDINGS_CONDITION'] = 'Buildings Condition (BC)';
 $lang['PLAYER_BUILDINGS_REPAIRED'] = 'Your buildings are repaired for %s dollar.';
 $lang['PLAYER_BUILDINGS_CONFIRM'] = 'Do you really want to repair your buildings?';
 
 $lang['PLAYER_REBELLION_TITLE'] = 'Restore Peace';
-$lang['PLAYER_REBELLION_NOTE'] = 'Pay intelligence to end upcoming rebellions in your conquered regions. If Rebellion Condition gets 100% some regions will be lost to rebels and must be reconquered.';
+$lang['PLAYER_REBELLION_NOTE'] = 'Pay intelligence to end upcoming rebellions in your conquered regions. If Rebellion Condition gets 100%% some regions will be lost to rebels and must be reconquered.';
 $lang['PLAYER_REBELLION_CONDITION'] = 'Rebellion Condition (RC)';
 $lang['PLAYER_REBELLION_RESTORED'] = 'End rebellion for %s dollars.';
 $lang['PLAYER_REBELLION_CONFIRM'] = 'Do you really want to restore peace?';
@@ -1262,7 +1262,7 @@ $lang['MISSION_487'] = 'Crater Aristoteles';
 
 $lang['MISSION_TITLE'] = 'MISSIONS';
 
-$lang['MISSION_NOTE'] = 'Play missions to gain money and experience points to reach the next level. When a mission is 100% completed you will gain double money. If you conquered 100% the %s continent your hourly income will increase with %s dollars.';
+$lang['MISSION_NOTE'] = 'Play missions to gain money and experience points to reach the next level. When a mission is 100%% completed you will gain double money. If you conquered 100%% the %s continent your hourly income will increase with %s dollars.';
 
 $lang['MISSION_ALLIANCE_SIZE'] = 'alliance size';
 $lang['MISSION_GAIN'] = 'Gain';
@@ -1342,7 +1342,7 @@ $lang['BATTLE_BOUNTY_CONFIRM'] = 'Do you want to set a bounty for %s dollars?';
 $lang['BATTLE_CEASE_FIRE_PERIOD'] = 'Cease fire period is active! No fighting possible. %s';
 $lang['BATTLE_AND'] = 'and';
 $lang['BATTLE_REBEL_UPDATE1'] = 'Well done, you initiated rebellion for %s in the %s region(s). Below you can see his current situation.';
-$lang['BATTLE_REBEL_UPDATE2'] = 'Well done, you increased their rebellion chance for %s to %s%.';
+$lang['BATTLE_REBEL_UPDATE2'] = 'Well done, you increased their rebellion chance for %s to %s%%.';
 $lang['BATTLE_REBEL_UPDATE3'] = 'Too bad, no region available for rebellion!';
 
 $lang['BATTLE_NO_BOUNTY_MONEY'] = 'You do not have %s dollars to set a bounty on %s head.';
@@ -2259,7 +2259,7 @@ $lang['BANK_GROUP_3'] = 'SwissCore';
 $lang['BANK_GROUP_4'] = 'Clan';
 
 $lang['BANK_TITLE'] = 'BANKS';
-$lang['BANK_NOTE'] = 'There is a %s% fee for any deposit. The bank pays %s% daily interest. ';
+$lang['BANK_NOTE'] = 'There is a %s%% fee for any deposit. The bank pays %s%% daily interest. ';
 $lang['BANK_WARNING'] = 'Warning: Intel or Explorer units from other players can steal money from this bank.';
 
 $lang['BANK_TRANSACTION_TYPE_0'] = 'You withdrew';
@@ -2302,7 +2302,7 @@ $lang['STOCK_PRICE'] = 'Stock price %s [%s]';
 $lang['STOCK_PROFIT'] = 'Stock profit %s [%s]';
 $lang['STOCK_NOT_OWNED'] = 'You do not own %s %s stocks.';
 $lang['STOCK_SELL'] = 'You sold %s %s stocks for %s dollars. You paid %s dollar transaction fee. Still %s owned.';
-$lang['STOCK_NOTE'] = 'You can buy or sell stocks to make profit. Stock prices are based on realtime information from Yahoo! financial service. There is a %s% handle fee on each sale transaction.';
+$lang['STOCK_NOTE'] = 'You can buy or sell stocks to make profit. Stock prices are based on realtime information from Yahoo! financial service. There is a %s%% handle fee on each sale transaction.';
 $lang['STOCK_PRICE_TO_LOW'] = 'Stock price to low. Trading blocked!';
 
 $lang['STOCK_SYMBOL'] = 'Stock symbol';
@@ -2517,7 +2517,7 @@ time. You may also restore it in the same way you can restore health.';
 
 $lang['HELP_MISSION_TITLE'] = 'Missions';
 $lang['HELP_MISSION'] = 'Play missions to gain money and experience points to reach the next level.
-If a mission is 100% completed you will gain twice the amount of money. If a continent is conquered
+If a mission is 100%% completed you will gain twice the amount of money. If a continent is conquered
 you receive a hourly income bonus.<br><br>
 
 The following extra bonus is given when all planet missions are completed:<br>
@@ -2573,7 +2573,7 @@ Benefits of premium buildings:<br>
 <br>
 Benefits of premium units:<br>
 - Higher attack / defence strength the normal units<br>
-- 50% lower hourly cost then normal units<br>
+- 50%% lower hourly cost then normal units<br>
 - Immortal during fights';
 
 $lang['HELP_BOUNTY_TITLE'] = 'Bounty Hunting';
@@ -2584,21 +2584,21 @@ the winner.';
 
 $lang['HELP_UNITS_CONDITION_TITLE'] = 'Units Condition (UC)';
 $lang['HELP_UNITS_CONDITION'] = 'This value gives information about your current units condition.
-If the condition gets below 0% you will lose some units. To prevent unit loss you can visit
+If the condition gets below 0%% you will lose some units. To prevent unit loss you can visit
 (Home -> Restore) to repair your operational units.';
 
 $lang['HELP_BUILDINGS_CONDITION_TITLE'] = 'Buildings Condition (BC)';
 $lang['HELP_BUILDINGS_CONDITION'] = 'This value gives information about your current base buildings
-condition. If the condition gets below 0% you will lose some buildings. To prevent building loss
+condition. If the condition gets below 0%% you will lose some buildings. To prevent building loss
 you can visit (Home -> Restore) to repair your base.';
 
 $lang['HELP_WORLDMAP_TITLE'] = 'Map';
 $lang['HELP_WORLDMAP'] = 'Each planet map contain 72 regions which can be conquered with playing
 missions. The regions can have one of the following colors: <br>
-- "Green" Region 0% conquered<br>
-- "Yellow" Region 33% conquered.<br>
-- "Purple" Region 66% conquered.<br>
-- "Orange" Region 100% conquered.<br>
+- "Green" Region 0%% conquered<br>
+- "Yellow" Region 33%% conquered.<br>
+- "Purple" Region 66%% conquered.<br>
+- "Orange" Region 100%% conquered.<br>
 - "Red" Rebellion in region. Region must be reconquered.';
 
 $lang['HELP_SHORTCUTS_TITLE'] = 'Menu shortcuts';
@@ -2631,7 +2631,7 @@ MOON / MARS / MERCURY / NEPTUNE<br>
 $lang['HELP_REBELLION_CONDITION_TITLE'] = 'Rebellion Condition (RC)';
 $lang['HELP_REBELLION_CONDITION'] = 'This value gives information about your current rebellion condition. Region
 rebellion is triggered by intel (Earth) or explorers (Moon/Mars/Mercury/Neptune) attacks by your opponents. If
-the condition reaches 100%, some of your conquered regions will be in rebellion. To prevent rebellion,
+the condition reaches 100%%, some of your conquered regions will be in rebellion. To prevent rebellion,
 visit (Home -> Restore) to end the rebellion. Each rebellion region results in postponed continent
 hourly income. Restore control in the rebel region by playing the related mission.';
 
@@ -3258,7 +3258,7 @@ $lang['PROMOTION_MAX_INVITE'] = 'Maximum amount of invites sent, request aborted
 ** ------------------
 */
 
-$lang['CLAN_BANK_INFO'] = 'There is a %s% fee for any deposit. The clan bank daily service charge is %s%. Maximum allowed daily deposit is 10 times your hourly income.';
+$lang['CLAN_BANK_INFO'] = 'There is a %s%% fee for any deposit. The clan bank daily service charge is %s%%. Maximum allowed daily deposit is 10 times your hourly income.';
 $lang['CLAN_BANK_TRANSACTION'] = 'Transactions';
 
 $lang['GENERAL_PREMIUM_MEMBERSHIP'] = 'Premium membership';

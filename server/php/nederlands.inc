@@ -443,7 +443,7 @@ $lang['PLAYER_SPY_3'] = 'explorers';
 $lang['PLAYER_SPY_4'] = 'explorers';
 $lang['PLAYER_SPY_5'] = 'explorers';
 
-$lang['PLAYER_ESPIONAGE_UNLOCK1'] = 'Ontgrendeld als jouw %s sterkte %s% hoger is tegenstander.';
+$lang['PLAYER_ESPIONAGE_UNLOCK1'] = 'Ontgrendeld als jouw %s sterkte %s%% hoger is tegenstander.';
 $lang['PLAYER_ESPIONAGE_UNLOCK2'] = 'Ontgrendeld als jouw %s sterkte gelijk of hoger is tegenstander.';
 
 $lang['PLAYER_MONEY_STATUS'] = 'Huidige vermogen';
@@ -546,13 +546,13 @@ $lang['PLAYER_CEASE_FIRE_ACTIVATED'] = 'Wapenstilstand geactiveerd voor %s dolla
 $lang['PLAYER_CEASE_FIRE_CONFIRM'] = 'Wil je echt een wapenstilstand periode activeren?';
 
 $lang['PLAYER_UNITS_TITLE'] = 'Repareer eenheden';
-$lang['PLAYER_UNITS_NOTE'] = 'Repareer je eenheden van je leger. Als eenheden conditie 0% wordt verlies je een aantal eenheden en de overige eenheden worden automatisch gerepareerd.';
+$lang['PLAYER_UNITS_NOTE'] = 'Repareer je eenheden van je leger. Als eenheden conditie 0%% wordt verlies je een aantal eenheden en de overige eenheden worden automatisch gerepareerd.';
 $lang['PLAYER_UNITS_CONDITION'] = 'Eenheden conditie';
 $lang['PLAYER_UNITS_REPAIRED'] = 'Je eenheden zijn gerepareert voor %s dollar.';
 $lang['PLAYER_UNITS_CONFIRM'] = 'Wil je echt je eenheden repareren?';
 
 $lang['PLAYER_BUILDINGS_TITLE'] = 'Repareer gebouwen';
-$lang['PLAYER_BUILDINGS_NOTE'] = 'Repareer je gebouwen van je basis. Als de conditie 0% wordt verlies je een aantal gebouwen en de overige gebouwen worden automatisch gerepareerd.';
+$lang['PLAYER_BUILDINGS_NOTE'] = 'Repareer je gebouwen van je basis. Als de conditie 0%% wordt verlies je een aantal gebouwen en de overige gebouwen worden automatisch gerepareerd.';
 $lang['PLAYER_BUILDINGS_CONDITION'] = 'Gebouwen conditie';
 $lang['PLAYER_BUILDINGS_REPAIRED'] = 'Je gebouwen zijn gerepareert voor %s dollar.';
 $lang['PLAYER_BUILDINGS_CONFIRM'] = 'Wil je echt je gebouwen repareren?';
@@ -888,7 +888,7 @@ $lang['MISSION_287'] = 'Crater Ebenezer';
 */
 
 $lang['MISSION_TITLE'] = 'MISSIES';
-$lang['MISSION_NOTE'] = 'Opmerking: Speel missies om geld en ervaringspunten te krijgen en zo het volgende nivo te bereiken. Als een missie 100% voltooid is krijg je 2x zoveel geld. Als je %s 100% veroverd hebt wordt je uur inkomen met %s dollar verhoogd.';
+$lang['MISSION_NOTE'] = 'Opmerking: Speel missies om geld en ervaringspunten te krijgen en zo het volgende nivo te bereiken. Als een missie 100%% voltooid is krijg je 2x zoveel geld. Als je %s 100%% veroverd hebt wordt je uur inkomen met %s dollar verhoogd.';
 
 $lang['MISSION_ALLIANCE_SIZE'] = 'alliantie grote';
 $lang['MISSION_GAIN'] = 'Win';
@@ -1403,7 +1403,7 @@ $lang['MONEY_TITLE'] = 'GELD';
 */
 
 $lang['BANK_TITLE'] = 'BANKEN';
-$lang['BANK_NOTE'] = 'Opmerkingen: Elke inleg kost %s% transactie kosten. De bank betaald %s% rente elke dag.';
+$lang['BANK_NOTE'] = 'Opmerkingen: Elke inleg kost %s%% transactie kosten. De bank betaald %s%% rente elke dag.';
 $lang['BANK_WARNING'] = 'Waarschuwing: Spionage eenheden kunnen geld stelen van deze bank.';
 
 $lang['BANK_TRANSACTION_TYPE_0'] = 'Opname';
@@ -1440,7 +1440,7 @@ $lang['STOCK_PRICE'] = 'Aandeel prijs %s [%s]';
 $lang['STOCK_PROFIT'] = 'Aandeel winst %s [%s]';
 $lang['STOCK_NOT_OWNED'] = 'Je bezit niet %s %s aandelen.';
 $lang['STOCK_SELL'] = 'Je verkocht %s %s aandelen voor %s dollar. Bank transactie kosten zijn %s dollar. %s aandelen nog in bezit.';
-$lang['STOCK_NOTE'] = 'Opmerking: Je kan aandelen kopen en verkopen zodat je winst kan maken. De aandelen koers wordt realtime gesynchoniseerd met de geselecteerd aandelenbeurs. Elke verkoop transactie kosten %s%.';
+$lang['STOCK_NOTE'] = 'Opmerking: Je kan aandelen kopen en verkopen zodat je winst kan maken. De aandelen koers wordt realtime gesynchoniseerd met de geselecteerd aandelenbeurs. Elke verkoop transactie kosten %s%%.';
 $lang['STOCK_PRICE_TO_LOW'] = 'Stock price to low. Trading blocked!';
 
 $lang['STOCK_SYMBOL'] = 'Stock Symbol';
@@ -1630,7 +1630,7 @@ $lang['HELP_ENERGY'] = 'Je energie vermindert na elke gespeelde missie, maar her
 $lang['HELP_AMMO_TITLE'] = 'Munitie';
 $lang['HELP_AMMO'] =	'Elk gevecht kost een munitie. Munitie wordt automatisch hersteld na verloop van tijd.';
 $lang['HELP_MISSION_TITLE'] = 'Missies';
-$lang['HELP_MISSION'] = 'Speel missies om geld en ervaringspunten te krijgen en het volgende nivo te bereiken. Als een missie 100% voltooid is krijg je dubbel zoveel geld.';
+$lang['HELP_MISSION'] = 'Speel missies om geld en ervaringspunten te krijgen en het volgende nivo te bereiken. Als een missie 100%% voltooid is krijg je dubbel zoveel geld.';
 $lang['HELP_BATTLE_TITLE'] = 'Gevechten';
 $lang['HELP_BATTLE'] =	'Vecht met andere spelers om geld en ervaringspunten te krijgen en het volgende nivo te bereiken. Tijdens de strijd kunnen units worden beschadigd of verloren gaan.';
 $lang['HELP_UNITS_TITLE'] = 'Eenheden';

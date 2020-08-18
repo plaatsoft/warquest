@@ -420,7 +420,7 @@ $lang['PLAYER_CONTINENT_TEXT'] = 'Spieler %s eroberte folgende %s Kontinent(e):'
 $lang['PLAYER_SPY_1'] = 'Spionage';
 $lang['PLAYER_SPY_2'] = 'Kundschafter';
 $lang['PLAYER_SPY_3'] = 'Kundschafter';
-$lang['PLAYER_ESPIONAGE_UNLOCK1'] = 'Freigeschaltet wenn deine %s Stärke um %s% höher ist als beim Gegner.';
+$lang['PLAYER_ESPIONAGE_UNLOCK1'] = 'Freigeschaltet wenn deine %s Stärke um %s%% höher ist als beim Gegner.';
 $lang['PLAYER_ESPIONAGE_UNLOCK2'] = 'Freigeschaltet wenn deine %s Stärke gleich oder höher als beim Gegner.';
 
 $lang['PLAYER_MONEY_STATUS'] = 'Current Assets';
@@ -524,19 +524,19 @@ $lang['PLAYER_CEASE_FIRE_ACTIVATED'] = 'Abkommen für Waffenruhe kaufen für %s 
 $lang['PLAYER_CEASE_FIRE_CONFIRM'] = 'Möchtest du wirklich das Abkommen abzeichnen?';
 
 $lang['PLAYER_UNITS_TITLE'] = 'Werkstatt';
-$lang['PLAYER_UNITS_NOTE'] = 'Lass deine Einheiten reparieren. Wenn der Zustand bei 0% ist werden manche Einheiten zerstört and the remaining units are automaticly repaired.';
+$lang['PLAYER_UNITS_NOTE'] = 'Lass deine Einheiten reparieren. Wenn der Zustand bei 0%% ist werden manche Einheiten zerstört and the remaining units are automaticly repaired.';
 $lang['PLAYER_UNITS_CONDITION'] = 'Einheiten Zustand(UC)';
 $lang['PLAYER_UNITS_REPAIRED'] = 'Einheiten reparieren für %s Dollar.';
 $lang['PLAYER_UNITS_CONFIRM'] = 'Möchtest du wirklich deine Einheiten reparieren lassen?';
 
 $lang['PLAYER_BUILDINGS_TITLE'] = 'Gebäude Restauration';
-$lang['PLAYER_BUILDINGS_NOTE'] = 'Restauriere deine Gebäude um sie vor dem Verfall zu retten. Wenn der Wert auf 0% sinkt werden einige Gebäude zerstört und die übrigen Gebäude renoviert.';
+$lang['PLAYER_BUILDINGS_NOTE'] = 'Restauriere deine Gebäude um sie vor dem Verfall zu retten. Wenn der Wert auf 0%% sinkt werden einige Gebäude zerstört und die übrigen Gebäude renoviert.';
 $lang['PLAYER_BUILDINGS_CONDITION'] = 'Gebäude Zustand (BC)';
 $lang['PLAYER_BUILDINGS_REPAIRED'] = 'Gebäude restaurieren für %s Dollar.';
 $lang['PLAYER_BUILDINGS_CONFIRM'] = 'Möchtest du wirklich deine Gebäude restaurieren?';
 
 $lang['PLAYER_REBELLION_TITLE'] = 'Aufstand vermeiden';
-$lang['PLAYER_REBELLION_NOTE'] = 'Besteche die Anführer der Rebellen um sie zu besänftigen. Sollte der Wert bei 100% liegen ist ein Aufstand unausweichlich und einige Regionen müssen erneut erobert werden.';
+$lang['PLAYER_REBELLION_NOTE'] = 'Besteche die Anführer der Rebellen um sie zu besänftigen. Sollte der Wert bei 100%% liegen ist ein Aufstand unausweichlich und einige Regionen müssen erneut erobert werden.';
 $lang['PLAYER_REBELLION_CONDITION'] = 'Rebellen im Volk (RC)';
 $lang['PLAYER_REBELLION_RESTORED'] = 'Rebellen bestechen für %s Dollar.';
 $lang['PLAYER_REBELLION_CONFIRM'] = 'Möchtest du wirklich die Rebellen bestechen?';
@@ -700,7 +700,7 @@ $lang['MISSION_87'] = 'Israel';
 */
 
 $lang['MISSION_TITLE'] = 'MISSIONS';
-$lang['MISSION_NOTE'] = 'Tipp: Spiele Missionen um Erfahrungspunkte und Geld zu erhalten. Bei Abschluß einer Mission mit 100% bekommst du doppelt soviel Geld. Wenn du alles zu 100% erobert hast gehört dir der Kontinent %s und dein stündliches Einkommen wird um %s Dollar gesteigert.';
+$lang['MISSION_NOTE'] = 'Tipp: Spiele Missionen um Erfahrungspunkte und Geld zu erhalten. Bei Abschluß einer Mission mit 100%% bekommst du doppelt soviel Geld. Wenn du alles zu 100%% erobert hast gehört dir der Kontinent %s und dein stündliches Einkommen wird um %s Dollar gesteigert.';
 
 $lang['MISSION_ALLIANCE_SIZE'] = 'Verbündete';
 $lang['MISSION_GAIN'] = 'Verdien';
@@ -862,7 +862,7 @@ $lang['MONEY_TITLE'] = 'MONEY';
 */
 
 $lang['BANK_TITLE'] = 'BANKS';
-$lang['BANK_NOTE'] = 'Tipp: There is a %s% Gebühr für jede Einzahlung. Die Bank zahlt dir %s% tägliche Zinsen. ';
+$lang['BANK_NOTE'] = 'Tipp: There is a %s%% Gebühr für jede Einzahlung. Die Bank zahlt dir %s%% tägliche Zinsen. ';
 $lang['BANK_WARNING'] = 'Achtung: Nachrichtendienst und Kundschafter von anderen Spielern können Geld stehlen von dieser Bank.';
 
 $lang['BANK_TRANSACTION_TYPE_0'] = 'Abgehoben:';
@@ -1002,7 +1002,7 @@ $lang['HELP_AMMO'] =	'In jedem Kampf gegen einen Spieler benötigst du Eine Muni
 
 $lang['HELP_MISSION_TITLE'] = 'Missionen';
 $lang['HELP_MISSION'] = 'Spiele Missionen um Geld und Erfahrungspunkte zu erhalten für einen Stufenaufstieg.
-Wenn eine Mission zu 100% abgeschlossen ist, erhälst du beim wiederholten Angriff die doppelte Menge Geld. Wenn der Kontinent vollständig
+Wenn eine Mission zu 100%% abgeschlossen ist, erhälst du beim wiederholten Angriff die doppelte Menge Geld. Wenn der Kontinent vollständig
 erobert wurde, erhälst du einen Bonus auf dein Stündliches Einkommen.';
 
 $lang['HELP_BATTLE_TITLE'] = 'Kampf';
@@ -1033,11 +1033,11 @@ others will cost you only one skill points. You can also trade-in 2:1 skillpoint
 
 $lang['HELP_UNITS_CONDITION_TITLE'] = 'Einheiten Zustand (EZ)';
 $lang['HELP_UNITS_CONDITION'] = 'Dieser Wert gibt dir aufschlussreiche Inforamtion über den momentanigen Zustand deiner Streitkraft.
-Sollte der Wert auf 0% sinken, wirst du einige Einheiten verlieren. Um dies zu verhinderen solltest du regelmäßig die Werkstatt aufsuchen und deine Truppen pflegen, gehe dazu (Home -> Restore).';
+Sollte der Wert auf 0%% sinken, wirst du einige Einheiten verlieren. Um dies zu verhinderen solltest du regelmäßig die Werkstatt aufsuchen und deine Truppen pflegen, gehe dazu (Home -> Restore).';
 
 $lang['HELP_BUILDINGS_CONDITION_TITLE'] = 'Gebäude Zustand (GZ)';
 $lang['HELP_BUILDINGS_CONDITION'] = 'This value gives information about your current base buildings
-condition. If the condition goes below 0% you will lose some buildings. To prevent building loss
+condition. If the condition goes below 0%% you will lose some buildings. To prevent building loss
 you can visit (Home -> Restore) to repair your base.';
 
 $lang['HELP_FORUM_TITLE'] = 'Forum';

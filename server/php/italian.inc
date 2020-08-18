@@ -488,7 +488,7 @@ $lang['PLAYER_SPY_3'] = 'esploratori';
 $lang['PLAYER_SPY_4'] = 'esploratori';
 $lang['PLAYER_SPY_5'] = 'esploratori';
 
-$lang['PLAYER_ESPIONAGE_UNLOCK1'] = 'Sbloccato quando la tua potenza %s è %s% superiore a quella dell\'avversario.';
+$lang['PLAYER_ESPIONAGE_UNLOCK1'] = 'Sbloccato quando la tua potenza %s è %s%% superiore a quella dell\'avversario.';
 $lang['PLAYER_ESPIONAGE_UNLOCK2'] = 'Sbloccato quando la potenza del tuo %s è uguale o superiore a quella dell\'avversario.';
 
 $lang['PLAYER_MONEY_STATUS'] = 'Possedimenti attuali';
@@ -598,19 +598,19 @@ $lang['PLAYER_HOLIDAY_ACTIVATED'] = 'Periodo vacanza attivato per %s dollari.';
 $lang['PLAYER_HOLIDAY_CONFIRM'] = 'Vuoi davvero attivare il periodo vacanza?';
 
 $lang['PLAYER_UNITS_TITLE'] = 'Ripara unità';
-$lang['PLAYER_UNITS_NOTE'] = 'Ripara le unità del tuo esercito. Se la condizione delle unità arriva a 0%, alcune unità verranno distrutte e le rimanenti unità vengono riparate automaticamente.';
+$lang['PLAYER_UNITS_NOTE'] = 'Ripara le unità del tuo esercito. Se la condizione delle unità arriva a 0%%, alcune unità verranno distrutte e le rimanenti unità vengono riparate automaticamente.';
 $lang['PLAYER_UNITS_CONDITION'] = 'Condizione unità (CU)';
 $lang['PLAYER_UNITS_REPAIRED'] = 'Le tue unità sono state riparate per %s dollari.';
 $lang['PLAYER_UNITS_CONFIRM'] = 'Vuoi davvero riparare le tue unità?';
 
 $lang['PLAYER_BUILDINGS_TITLE'] = 'Ripara edifici';
-$lang['PLAYER_BUILDINGS_NOTE'] = 'Ripara gli edifici della tua base. Se la condizione degli edifici arriva a 0%, alcuni edifici verranno distrutti e gli edifici rimanenti vengono riparati automaticamente.';
+$lang['PLAYER_BUILDINGS_NOTE'] = 'Ripara gli edifici della tua base. Se la condizione degli edifici arriva a 0%%, alcuni edifici verranno distrutti e gli edifici rimanenti vengono riparati automaticamente.';
 $lang['PLAYER_BUILDINGS_CONDITION'] = 'Condizione edifici (CE)';
 $lang['PLAYER_BUILDINGS_REPAIRED'] = 'I tuoi edifici sono stati riparati per %s dollari.';
 $lang['PLAYER_BUILDINGS_CONFIRM'] = 'Vuoi davvero riparare i tuoi edifici?';
 
 $lang['PLAYER_REBELLION_TITLE'] = 'Ripristina la pace';
-$lang['PLAYER_REBELLION_NOTE'] = 'Paga l\'intelligence per sedare rivolte imminenti nelle tue regioni conquistate. Se la Condizione Rivolta (CR) arriva al 100%, alcune regioni verranno perse a favore dei ribelli e dovrai riconquistarle.';
+$lang['PLAYER_REBELLION_NOTE'] = 'Paga l\'intelligence per sedare rivolte imminenti nelle tue regioni conquistate. Se la Condizione Rivolta (CR) arriva al 100%%, alcune regioni verranno perse a favore dei ribelli e dovrai riconquistarle.';
 $lang['PLAYER_REBELLION_CONDITION'] = 'Condizione rivolta (CR)';
 $lang['PLAYER_REBELLION_RESTORED'] = 'Seda rivolta per %s dollari.';
 $lang['PLAYER_REBELLION_CONFIRM'] = 'Vuoi davvero ripristinare la pace?';
@@ -1020,7 +1020,7 @@ $lang['MISSION_387'] = 'Cratere Caespitosa';
 */
 
 $lang['MISSION_TITLE'] = 'MISSIONI';
-$lang['MISSION_NOTE'] = 'Nota: Gioca missioni per guadagnare soldi e punti esperienza per raggiungere il livello successivo. Quando una missione è completa al 100% riceverai il doppio dei soldi. Se hai conquistato il 100% del continente %s il tuo introito orario incrementerà di %s dollari.';
+$lang['MISSION_NOTE'] = 'Nota: Gioca missioni per guadagnare soldi e punti esperienza per raggiungere il livello successivo. Quando una missione è completa al 100%% riceverai il doppio dei soldi. Se hai conquistato il 100%% del continente %s il tuo introito orario incrementerà di %s dollari.';
 
 $lang['MISSION_ALLIANCE_SIZE'] = 'grandezza alleanza';
 $lang['MISSION_GAIN'] = 'Guadagno';
@@ -1091,7 +1091,7 @@ $lang['BATTLE_BOUNTY_CONFIRM'] = 'Vuoi mettere una taglia di %s dollari?';
 $lang['BATTLE_CEASE_FIRE_PERIOD'] = 'Periodo armistizio è attivo! Non è possibile lottare. %s';
 $lang['BATTLE_AND'] = 'e';
 $lang['BATTLE_REBEL_UPDATE1'] = 'Ben fatto, hai iniziato una rivolta contro %s nella regione di %s. Sotto puoi vedere la sua situazione attuale.';
-$lang['BATTLE_REBEL_UPDATE2'] = 'Ben fatto, hai aumentato le possibilità di rivolta di %s al %s%.';
+$lang['BATTLE_REBEL_UPDATE2'] = 'Ben fatto, hai aumentato le possibilità di rivolta di %s al %s%%.';
 $lang['BATTLE_REBEL_UPDATE3'] = 'Peccato, nessuna regione disponibile per la rivolta!';
 
 $lang['BATTLE_NO_BOUNTY_MONEY'] = 'Non hai %s dollari per mettere una taglia sulla testa di %s.';
@@ -1799,7 +1799,7 @@ $lang['MONEY_TITLE'] = 'SOLDI';
 */
 
 $lang['BANK_TITLE'] = 'BANCHE';
-$lang['BANK_NOTE'] = 'Nota: C\'è una percentuale di %s% per qualunque deposito. La banca paga %s% di interessi giornalieri. ';
+$lang['BANK_NOTE'] = 'Nota: C\'è una percentuale di %s%% per qualunque deposito. La banca paga %s%% di interessi giornalieri. ';
 $lang['BANK_WARNING'] = 'Attenzione: Unità Intel o Esploratori di altri giocatori possono rubare soldi da questa banca.';
 
 $lang['BANK_TRANSACTION_TYPE_0'] = 'Hai ritirato';
@@ -1837,7 +1837,7 @@ $lang['STOCK_PRICE'] = 'Prezzo azioni %s [%s]';
 $lang['STOCK_PROFIT'] = 'Profitto azioni %s [%s]';
 $lang['STOCK_NOT_OWNED'] = 'Non possiedi %s azioni %s.';
 $lang['STOCK_SELL'] = 'Hai venduto %s azioni %s per %s dollari. Hai pagato %s dollari di percentuale per la transazione. Ancora %s possedute.';
-$lang['STOCK_NOTE'] = 'Nota: Puoi comprare o vendere azioni per generare profitto. I prezzi delle azioni sono basate su info in tempo reale da Yahoo! Finanza. C\'è una percentuale di %s% da pagare su ogni transazione di vendita.';
+$lang['STOCK_NOTE'] = 'Nota: Puoi comprare o vendere azioni per generare profitto. I prezzi delle azioni sono basate su info in tempo reale da Yahoo! Finanza. C\'è una percentuale di %s%% da pagare su ogni transazione di vendita.';
 $lang['STOCK_PRICE_TO_LOW'] = 'Prezzo azione troppo basso. Trading bloccato!';
 
 $lang['STOCK_SYMBOL'] = 'Simbolo azione';
@@ -2024,7 +2024,7 @@ $lang['HELP_AMMO'] =	'Ogni lotta costa 1 munizione. Le munizioni vengono ricaric
 
 $lang['HELP_MISSION_TITLE'] = 'Missioni';
 $lang['HELP_MISSION'] = 'Gioca missioni per guadagnare soldi e punti esperienza per raggiungere il livello successivo.
-Se una missione viene completata al 100%, guadagnerai il doppio dei soldi. Se un continente viene conquistato,
+Se una missione viene completata al 100%%, guadagnerai il doppio dei soldi. Se un continente viene conquistato,
 riceverai un bonus all\'introito orario.';
 
 $lang['HELP_BATTLE_TITLE'] = 'Lotta';
@@ -2075,7 +2075,7 @@ Se l\'avversario viene sconfitto, perderà alcuni punti esperienza e i soldi del
 
 $lang['HELP_UNITS_CONDITION_TITLE'] = 'Condizione Unità (CU)';
 $lang['HELP_UNITS_CONDITION'] = 'Questo valore dà informazioni sulla condizione attuale delle tue unità.
-Se la condizione arriva a 0%, perderai alcune unità. Per prevenire la perdità di unità, puoi visitare
+Se la condizione arriva a 0%%, perderai alcune unità. Per prevenire la perdità di unità, puoi visitare
 (Home -> Ricarica) e riparare le unità operative.';
 
 $lang['HELP_BUILDINGS_CONDITION_TITLE'] = 'Condizione Edifici (CE)';
@@ -2087,10 +2087,10 @@ $lang['HELP_FORUM'] = 'Pwer avere più informazioni e chattare con altri giocato
 
 $lang['HELP_WORLDMAP_TITLE'] = 'Cartina';
 $lang['HELP_WORLDMAP'] = 'Ogni cartina del pianeta (Terra / Luna / Marte) contiene 72 regioni che possono essere conquistate attraverso le missioni. Le regioni possono avere uno dei seguenti colori: <br>
-- "Verde" Regione conquistata al 0%.<br>
-- "Giallo" Regione conquistata al 33%.<br>
-- "Viola" Regione conquistata al 66%.<br>
-- "Arancio" Regione conquistata al 100%.<br>
+- "Verde" Regione conquistata al 0%%.<br>
+- "Giallo" Regione conquistata al 33%%.<br>
+- "Viola" Regione conquistata al 66%%.<br>
+- "Arancio" Regione conquistata al 100%%.<br>
 - "Rosso" Rivolta nella regione. La regione va riconquistata.';
 
 $lang['HELP_SHORTCUTS_TITLE'] = 'Scorciatoie menu';
@@ -2126,7 +2126,7 @@ MARTE<br>
 $lang['HELP_REBELLION_CONDITION_TITLE'] = 'Condizione Rivolta (CR)';
 $lang['HELP_REBELLION_CONDITION'] = 'Questo valore dà informazioni sulla condizione di rivolta attuale.
 La rivolta delle regioni è azionata dagli attacchi dell\'Intel (Terra) o degli Esploratori (Luna/Marte) del
-tuo avversario. Se la condizione arriva al 100%, alcune delle tue regioni conquistate saranno in rivolta.
+tuo avversario. Se la condizione arriva al 100%%, alcune delle tue regioni conquistate saranno in rivolta.
 Per prevenire le rivolte, visita (Home -> Ricarica) per sedarle. Ogni regione in rivolta ha come risultato
 introito orario posticipato. Ripristina il controllo nella regione in rivolta giocando la missione in questione.';
 

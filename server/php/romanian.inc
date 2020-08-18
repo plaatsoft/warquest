@@ -524,7 +524,7 @@ $lang['PLAYER_SPY_3'] = 'exploratori';
 $lang['PLAYER_SPY_4'] = 'exploratori';
 $lang['PLAYER_SPY_5'] = 'exploratori';
 
-$lang['PLAYER_ESPIONAGE_UNLOCK1'] = 'deblocat cand puterea %s este %s% mai mare decat a oponentului.';
+$lang['PLAYER_ESPIONAGE_UNLOCK1'] = 'deblocat cand puterea %s este %s%% mai mare decat a oponentului.';
 $lang['PLAYER_ESPIONAGE_UNLOCK2'] = 'delocat cand %s puterea ta este egaka sau mai mare decat a oponentului.';
 
  /*
@@ -659,19 +659,19 @@ $lang['PLAYER_HOLIDAY_ACTIVATED'] = 'Perioada sarbatorilor activata pentru %s do
 $lang['PLAYER_HOLIDAY_CONFIRM'] = 'Chiar vrei sa activezi Perioada de Sarbabori?';
 
 $lang['PLAYER_UNITS_TITLE'] = 'Repara armata';
-$lang['PLAYER_UNITS_NOTE'] = 'Repara armata.Daca unittile tale ajung pe 0% viata atunci unele unitati pot fi distruse iar celelalte unitati vor fi reparate automat.';
+$lang['PLAYER_UNITS_NOTE'] = 'Repara armata.Daca unittile tale ajung pe 0%% viata atunci unele unitati pot fi distruse iar celelalte unitati vor fi reparate automat.';
 $lang['PLAYER_UNITS_CONDITION'] = 'Starea Armatelor(SA)';
 $lang['PLAYER_UNITS_REPAIRED'] = 'Armatele tale au fost reparate pentru %s dolari.';
 $lang['PLAYER_UNITS_CONFIRM'] = 'Chiar vrei sa iti repari armata?';
 
 $lang['PLAYER_BUILDINGS_TITLE'] = 'Repara Cladirile';
-$lang['PLAYER_BUILDINGS_NOTE'] = 'Repara cladirile bazei tale. Daca cladirile tale ajung cu viata la 0% unele cladiri vor fi distruse iar celelalte cor fi reparate automat.';
+$lang['PLAYER_BUILDINGS_NOTE'] = 'Repara cladirile bazei tale. Daca cladirile tale ajung cu viata la 0%% unele cladiri vor fi distruse iar celelalte cor fi reparate automat.';
 $lang['PLAYER_BUILDINGS_CONDITION'] = 'Starea Cladirilor (SC)';
 $lang['PLAYER_BUILDINGS_REPAIRED'] = 'Cladirile tale au fost reparate pentru %s dolari.';
 $lang['PLAYER_BUILDINGS_CONFIRM'] = 'Chiar vreisa iti repari cladirile?';
 
 $lang['PLAYER_REBELLION_TITLE'] = 'Restaureaza pacea';
-$lang['PLAYER_REBELLION_NOTE'] = 'Plateste inteligenta ca sa inceteze revoltele din regiunile cucerite de tine.Daca starea revoltei ajunge la 100% unele regiuni vor fi pierdute si trebuie recucerite.';
+$lang['PLAYER_REBELLION_NOTE'] = 'Plateste inteligenta ca sa inceteze revoltele din regiunile cucerite de tine.Daca starea revoltei ajunge la 100%% unele regiuni vor fi pierdute si trebuie recucerite.';
 $lang['PLAYER_REBELLION_CONDITION'] = 'Starea Revoltelor(SR)';
 $lang['PLAYER_REBELLION_RESTORED'] = 'termina revolta pentru %s dolari.';
 $lang['PLAYER_REBELLION_CONFIRM'] = 'Chiar vrei sa restaurezi pacea?';
@@ -1163,7 +1163,7 @@ $lang['MISSION_487'] = 'Crater Caespitosa';
 
 $lang['MISSION_TITLE'] = 'MISIUNI';
 
-$lang['MISSION_NOTE'] = 'Nota: joaca misiunile pentru a castiga bani si experienta necesare avansari in nivele.Cand o misiune este completata 100% vei castiga bani dublu.Daca completezi un continentul %s 100% profitul tau va creste cu %s dolari.';
+$lang['MISSION_NOTE'] = 'Nota: joaca misiunile pentru a castiga bani si experienta necesare avansari in nivele.Cand o misiune este completata 100%% vei castiga bani dublu.Daca completezi un continentul %s 100%% profitul tau va creste cu %s dolari.';
 
 $lang['MISSION_ALLIANCE_SIZE'] = 'marimea aliantei';
 $lang['MISSION_GAIN'] = 'Castig';
@@ -1237,7 +1237,7 @@ $lang['BATTLE_BOUNTY_CONFIRM'] =' pui o recompensa de %s dolari pe capul lui ?';
 $lang['BATTLE_CEASE_FIRE_PERIOD'] = 'Perioada de relaxare este activa! Luptele nu sunt posibile. %s';
 $lang['BATTLE_AND'] = 'si';
 $lang['BATTLE_REBEL_UPDATE1'] = 'treaba buna, ai inceput revolta pentru %s in %s region(s). De acum ii poti vedea situatia.';
-$lang['BATTLE_REBEL_UPDATE2'] = 'treaba buna, ai crescut sansa de revolta cu %s lui %s%.';
+$lang['BATTLE_REBEL_UPDATE2'] = 'treaba buna, ai crescut sansa de revolta cu %s lui %s%%.';
 $lang['BATTLE_REBEL_UPDATE3'] = 'Pacat, nici o regiune disponibila pentru revolta!';
 
 $lang['BATTLE_NO_BOUNTY_MONEY'] = 'nu ai  %s dolari ca sa pui o recompensa pe capul lui  %s.';
@@ -1400,7 +1400,7 @@ $lang['BUILDINGS_NO_BUILDINGS'] = 'Nici o cladire disponibila!';
 $lang['MONEY_TITLE'] = 'Bani';
 
 $lang['BANK_TITLE'] = 'BANKS';
-$lang['BANK_NOTE'] = 'Note: Ai %s% taxa pentru orice depozit . banca plateste %s% dobanda in fiecare zi. ';
+$lang['BANK_NOTE'] = 'Note: Ai %s%% taxa pentru orice depozit . banca plateste %s%% dobanda in fiecare zi. ';
 $lang['BANK_WARNING'] = 'ATENTIUNE: Inteligentii sau Exploratorii de la alti jucatori pot fura bani din aceasta banca.';
 
 $lang['BANK_TRANSACTION_TYPE_0'] = 'Ai retras';
@@ -1438,7 +1438,7 @@ $lang['STOCK_PRICE'] = 'Pretul actiunii %s [%s]';
 $lang['STOCK_PROFIT'] = 'Profitul actiunii %s [%s]';
 $lang['STOCK_NOT_OWNED'] = 'nu ai  %s %s actiuni.';
 $lang['STOCK_SELL'] = 'Ai vandut %s %s actiuni pentru %s dolari. Ai platit %s dolari taxa tranzactiei. Mai ai inca %s.';
-$lang['STOCK_NOTE'] = 'Nota: POti cumpara sau vinde actiuni pentru a face profit. Pretul actiunii se reactualizeaza in timp real de la Yahoo. Este o taxa de  %s% pentru fiecare tranzactie.';
+$lang['STOCK_NOTE'] = 'Nota: POti cumpara sau vinde actiuni pentru a face profit. Pretul actiunii se reactualizeaza in timp real de la Yahoo. Este o taxa de  %s%% pentru fiecare tranzactie.';
 $lang['STOCK_PRICE_TO_LOW'] = 'pretul actiunii prea mic. Schimb blocat!';
 
 $lang['STOCK_SYMBOL'] = 'Simbolul actiunii';
@@ -1688,12 +1688,12 @@ Daca oponentul este infrant va pierde puncte de experienta iar recompensa este t
 
 $lang['HELP_UNITS_CONDITION_TITLE'] = 'Starea Unitatilr (SU)';
 $lang['HELP_UNITS_CONDITION'] = 'Aceasta valoare iti arata starea unitatilor tale.
-daca aceasta valoare ajunge la 0% vei pierde cateva unitati. Pentru a preveni pierderea:
+daca aceasta valoare ajunge la 0%% vei pierde cateva unitati. Pentru a preveni pierderea:
 (ACASA -> Restaureaza).';
 
 $lang['HELP_BUILDINGS_CONDITION_TITLE'] = 'Starea cladirilor (SC)';
 $lang['HELP_BUILDINGS_CONDITION'] = 'Aceasta valoare iti arata starea cladirilor din baza ta.
- daca aceasta valoare ajunge la 0% vei pierde cateva cladiri. Pentru a prezveni pierderea cladirilor:
+ daca aceasta valoare ajunge la 0%% vei pierde cateva cladiri. Pentru a prezveni pierderea cladirilor:
  (Acasa -> Restaureaza).';
 
 $lang['HELP_FORUM_TITLE'] = 'Forum';
@@ -1702,10 +1702,10 @@ $lang['HELP_FORUM'] = 'Pentru a te informa sau pentru a vorbi pe cheat cu alti j
 $lang['HELP_WORLDMAP_TITLE'] = 'Harta';
 $lang['HELP_WORLDMAP'] = 'Fiecare planeta (Pamant / Luna / Marte) contine o harta cu 72 de regiuni care pot fi cucerite
  jucand misiuni. Regiunile au urmatoarele culori: <br>
-- "Verde" Regione 0% cucerita<br>
-- "Galben" Regione 33% cucerita.<br>
-- "Purple" Regione 66% cucerita.<br>
-- "Portocaliu" Regione 100% cucerita.<br>
+- "Verde" Regione 0%% cucerita<br>
+- "Galben" Regione 33%% cucerita.<br>
+- "Purple" Regione 66%% cucerita.<br>
+- "Portocaliu" Regione 100%% cucerita.<br>
 - "Rosu" Revolta in regione. Regiunea trebuie recucerita.';
 
 $lang['HELP_SHORTCUTS_TITLE'] = 'Scurtaturile meniului';
@@ -1747,7 +1747,7 @@ MERCURY<br>
 
 $lang['HELP_REBELLION_CONDITION_TITLE'] = 'Starea rascoalei (SR)';
 $lang['HELP_REBELLION_CONDITION'] = 'Aceasta valoare iti arata starea de rascoala. Rascoala poate fin inceputa de inteligentii
-sau exploratorii celorlalti jucatori.daca valoarea ajunge la 100% unele dintre regiunile cucerite de tine vor fi in rascoala.
+sau exploratorii celorlalti jucatori.daca valoarea ajunge la 100%% unele dintre regiunile cucerite de tine vor fi in rascoala.
 pentru a impiedica acest lucru viziteaza (ACASA -> Restaureaza) pentru a pune capat rascoalei. Fiecare pierdere o unei regiuni va influenta profitul.
 Restaureaza controlul regiunilor prin recastigarea acestora.';
 
