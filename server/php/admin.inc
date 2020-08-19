@@ -1567,18 +1567,18 @@ function warquest_admin_player_form() {
 	$page .= '<tr>';
 	$page .= '<td width="120">ID:</td>';
 	$page .= '<td width="380">';
-	$page .= '<input name="id" type="text" size="10" maxlength="10" value="'.$other->pid.'" disabled="yes"></td>';
+	$page .= '<input name="id" type="text" size="10" maxlength="10" value="'.$other->pid.'" disabled></td>';
 	$page .= '</tr>';
 
 	$page .= '</tr>';
 	$page .= '<td>Username:</td>';
 	$page .= '<td>';
-	$page .= '<input name="username" type="text" size="20" maxlength="80" value="'.$member->username.'" disabled="yes"></td>';
+	$page .= '<input name="username" type="text" size="20" maxlength="80" value="'.$member->username.'" disabled></td>';
 	$page .= '</tr>';
 
 	$page .= '<td>Email:</td>';
 	$page .= '<td>';
-	$page .= '<input name="email" type="text" size="40" maxlength="120" value="'.$member->email.'" disabled="yes">';
+	$page .= '<input name="email" type="text" size="40" maxlength="120" value="'.$member->email.'" disabled>';
 	if ($member->email_valid==1) {
 		$page .= ' '.warquest_image("other/valid.png",'title="'.t('HOME_EMAIL_VALID').'"');
 	}
@@ -1586,22 +1586,22 @@ function warquest_admin_player_form() {
 
 	$page .= '</tr>';
 	$page .= '<td>Created:</td>';
-	$page .= '<td><input name="created" type="text" size="20" maxlength="20" value="'.warquest_convert_date($member->created).'" disabled="yes"></td>';
+	$page .= '<td><input name="created" type="text" size="20" maxlength="20" value="'.warquest_convert_date($member->created).'" disabled></td>';
 	$page .= '</tr>';
 
 	$page .= '</tr>';
 	$page .= '<td>Last Login:</td>';
-	$page .= '<td><input name="lastlogin" type="text" size="20" maxlength="20" value="'.warquest_convert_date($member->last_login).'" disabled="yes"></td>';
+	$page .= '<td><input name="lastlogin" type="text" size="20" maxlength="20" value="'.warquest_convert_date($member->last_login).'" disabled></td>';
 	$page .= '</tr>';
 
 	$page .= '</tr>';
 	$page .= '<td>Previous Login:</td>';
-	$page .= '<td><input name="prevlogin" type="text" size="20" maxlength="20" value="'.warquest_convert_date($member->prev_login).'" disabled="yes"></td>';
+	$page .= '<td><input name="prevlogin" type="text" size="20" maxlength="20" value="'.warquest_convert_date($member->prev_login).'" disabled></td>';
 	$page .= '</tr>';
 
 	$page .= '</tr>';
 	$page .= '<td>IP address:</td>';
-	$page .= '<td><input name="ip" type="text" size="15" maxlength="15" value="'.$member->ip.'" disabled="yes"></td>';
+	$page .= '<td><input name="ip" type="text" size="15" maxlength="15" value="'.$member->ip.'" disabled></td>';
 	$page .= '</tr>';
 
 	$page .= '</table>';

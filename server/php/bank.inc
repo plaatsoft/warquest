@@ -388,8 +388,7 @@ function warquest_clan_bank() {
 		$page .= '<tr>';
 		$page .= '<td width="340">';
 		$page .= t('LINK_BALANCE').":<br>";
-		$page .= '<input id="text" name="balance" size="19" maxlength="32" disabled="disabled" type="text" ';
-		$page .= 'value="'.number_format($clan->money,0,",",".").'">';
+		$page .= money_format1($clan->money);
 		$page .= "</td>";
 
 		$page .= "<td>";
@@ -559,8 +558,7 @@ function warquest_bank_form($id) {
 	$page .= "<tr>";
 	$page .= '<td width="170">';
 	$page .= t('LINK_BALANCE').":<br>";
-	$page .= '<input id="text" name="balance" size="19" maxlength="32" disabled="disabled" type="text" ';
-	$page .= 'value="'.number_format($balance,0,",",".").'">';
+	$page .= money_format1($balance);
 	$page .= "</td>";
 
 	$page .= '<td width="170">';

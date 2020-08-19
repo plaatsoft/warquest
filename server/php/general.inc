@@ -2798,7 +2798,7 @@ function warquest_ui_header() {
 	if ($background == 9) {
 		$page .= '<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">';
 		$page .= '<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:400,700,400i">';
-		$page .= '<link rel="stylesheet" href="' . $config['content_url'] . 'css/modern.css?id=4">';
+		$page .= '<link rel="stylesheet" href="' . $config['content_url'] . 'css/modern.css?id=5">';
 	}
 
 	// Else go back to compatabilty mode
@@ -2826,11 +2826,11 @@ function warquest_ui_header() {
 			$page .= '<meta name="viewport" content="width=535">';
 		}
 
-		$page .= '<link href="'.$config["content_url"].'css/general2.css?id=4" rel="stylesheet">';
+		$page .= '<link href="'.$config["content_url"].'css/general2.css?id=5" rel="stylesheet">';
 
 		/* Detect Microsoft Internet Explorer */
 		if (preg_match("/MSIE/", $browser)) {
-			$page .= '<link href="'.$config["content_url"].'css/ie.css" rel="stylesheet">';
+			$page .= '<link href="'.$config["content_url"].'css/ie.css?id=5" rel="stylesheet">';
 		}
 
 		/* Detect Nokia browser devices */
