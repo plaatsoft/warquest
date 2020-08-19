@@ -1216,6 +1216,17 @@ function warquest_switch_planet_do() {
 $link_counter=0;
 
 /**
+ * Create progress bar
+ */
+function warquest_progress_bar($procent) {
+	$bar  = '<div class="progress">';
+	$bar .= '<div class="progress-bar" style="width: ' . max($procent, 3) . '%;"></div>';
+	$bar .= '<div class="progress-text">' . $procent . '%</div>';
+	$bar .= '</div>';
+	return $bar;
+}
+
+/**
  * Create link
  */
 function warquest_link($parameters, $label, $id="", $title="") {
@@ -2787,7 +2798,7 @@ function warquest_ui_header() {
 	if ($background == 9) {
 		$page .= '<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">';
 		$page .= '<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:400,700,400i">';
-		$page .= '<link rel="stylesheet" href="' . $config['content_url'] . 'css/modern.css">';
+		$page .= '<link rel="stylesheet" href="' . $config['content_url'] . 'css/modern.css?id=4">';
 	}
 
 	// Else go back to compatabilty mode
@@ -2815,7 +2826,7 @@ function warquest_ui_header() {
 			$page .= '<meta name="viewport" content="width=535">';
 		}
 
-		$page .= '<link href="'.$config["content_url"].'css/general2.css" rel="stylesheet">';
+		$page .= '<link href="'.$config["content_url"].'css/general2.css?id=4" rel="stylesheet">';
 
 		/* Detect Microsoft Internet Explorer */
 		if (preg_match("/MSIE/", $browser)) {

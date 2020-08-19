@@ -513,7 +513,7 @@ function warquest_mission_clan_do() {
 		$message .= '<br>';
 		$message .= t('MISSION_MISSING_UNITS_PRICE',money_format2($total), money_format2($upkeep));
 
-		$link = warquest_image('bar/bar'.$progress.'.png').'<br>';
+		$link  = warquest_progress_bar($progress);
 		$link .= warquest_link('mid='.$mid.'&sid='.$sid.'&ssid='.$ssid.'&id='.$id.'&eid='.EVENT_MISSION_CLAN_BUY_PLAY, t('LINK_BUY_PLAY'), 'buyplay');
 
 		$output->popup .= warquest_box(t('GENERAL_CONQUER').' '.t('MISSION_'.$id), $message, $link);
@@ -523,7 +523,7 @@ function warquest_mission_clan_do() {
 		$message = '<span class="warning">'.t('MISSION_ABORTED').'</span><br>';
 		$message .= t('MISSION_NO_ENERGY');
 
-		$link  = warquest_image('bar/bar'.$progress.'.png').'<br>';
+		$link  = warquest_progress_bar($progress);
 		$link .= warquest_link('mid='.$mid.'&sid='.$sid.'&ssid='.$ssid.'&id='.$id.'&eid='.EVENT_MISSION_CLAN_PLAY, t('LINK_DO_AGAIN'),'doagain');
 
 		$output->popup .= warquest_box(t('GENERAL_CONQUER').' '.t('MISSION_'.$id), $message, $link);
@@ -602,7 +602,7 @@ function warquest_mission_clan_do() {
 			$message .= warquest_lootoption($mission->lid);
 		}
 
-		$link  = warquest_image('bar/bar'.$progress.'.png').'<br>';
+		$link  = warquest_progress_bar($progress);
 		$link .= warquest_link('mid='.$mid.'&sid='.$sid.'&ssid='.$ssid.'&eid='.EVENT_MISSION_CLAN_PLAY.'&id='.$id, t('LINK_DO_AGAIN'), "doagain");
 
 		$output->result = true;
@@ -696,7 +696,7 @@ function warquest_mission_do() {
 		$message .= '<br>';
 		$message .= t('MISSION_MISSING_UNITS_PRICE',money_format2($total), money_format2($upkeep));
 
-		$link = warquest_image('bar/bar'.warquest_format_progress($progress, $part).'.png').'<br>';
+		$link = warquest_progress_bar(warquest_format_progress($progress, $part));
 		$max = $config['max_mission_part'];
 		if ($player->lid==0) {
 			$max=1;
@@ -711,7 +711,7 @@ function warquest_mission_do() {
 		$message = '<span class="warning">'.t('MISSION_ABORTED').'</span><br>';
 		$message .= t('MISSION_NO_ENERGY');
 
-		$link  = warquest_image('bar/bar'.warquest_format_progress($progress, $part).'.png').'<br>';
+		$link = warquest_progress_bar(warquest_format_progress($progress, $part));
 		$max = $config['max_mission_part'];
 		if ($player->lid==0) {
 			$max=1;
@@ -814,7 +814,7 @@ function warquest_mission_do() {
 				$message .= warquest_lootoption($mission->lid);
 			}
 
-			$link  = warquest_image('bar/bar'.warquest_format_progress($progress, $part).'.png').'<br>';
+			$link = warquest_progress_bar(warquest_format_progress($progress, $part));
 
 			$max = $config['max_mission_part'];
 			if ($player->lid==0) {
@@ -903,7 +903,7 @@ function warquest_mission_clan_form() {
 			$page .= '</td>';
 
 			$page .= '<td  width="100" align="right" valign="top">';
-			$page .= warquest_image('bar/bar'.$data->progress.'.png').'<br>';
+			$page .= warquest_progress_bar($data->progress);
 
 			$max = $config['max_mission_part'];
 			if ($player->lid==0) {
@@ -1070,7 +1070,7 @@ function warquest_mission_player_form() {
 		}
 		$page .= '<br></td>';
 		$page .= '<td  width="100" align="right" valign="top">';
-		$page .= warquest_image('bar/bar'.warquest_format_progress($data->progress, $data->part).'.png').'<br>';
+		$page .= warquest_progress_bar(warquest_format_progress($data->progress, $data->part));
 
 		$max = $config['max_mission_part'];
 		if ($player->lid==0) {
