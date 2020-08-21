@@ -1,0 +1,7 @@
+[Desktop Entry]
+Name=WarQuest
+Icon=applications-internet
+Categories=Network;
+Exec=nl.plaatsoft.warquest
+Terminal=false
+Type=Application
