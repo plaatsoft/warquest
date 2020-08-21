@@ -179,6 +179,8 @@ include "config.inc";
 include "database.inc";
 include "general.inc";
 
+header("Content-Type: application/xml");
+
 warquest_db_connect($config["dbhost"], $config["dbuser"], $config["dbpass"], $config["dbname"]);
 
 $myfeed = new RSSFeed();

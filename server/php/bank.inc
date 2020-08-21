@@ -386,19 +386,16 @@ function warquest_clan_bank() {
 		$page .= '<table>';
 
 		$page .= '<tr>';
-		$page .= '<td width="340">';
+		$page .= '<td colspan="2">';
 		$page .= t('LINK_BALANCE').":<br>";
 		$page .= money_format1($clan->money);
-		$page .= "</td>";
-
-		$page .= "<td>";
 		$page .= "</td>";
 
 		$page .= "</tr>";
 
 		$page .= "<tr>";
 
-		$page .= '<td>';
+		$page .= '<td width="160">';
 		if ( isset($player_clan->cid) && ($clan->cid==$player_clan->cid) ) {
 			$page .= t('LINK_DEPOSIT').":<br>";
 			$page .= '<input id="text" name="deposit" size="19" maxlength="32" type="text" value="';
@@ -556,18 +553,15 @@ function warquest_bank_form($id) {
 	$page .= "<table>";
 
 	$page .= "<tr>";
-	$page .= '<td width="170">';
+	$page .= '<td colspan="2">';
 	$page .= t('LINK_BALANCE').":<br>";
 	$page .= money_format1($balance);
-	$page .= "</td>";
-
-	$page .= '<td width="170">';
 	$page .= "</td>";
 
 	$page .= "</tr>";
 
 	$page .= '<tr>';
-	$page .= '<td>';
+	$page .= '<td width="160">';
 	$page .= t('LINK_DEPOSIT').":<br>";
 	$page .= '<input id="text" name="deposit" size="19" maxlength="32" type="text" value="';
 	$page .= number_format($player->money,0,",",".").'">';
