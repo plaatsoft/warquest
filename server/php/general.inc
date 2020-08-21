@@ -2794,11 +2794,14 @@ function warquest_ui_header() {
 	// Add favicon
 	$page .= '<link href="'.$config["content_url"].'images/favicon.ico" rel="shortcut icon">';
 
+	// Increment this ID when you make a change to a CSS file to flush the browser cache
+	$cssid = 7;
+
 	// Check if modern theme is selected
 	if ($background == 9) {
 		$page .= '<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">';
 		$page .= '<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:400,700,400i">';
-		$page .= '<link rel="stylesheet" href="' . $config['content_url'] . 'css/modern.css?id=5">';
+		$page .= '<link rel="stylesheet" href="' . $config['content_url'] . 'css/modern.css?id=' . $cssid . '">';
 	}
 
 	// Else go back to compatabilty mode
@@ -2826,11 +2829,11 @@ function warquest_ui_header() {
 			$page .= '<meta name="viewport" content="width=535">';
 		}
 
-		$page .= '<link href="'.$config["content_url"].'css/general2.css?id=5" rel="stylesheet">';
+		$page .= '<link href="'.$config["content_url"].'css/general2.css?id=' . $cssid . '" rel="stylesheet">';
 
 		/* Detect Microsoft Internet Explorer */
 		if (preg_match("/MSIE/", $browser)) {
-			$page .= '<link href="'.$config["content_url"].'css/ie.css?id=5" rel="stylesheet">';
+			$page .= '<link href="'.$config["content_url"].'css/ie.css?id=' . $cssid . '" rel="stylesheet">';
 		}
 
 		/* Detect Nokia browser devices */

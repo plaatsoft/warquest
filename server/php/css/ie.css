@@ -18,6 +18,7 @@ body {
 	display:block;
 	width: 510px;
 	font-size: 15px;
+	overflow-y: scroll;
 }
 
 .tr {
@@ -30,10 +31,6 @@ body {
 }
 
 .header {
-	width: 510px;
-}
-
-.menu {
 	width: 510px;
 }
 
@@ -66,10 +63,6 @@ img {
 	border: 0;
 	vertical-align:middle;
 	padding: 1px;
-}
-
-.award img {
-	margin: 2px;
 }
 
 /* -- input -- */

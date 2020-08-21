@@ -1165,9 +1165,11 @@ function warquest_mission_player_form() {
 		$page .= '</div>';
 	}
 
-	$page .= '<script>';
-	$page .= "window.scrollTo(0, document.getElementById(".$anchor.").offsetTop);";
-	$page .= '</script>';
+	if ($anchor != '') {
+		$page .= '<script>';
+		$page .= "window.scrollTo(0, document.getElementById(".$anchor.").offsetTop);";
+		$page .= '</script>';
+	}
 
 	if ($line==0) {
 
